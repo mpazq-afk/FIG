@@ -185,3 +185,55 @@ if (dynamicText && staticText) {
         setTimeout(typeEffect, 2000);
     });
 }
+
+// Form Submission to Google Sheets
+const scriptURL = 'https://script.google.com/macros/s/AKfycbzKzdDIjRO4ftsKSFHSE9c6RlfBRuWAgHGtVKyK92ZTR61Zl6V9AaqASP-P9yesw99S/exec';
+const form = document.querySelector('.apply-form');
+const submitBtn = document.getElementById('submit-btn');
+const modal = document.getElementById('success-modal');
+const closeModalBtn = document.querySelector('.close-modal');
+
+if (form) {
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+
+        // Show loading state
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Enviando...';
+        submitBtn.classList.add('loading');
+
+        fetch(scriptURL, {
+            method: 'POST',
+            body: new FormData(form)
+        })
+            .then(response => {
+                // Restore button
+                submitBtn.textContent = originalText;
+                submitBtn.classList.remove('loading');
+
+                // Show success modal
+                modal.classList.add('show');
+                form.reset(); // clear form
+            })
+            .catch(error => {
+                console.error('Error!', error.message);
+                submitBtn.textContent = originalText;
+                submitBtn.classList.remove('loading');
+                alert('Hubo un error al enviar tu postulación. Por favor intenta de nuevo más tarde.');
+            });
+    });
+}
+
+// Modal handling
+if (closeModalBtn && modal) {
+    closeModalBtn.addEventListener('click', () => {
+        modal.classList.remove('show');
+    });
+
+    // Close when clicking outside of modal
+    window.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.classList.remove('show');
+        }
+    });
+}

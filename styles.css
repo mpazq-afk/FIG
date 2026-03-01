@@ -615,6 +615,115 @@ a:hover {
     color: var(--clr-white);
 }
 
+/* Submit Button States */
+.btn-primary.loading {
+    opacity: 0.7;
+    cursor: wait;
+    pointer-events: none;
+}
+
+/* Modal Styling */
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(5, 10, 23, 0.85);
+    backdrop-filter: blur(5px);
+    overflow: auto;
+}
+
+.modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease-out forwards;
+}
+
+.modal-content {
+    background-color: var(--clr-navy-light);
+    margin: auto;
+    padding: 3rem;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.close-modal {
+    color: var(--clr-text-muted);
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.close-modal:hover,
+.close-modal:focus {
+    color: var(--clr-white);
+    text-decoration: none;
+}
+
+.success-icon {
+    font-size: 4rem;
+    color: #25D366;
+    /* Success Green / WhatsApp Green */
+}
+
+.modal-body h3 {
+    color: var(--clr-gold);
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+}
+
+.qr-container {
+    background-color: rgba(255, 255, 255, 0.03);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.qr-code {
+    width: 200px;
+    height: 200px;
+    border-radius: 8px;
+    border: 4px solid var(--clr-white);
+    margin: 0 auto;
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* Footer */
 .footer {
     background-color: #050a17;
