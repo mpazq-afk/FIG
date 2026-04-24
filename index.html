@@ -430,6 +430,64 @@
             }
         });
     </script>
+    <div id="success-modal" class="modal-overlay">
+        <div class="modal-content text-center">
+            <button class="close-modal">✕</button>
+            <div class="success-icon">
+                <i class="fa-solid fa-circle-check" style="color: #25D366; font-size: 3rem;"></i>
+            </div>
+            <h2>¡Postulación Recibida!</h2>
+            <p>Gracias por querer ser parte de FEN Investment Group.</p>
+
+            <div class="qr-container" style="margin: 20px 0;">
+                <p><strong>Únete a nuestra comunidad:</strong></p>
+                <img src="assets/qr-whatsapp.png" alt="QR WhatsApp"
+                    style="max-width: 200px; margin: 15px 0; border-radius: 10px;">
+                <br>
+                <a href="https://chat.whatsapp.com/F0fCiCaKsl93hMmLjG2PRq" class="btn btn-primary"
+                    style="margin-top: 10px; display: inline-block;">Entrar al Grupo de WhatsApp</a>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 100000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-overlay.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background: #071a2b;
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 400px;
+            width: 90%;
+            position: relative;
+            color: white;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            color: #666;
+            cursor: pointer;
+        }
+    </style>
     <script src="script.js"></script>
 </body>
 
