@@ -439,18 +439,18 @@
             <h2>¡Postulación Recibida!</h2>
             <p>Gracias por querer ser parte de FEN Investment Group.</p>
 
-            <div class="qr-container" style="margin: 20px 0;">
+            <div class="qr-container">
                 <p><strong>Únete a nuestra comunidad:</strong></p>
-                <img src="assets/qr-whatsapp.png" alt="QR WhatsApp"
-                    style="max-width: 200px; margin: 15px 0; border-radius: 10px;">
-                <br>
-                <a href="https://chat.whatsapp.com/F0fCiCaKsl93hMmLjG2PRq" class="btn btn-primary"
-                    style="margin-top: 10px; display: inline-block;">Entrar al Grupo de WhatsApp</a>
+                <img src="assets/qr-whatsapp.png" alt="QR WhatsApp"> <a href="https://chat.whatsapp.com/..."
+                    class="btn btn-primary" style="display: block; width: 100%; margin-top: 15px;">
+                    Entrar al Grupo de WhatsApp
+                </a>
             </div>
         </div>
     </div>
 
     <style>
+        /* Estilos base del Modal */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -458,10 +458,12 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.85);
             z-index: 100000;
             align-items: center;
             justify-content: center;
+            padding: 15px;
+            /* Espacio para que no toque los bordes del cel */
         }
 
         .modal-overlay.show {
@@ -470,12 +472,30 @@
 
         .modal-content {
             background: #071a2b;
-            padding: 40px;
+            padding: 30px 20px;
+            /* Reducimos un poco el padding */
             border-radius: 20px;
             max-width: 400px;
-            width: 90%;
+            width: 100%;
+            /* Que ocupe el ancho disponible */
             position: relative;
             color: white;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Ajuste específico para la imagen del QR */
+        .qr-container img {
+            width: 100%;
+            /* Se adapta al ancho del contenedor */
+            max-width: 180px;
+            /* Pero no crece más de esto */
+            height: auto;
+            margin: 15px auto;
+            display: block;
+            border: 8px solid white;
+            /* Un borde blanco ayuda a que se vea más limpio */
+            border-radius: 12px;
         }
 
         .close-modal {
@@ -484,8 +504,26 @@
             right: 15px;
             background: none;
             border: none;
-            color: #666;
+            color: #ffffff80;
+            font-size: 20px;
             cursor: pointer;
+        }
+
+        /* Media Query para pantallas pequeñas */
+        @media (max-width: 480px) {
+            .modal-content h2 {
+                font-size: 1.5rem;
+            }
+
+            .modal-content p {
+                font-size: 0.9rem;
+            }
+
+            .qr-container img {
+                max-width: 160px;
+            }
+
+            /* QR un poco más pequeño en cel */
         }
     </style>
     <script src="script.js"></script>
