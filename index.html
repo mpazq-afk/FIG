@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FEN Investment Group | Excelencia Financiera</title>
+
+    <link rel="icon" type="image/svg+xml" href="assets/tras.svg">
+
     <meta name="description"
         content="Sociedad de inversiones enfocada en la excelencia académica y la formación de talento financiero.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,7 +31,8 @@
                     <li><a href="#home" class="nav-link">Inicio</a></li>
                     <li><a href="#about" class="nav-link">Quiénes Somos</a></li>
                     <li><a href="#divisions" class="nav-link">Divisiones</a></li>
-                    <li><a href="#apply" class="nav-link nav-btn">Postula Aquí</a></li>
+                    <li><a href="https://feninvestmentgroup.com/torneoportafolio2026/"
+                            class="nav-link btn-tournament-header">Torneo Portafolio 2026</a></li>
                 </ul>
             </nav>
             <div class="social-links">
@@ -44,12 +48,10 @@
     </header>
 
     <main>
-        <!-- 1. Inicio -->
         <section id="home" class="hero">
             <div class="container hero-grid">
                 <div class="hero-content">
                     <div class="hero-title-wrapper">
-                        <!-- Placeholder hidden text to reserve maximum height at any screen size natively -->
                         <h1 class="hero-title invisible-placeholder">
                             Forjando los Cracks del Mañana|
                         </h1>
@@ -76,7 +78,6 @@
             </div>
         </section>
 
-        <!-- 2. Quiénes Somos y Liderazgo -->
         <section id="about" class="section bg-light-navy">
             <div class="container">
                 <div class="section-header text-center">
@@ -131,7 +132,6 @@
                 </div>
         </section>
 
-        <!-- 3. Nuestras Divisiones -->
         <section id="divisions" class="section">
             <div class="container">
                 <div class="section-header text-center">
@@ -165,9 +165,6 @@
             </div>
         </section>
 
-
-
-        <!-- 6. Inscripción y Membresías -->
         <section id="apply" class="section bg-light-navy apply-section">
             <div class="container">
                 <div class="section-header text-center">
@@ -249,30 +246,189 @@
         </div>
     </footer>
 
-    <!-- Success Modal -->
-    <div id="success-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <div class="modal-body text-center">
-                <div class="success-icon mb-3">
-                    <i class="fa-solid fa-circle-check"></i>
-                </div>
-                <h3>¡Postulación Enviada!</h3>
-                <p>Tus datos han sido registrados exitosamente. Como siguiente paso, escanea el código QR para unirte a
-                    nuestro chat.</p>
-                <div class="qr-container mt-4">
-                    <p class="mb-2 text-muted">Abre tu cámara y escanea:</p>
-                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://chat.whatsapp.com/CLVFgUtDmyFIroE0ZI7lQr&color=050a17&bgcolor=ffffff"
-                        alt="WhatsApp QR Code" class="qr-code">
-                    <p class="mt-3">
-                        <a href="https://chat.whatsapp.com/CLVFgUtDmyFIroE0ZI7lQr" target="_blank"
-                            class="btn btn-secondary btn-sm wp">Unirse vía Enlace</a>
-                    </p>
-                </div>
-            </div>
+    <style>
+        /* Estilos para el botón del Header */
+        .btn-tournament-header {
+            background-color: #000 !important;
+            color: #fff !important;
+            border-radius: 50px !important;
+            padding: 10px 20px !important;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-tournament-header:hover {
+            background-color: #333 !important;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Estilos del Popup */
+        #tournament-popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 99999;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        #tournament-popup-overlay.show {
+            display: flex;
+            opacity: 1;
+        }
+
+        .tournament-popup-card {
+            background-color: #071a2b;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 40px;
+            border-radius: 24px;
+            max-width: 480px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            position: relative;
+            font-family: 'Inter', sans-serif;
+            transform: scale(0.95) translateY(20px);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        #tournament-popup-overlay.show .tournament-popup-card {
+            transform: scale(1) translateY(0);
+        }
+
+        .popup-close-btn {
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 20px;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .popup-close-btn:hover {
+            color: white;
+        }
+
+        .popup-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 50px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid #60a5fa;
+            /* Color celeste */
+            color: #60a5fa;
+            /* Color celeste */
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .popup-title {
+            color: white;
+            font-size: 32px;
+            font-weight: 700;
+            margin: 0 0 16px 0;
+            line-height: 1.2;
+        }
+
+        .popup-text {
+            color: #9ca3af;
+            font-size: 16px;
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+
+        .popup-btn-primary {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            background: white;
+            color: black;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 16px;
+            margin-bottom: 16px;
+            border: 2px solid #60a5fa;
+            /* Contorno celeste */
+            transition: transform 0.2s, background 0.2s, color 0.2s;
+        }
+
+        .popup-btn-primary:hover {
+            background: #e5e7eb;
+            transform: scale(1.02);
+            color: #60a5fa;
+            /* Letras celestes en hover */
+        }
+
+        .popup-btn-secondary {
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 14px;
+            cursor: pointer;
+            text-decoration: underline transparent;
+            transition: color 0.3s;
+        }
+
+        .popup-btn-secondary:hover {
+            color: white;
+        }
+    </style>
+
+    <div id="tournament-popup-overlay">
+        <div class="tournament-popup-card">
+            <button class="popup-close-btn" onclick="closeTournamentPopup()">✕</button>
+            <div class="popup-badge">Evento Destacado</div>
+            <h2 class="popup-title">Torneo Portafolio 2026</h2>
+            <p class="popup-text">Demuestra tu visión ante líderes de <strong>BlackRock</strong> e
+                <strong>Itaú</strong>. Gestiona una cartera global y gana pasantías exclusivas.
+            </p>
+            <a href="https://feninvestmentgroup.com/torneoportafolio2026/" class="popup-btn-primary">Ver detalles e
+                inscribirse</a>
+            <button class="popup-btn-secondary" onclick="closeTournamentPopup()">Quizás más tarde</button>
         </div>
     </div>
 
+    <script>
+        function closeTournamentPopup() {
+            const overlay = document.getElementById('tournament-popup-overlay');
+            overlay.classList.remove('show');
+            setTimeout(() => {
+                overlay.style.display = 'none';
+            }, 400);
+            sessionStorage.setItem('hasSeenTournamentPopup', 'true');
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            if (!sessionStorage.getItem('hasSeenTournamentPopup')) {
+                setTimeout(() => {
+                    const overlay = document.getElementById('tournament-popup-overlay');
+                    overlay.style.display = 'flex';
+                    setTimeout(() => {
+                        overlay.classList.add('show');
+                    }, 50);
+                }, 1500);
+            }
+        });
+    </script>
     <script src="script.js"></script>
 </body>
 
