@@ -1,0 +1,91 @@
+ 
+  
+FEN  
+INVESTMENT  
+GROUP  
+PORTFOLIO  
+Responsables:  
+• Agustin Arriagada.  
+• Benjamín Disi.  
+• Francisco Valenzuela.  
+• Benjamín Sáez.  TORNEO PORTAFOLIO  2026  | DIRECCIÓN PORTFOLIO FEN INVESTMENTS GROUP   
+   
+Bases concursables “Torneo Port afolio 2026”  
+¿Qué es la competencia?  
+El Torneo de Portafolio de FEN Investment Group es una competencia de gestión de activos y 
+construcción de carteras diseñada para replicar fielmente las exigencias actuales de la industria del 
+Asset y Wealth Management. Nuestro objetivo es acortar la brecha entre la teoría académica y la 
+práctica real de las inversiones institucionales, transformando este evento en la vitrina de talento 
+definitiva para las principales gestoras y bancos de inversión del país.  
+Este no es un simple concurso de simulación bursátil de corto plazo. Los equipos (compuestos por 2 
+a 3 estudiantes de la facultad) operan bajo la dinámica de un comité de inversiones ( Buy-side). 
+Durante el torneo, los analistas deben administrar una cartera, ejecutar rebalanceos estratégicos 
+(restringidos a la primera semana de cada mes) y presentar su desempeño final ante un jurado experto.  
+El propósito de la cartera será ganarle al mercado global que será representado por el desempeño del 
+ETF ACWI de Balc kRock. Dentro de los entregables se exige:  
+1. Un modelo de seguimiento y gestión de riesgo en Excel, que evidencie la estrategia de 
+asignación de activos ( Asset Allocation ) y el cálculo automatizado de métricas de desempeño 
+(Retorno acumulado , Retorno Relativo frente al Benchmark , Ratio de Sharpe, Maximum 
+Drawdown y Alfa).  
+2. Un reporte de estrategia de inversión, justificando racionalmente las decisiones 
+macroeconómicas y los ajustes realizados en la cartera durante los meses de competencia.  
+3. Un “Pitch Deck” ejecutivo, presentado y defendido oralmente frente al jurado para explicar 
+el rendimiento ajustado por riesgo y la visión a futuro del portafolio.  
+Admisibilidad y Requisitos  
+Los requisitos necesarios para poder en el Torneo Portafolio 2026 son los siguientes:  
+• Perfil del Participante:  El Torneo Portafolio 2026 es exclusivo para alumnos regulares de 
+pregrado , y postgrado, de la Facultad de Economía y Negocios , sin distinción del año cursado.  
+• Estructura de Equipos:  Los equipos serán constituidos con un mínimo de 2 integrantes y 
+un máximo de 3 integrantes. A su vez los equipos deberán crear un nombre para su equipo  
+además de un logo de equipo (si no crean un logo se les asignara el logo de FEN Investment 
+Group).  
+• Nivelación Técnica:  No se exige experiencia previa. La organización proveerá talleres 
+técnicos iniciales con especialistas de las empresas colaboradoras, además de que todos los 
+miembros del directorio de la organización estarán disponibles para resolver preguntas que 
+surjan  durante la actividad.  
+Arquitectura de Inversión  
+• Universo de Inversión:  El universo consistirá exclusivamente en ETFs gestionados por 
+BlackRock y que estén disponibles para su compra a través de Bloomberg usando la función 
+TMSG <GO>.  
+• Benchmark:  El desempeño de los equipos será contrastado contra el ETF iShares MSCI 
+ACWI  (NASDAQ: ACWI)  de BlackRock.  TORNEO PORTAFOLIO  2026  | DIRECCIÓN PORTFOLIO FEN INVESTMENTS GROUP   
+   
+• Filosofía de Gestión:  Se adoptará una estrategia de “Long -Term Value”  bajo la metodología 
+de Buy and Hold  y tendrán ventanas especificas de rebalanceo donde podrán realizar cambios 
+pertinentes a su portafolio.  Además de esto qued a estrictamente  prohibido ventas en corto de 
+los instrume ntos y el uso de apalancamiento  en el portafolio.  
+• Comisiones : Para efectos de la competencia  se cobrará una comisión  de 0,10% por la compra 
+y venta de los instrumentos durante l os peri odos de rebalanceo.  
+• Ventanas de Rebalanceo:  Los ajustes de cartera están restringidos a las siguientes fechas:  
+➢ Primer rebalanceo desde el 15 de Junio hasta el 18 de Junio . 
+➢ Segundo rebalanceo desde el 3 de Agosto hasta el 7 de Agosto.  
+➢ Tercer , y último r ebalanceo , desde el 5 de Octubre hasta el 9 de Octubre.  
+Gestión de Riesgo  
+Para Promover la diversificación y evitar la concentración excesiva:  
+• Entrada:  Ninguna posición individual podrá exceder el 20% del capital total al momento de 
+la compra.  
+• Permanencia:  Se permite superar el umbral del 20% si es producto de la apreciación del 
+activo, siguiendo la filosofía de “Let winners run” . 
+• Dividendos:  Los dividendos recibidos, en caso de recibir, se reinvertirán en el portafolio ya 
+sea en el mismo ETF que los generó o en otro distinto.  El tratamiento de los divid endos en el 
+retorno del portafolio será automatizado por la funci ón de Bloomberg.  
+Entregables y Evaluación  
+Los equipos deberán presentar tres componentes clave ante un jurado experto compuesto por 
+ejecutivos de Itaú, BlackRock y profesores de la facultad:  
+• Modelo de Seguimiento:  Archivo Excel con el cálculo automatizado de métricas (Sharpe, 
+Alfa, Maximum Drawdown, etc ). 
+• Reporte de Estrategia:  Documento justificando las decisiones macroeconómicas y ajustes 
+realizados . 
+• Pitch Deck:  Presentación oral defendiendo el rendimiento ajustado por riesgo y la visión a 
+futuro.  
+• Empat e: Si al momento de la entrega final s urge un emp ate entre uno o más equipos de 
+acuerdo a las métricas  de los portafolios descritas en el  docu mento, será tarea de los jueces 
+desig nar a los ganadores.  
+Auditoria y Transparencia  
+• Cada equipo debe otorgar permisos de visualización ( Read -Only ) a los auditores designados 
+de FEN Investment Group  para los documentos que vayan a utilizar.  
+• Cualquier transacción fuera de las ventanas oficiales o que vulnere el Fair Play  resultará en 
+eliminación inmediata.  
+Premios y Reconocimientos  
+Se premiará a los equipos no solo por el retorno relativo que hayan obtenido sino también por la 
+gestión de riesgos que tuvieron durante el Torneo de Portafolio 2026, esto último incluye métricas 
