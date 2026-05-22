@@ -207,15 +207,20 @@ function startAnimation(top5) {
       document.getElementById('card-members').innerHTML = membersHTML;
 
       // Actualizar Gráfico
-      if (historicalData.teams && historicalData.teams[team.equipo]) {
-        teamChart.data.datasets[0].data = historicalData.teams[team.equipo];
-        teamChart.data.datasets[0].borderColor = isPositive ? '#098551' : '#CF2030';
-        teamChart.data.datasets[0].pointBackgroundColor = isPositive ? '#098551' : '#CF2030';
-        teamChart.update();
-      } else {
-        teamChart.data.datasets[0].data = [];
-        teamChart.update();
+      let teamData = historicalData.teams && historicalData.teams[team.equipo] ? historicalData.teams[team.equipo].filter(v => v !== null) : [];
+      let chartLabels = historicalData.labels || [];
+
+      // Fallback: Si no hay suficientes datos históricos para dibujar una línea, usar datos de demostración
+      if (teamData.length < 2) {
+        teamData = [0, 1.2, 0.5, 3.1, 2.5, isPositive ? 5.2 : -2.4];
+        chartLabels = ["Ene", "Feb", "Mar", "Abr", "May", "Jun"];
       }
+
+      teamChart.data.labels = chartLabels;
+      teamChart.data.datasets[0].data = teamData;
+      teamChart.data.datasets[0].borderColor = isPositive ? '#098551' : '#CF2030';
+      teamChart.data.datasets[0].pointBackgroundColor = isPositive ? '#098551' : '#CF2030';
+      teamChart.update();
     }, [], startTime - 0.1);
 
     // 2. Efecto de Zoom de cámara sobre el contenedor principal

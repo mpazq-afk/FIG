@@ -156,7 +156,10 @@ body, html {
 }
 
 .details-card {
-  width: 1400px;
+  width: fit-content;
+  min-width: 950px;
+  max-width: 1300px;
+  margin: 0 auto;
   background: #FFFFFF;
   border: 1px solid #EAECEF;
   border-radius: 16px;
