@@ -156,7 +156,7 @@ body, html {
 }
 
 .details-card {
-  width: 1000px;
+  width: 1400px;
   background: #FFFFFF;
   border: 1px solid #EAECEF;
   border-radius: 16px;
@@ -166,6 +166,20 @@ body, html {
   overflow: hidden;
   text-align: left;
   transform: scale(0.9);
+}
+
+.card-sponsors {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 20px;
+  opacity: 0.8;
+}
+
+.card-sponsors img {
+  height: 40px;
+  object-fit: contain;
 }
 
 .card-top-bar {
@@ -241,17 +255,38 @@ body, html {
   position: relative;
   font-size: 20px;
   font-weight: 500;
-  color: #0052FF; /* Azul Coinbase */
+  color: #8A919E; /* Gris elegante */
   margin-top: 10px;
   z-index: 1;
   text-align: left;
 }
 
+.card-body {
+  display: flex;
+  gap: 40px;
+  width: 100%;
+}
+
+.card-left-col {
+  flex: 0 0 auto;
+}
+
+.card-right-col {
+  flex: 1;
+  background: #FFFFFF;
+  border-radius: 12px;
+  border: 1px solid #EAECEF;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .card-members {
   position: relative;
   display: flex;
-  justify-content: center;
-  gap: 30px;
+  justify-content: flex-start;
+  gap: 20px;
   flex-wrap: wrap;
   z-index: 1;
 }

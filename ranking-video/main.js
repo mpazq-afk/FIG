@@ -23,6 +23,9 @@ const speedVal = document.getElementById('speed-val');
 
 // Variable global para la línea de tiempo principal
 let tl;
+let teamChart;
+let historicalData = {};
+const HISTORICAL_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTDYehI-fc0b4CF4kVwykzGfnw5ePTfwHPmAlPSTsa0_cO534reW8_weCAm1J6igsird8qGi-PngLUL/pub?gid=371527432&single=true&output=csv';
 
 async function init() {
   try {
@@ -63,6 +66,65 @@ async function init() {
         </div>
       `;
       container.appendChild(row);
+    });
+
+    // Fetch datos históricos para el gráfico
+    try {
+      const histResponse = await fetch(HISTORICAL_CSV_URL);
+      const histText = await histResponse.text();
+      const histLines = histText.trim().split('\n');
+      if (histLines.length > 0) {
+        const headers = histLines[0].split(',').map(h => h.trim());
+        historicalData.labels = [];
+        historicalData.teams = {};
+        for (let i = 1; i < headers.length; i++) {
+          if (headers[i]) historicalData.teams[headers[i]] = [];
+        }
+        for (let i = 1; i < histLines.length; i++) {
+          const cols = histLines[i].split(',');
+          if (cols[0]) {
+            historicalData.labels.push(cols[0].trim());
+            for (let j = 1; j < headers.length; j++) {
+              if (headers[j]) {
+                const val = parseFloat(cols[j]);
+                historicalData.teams[headers[j]].push(isNaN(val) ? null : val);
+              }
+            }
+          }
+        }
+      }
+    } catch (e) {
+      console.error("Error al cargar historial", e);
+    }
+
+    // Inicializar Chart.js
+    const ctx = document.getElementById('team-chart').getContext('2d');
+    teamChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: historicalData.labels || [],
+        datasets: [{
+          label: 'Retorno',
+          data: [],
+          borderColor: '#098551',
+          borderWidth: 3,
+          tension: 0.3,
+          pointBackgroundColor: '#098551',
+          pointBorderColor: '#FFFFFF',
+          pointBorderWidth: 2,
+          pointRadius: 4,
+          fill: false
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { grid: { display: false } },
+          y: { grid: { color: '#EAECEF' } }
+        }
+      }
     });
 
     // 4. Iniciar Animación
@@ -125,6 +187,17 @@ function startAnimation(top5) {
       cardReturnEl.className = returnClass;
       document.getElementById('card-quote').textContent = quoteText;
       document.getElementById('card-members').innerHTML = membersHTML;
+
+      // Actualizar Gráfico
+      if (historicalData.teams && historicalData.teams[team.equipo]) {
+        teamChart.data.datasets[0].data = historicalData.teams[team.equipo];
+        teamChart.data.datasets[0].borderColor = isPositive ? '#098551' : '#CF2030';
+        teamChart.data.datasets[0].pointBackgroundColor = isPositive ? '#098551' : '#CF2030';
+        teamChart.update();
+      } else {
+        teamChart.data.datasets[0].data = [];
+        teamChart.update();
+      }
     }, [], startTime - 0.1);
 
     // 2. Efecto de Zoom de cámara sobre el contenedor principal

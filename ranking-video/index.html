@@ -4,9 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ranking Top 5 - Premium</title>
-    <link rel="stylesheet" href="./style.css?v=7" />
+    <link rel="stylesheet" href="./style.css?v=8" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="./data.js?v=7"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./data.js?v=8"></script>
   </head>
   <body>
     <!-- Contenedor estricto para OBS a 1920x1080 -->
@@ -28,6 +29,12 @@
         <div class="details-card">
           <div class="card-glow"></div>
           
+          <div class="card-sponsors">
+            <img src="../torneo-app/public/logos/fig2.png" alt="FEN Investment Group" />
+            <img src="../torneo-app/public/logos/blackrock.png" alt="Blackrock" />
+            <img src="../torneo-app/public/logos/itau.png" alt="Itaú" />
+          </div>
+          
           <div class="card-top-bar">
             <div class="card-title-area">
               <h3 class="card-team-name" id="card-team">Nombre Equipo</h3>
@@ -46,8 +53,17 @@
             </div>
           </div>
 
-          <div class="card-members" id="card-members">
-            <!-- Miembros dinámicos -->
+          <div class="card-body">
+            <div class="card-left-col">
+              <div class="card-members" id="card-members">
+                <!-- Miembros dinámicos -->
+              </div>
+            </div>
+            <div class="card-right-col">
+              <div class="chart-container" style="position: relative; width: 100%; height: 250px;">
+                <canvas id="team-chart"></canvas>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -69,6 +85,6 @@
       <p class="hint">Presiona 'H' para ocultar/mostrar este panel</p>
     </div>
 
-    <script src="./main.js?v=7"></script>
+    <script src="./main.js?v=8"></script>
   </body>
 </html>
