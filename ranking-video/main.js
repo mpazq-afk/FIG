@@ -102,7 +102,7 @@ function startAnimation(top5) {
     // Encontrar datos del JSON
     const details = window.TEAM_MEMBERS ? window.TEAM_MEMBERS[team.equipo] : null;
     const membersHTML = details?.members?.map((m, i) => {
-      const photoHtml = m.photo ? `<img class="member-photo" src="../torneo-app/public${m.photo}" alt="${m.name}" />` : `<div class="member-photo-placeholder"></div>`;
+      const photoHtml = m.photo ? `<img class="member-photo" src="../torneo-app/public${m.photo}" alt="${m.name}" />` : `<img class="member-photo" src="./default-avatar.png" alt="${m.name}" />`;
       return `
       <div class="member-item">
         ${photoHtml}
@@ -118,7 +118,7 @@ function startAnimation(top5) {
 
     // 1. Preparar la tarjeta ANTES de mostrarla
     tl.call(() => {
-      document.getElementById('card-team').textContent = team.equipo;
+      document.getElementById('card-team').innerHTML = `<span style="color: #0052FF; margin-right: 8px;">#${team.posicion}</span>${team.equipo}`;
       document.getElementById('card-score').textContent = team.puntaje;
       const cardReturnEl = document.getElementById('card-return');
       cardReturnEl.textContent = returnText;
