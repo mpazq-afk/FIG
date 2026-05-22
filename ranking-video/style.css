@@ -272,14 +272,19 @@ body, html {
 }
 
 .card-right-col {
-  flex: 1;
-  background: #FFFFFF;
-  border-radius: 12px;
-  border: 1px solid #EAECEF;
-  padding: 20px;
+  flex: 0 0 350px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.mini-chart-card {
+  width: 100%;
+  background: #FFFFFF;
+  border-radius: 12px;
+  border: 1px solid #EAECEF;
+  padding: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
 .card-members {

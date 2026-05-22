@@ -108,23 +108,41 @@ async function init() {
           data: [],
           borderColor: '#098551',
           borderWidth: 3,
-          tension: 0.3,
-          pointBackgroundColor: '#098551',
-          pointBorderColor: '#FFFFFF',
-          pointBorderWidth: 2,
-          pointRadius: 4,
+          tension: 0.4,
+          pointRadius: 0,
+          pointHoverRadius: 4,
           fill: false
         }]
       },
       options: {
         responsive: true,
         maintainAspectRatio: false,
-        plugins: { legend: { display: false } },
+        plugins: { 
+          legend: { display: false },
+          tooltip: { mode: 'index', intersect: false }
+        },
         scales: {
-          x: { grid: { display: false } },
-          y: { grid: { color: '#EAECEF' } }
+          x: { display: false },
+          y: { display: false }
+        },
+        layout: {
+          padding: 10
         }
-      }
+      },
+      plugins: [{
+        beforeDraw: (chart) => {
+          const ctx = chart.ctx;
+          const dataset = chart.data.datasets[0];
+          ctx.save();
+          ctx.shadowColor = dataset.borderColor;
+          ctx.shadowBlur = 12;
+          ctx.shadowOffsetX = 0;
+          ctx.shadowOffsetY = 4;
+        },
+        afterDraw: (chart) => {
+          chart.ctx.restore();
+        }
+      }]
     });
 
     // 4. Iniciar Animación
