@@ -115,7 +115,6 @@ function startAnimation(top5) {
 
     // 1. Preparar la tarjeta ANTES de mostrarla
     tl.call(() => {
-      document.getElementById('card-podium').textContent = `#${team.posicion}`;
       document.getElementById('card-team').textContent = team.equipo;
       document.getElementById('card-score').textContent = team.puntaje;
       const cardReturnEl = document.getElementById('card-return');
