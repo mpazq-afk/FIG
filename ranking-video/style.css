@@ -239,12 +239,12 @@ body, html {
 
 .card-quote {
   position: relative;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 500;
   color: #0052FF; /* Azul Coinbase */
-  margin-bottom: 40px;
+  margin-top: 10px;
   z-index: 1;
-  text-align: center;
+  text-align: left;
 }
 
 .card-members {
@@ -265,6 +265,22 @@ body, html {
   border-radius: 10px;
   border: 1px solid #EAECEF;
   min-width: 220px;
+}
+
+.member-photo {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 12px;
+  border: 2px solid #EAECEF;
+}
+
+.member-photo-placeholder {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 12px;
+  display: block;
 }
 
 .member-role {

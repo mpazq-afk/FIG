@@ -91,8 +91,8 @@ function startAnimation(top5) {
   tl.to([title, subtitle], { opacity: 1, y: 0, duration: 1, stagger: 0.2, ease: 'power3.out' }, 0);
   tl.to(rows, { opacity: 1, y: 0, duration: 1, stagger: 0.15, ease: 'power3.out' }, 0.5);
   
-  // Paneo muy lento para dar vida
-  tl.to(mainView, { y: -20, duration: 4.5, ease: 'sine.inOut' }, 0.5);
+  // Paneo muy lento para dar vida (eliminado por solicitud)
+  // tl.to(mainView, { y: -20, duration: 4.5, ease: 'sine.inOut' }, 0.5);
 
   // === FASE 2: FOCO SECUENCIAL (5-25s) ===
   // 5 posiciones x 4 segundos cada una = 20 segundos
@@ -101,12 +101,15 @@ function startAnimation(top5) {
     
     // Encontrar datos del JSON
     const details = window.TEAM_MEMBERS ? window.TEAM_MEMBERS[team.equipo] : null;
-    const membersHTML = details?.members?.map((m, i) => `
+    const membersHTML = details?.members?.map((m, i) => {
+      const photoHtml = m.photo ? `<img class="member-photo" src="../torneo-app/public${m.photo}" alt="${m.name}" />` : `<div class="member-photo-placeholder"></div>`;
+      return `
       <div class="member-item">
+        ${photoHtml}
         <div class="member-role">${i === 0 ? 'Líder' : 'Integrante'}</div>
         <div class="member-name">${m.name}</div>
       </div>
-    `).join('') || '<div class="member-item"><div class="member-name">Datos no disponibles</div></div>';
+    `}).join('') || '<div class="member-item"><div class="member-name">Datos no disponibles</div></div>';
     
     const quoteText = details?.quote || `"Enfocados en el Alfa"`;
     const isPositive = !team.retorno.startsWith('-');
