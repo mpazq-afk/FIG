@@ -122,8 +122,25 @@ async function init() {
           tooltip: { mode: 'index', intersect: false }
         },
         scales: {
-          x: { display: false },
-          y: { display: false }
+          x: { 
+            display: true, 
+            grid: { display: false },
+            border: { display: false },
+            ticks: { color: '#8A919E', font: { size: 10 } }
+          },
+          y: { 
+            display: true,
+            min: 0,
+            max: 10,
+            border: { display: false },
+            grid: { color: '#EAECEF' },
+            ticks: { 
+              stepSize: 1, 
+              color: '#8A919E', 
+              font: { size: 10 },
+              callback: function(value) { return value + '%'; }
+            }
+          }
         },
         layout: {
           padding: 10
@@ -208,19 +225,28 @@ function startAnimation(top5) {
 
       // Actualizar Gráfico
       let teamData = historicalData.teams && historicalData.teams[team.equipo] ? historicalData.teams[team.equipo].filter(v => v !== null) : [];
-      let chartLabels = historicalData.labels || [];
+      let chartLabels = ["May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov"];
 
-      // Fallback: Si no hay suficientes datos históricos para dibujar una línea, usar datos de demostración
-      if (teamData.length < 2) {
-        teamData = [0, 1.2, 0.5, 3.1, 2.5, isPositive ? 5.2 : -2.4];
-        chartLabels = ["Ene", "Feb", "Mar", "Abr", "May", "Jun"];
+      // Si no hay datos, usar el retorno actual en el primer mes (Mayo)
+      if (teamData.length === 0) {
+        teamData = [parseFloat(team.retorno) || 0];
       }
 
       teamChart.data.labels = chartLabels;
       teamChart.data.datasets[0].data = teamData;
       teamChart.data.datasets[0].borderColor = isPositive ? '#098551' : '#CF2030';
       teamChart.data.datasets[0].pointBackgroundColor = isPositive ? '#098551' : '#CF2030';
+      // Si solo hay 1 dato (ej. Mayo), mostrar el punto porque una línea de 1 dato no se dibuja
+      teamChart.data.datasets[0].pointRadius = teamData.length === 1 ? 4 : 0;
       teamChart.update();
+
+      // Actualizar el Badge del Gráfico
+      const chartBadge = document.getElementById('chart-badge');
+      if (chartBadge) {
+        chartBadge.textContent = returnText;
+        chartBadge.style.color = isPositive ? '#098551' : '#CF2030';
+        chartBadge.style.background = isPositive ? 'rgba(9,133,81,0.1)' : 'rgba(207,32,48,0.1)';
+      }
     }, [], startTime - 0.1);
 
     // 2. Efecto de Zoom de cámara sobre el contenedor principal
