@@ -109,12 +109,20 @@ function startAnimation(top5) {
     `).join('') || '<div class="member-item"><div class="member-name">Datos no disponibles</div></div>';
     
     const quoteText = details?.quote || `"Enfocados en el Alfa"`;
+    const isPositive = !team.retorno.startsWith('-');
+    const returnText = isPositive ? `+${team.retorno.replace('+', '')}` : team.retorno;
+    const returnClass = isPositive ? 'fin-value return-positive' : 'fin-value return-negative';
 
     // 1. Preparar la tarjeta ANTES de mostrarla
     tl.call(() => {
-      cardTeam.textContent = `${team.posicion}. ${team.equipo}`;
-      cardQuote.textContent = quoteText;
-      cardMembers.innerHTML = membersHTML;
+      document.getElementById('card-podium').textContent = `#${team.posicion}`;
+      document.getElementById('card-team').textContent = team.equipo;
+      document.getElementById('card-score').textContent = team.puntaje;
+      const cardReturnEl = document.getElementById('card-return');
+      cardReturnEl.textContent = returnText;
+      cardReturnEl.className = returnClass;
+      document.getElementById('card-quote').textContent = quoteText;
+      document.getElementById('card-members').innerHTML = membersHTML;
     }, [], startTime - 0.1);
 
     // 2. Efecto de Zoom de cámara sobre el contenedor principal
