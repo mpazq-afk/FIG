@@ -111,7 +111,7 @@ function startAnimation(top5) {
     const quoteText = details?.quote || `"Enfocados en el Alfa"`;
     const isPositive = !team.retorno.startsWith('-');
     const returnText = isPositive ? `+${team.retorno.replace('+', '')}` : team.retorno;
-    const returnClass = isPositive ? 'fin-value return-positive' : 'fin-value return-negative';
+    const returnClass = isPositive ? 'fin-value-tr return-positive' : 'fin-value-tr return-negative';
 
     // 1. Preparar la tarjeta ANTES de mostrarla
     tl.call(() => {
