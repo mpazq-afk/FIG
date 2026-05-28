@@ -63,33 +63,6 @@ elementsToAnimate.forEach(el => {
     observer.observe(el);
 });
 
-// Form submission mock
-const applyForm = document.querySelector('.apply-form');
-if (applyForm) {
-    applyForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const btn = applyForm.querySelector('button[type="submit"]');
-        const originalText = btn.textContent;
-
-        btn.textContent = 'Enviando...';
-        btn.style.opacity = '0.7';
-
-        // Mock API call delay
-        setTimeout(() => {
-            btn.textContent = '¡Postulación Enviada!';
-            btn.style.backgroundColor = '#25D366';
-            btn.style.color = '#fff';
-            btn.style.opacity = '1';
-
-            setTimeout(() => {
-                applyForm.reset();
-                btn.textContent = originalText;
-                btn.style.backgroundColor = '';
-                btn.style.color = '';
-            }, 3000);
-        }, 1500);
-    });
-}
 
 // Dynamic Text Typing Animation
 const dynamicText = document.querySelector('.dynamic-text');
