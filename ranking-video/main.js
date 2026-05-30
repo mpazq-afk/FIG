@@ -1,5 +1,5 @@
 // URL del CSV Público
-const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTDYehI-fc0b4CF4kVwykzGfnw5ePTfwHPmAlPSTsa0_cO534reW8_weCAm1J6igsird8qGi-PngLUL/pub?gid=171682247&single=true&output=csv';
+const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTDYehI-fc0b4CF4kVwykzGfnw5ePTfwHPmAlPSTsa0_cO534reW8_weCAm1J6igsird8qGi-PngLUL/pub?gid=1191075907&single=true&output=csv';
 
 // Elementos del DOM
 const container = document.getElementById('ranking-container');
