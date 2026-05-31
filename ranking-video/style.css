@@ -379,3 +379,130 @@ body, html {
 .controls button:hover { background: #555; }
 .speed-control { margin-bottom: 10px; display: flex; flex-direction: column; gap: 5px; }
 .hint { font-size: 12px; color: #666; margin-top: 15px; }
+
+/* ==================================================
+   MÓVIL / VERTICAL (Historias, Reels, TikTok)
+   ================================================== */
+@media (max-aspect-ratio: 1/1) {
+  #obs-container {
+    width: 1080px;
+    height: 1920px;
+    padding-top: 50px;
+  }
+  
+  .header {
+    flex-direction: column !important;
+    gap: 30px !important;
+    margin-bottom: 80px;
+  }
+  
+  .header img {
+    height: 250px !important;
+  }
+  
+  #title {
+    font-size: 80px;
+    margin-bottom: 25px;
+  }
+  
+  #subtitle {
+    font-size: 40px;
+  }
+  
+  .ranking-table {
+    width: 980px;
+    gap: 25px;
+  }
+  
+  .ranking-row {
+    padding: 35px 50px;
+  }
+  
+  .rank-number {
+    font-size: 50px;
+  }
+  
+  .team-name {
+    font-size: 40px;
+  }
+  
+  .team-score {
+    font-size: 40px;
+  }
+  
+  .team-return {
+    font-size: 22px;
+  }
+  
+  .details-card {
+    min-width: 980px;
+    max-width: 980px;
+    padding: 60px 50px;
+  }
+  
+  .card-top-bar {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 40px;
+  }
+  
+  .card-quote {
+    text-align: center;
+  }
+  
+  .card-body {
+    flex-direction: column;
+    gap: 60px;
+  }
+  
+  .card-left-col, .card-right-col {
+    width: 100%;
+    flex: none;
+  }
+  
+  .card-members {
+    justify-content: center;
+  }
+  
+  .member-item {
+    min-width: 250px;
+    max-width: 300px;
+    padding: 25px 20px;
+  }
+  
+  .member-photo {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .member-name {
+    font-size: 24px;
+  }
+  
+  .mini-chart-card {
+    height: 380px;
+  }
+  
+  .chart-container {
+    height: 310px !important;
+  }
+  
+  .card-sponsors {
+    margin-bottom: 40px;
+  }
+  
+  .card-sponsors img {
+    height: 60px !important;
+  }
+  
+  .card-financials-tr {
+    width: 100%;
+    justify-content: center;
+    gap: 80px;
+  }
+  
+  .fin-value-tr {
+    font-size: 45px;
+  }
+}

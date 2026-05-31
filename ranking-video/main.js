@@ -251,9 +251,11 @@ function startAnimation(top5) {
 
     // 2. Efecto de Zoom de cámara sobre el contenedor principal
     // Calculamos qué tanto bajar la tabla para centrar la fila
-    const rowOffset = 100 * index; 
+    const isVertical = window.innerWidth < window.innerHeight;
+    const rowHeight = isVertical ? 140 : 100;
+    const rowOffset = rowHeight * index; 
     tl.to(mainView, {
-      scale: 1.15,
+      scale: isVertical ? 1.05 : 1.15,
       y: -rowOffset,
       duration: 1.5,
       ease: 'power3.inOut'
@@ -342,7 +344,10 @@ init();
 // Auto-escalado para pantallas pequeñas (Celulares/Tablets)
 function resizeToFit() {
   const container = document.getElementById('obs-container');
-  const scale = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
+  const isVertical = window.innerWidth < window.innerHeight;
+  const baseW = isVertical ? 1080 : 1920;
+  const baseH = isVertical ? 1920 : 1080;
+  const scale = Math.min(window.innerWidth / baseW, window.innerHeight / baseH);
   // Aplicamos el translate para centrar y el scale para ajustar
   container.style.transform = `translate(-50%, -50%) scale(${scale})`;
 }
