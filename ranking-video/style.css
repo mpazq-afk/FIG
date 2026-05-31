@@ -411,32 +411,33 @@ body, html {
   
   .ranking-table {
     width: 980px;
-    gap: 25px;
+    gap: 30px;
   }
   
   .ranking-row {
-    padding: 35px 50px;
+    padding: 40px 50px;
   }
   
   .rank-number {
-    font-size: 50px;
+    font-size: 60px;
+    width: 120px;
   }
   
   .team-name {
-    font-size: 40px;
+    font-size: 50px;
   }
   
   .team-score {
-    font-size: 40px;
+    font-size: 50px;
   }
   
   .team-return {
-    font-size: 22px;
+    font-size: 30px;
   }
   
   .details-card {
-    min-width: 980px;
-    max-width: 980px;
+    min-width: 1000px;
+    max-width: 1000px;
     padding: 60px 50px;
   }
   
@@ -444,11 +445,16 @@ body, html {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 40px;
+    gap: 30px;
   }
   
+  .card-team-name {
+    font-size: 70px;
+  }
+
   .card-quote {
     text-align: center;
+    font-size: 30px;
   }
   
   .card-body {
@@ -466,43 +472,50 @@ body, html {
   }
   
   .member-item {
-    min-width: 250px;
-    max-width: 300px;
-    padding: 25px 20px;
+    min-width: 280px;
+    max-width: 320px;
+    padding: 30px 20px;
   }
   
   .member-photo {
-    width: 100px;
-    height: 100px;
+    width: 130px;
+    height: 130px;
   }
   
   .member-name {
-    font-size: 24px;
+    font-size: 28px;
   }
   
+  .member-role {
+    font-size: 16px;
+  }
+
   .mini-chart-card {
-    height: 380px;
+    height: 400px;
   }
   
   .chart-container {
-    height: 310px !important;
+    height: 330px !important;
   }
   
   .card-sponsors {
-    margin-bottom: 40px;
-  }
-  
-  .card-sponsors img {
-    height: 60px !important;
+    margin-bottom: 50px;
+    margin-top: 10px;
+    transform: scale(1.5);
   }
   
   .card-financials-tr {
     width: 100%;
     justify-content: center;
     gap: 80px;
+    padding: 30px;
   }
   
+  .fin-label-tr {
+    font-size: 20px;
+  }
+
   .fin-value-tr {
-    font-size: 45px;
+    font-size: 65px;
   }
 }
