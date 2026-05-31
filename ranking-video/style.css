@@ -459,22 +459,28 @@ body, html {
   
   .card-body {
     flex-direction: column;
-    gap: 60px;
+    align-items: center;
+    gap: 0;
   }
   
-  .card-left-col, .card-right-col {
+  .card-left-col {
     width: 100%;
     flex: none;
+  }
+
+  .card-right-col {
+    display: none !important;
   }
   
   .card-members {
     justify-content: center;
+    gap: 40px;
   }
   
   .member-item {
     min-width: 280px;
-    max-width: 320px;
-    padding: 30px 20px;
+    max-width: 350px;
+    padding: 40px 20px;
   }
   
   .member-photo {
