@@ -338,3 +338,13 @@ speedInput.addEventListener('input', (e) => {
 
 // Arrancar
 init();
+
+// Auto-escalado para pantallas pequeñas (Celulares/Tablets)
+function resizeToFit() {
+  const container = document.getElementById('obs-container');
+  const scale = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
+  // Aplicamos el translate para centrar y el scale para ajustar
+  container.style.transform = `translate(-50%, -50%) scale(${scale})`;
+}
+window.addEventListener('resize', resizeToFit);
+resizeToFit();
