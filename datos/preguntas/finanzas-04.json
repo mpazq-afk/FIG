@@ -1,0 +1,226 @@
+[
+  {
+    "id": "af-013",
+    "tema": "analisis-financiero",
+    "ramo": "intro-finanzas",
+    "dificultad": 1,
+    "pregunta": "Si el costo financiero de la deuda de una empresa es MAYOR que su ROA, ¿qué indica esto sobre el uso de la deuda?",
+    "alternativas": [
+      "Que la empresa está usando la deuda de forma ineficiente: sus activos no rinden lo suficiente para cubrir el costo de esa deuda",
+      "Que la empresa tiene una excelente política de financiamiento",
+      "Que el ROE de la empresa necesariamente será mayor que el ROA",
+      "Que la empresa no enfrenta ningún riesgo financiero"
+    ],
+    "correcta": 0,
+    "explicacion": "Cuando el costo de la deuda supera la rentabilidad que generan los activos (ROA), la empresa pierde valor al endeudarse, es un uso ineficiente del apalancamiento financiero.",
+    "fuente": "Intro a Finanzas · Guia de Ejercicios Analisis Financiero.pdf"
+  },
+  {
+    "id": "af-014",
+    "tema": "analisis-financiero",
+    "ramo": "intro-finanzas",
+    "dificultad": 2,
+    "pregunta": "¿Qué combinación de señales suele evidenciar problemas de liquidez en una empresa, comparada con su industria?",
+    "alternativas": [
+      "Un período de pago superior al de la industria junto con ratios de liquidez a la baja",
+      "Un período promedio de cobro menor al de la industria",
+      "Una rotación de inventarios más rápida que la industria",
+      "Un aumento sostenido en la razón corriente de la empresa"
+    ],
+    "correcta": 0,
+    "explicacion": "Pagar más lento que la industria mientras la liquidez cae es una señal típica de que la empresa está usando el crédito de proveedores para compensar su falta de caja.",
+    "fuente": "Intro a Finanzas · Guia de Ejercicios Analisis Financiero.pdf"
+  },
+  {
+    "id": "af-015",
+    "tema": "analisis-financiero",
+    "ramo": "intro-finanzas",
+    "dificultad": 1,
+    "pregunta": "¿Qué muestra un Estado Financiero de Tendencias?",
+    "alternativas": [
+      "Cada partida expresada como índice respecto a un año base, que se fija en 1,00",
+      "Cada partida expresada como porcentaje del total de activos o de las ventas",
+      "El valor absoluto en pesos de cada cuenta, sin ningún ajuste",
+      "Solo las cuentas que crecieron durante el período analizado"
+    ],
+    "correcta": 0,
+    "explicacion": "El estado de tendencias normaliza cada cuenta al año base (=1,00) para poder ver su crecimiento relativo en los períodos siguientes, sin depender de las cifras absolutas.",
+    "fuente": "Intro a Finanzas · Guia de Ejercicios Analisis Financiero.pdf"
+  },
+  {
+    "id": "af-016",
+    "tema": "analisis-financiero",
+    "ramo": "intro-finanzas",
+    "dificultad": 1,
+    "pregunta": "¿Qué muestra un Estado Financiero Porcentual (o de tamaño común)?",
+    "alternativas": [
+      "Cada partida expresada como porcentaje del total de activos (balance) o de las ventas (resultados)",
+      "Cada partida expresada como índice respecto a un año base",
+      "El crecimiento porcentual de cada cuenta respecto al año anterior únicamente",
+      "Solo el porcentaje de utilidad neta sobre el patrimonio"
+    ],
+    "correcta": 0,
+    "explicacion": "El estado porcentual permite ver la composición interna de los activos, pasivos y resultados, expresando cada línea como parte del total correspondiente.",
+    "fuente": "Intro a Finanzas · Guia de Ejercicios Analisis Financiero.pdf"
+  },
+  {
+    "id": "af-017",
+    "tema": "analisis-financiero",
+    "ramo": "intro-finanzas",
+    "dificultad": 2,
+    "pregunta": "La diferencia entre la Razón Corriente y la Prueba Ácida de una empresa refleja principalmente...",
+    "alternativas": [
+      "El peso de los inventarios dentro de los activos circulantes de la empresa",
+      "El nivel de endeudamiento de largo plazo de la empresa",
+      "La rentabilidad sobre el patrimonio de la empresa",
+      "El plazo promedio en que la empresa cobra a sus clientes"
+    ],
+    "correcta": 0,
+    "explicacion": "La Prueba Ácida se calcula igual que la Razón Corriente pero restando los inventarios; cuanto mayor sea la brecha entre ambas, más pesan los inventarios en el activo circulante.",
+    "fuente": "Intro a Finanzas · Guia de Ejercicios Analisis Financiero.pdf"
+  },
+  {
+    "id": "af-018",
+    "tema": "analisis-financiero",
+    "ramo": "intro-finanzas",
+    "dificultad": 3,
+    "pregunta": "Si el ROA de una empresa sube levemente pero su ROE cae de forma más marcada en el mismo período, ¿qué es lo más probable que esté ocurriendo?",
+    "alternativas": [
+      "Que el costo financiero de la deuda está aumentando más rápido que la mejora operacional",
+      "Que la empresa dejó de usar deuda por completo",
+      "Que las ventas de la empresa cayeron fuertemente en el período",
+      "Que la empresa aumentó su capital social sin cambiar su nivel de deuda"
+    ],
+    "correcta": 0,
+    "explicacion": "Si los activos rinden un poco mejor (ROA sube) pero el retorno para los dueños cae (ROE baja), el costo de financiar esos activos con deuda debe estar subiendo con más fuerza que la mejora operacional.",
+    "fuente": "Intro a Finanzas · Guia de Ejercicios Analisis Financiero.pdf"
+  },
+  {
+    "id": "af-019",
+    "tema": "analisis-financiero",
+    "ramo": "intro-finanzas",
+    "dificultad": 2,
+    "pregunta": "Si la rotación de inventarios de una empresa cae mientras las ventas solo crecen levemente, ¿qué puede indicar esto?",
+    "alternativas": [
+      "Que la empresa está acumulando inventarios más rápido de lo que puede vender",
+      "Que la empresa está vendiendo su inventario más rápido que antes",
+      "Que las ventas están creciendo mucho más rápido que el inventario",
+      "Que el costo de venta de la empresa ha disminuido significativamente"
+    ],
+    "correcta": 0,
+    "explicacion": "Una rotación decreciente frente a un crecimiento de ventas modesto sugiere que el inventario se está acumulando en exceso respecto a lo que la empresa efectivamente vende.",
+    "fuente": "Intro a Finanzas · Guia de Ejercicios Analisis Financiero.pdf"
+  },
+  {
+    "id": "af-020",
+    "tema": "analisis-financiero",
+    "ramo": "intro-finanzas",
+    "dificultad": 2,
+    "pregunta": "Si las cuentas por cobrar de una empresa crecen mucho más rápido que sus ventas totales, esto puede indicar...",
+    "alternativas": [
+      "Que la empresa está flexibilizando sus condiciones de crédito a los clientes para impulsar ventas",
+      "Que la empresa está cobrando más rápido a sus clientes que antes",
+      "Que la empresa redujo su nivel de endeudamiento total",
+      "Que el margen bruto de la empresa mejoró considerablemente"
+    ],
+    "correcta": 0,
+    "explicacion": "Cuando las cuentas por cobrar crecen más rápido que las ventas, es señal de que la empresa está otorgando plazos de pago más generosos, lo que presiona su liquidez de corto plazo.",
+    "fuente": "Intro a Finanzas · Guia de Ejercicios Analisis Financiero.pdf"
+  },
+  {
+    "id": "af-021",
+    "tema": "analisis-financiero",
+    "ramo": "intro-finanzas",
+    "dificultad": 1,
+    "pregunta": "Una Cobertura de Intereses (EBIT/Gastos financieros) más alta que la de la industria generalmente indica...",
+    "alternativas": [
+      "Que la empresa tiene mayor utilidad relativa o un menor costo financiero que sus pares de la industria",
+      "Que la empresa está a punto de incumplir sus obligaciones de deuda",
+      "Que la empresa no tiene ningún tipo de deuda financiera",
+      "Que las ventas de la empresa cayeron fuertemente en el período"
+    ],
+    "correcta": 0,
+    "explicacion": "Una cobertura de intereses alta refleja que la empresa genera suficiente utilidad operacional para pagar sus gastos financieros varias veces, ya sea por mejor desempeño o menor costo de deuda.",
+    "fuente": "Intro a Finanzas · Guia de Ejercicios Analisis Financiero.pdf"
+  },
+  {
+    "id": "af-022",
+    "tema": "analisis-financiero",
+    "ramo": "intro-finanzas",
+    "dificultad": 1,
+    "pregunta": "Cuando el activo fijo de una empresa aumenta su participación porcentual sobre el total de activos a través del tiempo, esto sugiere que la empresa...",
+    "alternativas": [
+      "Está invirtiendo en planta y equipos, activos de largo plazo",
+      "Está reduciendo su inventario sin ninguna razón operacional",
+      "Está aumentando exclusivamente su liquidez de corto plazo",
+      "Está disminuyendo su capacidad productiva instalada"
+    ],
+    "correcta": 0,
+    "explicacion": "Un mayor peso relativo del activo fijo en el balance suele reflejar un proceso de inversión en capacidad productiva de largo plazo.",
+    "fuente": "Intro a Finanzas · Guia de Ejercicios Analisis Financiero.pdf"
+  },
+  {
+    "id": "af-023",
+    "tema": "analisis-financiero",
+    "ramo": "intro-finanzas",
+    "dificultad": 2,
+    "pregunta": "Si una empresa se financia mayoritariamente con patrimonio (más del 90% del total) y muy poco con deuda, ¿qué efecto tiene esto sobre su gasto en intereses?",
+    "alternativas": [
+      "El gasto por intereses pesa muy poco sobre las ventas, y la cobertura de intereses tiende a ser alta",
+      "El gasto por intereses será necesariamente mayor al de empresas más endeudadas",
+      "La cobertura de intereses tenderá a ser baja o incluso negativa",
+      "El ROE de la empresa será siempre menor al de empresas más endeudadas"
+    ],
+    "correcta": 0,
+    "explicacion": "Con poca deuda, el gasto financiero pesa muy poco sobre las ventas y la utilidad operacional cubre ese gasto muchas veces, elevando la cobertura de intereses.",
+    "fuente": "Intro a Finanzas · Guia de Ejercicios Analisis Financiero.pdf"
+  },
+  {
+    "id": "af-024",
+    "tema": "analisis-financiero",
+    "ramo": "intro-finanzas",
+    "dificultad": 2,
+    "pregunta": "Un aumento sostenido en la rotación de inventarios junto con un aumento en la rotación de activos generalmente indica...",
+    "alternativas": [
+      "Que la empresa está utilizando sus activos de forma más eficiente para generar ventas",
+      "Que la empresa está perdiendo participación de mercado",
+      "Que la empresa está acumulando un exceso de inventario",
+      "Que las ventas de la empresa están cayendo en el período"
+    ],
+    "correcta": 0,
+    "explicacion": "Cuando ambas rotaciones suben en conjunto, es señal de que la empresa está vendiendo más rápido y sacando mejor provecho de los activos que tiene invertidos.",
+    "fuente": "Intro a Finanzas · Guia de Ejercicios Analisis Financiero.pdf"
+  },
+  {
+    "id": "af-025",
+    "tema": "analisis-financiero",
+    "ramo": "intro-finanzas",
+    "dificultad": 1,
+    "pregunta": "¿Por qué es importante comparar los ratios financieros de una empresa con los de su industria, y no solo analizarlos de forma aislada?",
+    "alternativas": [
+      "Porque un mismo ratio puede considerarse bueno o malo dependiendo del contexto y el desempeño típico del sector",
+      "Porque los ratios de la industria siempre son más precisos que los de la empresa individual",
+      "Porque no es posible calcular ratios financieros sin datos de la industria",
+      "Porque la ley exige reportar siempre el promedio de la industria junto al balance"
+    ],
+    "correcta": 0,
+    "explicacion": "Un ratio de liquidez o rentabilidad puede lucir alto o bajo en términos absolutos, pero su verdadero significado depende de cómo se compare con el estándar del sector en que opera la empresa.",
+    "fuente": "Intro a Finanzas · Guia de Ejercicios Analisis Financiero.pdf"
+  },
+  {
+    "id": "af-026",
+    "tema": "analisis-financiero",
+    "ramo": "intro-finanzas",
+    "dificultad": 3,
+    "pregunta": "En un análisis de tendencias, ¿por qué conviene revisar en conjunto la tendencia de las cuentas por cobrar y la tendencia de las ventas, en vez de mirarlas por separado?",
+    "alternativas": [
+      "Porque revela si las cuentas por cobrar crecen más rápido que las ventas, señal de crédito más laxo que ninguna de las dos por separado muestra",
+      "Porque las ventas y las cuentas por cobrar siempre deben crecer exactamente al mismo ritmo",
+      "Porque el estado de tendencias no permite calcular ratios de liquidez",
+      "Porque las cuentas por cobrar no tienen relación alguna con el nivel de ventas de una empresa"
+    ],
+    "correcta": 0,
+    "explicacion": "Comparar ambas tendencias en conjunto permite detectar si el crecimiento en ventas se está logrando a costa de otorgar crédito más laxo, algo invisible si se analiza cada índice de forma aislada.",
+    "fuente": "Intro a Finanzas · Guia de Ejercicios Analisis Financiero.pdf"
+  }
+]

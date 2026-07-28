@@ -1,0 +1,98 @@
+[
+  {
+    "id": "ep-015",
+    "tema": "evaluacion-proyectos",
+    "ramo": "intro-finanzas",
+    "dificultad": 2,
+    "pregunta": "¿Es el VAN la única herramienta disponible para evaluar proyectos en condiciones de incertidumbre?",
+    "alternativas": [
+      "No, también existen árboles de decisión, análisis de sensibilidad, análisis de escenarios, punto de equilibrio y opciones reales",
+      "Sí, el VAN es la única herramienta técnicamente válida bajo incertidumbre",
+      "No, pero las demás herramientas solo sirven para proyectos completamente sin riesgo",
+      "Sí, porque las demás herramientas requieren mercados de capitales perfectos"
+    ],
+    "correcta": 0,
+    "explicacion": "El evaluador de proyectos cuenta con varias herramientas complementarias al VAN para manejar la incertidumbre, cada una útil para distintos aspectos del análisis.",
+    "fuente": "Intro a Finanzas · Pauta Examen Otoño 2016.pdf"
+  },
+  {
+    "id": "ep-016",
+    "tema": "evaluacion-proyectos",
+    "ramo": "intro-finanzas",
+    "dificultad": 3,
+    "pregunta": "¿Cómo se determina correctamente el momento óptimo de reemplazo de un activo?",
+    "alternativas": [
+      "Comparando el costo marginal de posponer el reemplazo un período más, contra el costo anual equivalente (CAE) de reemplazar ahora",
+      "Comparando directamente los VAN acumulados de reemplazar en distintos momentos futuros",
+      "Reemplazando siempre el activo apenas termine su vida útil contable",
+      "Calculando solo la TIR del activo nuevo, sin comparar con el actual"
+    ],
+    "correcta": 0,
+    "explicacion": "El criterio correcto evalúa el costo marginal de esperar un período más, comparándolo contra el CAE de reemplazar de inmediato, en vez de simplemente sumar VAN de distintas fechas.",
+    "fuente": "Intro a Finanzas · Pauta Examen Otoño 2016.pdf"
+  },
+  {
+    "id": "rv-014",
+    "tema": "renta-variable",
+    "ramo": "intro-finanzas",
+    "dificultad": 3,
+    "pregunta": "En teoría de portafolios, a medida que aumenta el número de activos en una cartera, ¿qué gana más importancia relativa para determinar el riesgo total del portafolio?",
+    "alternativas": [
+      "Las covarianzas (co-movimientos) entre los activos, más que el riesgo individual de cada uno por separado",
+      "Únicamente el riesgo individual de cada activo considerado por separado",
+      "El retorno esperado de cada activo, sin considerar su riesgo",
+      "El precio de mercado individual de cada activo del portafolio"
+    ],
+    "correcta": 0,
+    "explicacion": "Con más activos en la cartera, las covarianzas entre ellos pesan cada vez más en el riesgo total, mientras el riesgo individual de cada activo se diluye proporcionalmente.",
+    "fuente": "Intro a Finanzas · Pauta Examen Otoño 2016.pdf"
+  },
+  {
+    "id": "ep-017",
+    "tema": "evaluacion-proyectos",
+    "ramo": "intro-finanzas",
+    "dificultad": 2,
+    "pregunta": "En un caso real donde una empresa evaluó construir una planta flexible (mayor costo, capaz de cambiar de producto) versus una planta fija (menor costo, más eficiente pero sin flexibilidad), ¿qué mostró el análisis de VAN?",
+    "alternativas": [
+      "La planta fija tenía mayor VAN, porque la opción de cambiar de producto no compensaba el mayor costo y menor eficiencia por unidad de la planta flexible",
+      "La planta flexible tenía mayor VAN gracias al valor de la opción de cambiar de producción",
+      "Ambas plantas resultaron tener exactamente el mismo VAN esperado",
+      "Ninguna de las dos alternativas resultaba rentable para la empresa"
+    ],
+    "correcta": 0,
+    "explicacion": "Aunque la flexibilidad tiene valor en teoría, en este caso el mayor precio de la planta flexible y su menor eficiencia por unidad no compensaban ese valor opcional.",
+    "fuente": "Intro a Finanzas · Pauta Examen Otoño 2016.pdf"
+  },
+  {
+    "id": "ep-018",
+    "tema": "evaluacion-proyectos",
+    "ramo": "intro-finanzas",
+    "dificultad": 1,
+    "pregunta": "En la evaluación de proyectos, ¿qué representa el valor de una \"opción real\", como la de poder cambiar la producción de una planta flexible?",
+    "alternativas": [
+      "El valor de la flexibilidad de adaptarse a distintos escenarios futuros de demanda, que se suma o resta al VAN base del proyecto",
+      "Un concepto que solo aplica a instrumentos financieros derivados negociados en bolsa",
+      "Únicamente el valor de reventa del activo al final de su vida útil",
+      "Un concepto sin aplicación real en decisiones de inversión productiva"
+    ],
+    "correcta": 0,
+    "explicacion": "Las opciones reales incorporan el valor de la flexibilidad operativa (como poder cambiar qué se produce) dentro de la evaluación económica del proyecto.",
+    "fuente": "Intro a Finanzas · Pauta Examen Otoño 2016.pdf"
+  },
+  {
+    "id": "ep-019",
+    "tema": "evaluacion-proyectos",
+    "ramo": "intro-finanzas",
+    "dificultad": 2,
+    "pregunta": "En un caso real donde se evaluó abrir un restaurante con dos alternativas de horno (a gas o a leña), ¿cuál fue la recomendación final del análisis de VAN?",
+    "alternativas": [
+      "No ingresar al negocio, porque ambas alternativas arrojaron un VAN negativo",
+      "Invertir en el horno a gas, por tener el VAN menos negativo de las dos opciones",
+      "Invertir en el horno a leña, por requerir una menor inversión inicial",
+      "Invertir en ambos hornos simultáneamente para diversificar el riesgo del negocio"
+    ],
+    "correcta": 0,
+    "explicacion": "Al arrojar VAN negativo en ambas alternativas de suministro energético, la recomendación técnica fue no ingresar al negocio evaluado.",
+    "fuente": "Intro a Finanzas · Pauta Examen Otoño 2016.pdf"
+  }
+]

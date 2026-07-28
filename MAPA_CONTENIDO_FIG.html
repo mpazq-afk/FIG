@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dónde editar cada cosa — Mapa de contenido FIG</title>
+<style>
+  :root{
+    --navy-deep:#060B1C; --navy:#0A1128; --panel:#0F1934; --panel-2:#152350;
+    --gold:#D4AF37; --gold-light:#EBD388; --gold-deep:#9E7E1E;
+    --gold-dim:rgba(212,175,55,.30); --gold-faint:rgba(212,175,55,.10);
+    --ivory:#F7F4EC; --muted:rgba(247,244,236,.62); --faint:rgba(247,244,236,.42);
+    --up:#5FC08B; --line:rgba(212,175,55,.16);
+    --serif:"Playfair Display",Georgia,serif;
+    --sans:"Inter",-apple-system,"Segoe UI",sans-serif;
+    --mono:"IBM Plex Mono","SF Mono",ui-monospace,Menlo,monospace;
+  }
+  /* Documento de referencia interno del club — mismo sistema visual del sitio FIG (navy+oro) */
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{background:var(--navy);color:var(--ivory);font-family:var(--sans);line-height:1.6;font-size:15.5px}
+  ::selection{background:var(--gold);color:var(--navy)}
+  a{color:var(--gold);text-decoration:none}
+  a:hover{text-decoration:underline}
+  code{font-family:var(--mono)}
+
+  .top{padding:52px 28px 40px;max-width:1180px;margin:0 auto}
+  .kicker{font-family:var(--mono);font-size:.7rem;font-weight:500;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:14px}
+  .kicker::before{content:"";width:34px;height:1px;background:var(--gold);opacity:.7}
+  h1{font-family:var(--serif);font-weight:600;font-size:clamp(1.9rem,4.2vw,2.7rem);margin:16px 0 10px;text-wrap:balance}
+  h1 em{font-style:italic;color:var(--gold)}
+  .lead{color:var(--muted);max-width:68ch;font-size:1.02rem}
+
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px 90px}
+
+  /* -------- flujo general -------- */
+  .flow{display:flex;align-items:stretch;gap:0;margin:40px 0 56px;overflow-x:auto;padding-bottom:6px}
+  .flow-step{flex:1;min-width:200px;border:1px solid var(--line);background:var(--panel);border-radius:10px;padding:20px 22px;position:relative}
+  .flow-step b{display:block;font-family:var(--mono);font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+  .flow-step p{font-size:.86rem;color:var(--muted);line-height:1.55}
+  .flow-arrow{flex:none;width:44px;display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:1.3rem;opacity:.6}
+
+  /* -------- tarjetas de página -------- */
+  .sec-head{margin:64px 0 26px}
+  .sec-head .kicker{margin-bottom:10px}
+  h2{font-family:var(--serif);font-weight:600;font-size:1.6rem}
+
+  .pages{display:grid;grid-template-columns:repeat(auto-fit,minmax(430px,1fr));gap:22px}
+  .pcard{border:1px solid var(--line);background:linear-gradient(165deg,var(--panel),rgba(10,17,40,.9));border-radius:12px;padding:26px 28px;position:relative;overflow:hidden}
+  .pcard::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.5}
+  .pcard-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:4px}
+  .pcard h3{font-family:var(--serif);font-weight:600;font-size:1.25rem}
+  .ppath{font-family:var(--mono);font-size:.72rem;color:var(--gold);background:var(--gold-faint);border:1px solid var(--gold-dim);border-radius:100px;padding:4px 12px}
+  .prow{display:flex;gap:14px;margin-top:18px;padding-top:16px;border-top:1px solid var(--line)}
+  .prow:first-of-type{border-top:none;margin-top:16px;padding-top:0}
+  .ptag{flex:none;width:82px;font-family:var(--mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);padding-top:2px}
+  .ptag.ph{color:var(--up)}
+  .pbody{flex:1;min-width:0}
+  .pbody p{font-size:.86rem;color:var(--muted);margin-bottom:6px}
+  .pbody code{display:inline-block;font-size:.78rem;color:var(--ivory);background:rgba(247,244,236,.06);border:1px solid var(--line);border-radius:5px;padding:2px 8px;margin:2px 6px 2px 0}
+  .field-list{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+  .field{font-family:var(--mono);font-size:.72rem;color:var(--gold-light);background:rgba(212,175,55,.08);border:1px solid var(--gold-dim);border-radius:5px;padding:2px 8px}
+  .warn{font-size:.78rem;color:#E8B482;margin-top:8px;display:flex;gap:7px;align-items:flex-start}
+  .warn::before{content:"⚠";flex:none}
+
+  /* -------- tabla de nombres de foto -------- */
+  .naming{border:1px dashed var(--gold-dim);border-radius:10px;padding:20px 24px;margin-top:20px;background:rgba(212,175,55,.04)}
+  .naming b{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:8px}
+  .naming p{font-size:.86rem;color:var(--muted)}
+
+  /* -------- footer -------- */
+  footer{border-top:1px solid var(--line);padding:28px 0;margin-top:70px;font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;color:var(--faint)}
+
+  @media (max-width:640px){
+    .flow{flex-direction:column}
+    .flow-arrow{width:100%;height:28px;transform:rotate(90deg)}
+    .pages{grid-template-columns:1fr}
+  }
+</style>
+<script>
+  if (window.location.pathname.endsWith('/index.html')) {
+    const cleanPath = window.location.pathname.replace(/\/index\.html$/, '/') + window.location.search + window.location.hash;
+    window.history.replaceState(null, '', cleanPath);
+  }
+</script>
+
+<script>
+  // Prevenir que el # aparezca en la URL al hacer clic en enlaces internos
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+      anchor.addEventListener('click', function (e) {
+        var targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        var targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          e.preventDefault();
+          targetElement.scrollIntoView({ behavior: 'smooth' });
+          // Mantiene la URL limpia sin el #
+          window.history.pushState(null, null, window.location.pathname + window.location.search);
+        }
+      });
+    });
+  });
+</script>
+</head>
+<body>
+
+<div class="top">
+  <div class="kicker">Guía de referencia · FIG</div>
+  <h1>Dónde editar <em>fotos y textos</em> de cada página.</h1>
+  <p class="lead">Ninguna foto ni texto se toca directamente en el código. Todo el contenido vive en dos lugares: carpetas de fotos (numeradas) y archivos <code>.json</code> de datos. Esta página es el mapa completo, por sección del sitio.</p>
+</div>
+
+<div class="wrap">
+
+  <!-- ================= FLUJO GENERAL ================= -->
+  <div class="flow">
+    <div class="flow-step">
+      <b>1 · Tú editas</b>
+      <p>Subes fotos a la carpeta correcta, o editas un archivo <code>.json</code> con los textos (o un Excel, si existe el script generador).</p>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">
+      <b>2 · La página lee sola</b>
+      <p>Cada página hace <code>fetch()</code> de su <code>.json</code> al cargar, y prueba las fotos numeradas de su carpeta hasta que una falla.</p>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">
+      <b>3 · Se ve al instante</b>
+      <p>No hay que compilar ni pedirle nada a nadie. Guardaste el archivo → la próxima visita ya lo muestra.</p>
+    </div>
+  </div>
+
+  <!-- ================= PÁGINAS ================= -->
+  <div class="sec-head">
+    <div class="kicker">Página por página</div>
+    <h2>Las 5 secciones del sitio</h2>
+  </div>
+
+  <div class="pages">
+
+    <!-- INDEX -->
+    <div class="pcard">
+      <div class="pcard-head"><h3>Sitio principal</h3><span class="ppath">index.html</span></div>
+      <div class="prow">
+        <span class="ptag">Texto</span>
+        <div class="pbody">
+          <p>Directiva, historia del club y resumen de eventos:</p>
+          <code>datos/club.json</code>
+          <div class="field-list">
+            <span class="field">personas.directiva[]</span>
+            <span class="field">historia[]</span>
+            <span class="field">eventos[]</span>
+          </div>
+        </div>
+      </div>
+      <div class="prow">
+        <span class="ptag ph">Fotos</span>
+        <div class="pbody">
+          <p>Esta página <b style="color:var(--ivory)">no usa fotos propias</b>, es texto, tarjetas y gráficos. Las fotos de eventos se ven en <code>eventos/index.html</code>.</p>
+        </div>
+      </div>
+      <div class="warn">Los enlaces de Instagram/LinkedIn/Torneo salen de <code>config.urls</code> dentro del mismo <code>club.json</code>.</div>
+    </div>
+
+    <!-- EVENTOS -->
+    <div class="pcard">
+      <div class="pcard-head"><h3>Eventos</h3><span class="ppath">eventos/index.html</span></div>
+      <div class="prow">
+        <span class="ptag">Texto</span>
+        <div class="pbody">
+          <p>Cada evento es un bloque de la lista:</p>
+          <code>datos/eventos.json</code>
+          <div class="field-list">
+            <span class="field">titulo</span>
+            <span class="field">fecha / fechaTexto</span>
+            <span class="field">tipo</span>
+            <span class="field">lugar</span>
+            <span class="field">resumen</span>
+            <span class="field">participantes[]</span>
+          </div>
+        </div>
+      </div>
+      <div class="prow">
+        <span class="ptag ph">Fotos</span>
+        <div class="pbody">
+          <p>Una carpeta por evento, nombrada igual que el campo <code>carpeta</code> del evento:</p>
+          <code>fotos/eventos/&lt;carpeta&gt;/1.jpg, 2.jpg, 3.jpg…</code>
+          <p style="margin-top:8px">Ej: el evento con <code>"carpeta": "torneo-portafolio-2026"</code> busca sus fotos en <code>fotos/eventos/torneo-portafolio-2026/</code>.</p>
+        </div>
+      </div>
+      <div class="warn">La foto <code>1.jpg</code> es la portada de la tarjeta y el fondo del detalle, ponla primero.</div>
+    </div>
+
+    <!-- FIW -->
+    <div class="pcard">
+      <div class="pcard-head"><h3>FEN Investment Woman</h3><span class="ppath">fiw/index.html</span></div>
+      <div class="prow">
+        <span class="ptag">Texto</span>
+        <div class="pbody">
+          <p>Bajada, pilares y equipo del área:</p>
+          <code>datos/fiw.json</code>
+          <div class="field-list">
+            <span class="field">bajada</span>
+            <span class="field">resumen[]</span>
+            <span class="field">pilares[]</span>
+            <span class="field">equipo[]</span>
+          </div>
+        </div>
+      </div>
+      <div class="prow">
+        <span class="ptag ph">Fotos</span>
+        <div class="pbody">
+          <p>Una sola carpeta, sin subcarpetas:</p>
+          <code>fotos/fiw/1.jpg, 2.jpg, 3.jpg…</code>
+          <p style="margin-top:8px">Se usan como fondo del hero (slideshow) y como galería mosaico.</p>
+        </div>
+      </div>
+      <div class="warn">Colores de marca (oro rosa) y logo aún provisionales, variables <code>--acc*</code> al inicio del CSS. No tocar sin aprobación de Delia.</div>
+    </div>
+
+    <!-- TORNEO -->
+    <div class="pcard">
+      <div class="pcard-head"><h3>Torneo Portafolio</h3><span class="ppath">torneo/index.html</span></div>
+      <div class="prow">
+        <span class="ptag">Texto</span>
+        <div class="pbody">
+          <p>El ranking <b style="color:var(--ivory)">no se edita a mano</b>, sale del pipeline semanal:</p>
+          <code>python3 generar_torneo.py --excel …</code>
+          <p style="margin-top:8px">que escribe <code>datos/torneo.json</code> (equipos, puntos, métricas, historial).</p>
+        </div>
+      </div>
+      <div class="prow">
+        <span class="ptag ph">Fotos</span>
+        <div class="pbody">
+          <p>Esta página <b style="color:var(--ivory)">no usa fotos</b>, todo son gráficos generados desde los datos.</p>
+        </div>
+      </div>
+      <div class="warn">Mientras no exista <code>datos/torneo.json</code>, la página muestra 8 equipos de ejemplo con el banner "MODO DEMOSTRACIÓN".</div>
+    </div>
+
+    <!-- POSTULA -->
+    <div class="pcard">
+      <div class="pcard-head"><h3>Postulación</h3><span class="ppath">postula/index.html</span></div>
+      <div class="prow">
+        <span class="ptag">Texto</span>
+        <div class="pbody">
+          <p>Los campos del formulario están escritos directo en el HTML (cambian poco). El destino de los envíos se configura en:</p>
+          <code>datos/club.json → config.figEndpoint</code>
+          <p style="margin-top:8px">Ese mismo <code>figEndpoint</code> es <b style="color:var(--ivory)">un solo Apps Script compartido</b> por todo el sitio: postulaciones, ranking del Rally del Toro y métricas de visitas. Solo hay que crear uno, código completo y pasos de despliegue en <code>HOJA_DE_RUTA_FIG.md</code>.</p>
+        </div>
+      </div>
+      <div class="prow">
+        <span class="ptag ph">Fotos</span>
+        <div class="pbody">
+          <p>Esta página <b style="color:var(--ivory)">no usa fotos</b>.</p>
+        </div>
+      </div>
+      <div class="warn">Hasta que <code>figEndpoint</code> tenga una URL real, el formulario muestra un aviso "en configuración" y el botón de enviar queda deshabilitado.</div>
+    </div>
+
+    <!-- LOGOS -->
+    <div class="pcard">
+      <div class="pcard-head"><h3>Logos (todas las páginas)</h3><span class="ppath">logos/</span></div>
+      <div class="prow">
+        <span class="ptag ph">Archivos</span>
+        <div class="pbody">
+          <p>Se usan directo por nombre de archivo, sin JSON de por medio:</p>
+          <div class="field-list">
+            <span class="field">fig-oro.png</span>
+            <span class="field">fig-blanco.png</span>
+            <span class="field">fig-navy.png</span>
+            <span class="field">itau.png</span>
+            <span class="field">blackrock-blanco.png</span>
+          </div>
+          <p style="margin-top:8px">Para reemplazar uno, sube el nuevo archivo con el <b style="color:var(--ivory)">mismo nombre</b> y listo.</p>
+        </div>
+      </div>
+      <div class="warn">Falta el logo propio de FIG Woman (no está en el Drive), hoy usa <code>fig-blanco.png</code> como reemplazo temporal.</div>
+    </div>
+
+  </div>
+
+  <!-- ================= NOMENCLATURA DE FOTOS ================= -->
+  <div class="naming">
+    <b>Regla única para nombrar fotos</b>
+    <p>En cualquier carpeta de <code>fotos/</code>: numerar <code>1.jpg</code>, <code>2.jpg</code>, <code>3.jpg</code>… <b style="color:var(--ivory)">sin saltos</b> (no dejes huecos como 1, 2, 4). La página prueba número tras número hasta que uno no existe, y ahí se detiene, un salto corta la galería antes de tiempo. Formatos aceptados: <code>.jpg</code> o <code>.jpeg</code>.</p>
+  </div>
+
+  <div class="naming" style="margin-top:16px">
+    <b>Antes de subir una foto: comprímela</b>
+    <p>Una foto de celular sin comprimir pesa 3-8 MB. Una galería de 10 fotos así son 30-80 MB, inutilizable con datos móviles. Antes de subir a <code>fotos/</code>, redimensiona a <b style="color:var(--ivory)">máximo 1600-2000px</b> de lado largo y guarda como JPG calidad <b style="color:var(--ivory)">75-80%</b>. Con eso cada foto queda en 150-400 KB, imperceptible para el ojo en pantalla. En el celular: cualquier app de "reducir tamaño" o "comprimir imagen" sirve; en computador, la herramienta de recorte/exportar de Fotos (Mac) o Paint/Photos (Windows) también permite bajar la calidad al guardar.</p>
+  </div>
+
+  <!-- ================= REFERENCIA RÁPIDA ================= -->
+  <div class="sec-head">
+    <div class="kicker">Referencia rápida</div>
+    <h2>Todo en una tabla</h2>
+  </div>
+  <div style="overflow-x:auto;border:1px solid var(--line);border-radius:10px">
+    <table style="width:100%;border-collapse:collapse;font-size:.86rem;min-width:640px">
+      <thead>
+        <tr style="background:var(--panel)">
+          <th style="text-align:left;padding:14px 18px;font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid var(--line)">Página</th>
+          <th style="text-align:left;padding:14px 18px;font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid var(--line)">Texto en</th>
+          <th style="text-align:left;padding:14px 18px;font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid var(--line)">Fotos en</th>
+        </tr>
+      </thead>
+      <tbody style="font-family:var(--mono);font-size:.8rem">
+        <tr><td style="padding:12px 18px;border-bottom:1px solid var(--line)">Principal</td><td style="padding:12px 18px;border-bottom:1px solid var(--line);color:var(--muted)">datos/club.json</td><td style="padding:12px 18px;border-bottom:1px solid var(--line);color:var(--faint)">— (no aplica)</td></tr>
+        <tr><td style="padding:12px 18px;border-bottom:1px solid var(--line)">Eventos</td><td style="padding:12px 18px;border-bottom:1px solid var(--line);color:var(--muted)">datos/eventos.json</td><td style="padding:12px 18px;border-bottom:1px solid var(--line);color:var(--muted)">fotos/eventos/&lt;carpeta&gt;/</td></tr>
+        <tr><td style="padding:12px 18px;border-bottom:1px solid var(--line)">FIG Woman</td><td style="padding:12px 18px;border-bottom:1px solid var(--line);color:var(--muted)">datos/fiw.json</td><td style="padding:12px 18px;border-bottom:1px solid var(--line);color:var(--muted)">fotos/fiw/</td></tr>
+        <tr><td style="padding:12px 18px;border-bottom:1px solid var(--line)">Torneo</td><td style="padding:12px 18px;border-bottom:1px solid var(--line);color:var(--muted)">datos/torneo.json (script)</td><td style="padding:12px 18px;border-bottom:1px solid var(--line);color:var(--faint)">— (no aplica)</td></tr>
+        <tr><td style="padding:12px 18px">Postulación</td><td style="padding:12px 18px;color:var(--muted)">club.json → config</td><td style="padding:12px 18px;color:var(--faint)">— (no aplica)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<footer>
+  <div class="wrap" style="max-width:1180px;margin:0 auto;padding:0 28px">FEN INVESTMENT GROUP · MAPA DE CONTENIDO · GENERADO A PARTIR DE CLAUDE.md Y HOJA_DE_RUTA_FIG.md</div>
+</footer>
+
+</body>
+</html>

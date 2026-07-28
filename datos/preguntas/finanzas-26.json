@@ -1,0 +1,98 @@
+[
+  {
+    "id": "ec-028",
+    "tema": "estructura-capital",
+    "ramo": "finanzas-ii",
+    "dificultad": 3,
+    "pregunta": "Además de los escudos tributarios no asociados a deuda, la unicidad de los activos y la volatilidad de los flujos, la evidencia empírica muestra que la tangibilidad de los activos y el tamaño de la empresa se relacionan, en general, ¿cómo con el nivel de endeudamiento?",
+    "alternativas": [
+      "Positivamente: más activos tangibles (garantía) y mayor tamaño (menor riesgo de quiebra) se asocian a un mayor uso de deuda",
+      "Negativamente: a mayor tangibilidad y tamaño, menor es el endeudamiento observado",
+      "Ninguna de las dos variables muestra relación estadística con el endeudamiento",
+      "Solo el tamaño se relaciona con el endeudamiento; la tangibilidad no tiene ningún efecto documentado"
+    ],
+    "correcta": 0,
+    "explicacion": "A diferencia de los escudos tributarios no ligados a deuda, la unicidad y la volatilidad (negativamente relacionados), la evidencia muestra que activos tangibles, que sirven de garantía y facilitan el acceso a crédito, y el mayor tamaño de la empresa, asociado a menor riesgo de quiebra y más diversificación, se relacionan positivamente con el nivel de endeudamiento.",
+    "fuente": "Finanzas II · Pauta Examen Final González (2019)"
+  },
+  {
+    "id": "ec-029",
+    "tema": "estructura-capital",
+    "ramo": "finanzas-ii",
+    "dificultad": 3,
+    "pregunta": "Al estimar el costo de capital de un proyecto usando el beta de una empresa comparable, ¿qué criterio es clave para elegir cuál empresa comparable usar como referencia?",
+    "alternativas": [
+      "Que pertenezca al mismo mercado/industria que el proyecto y que su beta tenga significancia estadística",
+      "Elegir siempre la empresa comparable de mayor tamaño en la bolsa, sin importar el mercado en que opera",
+      "Elegir la empresa con el beta más alto disponible, para ser conservador en la estimación del riesgo",
+      "El criterio es irrelevante: cualquier empresa transada en bolsa sirve igual de bien como comparable"
+    ],
+    "correcta": 0,
+    "explicacion": "Una comparable útil debe operar en el mismo mercado o industria que el proyecto (para que su riesgo operacional sea representativo) y su beta debe ser estadísticamente significativo; de lo contrario, el beta desapalancado y reapalancado que se calcule a partir de ella no refleja el riesgo real del proyecto.",
+    "fuente": "Finanzas II · Pauta Examen Final González (2019)"
+  },
+  {
+    "id": "rif-015",
+    "tema": "riesgo-financiero",
+    "ramo": "finanzas-ii",
+    "dificultad": 3,
+    "pregunta": "Si se conoce la tasa de costo patrimonial (Kp) de una empresa apalancada pero no el premio por riesgo de mercado (PRM), ¿es posible despejar el beta patrimonial de esa empresa usando el CAPM?",
+    "alternativas": [
+      "No: el CAPM (Kp = rf + PRM·β) tiene dos incógnitas si falta el PRM, por lo que el beta no se puede despejar sin ese dato",
+      "Sí, siempre, porque el beta se puede obtener directamente de Kp sin necesitar el PRM",
+      "Sí, pero solo si además se conoce el ratio precio/utilidad de la empresa",
+      "No, pero solo porque falta también la tasa libre de riesgo, que siempre se asume desconocida"
+    ],
+    "correcta": 0,
+    "explicacion": "La ecuación del CAPM despeja el beta como β = (Kp − rf) / PRM. Si no se dispone del premio por riesgo de mercado, la ecuación queda con una incógnita de más y el beta no puede determinarse, aunque se conozcan Kp y rf.",
+    "fuente": "Finanzas II · Pauta Solemne Comentes (Mauricio Jara, 2016 Primavera)"
+  },
+  {
+    "id": "ec-030",
+    "tema": "estructura-capital",
+    "ramo": "finanzas-ii",
+    "dificultad": 2,
+    "pregunta": "Una empresa ya emitió deuda a tasa de cupón fija. Si luego las tasas de interés de mercado suben, manteniendo el valor de los activos de la empresa constante, ¿a quién beneficia ese alza?",
+    "alternativas": [
+      "A los accionistas: el valor de mercado de la deuda ya emitida baja al descontarse a una tasa mayor, en desmedro de los bonistas",
+      "A los bonistas, porque sus cupones fijos ahora valen más en términos absolutos",
+      "A ninguno de los dos, porque un alza de tasas no afecta el valor de una deuda ya emitida",
+      "A los accionistas, pero solo si la empresa decide refinanciar la deuda de inmediato"
+    ],
+    "correcta": 0,
+    "explicacion": "El valor de mercado de un bono con cupón fijo cae cuando suben las tasas de mercado, porque sus flujos futuros se descuentan a una tasa mayor. Esa caída en el valor de la deuda es, en el fondo, una transferencia de riqueza desde los bonistas (que ahora tienen un activo que vale menos) hacia los accionistas.",
+    "fuente": "Finanzas II · Pauta Solemne Comentes (Mauricio Jara, 2016 Primavera)"
+  },
+  {
+    "id": "ec-031",
+    "tema": "estructura-capital",
+    "ramo": "finanzas-ii",
+    "dificultad": 3,
+    "pregunta": "Según el modelo de Modigliani & Miller (1963), si aumenta la tasa de impuesto corporativo, ¿qué ocurre con el valor del escudo tributario que aporta la deuda a una empresa endeudada?",
+    "alternativas": [
+      "Aumenta: el escudo tributario es tc multiplicado por el monto de deuda, por lo que una mayor tasa de impuesto incrementa directamente ese valor adicional",
+      "Disminuye, porque una mayor tasa de impuesto reduce la utilidad disponible para pagar la deuda",
+      "Se mantiene igual, ya que el escudo tributario no depende de la tasa de impuesto corporativo",
+      "Se vuelve negativo, penalizando a las empresas que usan deuda"
+    ],
+    "correcta": 0,
+    "explicacion": "En MM (1963), el valor de la empresa con deuda es el valor sin deuda más tc por el monto de la deuda (tc·B). Como ese término crece directamente con la tasa de impuesto, un alza de impuestos corporativos aumenta el valor del escudo tributario para las empresas endeudadas.",
+    "fuente": "Finanzas II · Pauta Solemne Comentes (Mauricio Jara, 2016 Primavera)"
+  },
+  {
+    "id": "do-025",
+    "tema": "derivados-opciones",
+    "ramo": "finanzas-ii",
+    "dificultad": 3,
+    "pregunta": "¿Es correcto afirmar que la valoración neutral al riesgo (risk-neutral valuation) se deduce a partir del principio de aditividad del valor?",
+    "alternativas": [
+      "No: ambos resultados se derivan de forma independiente a partir de la ausencia de arbitraje, uno no depende del otro",
+      "Sí, la valoración neutral al riesgo es simplemente una aplicación directa del principio de aditividad",
+      "No, porque el principio de aditividad del valor solo aplica a acciones, nunca a instrumentos derivados",
+      "Sí, pero solo en mercados con opciones europeas, nunca con opciones americanas"
+    ],
+    "correcta": 0,
+    "explicacion": "Tanto el principio de aditividad del valor (el valor de un portafolio es la suma de sus partes) como la valoración neutral al riesgo (descontar flujos esperados bajo probabilidades ajustadas por riesgo a la tasa libre de riesgo) son consecuencias del supuesto de ausencia de arbitraje, pero se derivan de forma independiente entre sí, uno no implica al otro.",
+    "fuente": "Finanzas II · Pauta Solemne 1 Rodríguez (2013 Primavera)"
+  }
+]

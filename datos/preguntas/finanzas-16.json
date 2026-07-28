@@ -1,0 +1,178 @@
+[
+  {
+    "id": "mf-031",
+    "tema": "matematica-financiera",
+    "ramo": "intro-finanzas",
+    "dificultad": 3,
+    "pregunta": "Al comparar dos bancos que ofrecen un préstamo con distinta tasa de interés y distinta estructura de gastos de gestión (uno cobra un porcentaje del monto, otro un monto fijo), ¿qué se debe hacer para elegir la alternativa más conveniente?",
+    "alternativas": [
+      "Calcular la cuota de cada alternativa incorporando tasa de interés y gastos de gestión, y comparar el costo total de financiamiento de cada una",
+      "Comparar únicamente las tasas de interés nominales de cada banco, ignorando los gastos de gestión asociados",
+      "Elegir siempre el banco que cobra el gasto de gestión como monto fijo, sin comparar tasas",
+      "Elegir siempre el préstamo con la cuota mensual más baja en el primer mes, sin considerar el resto del plazo"
+    ],
+    "correcta": 0,
+    "explicacion": "Los gastos de gestión (fijos o porcentuales) afectan el costo efectivo del crédito, por lo que deben incorporarse junto con la tasa de interés al calcular y comparar la cuota o el costo total de cada alternativa de financiamiento.",
+    "fuente": "Intro a Finanzas · Pauta Ayudantía 1 Primavera 2014 (Marcelo González).pdf"
+  },
+  {
+    "id": "mf-032",
+    "tema": "matematica-financiera",
+    "ramo": "intro-finanzas",
+    "dificultad": 3,
+    "pregunta": "Al comparar la compra de un vehículo con una oferta de financiamiento propia del vendedor (cuotas variables más un pago final) contra un préstamo bancario tradicional, ¿qué se debe usar como tasa de descuento para comparar ambas alternativas?",
+    "alternativas": [
+      "La tasa del préstamo bancario, usada como costo de oportunidad para traer a valor presente los pagos de la oferta del vendedor",
+      "El precio de lista del vehículo, sin descontar ningún flujo de pago futuro de ninguna alternativa",
+      "El valor de reventa futuro estimado del vehículo, ignorando por completo los flujos de pago",
+      "No es posible comparar ambas alternativas si tienen estructuras de pago distintas"
+    ],
+    "correcta": 0,
+    "explicacion": "Para comparar alternativas de financiamiento con distinta estructura de pagos, se usa la tasa disponible en el mercado (como la del crédito bancario) como costo de oportunidad para traer todos los flujos a valor presente y comparar montos equivalentes.",
+    "fuente": "Intro a Finanzas · Pauta Ayudantía 1 Primavera 2014 (Marcelo González).pdf"
+  },
+  {
+    "id": "mf-033",
+    "tema": "matematica-financiera",
+    "ramo": "intro-finanzas",
+    "dificultad": 3,
+    "pregunta": "Un deudor hipotecario evalúa refinanciar su crédito con una tasa más baja, pero debe pagar una cláusula de prepago (un porcentaje adicional sobre el saldo insoluto) al banco original. ¿Cómo se decide si conviene refinanciar?",
+    "alternativas": [
+      "Calculando la nueva cuota que resultaría de financiar el saldo insoluto más la cláusula de prepago a la nueva tasa, y comparándola contra la cuota actual",
+      "Comparando únicamente las tasas de interés nominales de ambos créditos, sin considerar la cláusula de prepago",
+      "Refinanciando siempre que la nueva tasa sea menor a la actual, sin importar el costo de la cláusula de prepago",
+      "Es imposible tomar esta decisión sin conocer el valor de mercado actual de la propiedad"
+    ],
+    "correcta": 0,
+    "explicacion": "El costo de la cláusula de prepago aumenta el monto a financiar con el nuevo crédito; solo conviene refinanciar si la nueva cuota resultante (incluyendo ese costo) es menor a la cuota que se está pagando actualmente.",
+    "fuente": "Intro a Finanzas · Pauta Examen 1 Primavera 2014 (Marcelo González).pdf"
+  },
+  {
+    "id": "mf-034",
+    "tema": "matematica-financiera",
+    "ramo": "intro-finanzas",
+    "dificultad": 3,
+    "pregunta": "Para calcular la pensión mensual que podrá recibir alguien que ahorró en dos cuentas distintas (por ejemplo, acciones y bonos, cada una con su propio rendimiento) durante su vida laboral, ¿cuál es el procedimiento correcto?",
+    "alternativas": [
+      "Calcular por separado el valor futuro de cada cuenta con su propia tasa, sumar ambos montos, y convertir ese total en una anualidad de retiro",
+      "Promediar las tasas de rendimiento de ambas cuentas y aplicar esa tasa promedio a la suma de los aportes mensuales realizados",
+      "Usar solamente el rendimiento de la cuenta con mayor aporte mensual para todo el cálculo del ahorro total",
+      "Calcular la pensión usando únicamente el último aporte mensual realizado, sin considerar el resto del ahorro acumulado"
+    ],
+    "correcta": 0,
+    "explicacion": "Cuando el ahorro se distribuye en cuentas con distinto rendimiento, cada una se debe capitalizar por separado hasta el momento del retiro, sumar los montos resultantes, y luego convertir ese total en la anualidad de pensión correspondiente.",
+    "fuente": "Intro a Finanzas · Pauta Solemne Hansen Primavera 2013.pdf"
+  },
+  {
+    "id": "ec-012",
+    "tema": "estructura-capital",
+    "ramo": "intro-finanzas",
+    "dificultad": 3,
+    "pregunta": "En el modelo de dos períodos con mercado de capitales perfecto, si una empresa debe financiar un déficit de caja usando deuda o emitiendo nuevas acciones, ¿cómo se ve afectada la riqueza de los accionistas originales según la fuente elegida?",
+    "alternativas": [
+      "No cambia según la fuente elegida: el VAN de los proyectos siempre se lo llevan los accionistas originales, sea deuda o acciones",
+      "La riqueza de los accionistas originales siempre es mayor si se financia exclusivamente con deuda, sin excepción",
+      "La riqueza de los accionistas originales siempre es mayor si se financia exclusivamente con nuevas acciones",
+      "La fuente de financiamiento siempre determina completamente si el proyecto tendrá VAN positivo o negativo"
+    ],
+    "correcta": 0,
+    "explicacion": "Bajo mercado de capitales perfecto, la política de financiamiento es irrelevante para la riqueza de los accionistas originales: el valor creado por los proyectos (VAN) se lo apropian ellos sin importar si se financia con deuda o emisión de acciones.",
+    "fuente": "Intro a Finanzas · Pauta Examen 1 Primavera 2014 (Marcelo González).pdf"
+  },
+  {
+    "id": "ec-013",
+    "tema": "estructura-capital",
+    "ramo": "intro-finanzas",
+    "dificultad": 3,
+    "pregunta": "Cuando una empresa emite nuevas acciones para financiar un déficit y un proyecto con VAN positivo, ¿qué rentabilidad debería obtener el nuevo accionista que compra esas acciones?",
+    "alternativas": [
+      "La tasa de mercado, ya que el VAN generado por los proyectos queda en manos de los accionistas originales y no del nuevo accionista",
+      "Una rentabilidad siempre superior a la tasa de mercado, proporcional al VAN total generado por los proyectos",
+      "Una rentabilidad de cero, ya que los nuevos accionistas nunca reciben ningún retorno por su inversión",
+      "Exactamente la misma rentabilidad que obtienen los accionistas originales, incluyendo el VAN del proyecto"
+    ],
+    "correcta": 0,
+    "explicacion": "Como el precio de las nuevas acciones se fija de forma justa en el momento de la emisión, el nuevo accionista solo obtiene la rentabilidad de mercado, mientras el VAN de los proyectos queda capturado por los accionistas originales.",
+    "fuente": "Intro a Finanzas · Pauta Examen 1 Primavera 2014 (Marcelo González).pdf"
+  },
+  {
+    "id": "ec-014",
+    "tema": "estructura-capital",
+    "ramo": "intro-finanzas",
+    "dificultad": 3,
+    "pregunta": "Aunque la riqueza de los accionistas originales sea la misma al financiar un proyecto con deuda o con emisión de nuevas acciones, ¿qué diferencia práctica sí existe entre ambas alternativas para los accionistas originales?",
+    "alternativas": [
+      "El control de la empresa: financiar con nuevas acciones diluye la propiedad de los accionistas originales, mientras financiar con deuda la mantiene intacta",
+      "No existe ninguna diferencia práctica relevante entre ambas alternativas de financiamiento",
+      "La emisión de acciones siempre elimina por completo el riesgo financiero de la empresa",
+      "El uso de deuda siempre elimina la posibilidad de que la empresa emita acciones en el futuro"
+    ],
+    "correcta": 0,
+    "explicacion": "Aunque la riqueza total no cambie bajo mercado de capitales perfecto, emitir nuevas acciones reduce el porcentaje de propiedad y control de los accionistas originales, mientras que financiarse con deuda preserva ese control.",
+    "fuente": "Intro a Finanzas · Pauta Solemne Hansen Primavera 2013.pdf"
+  },
+  {
+    "id": "fc-009",
+    "tema": "fundamentos-corporativos",
+    "ramo": "intro-finanzas",
+    "dificultad": 3,
+    "pregunta": "En el modelo de dos períodos con certidumbre y mercado de capitales perfecto, para un mismo conjunto de oportunidades de inversión disponibles, ¿depende la decisión óptima de producción/inversión de las preferencias particulares de cada individuo?",
+    "alternativas": [
+      "No, la decisión óptima siempre maximiza la riqueza (invertir en todo proyecto con VAN positivo), independiente de las preferencias de cada individuo",
+      "Sí, cada individuo debe elegir un nivel de inversión distinto según cuánto prefiera consumir hoy versus en el futuro",
+      "No, porque en este modelo nadie puede realizar ninguna decisión de inversión bajo ninguna circunstancia",
+      "Sí, pero solo si el mercado de capitales no permite prestar ni pedir prestado"
+    ],
+    "correcta": 0,
+    "explicacion": "Este es el teorema de separación de Fisher: con mercado de capitales perfecto, la decisión de inversión óptima (maximizar VAN) es independiente de las preferencias de consumo intertemporal de cada individuo, que solo determinan cuánto prestar o pedir prestado después.",
+    "fuente": "Intro a Finanzas · Pauta Solemne Hansen Primavera 2013.pdf"
+  },
+  {
+    "id": "rv-019",
+    "tema": "renta-variable",
+    "ramo": "intro-finanzas",
+    "dificultad": 2,
+    "pregunta": "Si dos activos generan exactamente los mismos flujos de caja futuros, tanto en magnitud como en el momento en que ocurren, pero se transan a precios distintos en el mercado, ¿qué explica esa diferencia de precio?",
+    "alternativas": [
+      "Que el nivel de riesgo asociado a cada activo es distinto, lo que resulta en tasas de descuento distintas aplicadas a los mismos flujos futuros",
+      "Es imposible que dos activos con los mismos flujos futuros tengan precios distintos en cualquier circunstancia",
+      "Que uno de los dos activos necesariamente tiene un error de valoración que el mercado corregirá de inmediato",
+      "Que la moneda en la que están denominados los flujos es distinta, sin relación con el riesgo de cada activo"
+    ],
+    "correcta": 0,
+    "explicacion": "Si los flujos futuros son idénticos en magnitud y momento pero los precios difieren, la explicación consistente es que el mercado exige una tasa de descuento distinta a cada activo, reflejando diferencias en su nivel de riesgo.",
+    "fuente": "Intro a Finanzas · Pauta Solemne Hansen Primavera 2013.pdf"
+  },
+  {
+    "id": "rf-034",
+    "tema": "renta-fija",
+    "ramo": "finanzas-i",
+    "dificultad": 3,
+    "pregunta": "Al construir la tabla de amortización de un bono tipo francés (cuotas constantes que incluyen interés y amortización de capital), ¿cómo se calcula el interés a pagar en cada período?",
+    "alternativas": [
+      "Multiplicando el saldo insoluto del período anterior por la tasa cupón periódica del bono",
+      "Multiplicando siempre el valor nominal original del bono por la tasa cupón, sin importar cuánto se ha amortizado",
+      "Dividiendo la cuota total del período por el número de períodos restantes hasta el vencimiento",
+      "Restando la amortización del período de la cuota total, sin relación con ningún saldo insoluto"
+    ],
+    "correcta": 0,
+    "explicacion": "En un bono francés, el interés de cada período se calcula sobre el saldo insoluto (deuda pendiente) del período anterior multiplicado por la tasa cupón periódica; la amortización es la diferencia entre la cuota fija y ese interés.",
+    "fuente": "Finanzas I · Pauta Ayudantía 1 Primavera 2009 bonus (Arturo Rodríguez).pdf"
+  },
+  {
+    "id": "rf-035",
+    "tema": "renta-fija",
+    "ramo": "finanzas-i",
+    "dificultad": 2,
+    "pregunta": "Si el valor presente de los cupones y el principal de un bono, calculado con la tasa de descuento de mercado, resulta mayor que su valor nominal, ¿qué indica esto sobre la relación entre la tasa cupón y la tasa de descuento?",
+    "alternativas": [
+      "Que la tasa cupón del bono es mayor que la tasa de descuento de mercado, por lo que el bono se transa sobre la par (con prima)",
+      "Que la tasa cupón del bono es menor que la tasa de descuento de mercado, por lo que el bono se transa bajo la par",
+      "Que la tasa cupón y la tasa de descuento son exactamente iguales en ese bono",
+      "No existe ninguna relación entre el valor presente del bono y la comparación entre tasa cupón y tasa de descuento"
+    ],
+    "correcta": 0,
+    "explicacion": "Cuando la tasa cupón supera la tasa de descuento exigida por el mercado, el valor presente de los flujos del bono es mayor que su valor nominal, es decir, el bono se transa con una prima (sobre la par).",
+    "fuente": "Finanzas I · Pauta Ayudantía 1 Primavera 2009 bonus (Arturo Rodríguez).pdf"
+  }
+]

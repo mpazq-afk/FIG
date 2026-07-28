@@ -1,0 +1,2599 @@
+<!DOCTYPE html>
+<html lang="es" class="no-js">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FEN Investment Group — Forjando la Élite del Mañana</title>
+<meta name="description" content="FEN Investment Group (FIG): la comunidad de inversiones de la Facultad de Economía y Negocios, Universidad de Chile. Portafolio, Trading, Valuation y FEN Investment Woman.">
+<meta name="theme-color" content="#0A1128">
+<meta property="og:title" content="FEN Investment Group">
+<meta property="og:description" content="Forjando la Élite del Mañana. La comunidad de inversiones de la FEN, Universidad de Chile.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FEN Investment Group">
+<meta name="twitter:description" content="Forjando la Élite del Mañana. La comunidad de inversiones de la FEN, Universidad de Chile.">
+<meta name="twitter:image" content="/og-image.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%230A1128'/%3E%3Ccircle cx='50' cy='50' r='34' fill='%23D4AF37'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================================
+   FEN INVESTMENT GROUP · Sitio institucional oficial
+   ----------------------------------------------------------------------------
+   Concepto: "La página es un gráfico" — la experiencia completa se recorre
+   como una curva de rendimiento: riel de progreso tipo equity-curve, fondo
+   de cordillera de datos, crosshair estilo terminal y métricas vivas.
+   Identidad: Navy #0A1128 · Oro #D4AF37 · Playfair + Inter + IBM Plex Mono
+   Estructura aprobada: secciones alternadas claro/oscuro · hero dividido
+   ============================================================================ */
+
+:root{
+  --navy-deep:#060B1C;
+  --navy:#0A1128;
+  --navy-panel:#0F1934;
+  --navy-soft:#152350;
+  --gold:#D4AF37;
+  --gold-light:#EBD388;
+  --gold-deep:#9E7E1E;
+  --gold-dim:rgba(212,175,55,.32);
+  --gold-faint:rgba(212,175,55,.11);
+  --ivory:#F7F4EC;
+  --paper:#FBF9F3;
+  --ink:#101828;
+  --ink-soft:#4C5566;
+  --line-l:rgba(16,24,40,.13);
+  --line-d:rgba(212,175,55,.17);
+  --up:#5FC08B;
+  --down:#E07A5F;
+  --f-disp:"Playfair Display", Georgia, "Times New Roman", serif;
+  --f-body:"Inter", -apple-system, "Segoe UI", Roboto, sans-serif;
+  --f-mono:"IBM Plex Mono", "SF Mono", Consolas, monospace;
+  --wrap:1180px;
+  --ease:cubic-bezier(.22,.61,.21,1);
+  --ease-out:cubic-bezier(.16,1,.3,1);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+section[id],header[id]{scroll-margin-top:80px}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001s!important;transition-duration:.001s!important}
+}
+body{
+  background:var(--navy);
+  color:var(--ivory);
+  font-family:var(--f-body);
+  font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+::selection{background:var(--gold);color:var(--navy)}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:2px}
+
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+/* ---------- Tipografía utilitaria ---------- */
+.kicker{
+  font-family:var(--f-mono);font-size:.72rem;font-weight:500;
+  letter-spacing:.42em;text-transform:uppercase;color:var(--gold);
+  display:flex;align-items:center;gap:14px;
+}
+.kicker::before{content:"";width:34px;height:1px;background:var(--gold);opacity:.7;flex:none}
+.h-sec{
+  font-family:var(--f-disp);font-weight:600;
+  font-size:clamp(2.1rem,4.6vw,3.5rem);line-height:1.1;letter-spacing:-.012em;
+  margin:18px 0 0;
+}
+.h-sec em{font-style:italic;color:var(--gold)}
+.section--light .h-sec em{color:#A8871C}
+.lead{font-size:1.06rem;color:rgba(247,244,236,.78);max-width:58ch}
+.section--light .lead{color:var(--ink-soft)}
+.section--light .lead b{color:var(--ink)}
+.mono-tag{
+  font-family:var(--f-mono);font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--gold);border:1px solid var(--gold-dim);border-radius:100px;
+  padding:5px 13px;display:inline-block;
+}
+
+/* ---------- Secciones ---------- */
+section{padding:clamp(5rem,10vw,9rem) 0;position:relative}
+.section--dark{background:var(--navy);color:var(--ivory)}
+.section--deep{background:var(--navy-deep);color:var(--ivory)}
+
+/* Tira de fotos reales de eventos deslizándose despacio detrás de las
+   secciones de fondo oscuro (hero, áreas, historia). Puramente decorativa
+   (aria-hidden), se detiene con prefers-reduced-motion. */
+.photo-marquee{position:absolute;inset:0;overflow:hidden;z-index:0;opacity:.13}
+.photo-marquee .pm-track{display:flex;align-items:center;gap:16px;height:100%;width:max-content;animation:pmScroll 90s linear infinite}
+.photo-marquee .pm-track img{height:46%;min-height:170px;width:auto;object-fit:cover;border-radius:2px;filter:grayscale(.3) contrast(1.05) brightness(.85)}
+.photo-marquee::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,11,28,1) 0%,transparent 14%,transparent 86%,rgba(6,11,28,1) 100%)}
+.photo-marquee::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 100% at 50% 50%,transparent 25%,rgba(6,11,28,.94) 100%)}
+@keyframes pmScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.photo-marquee .pm-track{animation:none}}
+@media(max-width:640px){.photo-marquee{opacity:.1}}
+.section--light{
+  background:
+    radial-gradient(1200px 500px at 85% -5%, rgba(212,175,55,.06), transparent 60%),
+    var(--ivory);
+  color:var(--ink);
+}
+.sec-head{max-width:740px;margin-bottom:clamp(2.6rem,6vw,4.4rem)}
+.has-ghost{overflow:hidden}
+.ghost{
+  position:absolute;font-family:var(--f-disp);font-weight:700;line-height:.85;
+  font-size:clamp(7rem,22vw,17rem);color:transparent;white-space:nowrap;
+  -webkit-text-stroke:1px var(--gold-faint);pointer-events:none;user-select:none;z-index:0;
+}
+.section--light .ghost{-webkit-text-stroke:1px rgba(16,24,40,.065)}
+
+/* ---------- Botones ---------- */
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  font-weight:600;font-size:.92rem;letter-spacing:.02em;white-space:nowrap;
+  padding:16px 32px;border-radius:2px;position:relative;overflow:hidden;
+  transition:transform .4s var(--ease), box-shadow .4s var(--ease), background .35s, color .35s, border-color .35s;
+}
+.btn--gold{background:var(--gold);color:var(--navy)}
+.btn--gold::after{
+  content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.5),transparent);
+  transform:skewX(-20deg);transition:left .6s var(--ease);
+}
+.btn--gold:hover{background:var(--gold-light);box-shadow:0 16px 38px -12px rgba(212,175,55,.55)}
+.btn--gold:hover::after{left:130%}
+.btn--ghost{border:1px solid var(--gold-dim);color:var(--ivory)}
+.btn--ghost:hover{border-color:var(--gold);color:var(--gold)}
+.section--light .btn--ghost{border-color:rgba(16,24,40,.28);color:var(--ink)}
+.section--light .btn--ghost:hover{border-color:#A8871C;color:#A8871C}
+.btn--navy{background:var(--navy);color:var(--gold)}
+.btn--navy:hover{box-shadow:0 18px 40px -14px rgba(10,17,40,.6)}
+.btn .arr{transition:transform .35s var(--ease)}
+.btn:hover .arr{transform:translateX(4px)}
+
+/* ---------- Cursor personalizado (solo puntero fino) ---------- */
+#cursorDot,#cursorRing{
+  position:fixed;top:0;left:0;pointer-events:none;z-index:2400;border-radius:50%;
+  opacity:0;transition:opacity .3s;will-change:transform;
+}
+#cursorDot{width:6px;height:6px;background:var(--gold)}
+#cursorRing{
+  width:36px;height:36px;border:1px solid rgba(212,175,55,.55);
+  transition:opacity .3s, width .3s var(--ease), height .3s var(--ease), border-color .3s;
+}
+body.cursor-on #cursorDot,body.cursor-on #cursorRing{opacity:1}
+body.cursor-on #cursorRing.grow{width:58px;height:58px;border-color:var(--gold)}
+
+/* ---------- Barra de progreso (móvil / tablet) ---------- */
+#scrollbar{position:fixed;top:0;left:0;height:2.5px;width:0;background:linear-gradient(90deg,var(--gold),var(--gold-light));z-index:1002}
+
+/* ---------- Riel de progreso «equity curve» (escritorio) ---------- */
+#rail{
+  position:fixed;left:26px;top:0;bottom:0;width:40px;z-index:900;
+  display:none;
+}
+@media (min-width:1200px){#rail{display:block}}
+#rail .rail-line{
+  position:absolute;left:19px;top:130px;bottom:120px;width:1px;
+  background:rgba(212,175,55,.16);
+}
+#rail .rail-fill{
+  position:absolute;left:19px;top:130px;width:1px;height:0;
+  background:linear-gradient(180deg,var(--gold),var(--gold-light));
+  box-shadow:0 0 12px rgba(212,175,55,.5);
+}
+.rail-node{
+  position:absolute;left:12px;width:15px;height:15px;border-radius:50%;
+  border:1px solid rgba(212,175,55,.5);background:var(--navy);
+  display:flex;align-items:center;justify-content:center;cursor:pointer;
+  transition:border-color .3s, transform .3s var(--ease);
+}
+.rail-node::after{
+  content:"";width:5px;height:5px;border-radius:50%;background:transparent;transition:background .3s;
+}
+.rail-node:hover{transform:scale(1.25)}
+.rail-node.active{border-color:var(--gold)}
+.rail-node.active::after{background:var(--gold)}
+.rail-node .rn-lab{
+  position:absolute;left:26px;top:50%;transform:translateY(-50%) translateX(-6px);
+  font-family:var(--f-mono);font-size:.6rem;letter-spacing:.26em;text-transform:uppercase;
+  color:var(--gold);white-space:nowrap;opacity:0;transition:opacity .3s, transform .3s var(--ease);
+  pointer-events:none;text-shadow:0 1px 8px rgba(6,11,28,.9);
+}
+.rail-node:hover .rn-lab,.rail-node.active .rn-lab{opacity:1;transform:translateY(-50%) translateX(0)}
+body.on-light .rail-node{background:var(--ivory);border-color:rgba(16,24,40,.35)}
+body.on-light .rail-node.active{border-color:#A8871C}
+body.on-light .rail-node.active::after{background:#A8871C}
+body.on-light #rail .rail-line{background:rgba(16,24,40,.14)}
+body.on-light .rail-node .rn-lab{color:#A8871C;text-shadow:none}
+
+/* ---------- Preloader con telón ---------- */
+#preloader{position:fixed;inset:0;z-index:2600;pointer-events:none}
+#preloader .curt{
+  position:absolute;top:0;bottom:0;width:50.5%;background:var(--navy-deep);
+  transition:transform 1s var(--ease-out);
+}
+#preloader .curt.l{left:0;border-right:1px solid rgba(212,175,55,.14)}
+#preloader .curt.r{right:0}
+#preloader .pl-core{
+  position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:22px;transition:opacity .45s;
+}
+#preloader .pl-lock{display:flex;align-items:center;gap:18px}
+#preloader .pl-logo{
+  width:76px;height:76px;object-fit:contain;opacity:0;transform:scale(.45);
+  transition:opacity .6s ease,transform .7s cubic-bezier(.34,1.56,.64,1);
+}
+#preloader.p1 .pl-logo{opacity:1;transform:scale(1)}
+#preloader .pl-word{
+  font-family:var(--f-mono);font-size:.68rem;letter-spacing:.55em;text-transform:uppercase;
+  color:rgba(247,244,236,.7);
+  max-width:0;overflow:hidden;white-space:nowrap;opacity:0;
+  transition:max-width .85s var(--ease-out),opacity .6s ease .12s;
+}
+#preloader.p2 .pl-word{max-width:420px;opacity:1}
+#preloader .pl-num{
+  font-family:var(--f-mono);font-weight:600;font-size:.85rem;letter-spacing:.2em;color:var(--gold);
+}
+#preloader.open .pl-core{opacity:0}
+#preloader.open .curt.l{transform:translateX(-101%)}
+#preloader.open .curt.r{transform:translateX(101%)}
+#preloader.gone{display:none}
+
+/* ---------- Emblema (moneda FIG) ---------- */
+.coin{
+  border-radius:50%;flex:none;position:relative;
+  background:radial-gradient(circle at 34% 30%,var(--gold-light),var(--gold) 58%,var(--gold-deep));
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 6px 22px -6px rgba(212,175,55,.5), inset 0 0 0 2px rgba(10,17,40,.22);
+}
+.coin span{font-family:var(--f-disp);font-weight:700;color:var(--navy);letter-spacing:.02em}
+.coin::after{content:"";position:absolute;inset:5px;border-radius:50%;border:1px solid rgba(10,17,40,.3)}
+.brand-logo{width:44px;height:44px;object-fit:contain;flex:none}
+
+/* ---------- Navegación ---------- */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;padding:22px 0;
+  transition:padding .4s var(--ease), background .4s, border-color .4s, transform .5s var(--ease);
+  border-bottom:1px solid transparent;
+}
+.nav.scrolled{
+  padding:12px 0;background:rgba(6,11,28,.8);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--line-d);
+}
+.nav.hide{transform:translateY(-102%)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:13px}
+.brand .coin{width:38px;height:38px}
+.brand .coin span{font-size:.8rem}
+.brand-name{font-family:var(--f-disp);font-weight:600;font-size:1.02rem;line-height:1.15}
+.brand-sub{font-family:var(--f-mono);font-size:.55rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);display:block;margin-top:2px}
+.nav__links{display:flex;align-items:center;gap:30px;list-style:none}
+.nav__links a{
+  font-size:.84rem;font-weight:500;color:rgba(247,244,236,.82);
+  padding:6px 0;position:relative;transition:color .3s;
+}
+.nav__links a::after{
+  content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;
+  background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease);
+}
+.nav__links a:hover,.nav__links a.active{color:var(--gold)}
+.nav__links a:hover::after,.nav__links a.active::after{transform:scaleX(1)}
+.nav .btn{padding:11px 22px;font-size:.82rem}
+
+/* Menú "Jugar": desplegable con los dos juegos del club */
+.nav__play{position:relative}
+.nav__play>a{cursor:pointer}
+.nav__play-menu{
+  position:absolute;top:calc(100% + 10px);left:50%;transform:translate(-50%,6px);
+  min-width:210px;background:rgba(10,17,40,.97);border:1px solid rgba(212,175,55,.35);
+  padding:8px;display:flex;flex-direction:column;gap:2px;
+  opacity:0;visibility:hidden;transition:opacity .25s,transform .3s var(--ease),visibility .25s;
+  box-shadow:0 24px 50px -18px rgba(0,0,0,.7);z-index:50;
+}
+.nav__play:hover .nav__play-menu,.nav__play:focus-within .nav__play-menu{
+  opacity:1;visibility:visible;transform:translate(-50%,0);
+}
+.nav__play-menu a{
+  display:block;padding:11px 14px;font-size:.82rem;color:rgba(247,244,236,.85);
+}
+.nav__play-menu a::after{display:none}
+.nav__play-menu a:hover{background:rgba(212,175,55,.12);color:var(--gold)}
+.nav__play-menu small{
+  display:block;font-family:var(--f-mono);font-size:.6rem;letter-spacing:.14em;
+  text-transform:uppercase;color:rgba(247,244,236,.42);margin-top:2px;
+}
+.nav__burger{display:none;flex-direction:column;gap:5.5px;padding:8px;z-index:1101}
+.nav__burger i{display:block;width:24px;height:2px;background:var(--ivory);transition:transform .35s var(--ease),opacity .3s}
+.nav__burger.open i:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.nav__burger.open i:nth-child(2){opacity:0}
+.nav__burger.open i:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+
+.m-menu{
+  position:fixed;inset:0;background:rgba(6,11,28,.97);backdrop-filter:blur(12px);
+  z-index:1100;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
+  opacity:0;visibility:hidden;transition:opacity .45s var(--ease),visibility .45s;
+}
+.m-menu.open{opacity:1;visibility:visible}
+.m-menu a{
+  font-family:var(--f-disp);font-size:clamp(1.7rem,7vw,2.4rem);font-weight:600;
+  padding:9px 0;color:var(--ivory);transition:color .3s;
+}
+.m-menu a:hover{color:var(--gold)}
+.m-menu .mono-tag{margin-top:26px}
+</style>
+<style>
+/* ---------- Hero ---------- */
+.hero{
+  min-height:100svh;display:flex;flex-direction:column;justify-content:center;
+  padding:clamp(7.5rem,13vh,10rem) 0 0;position:relative;overflow:hidden;
+  background:
+    radial-gradient(1100px 560px at 82% -10%, rgba(212,175,55,.09), transparent 60%),
+    radial-gradient(900px 620px at -12% 108%, rgba(21,35,80,.7), transparent 62%),
+    var(--navy);
+}
+#bgRidges{position:absolute;inset:0;width:100%;height:100%;z-index:0;opacity:.9}
+.hero__grid{
+  display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2.5rem,5vw,4.5rem);
+  align-items:center;flex:1;
+}
+.hero__copy .kicker{margin-bottom:6px}
+.hero h1{
+  font-family:var(--f-disp);font-weight:600;
+  font-size:clamp(2.9rem,6.6vw,5.6rem);line-height:1.04;letter-spacing:-.018em;
+  margin:16px 0 26px;
+}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.06em;margin-bottom:-.06em}
+.hero h1 .ln>span{display:inline-block;transform:translateY(118%);transition:transform 1.05s var(--ease-out)}
+.hero h1 .ln:nth-child(2)>span{transition-delay:.1s}
+.hero h1 .ln:nth-child(3)>span{transition-delay:.2s}
+.hero-in .hero h1 .ln>span{transform:none}
+.hero__sub{max-width:50ch;font-size:1.08rem;color:rgba(247,244,236,.78);margin-bottom:36px}
+.hero__cta{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:44px}
+.hero__meta{
+  font-family:var(--f-mono);font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;
+  color:rgba(247,244,236,.55);display:flex;gap:22px;flex-wrap:wrap;
+}
+.hero__meta b{color:var(--gold);font-weight:600}
+
+/* Panel derecho: terminal FIG */
+.hero__panel{position:relative;perspective:1200px}
+.hero__panel .halo{
+  position:absolute;inset:-13% -9%;border-radius:50%;
+  border:1px dashed rgba(212,175,55,.2);
+  animation:spin 80s linear infinite;pointer-events:none;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.chart-card{
+  background:linear-gradient(160deg,rgba(15,25,52,.94),rgba(10,17,40,.96));
+  border:1px solid var(--line-d);border-radius:10px;
+  box-shadow:0 36px 84px -28px rgba(0,0,0,.68), inset 0 1px 0 rgba(247,244,236,.05);
+  padding:22px 22px 16px;position:relative;overflow:hidden;
+  transform-style:preserve-3d;will-change:transform;
+}
+.chart-card::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.55;
+}
+.cc-head{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:14px;flex-wrap:wrap}
+.cc-title{font-family:var(--f-mono);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(247,244,236,.6)}
+.cc-title b{color:var(--ivory);font-weight:600}
+.cc-legend{display:flex;gap:16px;font-family:var(--f-mono);font-size:.62rem;letter-spacing:.12em;color:rgba(247,244,236,.62)}
+.cc-legend i{display:inline-block;width:16px;height:2px;margin-right:7px;vertical-align:middle;border-radius:2px}
+.cc-legend .l-fig i{background:var(--gold)}
+.cc-legend .l-bmk i{background:rgba(247,244,236,.4)}
+#heroChart{width:100%;height:clamp(230px,30vw,320px);display:block;cursor:crosshair;touch-action:pan-y}
+.cc-foot{
+  display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;
+  border-top:1px solid rgba(212,175,55,.14);margin-top:14px;padding-top:13px;
+}
+.cc-chip{font-family:var(--f-mono);font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(247,244,236,.66)}
+.cc-chip b{color:var(--gold);font-weight:600}
+.live-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--up);margin-right:8px;animation:pulse 1.9s ease-out infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(95,192,139,.55)}70%{box-shadow:0 0 0 9px rgba(95,192,139,0)}100%{box-shadow:0 0 0 0 rgba(95,192,139,0)}}
+
+/* ---------- Cinta de tickers ---------- */
+.ticker{
+  border-top:1px solid var(--line-d);border-bottom:1px solid var(--line-d);
+  background:rgba(6,11,28,.62);overflow:hidden;margin-top:clamp(3rem,7vh,5rem);position:relative;z-index:2;
+}
+.ticker::before,.ticker::after{content:"";position:absolute;top:0;bottom:0;width:90px;z-index:2;pointer-events:none}
+.ticker::before{left:0;background:linear-gradient(90deg,var(--navy),transparent)}
+.ticker::after{right:0;background:linear-gradient(270deg,var(--navy),transparent)}
+.ticker__track{display:flex;width:max-content;animation:marquee 46s linear infinite}
+.ticker:hover .ticker__track{animation-play-state:paused}
+@keyframes marquee{to{transform:translateX(-50%)}}
+.tk{
+  display:flex;align-items:baseline;gap:10px;padding:13px 30px;
+  font-family:var(--f-mono);font-size:.72rem;letter-spacing:.1em;white-space:nowrap;
+  border-right:1px solid rgba(212,175,55,.1);
+}
+.tk .sym{color:var(--ivory);font-weight:600}
+.tk .nm{color:rgba(247,244,236,.42);font-size:.62rem}
+.tk .chg.up{color:var(--up)}
+.tk .chg.down{color:var(--down)}
+
+/* ---------- Quiénes somos ---------- */
+.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(2.5rem,6vw,5rem);align-items:start}
+.drop{
+  font-family:var(--f-disp);font-size:1.5rem;line-height:1.38;color:var(--ink);
+  font-weight:500;margin-bottom:24px;
+}
+.drop em{font-style:italic;color:#A8871C}
+.about-copy p:not(.drop){color:var(--ink-soft);margin-bottom:18px;font-size:1.03rem}
+.about-copy p b{color:var(--ink);font-weight:600}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line-l);border:1px solid var(--line-l)}
+.stat{background:var(--paper);padding:30px 26px;position:relative;overflow:hidden}
+.stat::after{
+  content:"";position:absolute;left:0;bottom:0;height:2px;width:100%;
+  background:linear-gradient(90deg,var(--gold),transparent);transform:scaleX(0);
+  transform-origin:left;transition:transform .8s var(--ease);
+}
+.stat:hover::after{transform:scaleX(1)}
+.stat__num{
+  font-family:var(--f-mono);font-weight:600;font-size:clamp(1.9rem,3.4vw,2.6rem);
+  color:var(--navy);line-height:1;letter-spacing:-.02em;
+}
+.stat__num sup{font-size:.55em;color:#A8871C;margin-left:2px}
+.stat__lbl{font-family:var(--f-mono);font-size:.63rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);margin-top:12px}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:clamp(2.8rem,6vw,4.2rem)}
+.pillar{
+  border:1px solid var(--line-l);padding:32px 28px;background:var(--paper);
+  transition:transform .45s var(--ease), box-shadow .45s var(--ease), border-color .45s;
+}
+.pillar:hover{transform:translateY(-6px);border-color:rgba(168,135,28,.5);box-shadow:0 24px 46px -22px rgba(16,24,40,.22)}
+.pillar .mono-tag{border-color:rgba(168,135,28,.4);color:#A8871C;margin-bottom:18px}
+.pillar h3{font-family:var(--f-disp);font-size:1.34rem;font-weight:600;margin-bottom:10px}
+.pillar p{font-size:.92rem;color:var(--ink-soft)}
+
+/* ---------- Áreas · conmutador de desks ---------- */
+.desks{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(2rem,4vw,3.6rem);align-items:stretch}
+.desk-list{display:flex;flex-direction:column;border-top:1px solid var(--line-d)}
+.desk-item{
+  display:flex;align-items:center;gap:22px;text-align:left;width:100%;
+  padding:26px 8px;border-bottom:1px solid var(--line-d);position:relative;
+  transition:padding .4s var(--ease);
+}
+.desk-item .di-code{
+  font-family:var(--f-mono);font-size:.66rem;letter-spacing:.26em;color:rgba(247,244,236,.4);
+  width:44px;flex:none;transition:color .3s;
+}
+.desk-item .di-name{
+  font-family:var(--f-disp);font-weight:600;font-size:clamp(1.5rem,2.6vw,2.1rem);
+  color:rgba(247,244,236,.55);transition:color .35s;flex:1;line-height:1.15;
+}
+.desk-item .di-arrow{
+  font-size:1.1rem;color:var(--gold);opacity:0;transform:translateX(-10px);
+  transition:opacity .35s, transform .35s var(--ease);
+}
+.desk-item::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--gold);
+  transform:scaleY(0);transition:transform .4s var(--ease);
+}
+.desk-item:hover .di-name{color:var(--ivory)}
+.desk-item.active{padding-left:24px}
+.desk-item.active::before{transform:scaleY(1)}
+.desk-item.active .di-code{color:var(--gold)}
+.desk-item.active .di-name{color:var(--ivory)}
+.desk-item.active .di-arrow{opacity:1;transform:none}
+.desk-panel{
+  position:relative;background:var(--navy-panel);border:1px solid var(--line-d);
+  border-radius:10px;overflow:hidden;min-height:380px;
+}
+.desk-panel::before{
+  content:"";position:absolute;inset:0;opacity:0;transition:opacity .5s;
+  background:radial-gradient(300px circle at var(--mx,70%) var(--my,30%), rgba(212,175,55,.13), transparent 65%);
+}
+.desk-panel:hover::before{opacity:1}
+.dp-view{
+  position:absolute;inset:0;padding:clamp(2rem,4vw,3rem);
+  display:flex;flex-direction:column;justify-content:flex-end;gap:16px;
+  opacity:0;transform:translateY(14px);visibility:hidden;
+  transition:opacity .55s var(--ease), transform .55s var(--ease), visibility .55s;
+}
+.dp-view.active{opacity:1;transform:none;visibility:visible;position:relative}
+.dp-num{
+  position:absolute;top:-8px;right:14px;font-family:var(--f-disp);font-weight:700;
+  font-size:clamp(6rem,11vw,9.5rem);line-height:1;color:transparent;
+  -webkit-text-stroke:1px rgba(212,175,55,.16);pointer-events:none;
+}
+.dp-view h3{font-family:var(--f-disp);font-weight:600;font-size:clamp(1.7rem,3vw,2.3rem);line-height:1.15}
+.dp-view p{font-size:.96rem;color:rgba(247,244,236,.72);max-width:46ch}
+.dp-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.dp-bar{height:3px;width:100%;background:rgba(247,244,236,.08);border-radius:100px;overflow:hidden;margin-top:14px}
+.dp-bar i{display:block;height:100%;width:100%;background:linear-gradient(90deg,var(--gold-deep),var(--gold));transform:scaleX(0);transform-origin:left}
+.dp-bar.run i{transition:transform 5.5s linear;transform:scaleX(1)}
+
+/* ---------- Torneo ---------- */
+.torneo-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2.6rem,6vw,4.8rem);align-items:start}
+.facts{list-style:none;margin:30px 0 34px;border-top:1px solid var(--line-l)}
+.facts li{
+  display:flex;justify-content:space-between;gap:20px;align-items:baseline;
+  padding:15px 4px;border-bottom:1px solid var(--line-l);font-size:.95rem;
+}
+.facts .k{color:var(--ink-soft)}
+.facts .v{font-family:var(--f-mono);font-size:.78rem;letter-spacing:.05em;color:var(--navy);font-weight:600;text-align:right}
+.torneo-ctas{display:flex;gap:14px;flex-wrap:wrap}
+.score-card{
+  background:var(--navy);color:var(--ivory);border-radius:10px;padding:34px 32px;
+  border:1px solid rgba(212,175,55,.28);position:relative;overflow:hidden;
+  box-shadow:0 34px 70px -30px rgba(10,17,40,.55);
+}
+.score-card::before{
+  content:"";position:absolute;inset:0;opacity:0;transition:opacity .5s;
+  background:radial-gradient(300px circle at var(--mx,80%) var(--my,10%), rgba(212,175,55,.14), transparent 65%);
+}
+.score-card:hover::before{opacity:1}
+.score-card h3{font-family:var(--f-disp);font-size:1.5rem;font-weight:600;margin-bottom:6px}
+.score-card .sc-sub{font-family:var(--f-mono);font-size:.63rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(247,244,236,.55);margin-bottom:28px}
+.s-row{margin-bottom:20px}
+.s-row:last-of-type{margin-bottom:8px}
+.s-lab{display:flex;justify-content:space-between;gap:12px;font-family:var(--f-mono);font-size:.7rem;letter-spacing:.08em;margin-bottom:9px}
+.s-lab .pts{color:var(--gold);font-weight:600;flex:none}
+.s-bar{height:7px;background:rgba(247,244,236,.09);border-radius:100px;overflow:hidden}
+.s-fill{
+  height:100%;width:0;border-radius:100px;
+  background:linear-gradient(90deg,var(--gold-deep),var(--gold) 60%,var(--gold-light));
+  transition:width 1.3s var(--ease);
+}
+.sc-note{font-family:var(--f-mono);font-size:.61rem;letter-spacing:.1em;color:rgba(247,244,236,.5);margin-top:22px;line-height:1.85}
+
+/* Eje de hitos del torneo con marcador HOY en vivo */
+.axis-wrap{margin-top:clamp(3.4rem,7vw,5rem)}
+.axis-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:26px}
+.axis-head .mono-tag{border-color:rgba(168,135,28,.4);color:#A8871C}
+.axis-scroll{overflow-x:auto;padding-bottom:14px;-webkit-overflow-scrolling:touch}
+.axis{position:relative;min-width:820px;padding:36px 10px 6px}
+.axis-line{position:absolute;top:41px;left:10px;right:10px;height:1px;background:var(--line-l)}
+.axis-fill{
+  position:absolute;top:41px;left:10px;height:1px;width:0;
+  background:linear-gradient(90deg,var(--gold-deep),var(--gold));
+  transition:width 1.6s var(--ease);
+}
+.axis-now{
+  position:absolute;top:41px;transform:translate(-50%,-50%);z-index:3;
+  width:11px;height:11px;border-radius:50%;background:var(--gold);
+  box-shadow:0 0 0 4px rgba(212,175,55,.22);animation:pulse 2s ease-out infinite;
+}
+.axis-now .an-lab{
+  position:absolute;top:-32px;left:50%;transform:translateX(-50%);
+  font-family:var(--f-mono);font-size:.6rem;letter-spacing:.2em;color:#A8871C;
+  white-space:nowrap;font-weight:600;
+}
+.axis-items{display:flex;justify-content:space-between;position:relative}
+.ax{position:relative;flex:1;text-align:center;padding-top:20px}
+.ax::before{
+  content:"";position:absolute;top:1px;left:50%;transform:translate(-50%,-50%);
+  width:9px;height:9px;border-radius:50%;background:var(--ivory);
+  border:1.5px solid rgba(16,24,40,.4);z-index:2;
+}
+.ax.done::before{background:var(--gold);border-color:var(--gold)}
+.ax .ax-d{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.16em;color:#A8871C;font-weight:600}
+.ax .ax-t{font-size:.8rem;color:var(--ink-soft);margin-top:4px;line-height:1.4}
+
+/* ---------- Historia ---------- */
+.timeline{position:relative;max-width:860px;margin:0 auto}
+.tl-line{position:absolute;left:50%;top:0;bottom:0;width:1px;background:rgba(212,175,55,.14);transform:translateX(-50%)}
+.tl-line i{
+  position:absolute;inset:0;display:block;
+  background:linear-gradient(180deg,var(--gold),var(--gold-light));
+  transform:scaleY(0);transform-origin:top;transition:transform 1.9s var(--ease);
+}
+.timeline.drawn .tl-line i{transform:scaleY(1)}
+.tl-item{position:relative;width:50%;padding:0 52px 62px 0}
+.tl-item:nth-child(even){margin-left:50%;padding:0 0 62px 52px}
+.tl-item:last-child{padding-bottom:6px}
+.tl-dot{
+  position:absolute;top:8px;right:-6px;width:12px;height:12px;border-radius:50%;
+  background:var(--navy-deep);border:2px solid var(--gold);z-index:2;
+}
+.tl-item:nth-child(even) .tl-dot{right:auto;left:-6px}
+.tl-chap{font-family:var(--f-mono);font-size:.63rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.tl-card h3{font-family:var(--f-disp);font-size:1.44rem;font-weight:600;margin-bottom:9px;line-height:1.25}
+.tl-card p{font-size:.92rem;color:rgba(247,244,236,.68)}
+.tl-item:nth-child(odd) .tl-card{text-align:right}
+
+/* ---------- Equipo ---------- */
+.pill-row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:clamp(2.2rem,5vw,3.4rem)}
+.pill{
+  font-family:var(--f-mono);font-size:.69rem;letter-spacing:.18em;text-transform:uppercase;
+  padding:11px 22px;border:1px solid rgba(16,24,40,.22);border-radius:100px;color:var(--ink-soft);
+  transition:all .35s var(--ease);
+}
+.pill:hover{border-color:#A8871C;color:#A8871C}
+.pill.active{background:var(--navy);border-color:var(--navy);color:var(--gold)}
+.people{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.p-card{
+  border:1px solid var(--line-l);background:var(--paper);padding:28px 24px;
+  display:flex;flex-direction:column;gap:14px;
+  transition:transform .4s var(--ease), box-shadow .4s, border-color .4s;
+}
+.p-card:hover{transform:translateY(-6px);border-color:rgba(168,135,28,.5);box-shadow:0 24px 46px -24px rgba(16,24,40,.25)}
+.p-card.hidden{display:none}
+.avatar{
+  width:56px;height:56px;border-radius:50%;background:var(--navy);color:var(--gold);
+  display:flex;align-items:center;justify-content:center;flex:none;
+  font-family:var(--f-disp);font-weight:600;font-size:1.05rem;
+  transition:box-shadow .4s;position:relative;overflow:hidden;
+}
+.p-card:hover .avatar{box-shadow:0 0 0 3px var(--paper), 0 0 0 4.5px var(--gold)}
+.p-card--lead .avatar{background:radial-gradient(circle at 32% 28%,var(--gold-light),var(--gold) 60%,var(--gold-deep));color:var(--navy)}
+/* miniatura con foto real (cofundadores) o logo real (empresas de la industria) —
+   se prueba en fotos/directiva/<slug>.* y logos/industria/<slug>.*; si no existe,
+   se queda el monograma de siempre, sin inventar nada */
+.thumb-mono{position:relative;z-index:1;transition:opacity .35s}
+.thumb-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .45s}
+.thumb-img.ok{opacity:1}
+.avatar.has-photo .thumb-mono{opacity:0}
+.ind-logo{
+  width:56px;height:56px;border-radius:12px;background:#fff;border:1px solid var(--line-l);
+  display:flex;align-items:center;justify-content:center;flex:none;position:relative;overflow:hidden;
+}
+.ind-logo .thumb-mono{color:var(--ink);font-family:var(--f-disp);font-weight:600;font-size:1rem}
+.ind-logo .thumb-img{object-fit:contain;padding:9px}
+.ind-logo.has-photo .thumb-mono{opacity:0}
+/* ---------- FIG en la industria: tarjetas por empresa con tooltip ---------- */
+.ind-card{position:relative;cursor:default;flex-direction:row;align-items:center;gap:16px}
+.ind-card:hover,.ind-card:focus-within{transform:translateY(-6px);border-color:rgba(168,135,28,.5);box-shadow:0 24px 46px -24px rgba(16,24,40,.25)}
+.ind-count{font-family:var(--f-mono);font-size:.61rem;letter-spacing:.14em;text-transform:uppercase;color:#A8871C;margin-top:4px}
+.ind-tip{
+  position:absolute;left:50%;bottom:calc(100% + 12px);transform:translate(-50%,8px);width:max-content;
+  min-width:220px;max-width:300px;background:var(--navy);border:1px solid rgba(212,175,55,.35);
+  padding:16px 18px;opacity:0;visibility:hidden;pointer-events:none;
+  transition:opacity .25s,transform .3s var(--ease),visibility .25s;z-index:30;
+  box-shadow:0 24px 50px -18px rgba(0,0,0,.55);
+}
+.ind-card:hover .ind-tip,.ind-card:focus-within .ind-tip{opacity:1;visibility:visible;transform:translate(-50%,0);pointer-events:auto}
+.ind-tip::after{content:"";position:absolute;top:100%;left:50%;transform:translateX(-50%);border:7px solid transparent;border-top-color:var(--navy)}
+.ind-tip h5{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.ind-tip ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.ind-tip li{font-size:.82rem;color:rgba(247,244,236,.9);line-height:1.4}
+.ind-tip li span{display:block;font-size:.66rem;color:rgba(247,244,236,.5);margin-top:2px;letter-spacing:.02em}
+.ind-tip a{color:inherit;border-bottom:1px solid transparent;transition:color .25s,border-color .25s}
+.ind-tip a:hover{color:var(--gold);border-color:var(--gold)}
+@media(max-width:640px){.ind-tip{left:0;transform:translateY(8px);bottom:calc(100% + 10px)}.ind-card:hover .ind-tip,.ind-card:focus-within .ind-tip{transform:translateY(0)}.ind-tip::after{left:28px}}
+.p-name{font-family:var(--f-disp);font-weight:600;font-size:1.12rem;line-height:1.25;color:var(--ink)}
+.p-role{font-family:var(--f-mono);font-size:.61rem;letter-spacing:.16em;text-transform:uppercase;color:#A8871C;margin-top:4px}
+.p-extra{font-size:.83rem;color:var(--ink-soft);line-height:1.55}
+.p-linkedin{display:inline-block;margin-top:8px;font-family:var(--f-mono);font-size:.7rem;letter-spacing:.04em;color:var(--gold-deep);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .25s}
+.p-linkedin:hover{border-color:var(--gold-deep)}
+.p-card--more{align-items:center;justify-content:center;text-align:center;border-style:dashed;background:transparent}
+.p-card--more .p-extra{max-width:24ch}
+
+/* ---------- Expediente (perfil expandido de cofundadores) ---------- */
+.p-card--exp{cursor:pointer}
+.p-card--exp::after{
+  content:"⤢";position:absolute;top:12px;right:15px;
+  font-size:.9rem;color:#A8871C;opacity:0;transform:translate(4px,-4px);
+  transition:opacity .35s,transform .35s var(--ease);
+}
+.p-card--exp{position:relative}
+.p-card--exp:hover::after{opacity:.9;transform:none}
+
+.pv{position:fixed;inset:0;z-index:1500;display:none}
+.pv.on{display:block}
+.pv-back{
+  position:absolute;inset:0;background:rgba(5,9,22,.87);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  opacity:0;transition:opacity .45s;
+}
+.pv.in .pv-back{opacity:1}
+.pv-ghost{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  font-family:var(--f-disp);font-weight:700;line-height:1;
+  font-size:clamp(11rem,38vw,24rem);color:transparent;
+  -webkit-text-stroke:1px rgba(212,175,55,.08);
+  pointer-events:none;user-select:none;transition:opacity .6s;
+}
+.pv-shell{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  padding:clamp(12px,3.5vw,46px);
+}
+.pv-card{
+  position:relative;width:min(960px,100%);max-height:90vh;
+  background:linear-gradient(158deg,#0E1633,var(--navy) 52%,#070D20);
+  border:1px solid rgba(212,175,55,.32);
+  display:grid;grid-template-columns:minmax(260px,340px) 1fr;
+  box-shadow:0 70px 130px -45px rgba(0,0,0,.85);
+  opacity:0;transform:translateY(30px) scale(.965);
+  transition:opacity .5s var(--ease),transform .55s var(--ease);
+}
+.pv.in .pv-card{opacity:1;transform:none}
+.pv-corner{position:absolute;width:26px;height:26px;pointer-events:none;transition:width .6s var(--ease),height .6s var(--ease)}
+.pv-corner.tl{top:-1px;left:-1px;border-top:2px solid var(--gold);border-left:2px solid var(--gold)}
+.pv-corner.tr{top:-1px;right:-1px;border-top:2px solid var(--gold);border-right:2px solid var(--gold)}
+.pv-corner.bl{bottom:-1px;left:-1px;border-bottom:2px solid var(--gold);border-left:2px solid var(--gold)}
+.pv-corner.br{bottom:-1px;right:-1px;border-bottom:2px solid var(--gold);border-right:2px solid var(--gold)}
+.pv.in .pv-corner{width:44px;height:44px}
+
+.pv-media{
+  position:relative;min-height:420px;overflow:hidden;
+  background:
+    radial-gradient(340px 260px at 50% 30%, rgba(212,175,55,.14), transparent 70%),
+    linear-gradient(200deg,#101A3D,#0A1128 70%);
+  border-right:1px solid rgba(212,175,55,.18);
+  display:flex;align-items:center;justify-content:center;
+}
+.pv-mono{
+  font-family:var(--f-disp);font-weight:600;line-height:1;
+  font-size:clamp(5rem,12vw,8.5rem);
+  background:linear-gradient(160deg,var(--gold-light),var(--gold) 55%,var(--gold-deep));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  transition:opacity .4s;
+}
+.pv-img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;
+  opacity:0;transition:opacity .6s;
+}
+.pv-img.ok{opacity:1}
+.pv-media::after{ /* veladura para que el conteo se lea sobre la foto */
+  content:"";position:absolute;inset:auto 0 0 0;height:110px;pointer-events:none;
+  background:linear-gradient(transparent,rgba(7,13,32,.85));
+}
+.pv-count{
+  position:absolute;left:22px;bottom:16px;z-index:2;
+  font-family:var(--f-mono);font-size:.68rem;letter-spacing:.3em;color:var(--gold);
+}
+.pv-count b{font-size:1.05rem;letter-spacing:.12em}
+
+.pv-body{padding:clamp(28px,4.5vw,52px) clamp(24px,4.5vw,54px);position:relative;max-height:90vh;overflow:auto}
+.pv-anim{transition:opacity .28s,transform .28s var(--ease)}
+.pv-card.swap .pv-anim{opacity:0;transform:translateX(14px)}
+.pv-kicker{
+  font-family:var(--f-mono);font-size:.63rem;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:16px;
+}
+.pv-name{
+  font-family:var(--f-disp);font-weight:600;color:var(--paper);
+  font-size:clamp(1.8rem,4vw,2.7rem);line-height:1.12;margin-bottom:8px;
+}
+.pv-role{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:#D9B84A;margin-bottom:18px}
+.pv-rule{height:1px;background:linear-gradient(90deg,var(--gold),transparent);width:0;transition:width .8s var(--ease) .15s;margin-bottom:20px}
+.pv.in .pv-rule{width:120px}
+.pv-bio{font-size:.95rem;line-height:1.75;color:rgba(247,244,236,.78);margin-bottom:26px;max-width:54ch}
+.pv-hitos h4{
+  font-family:var(--f-mono);font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;
+  color:rgba(247,244,236,.5);margin-bottom:12px;
+}
+.pv-hitos ul{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:26px}
+.pv-hitos li{
+  font-size:.88rem;color:rgba(247,244,236,.85);line-height:1.5;
+  padding-left:20px;position:relative;
+}
+.pv-hitos li::before{content:"—";position:absolute;left:0;color:var(--gold)}
+.pv-lk{
+  display:inline-flex;align-items:center;gap:9px;
+  font-family:var(--f-mono);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gold);border:1px solid rgba(212,175,55,.4);padding:11px 20px;
+  transition:background .35s,color .35s,border-color .35s;
+}
+.pv-lk:hover{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+
+.pv-x{
+  position:absolute;top:14px;right:14px;z-index:5;width:42px;height:42px;border-radius:50%;
+  border:1px solid rgba(212,175,55,.4);color:var(--gold);font-size:1.15rem;line-height:1;
+  display:flex;align-items:center;justify-content:center;background:rgba(10,17,40,.55);
+  transition:background .3s,color .3s,transform .35s var(--ease);
+}
+.pv-x:hover{background:var(--gold);color:var(--navy);transform:rotate(90deg)}
+.pv-arrow{
+  position:absolute;top:50%;transform:translateY(-50%);z-index:5;
+  width:52px;height:52px;border-radius:50%;
+  border:1px solid rgba(212,175,55,.45);color:var(--gold);font-size:1.25rem;
+  display:flex;align-items:center;justify-content:center;background:rgba(10,17,40,.6);
+  transition:background .3s,color .3s,transform .3s var(--ease);
+}
+.pv-prev{left:clamp(6px,2vw,26px)}
+.pv-next{right:clamp(6px,2vw,26px)}
+.pv-arrow:hover{background:var(--gold);color:var(--navy)}
+.pv-prev:hover{transform:translateY(-50%) translateX(-3px)}
+.pv-next:hover{transform:translateY(-50%) translateX(3px)}
+
+@media(max-width:840px){
+  .pv-card{grid-template-columns:1fr;max-height:82vh;overflow:auto}
+  .pv-corner{display:none}
+  .pv-body{max-height:none;overflow:visible}
+  /* en una franja ancha y baja, "center top" recortaba a la altura del pelo:
+     se baja el encuadre para que quede la cara y se le da algo más de alto */
+  .pv-media{min-height:340px;border-right:0;border-bottom:1px solid rgba(212,175,55,.18)}
+  .pv-img{object-position:center 26%}
+  .pv-shell{align-items:flex-start;padding-top:52px}
+  .pv-x{position:fixed;top:10px;right:10px}
+  .pv-arrow{top:auto;bottom:12px;transform:none;position:fixed}
+  .pv-prev{left:calc(50% - 64px)}.pv-next{right:calc(50% - 64px)}
+  .pv-prev:hover,.pv-next:hover{transform:none}
+}
+@media (prefers-reduced-motion: reduce){
+  .pv-back,.pv-card,.pv-anim,.pv-rule,.pv-corner,.pv-img,.pv-x,.pv-arrow{transition:none!important}
+  .pv.in .pv-rule{width:120px}
+}
+
+/* ---------- Eventos ---------- */
+.events{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.e-card{
+  background:var(--navy-panel);border:1px solid var(--line-d);border-radius:8px;
+  padding:32px 30px;display:flex;flex-direction:column;gap:16px;position:relative;overflow:hidden;
+  transition:transform .45s var(--ease), border-color .45s, box-shadow .45s;
+}
+.e-card::before{
+  content:"";position:absolute;inset:0;opacity:0;transition:opacity .5s;
+  background:radial-gradient(260px circle at var(--mx,50%) var(--my,0%), rgba(212,175,55,.12), transparent 65%);
+}
+.e-card:hover{transform:translateY(-7px);border-color:rgba(212,175,55,.5);box-shadow:0 28px 56px -26px rgba(0,0,0,.6)}
+.e-card:hover::before{opacity:1}
+.e-date{font-family:var(--f-mono);font-size:.65rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);position:relative}
+.e-card h3{font-family:var(--f-disp);font-size:1.42rem;font-weight:600;line-height:1.25;position:relative}
+.e-card p{font-size:.92rem;color:rgba(247,244,236,.68);flex:1;position:relative}
+.a-link{font-family:var(--f-mono);font-size:.69rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);display:inline-flex;gap:9px;align-items:center;position:relative}
+.a-link .arr{transition:transform .35s var(--ease)}
+.e-card:hover .a-link .arr{transform:translateX(5px)}
+.e-card--live{border-color:rgba(212,175,55,.45)}
+
+/* ---------- CTA dorada ---------- */
+.cta-band{
+  background:
+    radial-gradient(900px 300px at 15% 0%, rgba(255,255,255,.22), transparent 60%),
+    linear-gradient(120deg,#C29E2B,var(--gold) 45%,var(--gold-light));
+  color:var(--navy);text-align:center;overflow:hidden;
+}
+.cta-ghost{
+  position:absolute;top:50%;left:0;transform:translateY(-50%);
+  font-family:var(--f-disp);font-weight:700;font-size:clamp(6rem,16vw,12rem);line-height:1;
+  color:transparent;-webkit-text-stroke:1.5px rgba(10,17,40,.12);
+  white-space:nowrap;pointer-events:none;user-select:none;
+  animation:ghostSlide 50s linear infinite;
+}
+@keyframes ghostSlide{to{transform:translateY(-50%) translateX(-50%)}}
+.cta-band .kicker{color:var(--navy);justify-content:center}
+.cta-band .kicker::before{background:var(--navy)}
+.cta-band h2{
+  font-family:var(--f-disp);font-weight:600;
+  font-size:clamp(2.2rem,5.4vw,4rem);line-height:1.08;margin:20px auto 18px;max-width:16ch;
+}
+.cta-band h2 em{font-style:italic}
+.cta-band p{max-width:52ch;margin:0 auto 34px;color:rgba(10,17,40,.78);font-size:1.04rem}
+
+/* ---------- Footer ---------- */
+footer{background:var(--navy-deep);padding:clamp(4rem,8vw,6rem) 0 0;border-top:1px solid var(--line-d)}
+.f-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:clamp(2rem,5vw,4rem)}
+.f-brand p{font-size:.9rem;color:rgba(247,244,236,.6);max-width:32ch;margin-top:18px}
+.f-clocks{display:flex;gap:14px;flex-wrap:wrap;margin-top:22px}
+.clock{
+  font-family:var(--f-mono);font-size:.66rem;letter-spacing:.14em;
+  border:1px solid rgba(212,175,55,.22);border-radius:4px;padding:8px 13px;
+  color:rgba(247,244,236,.72);
+}
+.clock b{color:var(--gold);font-weight:600;margin-right:8px}
+.f-col h4{font-family:var(--f-mono);font-size:.65rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+.f-col ul{list-style:none;display:flex;flex-direction:column;gap:12px}
+.f-col a{font-size:.9rem;color:rgba(247,244,236,.68);transition:color .3s}
+.f-col a:hover{color:var(--gold)}
+.f-bottom{
+  margin-top:clamp(3rem,6vw,4.5rem);border-top:1px solid rgba(212,175,55,.12);
+  padding:26px 0;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  font-family:var(--f-mono);font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(247,244,236,.45);
+}
+.f-bottom a{color:inherit;transition:color .3s}
+.f-bottom a:hover{color:var(--gold)}
+
+/* ---------- Reveals ---------- */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .95s var(--ease),transform .95s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+html:not(.no-js) body:not(.hero-in) .hero .reveal{opacity:0;transform:translateY(30px)}
+.no-js .reveal{opacity:1;transform:none}
+.no-js .hero h1 .ln>span{transform:none}
+/* ---------- Ticker del torneo (cinta bursátil, solo con torneo.json real) ---------- */
+#ticker{position:fixed;left:0;right:0;bottom:0;z-index:900;background:rgba(6,11,28,.94);border-top:1px solid var(--line-d);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);display:none;align-items:stretch;height:38px}
+#ticker.on{display:flex}
+#ticker .tk-tag{flex:none;display:flex;align-items:center;gap:8px;padding:0 14px;background:var(--gold);color:var(--navy);font-family:var(--f-mono);font-size:.6rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;white-space:nowrap}
+#ticker .tk-track{flex:1;overflow:hidden;position:relative}
+#ticker .tk-move{display:flex;align-items:center;height:100%;white-space:nowrap;width:max-content}
+@media (prefers-reduced-motion:no-preference){
+  #ticker .tk-move{animation:tkscroll 44s linear infinite}
+  #ticker .tk-track:hover .tk-move{animation-play-state:paused}
+}
+@keyframes tkscroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+#ticker .tk-item{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.08em;color:rgba(247,244,236,.8);padding:0 24px;display:inline-flex;align-items:center;gap:8px}
+#ticker .tk-item b{color:var(--gold);font-weight:600}
+#ticker .tk-item .up{color:var(--up)}
+#ticker .tk-item .down{color:var(--down)}
+#ticker a.tk-item{transition:color .3s}
+#ticker a.tk-item:hover{color:var(--gold)}
+#ticker .tk-close{flex:none;display:flex;align-items:center;padding:0 14px;color:rgba(247,244,236,.5);font-size:.85rem;transition:color .3s}
+#ticker .tk-close:hover{color:var(--gold)}
+body.has-ticker{padding-bottom:38px}
+.no-js #ticker{display:none!important}
+
+.no-js #preloader{display:none}
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none}
+  .hero h1 .ln>span{transform:none}
+  .cta-ghost,.ticker__track,.halo{animation:none!important}
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width:1020px){
+  .hero__grid{grid-template-columns:1fr;gap:3rem}
+  .hero{min-height:auto;padding-top:8rem}
+  .desks{grid-template-columns:1fr}
+  .desk-panel{min-height:340px}
+  .torneo-grid{grid-template-columns:1fr}
+  .people{grid-template-columns:repeat(2,1fr)}
+  .f-grid{grid-template-columns:1fr 1fr}
+  .events{grid-template-columns:1fr}
+}
+@media (max-width:860px){
+  .nav__links,.nav .btn--nav{display:none}
+  .nav__burger{display:flex}
+  .about-grid{grid-template-columns:1fr}
+  .pillars{grid-template-columns:1fr}
+  .timeline .tl-line{left:8px}
+  .tl-item,.tl-item:nth-child(even){width:100%;margin-left:0;padding:0 0 52px 40px}
+  .tl-dot,.tl-item:nth-child(even) .tl-dot{left:2px;right:auto}
+  .tl-item:nth-child(odd) .tl-card{text-align:left}
+  .ghost{font-size:clamp(5rem,26vw,9rem)}
+}
+@media (max-width:560px){
+  .people{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr 1fr}
+  .f-grid{grid-template-columns:1fr}
+  .hero__cta .btn{width:100%;justify-content:center}
+  .desk-item .di-name{font-size:1.4rem}
+}
+</style>
+<script>
+  if (window.location.pathname.endsWith('/index.html')) {
+    const cleanPath = window.location.pathname.replace(/\/index\.html$/, '/') + window.location.search + window.location.hash;
+    window.history.replaceState(null, '', cleanPath);
+  }
+</script>
+
+<script>
+  // Prevenir que el # aparezca en la URL al hacer clic en enlaces internos
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+      anchor.addEventListener('click', function (e) {
+        var targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        var targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          e.preventDefault();
+          targetElement.scrollIntoView({ behavior: 'smooth' });
+          // Mantiene la URL limpia sin el #
+          window.history.pushState(null, null, window.location.pathname + window.location.search);
+        }
+      });
+    });
+  });
+</script>
+</head>
+<body>
+
+<div id="cursorDot" aria-hidden="true"></div>
+<div id="cursorRing" aria-hidden="true"></div>
+<div id="scrollbar"></div>
+
+<!-- Riel «equity curve»: se construye por JS a partir de [data-rail] -->
+<div id="rail" aria-hidden="true">
+  <span class="rail-line"></span>
+  <span class="rail-fill" id="railFill"></span>
+</div>
+
+<!-- ============ PRELOADER (telón) ============ -->
+<div id="preloader" aria-hidden="true">
+  <div class="curt l"></div>
+  <div class="curt r"></div>
+  <div class="pl-core">
+    <div class="pl-lock">
+      <img class="pl-logo" src="logos/fig-oro.png" alt="">
+      <div class="pl-word">FEN Investment Group</div>
+    </div>
+    <div class="pl-num" id="plNum">00</div>
+  </div>
+</div>
+
+<!-- ============ NAVEGACIÓN ============ -->
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <a href="#inicio" class="brand" aria-label="FEN Investment Group — Inicio">
+      <img class="brand-logo" src="logos/fig-oro.png" alt="FIG">
+      <div>
+        <div class="brand-name">FEN Investment Group</div>
+      </div>
+    </a>
+    <ul class="nav__links">
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="eventos/">Eventos</a></li>
+      <li><a href="#areas">Áreas</a></li>
+      <li><a href="valuation/">Valuation</a></li>
+      <li><a href="#torneo">Torneo</a></li>
+      <li><a href="#historia">Historia</a></li>
+      <li><a href="#equipo">Equipo</a></li>
+      <!-- FIW_TEMP_OCULTO (2026-07-24, pedido de Francisco: ocultar hasta publicar el área) <li><a href="fiw/">FIG Woman</a></li> -->
+      <li class="nav__play">
+        <a href="juego/" aria-haspopup="true">Jugar ▾</a>
+        <div class="nav__play-menu">
+          <a href="juego/">El Rally del Toro<small>Runner · vende a tiempo</small></a>
+          <a href="desafio/">Desafío FIG<small>Trivia de finanzas · 300 preguntas</small></a>
+        </div>
+      </li>
+    </ul>
+    <a data-link="torneo" href="#torneo" class="btn btn--gold btn--nav">Torneo 2026</a>
+    <button class="nav__burger" id="burger" aria-label="Abrir menú" aria-expanded="false">
+      <i></i><i></i><i></i>
+    </button>
+  </div>
+</nav>
+
+<div class="m-menu" id="mmenu">
+  <a href="#nosotros">Nosotros</a>
+  <a href="eventos/">Eventos</a>
+  <a href="#areas">Áreas</a>
+  <a href="valuation/">Valuation</a>
+  <a href="#torneo">Torneo 2026</a>
+  <a href="#historia">Historia</a>
+  <a href="#equipo">Equipo</a>
+  <!-- FIW_TEMP_OCULTO (2026-07-24) <a href="fiw/">FIG Woman</a> -->
+  <a href="juego/">El Rally del Toro</a>
+  <a href="desafio/">Desafío FIG</a>
+  <span class="mono-tag">Forjando la Élite del Mañana</span>
+</div>
+
+<!-- ============ HERO ============ -->
+<header class="hero" id="inicio" data-rail="Inicio" data-theme="dark">
+  <canvas id="bgRidges" aria-hidden="true"></canvas>
+  <div class="photo-marquee" aria-hidden="true"></div>
+  <div class="wrap hero__grid">
+    <div class="hero__copy">
+      <div class="kicker reveal"><span class="scr" data-text="FEN Investment Group">FEN Investment Group</span></div>
+      <h1 aria-label="Forjando la Élite del Mañana.">
+        <span class="ln"><span>Forjando la</span></span>
+        <span class="ln"><span><em>Élite</em> del</span></span>
+        <span class="ln"><span>Mañana.</span></span>
+      </h1>
+      <p class="hero__sub reveal d2">
+        Somos <strong>FEN Investment Group</strong>: la comunidad de inversiones de la FEN.
+        Aquí los mercados no se estudian desde la galería, se gestionan carteras,
+        se valorizan compañías y se compite contra un benchmark real.
+      </p>
+      <div class="hero__cta reveal d3">
+        <a data-link="torneo" href="#torneo" class="btn btn--gold mag">Conoce el Torneo 2026 <span class="arr">→</span></a>
+        <a href="#areas" class="btn btn--ghost mag">Descubre nuestras áreas</a>
+      </div>
+      <div class="hero__meta reveal d4">
+        <span><b>18</b> directores</span>
+        <span><b>+250</b> comunidad</span>
+        <span><b>4</b> áreas</span>
+      </div>
+    </div>
+
+    <div class="hero__panel reveal d2">
+      <div class="halo" aria-hidden="true"></div>
+      <div class="chart-card" id="chartCard">
+        <div class="cc-head">
+          <div class="cc-title"><b>PORTAFOLIO FIG</b> · vs iShares MSCI ACWI</div>
+          <div class="cc-legend">
+            <span class="l-fig"><i></i>FIG</span>
+            <span class="l-bmk"><i></i>ACWI</span>
+          </div>
+        </div>
+        <canvas id="heroChart" aria-label="Gráfico ilustrativo: portafolio FIG versus benchmark ACWI, con crosshair interactivo" role="img"></canvas>
+        <div class="cc-foot">
+          <span class="cc-chip"><span class="live-dot" aria-hidden="true"></span>Ranking cada <b>viernes</b></span>
+          <span class="cc-chip">USD <b>10M</b> por equipo</span>
+          <span class="cc-chip">Fuente <b>PORT&lt;GO&gt;</b></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker__track" id="tickerTrack">
+      <div class="tk"><span class="sym">ACWI</span><span class="nm">MSCI ACWI</span><span class="chg up">+0.42%</span></div>
+      <div class="tk"><span class="sym">IVV</span><span class="nm">CORE S&amp;P 500</span><span class="chg up">+0.31%</span></div>
+      <div class="tk"><span class="sym">CSPX</span><span class="nm">S&amp;P 500 UCITS</span><span class="chg up">+0.28%</span></div>
+      <div class="tk"><span class="sym">SOXX</span><span class="nm">SEMICONDUCTOR</span><span class="chg down">−1.12%</span></div>
+      <div class="tk"><span class="sym">EEM</span><span class="nm">EMERGING MKTS</span><span class="chg up">+0.65%</span></div>
+      <div class="tk"><span class="sym">ISF</span><span class="nm">FTSE 100</span><span class="chg up">+0.18%</span></div>
+      <div class="tk"><span class="sym">EFA</span><span class="nm">MSCI EAFE</span><span class="chg down">−0.07%</span></div>
+      <div class="tk"><span class="sym">AGG</span><span class="nm">US AGG BOND</span><span class="chg up">+0.11%</span></div>
+      <div class="tk"><span class="sym">IAU</span><span class="nm">GOLD TRUST</span><span class="chg up">+0.54%</span></div>
+      <div class="tk"><span class="sym">EWZ</span><span class="nm">MSCI BRAZIL</span><span class="chg down">−0.36%</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ QUIÉNES SOMOS ============ -->
+<section class="section--light" id="nosotros" data-rail="Nosotros" data-theme="light">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker reveal"><span class="scr" data-text="Quiénes somos">Quiénes somos</span></div>
+      <h2 class="h-sec reveal d1">Una organización estudiantil con <em>estándares de industria</em>.</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-copy reveal">
+        <p class="drop">FIG nace de una convicción simple: <em>los mercados se aprenden invirtiendo.</em></p>
+        <p>Fundado por <b>18 estudiantes de la FEN</b>, FEN Investment Group reúne hoy a una comunidad
+        de más de <b>250 personas</b> en torno a la gestión de inversiones. Trabajamos con las mismas
+        herramientas de la industria, Bloomberg, análisis fundamental, gestión de riesgo, y con la
+        misma exigencia: cada decisión se mide contra un benchmark.</p>
+        <p>Nuestras cuatro áreas cubren el ciclo completo del asset management, desde la valorización
+        de una compañía hasta la construcción y defensa de un portafolio ante un jurado experto.</p>
+      </div>
+      <div class="stats reveal d2">
+        <div class="stat"><div class="stat__num counter" data-target="18">0</div><div class="stat__lbl">Directores fundadores</div></div>
+        <div class="stat"><div class="stat__num"><span class="counter" data-target="250">0</span><sup>+</sup></div><div class="stat__lbl">Miembros de la comunidad</div></div>
+        <div class="stat"><div class="stat__num counter" data-target="4">0</div><div class="stat__lbl">Áreas especializadas</div></div>
+        <div class="stat"><div class="stat__num counter" data-target="63">0</div><div class="stat__lbl">Equipos · Torneo 2026</div></div>
+      </div>
+    </div>
+    <div class="pillars">
+      <div class="pillar reveal">
+        <span class="mono-tag">Formación</span>
+        <h3>Aprender haciendo</h3>
+        <p>Workshops, terminal Bloomberg y metodologías reales de análisis. La teoría de la sala de clases, puesta a prueba en el mercado.</p>
+      </div>
+      <div class="pillar reveal d1">
+        <span class="mono-tag">Competencia</span>
+        <h3>Medirse contra el mercado</h3>
+        <p>Torneos y desafíos donde cada tesis de inversión se evalúa con métricas profesionales: alfa, Sharpe, drawdown, riesgo de cola.</p>
+      </div>
+      <div class="pillar reveal d2">
+        <span class="mono-tag">Comunidad</span>
+        <h3>Red que trasciende la FEN</h3>
+        <p>Conexión con egresados y profesionales de la industria financiera, dentro y fuera de Chile.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EVENTOS ============ -->
+<section class="section--dark" id="eventos" data-rail="Eventos" data-theme="dark">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker reveal"><span class="scr" data-text="Eventos">Eventos</span></div>
+      <h2 class="h-sec reveal d1">Lo que está <em>pasando</em> en FIG.</h2>
+    </div>
+    <div class="events">
+      <div class="e-card e-card--live glowable reveal">
+        <span class="e-date"><span class="live-dot" aria-hidden="true"></span>En curso · May — Nov 2026</span>
+        <h3>Torneo Portafolio 2026</h3>
+        <p>63 equipos, USD 10M simulados por cartera y ranking publicado cada viernes. La final ante jurado se juega el 9 de noviembre.</p>
+        <a data-link="torneo" href="#" class="a-link">Seguir el ranking <span class="arr">→</span></a>
+      </div>
+      <div class="e-card glowable reveal d1">
+        <span class="e-date">Programa de formación</span>
+        <h3>Workshops Bloomberg</h3>
+        <p>Sesiones prácticas de terminal: PORT, TMSG y análisis de carteras con datos reales. Fechas por anunciar.</p>
+        <a data-link="instagram" href="#" class="a-link">Enterarme primero <span class="arr">→</span></a>
+      </div>
+      <div class="e-card glowable reveal d2">
+        <span class="e-date">Ciclo de charlas</span>
+        <h3>FIG Talks · La industria en la FEN</h3>
+        <p>Conversaciones con profesionales de la gestión de activos, trading y research. Fechas por anunciar.</p>
+        <a data-link="instagram" href="#" class="a-link">Enterarme primero <span class="arr">→</span></a>
+      </div>
+    </div>
+    <div class="reveal" style="margin-top:32px">
+      <a href="eventos/" class="btn btn--ghost">Ver toda la bitácora de eventos <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ ÁREAS · MESA DE DESKS ============ -->
+<section class="section--dark" id="areas" data-rail="Áreas" data-theme="dark">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker reveal"><span class="scr" data-text="Nuestras áreas">Nuestras áreas</span></div>
+      <h2 class="h-sec reveal d1">Cuatro desks. <em>Una misma ambición.</em></h2>
+      <p class="lead reveal d2" style="margin-top:18px">Recorre la mesa de FIG: cada área funciona como un desk especializado, con dirección propia y proyectos abiertos a toda la comunidad.</p>
+    </div>
+    <div class="desks reveal">
+      <div class="desk-list" role="tablist" aria-label="Áreas de FIG">
+        <button class="desk-item active" role="tab" aria-selected="true" data-desk="0">
+          <span class="di-code">PRT</span><span class="di-name">Portafolio</span><span class="di-arrow">→</span>
+        </button>
+        <button class="desk-item" role="tab" aria-selected="false" data-desk="1">
+          <span class="di-code">TRD</span><span class="di-name">Trading</span><span class="di-arrow">→</span>
+        </button>
+        <!-- Valuation es el único desk con página propia: se entra directo al
+             tocarlo (los otros tres solo abren su panel). -->
+        <a class="desk-item" role="tab" aria-selected="false" data-desk="2"
+           href="valuation/" aria-label="Valuation — ir a la página del área">
+          <span class="di-code">VAL</span><span class="di-name">Valuation</span><span class="di-arrow">→</span>
+        </a>
+        <button class="desk-item" role="tab" aria-selected="false" data-desk="3">
+          <span class="di-code">FIW</span><span class="di-name">FEN Investment Woman</span><span class="di-arrow">→</span>
+        </button>
+      </div>
+      <div class="desk-panel glowable" id="deskPanel">
+        <div class="dp-view active" data-view="0" role="tabpanel">
+          <span class="dp-num" aria-hidden="true">01</span>
+          <span class="mono-tag">PRT · Portafolio</span>
+          <h3>Gestión de carteras con disciplina de benchmark</h3>
+          <p>Construcción y gestión de portafolios con visión top-down: asignación de activos, control de riesgo y decisiones medidas contra el mercado. Es el desk que diseña y dirige el Torneo Portafolio.</p>
+          <div class="dp-meta">
+            <span class="mono-tag">06 directores</span>
+            <span class="mono-tag">Dirige el Torneo 2026</span>
+          </div>
+          <div class="dp-bar"><i></i></div>
+        </div>
+        <div class="dp-view" data-view="1" role="tabpanel">
+          <span class="dp-num" aria-hidden="true">02</span>
+          <span class="mono-tag">TRD · Trading</span>
+          <h3>Mercados en tiempo real</h3>
+          <p>Análisis técnico, lectura de flujos y estrategias de corto plazo, con foco en la ejecución y la gestión activa del riesgo en cada operación.</p>
+          <div class="dp-meta">
+            <span class="mono-tag">03 directores</span>
+            <span class="mono-tag">Ejecución &amp; flujos</span>
+          </div>
+          <div class="dp-bar"><i></i></div>
+        </div>
+        <div class="dp-view" data-view="2" role="tabpanel">
+          <span class="dp-num" aria-hidden="true">03</span>
+          <span class="mono-tag">VAL · Valuation</span>
+          <h3>El valor detrás del precio</h3>
+          <p>Research fundamental y valorización de compañías: modelos DCF, múltiplos comparables y tesis de inversión defendibles con números sobre la mesa.</p>
+          <div class="dp-meta">
+            <span class="mono-tag">02 directores</span>
+            <span class="mono-tag">Research fundamental</span>
+          </div>
+          <a href="valuation/" class="a-link">Conocer el área <span class="arr">→</span></a>
+          <div class="dp-bar"><i></i></div>
+        </div>
+        <div class="dp-view" data-view="3" role="tabpanel">
+          <span class="dp-num" aria-hidden="true">04</span>
+          <span class="mono-tag">FIW · Comunidad</span>
+          <h3>Más mujeres en las finanzas</h3>
+          <p>La comunidad que impulsa la participación femenina en las finanzas y la inversión, abriendo espacio, referentes y oportunidades dentro de la industria.</p>
+          <div class="dp-meta">
+            <span class="mono-tag">Fundadora · Delia Avilán</span>
+            <span class="mono-tag">Comunidad abierta</span>
+          </div>
+          <!-- FIW_TEMP_OCULTO (2026-07-24, pedido de Francisco: ocultar hasta publicar el área) <a href="fiw/" class="a-link">Conocer el área <span class="arr">→</span></a> -->
+          <div class="dp-bar"><i></i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TORNEO 2026 ============ -->
+<section class="section--light has-ghost" id="torneo" data-rail="Torneo" data-theme="light">
+  <span class="ghost" style="top:2%;right:-2%" aria-hidden="true">2026</span>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker reveal"><span class="scr" data-text="Torneo Portafolio 2026">Torneo Portafolio 2026</span></div>
+      <h2 class="h-sec reveal d1">Seis meses. USD 10 millones. <em>Un benchmark que vencer.</em></h2>
+    </div>
+    <div class="torneo-grid">
+      <div class="reveal">
+        <p class="lead">La competencia insignia de FIG: cada equipo gestiona una cartera simulada de
+        <b>USD 10 millones</b> invertida exclusivamente en ETFs de iShares / BlackRock, medida contra el
+        iShares MSCI ACWI con métricas extraídas directamente de Bloomberg.</p>
+        <ul class="facts">
+          <li><span class="k">Duración</span><span class="v">11 MAY — 02 NOV 2026</span></li>
+          <li><span class="k">Universo de inversión</span><span class="v">ETFs iSHARES / BLACKROCK</span></li>
+          <li><span class="k">Benchmark oficial</span><span class="v">iSHARES MSCI ACWI</span></li>
+          <li><span class="k">Ranking semanal</span><span class="v">CADA VIERNES · SINCE-INCEPTION</span></li>
+          <li><span class="k">Ventanas de rebalanceo</span><span class="v">JUN · AGO · OCT</span></li>
+          <li><span class="k">Final ante jurado</span><span class="v">5 FINALISTAS · 09 NOV 2026</span></li>
+        </ul>
+        <div class="torneo-ctas">
+          <a data-link="torneo" href="#" class="btn btn--navy mag">Ver ranking semanal <span class="arr">→</span></a>
+          <a data-link="bases" href="#" class="btn btn--ghost">Descargar las bases</a>
+        </div>
+      </div>
+      <div class="score-card glowable reveal d2">
+        <h3>Sistema de scoring</h3>
+        <div class="sc-sub">100 puntos · percentil continuo · Bloomberg PORT&lt;GO&gt;</div>
+        <div class="s-row"><div class="s-lab"><span>INFORMATION RATIO</span><span class="pts">30 PTS</span></div><div class="s-bar"><div class="s-fill" data-w="100"></div></div></div>
+        <div class="s-row"><div class="s-lab"><span>RETORNO EN EXCESO (ANUALIZADO)</span><span class="pts">25 PTS</span></div><div class="s-bar"><div class="s-fill" data-w="83"></div></div></div>
+        <div class="s-row"><div class="s-lab"><span>RATIO DE SHARPE</span><span class="pts">15 PTS</span></div><div class="s-bar"><div class="s-fill" data-w="50"></div></div></div>
+        <div class="s-row"><div class="s-lab"><span>VaR 95% (EX-POST)</span><span class="pts">15 PTS</span></div><div class="s-bar"><div class="s-fill" data-w="50"></div></div></div>
+        <div class="s-row"><div class="s-lab"><span>MAXIMUM DRAWDOWN</span><span class="pts">15 PTS</span></div><div class="s-bar"><div class="s-fill" data-w="50"></div></div></div>
+        <div class="sc-note">REGLA DE PISO: IR, RETORNO EN EXCESO O SHARPE NEGATIVOS → 0 PTS EN ESA MÉTRICA.<br>SE PREMIAN DOS DIMENSIONES: ALFA CONSISTENTE Y GESTIÓN DE RIESGO.</div>
+      </div>
+    </div>
+
+    <!-- Eje de hitos con marcador HOY calculado en vivo -->
+    <div class="axis-wrap reveal">
+      <div class="axis-head">
+        <span class="mono-tag" id="axisWeek">Torneo en curso</span>
+        <span class="mono-tag">USD 630M simulados en total</span>
+      </div>
+      <div class="axis-scroll">
+        <div class="axis">
+          <span class="axis-line"></span>
+          <span class="axis-fill" id="axisFill"></span>
+          <span class="axis-now" id="axisNow" hidden><span class="an-lab" id="axisNowLab">HOY</span></span>
+          <div class="axis-items">
+            <div class="ax" data-ts="2026-05-11"><span class="ax-d">11 MAY</span><span class="ax-t">Inicio del torneo</span></div>
+            <div class="ax" data-ts="2026-05-20"><span class="ax-d">20 MAY</span><span class="ax-t">Últimas posiciones</span></div>
+            <div class="ax" data-ts="2026-07-03"><span class="ax-d">JUN</span><span class="ax-t">Rebalanceo I</span></div>
+            <div class="ax" data-ts="2026-08-07"><span class="ax-d">3–7 AGO</span><span class="ax-t">Rebalanceo II</span></div>
+            <div class="ax" data-ts="2026-10-09"><span class="ax-d">5–9 OCT</span><span class="ax-t">Rebalanceo III</span></div>
+            <div class="ax" data-ts="2026-11-02"><span class="ax-d">02 NOV</span><span class="ax-t">Cierre y ranking final</span></div>
+            <div class="ax" data-ts="2026-11-09"><span class="ax-d">09 NOV</span><span class="ax-t">Final ante jurado</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HISTORIA ============ -->
+<section class="section--deep" id="historia" data-rail="Historia" data-theme="dark">
+  <div class="photo-marquee" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="sec-head" style="text-align:center;margin-left:auto;margin-right:auto">
+      <div class="kicker reveal" style="justify-content:center"><span class="scr" data-text="Nuestra historia">Nuestra historia</span></div>
+      <h2 class="h-sec reveal d1">De una idea en la FEN a una <em>comunidad de inversión</em>.</h2>
+    </div>
+    <div class="timeline" id="timeline">
+      <div class="tl-line"><i></i></div>
+      <div class="tl-item reveal">
+        <span class="tl-dot"></span>
+        <div class="tl-card">
+          <div class="tl-chap">Capítulo I · Fundación</div>
+          <h3>Nace FEN Investment Group</h3>
+          <p>Un grupo de estudiantes decide que los mercados se aprenden gestionándolos, no mirándolos. Nace FIG.</p>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <span class="tl-dot"></span>
+        <div class="tl-card">
+          <div class="tl-chap">Capítulo II · Estructura</div>
+          <h3>18 directores, 4 desks</h3>
+          <p>La directiva fundadora organiza el club en cuatro áreas: Portafolio, Trading, Valuation y FEN Investment Woman.</p>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <span class="tl-dot"></span>
+        <div class="tl-card">
+          <div class="tl-chap">Capítulo III · Comunidad</div>
+          <h3>Más de 250 miembros</h3>
+          <p>La comunidad FIG crece con estudiantes de toda la facultad, unidos por el interés en las inversiones y los mercados.</p>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <span class="tl-dot"></span>
+        <div class="tl-card">
+          <div class="tl-chap">Capítulo IV · 2026</div>
+          <h3>Torneo Portafolio 2026</h3>
+          <p>63 equipos gestionan USD 10M simulados en Bloomberg durante seis meses. El mayor desafío organizado por FIG hasta hoy.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EQUIPO ============ -->
+<section class="section--light has-ghost" id="equipo" data-rail="Equipo" data-theme="light">
+  <span class="ghost" style="bottom:1%;left:-2%" aria-hidden="true">FIG</span>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker reveal"><span class="scr" data-text="Nosotros">Nosotros</span></div>
+      <h2 class="h-sec reveal d1">Las personas <em>detrás de FIG</em>.</h2>
+    </div>
+    <div class="pill-row reveal d1">
+      <button class="pill active" data-filter="directiva" aria-pressed="true">Directiva actual</button>
+      <button class="pill" data-filter="industria" aria-pressed="false">FIG en la industria</button>
+      <button class="pill" data-filter="fama" aria-pressed="false">Muro de la Fama</button>
+    </div>
+
+    <div class="people" id="peopleGrid">
+      <div class="p-card p-card--lead reveal" data-group="directiva">
+        <div class="avatar">BS</div>
+        <div><div class="p-name">Benjamín Sáez Molina</div><div class="p-role">Presidente</div></div>
+        <p class="p-extra">Co-fundador · Área Portafolio.</p>
+      </div>
+      <div class="p-card p-card--lead reveal d1" data-group="directiva">
+        <div class="avatar">JG</div>
+        <div><div class="p-name">Jhosep García</div><div class="p-role">Vicepresidente</div></div>
+        <p class="p-extra">Co-fundador · Área Valuation.</p>
+      </div>
+      <div class="p-card reveal d2" data-group="directiva">
+        <div class="avatar">MP</div>
+        <div><div class="p-name">Manuel Paz</div><div class="p-role">Director · Portafolio</div></div>
+        <p class="p-extra">Comunicaciones, difusión y creador de la web original.</p>
+      </div>
+      <div class="p-card reveal d3" data-group="directiva">
+        <div class="avatar">FV</div>
+        <div><div class="p-name">Francisco Valenzuela</div><div class="p-role">Director · Portafolio</div></div>
+        <p class="p-extra">Plataforma web y co-creador del Torneo Portafolio 2026.</p>
+      </div>
+      <div class="p-card reveal" data-group="directiva">
+        <div class="avatar">AA</div>
+        <div><div class="p-name">Agustín Arriagada</div><div class="p-role">Director · Portafolio</div></div>
+        <p class="p-extra">Co-fundador.</p>
+      </div>
+      <div class="p-card reveal d1" data-group="directiva">
+        <div class="avatar">BD</div>
+        <div><div class="p-name">Benjamín Disi</div><div class="p-role">Director · Portafolio</div></div>
+        <p class="p-extra">Co-fundador.</p>
+      </div>
+      <div class="p-card reveal d2" data-group="directiva">
+        <div class="avatar">BS</div>
+        <div><div class="p-name">Benjamín Solís</div><div class="p-role">Director · Portafolio</div></div>
+        <p class="p-extra">Co-fundador.</p>
+      </div>
+      <div class="p-card reveal d3" data-group="directiva">
+        <div class="avatar">RA</div>
+        <div><div class="p-name">Rafael Aliendre</div><div class="p-role">Director · Trading</div></div>
+        <p class="p-extra">Co-fundador.</p>
+      </div>
+      <div class="p-card reveal" data-group="directiva">
+        <div class="avatar">JL</div>
+        <div><div class="p-name">Juan José Limari</div><div class="p-role">Director · Trading</div></div>
+        <p class="p-extra">Co-fundador.</p>
+      </div>
+      <div class="p-card reveal d1" data-group="directiva">
+        <div class="avatar">JD</div>
+        <div><div class="p-name">Juan Pablo Díaz Cerda</div><div class="p-role">Director · Trading</div></div>
+        <p class="p-extra">Co-fundador.</p>
+      </div>
+      <div class="p-card reveal d2" data-group="directiva">
+        <div class="avatar">DG</div>
+        <div><div class="p-name">David González Cañon</div><div class="p-role">Director · Valuation</div></div>
+        <p class="p-extra">Co-fundador.</p>
+      </div>
+      <div class="p-card reveal d3" data-group="directiva">
+        <div class="avatar">DA</div>
+        <div><div class="p-name">Delia Avilán</div><div class="p-role">Fundadora · FEN Investment Woman</div></div>
+        <p class="p-extra">Co-fundadora.</p>
+      </div>
+      <div class="p-card p-card--more reveal" data-group="directiva">
+        <div class="avatar">+6</div>
+        <div><div class="p-name">Directiva completa</div></div>
+        <p class="p-extra">Los 18 perfiles se cargan desde Nosotros_FIG.xlsx al conectar el pipeline.</p>
+      </div>
+
+      <div class="p-card reveal" data-group="industria">
+        <div class="avatar">BS</div>
+        <div><div class="p-name">Benjamín Sáez Molina</div><div class="p-role">Itaú · Wealth Management</div></div>
+        <p class="p-extra">Práctica en Wealth Management en Itaú.</p>
+      </div>
+      <div class="p-card reveal d1" data-group="industria">
+        <div class="avatar">RA</div>
+        <div><div class="p-name">Rafael Aliendre</div><div class="p-role">CODELCO · Dirección Estrategia e Inteligencia de Mercado</div></div>
+        <p class="p-extra">Memorista en la Dirección de Estrategia e Inteligencia de Mercado de CODELCO.</p>
+      </div>
+      <div class="p-card reveal d2" data-group="industria">
+        <div class="avatar">SR</div>
+        <div><div class="p-name">Samuel Rodríguez Arnolds</div><div class="p-role">MoonValley Capital · Investment Banking Intern</div></div>
+        <p class="p-extra">Práctica en Investment Banking en MoonValley Capital.</p>
+      </div>
+      <div class="p-card reveal d3" data-group="industria">
+        <div class="avatar">FV</div>
+        <div><div class="p-name">Francisco Valenzuela</div><div class="p-role">LarraínVial · Riesgo</div></div>
+        <p class="p-extra">Práctica en el área de Riesgo en LarraínVial.</p>
+      </div>
+
+      <div class="p-card p-card--lead reveal" data-group="fama">
+        <div class="avatar">🏆</div>
+        <div><div class="p-name">Campeón · Torneo Portafolio 2026</div><div class="p-role">Se corona el 09 · NOV · 2026</div></div>
+        <p class="p-extra">Cinco finalistas defenderán su gestión ante un jurado experto.</p>
+      </div>
+      <div class="p-card p-card--more reveal d1" data-group="fama">
+        <div class="avatar">★</div>
+        <div><div class="p-name">Reconocimientos FIG</div></div>
+        <p class="p-extra">Logros y distinciones de la comunidad.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Expediente: perfil expandido (se abre al tocar una tarjeta del equipo) -->
+<div class="pv" id="perfilView" role="dialog" aria-modal="true" aria-label="Perfil del equipo" aria-hidden="true">
+  <div class="pv-back" data-pv="close"></div>
+  <div class="pv-ghost" aria-hidden="true">FIG</div>
+  <div class="pv-shell">
+    <div class="pv-card">
+      <span class="pv-corner tl" aria-hidden="true"></span>
+      <span class="pv-corner tr" aria-hidden="true"></span>
+      <span class="pv-corner bl" aria-hidden="true"></span>
+      <span class="pv-corner br" aria-hidden="true"></span>
+      <button class="pv-x" data-pv="close" aria-label="Cerrar perfil">✕</button>
+      <div class="pv-media">
+        <div class="pv-mono pv-anim" aria-hidden="true"></div>
+        <img class="pv-img" alt="">
+        <div class="pv-count"><b>01</b> / 12</div>
+      </div>
+      <div class="pv-body">
+        <div class="pv-kicker pv-anim"></div>
+        <h3 class="pv-name pv-anim"></h3>
+        <div class="pv-role pv-anim"></div>
+        <div class="pv-rule" aria-hidden="true"></div>
+        <p class="pv-bio pv-anim"></p>
+        <div class="pv-hitos pv-anim">
+          <h4>Trayectoria</h4>
+          <ul></ul>
+        </div>
+        <a class="pv-lk pv-anim" href="#" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </div>
+  <button class="pv-arrow pv-prev" data-pv="prev" aria-label="Perfil anterior">←</button>
+  <button class="pv-arrow pv-next" data-pv="next" aria-label="Perfil siguiente">→</button>
+</div>
+
+<!-- ============ CTA ============ -->
+<section class="cta-band has-ghost">
+  <span class="cta-ghost" aria-hidden="true">ÚNETE A FIG — ÚNETE A FIG — ÚNETE A FIG — ÚNETE A FIG — ÚNETE A FIG — ÚNETE A FIG — </span>
+  <div class="wrap">
+    <div class="kicker reveal">Únete a FIG</div>
+    <h2 class="reveal d1">Invierte en tu <em>futuro</em>.</h2>
+    <p class="reveal d2">Si los mercados te quitan el sueño, o quieres que empiecen a hacerlo, este es tu lugar en la FEN. Postula, participa y compite.</p>
+    <div class="reveal d3">
+      <a data-link="postula" href="#" class="btn btn--navy mag">Quiero ser parte <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<!-- Ticker del torneo: cinta bursátil al pie, solo con datos/torneo.json real -->
+<div id="ticker" aria-label="Ranking del torneo en vivo">
+  <span class="tk-tag">TORNEO</span>
+  <div class="tk-track"><div class="tk-move"></div></div>
+  <button class="tk-close" aria-label="Cerrar ticker">✕</button>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div class="f-brand">
+        <a href="#inicio" class="brand">
+          <img class="brand-logo" src="logos/fig-oro.png" alt="FIG">
+          <div>
+            <div class="brand-name">FEN Investment Group</div>
+            <span class="brand-sub">Forjando la Élite del Mañana</span>
+          </div>
+        </a>
+        <p>Comunidad de inversiones de la Facultad de Economía y Negocios.</p>
+        <div class="f-clocks" aria-label="Horas de mercado">
+          <span class="clock"><b>SCL</b><span id="clkScl">--:--:--</span></span>
+          <span class="clock"><b>NYC</b><span id="clkNyc">--:--:--</span></span>
+        </div>
+      </div>
+      <div class="f-col">
+        <h4>Áreas</h4>
+        <ul>
+          <li><a href="#areas">Portafolio</a></li>
+          <li><a href="#areas">Trading</a></li>
+          <li><a href="#areas">Valuation</a></li>
+          <!-- FIW_TEMP_OCULTO (2026-07-24, pedido de Francisco: ocultar hasta publicar el área) <li><a href="fiw/">FEN Investment Woman</a></li> -->
+        </ul>
+      </div>
+      <div class="f-col">
+        <h4>Organización</h4>
+        <ul>
+          <li><a href="#nosotros">Quiénes somos</a></li>
+          <li><a href="#equipo">Directiva</a></li>
+          <li><a href="#historia">Historia</a></li>
+          <li><a href="#eventos">Eventos</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h4>Conecta</h4>
+        <ul>
+          <li><a data-link="torneo" href="#">Torneo Portafolio 2026</a></li>
+          <li><a data-link="instagram" href="#">Instagram</a></li>
+          <li><a data-link="linkedin" href="#">LinkedIn</a></li>
+          <li><a data-link="contacto" href="#">Contacto</a></li>
+          <li><a href="en/">English brief 🌐</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <span>© 2026 FEN Investment Group</span>
+      <span>Creado por <a href="https://www.linkedin.com/in/francisco-ignacio-andr%C3%A9s-valenzuela-lecaros-128a69396/" target="_blank" rel="noopener">Francisco Valenzuela</a> y <a href="https://www.linkedin.com/in/mpazq" target="_blank" rel="noopener">Manuel Paz</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+"use strict";
+
+/* ============================================================================
+   FIG · Motor de la experiencia
+   Capa de datos: CLUB_DATA embebida + override automático desde datos/club.json
+   (mismo esquema que produce generar_nosotros.py). Editar URLs en CONFIG.
+   ============================================================================ */
+
+document.documentElement.classList.remove("no-js");
+
+var RM   = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+var FINE = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+function $(s,r){return (r||document).querySelector(s)}
+function $$(s,r){return [].slice.call((r||document).querySelectorAll(s))}
+function esc(t){return String(t==null?"":t).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+function clamp(v,a,b){return Math.max(a,Math.min(b,v))}
+
+/* ---------------- CONFIGURACIÓN (editar URLs reales aquí) ---------------- */
+var CONFIG = { urls:{
+  torneo:   "torneo/",
+  bases:    "#",   /* PDF de las Bases */
+  instagram:"https://www.instagram.com/fen.investment.group/",
+  linkedin: "https://www.linkedin.com/company/fen-investment-group",
+  postula:  "postula/",
+  contacto: "#"    /* Correo o formulario */
+}};
+
+/* ---------------- DATOS DEL CLUB (se sobreescriben con datos/club.json) --- */
+var CLUB_DATA = {
+  personas:{
+    directiva:[
+      {iniciales:"BS",nombre:"Benjamín Sáez Molina",rol:"Presidente",detalle:"Co-fundador · Área Portafolio.",destacado:true,linkedin:"https://www.linkedin.com/in/benjamin-saez-molina/",perfil:{bio:"Presidente y co-fundador de FEN Investment Group. Lidera el área Portafolio y la dirección estratégica del club, desde donde se articulan el Torneo Portafolio y las alianzas con la industria. Realizó su práctica profesional en Wealth Management en Itaú.",hitos:["Presidente de FEN Investment Group","Co-fundador · Área Portafolio","Práctica en Wealth Management · Itaú"]}},
+      {iniciales:"JG",nombre:"Jhosep García",rol:"Vicepresidente",detalle:"Co-fundador · Área Valuation.",destacado:true,linkedin:"https://linkedin.com/in/jhosep-garcia",perfil:{bio:"Vicepresidente y co-fundador de FEN Investment Group. Lidera el área Valuation, donde los miembros analizan y valorizan compañías reales aplicando las metodologías que se usan en la industria financiera.",hitos:["Vicepresidente de FEN Investment Group","Co-fundador · Área Valuation"]}},
+      {iniciales:"MP",nombre:"Manuel Paz",rol:"Director · Portafolio",detalle:"Comunicaciones, difusión y creador de la web original.",perfil:{bio:"Director del área Portafolio y responsable de comunicaciones y difusión del club. Creador de la web original de FIG, la primera presencia digital del grupo.",hitos:["Director · Portafolio","Comunicaciones y difusión de FIG","Creador de la web original del club"]}},
+      {iniciales:"FV",nombre:"Francisco Valenzuela",rol:"Director · Portafolio",detalle:"Plataforma web y co-creador del Torneo Portafolio 2026.",linkedin:"https://www.linkedin.com/in/francisco-ignacio-andr%C3%A9s-valenzuela-lecaros-128a69396/",perfil:{bio:"Director del área Portafolio, responsable de la plataforma web del club y co-creador del Torneo Portafolio 2026, la competencia insignia de FIG con 63 equipos y USD 10M simulados por cartera. Realizó su práctica profesional en el área de Riesgo de LarraínVial.",hitos:["Director · Portafolio","Co-creador del Torneo Portafolio 2026","Plataforma web de FIG","Práctica en Riesgo · LarraínVial"]}},
+      {iniciales:"AA",nombre:"Agustín Arriagada",rol:"Director · Portafolio",detalle:"Co-fundador.",perfil:{bio:"Co-fundador de FEN Investment Group y director del área Portafolio, donde se gestionan las carteras simuladas y la metodología de inversión del club.",hitos:["Director · Portafolio","Co-fundador de FIG"]}},
+      {iniciales:"BD",nombre:"Benjamín Disi",rol:"Director · Portafolio",detalle:"Magíster en Finanzas (en curso) · Tutor de Finanzas II y monitor del Lab. Bloomberg Itaú.",linkedin:"https://www.linkedin.com/in/benjam%C3%ADn-disi-hernandez-12b570297",perfil:{bio:"Co-fundador y director del área Portafolio. Titulado de Ingeniería Comercial y estudiante del Magíster en Finanzas de la Universidad de Chile. Tutor de Finanzas II y monitor del Laboratorio Bloomberg Itaú de la FEN, lideró el diseño de reglas, criterios de evaluación y metodología de construcción de portafolios del primer torneo de inversión de la facultad.",hitos:["Director · Portafolio","Magíster en Finanzas (en curso) · U. de Chile","Tutor de Finanzas II y monitor del Lab. Bloomberg Itaú · FEN","Diseño metodológico del Torneo Portafolio 2026","Top 10 · Torneo de trading Banco Itaú"]}},
+      {iniciales:"BS",nombre:"Benjamín Solís",rol:"Director · Portafolio",detalle:"Co-fundador.",perfil:{bio:"Co-fundador de FEN Investment Group y director del área Portafolio.",hitos:["Director · Portafolio","Co-fundador de FIG"]}},
+      {iniciales:"RA",nombre:"Rafael Aliendre",rol:"Director · Trading",detalle:"Co-fundador.",linkedin:"https://www.linkedin.com/in/rafael-aliendre-javier",perfil:{bio:"Co-fundador y director del área Trading. Memorista en la Dirección de Estrategia e Inteligencia de Mercado de CODELCO, con prácticas previas en Factoring Capital Express, Moxi SpA y Falabella Financiero.",hitos:["Director · Trading","Memorista · CODELCO, Estrategia e Inteligencia de Mercado","Prácticas en Factoring Capital Express, Moxi SpA y Falabella Financiero"]}},
+      {iniciales:"JL",nombre:"Juan José Limari",rol:"Director · Trading",detalle:"Co-fundador.",perfil:{bio:"Co-fundador de FEN Investment Group y director del área Trading, donde se estudian estrategias de mercado y ejecución.",hitos:["Director · Trading","Co-fundador de FIG"]}},
+      {iniciales:"JD",nombre:"Juan Pablo Díaz Cerda",rol:"Director · Trading",detalle:"Co-fundador.",perfil:{bio:"Co-fundador de FEN Investment Group y director del área Trading.",hitos:["Director · Trading","Co-fundador de FIG"]}},
+      {iniciales:"DG",nombre:"David González Cañon",rol:"Director · Valuation",detalle:"Práctica en HSBC · ex Banco BICE · Coordinador Lab. Bloomberg FEN.",linkedin:"https://www.linkedin.com/in/davidgonzalezca%C3%B1on/",perfil:{bio:"Co-fundador y director del área Valuation. Realizó su práctica en HSBC apoyando a banqueros de Instituciones Financieras, Sector Público y Grandes Corporativos, y antes se desempeñó como Analista de Riesgo Financiero Junior en Banco BICE. En la FEN ha sido coordinador del Laboratorio Bloomberg y ayudante de cursos.",hitos:["Director · Valuation","Práctica · HSBC, Large Corporates & Institutional Banking","Analista de Riesgo Financiero Junior · Banco BICE","Coordinador del Laboratorio Bloomberg · FEN"]}},
+      {iniciales:"DA",nombre:"Delia Avilán",rol:"Fundadora · FEN Investment Woman",detalle:"Co-fundadora.",perfil:{bio:"Co-fundadora de FEN Investment Group y fundadora de FEN Investment Woman, el área que impulsa la participación de mujeres en el mundo de las inversiones dentro de la FEN.",hitos:["Fundadora · FEN Investment Woman","Co-fundadora de FIG"]}},
+      {iniciales:"+6",nombre:"Directiva completa",detalle:"Los 18 perfiles se cargan desde Nosotros_FIG.xlsx al conectar el pipeline.",mas:true}
+    ],
+    industria:[
+      {iniciales:"BS",nombre:"Benjamín Sáez Molina",rol:"Itaú · Wealth Management",detalle:"Práctica en Wealth Management en Itaú.",linkedin:"https://www.linkedin.com/in/benjamin-saez-molina/"},
+      {iniciales:"RA",nombre:"Rafael Aliendre",rol:"CODELCO · Dirección Estrategia e Inteligencia de Mercado",detalle:"Memorista en la Dirección de Estrategia e Inteligencia de Mercado de CODELCO.",linkedin:"https://www.linkedin.com/in/rafael-aliendre-javier"},
+      {iniciales:"SR",nombre:"Samuel Rodríguez Arnolds",rol:"MoonValley Capital · Investment Banking Intern",detalle:"Práctica en Investment Banking en MoonValley Capital.",linkedin:"https://www.linkedin.com/in/samuel-rodr%C3%ADguez-arnolds-8b9608241/"},
+      {iniciales:"FV",nombre:"Francisco Valenzuela",rol:"LarraínVial · Riesgo",detalle:"Práctica en el área de Riesgo en LarraínVial.",linkedin:"https://www.linkedin.com/in/francisco-ignacio-andr%C3%A9s-valenzuela-lecaros-128a69396/"},
+      {iniciales:"DG",nombre:"David González Cañon",rol:"HSBC · Large Corporates & Institutional Banking",detalle:"Práctica de apoyo a banqueros de Instituciones Financieras, Sector Público y Grandes Corporativos.",linkedin:"https://www.linkedin.com/in/davidgonzalezca%C3%B1on/"}
+    ],
+    fama:[
+      {iniciales:"🏆",nombre:"Campeón · Torneo Portafolio 2026",rol:"Se corona el 09 · NOV · 2026",detalle:"Cinco finalistas defenderán su gestión ante un jurado experto.",destacado:true},
+      {iniciales:"★",nombre:"Reconocimientos FIG",detalle:"Logros y distinciones de la comunidad.",mas:true}
+    ]
+  },
+  eventos:[
+    {estado:"live",etiqueta:"En curso · May — Nov 2026",titulo:"Torneo Portafolio 2026",descripcion:"63 equipos, USD 10M simulados por cartera y ranking publicado cada viernes. La final ante jurado se juega el 9 de noviembre.",enlace:"torneo",cta:"Seguir el ranking"},
+    {etiqueta:"Programa de formación",titulo:"Workshops Bloomberg",descripcion:"Sesiones prácticas de terminal: PORT, TMSG y análisis de carteras con datos reales. Fechas por anunciar.",enlace:"instagram",cta:"Enterarme primero"},
+    {etiqueta:"Ciclo de charlas",titulo:"FIG Talks · La industria en la FEN",descripcion:"Conversaciones con profesionales de la gestión de activos, trading y research. Fechas por anunciar.",enlace:"instagram",cta:"Enterarme primero"}
+  ],
+  historia:[
+    {capitulo:"Capítulo I · Fundación",titulo:"Nace FEN Investment Group",texto:"Un grupo de estudiantes decide que los mercados se aprenden gestionándolos, no mirándolos. Nace FIG."},
+    {capitulo:"Capítulo II · Estructura",titulo:"18 directores, 4 desks",texto:"La directiva fundadora organiza el club en cuatro áreas: Portafolio, Trading, Valuation y FEN Investment Woman."},
+    {capitulo:"Capítulo III · Comunidad",titulo:"Más de 250 miembros",texto:"La comunidad FIG crece con estudiantes de toda la facultad, unidos por el interés en las inversiones y los mercados."},
+    {capitulo:"Capítulo IV · 2026",titulo:"Torneo Portafolio 2026",texto:"63 equipos gestionan USD 10M simulados en Bloomberg durante seis meses. El mayor desafío organizado por FIG hasta hoy."}
+  ]
+};
+
+/* ---------------- Enlaces configurables ---------------- */
+function applyLinks(){
+  $$("[data-link]").forEach(function(a){
+    var k=a.getAttribute("data-link"), u=CONFIG.urls[k];
+    if(!u||u==="#") return;
+    a.setAttribute("href",u);
+    if(/^https?:/.test(u) && u.indexOf("feninvestmentgroup")===-1){
+      a.setAttribute("target","_blank"); a.setAttribute("rel","noopener");
+    }
+  });
+}
+
+/* ---------------- Render de contenido (capa escalable) ---------------- */
+var currentFilter="directiva";
+var D=["","d1","d2","d3"];
+
+/* slug de nombre/empresa + detección automática de fotos y logos (sin
+   inventar nada: si el archivo no existe, se cae al monograma de siempre).
+   Compartido entre las miniaturas de la grilla y el Expediente. */
+function slug(n){
+  var s=String(n||"").toLowerCase();
+  s=s.replace(/[áàä]/g,"a").replace(/[éèë]/g,"e").replace(/[íìï]/g,"i")
+     .replace(/[óòö]/g,"o").replace(/[úùü]/g,"u").replace(/ñ/g,"n");
+  return s.replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"");
+}
+var fotoCache={};
+/* Busca fotos/directiva/<slug>.(jpg|jpeg|png|webp) */
+function probeFoto(sl,cb){
+  if(fotoCache.hasOwnProperty(sl)){cb(fotoCache[sl]);return}
+  var exts=["jpg","jpeg","png","webp"],k=0;
+  (function next(){
+    if(k>=exts.length){fotoCache[sl]=null;cb(null);return}
+    var url="fotos/directiva/"+sl+"."+exts[k++];
+    var im=new Image();
+    im.onload=function(){fotoCache[sl]=url;cb(url)};
+    im.onerror=next;
+    im.src=url;
+  })();
+}
+var logoCache={};
+/* Busca logos/industria/<slug>.(png|svg|jpg|jpeg|webp) */
+function probeLogo(sl,cb){
+  if(logoCache.hasOwnProperty(sl)){cb(logoCache[sl]);return}
+  var exts=["png","svg","jpg","jpeg","webp"],k=0;
+  (function next(){
+    if(k>=exts.length){logoCache[sl]=null;cb(null);return}
+    var url="logos/industria/"+sl+"."+exts[k++];
+    var im=new Image();
+    im.onload=function(){logoCache[sl]=url;cb(url)};
+    im.onerror=next;
+    im.src=url;
+  })();
+}
+
+var PEOPLE_DATA=null; /* último set de personas renderizado (para el expediente) */
+/* Iniciales de fallback para el logo de una empresa (2 letras, sin inventar
+   nada: es solo un monograma hasta que exista un logo real en logos/industria/) */
+function empresaIniciales(nombre){
+  var palabras=String(nombre||"").split(/\s+/).filter(Boolean);
+  if(palabras.length>=2)return (palabras[0].charAt(0)+palabras[1].charAt(0)).toUpperCase();
+  return String(nombre||"").slice(0,2).toUpperCase();
+}
+/* "FIG en la industria": una tarjeta por empresa (no por persona), con su
+   logo si existe en logos/industria/<slug>.* y un tooltip al hover/foco que
+   lista a quiénes de FIG han pasado por ahí (enlazando a su LinkedIn si lo
+   tienen). El rol de cada persona viene como "Empresa · detalle" en
+   club.json — se agrupa por el primer segmento. */
+function renderIndustria(list){
+  var porEmpresa=[],idxMap={};
+  (list||[]).forEach(function(x,i){
+    if(x.mas)return;
+    var partes=String(x.rol||"").split(" · ");
+    var empresa=partes[0]||x.rol||"Industria";
+    if(!idxMap.hasOwnProperty(empresa)){idxMap[empresa]=porEmpresa.length;porEmpresa.push({empresa:empresa,personas:[]})}
+    porEmpresa[idxMap[empresa]].personas.push({
+      nombre:x.nombre,rolEspecifico:partes.slice(1).join(" · "),linkedin:x.linkedin
+    });
+  });
+  var html="";
+  porEmpresa.forEach(function(e,i){
+    var sl=slug(e.empresa);
+    html+='<div class="p-card ind-card reveal '+D[i%4]+'" data-group="industria" tabindex="0">'
+        + '<div class="ind-logo" data-slug="'+esc(sl)+'"><span class="thumb-mono">'+esc(empresaIniciales(e.empresa))+'</span><img class="thumb-img" alt="'+esc(e.empresa)+'"></div>'
+        + '<div><div class="p-name">'+esc(e.empresa)+'</div>'
+        + '<div class="ind-count">'+e.personas.length+(e.personas.length===1?' persona de FIG':' personas de FIG')+'</div></div>'
+        + '<div class="ind-tip"><h5>Han pasado por '+esc(e.empresa)+'</h5><ul>'
+        + e.personas.map(function(pp){
+            var nm=pp.linkedin?'<a href="'+esc(pp.linkedin)+'" target="_blank" rel="noopener">'+esc(pp.nombre)+' ↗</a>':esc(pp.nombre);
+            return '<li>'+nm+(pp.rolEspecifico?'<span>'+esc(pp.rolEspecifico)+'</span>':'')+'</li>';
+          }).join("")
+        + '</ul></div>'
+        + '</div>';
+  });
+  return html;
+}
+/* Prueba fotos/logos reales para las miniaturas ya insertadas en el DOM;
+   si no existen, se quedan con el monograma (sin romper nada) */
+function cargarMiniaturas(g){
+  $$(".avatar[data-slug]",g).forEach(function(av){
+    probeFoto(av.getAttribute("data-slug"),function(url){
+      if(!url)return;
+      var img=$(".thumb-img",av);
+      img.src=url;img.classList.add("ok");
+      av.classList.add("has-photo");
+    });
+  });
+  $$(".ind-logo[data-slug]",g).forEach(function(lg){
+    probeLogo(lg.getAttribute("data-slug"),function(url){
+      if(!url)return;
+      var img=$(".thumb-img",lg);
+      img.src=url;img.classList.add("ok");
+      lg.classList.add("has-photo");
+    });
+  });
+}
+function renderPeople(p){
+  var g=$("#peopleGrid"); if(!g||!p) return;
+  PEOPLE_DATA=p;
+  var html="";
+  ["directiva","industria","fama"].forEach(function(grp){
+    if(grp==="industria"){html+=renderIndustria(p.industria);return}
+    var n=0;
+    (p[grp]||[]).forEach(function(x,i){
+      var exp=!x.mas;
+      var conFoto=grp==="directiva"&&exp;
+      html+='<div class="p-card reveal '+D[i%4]+(x.destacado?" p-card--lead":"")+(x.mas?" p-card--more":"")+(exp?" p-card--exp":"")+'" data-group="'+grp+'"'
+          + (exp?' data-idx="'+n+'" role="button" tabindex="0" aria-label="Ver perfil de '+esc(x.nombre)+'"':"")+'>'
+          + '<div class="avatar"'+(conFoto?' data-slug="'+esc(slug(x.nombre))+'"':'')+'>'
+          + '<span class="thumb-mono">'+esc(x.iniciales||"·")+'</span>'
+          + (conFoto?'<img class="thumb-img" alt="">':'')
+          + '</div>'
+          + '<div><div class="p-name">'+esc(x.nombre)+'</div>'
+          + (x.rol?'<div class="p-role">'+esc(x.rol)+'</div>':"")
+          + '</div>'
+          + (x.detalle?'<p class="p-extra">'+esc(x.detalle)+'</p>':"")
+          + (x.linkedin?'<a class="p-linkedin" href="'+esc(x.linkedin)+'" target="_blank" rel="noopener">LinkedIn ↗</a>':"")
+          + '</div>';
+      if(exp)n++;
+    });
+  });
+  g.innerHTML=html;
+  applyFilter(currentFilter);
+  observeReveals(g);
+  cargarMiniaturas(g);
+}
+
+function renderEvents(evs){
+  var g=$(".events"); if(!g||!evs) return;
+  var html="";
+  evs.forEach(function(e,i){
+    var live=e.estado==="live";
+    var key=CONFIG.urls.hasOwnProperty(e.enlace);
+    var href=key?"#":(e.enlace||"#");
+    html+='<div class="e-card glowable reveal '+D[i%4]+(live?" e-card--live":"")+'">'
+        + '<span class="e-date">'+(live?'<span class="live-dot" aria-hidden="true"></span>':"")+esc(e.etiqueta)+'</span>'
+        + '<h3>'+esc(e.titulo)+'</h3>'
+        + '<p>'+esc(e.descripcion)+'</p>'
+        + '<a '+(key?'data-link="'+esc(e.enlace)+'" ':"")+'href="'+esc(href)+'" class="a-link">'+esc(e.cta||"Más información")+' <span class="arr">→</span></a>'
+        + '</div>';
+  });
+  g.innerHTML=html;
+  bindGlow(g); observeReveals(g); applyLinks();
+}
+
+function renderHistoria(hs){
+  var tl=$("#timeline"); if(!tl||!hs) return;
+  var html='<div class="tl-line"><i></i></div>';
+  hs.forEach(function(h){
+    html+='<div class="tl-item reveal"><span class="tl-dot"></span><div class="tl-card">'
+        + '<div class="tl-chap">'+esc(h.capitulo)+'</div>'
+        + '<h3>'+esc(h.titulo)+'</h3><p>'+esc(h.texto)+'</p>'
+        + '</div></div>';
+  });
+  tl.innerHTML=html;
+  observeReveals(tl); watchTimeline();
+}
+
+/* Override en producción: coloca datos/club.json junto a index.html */
+fetch("datos/club.json",{cache:"no-store"})
+  .then(function(r){return r.ok?r.json():null})
+  .then(function(d){
+    if(!d) return;
+    if(d.config&&d.config.urls){for(var k in d.config.urls){CONFIG.urls[k]=d.config.urls[k];}}
+    if(d.personas) renderPeople(d.personas);
+    if(d.eventos)  renderEvents(d.eventos);
+    if(d.historia) renderHistoria(d.historia);
+    applyLinks();
+  }).catch(function(){});
+
+/* ---------------- Ticker del torneo (cinta bursátil al pie) ----------------
+   Solo aparece si existe datos/torneo.json real (el mismo que consume
+   torneo/index.html). Muestra el top 5 con puntos, retorno vs ACWI y delta
+   de posición. Cerrable (se recuerda por sesión). Nada hardcodeado. */
+(function(){
+  var t=$("#ticker");if(!t)return;
+  try{if(sessionStorage.getItem("figTickerOff"))return;}catch(e){}
+  function pct(v){return (v>0?"+":"")+(v*100).toFixed(1)+"%"}
+  fetch("datos/torneo.json",{cache:"no-store"})
+    .then(function(r){return r.ok?r.json():null})
+    .then(function(d){
+      if(!d||!d.equipos||!d.equipos.length)return;
+      var eq=d.equipos.slice().sort(function(a,b){return a.posicion-b.posicion}).slice(0,5);
+      var html=eq.map(function(e){
+        var delta=e.delta>0?' <span class="up">▲'+e.delta+'</span>'
+                 :e.delta<0?' <span class="down">▼'+(-e.delta)+'</span>':"";
+        var rel=(typeof e.retRel==="number")?' · <span class="'+(e.retRel>=0?"up":"down")+'">'+pct(e.retRel)+' vs ACWI</span>':"";
+        return '<span class="tk-item"><b>'+e.posicion+'</b> '+esc(e.nombre)+' — '
+             +(typeof e.puntos==="number"?e.puntos.toFixed(1)+" pts":"")+rel+delta+'</span>';
+      }).join("")
+      +'<a class="tk-item" data-link="torneo" href="torneo/">VER RANKING COMPLETO →</a>';
+      $(".tk-move",t).innerHTML=html+html; /* duplicado para el loop continuo */
+      $(".tk-tag",t).textContent="TORNEO · SEMANA "+(d.semana||"—");
+      t.classList.add("on");
+      document.body.classList.add("has-ticker");
+      $(".tk-close",t).addEventListener("click",function(){
+        t.classList.remove("on");
+        document.body.classList.remove("has-ticker");
+        try{sessionStorage.setItem("figTickerOff","1")}catch(e){}
+      });
+    }).catch(function(){});
+})();
+
+/* ---------------- Filtro de personas ---------------- */
+function applyFilter(name){
+  currentFilter=name;
+  $$("#peopleGrid .p-card").forEach(function(c){
+    c.classList.toggle("hidden", c.getAttribute("data-group")!==name);
+  });
+  $$(".pill").forEach(function(pl){
+    var on=pl.getAttribute("data-filter")===name;
+    pl.classList.toggle("active",on);
+    pl.setAttribute("aria-pressed",on);
+  });
+}
+$$(".pill").forEach(function(pl){
+  pl.addEventListener("click",function(){applyFilter(pl.getAttribute("data-filter"))});
+});
+
+/* ---------------- Expediente: perfil expandido del equipo ----------------
+   Al tocar una tarjeta se abre un overlay con la ficha completa de la
+   persona (foto grande si existe en fotos/directiva/<slug>.jpg, monograma
+   si no), bio y trayectoria desde club.json (campo perfil), flechas para
+   recorrer al resto del grupo y ✕/Esc para cerrar. Sin datos inventados:
+   si una persona no tiene perfil, se muestra su detalle breve. */
+(function(){
+  var pv=$("#perfilView"); if(!pv) return;
+  var GK={directiva:"Directiva fundadora · FIG",industria:"FIG en la industria",fama:"Muro de la Fama"};
+  var list=[],idx=0,grp="directiva",lastFocus=null;
+  /* slug()/probeFoto() ahora son globales (compartidas con las miniaturas
+     de la grilla) — ver definición más arriba, junto a renderPeople */
+  function pad(n){return (n<10?"0":"")+n}
+
+  function fill(){
+    var x=list[idx]; if(!x)return;
+    var pf=x.perfil||{};
+    $(".pv-kicker",pv).textContent=GK[grp]||"FIG";
+    $(".pv-name",pv).textContent=x.nombre||"";
+    $(".pv-role",pv).textContent=x.rol||"";
+    $(".pv-bio",pv).textContent=pf.bio||x.detalle||"";
+    var hit=$(".pv-hitos",pv),ul=$(".pv-hitos ul",pv),hs=pf.hitos||[];
+    ul.innerHTML=hs.map(function(h){return "<li>"+esc(h)+"</li>"}).join("");
+    hit.style.display=hs.length?"":"none";
+    var lk=$(".pv-lk",pv);
+    if(x.linkedin){lk.style.display="";lk.setAttribute("href",x.linkedin);}
+    else{lk.style.display="none";}
+    $(".pv-count",pv).innerHTML="<b>"+pad(idx+1)+"</b> / "+pad(list.length);
+    var mono=$(".pv-mono",pv),img=$(".pv-img",pv);
+    mono.textContent=x.iniciales||"·";mono.style.opacity="";
+    img.classList.remove("ok");img.removeAttribute("src");img.setAttribute("alt","");
+    if(grp==="directiva"){
+      var cur=x.nombre;
+      probeFoto(slug(cur),function(url){
+        if(!url)return;
+        if(!list[idx]||list[idx].nombre!==cur)return; /* ya navegó a otra persona */
+        img.src=url;img.setAttribute("alt","Foto de "+cur);
+        img.classList.add("ok");mono.style.opacity="0";
+      });
+    }
+  }
+  function show(){
+    var card=$(".pv-card",pv);
+    if(RM){fill();return}
+    card.classList.add("swap");
+    setTimeout(function(){fill();card.classList.remove("swap")},240);
+  }
+  function open(g,i){
+    grp=g;
+    list=((PEOPLE_DATA&&PEOPLE_DATA[g])||[]).filter(function(x){return !x.mas});
+    if(!list.length)return;
+    idx=Math.max(0,Math.min(i,list.length-1));
+    lastFocus=document.activeElement;
+    fill();
+    pv.classList.add("on");pv.setAttribute("aria-hidden","false");
+    document.body.style.overflow="hidden";
+    if(RM){pv.classList.add("in");}
+    else{requestAnimationFrame(function(){requestAnimationFrame(function(){pv.classList.add("in")})});}
+    $(".pv-x",pv).focus();
+  }
+  function close(){
+    pv.classList.remove("in");pv.setAttribute("aria-hidden","true");
+    document.body.style.overflow="";
+    if(RM){pv.classList.remove("on");}
+    else{setTimeout(function(){pv.classList.remove("on")},430);}
+    if(lastFocus&&lastFocus.focus){try{lastFocus.focus()}catch(e){}}
+  }
+  function nav(d){
+    if(!list.length)return;
+    idx=(idx+d+list.length)%list.length;
+    show();
+  }
+
+  var grid=$("#peopleGrid");
+  if(grid){
+    grid.addEventListener("click",function(e){
+      var t=e.target;
+      while(t&&t!==grid){
+        if(t.tagName==="A")return; /* no interceptar el enlace de LinkedIn */
+        if(t.classList&&t.classList.contains("p-card--exp")){
+          open(t.getAttribute("data-group"),parseInt(t.getAttribute("data-idx"),10)||0);return;
+        }
+        t=t.parentNode;
+      }
+    });
+    grid.addEventListener("keydown",function(e){
+      if(e.key!=="Enter"&&e.key!==" ")return;
+      var t=e.target;
+      if(t.classList&&t.classList.contains("p-card--exp")){
+        e.preventDefault();
+        open(t.getAttribute("data-group"),parseInt(t.getAttribute("data-idx"),10)||0);
+      }
+    });
+  }
+  pv.addEventListener("click",function(e){
+    if(e.target.classList&&e.target.classList.contains("pv-shell")){close();return}
+    var t=e.target;
+    while(t&&t!==pv){
+      var a=t.getAttribute?t.getAttribute("data-pv"):null;
+      if(a==="close"){close();return}
+      if(a==="prev"){nav(-1);return}
+      if(a==="next"){nav(1);return}
+      t=t.parentNode;
+    }
+  });
+  document.addEventListener("keydown",function(e){
+    if(!pv.classList.contains("on"))return;
+    if(e.key==="Escape")close();
+    else if(e.key==="ArrowLeft")nav(-1);
+    else if(e.key==="ArrowRight")nav(1);
+  });
+})();
+
+/* ---------------- Reveals + efectos de entrada ---------------- */
+var revIO=null;
+function makeRevIO(){
+  if(RM||!("IntersectionObserver" in window)) return null;
+  return new IntersectionObserver(function(es){
+    es.forEach(function(en){
+      if(!en.isIntersecting) return;
+      en.target.classList.add("in");
+      var sc=en.target.querySelector(".scr"); if(sc) scramble(sc);
+      revIO.unobserve(en.target);
+    });
+  },{threshold:.12,rootMargin:"0px 0px -6% 0px"});
+}
+revIO=null;
+function observeReveals(root){
+  var items=$$(".reveal:not(.in)",root||document);
+  if(!revIO){ items.forEach(function(el){el.classList.add("in")}); return; }
+  items.forEach(function(el){revIO.observe(el)});
+}
+
+revIO=makeRevIO();
+
+var SCRCH="▮▯01$%&#<>·";
+function scramble(el){
+  var fin=el.getAttribute("data-text")||el.textContent;
+  if(RM){el.textContent=fin;return;}
+  var t0=null,dur=620;
+  (function fr(t){
+    if(!t0)t0=t;
+    var p=Math.min((t-(t0))/dur,1), n=Math.floor(fin.length*p), out=fin.slice(0,n);
+    for(var i=n;i<fin.length;i++){out+= fin[i]===" "?" ":SCRCH[(Math.random()*SCRCH.length)|0];}
+    el.textContent=out;
+    if(p<1)requestAnimationFrame(fr); else el.textContent=fin;
+  })(performance.now());
+}
+
+/* ---------------- Contadores ---------------- */
+function setCounterFinal(el){el.textContent=el.getAttribute("data-target")}
+function animateCounter(el){
+  var target=parseInt(el.getAttribute("data-target"),10), dur=1500, t0=null;
+  function step(t){
+    if(!t0)t0=t;
+    var p=Math.min((t-t0)/dur,1), e=1-Math.pow(1-p,3);
+    el.textContent=Math.round(target*e);
+    if(p<1)requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+function watchCounters(){
+  var cs=$$(".counter");
+  if(RM||!("IntersectionObserver" in window)){cs.forEach(setCounterFinal);return;}
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(en){if(en.isIntersecting){animateCounter(en.target);io.unobserve(en.target)}});
+  },{threshold:.5});
+  cs.forEach(function(c){io.observe(c)});
+}
+
+/* ---------------- Barras de scoring ---------------- */
+function fillBars(instant){
+  $$(".s-fill").forEach(function(f,i){
+    var w=f.getAttribute("data-w")+"%";
+    if(instant){f.style.transitionDuration="0s";f.style.width=w;}
+    else setTimeout(function(){f.style.width=w},140*i);
+  });
+}
+function watchBars(){
+  var sc=$(".score-card"); if(!sc)return;
+  if(RM||!("IntersectionObserver" in window)){fillBars(true);return;}
+  var io=new IntersectionObserver(function(es){
+    if(es[0].isIntersecting){fillBars(false);io.disconnect();}
+  },{threshold:.35});
+  io.observe(sc);
+}
+
+/* ---------------- Línea de la historia ---------------- */
+function watchTimeline(){
+  var tl=$("#timeline"); if(!tl)return;
+  if(RM||!("IntersectionObserver" in window)){tl.classList.add("drawn");return;}
+  var io=new IntersectionObserver(function(es){
+    if(es[0].isIntersecting){tl.classList.add("drawn");io.disconnect();}
+  },{threshold:.12});
+  io.observe(tl);
+}
+
+/* ---------------- Riel «equity curve» ---------------- */
+var railSecs=[], railNodes=[], railTop=130, railBottom=120;
+function buildRail(){
+  var rail=$("#rail"); if(!rail)return;
+  railSecs=$$("[data-rail]");
+  railSecs.forEach(function(s,i){
+    var n=document.createElement("button");
+    n.type="button"; n.className="rail-node"; n.setAttribute("tabindex","-1");
+    n.innerHTML='<span class="rn-lab">'+("0"+i).slice(-2)+" "+esc(s.getAttribute("data-rail"))+'</span>';
+    n.addEventListener("click",function(){s.scrollIntoView({behavior:RM?"auto":"smooth"})});
+    rail.appendChild(n);
+    railNodes.push(n);
+  });
+  layoutRail();
+  if("IntersectionObserver" in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(en){
+        if(!en.isIntersecting)return;
+        var i=railSecs.indexOf(en.target);
+        railNodes.forEach(function(n,k){n.classList.toggle("active",k===i)});
+        document.body.classList.toggle("on-light", en.target.getAttribute("data-theme")==="light");
+      });
+    },{rootMargin:"-45% 0px -50% 0px"});
+    railSecs.forEach(function(s){io.observe(s)});
+  }
+}
+function layoutRail(){
+  if(!railNodes.length)return;
+  var doc=document.documentElement;
+  var max=doc.scrollHeight-window.innerHeight;
+  var H=window.innerHeight-railTop-railBottom;
+  railSecs.forEach(function(s,i){
+    var y= max>0 ? railTop + (clamp(s.offsetTop-90,0,max)/max)*H : railTop;
+    railNodes[i].style.top=(y-7)+"px";
+  });
+}
+function railScroll(){
+  var doc=document.documentElement;
+  var max=doc.scrollHeight-window.innerHeight;
+  var H=window.innerHeight-railTop-railBottom;
+  var f=$("#railFill");
+  if(f) f.style.height=(max>0?(doc.scrollTop/max)*H:0)+"px";
+}
+
+/* ---------------- Scroll: barra, nav, ocultar/mostrar ---------------- */
+var bar=$("#scrollbar"), nav=$("#nav"), lastY=0;
+function onScroll(){
+  var h=document.documentElement, y=h.scrollTop;
+  var max=h.scrollHeight-h.clientHeight;
+  if(bar) bar.style.width=(max>0?(y/max)*100:0)+"%";
+  nav.classList.toggle("scrolled",y>10);
+  if(!mmenu.classList.contains("open")){
+    if(y>420 && y>lastY+4) nav.classList.add("hide");
+    else if(y<lastY-4 || y<=80) nav.classList.remove("hide");
+  }
+  lastY=y;
+  railScroll();
+}
+window.addEventListener("scroll",onScroll,{passive:true});
+
+/* ---------------- Menú móvil ---------------- */
+var burger=$("#burger"), mmenu=$("#mmenu");
+function toggleMenu(force){
+  var open=typeof force==="boolean"?force:!mmenu.classList.contains("open");
+  mmenu.classList.toggle("open",open);
+  burger.classList.toggle("open",open);
+  burger.setAttribute("aria-expanded",open);
+  document.body.style.overflow=open?"hidden":"";
+  if(open) nav.classList.remove("hide");
+}
+burger.addEventListener("click",function(){toggleMenu()});
+$$("a",mmenu).forEach(function(a){a.addEventListener("click",function(){toggleMenu(false)})});
+
+/* ---------------- Link activo del nav ---------------- */
+(function(){
+  var links=$$(".nav__links a"); if(!links.length||!("IntersectionObserver" in window))return;
+  var map={}; links.forEach(function(a){map[a.getAttribute("href").slice(1)]=a});
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(en){
+      var a=map[en.target.id];
+      if(a&&en.isIntersecting){links.forEach(function(l){l.classList.remove("active")});a.classList.add("active");}
+    });
+  },{rootMargin:"-45% 0px -50% 0px"});
+  Object.keys(map).forEach(function(id){var s=document.getElementById(id);if(s)io.observe(s)});
+})();
+
+/* ---------------- Cursor crosshair ---------------- */
+(function(){
+  if(!FINE||RM)return;
+  var dot=$("#cursorDot"), ring=$("#cursorRing");
+  var x=0,y=0,rx=0,ry=0,on=false;
+  document.addEventListener("mousemove",function(e){
+    x=e.clientX; y=e.clientY;
+    if(!on){on=true;document.body.classList.add("cursor-on");}
+    dot.style.transform="translate("+x+"px,"+y+"px) translate(-50%,-50%)";
+  },{passive:true});
+  document.addEventListener("mouseleave",function(){document.body.classList.remove("cursor-on");on=false});
+  document.addEventListener("mouseover",function(e){
+    ring.classList.toggle("grow",!!(e.target.closest&&e.target.closest("a,button,#heroChart")));
+  });
+  (function loop(){
+    rx+=(x-rx)*.16; ry+=(y-ry)*.16;
+    ring.style.transform="translate("+rx+"px,"+ry+"px) translate(-50%,-50%)";
+    requestAnimationFrame(loop);
+  })();
+})();
+
+/* ---------------- Botones magnéticos ---------------- */
+(function(){
+  if(!FINE||RM)return;
+  $$(".mag").forEach(function(b){
+    b.addEventListener("mousemove",function(e){
+      var r=b.getBoundingClientRect();
+      var dx=(e.clientX-(r.left+r.width/2))*.18, dy=(e.clientY-(r.top+r.height/2))*.28;
+      b.style.transform="translate("+clamp(dx,-8,8)+"px,"+clamp(dy,-6,6)+"px)";
+    });
+    b.addEventListener("mouseleave",function(){b.style.transform=""});
+  });
+})();
+
+/* ---------------- Tilt 3D del panel del hero ---------------- */
+(function(){
+  if(!FINE||RM)return;
+  var card=$("#chartCard"); if(!card)return;
+  card.addEventListener("mousemove",function(e){
+    var r=card.getBoundingClientRect();
+    var px=(e.clientX-r.left)/r.width-.5, py=(e.clientY-r.top)/r.height-.5;
+    card.style.transition="transform .08s linear";
+    card.style.transform="rotateX("+(-py*5)+"deg) rotateY("+(px*6)+"deg)";
+  });
+  card.addEventListener("mouseleave",function(){
+    card.style.transition="transform .7s cubic-bezier(.22,.61,.21,1)";
+    card.style.transform="";
+  });
+})();
+
+/* ---------------- Brillo que sigue al cursor ---------------- */
+function bindGlow(root){
+  if(!FINE)return;
+  $$(".glowable",root||document).forEach(function(g){
+    if(g._glow)return; g._glow=true;
+    g.addEventListener("pointermove",function(e){
+      var r=g.getBoundingClientRect();
+      g.style.setProperty("--mx",((e.clientX-r.left)/r.width*100)+"%");
+      g.style.setProperty("--my",((e.clientY-r.top)/r.height*100)+"%");
+    });
+  });
+}
+
+/* ---------------- Cinta de tickers ---------------- */
+(function(){var t=$("#tickerTrack");if(t)t.innerHTML+=t.innerHTML})();
+
+/* ---------------- Relojes SCL / NYC ---------------- */
+(function(){
+  var scl=$("#clkScl"), nyc=$("#clkNyc"); if(!scl)return;
+  function fmt(tz){
+    try{
+      return new Intl.DateTimeFormat("es-CL",{timeZone:tz,hour12:false,hour:"2-digit",minute:"2-digit",second:"2-digit"}).format(new Date());
+    }catch(e){return "--:--:--"}
+  }
+  function tick(){scl.textContent=fmt("America/Santiago");nyc.textContent=fmt("America/New_York")}
+  tick(); setInterval(tick,1000);
+})();
+
+/* ---------------- Fondo: cordillera de datos ---------------- */
+var ridgesStatic=false;
+(function(){
+  var cv=$("#bgRidges"); if(!cv)return;
+  var ctx=cv.getContext("2d"), W=0,H=0, run=true, mx=0,my=0, tx=0,ty=0;
+  var L=[
+    {a:24,f:.0030,s:.00007,ph:0.0,yb:.58,col:"rgba(212,175,55,.15)",lw:1.2},
+    {a:36,f:.0022,s:.00005,ph:2.1,yb:.70,col:"rgba(212,175,55,.10)",lw:1.2},
+    {a:50,f:.0016,s:.000034,ph:4.4,yb:.81,col:"rgba(120,140,200,.10)",lw:1.1},
+    {a:66,f:.0012,s:.000022,ph:6.2,yb:.92,col:"rgba(212,175,55,.07)",lw:1.1}
+  ];
+  var dots=[]; for(var i=0;i<40;i++)dots.push({x:Math.random(),y:Math.random()*.7,r:Math.random()*1.5+.4,sp:Math.random()*.008+.003,tw:Math.random()*6.28});
+  function size(){
+    var d=window.devicePixelRatio||1;
+    W=cv.clientWidth;H=cv.clientHeight;
+    cv.width=W*d;cv.height=H*d;ctx.setTransform(d,0,0,d,0,0);
+  }
+  size();
+  function draw(t){
+    ctx.clearRect(0,0,W,H);
+    tx+=(mx-tx)*.05; ty+=(my-ty)*.05;
+    for(var li=0;li<L.length;li++){
+      var o=L[li], par=(li+1);
+      ctx.beginPath();
+      for(var x=-24;x<=W+24;x+=7){
+        var y=H*o.yb
+          + Math.sin(x*o.f + t*o.s + o.ph)*o.a
+          + Math.sin(x*o.f*2.6 + t*o.s*1.7 + o.ph)*o.a*.35
+          + ty*par*5;
+        var xx=x+tx*par*7;
+        if(x===-24)ctx.moveTo(xx,y);else ctx.lineTo(xx,y);
+      }
+      ctx.strokeStyle=o.col;ctx.lineWidth=o.lw;ctx.stroke();
+    }
+    for(var k=0;k<dots.length;k++){
+      var dd=dots[k]; dd.tw+=.012;
+      var yy=dd.y*H+Math.sin(dd.tw)*3;
+      var xx2=((dd.x+t*dd.sp*.00001)%1)*W;
+      ctx.globalAlpha=.22+.22*Math.sin(dd.tw*1.6);
+      ctx.fillStyle="#D4AF37";
+      ctx.beginPath();ctx.arc(xx2,yy,dd.r,0,6.2832);ctx.fill();
+    }
+    ctx.globalAlpha=1;
+  }
+  if(RM){draw(0);ridgesStatic=true;window.addEventListener("resize",function(){size();draw(0)});return;}
+  if(FINE)document.addEventListener("mousemove",function(e){
+    mx=e.clientX/window.innerWidth-.5; my=e.clientY/window.innerHeight-.5;
+  },{passive:true});
+  if("IntersectionObserver" in window){
+    new IntersectionObserver(function(es){run=es[0].isIntersecting},{threshold:0}).observe($("#inicio"));
+  }
+  window.addEventListener("resize",function(){size()});
+  (function loop(t){
+    if(run&&!document.hidden)draw(t||0);
+    requestAnimationFrame(loop);
+  })(0);
+})();
+
+/* ---------------- Gráfico del hero + crosshair ---------------- */
+var chart=(function(){
+  var cv=$("#heroChart"); if(!cv)return null;
+  var N=48,FIG=[],BMK=[];
+  for(var i=0;i<N;i++){
+    var dip=Math.exp(-Math.pow((i-27)/4,2));
+    FIG.push(100+i*0.58+Math.sin(i*0.55)*2.1+Math.sin(i*0.21+1.3)*3.4-6.2*dip);
+    BMK.push(100+i*0.34+Math.sin(i*0.50+0.8)*1.5+Math.sin(i*0.18+2.0)*2.4-4.4*dip);
+  }
+  var done=false;
+  function frame(p,cx){
+    var d=window.devicePixelRatio||1, W=cv.clientWidth, H=cv.clientHeight;
+    if(!W||!H)return;
+    cv.width=W*d;cv.height=H*d;
+    var c=cv.getContext("2d"); c.setTransform(d,0,0,d,0,0);
+    c.clearRect(0,0,W,H);
+    var pl=10,pr=52,pt=14,pb=12;
+    var all=FIG.concat(BMK);
+    var mn=Math.min.apply(null,all)-2, mx=Math.max.apply(null,all)+2;
+    function X(i){return pl+(i/(N-1))*(W-pl-pr)}
+    function Y(v){return pt+(1-(v-mn)/(mx-mn))*(H-pt-pb)}
+    c.strokeStyle="rgba(247,244,236,.07)";c.lineWidth=1;
+    for(var g=0;g<=4;g++){var gy=pt+(g/4)*(H-pt-pb);c.beginPath();c.moveTo(pl,gy);c.lineTo(W-pr+34,gy);c.stroke();}
+    var last=1+(N-2)*p, li=Math.floor(last), lf=last-li;
+    function seg(arr){
+      c.beginPath();c.moveTo(X(0),Y(arr[0]));
+      for(var k=1;k<=li;k++)c.lineTo(X(k),Y(arr[k]));
+      if(li<N-1){
+        var vx=X(li)+(X(li+1)-X(li))*lf, vy=Y(arr[li])+(Y(arr[li+1])-Y(arr[li]))*lf;
+        c.lineTo(vx,vy);return{x:vx,y:vy};
+      }
+      return{x:X(N-1),y:Y(arr[N-1])};
+    }
+    c.save();c.setLineDash([5,6]);c.strokeStyle="rgba(247,244,236,.42)";c.lineWidth=1.5;
+    var bE=seg(BMK);c.stroke();c.restore();
+    var fE=seg(FIG);
+    c.save();c.lineTo(fE.x,H-pb);c.lineTo(X(0),H-pb);c.closePath();
+    var gr=c.createLinearGradient(0,pt,0,H-pb);
+    gr.addColorStop(0,"rgba(212,175,55,.22)");gr.addColorStop(1,"rgba(212,175,55,0)");
+    c.fillStyle=gr;c.fill();c.restore();
+    c.beginPath();c.moveTo(X(0),Y(FIG[0]));
+    for(var k2=1;k2<=li;k2++)c.lineTo(X(k2),Y(FIG[k2]));
+    if(li<N-1)c.lineTo(fE.x,fE.y);
+    c.strokeStyle="#D4AF37";c.lineWidth=2.4;c.lineJoin="round";c.lineCap="round";c.stroke();
+    c.font="600 9px 'IBM Plex Mono', monospace";
+    c.fillStyle="rgba(247,244,236,.5)";
+    c.beginPath();c.arc(bE.x,bE.y,2.6,0,6.2832);c.fill();
+    if(p>=1)c.fillText("ACWI",W-pr+10,bE.y+3);
+    c.fillStyle="#D4AF37";
+    c.beginPath();c.arc(fE.x,fE.y,3.4,0,6.2832);c.fill();
+    if(p>=1)c.fillText("FIG",W-pr+10,fE.y+3);
+    if(p>=1){c.strokeStyle="rgba(212,175,55,.35)";c.lineWidth=1;c.beginPath();c.arc(fE.x,fE.y,7,0,6.2832);c.stroke();}
+    /* crosshair estilo terminal */
+    if(p>=1&&cx!=null){
+      var idx=clamp(Math.round(((cx-pl)/(W-pl-pr))*(N-1)),0,N-1);
+      var chx=X(idx), fy=Y(FIG[idx]), by=Y(BMK[idx]);
+      c.strokeStyle="rgba(212,175,55,.3)";c.lineWidth=1;
+      c.beginPath();c.moveTo(chx,pt);c.lineTo(chx,H-pb);c.stroke();
+      c.fillStyle="#D4AF37";c.beginPath();c.arc(chx,fy,3.2,0,6.2832);c.fill();
+      c.fillStyle="rgba(247,244,236,.75)";c.beginPath();c.arc(chx,by,2.6,0,6.2832);c.fill();
+      var dv=(FIG[idx]-BMK[idx]);
+      var l1="S"+(idx+1)+" · BASE 100";
+      var l2="FIG "+FIG[idx].toFixed(1)+"   ACWI "+BMK[idx].toFixed(1)+"   \u0394 "+(dv>=0?"+":"")+dv.toFixed(1);
+      c.fillStyle="rgba(6,11,28,.85)";
+      c.fillRect(8,8,Math.max(c.measureText(l2).width,c.measureText(l1).width)+20,38);
+      c.strokeStyle="rgba(212,175,55,.3)";c.strokeRect(8.5,8.5,Math.max(c.measureText(l2).width,c.measureText(l1).width)+19,37);
+      c.fillStyle="rgba(247,244,236,.55)";c.fillText(l1,17,23);
+      c.fillStyle="#EBD388";c.fillText(l2,17,37);
+    }
+  }
+  function play(dur){
+    if(dur<=0){done=true;frame(1);return;}
+    var t0=null;
+    (function an(t){
+      if(!t0)t0=t;
+      var p=Math.min((t-t0)/dur,1), e=1-Math.pow(1-p,3);
+      frame(e);
+      if(p<1)requestAnimationFrame(an);else done=true;
+    })(performance.now());
+  }
+  cv.addEventListener("pointermove",function(e){
+    if(!done)return;
+    var r=cv.getBoundingClientRect();
+    frame(1,e.clientX-r.left);
+  });
+  cv.addEventListener("pointerleave",function(){if(done)frame(1)});
+  return {play:play,redraw:function(){if(done)frame(1)}};
+})();
+
+/* ---------------- Conmutador de desks ---------------- */
+var deskBtns=$$(".desk-item"), deskViews=$$(".dp-view"), deskI=0, deskT=null, deskAuto=!RM, deskStarted=false;
+function showDesk(i,user){
+  deskI=i;
+  deskBtns.forEach(function(b,k){b.classList.toggle("active",k===i);b.setAttribute("aria-selected",k===i)});
+  deskViews.forEach(function(v,k){v.classList.toggle("active",k===i)});
+  deskViews.forEach(function(v){var b=v.querySelector(".dp-bar");if(b)b.classList.remove("run")});
+  clearTimeout(deskT);
+  if(user){deskAuto=false;return;}
+  var bar=deskViews[i].querySelector(".dp-bar");
+  if(bar){void bar.offsetWidth;bar.classList.add("run");}
+  deskT=setTimeout(function(){showDesk((deskI+1)%deskViews.length,false)},5600);
+}
+deskBtns.forEach(function(b,i){
+  b.addEventListener("click",function(){showDesk(i,true)});
+  b.addEventListener("keydown",function(e){
+    if(e.key==="ArrowDown"||e.key==="ArrowRight"){e.preventDefault();deskBtns[(i+1)%deskBtns.length].focus();showDesk((i+1)%deskBtns.length,true);}
+    if(e.key==="ArrowUp"||e.key==="ArrowLeft"){e.preventDefault();var p=(i-1+deskBtns.length)%deskBtns.length;deskBtns[p].focus();showDesk(p,true);}
+  });
+});
+var dp=$("#deskPanel");
+if(dp){
+  dp.addEventListener("mouseenter",function(){clearTimeout(deskT);
+    var b=deskViews[deskI].querySelector(".dp-bar");if(b)b.classList.remove("run");});
+  dp.addEventListener("mouseleave",function(){if(deskAuto)showDesk(deskI,false)});
+}
+function watchDesks(){
+  var sec=$("#areas"); if(!sec||deskStarted)return;
+  if(RM||!("IntersectionObserver" in window)){deskStarted=true;showDesk(0,true);deskAuto=false;return;}
+  var io=new IntersectionObserver(function(es){
+    var vis=es[0].isIntersecting;
+    if(vis&&!deskStarted){deskStarted=true;showDesk(0,false);return;}
+    if(!deskStarted)return;
+    if(!vis){clearTimeout(deskT);var b=deskViews[deskI].querySelector(".dp-bar");if(b)b.classList.remove("run");}
+    else if(deskAuto){showDesk(deskI,false);}
+  },{threshold:.3});
+  io.observe(sec);
+}
+
+/* ---------------- Eje del torneo con marcador HOY ---------------- */
+function initAxis(){
+  var items=$$(".ax"); if(!items.length)return;
+  var axis=$(".axis"), fill=$("#axisFill"), nowEl=$("#axisNow"), lab=$("#axisNowLab"), week=$("#axisWeek");
+  var now=Date.now();
+  var ts=items.map(function(el){return Date.parse(el.getAttribute("data-ts")+"T12:00:00-03:00")});
+  items.forEach(function(el,i){el.classList.toggle("done",now>=ts[i])});
+  var aR=axis.getBoundingClientRect();
+  var xs=items.map(function(el){var r=el.getBoundingClientRect();return r.left-aR.left+r.width/2});
+  var x;
+  if(now<=ts[0]) x=xs[0];
+  else if(now>=ts[ts.length-1]) x=xs[xs.length-1];
+  else{
+    for(var i=0;i<ts.length-1;i++){
+      if(now>=ts[i]&&now<ts[i+1]){x=xs[i]+((now-ts[i])/(ts[i+1]-ts[i]))*(xs[i+1]-xs[i]);break;}
+    }
+  }
+  fill.style.width=Math.max(0,x-10)+"px";
+  nowEl.style.left=x+"px";
+  nowEl.hidden=false;
+  var wk=Math.floor((now-ts[0])/(7*864e5))+1;
+  if(now<ts[0]){lab.textContent="PRONTO";week.textContent="Torneo Portafolio 2026";}
+  else if(now>ts[5]){lab.textContent="FINALIZADO";week.textContent="Torneo finalizado · ranking oficial publicado";}
+  else{lab.textContent="HOY · SEMANA "+wk;week.textContent="Semana "+wk+" de 25 · torneo en curso";}
+}
+
+/* ---------------- Preloader (telón) y arranque ---------------- */
+var pre=$("#preloader"), plNum=$("#plNum"), booted=false;
+function boot(){
+  if(booted)return; booted=true;
+  document.body.classList.add("hero-in");
+  observeReveals(document);
+  watchCounters(); watchBars(); watchTimeline(); watchDesks();
+  bindGlow(document);
+  initAxis(); layoutRail(); railScroll(); onScroll();
+  if(chart)chart.play(RM?0:2400);
+  var hk=$(".hero .scr"); if(hk&&!RM)scramble(hk);
+}
+function openCurtains(){
+  pre.classList.add("open");
+  boot();
+  setTimeout(function(){pre.classList.add("gone")},1050);
+}
+if(RM){pre.classList.add("open","gone");boot();}
+else{
+  /* secuencia: logo solo al centro → se desliza y aparece el nombre → telón */
+  setTimeout(function(){pre.classList.add("p1")},150);
+  setTimeout(function(){pre.classList.add("p2")},900);
+  var pv=0,t0=null;
+  (function count(t){
+    if(!t0)t0=t;
+    var p=Math.min((t-t0)/1750,1);
+    var v=Math.round(100*(1-Math.pow(1-p,2)));
+    plNum.textContent=(v<10?"0"+v:""+v);
+    if(p<1)requestAnimationFrame(count);
+    else openCurtains();
+  })(performance.now());
+  setTimeout(function(){if(!booted)openCurtains()},3400);
+}
+
+/* ---------------- Resize orquestado ---------------- */
+var rT;
+window.addEventListener("resize",function(){
+  clearTimeout(rT);
+  rT=setTimeout(function(){
+    layoutRail(); railScroll(); initAxis();
+    if(chart)chart.redraw();
+  },140);
+});
+window.addEventListener("load",function(){layoutRail();railScroll();initAxis()});
+
+/* ---------------- Render inicial con datos embebidos ---------------- */
+renderPeople(CLUB_DATA.personas);
+renderEvents(CLUB_DATA.eventos);
+renderHistoria(CLUB_DATA.historia);
+applyLinks();
+
+/* ---------------- Fotos de eventos en movimiento (fondos oscuros) ----------------
+   Tira de fotos reales de fotos/eventos/<carpeta>/1.jpg detectadas solas
+   (mismo patrón de eventos/index.html: probeFotos numeradas) que se
+   desliza despacio detrás de hero/áreas/historia. Lee datos/eventos.json
+   para la lista de carpetas — nada hardcodeado, si se agrega un evento
+   nuevo con fotos, aparece solo. Puramente decorativo. */
+(function(){
+  var hosts=$$(".photo-marquee"); if(!hosts.length)return;
+  function probePortada(carpeta,cb){
+    var exts=["jpg","jpeg","png","webp"],k=0;
+    (function next(){
+      if(k>=exts.length){cb(null);return}
+      var url="fotos/eventos/"+carpeta+"/1."+exts[k++];
+      var im=new Image();
+      im.onload=function(){cb(url)};
+      im.onerror=next;
+      im.src=url;
+    })();
+  }
+  function montar(urls){
+    if(!urls.length)return;
+    var imgs=urls.map(function(u){return '<img src="'+esc(u)+'" alt="" loading="lazy">'}).join("");
+    hosts.forEach(function(h){h.innerHTML='<div class="pm-track">'+imgs+imgs+'</div>'});
+  }
+  fetch("datos/eventos.json",{cache:"no-store"}).then(function(r){return r.ok?r.json():null}).then(function(d){
+    var carpetas=((d&&d.eventos)||[]).map(function(e){return e.carpeta}).filter(Boolean);
+    if(!carpetas.length)return;
+    var found=[],pend=carpetas.length;
+    carpetas.forEach(function(c){
+      probePortada(c,function(url){
+        if(url)found.push(url);
+        if(--pend===0)montar(found);
+      });
+    });
+  }).catch(function(){});
+})();
+
+})();
+</script>
+<script>
+/* Métricas anónimas de visitas — SIN cookies ni identificadores. Usa el
+   mismo Apps Script COMPARTIDO del sitio (config.figEndpoint), con
+   tipo:"visita" para que escriba en la pestaña correcta. Solo se activa
+   si config.figEndpoint está configurado en datos/club.json (código
+   completo en HOJA_DE_RUTA_FIG.md). Registra página, fecha y origen. */
+(function(){
+try{
+fetch("datos/club.json",{cache:"force-cache"})
+.then(function(r){return r.ok?r.json():null})
+.then(function(d){
+  var u=d&&d.config&&d.config.figEndpoint;if(!u)return;
+  var b=JSON.stringify({tipo:"visita",pagina:location.pathname,fecha:new Date().toISOString(),origen:(document.referrer.split("/")[2]||"")});
+  if(navigator.sendBeacon){navigator.sendBeacon(u,b);}
+  else{fetch(u,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:b}).catch(function(){});}
+}).catch(function(){});
+}catch(e){}
+})();
+</script>
+</body>
+</html>

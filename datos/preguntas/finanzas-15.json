@@ -1,0 +1,194 @@
+[
+  {
+    "id": "ep-038",
+    "tema": "evaluacion-proyectos",
+    "ramo": "intro-finanzas",
+    "dificultad": 3,
+    "pregunta": "Al evaluar un negocio nuevo cuyos ingresos y costos son perpetuidades crecientes o decrecientes expresadas en términos nominales, pero cuya tasa de descuento disponible es real, ¿qué se debe hacer antes de aplicar la fórmula de perpetuidad?",
+    "alternativas": [
+      "Ajustar los montos iniciales dividiéndolos por (1 + inflación), para expresarlos en términos reales y ser consistentes con la tasa real",
+      "Usar directamente los montos nominales sin ningún ajuste, ya que la fórmula de perpetuidad funciona igual en ambos casos",
+      "Multiplicar la tasa de descuento real por la tasa de inflación para obtener la tasa a usar",
+      "Ignorar la inflación por completo, ya que no afecta en ningún caso el valor presente de una perpetuidad"
+    ],
+    "correcta": 0,
+    "explicacion": "Cuando la tasa de crecimiento y de descuento están en términos reales pero el primer flujo está dado en términos nominales, hay que deflactar ese monto inicial antes de aplicar la fórmula de la perpetuidad, para mantener consistencia.",
+    "fuente": "Intro a Finanzas · Pauta Control 2 Otoño 2006 (Marcelo González).pdf"
+  },
+  {
+    "id": "ep-039",
+    "tema": "evaluacion-proyectos",
+    "ramo": "intro-finanzas",
+    "dificultad": 3,
+    "pregunta": "Al valorar un proyecto cuyos distintos componentes de flujo (ingresos, un tipo de costo, otro tipo de costo) crecen o decrecen a tasas reales distintas entre sí, ¿cuál es el procedimiento correcto?",
+    "alternativas": [
+      "Valorar cada componente por separado como una perpetuidad creciente o decreciente con su propia tasa, y luego sumar (o restar) los valores presentes resultantes",
+      "Promediar todas las tasas de crecimiento de los componentes y aplicar esa tasa promedio a la suma total de los flujos",
+      "Usar solamente la tasa de crecimiento del componente de mayor magnitud para valorar todos los flujos del proyecto",
+      "Es imposible valorar un proyecto cuyos componentes crecen a tasas distintas entre sí"
+    ],
+    "correcta": 0,
+    "explicacion": "Cuando los componentes del flujo tienen tasas de crecimiento distintas, cada uno debe descontarse por separado usando la fórmula de perpetuidad (creciente o decreciente) que corresponda, y solo al final se suman los valores presentes.",
+    "fuente": "Intro a Finanzas · Pauta Ayudantía 4 Primavera 2014 (Marcelo González).pdf"
+  },
+  {
+    "id": "ep-040",
+    "tema": "evaluacion-proyectos",
+    "ramo": "intro-finanzas",
+    "dificultad": 3,
+    "pregunta": "¿Es el Costo Anual Equivalente (CAE) la única herramienta disponible para comparar proyectos de distinta vida útil?",
+    "alternativas": [
+      "No, también sirven el acoplamiento de ciclos o la cadena de reemplazo, que igualan los horizontes comparados",
+      "Sí, el CAE es la única herramienta técnicamente aceptada para este tipo de comparación",
+      "No, pero las herramientas alternativas solo sirven cuando los proyectos tienen exactamente la misma vida útil",
+      "Sí, y además el CAE solo puede aplicarse a decisiones de reemplazo de maquinaria, no a otros proyectos"
+    ],
+    "correcta": 0,
+    "explicacion": "Además del CAE, existen otras herramientas para comparar proyectos de distinta vida útil, como el acoplamiento de ciclos y la cadena de reemplazo, que buscan igualar los horizontes de comparación entre las alternativas.",
+    "fuente": "Intro a Finanzas · Pauta Examen Verano 2017 Intro Finanzas (Marcelo González).pdf"
+  },
+  {
+    "id": "ep-041",
+    "tema": "evaluacion-proyectos",
+    "ramo": "intro-finanzas",
+    "dificultad": 3,
+    "pregunta": "Al comparar tres alternativas mutuamente excluyentes de distinta vida útil (por ejemplo, reparar un activo versus reemplazarlo por uno nuevo con mayor duración), ¿qué criterio permite compararlas de forma correcta?",
+    "alternativas": [
+      "El Costo Anual Equivalente (CAE) de cada alternativa, que expresa su costo en una cuota anual comparable",
+      "El VAN total de cada alternativa sin ningún ajuste, comparado directamente entre opciones de distinta duración",
+      "Únicamente la inversión inicial requerida por cada alternativa, sin considerar los costos futuros",
+      "El promedio simple de los costos de cada año, sin traer ningún flujo a valor presente"
+    ],
+    "correcta": 0,
+    "explicacion": "El CAE convierte el VAN de los costos de cada alternativa en una cuota anual equivalente, permitiendo comparar de forma justa alternativas con distinta duración, como reparar un activo versus reemplazarlo por uno nuevo.",
+    "fuente": "Intro a Finanzas · Pauta Examen Verano 2017 Intro Finanzas (Marcelo González).pdf"
+  },
+  {
+    "id": "ep-042",
+    "tema": "evaluacion-proyectos",
+    "ramo": "finanzas-i",
+    "dificultad": 3,
+    "pregunta": "Una empresa evalúa usar un edificio propio, actualmente arrendado a terceros, para una nueva línea de producción. ¿Cómo debe tratarse el arriendo que se dejaría de percibir en el flujo de caja del nuevo proyecto?",
+    "alternativas": [
+      "Debe incluirse como un costo de oportunidad (arriendo perdido, neto de impuestos), restándolo del flujo de caja del proyecto que usaría el edificio",
+      "No debe incluirse de ninguna forma, ya que el edificio ya es propiedad de la empresa y no genera un desembolso directo",
+      "Debe sumarse como un ingreso adicional del proyecto, ya que la empresa deja de pagar arriendo a terceros",
+      "Solo debe considerarse si el edificio se vende físicamente al finalizar el proyecto evaluado"
+    ],
+    "correcta": 0,
+    "explicacion": "Usar un activo propio con un uso alternativo rentable (como arrendarlo) genera un costo de oportunidad que debe incluirse en el flujo del nuevo proyecto, restando el arriendo neto de impuestos que se deja de percibir.",
+    "fuente": "Finanzas I · Ayudantía 4 (José Luis Ruiz, Antonio Velásquez).pdf"
+  },
+  {
+    "id": "ep-043",
+    "tema": "evaluacion-proyectos",
+    "ramo": "finanzas-i",
+    "dificultad": 2,
+    "pregunta": "Al evaluar distintos usos alternativos para un edificio que la empresa ya posee y que se deprecia a lo largo de 30 años, ¿debe incluirse la depreciación del edificio original en el flujo de las alternativas que lo reutilizan?",
+    "alternativas": [
+      "No, porque la depreciación del edificio original no es un flujo incremental y su costo inicial ya es un costo hundido, independiente de la alternativa elegida",
+      "Sí, siempre debe incluirse la depreciación del edificio original en cualquier alternativa que lo utilice",
+      "Sí, pero solo si el edificio se sigue arrendando a los ocupantes actuales durante el proyecto",
+      "No se puede determinar sin conocer el valor de mercado actual del edificio"
+    ],
+    "correcta": 0,
+    "explicacion": "El costo del edificio original ya fue incurrido (costo hundido) y su depreciación no cambia entre alternativas, por lo que no es un flujo incremental relevante; solo importan las depreciaciones de las inversiones adicionales.",
+    "fuente": "Finanzas I · Ayudantía 4 (José Luis Ruiz, Antonio Velásquez).pdf"
+  },
+  {
+    "id": "ep-044",
+    "tema": "evaluacion-proyectos",
+    "ramo": "intro-finanzas",
+    "dificultad": 3,
+    "pregunta": "En una decisión de inversión evaluada mediante un árbol de decisión con distintos escenarios de demanda futura, ¿cómo se determina el valor de una opción de abandono en un nodo específico?",
+    "alternativas": [
+      "Comparando el valor presente de continuar en ese nodo contra el valor de venta del activo si se abandona, y eligiendo la alternativa de mayor valor",
+      "Sumando directamente el valor de todos los escenarios posibles, sin comparar continuar versus abandonar en ningún nodo",
+      "Ignorando la posibilidad de abandonar, ya que esta opción nunca tiene valor en un árbol de decisión",
+      "Usando siempre el escenario de demanda más pesimista para decidir en todos los nodos del árbol"
+    ],
+    "correcta": 0,
+    "explicacion": "El valor de la opción de abandono en cada nodo surge de comparar el valor presente de continuar operando el activo contra su valor de venta inmediato; se elige la alternativa de mayor valor en ese punto de decisión.",
+    "fuente": "Intro a Finanzas · Pauta Ayudantía 5 Parte 2 Primavera 2014 (Marcelo González).pdf"
+  },
+  {
+    "id": "ep-045",
+    "tema": "evaluacion-proyectos",
+    "ramo": "intro-finanzas",
+    "dificultad": 2,
+    "pregunta": "En la evaluación de un proyecto con opción de abandono, ¿cuánto vale la opción si el valor presente de continuar operando siempre supera al valor de abandonar en todos los nodos del árbol?",
+    "alternativas": [
+      "El valor de la opción de abandono es cero, ya que nunca sería óptimo ejercerla en ningún escenario evaluado",
+      "El valor de la opción siempre es igual al valor total de venta del activo, sin importar los flujos de continuar",
+      "El valor de la opción es negativo, restando valor al proyecto en todos los casos",
+      "El valor de la opción es indeterminado y no puede calcularse en ese caso"
+    ],
+    "correcta": 0,
+    "explicacion": "Si en todos los escenarios conviene continuar operando en vez de abandonar, la opción de abandono nunca se ejercería, por lo que su valor adicional sobre el VAN base del proyecto es cero.",
+    "fuente": "Intro a Finanzas · Pauta Ayudantía 5 Parte 2 Primavera 2014 (Marcelo González).pdf"
+  },
+  {
+    "id": "ep-046",
+    "tema": "evaluacion-proyectos",
+    "ramo": "intro-finanzas",
+    "dificultad": 2,
+    "pregunta": "¿Son la TIR y el Rendimiento Contable Promedio (RCP) criterios de evaluación muy similares entre sí, como para interpretarse de la misma forma?",
+    "alternativas": [
+      "No: la TIR usa flujos de caja y se compara con la tasa de descuento; el RCP usa utilidad contable y se compara con un benchmark administrativo",
+      "Sí, ambos criterios usan exactamente los mismos flujos de caja y se comparan con la misma tasa de referencia",
+      "Sí, ambos criterios entregan matemáticamente el mismo resultado numérico en cualquier proyecto",
+      "No, pero solo porque el RCP nunca puede expresarse como una tasa porcentual"
+    ],
+    "correcta": 0,
+    "explicacion": "La TIR se basa en flujos de caja y se compara con el costo de capital, mientras el RCP se calcula sobre utilidad contable neta y se compara con un estándar fijado por la administración, siendo conceptualmente muy distintos.",
+    "fuente": "Intro a Finanzas · Pauta Examen 1 Primavera 2014 (Marcelo González).pdf"
+  },
+  {
+    "id": "ep-047",
+    "tema": "estructura-capital",
+    "ramo": "intro-finanzas",
+    "dificultad": 3,
+    "pregunta": "En el modelo de dos períodos con mercado de capitales perfecto, ¿los accionistas más antiguos de una empresa siempre preferirán recibir dividendos en el presente porque eso maximiza su riqueza?",
+    "alternativas": [
+      "No, la riqueza del accionista no cambia según cuándo se pague el dividendo: solo cambia si debe pedir prestado o prestar para ajustar su consumo",
+      "Sí, siempre es preferible recibir dividendos hoy en vez de en el futuro, sin excepción alguna",
+      "No, porque en el modelo de dos períodos los accionistas nunca reciben dividendos bajo ninguna circunstancia",
+      "Sí, pero solo si la tasa de mercado es mayor a la rentabilidad promedio de los proyectos de la empresa"
+    ],
+    "correcta": 0,
+    "explicacion": "Bajo mercado de capitales perfecto, el momento en que se distribuyen los dividendos no altera la riqueza total del accionista, ya que este puede prestar o pedir prestado libremente para ajustar su consumo entre períodos.",
+    "fuente": "Intro a Finanzas · Pauta Examen 1 Primavera 2014 (Marcelo González).pdf"
+  },
+  {
+    "id": "ep-048",
+    "tema": "evaluacion-proyectos",
+    "ramo": "finanzas-i",
+    "dificultad": 2,
+    "pregunta": "Al decidir entre dos máquinas de distinta vida útil, costo de mantención y valor de inversión inicial, con las mismas utilidades a repartir, ¿qué criterio permite elegir correctamente entre ellas?",
+    "alternativas": [
+      "El Costo Anual Equivalente (CAE) de cada máquina, que traduce sus costos a una cuota anual comparable",
+      "Elegir siempre la máquina con menor costo de inversión inicial, sin importar su vida útil ni mantención",
+      "Elegir siempre la máquina con mayor vida útil, sin importar los demás costos asociados",
+      "Comparar únicamente los costos de mantención anuales, ignorando la inversión inicial y la vida útil"
+    ],
+    "correcta": 0,
+    "explicacion": "Cuando dos máquinas tienen distinta vida útil, el CAE permite comparar de forma justa el costo total (inversión, mantención, efecto tributario de la depreciación) expresado como una cuota anual equivalente.",
+    "fuente": "Finanzas I · Ayudantía 4 (José Luis Ruiz, Antonio Velásquez).pdf"
+  },
+  {
+    "id": "ep-049",
+    "tema": "evaluacion-proyectos",
+    "ramo": "finanzas-i",
+    "dificultad": 3,
+    "pregunta": "Al vender un activo al final de un proyecto por un monto distinto a su valor libro contable, ¿cómo se incorpora esa diferencia (ganancia o pérdida de capital) en el flujo de caja del proyecto?",
+    "alternativas": [
+      "Se incluye como utilidad o pérdida adicional antes de impuestos en el período de venta, afectando el impuesto de ese período antes de sumar el flujo",
+      "Nunca se incorpora en el flujo de caja del proyecto, independiente de la magnitud de la diferencia",
+      "Se incorpora directamente como flujo de caja sin ningún efecto tributario asociado",
+      "Solo se incorpora si la venta genera una pérdida, pero nunca si genera una ganancia de capital"
+    ],
+    "correcta": 0,
+    "explicacion": "La diferencia entre el precio de venta y el valor libro de un activo genera una ganancia o pérdida de capital que afecta la utilidad antes de impuestos del período de venta, y por tanto el impuesto a pagar en ese período.",
+    "fuente": "Finanzas I · Ayudantía 4 (José Luis Ruiz, Antonio Velásquez).pdf"
+  }
+]

@@ -1,0 +1,25 @@
+CÓMO SUBIR FOTOS (sin tocar código)
+
+1) Eventos → fotos/eventos/<carpeta-del-evento>/
+   La <carpeta-del-evento> debe llamarse igual que el campo "carpeta"
+   del evento en datos/eventos.json (ej: visita-santander-2026).
+
+2) FIW → fotos/fiw/
+
+3) Valuation → fotos/valuation/
+   Se ven como una tira de fotos en movimiento detrás del hero de
+   valuation/index.html (mismo efecto que el fondo oscuro de la página
+   principal). Puramente decorativo — mientras la carpeta esté vacía,
+   el hero se ve igual que ahora, sin errores.
+
+4) Nombrar las fotos: 1.jpg, 2.jpg, 3.jpg, 4.jpg…
+   - Empezar en 1 y SIN saltos (si falta el 3, no se cargan la 4 en adelante).
+   - Formatos aceptados: .jpg, .jpeg, .webp, .png
+   - La foto 1 es la portada (fondo de la tarjeta del evento; en Valuation
+     no aplica portada, todas se mezclan igual en la tira).
+
+Las páginas detectan las fotos automáticamente: aparecen como fondo del
+evento, en su galería, en el hero/galería de FIW, y en el hero de Valuation.
+
+Consejo: comprimir a ~1600px de ancho (las fotos de cámara de 8MB
+hacen lenta la página; squoosh.app sirve para esto).

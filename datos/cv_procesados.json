@@ -1,0 +1,176 @@
+{
+  "_leeme": "Manifiesto anti-relectura de CVs del Drive (carpeta CV). Antes de leer un CV con read_file_content, comparar su modifiedTime actual (get_file_metadata o search_files) contra el valor registrado aquí para el mismo fileId. Si coincide, NO volver a leerlo ni a reprocesarlo: ya está reflejado en datos/club.json. Si no coincide (o el fileId es nuevo), leerlo, actualizar club.json según haga falta, y actualizar esta entrada con el modifiedTime nuevo y la fecha de hoy. Esto evita releer los mismos PDFs sesión tras sesión a medida que más cofundadores suban o actualicen su CV.",
+  "carpetaDriveId": "13mRDy9Yf6gqdy8S5bzLRQxuNNakAK8dm",
+  "actualizado": "2026-07-24",
+  "procesados": [
+    {
+      "archivo": "Profile (12).pdf",
+      "fileId": "17u1UnvWDFeLjOpeTV3U0HrZCj2P3Gj0X",
+      "modifiedTime": "2026-07-24T03:40:42Z",
+      "procesadoEl": "2026-07-24",
+      "persona": "Victoria Espinoza",
+      "camposExtraidos": [
+        "personas.directiva[] (agregada, rol Fundadora · FEN Investment Woman)",
+        "personas.industria (card CMF · División de Análisis de Administradoras de Fondos)",
+        "fiw.json equipo[] (agregada + ajuste de Delia Avilán y Gabriela Domínguez)"
+      ],
+      "notas": "RESUELTO (2026-07-24): Victoria se autodescribe en su CV como 'Co-Founder of FEN Investment Group Women' — el mismo rol que Delia Avilán y Gabriela Domínguez, confirmadas horas antes como co-fundadoras. Se le preguntó a Francisco directamente (AskUserQuestion) y confirmó que Victoria es la tercera co-fundadora de FIW. Se agregó a personas.directiva, a personas.industria (práctica en la CMF) y a fiw.json, y se ajustaron los detalle/perfil de Delia y Gabriela para nombrar a las tres. Hitos usados: Economista, candidata a Magíster en Finanzas U. de Chile (2025-2026), ayudante de cátedra desde 2022 en Introducción a las Finanzas/Finanzas I/Teoría de Finanzas/Negociación (Head TA de Introducción a Finanzas primavera 2025), práctica en la CMF — División de Análisis de Administradoras de Fondos, apoyó la creación de un portal comparador de fondos y el Informe de Costos de Inversión en Fondos Mutuos 2023. LinkedIn real (viene en el propio CV): https://www.linkedin.com/in/victoria-espinoza-aguilera. Foto real guardada en fotos/directiva/victoria-espinoza.jpg. El CV contiene correo personal que NO se copió a ningún archivo del repo."
+    },
+    {
+      "archivo": "CV_Agustin_Arriagada.pdf",
+      "fileId": "16QNjiVa5SxFxbM140eXIUsVjtfFyA-c5",
+      "modifiedTime": "2026-07-23T19:19:01Z",
+      "procesadoEl": "2026-07-24",
+      "persona": "Agustín Arriagada",
+      "camposExtraidos": [
+        "personas.directiva[].linkedin",
+        "personas.directiva[].perfil (bio + hitos)"
+      ],
+      "notas": "Sin tarjeta de industria: su experiencia es toda interna a la FEN/FIG (Monitor Lab. Bloomberg, Co-fundador), sin práctica externa en una empresa — mismo criterio de exclusión usado con Benjamín Disi. Hitos usados: monitor del Lab. Bloomberg-Itaú FEN (capacitó a 65+ equipos del Torneo Portafolio 2026), desarrollador del sistema automatizado de reportes de FIG (Bloomberg+Python+Claude API), Diplomado en Gestión de Inversiones y Trading (PUC), certificación Bloomberg Market Concepts. El CV contiene teléfono y correo personal que NO se copiaron al repo (regla dura de CLAUDE.md)."
+    },
+    {
+      "archivo": "CV Juan José Limari.pdf",
+      "fileId": "1HwOjpvuSWpUx6FyYCBXKEDtBGBVxKzQ4",
+      "modifiedTime": "2026-07-23T16:20:15Z",
+      "procesadoEl": "2026-07-24",
+      "persona": "Juan José Limari",
+      "camposExtraidos": [
+        "personas.directiva[].perfil (bio + hitos)",
+        "personas.industria (card Itaú · Mesa de dinero, Liquidez y FTP)"
+      ],
+      "notas": "El texto extraído del CV NO incluye una URL de LinkedIn (a diferencia de los otros CV recientes que sí la traen en el encabezado) — no se agregó el campo linkedin ni en personas.directiva ni en la tarjeta de industria para no inventarlo; el código de renderIndustria() degrada bien sin linkedin (nombre sin enlace). Práctica extracurricular en la mesa de dinero de Banco Itaú Chile (Liquidez y Funds Transfer Pricing), elegida para la tarjeta de industria por ser su única práctica externa en finanzas. Hitos usados: 1er lugar Trading Challenge Itaú-FEN 2025, ayudante coordinador de Introducción a las Finanzas. El CV contiene teléfono y correo personal que NO se copiaron al repo (regla dura de CLAUDE.md)."
+    },
+    {
+      "archivo": "CV_Gabriela_Dominguez.pdf",
+      "fileId": "1MIDedDrywKZezmTkpwEmKndHG0_Zwejw",
+      "modifiedTime": "2026-07-23T16:14:39.972Z",
+      "procesadoEl": "2026-07-24",
+      "persona": "María Gabriela Domínguez Escalona",
+      "camposExtraidos": [
+        "personas.directiva[] (agregada, ver nota)",
+        "personas.directiva[].perfil (bio + hitos, Delia Avilán)",
+        "fiw.json equipo[] (agregada + ajuste de Delia Avilán)"
+      ],
+      "notas": "RESUELTO (2026-07-24): su CV se autodescribe como 'Fundadora – Fen Investment Group Women', el mismo rol que ya tenía Delia Avilán en personas.directiva y fiw.json (única fundadora listada ahí hasta entonces) — mismo tipo de conflicto que hubo entre los CV de Jhosep García y Samuel Rodríguez Arnolds por el liderazgo de Valuation. Se le preguntó a Francisco directamente (AskUserQuestion) y confirmó que Delia y Gabriela son co-fundadoras de FIW. Se agregó Gabriela a personas.directiva (rol 'Fundadora · FEN Investment Woman', perfil con bio/hitos de su CV) y a fiw.json, y se ajustó el detalle/perfil de Delia para reflejar la co-fundación. La URL de LinkedIn de su CV quedó truncada en la extracción de texto ('https://www.linkedin.co...') — no se completó adivinando, así que no se agregó el campo linkedin. Hitos usados: ayudante de investigación Proyecto Fondecyt (Prof. Harold Contreras, scripts Python para datos CMF), ayudante de cátedra de varios ramos de finanzas/contabilidad, Cuadro de Honor FEN 2023-2025. El CV contiene teléfono, correo personal y referencias con teléfono que NO se copiaron a ningún archivo del repo."
+    },
+    {
+      "archivo": "ManuelPaz.cv.pdf",
+      "fileId": "16w28rCiqqHD6z895Cu95F7m0N2oPPv3P",
+      "modifiedTime": "2026-07-19T00:44:31Z",
+      "procesadoEl": "2026-07-19",
+      "persona": "Manuel Paz",
+      "camposExtraidos": [
+        "personas.directiva[].linkedin",
+        "personas.directiva[].perfil (bio + hitos)"
+      ],
+      "notas": "Sin tarjeta de industria: el CV menciona una práctica reciente como 'Wealth Management Sales Intern' (Ene-Jun 2026) pero el texto extraído no incluye el nombre de la institución — se omitió para no inventar el dato. Hitos usados: fundador de una tienda e-commerce D2C con +$280M CLP en ventas (Shopify/Dropshipping, 2020-2023) y gestor de un portafolio personal de acciones y criptomonedas (+70% de retorno desde abril 2025, estrategia GARP). El CV contiene teléfono y correo personal que NO se copiaron al repo (regla dura de CLAUDE.md)."
+    },
+    {
+      "archivo": "CV_Juan_Pablo_Díaz_C.pdf",
+      "fileId": "14FkxfzfrwvlSJcxpGRGRrYDtHMWJdYNl",
+      "modifiedTime": "2026-07-19T00:08:21Z",
+      "procesadoEl": "2026-07-19",
+      "persona": "Juan Pablo Díaz Cerda",
+      "camposExtraidos": [
+        "personas.directiva[].linkedin",
+        "personas.directiva[].perfil (bio + hitos)",
+        "personas.industria (card BCI Seguros · Gerencia de Inversiones)"
+      ],
+      "notas": "CV confirma su rol como Co-Fundador y Encargado del Área de Trading (coincide con club.json). Práctica en BCI Seguros, Gerencia de Inversiones (Gestión de Cartera Táctica) elegida para la tarjeta de industria por ser su única práctica externa. Logros verificables usados en hitos: 2° lugar nacional Concurso de Inversiones con Información Privilegiada (Radio Duna) y 2° lugar Torneo de Trading Itaú-FEN. El CV contiene teléfono y RUT que NO se copiaron al repo (regla dura de CLAUDE.md)."
+    },
+    {
+      "archivo": "CV_Benjam_Solis.pdfa.pdf",
+      "fileId": "1l_9y_d3VuvdrsgHNMfTqwzBqS6QB0htO",
+      "modifiedTime": "2026-07-18T23:47:27.996Z",
+      "procesadoEl": "2026-07-19",
+      "persona": "Benjamín Solís",
+      "camposExtraidos": [
+        "personas.directiva[].linkedin",
+        "personas.directiva[].perfil (bio + hitos)"
+      ],
+      "notas": "Sin tarjeta de industria agregada: su práctica más reciente (ENGIE Energía Chile, Analítica de Datos y Automatización de Procesos) no es una práctica de finanzas/banca/inversión, mismo criterio de exclusión usado con Benjamín Disi (Lidz.AI). Su rol anterior en Memory SPA (Analista de Operaciones y Tesorería, part-time) es finance-adjacent pero antiguo (2023-2025) y no se consideró suficientemente relevante/reciente frente al criterio ya aplicado a otros cofundadores — decisión no forzada, se puede reconsiderar si Francisco lo pide. El CV contiene teléfono, correo personal y ciudad que NO se copiaron al repo (regla dura de CLAUDE.md)."
+    },
+    {
+      "archivo": "CV_David..pdf",
+      "fileId": "1wezvpwXmX_81cyGmrQIUOK6UebiVtl1G",
+      "modifiedTime": "2026-07-16T22:12:27.104Z",
+      "procesadoEl": "2026-07-17",
+      "persona": "David González Cañon",
+      "camposExtraidos": [
+        "personas.directiva[].linkedin",
+        "personas.industria (card HSBC · Large Corporates & Institutional Banking)"
+      ],
+      "notas": "El CV lista varias prácticas (HSBC Large Corporates & Institutional Banking Oct 2024-Mar 2025; Analista de Riesgo Financiero Junior en Banco BICE Jun 2022-Mar 2023) además de roles internos FEN (Data Analyst, Coordinador Lab. Bloomberg, ayudantías). Se eligió HSBC por ser la más reciente/relevante para la tarjeta de 'FIG en la industria', siguiendo el mismo criterio usado con Rafael Aliendre. El CV contiene teléfono y correo personal que NO se copiaron al repo (regla dura de CLAUDE.md)."
+    },
+    {
+      "archivo": "CV_BenjaminDisi.pdf",
+      "fileId": "1YwJnrh808ZN8UlIOXkaPFfMY60ox2U4f",
+      "modifiedTime": "2026-07-16T22:09:31Z",
+      "procesadoEl": "2026-07-17",
+      "persona": "Benjamín Disi",
+      "camposExtraidos": [
+        "personas.directiva[].linkedin"
+      ],
+      "notas": "Sin tarjeta de industria agregada: la única práctica externa del CV es en Lidz.AI (startup tecnológica, soporte operativo/comercial), que no encaja en el criterio de 'FIG en la industria' usado hasta ahora (prácticas específicamente en finanzas/banca/inversiones como Itaú, CODELCO, HSBC, LarraínVial). El resto de su experiencia es interna a la FEN (Tutor Finanzas II, Monitor Lab. Bloomberg, Consultoría interna, Co-fundador FIG). El CV contiene teléfono y correo personal que NO se copiaron al repo (regla dura de CLAUDE.md)."
+    },
+    {
+      "archivo": "Benjamín_Sáez_Molina_CV.pdf",
+      "fileId": "1YAZ_kz3D_J3Dv8A_spoRX9u-My1wb0T6",
+      "modifiedTime": "2026-07-11T20:50:37Z",
+      "procesadoEl": "2026-07-12",
+      "persona": "Benjamín Sáez Molina",
+      "camposExtraidos": [
+        "personas.directiva[].linkedin",
+        "personas.industria (card Itaú · Wealth Management)"
+      ],
+      "notas": ""
+    },
+    {
+      "archivo": "CV_Jhosep_García (1).pdf",
+      "fileId": "1C7HKzNN2W4WzGsjj7k2NWrmXGoJodvgC",
+      "modifiedTime": "2026-07-09T16:18:12Z",
+      "procesadoEl": "2026-07-12",
+      "persona": "Jhosep García",
+      "camposExtraidos": [
+        "personas.directiva[].linkedin"
+      ],
+      "notas": "Sin práctica externa que agregar a personas.industria (solo roles internos FIG/FEN). Su CV se autodescribe como líder del área Valuation, lo mismo que el CV de Samuel Rodríguez Arnolds — RESUELTO (2026-07-18): Francisco confirmó que ambos son co-encargados del área. Ver nota de Samuel más abajo."
+    },
+    {
+      "archivo": "Samuel R. Arnolds CV.pdf",
+      "fileId": "1t6Lv_pyNdWqS_rQh-Zg_7ViSA3b6yzdx",
+      "modifiedTime": "2026-07-06T23:33:18.093Z",
+      "procesadoEl": "2026-07-12",
+      "persona": "Samuel Rodríguez Arnolds",
+      "camposExtraidos": [
+        "personas.industria (card MoonValley Capital · Investment Banking Intern)",
+        "personas.directiva[] (agregado 2026-07-18, ver nota)"
+      ],
+      "notas": "RESUELTO (2026-07-18): Francisco confirmó directamente que Samuel es co-encargado del área Valuation junto a Jhosep García (el conflicto entre ambos CV, cada uno autodescribiéndose como líder del área, no se resolvió con datos del CV — se resolvió porque Francisco lo aclaró en el chat). Se agregó a personas.directiva con rol 'Director · Valuation' y se ajustó el detalle de Jhosep para reflejar el liderazgo compartido. El CV contiene PII (dirección particular, edad) que NO se copió a ningún archivo del repo, por la regla dura de CLAUDE.md (nombre + rol + LinkedIn público, nada más)."
+    },
+    {
+      "archivo": "CV_ESP_Rafael_Aliendre.pdf",
+      "fileId": "1kiVuNAr1o1YfuBV6vCno8vnAhf5zImFL",
+      "modifiedTime": "2026-06-01T16:51:16Z",
+      "procesadoEl": "2026-07-12",
+      "persona": "Rafael Aliendre",
+      "camposExtraidos": [
+        "personas.directiva[].linkedin",
+        "personas.industria (card CODELCO · Dirección Estrategia e Inteligencia de Mercado)"
+      ],
+      "notas": "CV lista prácticas previas en Factoring Capital Express, Moxi SpA y Falabella Financiero; se eligió CODELCO por ser la más reciente/relevante para la tarjeta de 'FIG en la industria'."
+    },
+    {
+      "archivo": "IMG_8873.png (foto del CV, subida directo al chat, no está en la carpeta CV del Drive)",
+      "fileId": null,
+      "modifiedTime": null,
+      "procesadoEl": "2026-07-12",
+      "persona": "Francisco Valenzuela",
+      "camposExtraidos": [
+        "personas.directiva[].linkedin",
+        "personas.industria (card LarraínVial · Riesgo)"
+      ],
+      "notas": "CV subido por el propio Francisco fuera del Drive. Su CV dice 'Organizador y Creador — Torneo de Portafolio FEN Investment 2026'; él mismo corrigió en el chat que es co-creador, no creador único — el detalle en personas.directiva quedó como 'co-creador' por esa corrección directa, no por el texto literal del CV. La práctica en LarraínVial · Riesgo tampoco aparece en este CV (Francisco avisó que le faltaba agregarla); se incluyó igual porque él la confirmó directamente en el chat, no se infirió de nada."
+    }
+  ]
+}

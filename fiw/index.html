@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="es" class="no-js">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FEN Investment Woman — FIG</title>
+<meta name="description" content="FEN Investment Woman: la comunidad de FIG que impulsa la participación femenina en las finanzas y la inversión. Universidad de Chile.">
+<meta name="theme-color" content="#0A1128">
+<meta property="og:title" content="FEN Investment Woman — FIG">
+<meta property="og:description" content="FEN Investment Woman: comunidad que impulsa la participación femenina en finanzas e inversión. Universidad de Chile.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FEN Investment Woman — FIG">
+<meta name="twitter:description" content="Comunidad de mujeres en finanzas e inversión. Únete a FEN Investment Woman.">
+<meta name="twitter:image" content="/og-image.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%230A1128'/%3E%3Ccircle cx='50' cy='50' r='34' fill='%23D9A0AC'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================================
+   FIW · FEN INVESTMENT WOMAN — página del área
+   Mismo ADN del sitio FIG, con acento propio en oro rosa.
+   ⚠ COLORES OFICIALES DE FIW: editar SOLO las 4 variables --acc* de abajo
+     y toda la página se re-tiñe sola (botones, líneas, tags, brillos).
+   Datos: DATA embebida + override desde ../datos/fiw.json
+   Fotos: ../fotos/fiw/1.jpg, 2.jpg, 3.jpg… (se detectan automáticamente
+   y aparecen como fondo del hero y en la galería).
+   ============================================================================ */
+:root{
+  --navy-deep:#060B1C; --navy:#0A1128; --navy-panel:#101731;
+  /* ▼▼ PALETA FIW — EDITABLE ▼▼ */
+  --acc:#D9A0AC;          /* oro rosa principal   */
+  --acc-light:#F2CDD4;    /* oro rosa claro       */
+  --acc-deep:#A2606F;     /* oro rosa profundo    */
+  --acc-warm:#E8B99A;     /* dorado cálido de apoyo */
+  /* ▲▲ fin paleta editable ▲▲ */
+  --acc-dim:rgba(217,160,172,.34);
+  --acc-faint:rgba(217,160,172,.12);
+  --ivory:#F9F5F1; --paper:#FCF8F5; --ink:#171224; --ink-soft:#5A4E5E;
+  --line-l:rgba(23,18,36,.13); --line-d:rgba(217,160,172,.2);
+  --f-disp:"Playfair Display",Georgia,serif;
+  --f-body:"Inter",-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono","SF Mono",monospace;
+  --wrap:1180px; --ease:cubic-bezier(.22,.61,.21,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+section[id]{scroll-margin-top:80px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.001s!important;transition-duration:.001s!important}}
+body{background:var(--navy);color:var(--ivory);font-family:var(--f-body);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--acc);color:var(--navy)}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:2px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+.kicker{font-family:var(--f-mono);font-size:.72rem;font-weight:500;letter-spacing:.42em;text-transform:uppercase;color:var(--acc);display:flex;align-items:center;gap:14px}
+.kicker::before{content:"";width:34px;height:1px;background:var(--acc);opacity:.7;flex:none}
+.h-sec{font-family:var(--f-disp);font-weight:600;font-size:clamp(2.1rem,4.6vw,3.4rem);line-height:1.1;letter-spacing:-.012em;margin:18px 0 0}
+.h-sec em{font-style:italic;color:var(--acc)}
+.section--light .h-sec em{color:var(--acc-deep)}
+.lead{font-size:1.05rem;color:rgba(249,245,241,.78);max-width:58ch}
+.section--light .lead{color:var(--ink-soft)}
+.mono-tag{font-family:var(--f-mono);font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--acc);border:1px solid var(--acc-dim);border-radius:100px;padding:5px 13px;display:inline-block}
+.btn{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:.92rem;padding:15px 30px;border-radius:2px;transition:transform .4s var(--ease),box-shadow .4s,background .35s,color .35s,border-color .35s;white-space:nowrap}
+.btn--acc{background:var(--acc);color:var(--navy)}
+.btn--acc:hover{background:var(--acc-light);transform:translateY(-2px);box-shadow:0 16px 38px -12px rgba(217,160,172,.55)}
+.btn--ghost{border:1px solid var(--acc-dim);color:var(--ivory)}
+.btn--ghost:hover{border-color:var(--acc);color:var(--acc);transform:translateY(-2px)}
+.btn--navy{background:var(--navy);color:var(--acc)}
+.btn--navy:hover{transform:translateY(-2px);box-shadow:0 18px 40px -14px rgba(10,17,40,.6)}
+.btn .arr{transition:transform .35s var(--ease)}
+.btn:hover .arr{transform:translateX(4px)}
+
+/* Cursor / barra */
+#cursorDot,#cursorRing{position:fixed;top:0;left:0;pointer-events:none;z-index:2400;border-radius:50%;opacity:0;transition:opacity .3s;will-change:transform}
+#cursorDot{width:6px;height:6px;background:var(--acc)}
+#cursorRing{width:36px;height:36px;border:1px solid rgba(217,160,172,.6);transition:opacity .3s,width .3s var(--ease),height .3s var(--ease),border-color .3s}
+body.cursor-on #cursorDot,body.cursor-on #cursorRing{opacity:1}
+body.cursor-on #cursorRing.grow{width:58px;height:58px;border-color:var(--acc)}
+#scrollbar{position:fixed;top:0;left:0;height:2.5px;width:0;background:linear-gradient(90deg,var(--acc-deep),var(--acc),var(--acc-light));z-index:1002}
+
+/* Preloader */
+#preloader{position:fixed;inset:0;background:var(--navy-deep);z-index:2600;display:flex;align-items:center;justify-content:center;transition:opacity .6s var(--ease),visibility .6s}
+#preloader.done{opacity:0;visibility:hidden}
+#preloader .in-lock{display:flex;align-items:center;gap:16px}
+#preloader .in-logo{width:66px;height:66px;object-fit:contain;opacity:0;transform:scale(.45);transition:opacity .6s ease,transform .7s cubic-bezier(.34,1.56,.64,1)}
+#preloader.p1 .in-logo{opacity:1;transform:scale(1)}
+#preloader .in-text{max-width:0;overflow:hidden;white-space:nowrap;opacity:0;transition:max-width .85s var(--ease),opacity .6s ease .12s}
+#preloader.p2 .in-text{max-width:380px;opacity:1}
+#preloader .in-text b{display:block;font-family:var(--f-disp);font-weight:600;font-size:1.2rem;color:var(--ivory);line-height:1.2}
+#preloader .in-text span{display:block;font-family:var(--f-mono);font-size:.56rem;letter-spacing:.3em;text-transform:uppercase;color:var(--acc);margin-top:5px}
+.brand-logo{width:40px;height:40px;object-fit:contain;flex:none}
+.coin{border-radius:50%;flex:none;position:relative;background:radial-gradient(circle at 34% 30%,var(--acc-light),var(--acc) 58%,var(--acc-deep));display:flex;align-items:center;justify-content:center;box-shadow:0 6px 22px -6px rgba(217,160,172,.5),inset 0 0 0 2px rgba(10,17,40,.22)}
+.coin span{font-family:var(--f-disp);font-weight:700;color:var(--navy)}
+.coin::after{content:"";position:absolute;inset:5px;border-radius:50%;border:1px solid rgba(10,17,40,.3)}
+
+/* Nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:22px 0;transition:padding .4s var(--ease),background .4s,border-color .4s;border-bottom:1px solid transparent}
+.nav.scrolled{padding:12px 0;background:rgba(6,11,28,.82);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--line-d)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:13px}
+.brand .coin{width:38px;height:38px}
+.brand .coin span{font-size:.75rem}
+.brand-name{font-family:var(--f-disp);font-weight:600;font-size:1.02rem;line-height:1.15}
+.brand-sub{font-family:var(--f-mono);font-size:.55rem;letter-spacing:.32em;text-transform:uppercase;color:var(--acc);display:block;margin-top:2px}
+.nav__links{display:flex;align-items:center;gap:30px;list-style:none}
+.nav__links a{font-size:.84rem;font-weight:500;color:rgba(249,245,241,.82);padding:6px 0;position:relative;transition:color .3s}
+.nav__links a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;background:var(--acc);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+.nav__links a:hover,.nav__links a.active{color:var(--acc)}
+.nav__links a:hover::after,.nav__links a.active::after{transform:scaleX(1)}
+.nav .btn{padding:11px 22px;font-size:.82rem}
+.nav__burger{display:none;flex-direction:column;gap:5.5px;padding:8px;z-index:1101}
+.nav__burger i{display:block;width:24px;height:2px;background:var(--ivory);transition:transform .35s var(--ease),opacity .3s}
+.nav__burger.open i:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.nav__burger.open i:nth-child(2){opacity:0}
+.nav__burger.open i:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+.m-menu{position:fixed;inset:0;background:rgba(6,11,28,.97);backdrop-filter:blur(12px);z-index:1100;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;opacity:0;visibility:hidden;transition:opacity .45s var(--ease),visibility .45s}
+.m-menu.open{opacity:1;visibility:visible}
+.m-menu a{font-family:var(--f-disp);font-size:clamp(1.7rem,7vw,2.4rem);font-weight:600;padding:9px 0;transition:color .3s}
+.m-menu a:hover{color:var(--acc)}
+
+/* Hero con slideshow de fotos */
+.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;padding:clamp(7rem,12vh,9rem) 0 clamp(4rem,8vh,6rem)}
+.hero-bg,.hero-bg2{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.8s ease}
+.hero-bg.show,.hero-bg2.show{opacity:1}
+body.kb .hero-bg.show,body.kb .hero-bg2.show{animation:kenburns 11s ease-in-out infinite alternate}
+@keyframes kenburns{from{transform:scale(1)}to{transform:scale(1.07)}}
+.hero-fallback{position:absolute;inset:0;
+  background:radial-gradient(1000px 600px at 80% -5%,rgba(217,160,172,.16),transparent 60%),
+             radial-gradient(800px 560px at -8% 105%,rgba(162,96,111,.22),transparent 62%),var(--navy)}
+.hero-veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,11,28,.62) 0%,rgba(10,17,40,.55) 50%,rgba(6,11,28,.92) 100%)}
+.hero-rings{position:absolute;top:50%;right:-8%;width:min(52vw,620px);aspect-ratio:1;transform:translateY(-50%);pointer-events:none;opacity:.5}
+.hero-rings i{position:absolute;inset:0;border-radius:50%;border:1px solid var(--acc-faint)}
+.hero-rings i:nth-child(2){inset:12%;border-style:dashed;animation:spin 90s linear infinite}
+.hero-rings i:nth-child(3){inset:26%;border-color:rgba(217,160,172,.2)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hero h1{font-family:var(--f-disp);font-weight:600;font-size:clamp(2.8rem,6.4vw,5.2rem);line-height:1.05;letter-spacing:-.016em;margin:18px 0 24px;max-width:14ch}
+.hero h1 em{font-style:italic;color:var(--acc)}
+.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.06em;margin-bottom:-.06em}
+.hero h1 .ln>span{display:inline-block;transform:translateY(118%);transition:transform 1.05s cubic-bezier(.16,1,.3,1)}
+.hero h1 .ln:nth-child(2)>span{transition-delay:.1s}
+body.hero-in .hero h1 .ln>span{transform:none}
+.hero__sub{max-width:50ch;font-size:1.08rem;color:rgba(249,245,241,.8);margin-bottom:36px}
+.hero__cta{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:40px}
+.hero__meta{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(249,245,241,.6);display:flex;gap:22px;flex-wrap:wrap}
+.hero__meta b{color:var(--acc);font-weight:600}
+
+/* Marquee de palabras */
+.marq{border-top:1px solid var(--line-d);border-bottom:1px solid var(--line-d);background:rgba(6,11,28,.6);overflow:hidden;position:relative;z-index:2}
+.marq__track{display:flex;width:max-content;animation:marquee 38s linear infinite}
+.marq:hover .marq__track{animation-play-state:paused}
+@keyframes marquee{to{transform:translateX(-50%)}}
+.mq{font-family:var(--f-disp);font-style:italic;font-size:1.05rem;color:rgba(249,245,241,.55);padding:14px 34px;white-space:nowrap;border-right:1px solid var(--acc-faint)}
+.mq b{color:var(--acc);font-weight:600}
+
+/* Secciones */
+section{padding:clamp(5rem,9vw,8rem) 0;position:relative}
+.section--light{background:
+  radial-gradient(1100px 460px at 85% -5%,rgba(217,160,172,.09),transparent 60%),var(--ivory);
+  color:var(--ink)}
+.section--dark{background:var(--navy);color:var(--ivory)}
+.sec-head{max-width:740px;margin-bottom:clamp(2.4rem,5vw,3.8rem)}
+.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(2.5rem,6vw,5rem);align-items:start}
+.drop{font-family:var(--f-disp);font-size:1.45rem;line-height:1.38;color:var(--ink);font-weight:500;margin-bottom:22px}
+.drop em{font-style:italic;color:var(--acc-deep)}
+.about-copy p:not(.drop){color:var(--ink-soft);margin-bottom:18px;font-size:1.02rem}
+.about-copy p b{color:var(--ink);font-weight:600}
+.about-side{display:flex;flex-direction:column;gap:16px}
+.side-card{border:1px solid var(--line-l);background:var(--paper);padding:26px 26px;position:relative;overflow:hidden;transition:transform .4s var(--ease),box-shadow .4s,border-color .4s}
+.side-card:hover{transform:translateY(-5px);border-color:rgba(162,96,111,.5);box-shadow:0 22px 44px -22px rgba(23,18,36,.22)}
+.side-card::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:100%;background:linear-gradient(90deg,var(--acc),transparent);transform:scaleX(0);transform-origin:left;transition:transform .7s var(--ease)}
+.side-card:hover::after{transform:scaleX(1)}
+.side-card .mono-tag{border-color:rgba(162,96,111,.4);color:var(--acc-deep);margin-bottom:12px}
+.side-card h3{font-family:var(--f-disp);font-size:1.2rem;font-weight:600;margin-bottom:6px}
+.side-card p{font-size:.9rem;color:var(--ink-soft)}
+
+/* Pilares */
+.pilares{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.pilar{background:var(--navy-panel);border:1px solid var(--line-d);border-radius:8px;padding:36px 32px;position:relative;overflow:hidden;display:flex;flex-direction:column;gap:14px;transition:transform .45s var(--ease),border-color .45s,box-shadow .45s}
+.pilar::before{content:"";position:absolute;inset:0;opacity:0;transition:opacity .5s;background:radial-gradient(280px circle at var(--mx,50%) var(--my,0%),rgba(217,160,172,.13),transparent 65%)}
+.pilar:hover{transform:translateY(-7px);border-color:rgba(217,160,172,.5);box-shadow:0 28px 56px -26px rgba(0,0,0,.6)}
+.pilar:hover::before{opacity:1}
+.pilar .p-num{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.3em;color:var(--acc);position:relative}
+.pilar h3{font-family:var(--f-disp);font-size:1.5rem;font-weight:600;line-height:1.2;position:relative}
+.pilar p{font-size:.93rem;color:rgba(249,245,241,.72);position:relative}
+
+/* Galería */
+.gal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.gal-grid img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:8px;border:1px solid rgba(162,96,111,.2);transition:transform .5s var(--ease),box-shadow .5s;cursor:pointer}
+.gal-grid img:hover{transform:scale(1.03) translateY(-4px);box-shadow:0 24px 48px -22px rgba(23,18,36,.35)}
+.gal-grid img:nth-child(1){grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
+.gal-empty{border:1px dashed rgba(162,96,111,.4);border-radius:10px;padding:56px 24px;text-align:center;color:var(--ink-soft);font-size:.95rem}
+.gal-empty .mono-tag{border-color:rgba(162,96,111,.4);color:var(--acc-deep);margin-bottom:14px}
+.gal-note{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin-top:16px}
+
+/* Equipo */
+.people{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.p-card{border:1px solid var(--line-d);background:var(--navy-panel);border-radius:8px;padding:28px 24px;display:flex;flex-direction:column;gap:14px;transition:transform .4s var(--ease),box-shadow .4s,border-color .4s}
+.p-card:hover{transform:translateY(-6px);border-color:rgba(217,160,172,.5);box-shadow:0 24px 48px -24px rgba(0,0,0,.55)}
+.avatar{width:56px;height:56px;border-radius:50%;background:radial-gradient(circle at 32% 28%,var(--acc-light),var(--acc) 60%,var(--acc-deep));color:var(--navy);display:flex;align-items:center;justify-content:center;flex:none;font-family:var(--f-disp);font-weight:600;font-size:1.05rem}
+.p-card--more{align-items:center;justify-content:center;text-align:center;border-style:dashed;background:transparent}
+.p-name{font-family:var(--f-disp);font-weight:600;font-size:1.12rem;line-height:1.25}
+.p-role{font-family:var(--f-mono);font-size:.61rem;letter-spacing:.16em;text-transform:uppercase;color:var(--acc);margin-top:4px}
+.p-extra{font-size:.84rem;color:rgba(249,245,241,.65);line-height:1.55}
+
+/* CTA */
+.cta-band{background:radial-gradient(900px 300px at 15% 0%,rgba(255,255,255,.28),transparent 60%),linear-gradient(120deg,var(--acc-deep),var(--acc) 48%,var(--acc-light));color:var(--navy);text-align:center;overflow:hidden}
+.cta-ghost{position:absolute;top:50%;left:0;transform:translateY(-50%);font-family:var(--f-disp);font-weight:700;font-size:clamp(5.5rem,15vw,11rem);line-height:1;color:transparent;-webkit-text-stroke:1.5px rgba(10,17,40,.12);white-space:nowrap;pointer-events:none;user-select:none;animation:ghostSlide 46s linear infinite}
+@keyframes ghostSlide{to{transform:translateY(-50%) translateX(-50%)}}
+.cta-band .kicker{color:var(--navy);justify-content:center}
+.cta-band .kicker::before{background:var(--navy)}
+.cta-band h2{font-family:var(--f-disp);font-weight:600;font-size:clamp(2.2rem,5.2vw,3.8rem);line-height:1.08;margin:20px auto 16px;max-width:16ch}
+.cta-band h2 em{font-style:italic}
+.cta-band p{max-width:52ch;margin:0 auto 32px;color:rgba(10,17,40,.78);font-size:1.03rem}
+
+/* Footer */
+footer{background:var(--navy-deep);padding:34px 0;border-top:1px solid var(--line-d)}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:var(--f-mono);font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(249,245,241,.45)}
+footer a{color:rgba(249,245,241,.65);transition:color .3s}
+footer a:hover{color:var(--acc)}
+
+/* Reveals + responsive */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
+html:not(.no-js) body:not(.hero-in) .hero .reveal{opacity:0;transform:translateY(28px)}
+.no-js .reveal{opacity:1;transform:none}
+.no-js .hero h1 .ln>span{transform:none}
+.no-js #preloader{display:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}.hero h1 .ln>span{transform:none}.cta-ghost,.marq__track{animation:none!important}}
+@media (max-width:1000px){
+  .about-grid{grid-template-columns:1fr}
+  .pilares{grid-template-columns:1fr}
+  .people{grid-template-columns:repeat(2,1fr)}
+  .nav__links,.nav .btn--nav{display:none}
+  .nav__burger{display:flex}
+  .hero-rings{display:none}
+}
+@media (max-width:600px){
+  .people{grid-template-columns:1fr}
+  .gal-grid{grid-template-columns:repeat(2,1fr)}
+  .gal-grid img:nth-child(1){grid-column:span 2;grid-row:span 1}
+  .hero__cta .btn{width:100%;justify-content:center}
+}
+</style>
+<script>
+  if (window.location.pathname.endsWith('/index.html')) {
+    const cleanPath = window.location.pathname.replace(/\/index\.html$/, '/') + window.location.search + window.location.hash;
+    window.history.replaceState(null, '', cleanPath);
+  }
+</script>
+
+<script>
+  // Prevenir que el # aparezca en la URL al hacer clic en enlaces internos
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+      anchor.addEventListener('click', function (e) {
+        var targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        var targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          e.preventDefault();
+          targetElement.scrollIntoView({ behavior: 'smooth' });
+          // Mantiene la URL limpia sin el #
+          window.history.pushState(null, null, window.location.pathname + window.location.search);
+        }
+      });
+    });
+  });
+</script>
+</head>
+<body>
+
+<div id="cursorDot" aria-hidden="true"></div>
+<div id="cursorRing" aria-hidden="true"></div>
+<div id="scrollbar"></div>
+<div id="preloader"><div class="in-lock"><img class="in-logo" src="../logos/fig-blanco.png" alt=""><div class="in-text"><b>FEN Investment Woman</b><span>FEN Investment Group</span></div></div></div>
+
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <a href="../" class="brand" aria-label="FEN Investment Group — Inicio">
+      <img class="brand-logo" src="../logos/fig-blanco.png" alt="FIW">
+      <div><div class="brand-name">FEN Investment Woman</div><span class="brand-sub">Área de FIG</span></div>
+    </a>
+    <ul class="nav__links">
+      <li><a href="../">Inicio FIG</a></li>
+      <li><a href="../eventos/">Eventos</a></li>
+      <li><a href="#nosotras">Nosotras</a></li>
+      <li><a href="#galeria">Galería</a></li>
+    </ul>
+    <a href="#unete" class="btn btn--acc btn--nav">Únete</a>
+    <button class="nav__burger" id="burger" aria-label="Abrir menú" aria-expanded="false"><i></i><i></i><i></i></button>
+  </div>
+</nav>
+<div class="m-menu" id="mmenu">
+  <a href="../">Inicio FIG</a>
+  <a href="../eventos/">Eventos</a>
+  <a href="#nosotras">Nosotras</a>
+  <a href="#galeria">Galería</a>
+  <a href="#unete">Únete</a>
+</div>
+
+<!-- HERO: el fondo son las fotos de ../fotos/fiw/ en slideshow -->
+<header class="hero" id="inicio">
+  <div class="hero-fallback"></div>
+  <div class="hero-bg"></div><div class="hero-bg2"></div>
+  <div class="hero-veil"></div>
+  <div class="hero-rings" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="wrap">
+    <div class="kicker reveal"><span class="scr" data-text="FEN Investment Woman · FIG">FEN Investment Woman · FIG</span></div>
+    <h1 aria-label="Más mujeres en las finanzas.">
+      <span class="ln"><span>Más mujeres</span></span>
+      <span class="ln"><span><em>en las finanzas.</em></span></span>
+    </h1>
+    <p class="hero__sub reveal d2" id="heroBajada">La comunidad de FIG que abre espacio, referentes y oportunidades para las mujeres en el mundo de la inversión.</p>
+    <div class="hero__cta reveal d3">
+      <a href="#unete" class="btn btn--acc">Quiero ser parte <span class="arr">→</span></a>
+      <a href="#nosotras" class="btn btn--ghost">Conócenos</a>
+    </div>
+    <div class="hero__meta reveal d3">
+      <span>Fundada por <b>Delia Avilán</b></span>
+      <span>Comunidad <b>abierta</b></span>
+    </div>
+  </div>
+</header>
+
+<div class="marq" aria-hidden="true">
+  <div class="marq__track" id="marqTrack">
+    <span class="mq"><b>Comunidad</b></span><span class="mq">Referentes</span><span class="mq"><b>Mercados</b></span><span class="mq">Liderazgo</span><span class="mq"><b>Formación</b></span><span class="mq">Red</span><span class="mq"><b>Inversión</b></span><span class="mq">Oportunidades</span>
+  </div>
+</div>
+
+<!-- NOSOTRAS -->
+<section class="section--light" id="nosotras">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker reveal"><span class="scr" data-text="Quiénes somos">Quiénes somos</span></div>
+      <h2 class="h-sec reveal d1">Un lugar propio dentro de <em>la industria</em>.</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-copy reveal">
+        <p class="drop" id="fiwDrop">Las finanzas necesitan más voces. <em>Nosotras estamos construyendo el espacio.</em></p>
+        <div id="fiwResumen">
+          <p><b>FEN Investment Woman</b> es el área de FEN Investment Group que impulsa la participación femenina en las finanzas y la inversión, creando comunidad, visibilizando referentes y abriendo oportunidades reales dentro de la industria.</p>
+          <p>[Resumen por completar, este texto se edita desde el Excel y se carga automáticamente desde datos/fiw.json]</p>
+        </div>
+      </div>
+      <div class="about-side reveal d2" id="fiwSide">
+        <div class="side-card"><span class="mono-tag">Origen</span><h3>Nace dentro de FIG</h3><p>Una de las cuatro áreas fundadoras del club, con identidad y agenda propia.</p></div>
+        <div class="side-card"><span class="mono-tag">Fundadora</span><h3>Delia Avilán</h3><p>Co-fundadora de FIG y creadora de FEN Investment Woman.</p></div>
+        <div class="side-card"><span class="mono-tag">Para quién</span><h3>Abierta a toda la FEN</h3><p>Estudiantes que quieran acercarse a los mercados en una comunidad que acompaña.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PILARES -->
+<section class="section--dark" id="pilares">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker reveal"><span class="scr" data-text="Qué hacemos">Qué hacemos</span></div>
+      <h2 class="h-sec reveal d1">Tres pilares, <em>una comunidad</em>.</h2>
+    </div>
+    <div class="pilares" id="fiwPilares">
+      <div class="pilar glowable reveal"><span class="p-num">01 · REFERENTES</span><h3>Visibilizar mujeres en la industria</h3><p>Charlas y conversaciones con profesionales que ya están donde nosotras queremos llegar.</p></div>
+      <div class="pilar glowable reveal d1"><span class="p-num">02 · FORMACIÓN</span><h3>Aprender mercados, juntas</h3><p>Talleres y actividades prácticas para acercarse a la inversión sin barreras de entrada.</p></div>
+      <div class="pilar glowable reveal d2"><span class="p-num">03 · RED</span><h3>Una red que acompaña</h3><p>Comunidad y networking entre estudiantes, egresadas y profesionales de las finanzas.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERÍA -->
+<section class="section--light" id="galeria">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker reveal"><span class="scr" data-text="Galería">Galería</span></div>
+      <h2 class="h-sec reveal d1">Nuestros <em>momentos</em>.</h2>
+    </div>
+    <div class="gal-grid reveal" id="galGrid"></div>
+    <div class="gal-note" id="galNote"></div>
+  </div>
+</section>
+
+<!-- EQUIPO -->
+<section class="section--dark" id="equipo">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker reveal"><span class="scr" data-text="Nosotras">Nosotras</span></div>
+      <h2 class="h-sec reveal d1">Las que <em>empujan</em> esto.</h2>
+    </div>
+    <div class="people" id="fiwEquipo"></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band" id="unete">
+  <span class="cta-ghost" aria-hidden="true">FIW — FEN INVESTMENT WOMAN — FIW — FEN INVESTMENT WOMAN — </span>
+  <div class="wrap">
+    <div class="kicker reveal">Únete a FIW</div>
+    <h2 class="reveal d1">Tu lugar en las finanzas <em>ya existe</em>.</h2>
+    <p class="reveal d2">Si los mercados te llaman la atención, aunque sea un poco, ven a conocernos. No necesitas experiencia previa, solo ganas.</p>
+    <div class="reveal d3">
+      <a href="https://www.instagram.com/fen.investment.group/" target="_blank" rel="noopener" class="btn btn--navy">Escríbenos por Instagram <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 FEN Investment Woman · FIG</span>
+    <span>Creado por <a href="https://www.linkedin.com/in/francisco-ignacio-andr%C3%A9s-valenzuela-lecaros-128a69396/" target="_blank" rel="noopener">Francisco Valenzuela</a> y <a href="https://www.linkedin.com/in/mpazq" target="_blank" rel="noopener">Manuel Paz</a></span>
+    <a href="../">← Volver a FEN Investment Group</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+"use strict";
+document.documentElement.classList.remove("no-js");
+var RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
+var FINE=matchMedia("(hover: hover) and (pointer: fine)").matches;
+function $(s,r){return (r||document).querySelector(s)}
+function $$(s,r){return [].slice.call((r||document).querySelectorAll(s))}
+function esc(t){return String(t==null?"":t).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+
+/* ==========================================================================
+   DATOS FIW — se sobreescriben con ../datos/fiw.json
+   Fotos: subir a ../fotos/fiw/ como 1.jpg, 2.jpg, 3.jpg… (sin saltos).
+   Aparecen solas como fondo del hero y en la galería.
+   ========================================================================== */
+var DATA={
+  bajada:"La comunidad de FIG que abre espacio, referentes y oportunidades para las mujeres en el mundo de la inversión.",
+  resumen:["FEN Investment Woman es el área de FEN Investment Group que impulsa la participación femenina en las finanzas y la inversión, creando comunidad, visibilizando referentes y abriendo oportunidades reales dentro de la industria.","[Resumen por completar, este texto se edita desde el Excel y se carga automáticamente desde datos/fiw.json]"],
+  pilares:[
+    {num:"01 · REFERENTES",titulo:"Visibilizar mujeres en la industria",texto:"Charlas y conversaciones con profesionales que ya están donde nosotras queremos llegar."},
+    {num:"02 · FORMACIÓN",titulo:"Aprender mercados, juntas",texto:"Talleres y actividades prácticas para acercarse a la inversión sin barreras de entrada."},
+    {num:"03 · RED",titulo:"Una red que acompaña",texto:"Comunidad y networking entre estudiantes, egresadas y profesionales de las finanzas."}
+  ],
+  equipo:[
+    {iniciales:"DA",nombre:"Delia Avilán",rol:"Fundadora · FEN Investment Woman",detalle:"Co-fundadora de FIG."},
+    {iniciales:"+",nombre:"Súmate al equipo",rol:"",detalle:"Los perfiles del equipo FIW se cargan desde el Excel (datos/fiw.json).",mas:true}
+  ]
+};
+
+var FOTOS="../fotos/fiw/";
+function probeFotos(max,cb){
+  var found=[],n=1,exts=["jpg","webp","png","jpeg","JPG"];
+  (function tryN(){
+    if(n>max){cb(found);return;}
+    var e=0;
+    (function tryExt(){
+      if(e>=exts.length){cb(found);return;}
+      var img=new Image();
+      var url=FOTOS+n+"."+exts[e];
+      img.onload=function(){found.push(url);n++;tryN();};
+      img.onerror=function(){e++;tryExt();};
+      img.src=url;
+    })();
+  })();
+}
+
+/* ---------------- Render ---------------- */
+function renderData(){
+  $("#heroBajada").textContent=DATA.bajada;
+  if(DATA.resumen&&DATA.resumen.length){
+    $("#fiwResumen").innerHTML=DATA.resumen.map(function(p){return "<p>"+esc(p)+"</p>"}).join("");
+  }
+  if(DATA.pilares&&DATA.pilares.length){
+    $("#fiwPilares").innerHTML=DATA.pilares.map(function(p,i){
+      return '<div class="pilar glowable reveal '+(i===1?"d1":i===2?"d2":"")+'"><span class="p-num">'+esc(p.num)+'</span><h3>'+esc(p.titulo)+'</h3><p>'+esc(p.texto)+'</p></div>';
+    }).join("");
+    observeReveals($("#fiwPilares"));bindGlow($("#fiwPilares"));
+  }
+  if(DATA.equipo&&DATA.equipo.length){
+    $("#fiwEquipo").innerHTML=DATA.equipo.map(function(p,i){
+      return '<div class="p-card'+(p.mas?" p-card--more":"")+' reveal '+(i%3===1?"d1":i%3===2?"d2":"")+'">'
+        +'<div class="avatar">'+esc(p.iniciales||"·")+'</div>'
+        +'<div><div class="p-name">'+esc(p.nombre)+'</div>'+(p.rol?'<div class="p-role">'+esc(p.rol)+'</div>':"")+'</div>'
+        +(p.detalle?'<p class="p-extra">'+esc(p.detalle)+'</p>':"")+'</div>';
+    }).join("");
+    observeReveals($("#fiwEquipo"));
+  }
+}
+
+/* ---------------- Fotos: hero slideshow + galería ---------------- */
+var bg1=$(".hero-bg"),bg2=$(".hero-bg2"),useBg1=true,slideT=null;
+function initFotos(){
+  probeFotos(40,function(fotos){
+    var gal=$("#galGrid"),note=$("#galNote");
+    if(!fotos.length){
+      gal.innerHTML='<div class="gal-empty" style="grid-column:1/-1"><span class="mono-tag">Galería lista para llenarse</span><br>Sube fotos a la carpeta <b>fotos/fiw/</b> nombradas 1.jpg, 2.jpg, 3.jpg… y aparecerán aquí y como fondo de esta página, automáticamente.</div>';
+      note.textContent="";
+      return;
+    }
+    /* hero slideshow */
+    function show(i){
+      var a=useBg1?bg1:bg2,b=useBg1?bg2:bg1;
+      a.style.backgroundImage="url('"+fotos[i]+"')";
+      a.classList.add("show");b.classList.remove("show");
+      useBg1=!useBg1;
+    }
+    show(0);
+    if(!RM)document.body.classList.add("kb");
+    if(fotos.length>1&&!RM){
+      var si=0;
+      slideT=setInterval(function(){si=(si+1)%fotos.length;show(si);},6000);
+    }
+    /* galería */
+    gal.innerHTML=fotos.map(function(f,i){return '<img src="'+esc(f)+'" alt="FEN Investment Woman — foto '+(i+1)+'" loading="lazy">'}).join("");
+    note.textContent=fotos.length+" FOTOS · CARPETA fotos/fiw/";
+  });
+}
+
+/* ---------------- Override JSON ---------------- */
+fetch("../datos/fiw.json",{cache:"no-store"})
+  .then(function(r){return r.ok?r.json():null})
+  .then(function(d){if(d){for(var k in d){DATA[k]=d[k];}renderData();}})
+  .catch(function(){});
+
+/* ---------------- Infraestructura compartida ---------------- */
+var revIO=null;
+function makeRevIO(){
+  if(RM||!("IntersectionObserver" in window))return null;
+  return new IntersectionObserver(function(es){
+    es.forEach(function(en){
+      if(!en.isIntersecting)return;
+      en.target.classList.add("in");
+      var sc=en.target.querySelector(".scr");if(sc)scramble(sc);
+      revIO.unobserve(en.target);
+    });
+  },{threshold:.1,rootMargin:"0px 0px -5% 0px"});
+}
+function observeReveals(root){
+  var items=$$(".reveal:not(.in)",root||document);
+  if(!revIO){items.forEach(function(el){el.classList.add("in")});return;}
+  items.forEach(function(el){revIO.observe(el)});
+}
+var SCRCH="▮▯01$%&#<>·";
+function scramble(el){
+  var fin=el.getAttribute("data-text")||el.textContent;
+  if(RM){el.textContent=fin;return;}
+  var t0=null,dur=600;
+  (function fr(t){
+    if(!t0)t0=t;
+    var p=Math.min((t-t0)/dur,1),n=Math.floor(fin.length*p),out=fin.slice(0,n);
+    for(var i=n;i<fin.length;i++){out+=fin[i]===" "?" ":SCRCH[(Math.random()*SCRCH.length)|0];}
+    el.textContent=out;
+    if(p<1)requestAnimationFrame(fr);else el.textContent=fin;
+  })(performance.now());
+}
+revIO=makeRevIO();
+
+function bindGlow(root){
+  if(!FINE)return;
+  $$(".glowable",root||document).forEach(function(g){
+    if(g._glow)return;g._glow=true;
+    g.addEventListener("pointermove",function(e){
+      var r=g.getBoundingClientRect();
+      g.style.setProperty("--mx",((e.clientX-r.left)/r.width*100)+"%");
+      g.style.setProperty("--my",((e.clientY-r.top)/r.height*100)+"%");
+    });
+  });
+}
+
+var bar=$("#scrollbar"),nav=$("#nav");
+window.addEventListener("scroll",function(){
+  var h=document.documentElement,max=h.scrollHeight-h.clientHeight;
+  bar.style.width=(max>0?(h.scrollTop/max)*100:0)+"%";
+  nav.classList.toggle("scrolled",h.scrollTop>10);
+},{passive:true});
+
+var burger=$("#burger"),mmenu=$("#mmenu");
+function toggleMenu(f){
+  var open=typeof f==="boolean"?f:!mmenu.classList.contains("open");
+  mmenu.classList.toggle("open",open);burger.classList.toggle("open",open);
+  burger.setAttribute("aria-expanded",open);
+  document.body.style.overflow=open?"hidden":"";
+}
+burger.addEventListener("click",function(){toggleMenu()});
+$$("a",mmenu).forEach(function(a){a.addEventListener("click",function(){toggleMenu(false)})});
+
+(function(){
+  if(!FINE||RM)return;
+  var dot=$("#cursorDot"),ring=$("#cursorRing"),x=0,y=0,rx=0,ry=0,on=false;
+  document.addEventListener("mousemove",function(e){
+    x=e.clientX;y=e.clientY;
+    if(!on){on=true;document.body.classList.add("cursor-on");}
+    dot.style.transform="translate("+x+"px,"+y+"px) translate(-50%,-50%)";
+  },{passive:true});
+  document.addEventListener("mouseleave",function(){document.body.classList.remove("cursor-on");on=false});
+  document.addEventListener("mouseover",function(e){
+    ring.classList.toggle("grow",!!(e.target.closest&&e.target.closest("a,button,.gal-grid img")));
+  });
+  (function loop(){rx+=(x-rx)*.16;ry+=(y-ry)*.16;
+    ring.style.transform="translate("+rx+"px,"+ry+"px) translate(-50%,-50%)";
+    requestAnimationFrame(loop);})();
+})();
+
+/* marquee: duplicar para loop */
+(function(){var t=$("#marqTrack");if(t)t.innerHTML+=t.innerHTML})();
+
+/* ---------------- Arranque ---------------- */
+renderData();
+observeReveals(document);
+bindGlow(document);
+initFotos();
+(function(){
+  var pre=$("#preloader"),seen=false;
+  try{seen=!!sessionStorage.getItem("figIntro:fiw")}catch(e){}
+  var quick=RM||seen;
+  if(quick){pre.classList.add("p1","p2");}
+  else{
+    setTimeout(function(){pre.classList.add("p1")},150);
+    setTimeout(function(){pre.classList.add("p2")},900);
+    try{sessionStorage.setItem("figIntro:fiw","1")}catch(e){}
+  }
+  setTimeout(function(){
+    pre.classList.add("done");
+    document.body.classList.add("hero-in");
+    var hk=$(".hero .scr");if(hk&&!RM)scramble(hk);
+  },RM?0:(quick?400:2400));
+})();
+})();
+</script>
+<script>
+/* Métricas anónimas de visitas — SIN cookies ni identificadores. Usa el
+   mismo Apps Script COMPARTIDO del sitio (config.figEndpoint), con
+   tipo:"visita" para que escriba en la pestaña correcta. Solo se activa
+   si config.figEndpoint está configurado en datos/club.json (código
+   completo en HOJA_DE_RUTA_FIG.md). Registra página, fecha y origen. */
+(function(){
+try{
+fetch("../datos/club.json",{cache:"force-cache"})
+.then(function(r){return r.ok?r.json():null})
+.then(function(d){
+  var u=d&&d.config&&d.config.figEndpoint;if(!u)return;
+  var b=JSON.stringify({tipo:"visita",pagina:location.pathname,fecha:new Date().toISOString(),origen:(document.referrer.split("/")[2]||"")});
+  if(navigator.sendBeacon){navigator.sendBeacon(u,b);}
+  else{fetch(u,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:b}).catch(function(){});}
+}).catch(function(){});
+}catch(e){}
+})();
+</script>
+</body>
+</html>

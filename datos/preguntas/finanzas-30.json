@@ -1,0 +1,130 @@
+[
+  {
+    "id": "rv-038",
+    "tema": "renta-variable",
+    "ramo": "apf",
+    "dificultad": 2,
+    "pregunta": "¿Es necesario que dos activos tengan correlación negativa entre sí para lograr un efecto de diversificación al combinarlos en un portafolio?",
+    "alternativas": [
+      "No: basta con que la correlación sea menor a 1 para obtener algún beneficio de diversificación en el riesgo del portafolio",
+      "Sí, la diversificación solo funciona si la correlación es exactamente -1",
+      "Sí, cualquier correlación positiva entre los activos elimina por completo el efecto de diversificación",
+      "No, la correlación entre los activos es irrelevante para el riesgo de un portafolio"
+    ],
+    "correcta": 0,
+    "explicacion": "El beneficio de diversificación aparece siempre que la correlación entre los activos sea menor a 1 (no se necesita que sea negativa): mientras más baja la correlación, mayor la reducción de riesgo, y con correlación -1 se puede incluso eliminar el riesgo por completo, pero no es un requisito para obtener algún beneficio.",
+    "fuente": "APF · Guía de Repaso (Abarca/Bravo, 2024 Verano)"
+  },
+  {
+    "id": "rv-039",
+    "tema": "renta-variable",
+    "ramo": "apf",
+    "dificultad": 3,
+    "pregunta": "¿Cuál es la característica más importante para determinar la varianza (riesgo) de un portafolio bien diversificado, con muchos activos?",
+    "alternativas": [
+      "La covarianza entre los activos que lo componen, no la varianza individual de cada uno por separado",
+      "La varianza individual de cada activo por separado, sumada sin ponderar",
+      "Solo el retorno esperado de cada activo, sin considerar ningún tipo de riesgo",
+      "El número total de activos incluidos, sin importar cómo se mueven entre sí"
+    ],
+    "correcta": 0,
+    "explicacion": "En un portafolio bien diversificado con muchos activos, el riesgo idiosincrático de cada uno se diluye y lo que domina la varianza del portafolio es la covarianza promedio entre los activos, no la varianza individual de cada instrumento.",
+    "fuente": "APF · Guía de Repaso (Abarca/Bravo, 2024 Verano)"
+  },
+  {
+    "id": "rv-040",
+    "tema": "renta-variable",
+    "ramo": "apf",
+    "dificultad": 3,
+    "pregunta": "Si dos activos riesgosos tienen correlación exactamente -1 entre sí, ¿es posible construir un portafolio combinándolos que tenga riesgo (desviación estándar) igual a cero?",
+    "alternativas": [
+      "Sí: existe una combinación de pesos específica (proporcional a las volatilidades inversas de cada activo) que anula por completo el riesgo del portafolio",
+      "No, con correlación -1 el riesgo del portafolio solo se reduce a la mitad, nunca a cero",
+      "Sí, pero solo si además ambos activos tienen exactamente el mismo retorno esperado",
+      "No, es matemáticamente imposible reducir el riesgo de un portafolio de dos activos a cero"
+    ],
+    "correcta": 0,
+    "explicacion": "Con correlación -1, los pesos que anulan el riesgo del portafolio son w1 = σ2/(σ1+σ2) y w2 = σ1/(σ1+σ2): los movimientos de ambos activos se cancelan exactamente, dejando una desviación estándar de portafolio igual a cero (aunque el retorno esperado resultante no sea cero).",
+    "fuente": "APF · Pauta Solemne (Abarca/Bravo, 2024 Verano)"
+  },
+  {
+    "id": "rif-017",
+    "tema": "riesgo-financiero",
+    "ramo": "apf",
+    "dificultad": 3,
+    "pregunta": "En el modelo de Valoración por Arbitraje (APT) con varios factores de riesgo, si el retorno esperado de un activo calculado con el modelo es MENOR al retorno que efectivamente ofrece el mercado, ¿qué decisión de inversión sugiere esa diferencia?",
+    "alternativas": [
+      "El activo estaría subvalorado (ofrece más retorno del que su riesgo justifica): conviene comprarlo",
+      "El activo estaría sobrevalorado: conviene venderlo o tomar una posición corta",
+      "No se puede tomar ninguna decisión sin conocer además el beta de mercado (CAPM) del activo",
+      "La diferencia siempre indica un error de cálculo, nunca una oportunidad de inversión"
+    ],
+    "correcta": 0,
+    "explicacion": "Si el retorno que exige el modelo (dado el riesgo por cada factor) es menor al retorno observado en el mercado, el activo está pagando más de lo que su riesgo justifica: está subvalorado, y la estrategia de arbitraje es comprarlo (lo contrario ocurre si el retorno del modelo es mayor al observado).",
+    "fuente": "APF · Guía de Repaso (Abarca/Bravo, 2024 Verano)"
+  },
+  {
+    "id": "rif-018",
+    "tema": "riesgo-financiero",
+    "ramo": "apf",
+    "dificultad": 2,
+    "pregunta": "¿Qué mide el coeficiente de aversión relativa al riesgo (CRRA, Coeficiente de Arrow-Pratt relativo) de un inversionista?",
+    "alternativas": [
+      "Qué tan averso al riesgo es un inversionista en relación a su nivel de riqueza, a partir de la curvatura de su función de utilidad",
+      "El monto exacto en dinero que un inversionista está dispuesto a apostar en un solo activo riesgoso",
+      "La correlación entre el nivel de riqueza del inversionista y el retorno del portafolio de mercado",
+      "El número de activos distintos que un inversionista debería incluir en su portafolio"
+    ],
+    "correcta": 0,
+    "explicacion": "El coeficiente CRRA se calcula como -w·u''(w)/u'(w) a partir de la función de utilidad del inversionista, y mide cuán averso al riesgo es en proporción a su riqueza; a mayor CRRA, más penaliza la incertidumbre en su decisión de inversión.",
+    "fuente": "APF · Pauta Solemne (Abarca/Bravo, 2024 Verano)"
+  },
+  {
+    "id": "rf-047",
+    "tema": "renta-fija",
+    "ramo": "apf",
+    "dificultad": 2,
+    "pregunta": "Si la curva de tasas de interés usada para valorar bonos es completamente plana (la misma tasa para todos los plazos), ¿qué se puede concluir sobre las tasas forward implícitas en esa curva?",
+    "alternativas": [
+      "Todas las tasas forward implícitas son iguales entre sí, y además iguales a la tasa spot (ya que las tasas spot también son todas iguales)",
+      "Las tasas forward son siempre mayores que la tasa spot, sin importar la forma de la curva",
+      "No se pueden calcular tasas forward cuando la curva de tasas es plana",
+      "Las tasas forward serían todas iguales a cero en ese escenario"
+    ],
+    "correcta": 0,
+    "explicacion": "La tasa forward entre dos períodos se deriva de la razón entre las tasas spot de esos plazos. Si la curva es plana (todas las tasas spot iguales), esa razón da como resultado la misma tasa en cada tramo, por lo que todas las tasas forward implícitas coinciden entre sí y con la tasa spot.",
+    "fuente": "APF · Pauta Solemne (Abarca/Bravo, 2024 Verano)"
+  },
+  {
+    "id": "ep-058",
+    "tema": "evaluacion-proyectos",
+    "ramo": "apf",
+    "dificultad": 3,
+    "pregunta": "Un proyecto de \"financiamiento\" (flujo inicial positivo, seguido de flujos negativos) se evalúa con el criterio de la TIR. ¿Se aplica la misma regla de decisión que en un proyecto de inversión normal (aceptar si TIR &gt; tasa de mercado)?",
+    "alternativas": [
+      "No: en un proyecto de financiamiento el criterio se invierte, se acepta solo si la TIR es MENOR a la tasa de mercado",
+      "Sí, la regla de decisión de la TIR es exactamente la misma sin importar el signo de los flujos del proyecto",
+      "No, un proyecto de financiamiento nunca puede evaluarse usando el criterio de la TIR",
+      "Sí, pero solo si el proyecto de financiamiento tiene una duración mayor a 10 años"
+    ],
+    "correcta": 0,
+    "explicacion": "En un proyecto de inversión (flujo inicial negativo) se acepta si la TIR supera la tasa de mercado. En un proyecto de financiamiento, donde se recibe dinero primero y se paga después, esa TIR representa el costo de ese financiamiento, por lo que conviene aceptarlo solo si esa tasa es MENOR a la tasa de mercado disponible.",
+    "fuente": "APF · Pauta Solemne 1 (Bonilla, 2017 Primavera)"
+  },
+  {
+    "id": "rv-041",
+    "tema": "renta-variable",
+    "ramo": "apf",
+    "dificultad": 2,
+    "pregunta": "¿Qué agrega la hipótesis de los mercados adaptativos a la teoría clásica de eficiencia de mercado?",
+    "alternativas": [
+      "Que el grado de eficiencia de un mercado no es fijo, sino que evoluciona con el tiempo según cambian las condiciones y los participantes",
+      "Que los mercados son siempre completamente eficientes en su forma fuerte, sin excepción",
+      "Que ningún mercado puede llegar a ser eficiente bajo ninguna circunstancia",
+      "Que la eficiencia de mercado depende únicamente de la cantidad de información pública disponible, sin ningún otro factor"
+    ],
+    "correcta": 0,
+    "explicacion": "La hipótesis de los mercados adaptativos plantea que la eficiencia no es un estado fijo (como sugiere la clasificación clásica débil/semifuerte/fuerte), sino un proceso dinámico: el grado de eficiencia de un mercado cambia con el tiempo a medida que evolucionan sus participantes, la competencia y el entorno.",
+    "fuente": "APF · Control 3 Pauta Solemne (Malatesta, 2018 Otoño)"
+  }
+]

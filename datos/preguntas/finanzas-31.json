@@ -1,0 +1,50 @@
+[
+  {
+    "id": "rv-042",
+    "tema": "renta-variable",
+    "ramo": "finanzas-ii",
+    "dificultad": 3,
+    "pregunta": "¿Qué característica define a un \"portafolio beta-cero\" construido combinando dos o más activos riesgosos?",
+    "alternativas": [
+      "Tiene un beta de mercado igual a cero, por lo que sus retornos no están correlacionados con los del portafolio de mercado",
+      "Tiene una desviación estándar (riesgo total) igual a cero, sin importar su beta",
+      "Su retorno esperado siempre es igual a la tasa libre de riesgo, por definición",
+      "Solo puede construirse si al menos uno de los activos usados también tiene beta igual a cero"
+    ],
+    "correcta": 0,
+    "explicacion": "Un portafolio beta-cero se arma ponderando activos riesgosos (incluso con pesos negativos, es decir venta corta) de forma que el beta ponderado del conjunto sea cero. No tiene por qué tener retorno igual a la tasa libre de riesgo ni riesgo total nulo, solo su exposición al riesgo de mercado (beta) es nula.",
+    "fuente": "Finanzas II · Ayudantía CAPM, Modelo Índice y APT (Jorge Gregoire)"
+  },
+  {
+    "id": "rv-043",
+    "tema": "renta-variable",
+    "ramo": "finanzas-ii",
+    "dificultad": 3,
+    "pregunta": "Según el modelo de índice de mercado, ¿cómo se descompone la varianza total del retorno de un activo?",
+    "alternativas": [
+      "En riesgo sistemático (beta al cuadrado por la varianza del mercado) más riesgo idiosincrático (la varianza del término de error específico del activo)",
+      "Únicamente en riesgo sistemático: el modelo de índice asume que el riesgo idiosincrático es siempre cero",
+      "En la suma simple del beta más la varianza del mercado, sin ningún término al cuadrado",
+      "Únicamente en riesgo idiosincrático, ya que el modelo de índice ignora el riesgo de mercado"
+    ],
+    "correcta": 0,
+    "explicacion": "El modelo de índice expresa el retorno de un activo como función lineal del retorno de mercado más un término de error. Su varianza total se descompone en σ²(Ri) = βi²·σ²(Rm) + σ²(εi): el primer término es el riesgo sistemático (explicado por el mercado) y el segundo es el riesgo idiosincrático propio del activo.",
+    "fuente": "Finanzas II · Ayudantía CAPM, Modelo Índice y APT (Jorge Gregoire)"
+  },
+  {
+    "id": "rif-019",
+    "tema": "riesgo-financiero",
+    "ramo": "finanzas-ii",
+    "dificultad": 3,
+    "pregunta": "En el modelo de Valoración por Arbitraje (APT) con varios factores de riesgo, ¿qué es un \"portafolio mimético\" (mimicking portfolio) de un factor específico?",
+    "alternativas": [
+      "Un portafolio construido para tener sensibilidad 1 al factor de interés y sensibilidad 0 a todos los demás factores del modelo",
+      "Un portafolio que replica exactamente la composición del portafolio de mercado, sin importar los factores de riesgo",
+      "Un portafolio que combina únicamente activos libres de riesgo con distintos vencimientos",
+      "Un portafolio que tiene el mismo retorno esperado que el activo libre de riesgo, sin exposición a ningún factor"
+    ],
+    "correcta": 0,
+    "explicacion": "Un portafolio mimético se arma resolviendo los pesos de los activos disponibles de forma que su exposición sea 1 al factor que se quiere aislar y 0 a los demás factores del modelo APT, así su retorno esperado permite estimar el premio por riesgo asociado a ese factor en particular.",
+    "fuente": "Finanzas II · Ayudantía CAPM, Modelo Índice y APT (Jorge Gregoire)"
+  }
+]

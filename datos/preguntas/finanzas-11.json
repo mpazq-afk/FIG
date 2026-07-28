@@ -1,0 +1,258 @@
+[
+  {
+    "id": "mf-022",
+    "tema": "matematica-financiera",
+    "ramo": "intro-finanzas",
+    "dificultad": 2,
+    "pregunta": "Al comparar una perpetuidad que paga cuotas anticipadas (al inicio de cada período) contra otra con cuotas vencidas (al final de cada período) del mismo monto y misma tasa, ¿cuál tiene mayor valor presente?",
+    "alternativas": [
+      "La perpetuidad anticipada, porque cada pago se recibe un período antes y por tanto se descuenta menos",
+      "La perpetuidad vencida, porque acumula más tiempo de capitalización antes del primer pago",
+      "Ambas tienen exactamente el mismo valor presente, sin importar cuándo se paga cada cuota",
+      "Depende únicamente del monto de la cuota, no del momento del pago"
+    ],
+    "correcta": 0,
+    "explicacion": "Una perpetuidad anticipada equivale a la vencida multiplicada por (1+tasa), ya que cada flujo se recibe un período antes y se descuenta menos, por lo que su valor presente siempre es mayor.",
+    "fuente": "Intro a Finanzas · Pauta Control 1 Ejercicios (Nicolás Martínez).pdf"
+  },
+  {
+    "id": "mf-023",
+    "tema": "matematica-financiera",
+    "ramo": "intro-finanzas",
+    "dificultad": 2,
+    "pregunta": "En el sistema de pensiones, ¿qué mide la \"tasa de reemplazo\"?",
+    "alternativas": [
+      "La proporción entre la pensión mensual que recibirá una persona y su último sueldo (o el promedio de sus últimos años cotizados)",
+      "La tasa de rentabilidad promedio que obtuvo el multifondo durante toda la vida laboral del cotizante",
+      "El porcentaje del sueldo que se cotiza obligatoriamente cada mes en la AFP",
+      "La tasa de interés que cobra la AFP por administrar los fondos de pensión"
+    ],
+    "correcta": 0,
+    "explicacion": "La tasa de reemplazo compara la pensión mensual obtenida (en renta vitalicia o retiro programado) contra el último sueldo del cotizante (o el promedio de sus últimos años cotizados), como medida de suficiencia previsional.",
+    "fuente": "Intro a Finanzas · Pauta Control 1 Ejercicios (Nicolás Martínez).pdf"
+  },
+  {
+    "id": "mf-024",
+    "tema": "matematica-financiera",
+    "ramo": "intro-finanzas",
+    "dificultad": 3,
+    "pregunta": "Si un ahorro se mantiene constante en Unidades de Fomento (términos reales) y la UF crece a una tasa nominal, ¿qué relación permite obtener la tasa de interés real efectiva a partir de la tasa nominal y la inflación (crecimiento de la UF)?",
+    "alternativas": [
+      "La paridad de Fisher: la tasa real efectiva se aproxima a la diferencia entre la tasa nominal y la tasa de inflación cuando ambas son pequeñas",
+      "La tasa real siempre es igual a la tasa nominal, independiente de la inflación esperada",
+      "La tasa real se obtiene multiplicando la tasa nominal por la tasa de inflación",
+      "No existe relación entre la tasa nominal, la inflación y la tasa real"
+    ],
+    "correcta": 0,
+    "explicacion": "La paridad de Fisher relaciona tasa nominal, tasa real e inflación; cuando ambas tasas son pequeñas, la tasa real efectiva se aproxima bien restando la inflación a la tasa nominal.",
+    "fuente": "Intro a Finanzas · Pauta Control 1 Ejercicios (Nicolás Martínez).pdf"
+  },
+  {
+    "id": "ep-022",
+    "tema": "evaluacion-proyectos",
+    "ramo": "intro-finanzas",
+    "dificultad": 2,
+    "pregunta": "Al construir el flujo de caja de un proyecto, ¿por qué es un error considerar los ingresos por ventas totales en vez de los incrementales cuando el proyecto reemplaza o compite con ventas ya existentes?",
+    "alternativas": [
+      "Porque el flujo de caja relevante del proyecto debe medir solo lo que cambia respecto del escenario sin proyecto, no los ingresos totales de la empresa",
+      "Porque los ingresos totales siempre son menores que los incrementales en cualquier proyecto de inversión",
+      "Porque la normativa contable prohíbe usar ingresos totales en la evaluación de proyectos",
+      "Porque los ingresos incrementales no incluyen el efecto de los impuestos sobre la venta"
+    ],
+    "correcta": 0,
+    "explicacion": "El criterio de flujos incrementales exige comparar el escenario con proyecto contra el escenario sin proyecto; usar ventas totales sobreestima el efecto real del proyecto sobre la caja de la empresa.",
+    "fuente": "Intro a Finanzas · Pauta Control 3 Ejercicios (Nicolás Martínez).pdf"
+  },
+  {
+    "id": "ep-023",
+    "tema": "evaluacion-proyectos",
+    "ramo": "intro-finanzas",
+    "dificultad": 1,
+    "pregunta": "¿Por qué la depreciación, pese a restarse en el estado de resultados del proyecto, debe sumarse de vuelta al construir el flujo de caja libre?",
+    "alternativas": [
+      "Porque la depreciación es un gasto contable que no representa una salida real de efectivo, aunque sí genera un ahorro tributario",
+      "Porque la depreciación siempre debe ser igual a cero en la evaluación de proyectos",
+      "Porque solo los activos intangibles se deprecian y no afectan el flujo de caja",
+      "Porque la depreciación aumenta el pago de impuestos y por eso se debe compensar"
+    ],
+    "correcta": 0,
+    "explicacion": "La depreciación reduce la utilidad y por tanto los impuestos a pagar (ahorro tributario), pero no implica un desembolso de caja, por lo que debe sumarse de vuelta al construir el flujo de caja libre.",
+    "fuente": "Intro a Finanzas · Pauta Control 3 Ejercicios (Nicolás Martínez).pdf"
+  },
+  {
+    "id": "ep-024",
+    "tema": "evaluacion-proyectos",
+    "ramo": "intro-finanzas",
+    "dificultad": 2,
+    "pregunta": "¿Por qué el gasto por intereses de la deuda no debe incluirse en el flujo de caja libre de un proyecto puro?",
+    "alternativas": [
+      "Porque el efecto del financiamiento se incorpora en la tasa de descuento (costo de capital), no directamente en los flujos operacionales del proyecto",
+      "Porque los intereses nunca son deducibles de impuestos en ningún país",
+      "Porque el gasto por intereses siempre es igual a cero en proyectos nuevos",
+      "Porque solo los proyectos financiados con capital propio generan flujo de caja libre"
+    ],
+    "correcta": 0,
+    "explicacion": "Separar la decisión de inversión de la de financiamiento implica evaluar el proyecto con flujos operacionales puros, dejando que el efecto de la deuda se refleje en la tasa de descuento usada para actualizar esos flujos.",
+    "fuente": "Intro a Finanzas · Pauta Control 3 Ejercicios (Nicolás Martínez).pdf"
+  },
+  {
+    "id": "ep-025",
+    "tema": "evaluacion-proyectos",
+    "ramo": "intro-finanzas",
+    "dificultad": 1,
+    "pregunta": "Un estudio de factibilidad que ya fue pagado y gastado antes de tomar la decisión de invertir, ¿debe incluirse en el flujo de caja del proyecto?",
+    "alternativas": [
+      "No, porque es un costo hundido: ya se incurrió en él independientemente de si el proyecto se realiza o no",
+      "Sí, siempre debe incluirse como una inversión inicial adicional del proyecto",
+      "Sí, pero solo si el estudio fue favorable a la realización del proyecto",
+      "No, pero solo si el estudio costó menos del 10% de la inversión total"
+    ],
+    "correcta": 0,
+    "explicacion": "Los costos hundidos, como un estudio ya pagado, no cambian con la decisión de invertir o no, por lo que deben excluirse del análisis de flujo de caja del proyecto.",
+    "fuente": "Intro a Finanzas · Pauta Control 3 Ejercicios (Nicolás Martínez).pdf"
+  },
+  {
+    "id": "ep-026",
+    "tema": "evaluacion-proyectos",
+    "ramo": "intro-finanzas",
+    "dificultad": 2,
+    "pregunta": "Si un proyecto usará una bodega propia que actualmente no genera ingresos contables pero podría arrendarse a terceros, ¿cómo debe tratarse ese uso en el flujo de caja del proyecto?",
+    "alternativas": [
+      "Se debe incluir como un costo de oportunidad, restando el ingreso que se deja de percibir por no arrendar la bodega a terceros",
+      "No se debe considerar, porque la bodega no tiene valor contable registrado",
+      "Se debe sumar como un ingreso adicional del proyecto, ya que la bodega ya está pagada",
+      "Solo se considera si la bodega se vende físicamente al finalizar el proyecto"
+    ],
+    "correcta": 0,
+    "explicacion": "Aunque no implique un desembolso directo, usar un activo con un uso alternativo de valor (como arrendarlo) genera un costo de oportunidad que debe incluirse como un costo relevante del proyecto.",
+    "fuente": "Intro a Finanzas · Pauta Control 3 Ejercicios (Nicolás Martínez).pdf"
+  },
+  {
+    "id": "ec-011",
+    "tema": "estructura-capital",
+    "ramo": "intro-finanzas",
+    "dificultad": 3,
+    "pregunta": "Al usar el beta de una empresa comparable para estimar el costo de capital de un proyecto con distinta estructura de financiamiento, ¿qué procedimiento corresponde aplicar?",
+    "alternativas": [
+      "Desapalancar el beta de la comparable (aislando el riesgo operacional) y luego reapalancarlo según la estructura de deuda/patrimonio propia del proyecto",
+      "Usar directamente el beta apalancado de la comparable, sin ningún ajuste adicional",
+      "Promediar el beta de la comparable con el beta de mercado, sin considerar el apalancamiento",
+      "Ignorar el beta de la comparable y usar siempre un beta igual a 1 para cualquier proyecto"
+    ],
+    "correcta": 0,
+    "explicacion": "El beta apalancado de una comparable refleja su propio riesgo financiero; para aplicarlo a un proyecto con otra estructura de capital, primero se desapalanca (beta operacional puro) y luego se reapalanca con el apalancamiento objetivo del proyecto.",
+    "fuente": "Intro a Finanzas · Pauta Control 3 Ejercicios (Nicolás Martínez).pdf"
+  },
+  {
+    "id": "ep-027",
+    "tema": "evaluacion-proyectos",
+    "ramo": "finanzas-i",
+    "dificultad": 1,
+    "pregunta": "¿Es correcto afirmar que el criterio del rendimiento contable promedio da demasiada importancia a los últimos flujos de caja de un proyecto?",
+    "alternativas": [
+      "No, ese criterio se basa únicamente en flujos contables (utilidades), no pondera especialmente los flujos de caja finales",
+      "Sí, es exactamente el principal defecto reconocido de este criterio de evaluación",
+      "No, porque este criterio no utiliza ningún tipo de flujo, ni contable ni de caja",
+      "Sí, pero solo en proyectos con una vida útil menor a un año"
+    ],
+    "correcta": 0,
+    "explicacion": "El rendimiento contable promedio se calcula sobre utilidades contables, no sobre flujos de caja, por lo que la afirmación de que sobrepondera los últimos flujos de caja es falsa.",
+    "fuente": "Finanzas I · Solemne I (Comentes y Racionamiento de Capital).pdf"
+  },
+  {
+    "id": "ep-028",
+    "tema": "evaluacion-proyectos",
+    "ramo": "finanzas-i",
+    "dificultad": 1,
+    "pregunta": "¿Es cierto que el gran mérito de la TIR es que no es necesario definir cuál es la tasa de descuento relevante para tomar una decisión de inversión?",
+    "alternativas": [
+      "No, la TIR igual debe compararse contra la tasa de descuento relevante del proyecto para poder aceptarlo o rechazarlo",
+      "Sí, la TIR se puede usar de forma completamente independiente sin ninguna tasa de referencia",
+      "No, porque la TIR nunca puede calcularse sin conocer previamente la tasa de descuento",
+      "Sí, siempre que el proyecto tenga flujos de caja constantes en el tiempo"
+    ],
+    "correcta": 0,
+    "explicacion": "Aunque la TIR se calcula sin necesidad de una tasa de descuento, la decisión de aceptar o rechazar el proyecto sí requiere compararla con la tasa de descuento relevante (costo de oportunidad).",
+    "fuente": "Finanzas I · Solemne I (Comentes y Racionamiento de Capital).pdf"
+  },
+  {
+    "id": "ep-029",
+    "tema": "evaluacion-proyectos",
+    "ramo": "finanzas-i",
+    "dificultad": 1,
+    "pregunta": "¿Qué mide el valor de una opción real en la evaluación de un proyecto de inversión?",
+    "alternativas": [
+      "La flexibilidad del proyecto para adaptarse a distintos escenarios, permitiendo postergar, expandir o abandonar la inversión",
+      "Únicamente el valor de reventa de los activos del proyecto al finalizar su vida útil",
+      "El monto exacto de la inversión inicial requerida para comenzar el proyecto",
+      "La probabilidad de que el proyecto tenga TIR positiva en su primer año"
+    ],
+    "correcta": 0,
+    "explicacion": "Las opciones reales capturan el valor de la flexibilidad gerencial de reaccionar ante nueva información, como postergar, expandir o abandonar un proyecto conforme evolucionan las condiciones.",
+    "fuente": "Finanzas I · Solemne I (Comentes y Racionamiento de Capital).pdf"
+  },
+  {
+    "id": "ep-030",
+    "tema": "evaluacion-proyectos",
+    "ramo": "finanzas-i",
+    "dificultad": 3,
+    "pregunta": "Al racionar el capital disponible entre varios proyectos independientes con distinto VAN e inversión requerida, ¿cuál es el criterio correcto para maximizar el valor creado dentro del presupuesto?",
+    "alternativas": [
+      "Seleccionar la combinación de proyectos que, respetando el presupuesto disponible, maximiza la suma total de VAN generado",
+      "Seleccionar únicamente el proyecto individual con el mayor VAN, sin importar el presupuesto sobrante",
+      "Seleccionar los proyectos en el orden en que fueron presentados, hasta agotar el presupuesto",
+      "Seleccionar los proyectos con menor inversión requerida, sin considerar su VAN"
+    ],
+    "correcta": 0,
+    "explicacion": "Bajo racionamiento de capital, el objetivo es maximizar el VAN total obtenido dentro de la restricción presupuestaria, lo que puede implicar descartar proyectos de alto VAN individual si su inversión es muy alta.",
+    "fuente": "Finanzas I · Solemne I (Comentes y Racionamiento de Capital).pdf"
+  },
+  {
+    "id": "mf-025",
+    "tema": "matematica-financiera",
+    "ramo": "finanzas-i",
+    "dificultad": 2,
+    "pregunta": "¿Por qué el valor futuro de una inversión aumenta a medida que se acorta el período de capitalización (por ejemplo, de anual a mensual, manteniendo la misma tasa anual establecida)?",
+    "alternativas": [
+      "Porque los intereses se empiezan a ganar más seguido sobre los intereses ya acumulados, aumentando el efecto de la capitalización compuesta",
+      "Porque la tasa de interés anual establecida sube automáticamente al acortar el período de capitalización",
+      "Porque el capital invertido aumenta cada vez que se acorta el período de capitalización",
+      "En realidad el valor futuro no cambia, independiente del período de capitalización usado"
+    ],
+    "correcta": 0,
+    "explicacion": "Con períodos de capitalización más cortos, los intereses se reinvierten con mayor frecuencia, generando más interés sobre interés y por tanto un valor futuro mayor para la misma tasa nominal.",
+    "fuente": "Finanzas I · Pauta Ayudantía 1 2009 (José Luis Ruiz).pdf"
+  },
+  {
+    "id": "mf-026",
+    "tema": "matematica-financiera",
+    "ramo": "finanzas-i",
+    "dificultad": 2,
+    "pregunta": "Para decidir en qué banco conviene depositar dinero cuando cada uno ofrece una tasa nominal distinta con distinta frecuencia de capitalización, ¿qué se debe comparar?",
+    "alternativas": [
+      "La tasa efectiva anual (TEA) de cada oferta, que captura el efecto real de la frecuencia de capitalización",
+      "Únicamente la tasa nominal anual establecida por cada banco, sin ajustar por capitalización",
+      "El número de períodos de capitalización al año, sin considerar la tasa nominal",
+      "El monto mínimo de depósito exigido por cada institución bancaria"
+    ],
+    "correcta": 0,
+    "explicacion": "Dos tasas nominales iguales pueden rendir montos distintos según la frecuencia de capitalización; la tasa efectiva anual (TEA) permite comparar correctamente el rendimiento real de cada alternativa.",
+    "fuente": "Finanzas I · Pauta Ayudantía 1 2009 (José Luis Ruiz).pdf"
+  },
+  {
+    "id": "mf-027",
+    "tema": "matematica-financiera",
+    "ramo": "finanzas-i",
+    "dificultad": 2,
+    "pregunta": "En capitalización continua, ¿qué fórmula se utiliza para calcular el valor futuro de un capital inicial C0 a una tasa r durante T años?",
+    "alternativas": [
+      "FV = C0 multiplicado por el número e elevado a (r por T)",
+      "FV = C0 multiplicado por (1 + r) elevado a T, igual que en capitalización anual simple",
+      "FV = C0 dividido por (1 + r elevado a T)",
+      "FV = C0 más (r multiplicado por T), sin ningún tipo de exponente"
+    ],
+    "correcta": 0,
+    "explicacion": "La capitalización continua es el caso límite cuando la frecuencia de capitalización tiende a infinito, y su valor futuro se calcula como C0 · e^(rT), usando la constante e.",
+    "fuente": "Finanzas I · Pauta Ayudantía 1 2009 (José Luis Ruiz).pdf"
+  }
+]

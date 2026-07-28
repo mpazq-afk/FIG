@@ -1,0 +1,82 @@
+[
+  {
+    "id": "ec-032",
+    "tema": "estructura-capital",
+    "ramo": "finanzas-ii",
+    "dificultad": 3,
+    "pregunta": "Según Modigliani & Miller (1963), si sube la tasa de impuesto corporativo, ¿es correcto decir que el valor total de las empresas aumentaría, ya que el escudo tributario de la deuda (tc·B) crece?",
+    "alternativas": [
+      "No: el escudo tc·B crece, pero el valor sin deuda cae por los mayores impuestos sobre los flujos operacionales, y ese efecto normalmente domina",
+      "Sí, siempre, porque el único componente del valor de la empresa que depende de la tasa de impuesto es el escudo tributario de la deuda",
+      "No, porque el escudo tributario tc·B en realidad disminuye cuando sube la tasa de impuesto corporativo",
+      "Sí, pero solo si la empresa no tiene ninguna otra fuente de deducción tributaria además de la deuda"
+    ],
+    "correcta": 0,
+    "explicacion": "El valor total con deuda es Vcon deuda = Vsin deuda + tc·B. Un alza de tc sí aumenta el término tc·B, pero también reduce Vsin deuda, porque esos flujos ya pagan más impuestos. Para la mayoría de las empresas ese segundo efecto domina, por lo que el valor total de la empresa cae pese a que el escudo tributario específico haya subido.",
+    "fuente": "Finanzas II · Pauta Solemne González (2016 Verano)"
+  },
+  {
+    "id": "ec-033",
+    "tema": "estructura-capital",
+    "ramo": "finanzas-ii",
+    "dificultad": 3,
+    "pregunta": "Una empresa endeudada evalúa un proyecto con VAN negativo, financiado 100% con deuda nueva de igual prioridad que la existente. ¿Puede este proyecto aumentar la riqueza de los accionistas originales pese a tener VAN negativo?",
+    "alternativas": [
+      "Sí: puede haber transferencia de riqueza de los bonistas a los accionistas (sustitución de activos), aunque el proyecto destruya valor total",
+      "No, nunca: un proyecto con VAN negativo siempre reduce la riqueza de todos los involucrados por igual",
+      "No, porque los bonistas siempre exigen una tasa que ya anticipa e internaliza el riesgo de sustitución de activos",
+      "No, porque los bonistas siempre están protegidos por cláusulas contractuales ante cualquier decisión de inversión"
+    ],
+    "correcta": 0,
+    "explicacion": "Al financiar un proyecto riesgoso con deuda de igual prioridad, se diluye la deuda existente (aumenta su riesgo de no pago), lo que traspasa valor desde los bonistas hacia los accionistas. Ese traspaso puede superar la pérdida de valor del proyecto, aumentando la riqueza accionaria pese a que el VAN del proyecto sea negativo, el clásico problema de sustitución de activos.",
+    "fuente": "Finanzas II · Pauta Examen González (2017 Otoño)"
+  },
+  {
+    "id": "ec-035",
+    "tema": "estructura-capital",
+    "ramo": "finanzas-ii",
+    "dificultad": 3,
+    "pregunta": "En un mundo M&M sin impuestos, una empresa recompra parte de su deuda financiando la recompra con una nueva emisión de acciones. ¿Qué ocurre con el precio de la acción y la riqueza de los accionistas originales?",
+    "alternativas": [
+      "Ambos se mantienen iguales: sin impuestos, cambiar la mezcla de financiamiento no crea ni destruye valor",
+      "El precio de la acción sube y la riqueza de los accionistas originales aumenta",
+      "El precio de la acción baja y la riqueza de los accionistas originales disminuye",
+      "El precio de la acción se mantiene, pero la riqueza de los accionistas originales siempre aumenta"
+    ],
+    "correcta": 0,
+    "explicacion": "Sin impuestos, el valor total de la empresa no depende de su estructura de capital (proposición de irrelevancia de MM). Reducir deuda emitiendo acciones nuevas es solo un cambio en la mezcla de financiamiento: el valor de la empresa, el precio de la acción y la riqueza de los accionistas originales no cambian.",
+    "fuente": "Finanzas II · Pauta Solemne González (2017 Otoño)"
+  },
+  {
+    "id": "ec-036",
+    "tema": "estructura-capital",
+    "ramo": "finanzas-ii",
+    "dificultad": 3,
+    "pregunta": "Con impuestos corporativos (MM 1963), una empresa recompra parte de su deuda financiando la recompra con una nueva emisión de acciones. ¿Qué ocurre con el valor de la empresa y la riqueza de los accionistas originales, a diferencia del caso sin impuestos?",
+    "alternativas": [
+      "Ambos disminuyen: al reducir la deuda se reduce también el escudo tributario que aportaba, destruyendo parte del valor de la empresa",
+      "Ambos se mantienen exactamente igual que en el caso sin impuestos, porque el escudo tributario no depende del nivel de deuda",
+      "Ambos aumentan, porque tener menos deuda siempre reduce el riesgo financiero percibido por el mercado",
+      "El valor de la empresa sube pero la riqueza de los accionistas originales baja"
+    ],
+    "correcta": 0,
+    "explicacion": "Con impuestos, parte del valor de la empresa viene del escudo tributario tc·B. Al recomprar deuda y reducir B, ese escudo se reduce, cayendo el valor total de la empresa, el precio de la acción y, a diferencia del caso sin impuestos, la riqueza de los accionistas originales.",
+    "fuente": "Finanzas II · Pauta Solemne González (2017 Otoño / 2016 Verano)"
+  },
+  {
+    "id": "ep-056",
+    "tema": "evaluacion-proyectos",
+    "ramo": "finanzas-ii",
+    "dificultad": 2,
+    "pregunta": "Si la estructura de capital de una empresa NO se mantiene estable a lo largo del tiempo, ¿qué método de valoración es más recomendable usar en vez del método del Costo de Capital (WACC)?",
+    "alternativas": [
+      "El Valor Presente Ajustado (VPA/VPNA), porque modela los flujos de financiamiento período a período en vez de asumir una estructura objetivo constante",
+      "El método del Costo de Capital sigue siendo igual de válido, ya que no depende de ningún supuesto sobre la estructura de capital",
+      "Ningún método de valoración funciona si la estructura de capital cambia en el tiempo",
+      "El método de múltiplos de mercado, porque no requiere ningún supuesto sobre la deuda de la empresa"
+    ],
+    "correcta": 0,
+    "explicacion": "El método del Costo de Capital descuenta a una tasa (WACC) que asume una estructura de capital objetivo y estable en el tiempo. Si esa estructura cambia período a período, es más apropiado usar VPA, que separa el VAN del proyecto puro del VAN del financiamiento, permitiendo modelar el nivel de deuda de cada período por separado.",
+    "fuente": "Finanzas II · Pauta Solemne González (2017 Otoño)"
+  }
+]

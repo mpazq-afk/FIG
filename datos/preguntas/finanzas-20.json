@@ -1,0 +1,194 @@
+[
+  {
+    "id": "rv-021",
+    "tema": "renta-variable",
+    "ramo": "finanzas-i",
+    "dificultad": 3,
+    "pregunta": "Si existe un activo libre de riesgo disponible, ¿es óptimo para un inversionista averso al riesgo invertir en el portafolio de mínima varianza de activos riesgosos?",
+    "alternativas": [
+      "No, ese portafolio está dominado por combinaciones en la Línea de Mercado de Capitales (libre de riesgo + portafolio tangente), que rinden más para igual riesgo",
+      "Sí, el portafolio de mínima varianza siempre es la mejor opción para cualquier inversionista averso al riesgo",
+      "Sí, pero solo si el inversionista tiene una aversión al riesgo extremadamente alta",
+      "No, porque el portafolio de mínima varianza nunca puede construirse cuando existe un activo libre de riesgo"
+    ],
+    "correcta": 0,
+    "explicacion": "Cuando existe un activo libre de riesgo, la Línea de Mercado de Capitales domina al portafolio de mínima varianza: para el mismo nivel de riesgo, una combinación en la LMC ofrece mayor retorno esperado.",
+    "fuente": "Finanzas I · Pauta Examen Recuperativo 2025 (José Luis Ruiz).pdf"
+  },
+  {
+    "id": "rv-022",
+    "tema": "renta-variable",
+    "ramo": "finanzas-i",
+    "dificultad": 2,
+    "pregunta": "Bajo los supuestos del CAPM (expectativas homogéneas, mismo horizonte de inversión, sin costos de transacción), ¿qué relación existe entre el portafolio de tangencia y el portafolio de mercado?",
+    "alternativas": [
+      "Son el mismo: todos comparten la misma Línea de Mercado de Capitales, cuyo punto de tangencia coincide con el portafolio de mercado",
+      "Son portafolios completamente distintos y no guardan ninguna relación entre sí bajo el CAPM",
+      "El portafolio de tangencia siempre tiene menor riesgo que el portafolio de mercado",
+      "Solo coinciden cuando la tasa libre de riesgo es igual a cero"
+    ],
+    "correcta": 0,
+    "explicacion": "Bajo los supuestos del CAPM, todos los inversionistas comparten la misma Línea de Mercado de Capitales, por lo que el portafolio de tangencia (el punto óptimo de activos riesgosos) coincide con el portafolio de mercado.",
+    "fuente": "Finanzas I · Solución Solemnes Pasadas 2018 Otoño (José Luis Ruiz).pdf"
+  },
+  {
+    "id": "rv-023",
+    "tema": "renta-variable",
+    "ramo": "finanzas-i",
+    "dificultad": 3,
+    "pregunta": "¿Por qué se utiliza el ajuste de Bloomberg sobre el beta calculado de una empresa (moviéndolo hacia 1)?",
+    "alternativas": [
+      "Porque existe evidencia de que, con el tiempo, los betas de las empresas tienden a regresar hacia el beta de mercado (igual a 1) a medida que maduran",
+      "Porque el beta calculado directamente siempre está mal calculado y debe descartarse por completo",
+      "Porque Bloomberg exige que todas las empresas tengan exactamente el mismo beta para efectos de reporte",
+      "Porque el ajuste elimina por completo el riesgo sistemático de cualquier empresa"
+    ],
+    "correcta": 0,
+    "explicacion": "El ajuste de Bloomberg parte de la evidencia empírica de que los betas tienden a regresar hacia 1 en el tiempo, por lo que se pondera el beta calculado con el valor 1 para obtener una estimación más representativa a futuro.",
+    "fuente": "Finanzas I · Solución Solemnes Pasadas 2018 Otoño (José Luis Ruiz).pdf"
+  },
+  {
+    "id": "rv-024",
+    "tema": "renta-variable",
+    "ramo": "finanzas-i",
+    "dificultad": 2,
+    "pregunta": "¿Es correcto afirmar que dos empresas con la misma volatilidad de retornos siempre tendrán el mismo beta?",
+    "alternativas": [
+      "No, porque la volatilidad captura tanto el riesgo sistemático como el diversificable, mientras el beta solo captura el riesgo sistemático",
+      "Sí, la volatilidad y el beta son exactamente la misma medida de riesgo expresada de otra forma",
+      "No, porque el beta siempre es mayor que la volatilidad total de cualquier activo",
+      "Sí, pero solo para empresas que pertenecen a la misma industria"
+    ],
+    "correcta": 0,
+    "explicacion": "La volatilidad total de un activo incluye riesgo sistemático y diversificable, mientras que el beta captura únicamente el riesgo sistemático (no diversificable); por eso dos empresas con igual volatilidad pueden tener betas distintos.",
+    "fuente": "Finanzas I · Solución Solemnes Pasadas 2018 Otoño (José Luis Ruiz).pdf"
+  },
+  {
+    "id": "rv-025",
+    "tema": "renta-variable",
+    "ramo": "finanzas-i",
+    "dificultad": 2,
+    "pregunta": "¿Qué diferencia clave existe entre el modelo CAPM y el modelo APT (Arbitrage Pricing Theory) al explicar el retorno de un activo?",
+    "alternativas": [
+      "El CAPM se deriva teóricamente con un solo factor (el mercado); el APT es más empírico y flexible, admite varios factores",
+      "El APT y el CAPM son exactamente el mismo modelo, solo cambia el nombre con que se les conoce",
+      "El CAPM permite usar múltiples factores mientras el APT solo permite usar el factor de mercado",
+      "El APT tiene mejor sustento teórico que el CAPM, mientras el CAPM es puramente empírico"
+    ],
+    "correcta": 0,
+    "explicacion": "El CAPM se deriva teóricamente y usa un solo factor (el premio por riesgo de mercado), mientras el APT es un modelo más práctico y flexible que permite incorporar distintos factores explicativos según el contexto.",
+    "fuente": "Finanzas I · Solución Solemnes Pasadas 2018 Otoño (José Luis Ruiz).pdf"
+  },
+  {
+    "id": "rv-026",
+    "tema": "renta-variable",
+    "ramo": "finanzas-i",
+    "dificultad": 3,
+    "pregunta": "Si el retorno de una acción se ubica por debajo de la Línea de Mercado de Valores (LMV, que grafica retorno esperado versus beta), ¿qué indica esto sobre su valoración?",
+    "alternativas": [
+      "Que la acción está sobrevalorada (tiene alfa negativo), ya que rinde menos de lo que su nivel de riesgo sistemático justificaría",
+      "Que la acción está subvalorada y debería comprarse de inmediato según el CAPM",
+      "Que la acción tiene el mismo nivel de riesgo que el portafolio de mercado, sin más implicancias",
+      "Que la Línea de Mercado de Valores no aplica a acciones individuales, solo a portafolios"
+    ],
+    "correcta": 0,
+    "explicacion": "Estar por debajo de la LMV significa que el activo rinde menos de lo que su beta exige según CAPM (alfa negativo), lo que indica que está sobrevalorado en relación a su riesgo sistemático.",
+    "fuente": "Finanzas I · Solución Solemnes Pasadas 2018 Otoño (José Luis Ruiz).pdf"
+  },
+  {
+    "id": "rv-027",
+    "tema": "renta-variable",
+    "ramo": "finanzas-i",
+    "dificultad": 2,
+    "pregunta": "¿Por qué se considera que el portafolio de mercado es un portafolio eficiente?",
+    "alternativas": [
+      "Porque está compuesto por todos los activos disponibles en la economía (acciones, bonos, bienes raíces, etc.), siendo la cartera más diversificada posible",
+      "Porque contiene únicamente las acciones que se ubican sobre la frontera eficiente de Markowitz",
+      "Porque el portafolio de mercado nunca cambia de composición en el tiempo",
+      "Porque excluye deliberadamente los activos de renta fija para minimizar el riesgo"
+    ],
+    "correcta": 0,
+    "explicacion": "El portafolio de mercado incluye todos los activos de la economía, no solo acciones, lo que lo convierte en la cartera más diversificada posible, eliminando todo el riesgo diversificable posible.",
+    "fuente": "Finanzas I · Solución Solemnes Pasadas 2018 Otoño (José Luis Ruiz).pdf"
+  },
+  {
+    "id": "rif-011",
+    "tema": "riesgo-financiero",
+    "ramo": "finanzas-i",
+    "dificultad": 2,
+    "pregunta": "¿Qué mide el Value-at-Risk (VaR) de un portafolio a un nivel de significancia del 5%?",
+    "alternativas": [
+      "La pérdida máxima esperada en un horizonte de tiempo determinado, que no debería superarse en el 95% de los casos",
+      "La ganancia mínima garantizada que el portafolio obtendrá con un 95% de probabilidad",
+      "El retorno promedio histórico del portafolio durante el último año",
+      "La volatilidad total del portafolio expresada directamente en unidades monetarias sin ningún nivel de confianza"
+    ],
+    "correcta": 0,
+    "explicacion": "El VaR estima la pérdida máxima esperada de un portafolio en un horizonte de tiempo dado, con cierto nivel de confianza (por ejemplo, al 95% si la significancia es 5%), sin garantizar que nunca se supere.",
+    "fuente": "Finanzas I · Pauta Examen Recuperativo 2025 (José Luis Ruiz).pdf"
+  },
+  {
+    "id": "rif-012",
+    "tema": "riesgo-financiero",
+    "ramo": "finanzas-i",
+    "dificultad": 3,
+    "pregunta": "Un banco calcula el VaR diario de su portafolio al 5% de significancia y, tras 1000 días, observa que sus pérdidas nunca superaron ese VaR. ¿Significa esto que el cálculo del VaR fue correcto?",
+    "alternativas": [
+      "No, un cálculo correcto debería haber sido superado aproximadamente 50 veces en 1000 días (5%); si nunca se superó, el VaR estuvo sobreestimado",
+      "Sí, que nunca se haya superado el VaR es la señal exacta de que el cálculo fue perfecto",
+      "No, porque el VaR nunca debería calcularse con datos de más de 100 días de historia",
+      "Sí, siempre que el banco haya usado el mismo nivel de significancia todos los días"
+    ],
+    "correcta": 0,
+    "explicacion": "Si el VaR al 5% está bien calibrado, se esperaría que las pérdidas lo superen aproximadamente el 5% de las veces; que nunca se supere en 1000 días indica que el modelo sobreestimó el riesgo, no que fue exacto.",
+    "fuente": "Finanzas I · Pauta Examen Recuperativo 2025 (José Luis Ruiz).pdf"
+  },
+  {
+    "id": "ec-016",
+    "tema": "renta-variable",
+    "ramo": "finanzas-i",
+    "dificultad": 3,
+    "pregunta": "En un modelo de utilidad media-varianza, ¿de qué depende el grado de aversión al riesgo que determina cuánto invertir en el activo riesgoso?",
+    "alternativas": [
+      "Del premio por riesgo del activo, de su varianza, y del parámetro de aversión al riesgo del individuo",
+      "Únicamente del monto total de riqueza que posee el inversionista, sin relación con el riesgo del activo",
+      "Solo de la tasa libre de riesgo, sin relación con el premio por riesgo ni la varianza del activo",
+      "El grado de aversión al riesgo no tiene ninguna relación con la proporción invertida en activos riesgosos"
+    ],
+    "correcta": 0,
+    "explicacion": "En el modelo de preferencias media-varianza, la proporción óptima a invertir en el activo riesgoso depende del premio por riesgo, del nivel de riesgo del activo (varianza) y del coeficiente de aversión al riesgo del inversionista.",
+    "fuente": "Finanzas I · Pauta Control 1 Erwin Hansen Primavera 2020.pdf"
+  },
+  {
+    "id": "rv-028",
+    "tema": "renta-variable",
+    "ramo": "finanzas-i",
+    "dificultad": 2,
+    "pregunta": "¿Cuál es uno de los principales beneficios de la diversificación según el modelo de Markowitz?",
+    "alternativas": [
+      "Permite alcanzar un nivel de riesgo del portafolio menor al que tendría el activo individual menos riesgoso, gracias al efecto de la covarianza entre activos",
+      "Elimina por completo cualquier tipo de riesgo, incluyendo el riesgo sistemático de mercado",
+      "Garantiza que el portafolio siempre tendrá un retorno esperado mayor que cualquier activo individual",
+      "Solo reduce el riesgo si todos los activos del portafolio tienen exactamente el mismo retorno esperado"
+    ],
+    "correcta": 0,
+    "explicacion": "La diversificación, al combinar activos cuya correlación no es perfecta, permite reducir el riesgo del portafolio por debajo del riesgo del activo individual menos riesgoso, gracias al efecto de la covarianza.",
+    "fuente": "Finanzas I · Pauta Control 1 Erwin Hansen Primavera 2020.pdf"
+  },
+  {
+    "id": "rf-038",
+    "tema": "renta-fija",
+    "ramo": "finanzas-i",
+    "dificultad": 3,
+    "pregunta": "Entre un bono tipo bullet y uno tipo francés, ambos con el mismo principal, tasa cupón y plazo, ¿cuál tiene mayor duración de Macaulay y por qué?",
+    "alternativas": [
+      "El bono bullet, porque concentra el pago del principal al final del plazo, obligando a mantener la inversión por más tiempo en promedio",
+      "El bono francés, porque sus cuotas constantes generan un plazo promedio ponderado mayor que el del bono bullet",
+      "Ambos bonos siempre tienen exactamente la misma duración de Macaulay, sin importar su estructura de pagos",
+      "La duración de Macaulay no puede calcularse para bonos de tipo bullet bajo ninguna circunstancia"
+    ],
+    "correcta": 0,
+    "explicacion": "Al amortizar todo el principal al final, el bono bullet concentra una mayor proporción de su valor presente en el último pago, lo que aumenta su duración de Macaulay respecto al bono francés, que reparte pagos de capital antes.",
+    "fuente": "Finanzas I · Ayudantía 8, Renta Fija e Inmunización (Jorge Gregoire).pdf"
+  }
+]

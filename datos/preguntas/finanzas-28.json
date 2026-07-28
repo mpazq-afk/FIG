@@ -1,0 +1,98 @@
+[
+  {
+    "id": "fc-010",
+    "tema": "fundamentos-corporativos",
+    "ramo": "finanzas-ii",
+    "dificultad": 3,
+    "pregunta": "Según Jensen & Meckling (1976), ¿es necesario recurrir a los beneficios tributarios de la deuda para determinar una estructura de capital óptima de la empresa?",
+    "alternativas": [
+      "No: basta con los costos de agencia de la deuda y del patrimonio, sin recurrir a los impuestos corporativos",
+      "Sí, siempre: sin beneficios tributarios de la deuda no existe ningún concepto de estructura de capital óptima",
+      "No, porque el modelo asume que los costos de agencia de la deuda y del patrimonio se cancelan exactamente entre sí",
+      "Sí, pero solo para empresas que cotizan en bolsa"
+    ],
+    "correcta": 0,
+    "explicacion": "Jensen y Meckling (1976) proponen una estructura de capital óptima basada exclusivamente en minimizar los costos de agencia totales (los de la deuda, como el riesgo de sustitución de activos, y los del patrimonio, como el sobreconsumo de beneficios por los administradores), sin necesitar el argumento del escudo tributario de MM (1963).",
+    "fuente": "Finanzas II · Pauta Solemne González (2013 Otoño)"
+  },
+  {
+    "id": "ec-034",
+    "tema": "estructura-capital",
+    "ramo": "finanzas-ii",
+    "dificultad": 2,
+    "pregunta": "Al elegir entre acciones de empresas con distinto pago de dividendos, ¿cómo influye la tasa de impuesto personal a los dividendos en la preferencia de un inversionista, según el efecto clientela?",
+    "alternativas": [
+      "Quienes pagan más impuesto relativo sobre dividendos que sobre ganancias de capital preferirán acciones de bajo pago de dividendos, y viceversa",
+      "El impuesto personal a los dividendos no influye en absoluto en la preferencia de los inversionistas por un tipo de acción u otro",
+      "Todos los inversionistas prefieren siempre el mayor pago de dividendos posible, sin importar su situación tributaria personal",
+      "El efecto clientela solo aplica a empresas que no pagan impuestos corporativos"
+    ],
+    "correcta": 0,
+    "explicacion": "El efecto clientela predice que cada inversionista se \"autoselecciona\" hacia el tipo de acción que le conviene tributariamente: quienes pagan más impuesto relativo por dividendos que por ganancias de capital preferirán empresas de bajo dividend yield, y los que están en la situación contraria preferirán empresas de alto dividend yield.",
+    "fuente": "Finanzas II · Pauta Examen González (2013 Otoño)"
+  },
+  {
+    "id": "ec-037",
+    "tema": "estructura-capital",
+    "ramo": "finanzas-ii",
+    "dificultad": 3,
+    "pregunta": "Si una empresa aumenta de forma inesperada su pago de dividendos, financiándolo con flujos que originalmente respaldaban el pago de su deuda, ¿qué efecto tiene esto sobre el valor de mercado de la deuda y el patrimonio?",
+    "alternativas": [
+      "El valor de la deuda baja y el del patrimonio sube: hay una redistribución de riqueza desde los bonistas hacia los accionistas",
+      "Ambos suben en la misma proporción, porque el valor total de la empresa no cambia",
+      "El valor de la deuda sube y el del patrimonio baja, porque los bonistas anticipan el cambio de política",
+      "Ningún efecto: la política de dividendos no puede alterar el valor relativo de deuda y patrimonio"
+    ],
+    "correcta": 0,
+    "explicacion": "Al desviar hacia dividendos flujos que antes respaldaban el pago de la deuda, se reduce la probabilidad de pago íntegro a los bonistas (cae el valor de mercado de la deuda) y sube el valor percibido del patrimonio, una transferencia de riqueza desde bonistas hacia accionistas, similar en espíritu al problema de sustitución de activos.",
+    "fuente": "Finanzas II · Pauta Solemne González (2013 Otoño)"
+  },
+  {
+    "id": "ep-057",
+    "tema": "evaluacion-proyectos",
+    "ramo": "finanzas-ii",
+    "dificultad": 3,
+    "pregunta": "Para aplicar correctamente el enfoque de Costo de Capital (WACC), además de tener una estructura de capital objetivo estable, ¿qué característica deben cumplir los flujos de caja que se descuentan?",
+    "alternativas": [
+      "Deben ser flujos de los activos, sin efecto del financiamiento con deuda, porque el ahorro tributario ya está incorporado en la tasa WACC",
+      "Deben incluir explícitamente el pago de intereses de la deuda, para que el ahorro tributario se refleje directamente en el flujo",
+      "Deben estar expresados en términos nominales, nunca en términos reales, sin importar la moneda del proyecto",
+      "No importa qué flujos se usen, siempre que la tasa de descuento sea la correcta"
+    ],
+    "correcta": 0,
+    "explicacion": "El WACC ya incorpora el ahorro tributario de la deuda a través del término kb(1-tc). Si además se restan intereses del flujo de caja, el escudo tributario se estaría contando dos veces, sobreestimando el valor del proyecto, los flujos deben ser 'flujos de los activos', libres de cualquier efecto del financiamiento.",
+    "fuente": "Finanzas II · Pauta Examen Final González (2014 Otoño)"
+  },
+  {
+    "id": "fc-011",
+    "tema": "fundamentos-corporativos",
+    "ramo": "finanzas-ii",
+    "dificultad": 2,
+    "pregunta": "¿Qué muestra la evidencia empírica internacional sobre la política de dividendos de las empresas?",
+    "alternativas": [
+      "Varía considerablemente entre países, es estable en el tiempo dentro de cada empresa, y los inversionistas reaccionan negativamente ante recortes de dividendos",
+      "Es prácticamente idéntica en todos los países del mundo, sin importar el marco tributario o legal",
+      "Las empresas cambian su política de dividendos con mucha frecuencia, de un trimestre a otro, sin generar reacción en el mercado",
+      "Los inversionistas son indiferentes ante cualquier cambio, ya sea aumento o recorte, en el dividendo pagado"
+    ],
+    "correcta": 0,
+    "explicacion": "La evidencia muestra fuertes diferencias entre países (EE.UU., Reino Unido y Canadá con pagos altos; Alemania, Corea y Japón con pagos bajos), que las empresas mantienen su política estable en el tiempo, y que el mercado reacciona: positivamente ante alzas de dividendos y negativamente ante recortes.",
+    "fuente": "Finanzas II · Pauta Examen Final González (2014 Otoño)"
+  },
+  {
+    "id": "fc-012",
+    "tema": "fundamentos-corporativos",
+    "ramo": "finanzas-ii",
+    "dificultad": 2,
+    "pregunta": "Según la teoría del flujo de caja libre de Jensen (1986), ¿en qué situación es recomendable que una empresa aumente el pago de dividendos a sus accionistas?",
+    "alternativas": [
+      "Cuando la empresa ya está en una etapa de madurez, con flujos de caja libres excedentarios por sobre sus necesidades de inversión",
+      "Cuando la empresa aún está en una fase de fuerte crecimiento y necesita retener la mayor parte de sus utilidades",
+      "Únicamente cuando la empresa no tiene ninguna deuda en su estructura de capital",
+      "Nunca: Jensen (1986) recomienda que las empresas maduras retengan siempre sus utilidades"
+    ],
+    "correcta": 0,
+    "explicacion": "Jensen (1986) advierte que, sin un destino disciplinado, el flujo de caja libre excedentario en empresas maduras puede terminar en inversiones poco rentables o gastos que benefician a los administradores más que a los accionistas; pagar más dividendos devuelve ese excedente y reduce ese riesgo.",
+    "fuente": "Finanzas II · Pauta Examen Final González (2014 Otoño, caso DELL)"
+  }
+]

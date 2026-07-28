@@ -1,0 +1,210 @@
+[
+  {
+    "id": "af-037",
+    "tema": "analisis-financiero",
+    "ramo": "finanzas-i",
+    "dificultad": 2,
+    "pregunta": "Si la razón corriente (activo circulante / pasivo circulante) de una empresa es notoriamente más baja que el estándar de su industria, pero es una empresa de servicios sin grandes inventarios, ¿qué conclusión es más prudente?",
+    "alternativas": [
+      "El indicador puede ser adecuado según el negocio, pero debe compararse contra empresas comparables de la industria antes de concluir problemas de liquidez",
+      "Se puede concluir de inmediato que la empresa está en quiebra técnica sin más análisis",
+      "El indicador siempre es irrelevante para cualquier tipo de empresa, sea de servicios o industrial",
+      "Una razón corriente baja siempre significa que la empresa administra mal sus cuentas por cobrar"
+    ],
+    "correcta": 0,
+    "explicacion": "Los ratios de liquidez deben interpretarse en el contexto del tipo de negocio; una empresa de servicios puede operar con razón corriente más baja sin que esto implique necesariamente un problema, pero conviene contrastar con comparables de la industria.",
+    "fuente": "Análisis Financiero · Exámenes Contabilidad II Otoño 2004-2005.pdf"
+  },
+  {
+    "id": "af-038",
+    "tema": "analisis-financiero",
+    "ramo": "finanzas-i",
+    "dificultad": 2,
+    "pregunta": "Si el período promedio de cobro de una empresa es más del doble que el de su industria, ¿qué posibles causas se pueden inferir?",
+    "alternativas": [
+      "Fallas en la gestión de cobranza o una política de crédito muy amplia, aunque también podría ser una estrategia deliberada para impulsar ventas",
+      "Únicamente que la empresa tiene más efectivo disponible que su industria",
+      "Que la empresa necesariamente tiene menores costos operacionales que su industria",
+      "Que el período de cobro no tiene relación alguna con la política comercial de la empresa"
+    ],
+    "correcta": 0,
+    "explicacion": "Un período de cobro elevado respecto a la industria suele señalar problemas de gestión de cobranza o una política de crédito laxa, aunque debe contrastarse con si esa política logra aumentar las ventas de forma rentable.",
+    "fuente": "Análisis Financiero · Exámenes Contabilidad II Otoño 2004-2005.pdf"
+  },
+  {
+    "id": "af-039",
+    "tema": "analisis-financiero",
+    "ramo": "finanzas-i",
+    "dificultad": 3,
+    "pregunta": "Si la rentabilidad sobre los activos totales (ROA) de una empresa es mayor que la de su industria, pero es menor que las tasas de interés que paga por su financiamiento, ¿qué implica esta situación?",
+    "alternativas": [
+      "Que el retorno de los activos no alcanza a cubrir el costo de la deuda que los financia, erosionando la rentabilidad final de los accionistas",
+      "Que la empresa está generando valor de forma óptima sin ningún riesgo financiero relevante",
+      "Que la tasa de interés de la deuda no tiene ninguna relación con la rentabilidad de los activos",
+      "Que el ROA reportado necesariamente contiene un error de cálculo"
+    ],
+    "correcta": 0,
+    "explicacion": "Cuando el retorno sobre los activos es inferior al costo de la deuda que los financia, el apalancamiento financiero termina reduciendo la rentabilidad del patrimonio en vez de potenciarla.",
+    "fuente": "Análisis Financiero · Exámenes Contabilidad II Otoño 2004-2005.pdf"
+  },
+  {
+    "id": "af-040",
+    "tema": "analisis-financiero",
+    "ramo": "finanzas-i",
+    "dificultad": 2,
+    "pregunta": "Al revisar el Estado de Flujo de Efectivo (EFE), ¿cómo se puede determinar si una empresa tuvo capacidad para cumplir sus obligaciones por deuda?",
+    "alternativas": [
+      "Comparando las salidas por financiamiento contra el flujo operacional: si son menores, la operación financia la deuda; si son mayores, recurre a otras fuentes",
+      "Revisando únicamente el resultado neto del Estado de Resultados, sin considerar el EFE",
+      "Contando el número de páginas que ocupa el EFE en la memoria anual de la empresa",
+      "Solo es posible determinarlo revisando el balance general, el EFE no aporta información relevante"
+    ],
+    "correcta": 0,
+    "explicacion": "El EFE permite ver si las salidas por financiamiento (pago de deuda) están siendo cubiertas por el flujo operacional positivo, o si la empresa depende de nuevas fuentes de financiamiento o desinversión para cumplir sus obligaciones.",
+    "fuente": "Análisis Financiero · Exámenes Contabilidad II Otoño 2004-2005.pdf"
+  },
+  {
+    "id": "af-041",
+    "tema": "analisis-financiero",
+    "ramo": "finanzas-i",
+    "dificultad": 3,
+    "pregunta": "¿Es correcto afirmar que una empresa con flujos operacionales negativos necesariamente tendrá problemas de liquidez?",
+    "alternativas": [
+      "No necesariamente: depende del vencimiento de su deuda y de los plazos en que sus cuentas por cobrar e inventarios se conviertan en efectivo",
+      "Sí, un flujo operacional negativo siempre implica una quiebra inminente de la empresa",
+      "No, porque el flujo operacional negativo nunca afecta la capacidad de pago de una empresa",
+      "Sí, pero solo en empresas que no cotizan en bolsa"
+    ],
+    "correcta": 0,
+    "explicacion": "Un flujo operacional negativo no implica automáticamente iliquidez si los plazos de cobro y pago de la empresa le permiten sostener la situación temporalmente, aunque en el largo plazo se requiere generar recursos genuinos.",
+    "fuente": "Análisis Financiero · Exámenes Contabilidad II Otoño 2004-2005.pdf"
+  },
+  {
+    "id": "af-042",
+    "tema": "analisis-financiero",
+    "ramo": "finanzas-i",
+    "dificultad": 3,
+    "pregunta": "Si el endeudamiento de corto plazo de una empresa (pasivo circulante / patrimonio) es muy superior al de su industria, mientras su endeudamiento de largo plazo se mantiene por debajo del promedio, ¿qué podría estar reflejando esta composición?",
+    "alternativas": [
+      "Posibles problemas de liquidez financiados con deuda de corto plazo, en vez de deuda de largo plazo, quizás por su mayor costo",
+      "Que la empresa tiene una posición financiera idéntica a la de su industria en todos los aspectos",
+      "Que la empresa no posee ningún tipo de pasivo, ni de corto ni de largo plazo",
+      "Que el endeudamiento de corto y largo plazo son completamente independientes entre sí y no permiten ninguna interpretación conjunta"
+    ],
+    "correcta": 0,
+    "explicacion": "Un endeudamiento de corto plazo desproporcionadamente alto respecto a la industria, combinado con bajo endeudamiento de largo plazo, sugiere que la empresa recurre a deuda de corto plazo posiblemente por dificultades de liquidez o mayor costo del financiamiento de largo plazo.",
+    "fuente": "Análisis Financiero · Exámenes Contabilidad II Otoño 2004-2005.pdf"
+  },
+  {
+    "id": "af-043",
+    "tema": "analisis-financiero",
+    "ramo": "finanzas-i",
+    "dificultad": 2,
+    "pregunta": "¿Qué mide el índice de cobertura de intereses (EBIT o resultado antes de impuestos e intereses / gastos financieros)?",
+    "alternativas": [
+      "En qué medida el resultado del ejercicio generado por la empresa permite cubrir los gastos por intereses devengados en el período",
+      "El monto total de intereses efectivamente pagados en efectivo durante el período, sin relación al resultado",
+      "La proporción de deuda de largo plazo respecto al total de pasivos de la empresa",
+      "El número de veces que la empresa ha refinanciado su deuda en los últimos años"
+    ],
+    "correcta": 0,
+    "explicacion": "La cobertura de intereses relaciona el resultado devengado antes de intereses e impuestos con el gasto financiero del período, midiendo cuán holgadamente la operación cubre el costo de la deuda.",
+    "fuente": "Análisis Financiero · Exámenes Contabilidad II Otoño 2004-2005.pdf"
+  },
+  {
+    "id": "fc-001",
+    "tema": "fundamentos-corporativos",
+    "ramo": "finanzas-i",
+    "dificultad": 1,
+    "pregunta": "¿Qué ventaja principal se obtiene al separar la propiedad (accionistas) de la administración (ejecutivos) de una empresa?",
+    "alternativas": [
+      "Permite que profesionales especializados gestionen la empresa con mayor conocimiento y acceso a información, reduciendo costos y riesgos operativos",
+      "Elimina por completo cualquier posible conflicto de interés entre accionistas y administradores",
+      "Garantiza que los administradores siempre actuarán exactamente como los accionistas desearían, sin necesidad de supervisión",
+      "Permite que los accionistas dejen de recibir información sobre el desempeño de la empresa"
+    ],
+    "correcta": 0,
+    "explicacion": "La separación permite una gestión más eficiente por parte de profesionales especializados y facilita la diversificación de los accionistas, aunque introduce el problema de agencia por la posible divergencia de intereses.",
+    "fuente": "Finanzas I · Pauta Ayudantía 1 2010 (Rodrigo Vidal Acuña).pdf"
+  },
+  {
+    "id": "fc-002",
+    "tema": "fundamentos-corporativos",
+    "ramo": "finanzas-i",
+    "dificultad": 2,
+    "pregunta": "¿Cuál es la diferencia central entre el valor contable y el valor de mercado de una empresa?",
+    "alternativas": [
+      "El valor contable refleja lo registrado hoy (activos, pasivos, patrimonio), mientras el valor de mercado incorpora expectativas de crecimiento futuro",
+      "Ambos valores son siempre idénticos para cualquier empresa que cotiza en bolsa",
+      "El valor de mercado se calcula exclusivamente a partir del balance general de la empresa",
+      "El valor contable cambia constantemente según las noticias y expectativas del mercado, igual que el valor de mercado"
+    ],
+    "correcta": 0,
+    "explicacion": "El valor contable es un registro histórico de activos y pasivos, mientras que el valor de mercado depende de las expectativas de los inversionistas sobre el desempeño futuro de la empresa.",
+    "fuente": "Finanzas I · Pauta Ayudantía 1 2010 (Rodrigo Vidal Acuña).pdf"
+  },
+  {
+    "id": "fc-003",
+    "tema": "fundamentos-corporativos",
+    "ramo": "finanzas-i",
+    "dificultad": 1,
+    "pregunta": "¿Qué representa el Valor Actual Neto (VAN) de un proyecto de inversión?",
+    "alternativas": [
+      "La diferencia entre el valor actual de los flujos de efectivo futuros generados por el proyecto y el monto de la inversión inicial requerida",
+      "La suma nominal de todos los flujos de efectivo futuros del proyecto, sin descontarlos en el tiempo",
+      "El porcentaje de rentabilidad que iguala a cero el valor presente de los flujos del proyecto",
+      "El valor de mercado de los activos utilizados por el proyecto al finalizar su vida útil"
+    ],
+    "correcta": 0,
+    "explicacion": "El VAN compara el valor actual de los flujos futuros del proyecto (descontados al costo de capital) contra la inversión inicial, indicando cuánto valor neto se crea o destruye.",
+    "fuente": "Finanzas I · Pauta Ayudantía 1 2010 (Rodrigo Vidal Acuña).pdf"
+  },
+  {
+    "id": "fc-004",
+    "tema": "fundamentos-corporativos",
+    "ramo": "finanzas-i",
+    "dificultad": 1,
+    "pregunta": "¿Qué efecto tiene un aumento en la tasa de descuento sobre el precio de un instrumento financiero (como un bono o una acción)?",
+    "alternativas": [
+      "A mayor tasa de descuento, menor será el precio del instrumento, ya que sus flujos futuros valen menos en el presente",
+      "A mayor tasa de descuento, mayor será siempre el precio del instrumento",
+      "La tasa de descuento no tiene ningún efecto sobre el precio de instrumentos financieros",
+      "El efecto depende únicamente del tipo de moneda en que esté denominado el instrumento"
+    ],
+    "correcta": 0,
+    "explicacion": "La tasa de descuento se usa para traer a valor presente los flujos futuros de un instrumento; a mayor tasa, menor es ese valor presente y por tanto menor el precio del instrumento.",
+    "fuente": "Finanzas I · Pauta Ayudantía 1 2010 (Rodrigo Vidal Acuña).pdf"
+  },
+  {
+    "id": "fc-005",
+    "tema": "fundamentos-corporativos",
+    "ramo": "finanzas-i",
+    "dificultad": 2,
+    "pregunta": "¿Cómo se utiliza la Tasa Interna de Retorno (TIR) para decidir sobre la aceptación o rechazo de un proyecto de inversión?",
+    "alternativas": [
+      "Se compara la TIR con una tasa de corte (el costo de oportunidad de la inversión): si la TIR la supera, se acepta el proyecto; si no, se rechaza",
+      "Se acepta el proyecto automáticamente si la TIR es un número positivo, sin comparar con ninguna otra tasa",
+      "La TIR nunca se utiliza para decidir sobre la aceptación de un proyecto de inversión",
+      "Se rechaza cualquier proyecto cuya TIR sea distinta de la tasa cupón de sus instrumentos de deuda"
+    ],
+    "correcta": 0,
+    "explicacion": "La TIR representa la tasa a la cual el VAN del proyecto es cero; comparándola con la tasa de corte (costo de oportunidad ajustado por riesgo) se determina si el proyecto agrega valor.",
+    "fuente": "Finanzas I · Pauta Ayudantía 1 2010 (Rodrigo Vidal Acuña).pdf"
+  },
+  {
+    "id": "fc-006",
+    "tema": "fundamentos-corporativos",
+    "ramo": "finanzas-i",
+    "dificultad": 2,
+    "pregunta": "Si la TIR de un bono es menor que la tasa de descuento relevante del mercado, ¿conviene comprar ese bono?",
+    "alternativas": [
+      "No, porque el bono estaría rentando menos que lo exigido, siendo más conveniente invertir en una alternativa que ofrezca la tasa de descuento de mercado",
+      "Sí, siempre conviene comprar un bono independientemente de la relación entre su TIR y la tasa de descuento",
+      "No conviene comprarlo, pero tampoco existe ninguna alternativa mejor disponible en el mercado",
+      "Sí, porque una TIR baja siempre indica que el bono está subvalorado por el mercado"
+    ],
+    "correcta": 0,
+    "explicacion": "Si la TIR del bono es menor que el costo de oportunidad exigido (tasa de descuento de mercado), no conviene comprarlo, ya que existen alternativas que rentarían más para el mismo nivel de riesgo.",
+    "fuente": "Finanzas I · Pauta Ayudantía 1 2010 (Rodrigo Vidal Acuña).pdf"
+  }
+]

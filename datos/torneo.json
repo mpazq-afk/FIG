@@ -1,0 +1,4614 @@
+{
+  "semana": 11,
+  "corte": "24 · JUL · 2026",
+  "acwi": [],
+  "equipos": [
+    {
+      "id": "beta-capital",
+      "nombre": "Beta capital",
+      "posicion": 1,
+      "puntos": 94.47,
+      "retRel": 0.2618,
+      "delta": 0,
+      "metricas": {
+        "ir": 3.75,
+        "exc": 0.2618,
+        "sharpe": 2.81,
+        "var95": -0.0105,
+        "mdd": -0.0344
+      },
+      "puntosDetalle": {
+        "ir": 30.0,
+        "exc": 25.0,
+        "sharpe": 15.0,
+        "var95": 12.105978,
+        "mdd": 12.368421
+      },
+      "miembros": [
+        {
+          "nombre": "Isabel rojas aravena",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Isabel rojas aravena",
+          "linkedin": ""
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 84.36,
+          "posicion": 2,
+          "ret": 0.0813
+        },
+        {
+          "semana": 6,
+          "puntos": 77.32,
+          "posicion": 2,
+          "ret": 0.0964
+        },
+        {
+          "semana": 7,
+          "puntos": 88.57,
+          "posicion": 1,
+          "ret": 0.0898
+        },
+        {
+          "semana": 8,
+          "puntos": 84.79,
+          "posicion": 2,
+          "ret": 0.0983
+        },
+        {
+          "semana": 9,
+          "puntos": 93.52,
+          "posicion": 1,
+          "ret": 0.1022
+        },
+        {
+          "semana": 10,
+          "puntos": 92.72,
+          "posicion": 1,
+          "ret": 0.0879
+        },
+        {
+          "semana": 11,
+          "puntos": 94.47,
+          "posicion": 1,
+          "ret": 0.0852
+        }
+      ]
+    },
+    {
+      "id": "aconcagua-capital",
+      "nombre": "Aconcagua Capital",
+      "posicion": 2,
+      "puntos": 85.98,
+      "retRel": 0.19219999999999998,
+      "delta": 0,
+      "metricas": {
+        "ir": 2.83,
+        "exc": 0.19219999999999998,
+        "sharpe": 2.35,
+        "var95": -0.0104,
+        "mdd": -0.030600000000000002
+      },
+      "puntosDetalle": {
+        "ir": 25.290102,
+        "exc": 22.193096,
+        "sharpe": 13.525641,
+        "var95": 12.146739,
+        "mdd": 12.822967
+      },
+      "miembros": [
+        {
+          "nombre": "Hugo Alonso Fuentes Martines",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Dorian Robles",
+          "linkedin": ""
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 69.85,
+          "posicion": 8,
+          "ret": 0.0485
+        },
+        {
+          "semana": 6,
+          "puntos": 60.27,
+          "posicion": 19,
+          "ret": 0.0518
+        },
+        {
+          "semana": 7,
+          "puntos": 70.78,
+          "posicion": 7,
+          "ret": 0.0493
+        },
+        {
+          "semana": 8,
+          "puntos": 72.05,
+          "posicion": 3,
+          "ret": 0.0607
+        },
+        {
+          "semana": 9,
+          "puntos": 74.15,
+          "posicion": 5,
+          "ret": 0.0611
+        },
+        {
+          "semana": 10,
+          "puntos": 79.94,
+          "posicion": 2,
+          "ret": 0.0539
+        },
+        {
+          "semana": 11,
+          "puntos": 85.98,
+          "posicion": 2,
+          "ret": 0.0563
+        }
+      ]
+    },
+    {
+      "id": "jav-capital",
+      "nombre": "JAV Capital",
+      "posicion": 3,
+      "puntos": 81.4,
+      "retRel": 0.0693,
+      "delta": 1,
+      "metricas": {
+        "ir": 2.7,
+        "exc": 0.0693,
+        "sharpe": 1.98,
+        "var95": -0.0085,
+        "mdd": -0.0184
+      },
+      "puntosDetalle": {
+        "ir": 24.624573,
+        "exc": 17.236651,
+        "sharpe": 12.339744,
+        "var95": 12.921196,
+        "mdd": 14.282297
+      },
+      "miembros": [
+        {
+          "nombre": "Valente Zecchetto Puigrredón",
+          "linkedin": ""
+        },
+        {
+          "nombre": "José Luis Farías Reyes",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Agustín Gabriel Gomez Rebolledo",
+          "linkedin": ""
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 73.9,
+          "posicion": 6,
+          "ret": 0.0468
+        },
+        {
+          "semana": 6,
+          "puntos": 64.08,
+          "posicion": 13,
+          "ret": 0.0533
+        },
+        {
+          "semana": 7,
+          "puntos": 72.93,
+          "posicion": 4,
+          "ret": 0.0447
+        },
+        {
+          "semana": 8,
+          "puntos": 71.61,
+          "posicion": 4,
+          "ret": 0.0517
+        },
+        {
+          "semana": 9,
+          "puntos": 75.13,
+          "posicion": 3,
+          "ret": 0.0537
+        },
+        {
+          "semana": 10,
+          "puntos": 79.54,
+          "posicion": 4,
+          "ret": 0.0442
+        },
+        {
+          "semana": 11,
+          "puntos": 81.4,
+          "posicion": 3,
+          "ret": 0.0448
+        }
+      ]
+    },
+    {
+      "id": "black-swan-capital",
+      "nombre": "Black Swan Capital",
+      "posicion": 4,
+      "puntos": 79.14,
+      "retRel": 0.035,
+      "delta": -1,
+      "metricas": {
+        "ir": 1.65,
+        "exc": 0.035,
+        "sharpe": 2.74,
+        "var95": -0.0044,
+        "mdd": -0.0152
+      },
+      "puntosDetalle": {
+        "ir": 19.249147,
+        "exc": 15.853363,
+        "sharpe": 14.775641,
+        "var95": 14.592391,
+        "mdd": 14.665072
+      },
+      "miembros": [
+        {
+          "nombre": "Daniela Olmedo San Martin",
+          "linkedin": "https://www.linkedin.com/in/daniela-olmedo-13a029318?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+        },
+        {
+          "nombre": "Arantza Ramírez Opazo",
+          "linkedin": "https://www.linkedin.com/in/arantza-ramírez-opazo-6bbaab2a2?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 71.66,
+          "posicion": 7,
+          "ret": 0.0423
+        },
+        {
+          "semana": 6,
+          "puntos": 64.8,
+          "posicion": 12,
+          "ret": 0.0464
+        },
+        {
+          "semana": 7,
+          "puntos": 71.11,
+          "posicion": 6,
+          "ret": 0.0405
+        },
+        {
+          "semana": 8,
+          "puntos": 69.87,
+          "posicion": 5,
+          "ret": 0.0447
+        },
+        {
+          "semana": 9,
+          "puntos": 74.36,
+          "posicion": 4,
+          "ret": 0.0472
+        },
+        {
+          "semana": 10,
+          "puntos": 79.63,
+          "posicion": 3,
+          "ret": 0.0421
+        },
+        {
+          "semana": 11,
+          "puntos": 79.14,
+          "posicion": 4,
+          "ret": 0.0391
+        }
+      ]
+    },
+    {
+      "id": "luky-capital",
+      "nombre": "Luky Capital",
+      "posicion": 5,
+      "puntos": 76.59,
+      "retRel": 0.11800000000000001,
+      "delta": 4,
+      "metricas": {
+        "ir": 1.22,
+        "exc": 0.11800000000000001,
+        "sharpe": 1.97,
+        "var95": -0.0064,
+        "mdd": -0.018600000000000002
+      },
+      "puntosDetalle": {
+        "ir": 17.047782,
+        "exc": 19.200678,
+        "sharpe": 12.307692,
+        "var95": 13.777174,
+        "mdd": 14.258373
+      },
+      "miembros": [
+        {
+          "nombre": "Andres Llaña",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Barbara Johnson",
+          "linkedin": ""
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 58.58,
+          "posicion": 23,
+          "ret": 0.0276
+        },
+        {
+          "semana": 6,
+          "puntos": 32.36,
+          "posicion": 52,
+          "ret": 0.016
+        },
+        {
+          "semana": 7,
+          "puntos": 57.62,
+          "posicion": 21,
+          "ret": 0.0233
+        },
+        {
+          "semana": 8,
+          "puntos": 56.96,
+          "posicion": 20,
+          "ret": 0.0264
+        },
+        {
+          "semana": 9,
+          "puntos": 58.64,
+          "posicion": 21,
+          "ret": 0.029
+        },
+        {
+          "semana": 10,
+          "puntos": 69.29,
+          "posicion": 9,
+          "ret": 0.0282
+        },
+        {
+          "semana": 11,
+          "puntos": 76.59,
+          "posicion": 5,
+          "ret": 0.0316
+        }
+      ]
+    },
+    {
+      "id": "dcf-supremacy",
+      "nombre": "DCF Supremacy",
+      "posicion": 6,
+      "puntos": 76.11,
+      "retRel": 0.0949,
+      "delta": 4,
+      "metricas": {
+        "ir": 1.74,
+        "exc": 0.0949,
+        "sharpe": 1.92,
+        "var95": -0.006500000000000001,
+        "mdd": -0.0354
+      },
+      "puntosDetalle": {
+        "ir": 19.709898,
+        "exc": 18.269076,
+        "sharpe": 12.147436,
+        "var95": 13.736413,
+        "mdd": 12.248804
+      },
+      "miembros": [
+        {
+          "nombre": "Jhosep Gabriel García Suarez",
+          "linkedin": "https://www.linkedin.com/in/jhosep-garcia/"
+        },
+        {
+          "nombre": "Samuel Rodriguez Arnolds",
+          "linkedin": "https://www.linkedin.com/in/samuel-rodr%C3%ADguez-arnolds-8b9608241/"
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 48.11,
+          "posicion": 40,
+          "ret": 0.0171
+        },
+        {
+          "semana": 6,
+          "puntos": 28.42,
+          "posicion": 54,
+          "ret": 0.0151
+        },
+        {
+          "semana": 7,
+          "puntos": 51.1,
+          "posicion": 29,
+          "ret": 0.0145
+        },
+        {
+          "semana": 8,
+          "puntos": 58.48,
+          "posicion": 17,
+          "ret": 0.0324
+        },
+        {
+          "semana": 9,
+          "puntos": 61.9,
+          "posicion": 14,
+          "ret": 0.0353
+        },
+        {
+          "semana": 10,
+          "puntos": 68.77,
+          "posicion": 10,
+          "ret": 0.0287
+        },
+        {
+          "semana": 11,
+          "puntos": 76.11,
+          "posicion": 6,
+          "ret": 0.0393
+        }
+      ]
+    },
+    {
+      "id": "athena",
+      "nombre": "Athena",
+      "posicion": 7,
+      "puntos": 73.86,
+      "retRel": 0.07,
+      "delta": 1,
+      "metricas": {
+        "ir": 1.22,
+        "exc": 0.07,
+        "sharpe": 1.58,
+        "var95": -0.0062,
+        "mdd": -0.0155
+      },
+      "puntosDetalle": {
+        "ir": 17.047782,
+        "exc": 17.264881,
+        "sharpe": 11.057692,
+        "var95": 13.858696,
+        "mdd": 14.629187
+      },
+      "miembros": [
+        {
+          "nombre": "Maria José Silva Lizana",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Maria Consuelo Villarroel Uribe",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Antonia Javiera Wuth Cabrera",
+          "linkedin": ""
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 60.67,
+          "posicion": 19,
+          "ret": 0.0265
+        },
+        {
+          "semana": 6,
+          "puntos": 55.1,
+          "posicion": 26,
+          "ret": 0.0313
+        },
+        {
+          "semana": 7,
+          "puntos": 63.94,
+          "posicion": 12,
+          "ret": 0.029
+        },
+        {
+          "semana": 8,
+          "puntos": 63.31,
+          "posicion": 10,
+          "ret": 0.0331
+        },
+        {
+          "semana": 9,
+          "puntos": 66.47,
+          "posicion": 10,
+          "ret": 0.0355
+        },
+        {
+          "semana": 10,
+          "puntos": 69.37,
+          "posicion": 8,
+          "ret": 0.0247
+        },
+        {
+          "semana": 11,
+          "puntos": 73.86,
+          "posicion": 7,
+          "ret": 0.0242
+        }
+      ]
+    },
+    {
+      "id": "market-moggers",
+      "nombre": "Market Moggers",
+      "posicion": 8,
+      "puntos": 73.72,
+      "retRel": 0.044500000000000005,
+      "delta": -3,
+      "metricas": {
+        "ir": 2.44,
+        "exc": 0.044500000000000005,
+        "sharpe": 1.35,
+        "var95": -0.010700000000000001,
+        "mdd": -0.0388
+      },
+      "puntosDetalle": {
+        "ir": 23.293515,
+        "exc": 16.23649,
+        "sharpe": 10.320513,
+        "var95": 12.024457,
+        "mdd": 11.842105
+      },
+      "miembros": [
+        {
+          "nombre": "Álvaro Pacheco Correa",
+          "linkedin": "https://www.linkedin.com/in/%C3%A1lvaro-pacheco-correa-b418a13a9/"
+        },
+        {
+          "nombre": "Renato Urrutia Gandolfo",
+          "linkedin": "https://www.linkedin.com/in/renato-urrutia-gandolfo-36a3322a3/"
+        },
+        {
+          "nombre": "Alberto Muñoz Molina",
+          "linkedin": "https://www.linkedin.com/in/alberto-josé-muñoz-molina-62b32831b?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 58.83,
+          "posicion": 22,
+          "ret": 0.0343
+        },
+        {
+          "semana": 6,
+          "puntos": 54.07,
+          "posicion": 29,
+          "ret": 0.0426
+        },
+        {
+          "semana": 7,
+          "puntos": 55.27,
+          "posicion": 24,
+          "ret": 0.0237
+        },
+        {
+          "semana": 8,
+          "puntos": 62.08,
+          "posicion": 11,
+          "ret": 0.0399
+        },
+        {
+          "semana": 9,
+          "puntos": 68.67,
+          "posicion": 8,
+          "ret": 0.0487
+        },
+        {
+          "semana": 10,
+          "puntos": 72.41,
+          "posicion": 5,
+          "ret": 0.0356
+        },
+        {
+          "semana": 11,
+          "puntos": 73.72,
+          "posicion": 8,
+          "ret": 0.0319
+        }
+      ]
+    },
+    {
+      "id": "bjp-capitals",
+      "nombre": "B&JP Capitals",
+      "posicion": 9,
+      "puntos": 72.86,
+      "retRel": 0.09230000000000001,
+      "delta": 5,
+      "metricas": {
+        "ir": 2.42,
+        "exc": 0.09230000000000001,
+        "sharpe": 1.43,
+        "var95": -0.0143,
+        "mdd": -0.051100000000000007
+      },
+      "puntosDetalle": {
+        "ir": 23.191126,
+        "exc": 18.16422,
+        "sharpe": 10.576923,
+        "var95": 10.557065,
+        "mdd": 10.370813
+      },
+      "miembros": [
+        {
+          "nombre": "Benjamín Acevedo",
+          "linkedin": "https://cl.linkedin.com/in/benjam%C3%ADn-antonio-acevedo-frugone-14b616325"
+        },
+        {
+          "nombre": "Juan Tank",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Baltasar Correa Cortés",
+          "linkedin": "https://www.linkedin.com/in/baltasar-correa-cortés-2473bb359?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 74.21,
+          "posicion": 5,
+          "ret": 0.0705
+        },
+        {
+          "semana": 6,
+          "puntos": 67.08,
+          "posicion": 9,
+          "ret": 0.0821
+        },
+        {
+          "semana": 7,
+          "puntos": 66.27,
+          "posicion": 9,
+          "ret": 0.0548
+        },
+        {
+          "semana": 8,
+          "puntos": 65.14,
+          "posicion": 8,
+          "ret": 0.0624
+        },
+        {
+          "semana": 9,
+          "puntos": 65.51,
+          "posicion": 12,
+          "ret": 0.058
+        },
+        {
+          "semana": 10,
+          "puntos": 64.02,
+          "posicion": 14,
+          "ret": 0.0348
+        },
+        {
+          "semana": 11,
+          "puntos": 72.86,
+          "posicion": 9,
+          "ret": 0.0519
+        }
+      ]
+    },
+    {
+      "id": "i-c",
+      "nombre": "I.C",
+      "posicion": 10,
+      "puntos": 72.73,
+      "retRel": 0.049100000000000005,
+      "delta": -4,
+      "metricas": {
+        "ir": 2.44,
+        "exc": 0.049100000000000005,
+        "sharpe": 0.8,
+        "var95": -0.0115,
+        "mdd": -0.0311
+      },
+      "puntosDetalle": {
+        "ir": 23.293515,
+        "exc": 16.422004,
+        "sharpe": 8.557692,
+        "var95": 11.69837,
+        "mdd": 12.763158
+      },
+      "miembros": [
+        {
+          "nombre": "Rafael Ariztía Baraona",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Arturo Claro García",
+          "linkedin": ""
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 64.08,
+          "posicion": 16,
+          "ret": 0.0316
+        },
+        {
+          "semana": 6,
+          "puntos": 62.39,
+          "posicion": 17,
+          "ret": 0.0468
+        },
+        {
+          "semana": 7,
+          "puntos": 64.6,
+          "posicion": 11,
+          "ret": 0.0265
+        },
+        {
+          "semana": 8,
+          "puntos": 64.1,
+          "posicion": 9,
+          "ret": 0.0345
+        },
+        {
+          "semana": 9,
+          "puntos": 69.85,
+          "posicion": 7,
+          "ret": 0.0431
+        },
+        {
+          "semana": 10,
+          "puntos": 69.89,
+          "posicion": 6,
+          "ret": 0.0242
+        },
+        {
+          "semana": 11,
+          "puntos": 72.73,
+          "posicion": 10,
+          "ret": 0.0212
+        }
+      ]
+    },
+    {
+      "id": "bull-market-boys",
+      "nombre": "Bull Market Boys",
+      "posicion": 11,
+      "puntos": 68.03,
+      "retRel": 0.0034999999999999996,
+      "delta": 0,
+      "metricas": {
+        "ir": 1.62,
+        "exc": 0.0034999999999999996,
+        "sharpe": 1.1,
+        "var95": -0.0076,
+        "mdd": -0.041299999999999996
+      },
+      "puntosDetalle": {
+        "ir": 19.095563,
+        "exc": 14.582997,
+        "sharpe": 9.519231,
+        "var95": 13.288043,
+        "mdd": 11.543062
+      },
+      "miembros": [
+        {
+          "nombre": "Daniel Cortés Tirado",
+          "linkedin": "https://www.linkedin.com/in/daniel-cortés-tirado-7025b8313"
+        },
+        {
+          "nombre": "Cristóbal Amaro jerez Domínguez",
+          "linkedin": ""
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 53.54,
+          "posicion": 31,
+          "ret": 0.0269
+        },
+        {
+          "semana": 6,
+          "puntos": 50.3,
+          "posicion": 37,
+          "ret": 0.0372
+        },
+        {
+          "semana": 7,
+          "puntos": 62.54,
+          "posicion": 15,
+          "ret": 0.033
+        },
+        {
+          "semana": 8,
+          "puntos": 59.4,
+          "posicion": 14,
+          "ret": 0.0359
+        },
+        {
+          "semana": 9,
+          "puntos": 61.31,
+          "posicion": 15,
+          "ret": 0.0377
+        },
+        {
+          "semana": 10,
+          "puntos": 67.24,
+          "posicion": 11,
+          "ret": 0.0276
+        },
+        {
+          "semana": 11,
+          "puntos": 68.03,
+          "posicion": 11,
+          "ret": 0.0266
+        }
+      ]
+    },
+    {
+      "id": "riskisamurai",
+      "nombre": "RiskiSamurai",
+      "posicion": 12,
+      "puntos": 66.33,
+      "retRel": 0.0124,
+      "delta": -5,
+      "metricas": {
+        "ir": 1.47,
+        "exc": 0.0124,
+        "sharpe": 1.23,
+        "var95": -0.013999999999999999,
+        "mdd": -0.0338
+      },
+      "puntosDetalle": {
+        "ir": 18.327645,
+        "exc": 14.941926,
+        "sharpe": 9.935897,
+        "var95": 10.679348,
+        "mdd": 12.440191
+      },
+      "miembros": [
+        {
+          "nombre": "Juan Pablo Díaz Cerda",
+          "linkedin": "https://www.linkedin.com/in/juan-pablo-díaz-cerda-449133310/"
+        },
+        {
+          "nombre": "Valentina Perez Perez",
+          "linkedin": "https://www.linkedin.com/in/valentina-perez-perez-96b87b279"
+        },
+        {
+          "nombre": "Vicente Burgos",
+          "linkedin": "https://www.linkedin.com/in/vicenteburgos?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 82.29,
+          "posicion": 3,
+          "ret": 0.0621
+        },
+        {
+          "semana": 6,
+          "puntos": 72.23,
+          "posicion": 3,
+          "ret": 0.0682
+        },
+        {
+          "semana": 7,
+          "puntos": 82.46,
+          "posicion": 2,
+          "ret": 0.0682
+        },
+        {
+          "semana": 8,
+          "puntos": 61.8,
+          "posicion": 12,
+          "ret": 0.0421
+        },
+        {
+          "semana": 9,
+          "puntos": 75.8,
+          "posicion": 2,
+          "ret": 0.0634
+        },
+        {
+          "semana": 10,
+          "puntos": 69.64,
+          "posicion": 7,
+          "ret": 0.0352
+        },
+        {
+          "semana": 11,
+          "puntos": 66.33,
+          "posicion": 12,
+          "ret": 0.0378
+        }
+      ]
+    },
+    {
+      "id": "alpha-makers",
+      "nombre": "Alpha makers",
+      "posicion": 13,
+      "puntos": 65.9,
+      "retRel": 0.0731,
+      "delta": -1,
+      "metricas": {
+        "ir": 1.85,
+        "exc": 0.0731,
+        "sharpe": 1.06,
+        "var95": -0.019299999999999998,
+        "mdd": -0.051500000000000004
+      },
+      "puntosDetalle": {
+        "ir": 20.273038,
+        "exc": 17.389902,
+        "sharpe": 9.391026,
+        "var95": 8.519022,
+        "mdd": 10.322967
+      },
+      "miembros": [
+        {
+          "nombre": "Raúl Ignacio Salinas Muñoz",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Isable Antonia Cabezas Salvatierra",
+          "linkedin": ""
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 59.9,
+          "posicion": 20,
+          "ret": 0.0498
+        },
+        {
+          "semana": 6,
+          "puntos": 66.08,
+          "posicion": 10,
+          "ret": 0.08
+        },
+        {
+          "semana": 7,
+          "puntos": 71.52,
+          "posicion": 5,
+          "ret": 0.0717
+        },
+        {
+          "semana": 8,
+          "puntos": 67.59,
+          "posicion": 6,
+          "ret": 0.076
+        },
+        {
+          "semana": 9,
+          "puntos": 72.67,
+          "posicion": 6,
+          "ret": 0.0759
+        },
+        {
+          "semana": 10,
+          "puntos": 64.89,
+          "posicion": 12,
+          "ret": 0.042
+        },
+        {
+          "semana": 11,
+          "puntos": 65.9,
+          "posicion": 13,
+          "ret": 0.0442
+        }
+      ]
+    },
+    {
+      "id": "dinamico-italiano",
+      "nombre": "Dinamico-Italiano",
+      "posicion": 14,
+      "puntos": 65.24,
+      "retRel": 0.01,
+      "delta": 3,
+      "metricas": {
+        "ir": 1.17,
+        "exc": 0.01,
+        "sharpe": 0.86,
+        "var95": -0.0108,
+        "mdd": -0.0302
+      },
+      "puntosDetalle": {
+        "ir": 16.791809,
+        "exc": 14.845136,
+        "sharpe": 8.75,
+        "var95": 11.983696,
+        "mdd": 12.870813
+      },
+      "miembros": [
+        {
+          "nombre": "Valentina Aguilera Vega",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Martín Maldini Ramírez",
+          "linkedin": ""
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 55.28,
+          "posicion": 27,
+          "ret": 0.0258
+        },
+        {
+          "semana": 6,
+          "puntos": 54.78,
+          "posicion": 27,
+          "ret": 0.0395
+        },
+        {
+          "semana": 7,
+          "puntos": 63.09,
+          "posicion": 13,
+          "ret": 0.0324
+        },
+        {
+          "semana": 8,
+          "puntos": 58.17,
+          "posicion": 18,
+          "ret": 0.0324
+        },
+        {
+          "semana": 9,
+          "puntos": 60.09,
+          "posicion": 18,
+          "ret": 0.0345
+        },
+        {
+          "semana": 10,
+          "puntos": 61.27,
+          "posicion": 17,
+          "ret": 0.0161
+        },
+        {
+          "semana": 11,
+          "puntos": 65.24,
+          "posicion": 14,
+          "ret": 0.0191
+        }
+      ]
+    },
+    {
+      "id": "optimo-investment",
+      "nombre": "Optimo Investment",
+      "posicion": 15,
+      "puntos": 60.84,
+      "retRel": 0.0956,
+      "delta": 7,
+      "metricas": {
+        "ir": 1.7,
+        "exc": 0.0956,
+        "sharpe": 0.95,
+        "var95": -0.0235,
+        "mdd": -0.07769999999999999
+      },
+      "puntosDetalle": {
+        "ir": 19.505119,
+        "exc": 18.297306,
+        "sharpe": 9.038462,
+        "var95": 6.807065,
+        "mdd": 7.188995
+      },
+      "miembros": [
+        {
+          "nombre": "Renato Ortega",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Benjamin Mundaca",
+          "linkedin": ""
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 65.5,
+          "posicion": 11,
+          "ret": 0.0741
+        },
+        {
+          "semana": 6,
+          "puntos": 68.31,
+          "posicion": 7,
+          "ret": 0.1071
+        },
+        {
+          "semana": 7,
+          "puntos": 59.06,
+          "posicion": 18,
+          "ret": 0.0648
+        },
+        {
+          "semana": 8,
+          "puntos": 59.17,
+          "posicion": 15,
+          "ret": 0.0744
+        },
+        {
+          "semana": 9,
+          "puntos": 66.41,
+          "posicion": 11,
+          "ret": 0.0828
+        },
+        {
+          "semana": 10,
+          "puntos": 55.23,
+          "posicion": 22,
+          "ret": 0.0355
+        },
+        {
+          "semana": 11,
+          "puntos": 60.84,
+          "posicion": 15,
+          "ret": 0.0466
+        }
+      ]
+    },
+    {
+      "id": "dfs-capital",
+      "nombre": "DFS CAPITAL",
+      "posicion": 16,
+      "puntos": 59.98,
+      "retRel": 0.013500000000000002,
+      "delta": 5,
+      "metricas": {
+        "ir": 1.08,
+        "exc": 0.013500000000000002,
+        "sharpe": 0.55,
+        "var95": -0.0155,
+        "mdd": -0.0472
+      },
+      "puntosDetalle": {
+        "ir": 16.331058,
+        "exc": 14.986288,
+        "sharpe": 7.75641,
+        "var95": 10.067935,
+        "mdd": 10.837321
+      },
+      "miembros": [
+        {
+          "nombre": "Felipe Cifuentes",
+          "linkedin": "https://www.linkedin.com/in/felipe-ignacio-cifuentes-urra-146954229?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+        },
+        {
+          "nombre": "Diego Adones",
+          "linkedin": "https://www.linkedin.com/in/diego-adones-lópez?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+        },
+        {
+          "nombre": "Sergio Contreras",
+          "linkedin": "https://www.linkedin.com/in/sergio-contreras-cabrera-0463372a5/details/experience/"
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 56.57,
+          "posicion": 26,
+          "ret": 0.0364
+        },
+        {
+          "semana": 6,
+          "puntos": 56.91,
+          "posicion": 24,
+          "ret": 0.0549
+        },
+        {
+          "semana": 7,
+          "puntos": 61.09,
+          "posicion": 17,
+          "ret": 0.0407
+        },
+        {
+          "semana": 8,
+          "puntos": 53.08,
+          "posicion": 23,
+          "ret": 0.0333
+        },
+        {
+          "semana": 9,
+          "puntos": 57.24,
+          "posicion": 23,
+          "ret": 0.0391
+        },
+        {
+          "semana": 10,
+          "puntos": 56.46,
+          "posicion": 21,
+          "ret": 0.0151
+        },
+        {
+          "semana": 11,
+          "puntos": 59.98,
+          "posicion": 16,
+          "ret": 0.0179
+        }
+      ]
+    },
+    {
+      "id": "martes-negro",
+      "nombre": "Martes negro",
+      "posicion": 17,
+      "puntos": 59.29,
+      "retRel": 0.008,
+      "delta": -1,
+      "metricas": {
+        "ir": 1.21,
+        "exc": 0.008,
+        "sharpe": 0.67,
+        "var95": -0.0175,
+        "mdd": -0.053099999999999994
+      },
+      "puntosDetalle": {
+        "ir": 16.996587,
+        "exc": 14.764478,
+        "sharpe": 8.141026,
+        "var95": 9.252717,
+        "mdd": 10.131579
+      },
+      "miembros": [
+        {
+          "nombre": "Sebastián Andrés Espinosa Huentemil",
+          "linkedin": "https://www.linkedin.com/in/daniel-torres-molins-304067408"
+        },
+        {
+          "nombre": "Daniel Torres Molins",
+          "linkedin": "https://www.linkedin.com/in/sebasti%C3%A1n-espinosa-214764315?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 64.86,
+          "posicion": 14,
+          "ret": 0.0574
+        },
+        {
+          "semana": 6,
+          "puntos": 62.94,
+          "posicion": 16,
+          "ret": 0.0766
+        },
+        {
+          "semana": 7,
+          "puntos": 64.89,
+          "posicion": 10,
+          "ret": 0.0574
+        },
+        {
+          "semana": 8,
+          "puntos": 60.01,
+          "posicion": 13,
+          "ret": 0.0563
+        },
+        {
+          "semana": 9,
+          "puntos": 67.32,
+          "posicion": 9,
+          "ret": 0.0635
+        },
+        {
+          "semana": 10,
+          "puntos": 62.14,
+          "posicion": 16,
+          "ret": 0.0321
+        },
+        {
+          "semana": 11,
+          "puntos": 59.29,
+          "posicion": 17,
+          "ret": 0.0256
+        }
+      ]
+    },
+    {
+      "id": "expertos-en-blackrock",
+      "nombre": "Expertos en Blackrock",
+      "posicion": 18,
+      "puntos": 53.04,
+      "retRel": 0.0475,
+      "delta": -5,
+      "metricas": {
+        "ir": 1.81,
+        "exc": 0.0475,
+        "sharpe": 1.46,
+        "var95": -0.04019999999999999,
+        "mdd": -0.08810000000000001
+      },
+      "puntosDetalle": {
+        "ir": 20.068259,
+        "exc": 16.357477,
+        "sharpe": 10.673077,
+        "var95": 0,
+        "mdd": 5.944976
+      },
+      "miembros": [
+        {
+          "nombre": "Juan José Esbeile Peña",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Benjamín Roberto Hernández González",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Cesar Antonio Ahumada Acevedo",
+          "linkedin": ""
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 80.2,
+          "posicion": 4,
+          "ret": 0.0579
+        },
+        {
+          "semana": 6,
+          "puntos": 79.26,
+          "posicion": 1,
+          "ret": 0.0818
+        },
+        {
+          "semana": 7,
+          "puntos": 78.75,
+          "posicion": 3,
+          "ret": 0.0956
+        },
+        {
+          "semana": 8,
+          "puntos": 86.14,
+          "posicion": 1,
+          "ret": 0.184
+        },
+        {
+          "semana": 9,
+          "puntos": 60.02,
+          "posicion": 19,
+          "ret": 0.1321
+        },
+        {
+          "semana": 10,
+          "puntos": 64.84,
+          "posicion": 13,
+          "ret": 0.0965
+        },
+        {
+          "semana": 11,
+          "puntos": 53.04,
+          "posicion": 18,
+          "ret": 0.0994
+        }
+      ]
+    },
+    {
+      "id": "nova-praxis-asset-management",
+      "nombre": "Nova Praxis Asset Management",
+      "posicion": 19,
+      "puntos": 51.92,
+      "retRel": -0.0134,
+      "delta": 0,
+      "metricas": {
+        "ir": 2.52,
+        "exc": -0.0134,
+        "sharpe": 0.67,
+        "var95": -0.0175,
+        "mdd": -0.0473
+      },
+      "puntosDetalle": {
+        "ir": 23.703072,
+        "exc": 0,
+        "sharpe": 8.141026,
+        "var95": 9.252717,
+        "mdd": 10.825359
+      },
+      "miembros": [
+        {
+          "nombre": "Vicente Contreras Gormaz",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Mariana Pérez Machado",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Vicente Contreras Gormaz",
+          "linkedin": ""
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 46.4,
+          "posicion": 41,
+          "ret": 0.0181
+        },
+        {
+          "semana": 6,
+          "puntos": 51.3,
+          "posicion": 35,
+          "ret": 0.039
+        },
+        {
+          "semana": 7,
+          "puntos": 50.96,
+          "posicion": 30,
+          "ret": 0.0151
+        },
+        {
+          "semana": 8,
+          "puntos": 58.51,
+          "posicion": 16,
+          "ret": 0.0313
+        },
+        {
+          "semana": 9,
+          "puntos": 60.43,
+          "posicion": 17,
+          "ret": 0.0367
+        },
+        {
+          "semana": 10,
+          "puntos": 57.91,
+          "posicion": 19,
+          "ret": 0.014
+        },
+        {
+          "semana": 11,
+          "puntos": 51.92,
+          "posicion": 19,
+          "ret": 0.0201
+        }
+      ]
+    },
+    {
+      "id": "pink-capital",
+      "nombre": "Pink Capital",
+      "posicion": 20,
+      "puntos": 46.38,
+      "retRel": -0.09820000000000001,
+      "delta": -2,
+      "metricas": {
+        "ir": 0.89,
+        "exc": -0.09820000000000001,
+        "sharpe": 0.45,
+        "var95": -0.011000000000000001,
+        "mdd": -0.0401
+      },
+      "puntosDetalle": {
+        "ir": 15.358362,
+        "exc": 0,
+        "sharpe": 7.435897,
+        "var95": 11.902174,
+        "mdd": 11.686603
+      },
+      "miembros": [
+        {
+          "nombre": "Daniela Andrea Flores Albornoz",
+          "linkedin": "https://www.linkedin.com/in/daniela-flores-412a8a309?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
+        },
+        {
+          "nombre": "Valentina Samai Aguirre Berroeta",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Maureen Sayen Salazar Rosales",
+          "linkedin": ""
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 48.23,
+          "posicion": 39,
+          "ret": 0.0186
+        },
+        {
+          "semana": 6,
+          "puntos": 41.59,
+          "posicion": 45,
+          "ret": 0.0235
+        },
+        {
+          "semana": 7,
+          "puntos": 34.77,
+          "posicion": 50,
+          "ret": -0.0009
+        },
+        {
+          "semana": 8,
+          "puntos": 45.5,
+          "posicion": 31,
+          "ret": 0.0133
+        },
+        {
+          "semana": 9,
+          "puntos": 41.17,
+          "posicion": 37,
+          "ret": 0.0228
+        },
+        {
+          "semana": 10,
+          "puntos": 58.99,
+          "posicion": 18,
+          "ret": 0.013
+        },
+        {
+          "semana": 11,
+          "puntos": 46.38,
+          "posicion": 20,
+          "ret": 0.0102
+        }
+      ]
+    },
+    {
+      "id": "warren-bufen",
+      "nombre": "Warren BuFEN",
+      "posicion": 21,
+      "puntos": 46.16,
+      "retRel": 0.0739,
+      "delta": 8,
+      "metricas": {
+        "ir": 0.87,
+        "exc": 0.0739,
+        "sharpe": 0.6,
+        "var95": -0.0325,
+        "mdd": -0.1175
+      },
+      "puntosDetalle": {
+        "ir": 15.255973,
+        "exc": 17.422165,
+        "sharpe": 7.916667,
+        "var95": 3.138587,
+        "mdd": 2.42823
+      },
+      "miembros": [
+        {
+          "nombre": "Oscar Javier Mardones Urrutia",
+          "linkedin": "https://www.linkedin.com/in/oscar-javier-mardones-urrutia-b44933334/"
+        },
+        {
+          "nombre": "Cristóbal Hernan Órdenes Galassi",
+          "linkedin": "https://www.linkedin.com/in/cristobal-ordenes-1b3447181/"
+        },
+        {
+          "nombre": "Victoria Paz Tapia Rivera",
+          "linkedin": ""
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 61.39,
+          "posicion": 17,
+          "ret": 0.096
+        },
+        {
+          "semana": 6,
+          "puntos": 67.54,
+          "posicion": 8,
+          "ret": 0.1521
+        },
+        {
+          "semana": 7,
+          "puntos": 57.7,
+          "posicion": 20,
+          "ret": 0.0963
+        },
+        {
+          "semana": 8,
+          "puntos": 49.03,
+          "posicion": 28,
+          "ret": 0.0828
+        },
+        {
+          "semana": 9,
+          "puntos": 58.59,
+          "posicion": 22,
+          "ret": 0.0945
+        },
+        {
+          "semana": 10,
+          "puntos": 40.99,
+          "posicion": 29,
+          "ret": 0.0271
+        },
+        {
+          "semana": 11,
+          "puntos": 46.16,
+          "posicion": 21,
+          "ret": 0.0328
+        }
+      ]
+    },
+    {
+      "id": "equipo-rocket",
+      "nombre": "Equipo rocket",
+      "posicion": 22,
+      "puntos": 45.34,
+      "retRel": -0.1418,
+      "delta": -2,
+      "metricas": {
+        "ir": 0.73,
+        "exc": -0.1418,
+        "sharpe": 0.58,
+        "var95": -0.0127,
+        "mdd": -0.0397
+      },
+      "puntosDetalle": {
+        "ir": 14.539249,
+        "exc": 0,
+        "sharpe": 7.852564,
+        "var95": 11.209239,
+        "mdd": 11.73445
+      },
+      "miembros": [],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 68.75,
+          "posicion": 9,
+          "ret": 0.0387
+        },
+        {
+          "semana": 6,
+          "puntos": 63.69,
+          "posicion": 14,
+          "ret": 0.0474
+        },
+        {
+          "semana": 7,
+          "puntos": 58.69,
+          "posicion": 19,
+          "ret": 0.0257
+        },
+        {
+          "semana": 8,
+          "puntos": 53.88,
+          "posicion": 21,
+          "ret": 0.0282
+        },
+        {
+          "semana": 9,
+          "puntos": 60.52,
+          "posicion": 16,
+          "ret": 0.0393
+        },
+        {
+          "semana": 10,
+          "puntos": 57.48,
+          "posicion": 20,
+          "ret": 0.017
+        },
+        {
+          "semana": 11,
+          "puntos": 45.34,
+          "posicion": 22,
+          "ret": 0.0133
+        }
+      ]
+    },
+    {
+      "id": "barber-iker-investment-group",
+      "nombre": "Barber Iker Investment Group",
+      "posicion": 23,
+      "puntos": 43.27,
+      "retRel": -0.0395,
+      "delta": 1,
+      "metricas": {
+        "ir": 0.93,
+        "exc": -0.0395,
+        "sharpe": 0.44,
+        "var95": -0.0155,
+        "mdd": -0.052199999999999996
+      },
+      "puntosDetalle": {
+        "ir": 15.56314,
+        "exc": 0,
+        "sharpe": 7.403846,
+        "var95": 10.067935,
+        "mdd": 10.239234
+      },
+      "miembros": [
+        {
+          "nombre": "Maximiliano Benjamín Cea Vera",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Vicente Luis Castillo Gonazalez",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Martin Alonso Calderon Cavieres",
+          "linkedin": ""
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 57.93,
+          "posicion": 25,
+          "ret": 0.0352
+        },
+        {
+          "semana": 6,
+          "puntos": 59.47,
+          "posicion": 20,
+          "ret": 0.055
+        },
+        {
+          "semana": 7,
+          "puntos": 56.53,
+          "posicion": 23,
+          "ret": 0.0311
+        },
+        {
+          "semana": 8,
+          "puntos": 53.85,
+          "posicion": 22,
+          "ret": 0.0333
+        },
+        {
+          "semana": 9,
+          "puntos": 59.23,
+          "posicion": 20,
+          "ret": 0.0408
+        },
+        {
+          "semana": 10,
+          "puntos": 52.78,
+          "posicion": 24,
+          "ret": 0.0085
+        },
+        {
+          "semana": 11,
+          "puntos": 43.27,
+          "posicion": 23,
+          "ret": 0.0135
+        }
+      ]
+    },
+    {
+      "id": "los-default",
+      "nombre": "Los Default",
+      "posicion": 24,
+      "puntos": 41.65,
+      "retRel": -0.0662,
+      "delta": -1,
+      "metricas": {
+        "ir": 0.51,
+        "exc": -0.0662,
+        "sharpe": 0.52,
+        "var95": -0.0095,
+        "mdd": -0.0704
+      },
+      "puntosDetalle": {
+        "ir": 13.412969,
+        "exc": 0,
+        "sharpe": 7.660256,
+        "var95": 12.513587,
+        "mdd": 8.062201
+      },
+      "miembros": [
+        {
+          "nombre": "Cristóbal Benavente Espinoza",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Benjamín Araneda Nash",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Christian Hidalgo",
+          "linkedin": ""
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 86.63,
+          "posicion": 1,
+          "ret": 0.0693
+        },
+        {
+          "semana": 6,
+          "puntos": 70.5,
+          "posicion": 5,
+          "ret": 0.0641
+        },
+        {
+          "semana": 7,
+          "puntos": 69.82,
+          "posicion": 8,
+          "ret": 0.0485
+        },
+        {
+          "semana": 8,
+          "puntos": 65.61,
+          "posicion": 7,
+          "ret": 0.0478
+        },
+        {
+          "semana": 9,
+          "puntos": 37.28,
+          "posicion": 39,
+          "ret": 0.0194
+        },
+        {
+          "semana": 10,
+          "puntos": 55.0,
+          "posicion": 23,
+          "ret": 0.0123
+        },
+        {
+          "semana": 11,
+          "puntos": 41.65,
+          "posicion": 24,
+          "ret": 0.0118
+        }
+      ]
+    },
+    {
+      "id": "fencashticos",
+      "nombre": "Fencashticos",
+      "posicion": 25,
+      "puntos": 41.6,
+      "retRel": -0.0286,
+      "delta": 5,
+      "metricas": {
+        "ir": 0.81,
+        "exc": -0.0286,
+        "sharpe": 0.42,
+        "var95": -0.0171,
+        "mdd": -0.055099999999999996
+      },
+      "puntosDetalle": {
+        "ir": 14.948805,
+        "exc": 0,
+        "sharpe": 7.339744,
+        "var95": 9.415761,
+        "mdd": 9.892344
+      },
+      "miembros": [
+        {
+          "nombre": "Francisco Antonio Freire Sabaj",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Carlos Ignacio Piaggio Stack",
+          "linkedin": "https://www.linkedin.com/in/carlos-piaggio-stack-84319027b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 60.74,
+          "posicion": 18,
+          "ret": 0.0426
+        },
+        {
+          "semana": 6,
+          "puntos": 61.01,
+          "posicion": 18,
+          "ret": 0.0635
+        },
+        {
+          "semana": 7,
+          "puntos": 54.11,
+          "posicion": 26,
+          "ret": 0.0323
+        },
+        {
+          "semana": 8,
+          "puntos": 47.7,
+          "posicion": 29,
+          "ret": 0.0273
+        },
+        {
+          "semana": 9,
+          "puntos": 53.22,
+          "posicion": 28,
+          "ret": 0.0365
+        },
+        {
+          "semana": 10,
+          "puntos": 38.96,
+          "posicion": 30,
+          "ret": 0.0072
+        },
+        {
+          "semana": 11,
+          "puntos": 41.6,
+          "posicion": 25,
+          "ret": 0.0134
+        }
+      ]
+    },
+    {
+      "id": "clb",
+      "nombre": "CLB",
+      "posicion": 26,
+      "puntos": 40.97,
+      "retRel": -0.1133,
+      "delta": -11,
+      "metricas": {
+        "ir": 0.13,
+        "exc": -0.1133,
+        "sharpe": 0.09,
+        "var95": -0.0124,
+        "mdd": -0.0384
+      },
+      "puntosDetalle": {
+        "ir": 11.467577,
+        "exc": 0,
+        "sharpe": 6.282051,
+        "var95": 11.331522,
+        "mdd": 11.889952
+      },
+      "miembros": [
+        {
+          "nombre": "Lucas Vicente Troy Casanova",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Bruno Aspee Von Knorring",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Claudio Antonio Ogaz Solar",
+          "linkedin": ""
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 52.84,
+          "posicion": 32,
+          "ret": 0.0199
+        },
+        {
+          "semana": 6,
+          "puntos": 48.5,
+          "posicion": 40,
+          "ret": 0.028
+        },
+        {
+          "semana": 7,
+          "puntos": 44.38,
+          "posicion": 40,
+          "ret": 0.0033
+        },
+        {
+          "semana": 8,
+          "puntos": 57.78,
+          "posicion": 19,
+          "ret": 0.0278
+        },
+        {
+          "semana": 9,
+          "puntos": 63.01,
+          "posicion": 13,
+          "ret": 0.0356
+        },
+        {
+          "semana": 10,
+          "puntos": 62.86,
+          "posicion": 15,
+          "ret": 0.016
+        },
+        {
+          "semana": 11,
+          "puntos": 40.97,
+          "posicion": 26,
+          "ret": 0.0008
+        }
+      ]
+    },
+    {
+      "id": "coclea-corp",
+      "nombre": "Coclea Corp",
+      "posicion": 27,
+      "puntos": 40.29,
+      "retRel": -0.050499999999999996,
+      "delta": -1,
+      "metricas": {
+        "ir": 0.76,
+        "exc": -0.050499999999999996,
+        "sharpe": 0.44,
+        "var95": -0.0192,
+        "mdd": -0.057300000000000004
+      },
+      "puntosDetalle": {
+        "ir": 14.692833,
+        "exc": 0,
+        "sharpe": 7.403846,
+        "var95": 8.559783,
+        "mdd": 9.629187
+      },
+      "miembros": [
+        {
+          "nombre": "Santiago Gaete",
+          "linkedin": ""
+        },
+        {
+          "nombre": "alfonso romanini",
+          "linkedin": ""
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 48.51,
+          "posicion": 38,
+          "ret": 0.0348
+        },
+        {
+          "semana": 6,
+          "puntos": 52.66,
+          "posicion": 34,
+          "ret": 0.0609
+        },
+        {
+          "semana": 7,
+          "puntos": 50.76,
+          "posicion": 31,
+          "ret": 0.0322
+        },
+        {
+          "semana": 8,
+          "puntos": 50.77,
+          "posicion": 24,
+          "ret": 0.0392
+        },
+        {
+          "semana": 9,
+          "puntos": 54.88,
+          "posicion": 25,
+          "ret": 0.0443
+        },
+        {
+          "semana": 10,
+          "puntos": 48.43,
+          "posicion": 26,
+          "ret": 0.0069
+        },
+        {
+          "semana": 11,
+          "puntos": 40.29,
+          "posicion": 27,
+          "ret": 0.0152
+        }
+      ]
+    },
+    {
+      "id": "terra-capital",
+      "nombre": "Terra Capital",
+      "posicion": 28,
+      "puntos": 40.26,
+      "retRel": -0.098,
+      "delta": 8,
+      "metricas": {
+        "ir": 0.17,
+        "exc": -0.098,
+        "sharpe": 0.12,
+        "var95": -0.0116,
+        "mdd": -0.0496
+      },
+      "puntosDetalle": {
+        "ir": 11.672355,
+        "exc": 0,
+        "sharpe": 6.378205,
+        "var95": 11.657609,
+        "mdd": 10.550239
+      },
+      "miembros": [
+        {
+          "nombre": "Alonso Ortega",
+          "linkedin": "https://www.linkedin.com/in/alonso-ortega-9610b93b8?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
+        },
+        {
+          "nombre": "Miguel Montaner",
+          "linkedin": "https://www.linkedin.com/in/miguel-montaner-037277292?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+        },
+        {
+          "nombre": "Lukas Bravo",
+          "linkedin": ""
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 65.07,
+          "posicion": 12,
+          "ret": 0.0411
+        },
+        {
+          "semana": 6,
+          "puntos": 50.29,
+          "posicion": 38,
+          "ret": 0.0394
+        },
+        {
+          "semana": 7,
+          "puntos": 54.38,
+          "posicion": 25,
+          "ret": 0.0243
+        },
+        {
+          "semana": 8,
+          "puntos": 43.35,
+          "posicion": 35,
+          "ret": 0.0194
+        },
+        {
+          "semana": 9,
+          "puntos": 40.67,
+          "posicion": 38,
+          "ret": 0.0212
+        },
+        {
+          "semana": 10,
+          "puntos": 28.45,
+          "posicion": 36,
+          "ret": 0.0004
+        },
+        {
+          "semana": 11,
+          "puntos": 40.26,
+          "posicion": 28,
+          "ret": 0.0015
+        }
+      ]
+    },
+    {
+      "id": "vcl-capital",
+      "nombre": "VCL Capital",
+      "posicion": 29,
+      "puntos": 39.87,
+      "retRel": -0.056600000000000004,
+      "delta": -4,
+      "metricas": {
+        "ir": 0.64,
+        "exc": -0.056600000000000004,
+        "sharpe": 0.32,
+        "var95": -0.0176,
+        "mdd": -0.0579
+      },
+      "puntosDetalle": {
+        "ir": 14.078498,
+        "exc": 0,
+        "sharpe": 7.019231,
+        "var95": 9.211957,
+        "mdd": 9.557416
+      },
+      "miembros": [
+        {
+          "nombre": "Pedro Pablo Castillo Rosenberg",
+          "linkedin": "https://Pedro Pablo Castillo Rosenberg"
+        },
+        {
+          "nombre": "Josefa Varela Jacob",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Juan José Limarí Campos",
+          "linkedin": "https://Juan José Limari"
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 50.43,
+          "posicion": 36,
+          "ret": 0.0296
+        },
+        {
+          "semana": 6,
+          "puntos": 53.12,
+          "posicion": 30,
+          "ret": 0.0512
+        },
+        {
+          "semana": 7,
+          "puntos": 50.48,
+          "posicion": 32,
+          "ret": 0.0263
+        },
+        {
+          "semana": 8,
+          "puntos": 50.76,
+          "posicion": 25,
+          "ret": 0.0314
+        },
+        {
+          "semana": 9,
+          "puntos": 55.7,
+          "posicion": 24,
+          "ret": 0.0399
+        },
+        {
+          "semana": 10,
+          "puntos": 51.15,
+          "posicion": 25,
+          "ret": 0.0096
+        },
+        {
+          "semana": 11,
+          "puntos": 39.87,
+          "posicion": 29,
+          "ret": 0.0091
+        }
+      ]
+    },
+    {
+      "id": "malaga-capital-partners",
+      "nombre": "Malaga Capital Partners",
+      "posicion": 30,
+      "puntos": 39.02,
+      "retRel": -0.028399999999999998,
+      "delta": 2,
+      "metricas": {
+        "ir": 0.6,
+        "exc": -0.028399999999999998,
+        "sharpe": 0.32,
+        "var95": -0.018600000000000002,
+        "mdd": -0.0599
+      },
+      "puntosDetalle": {
+        "ir": 13.87372,
+        "exc": 0,
+        "sharpe": 7.019231,
+        "var95": 8.804348,
+        "mdd": 9.318182
+      },
+      "miembros": [
+        {
+          "nombre": "Diego Letelier",
+          "linkedin": "https://www.linkedin.com/in/diego-letelier-reyman-54927136b?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
+        },
+        {
+          "nombre": "Guillermo Barros",
+          "linkedin": "https://www.linkedin.com/in/gbarrosm?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 58.02,
+          "posicion": 24,
+          "ret": 0.0394
+        },
+        {
+          "semana": 6,
+          "puntos": 58.16,
+          "posicion": 23,
+          "ret": 0.0586
+        },
+        {
+          "semana": 7,
+          "puntos": 53.2,
+          "posicion": 27,
+          "ret": 0.031
+        },
+        {
+          "semana": 8,
+          "puntos": 46.98,
+          "posicion": 30,
+          "ret": 0.0284
+        },
+        {
+          "semana": 9,
+          "puntos": 50.78,
+          "posicion": 30,
+          "ret": 0.035
+        },
+        {
+          "semana": 10,
+          "puntos": 36.44,
+          "posicion": 32,
+          "ret": 0.0031
+        },
+        {
+          "semana": 11,
+          "puntos": 39.02,
+          "posicion": 30,
+          "ret": 0.0091
+        }
+      ]
+    },
+    {
+      "id": "o-c-g-investment",
+      "nombre": "O.C.G. Investment",
+      "posicion": 31,
+      "puntos": 34.16,
+      "retRel": -0.0254,
+      "delta": -3,
+      "metricas": {
+        "ir": 0.48,
+        "exc": -0.0254,
+        "sharpe": 0.3,
+        "var95": -0.0235,
+        "mdd": -0.0781
+      },
+      "puntosDetalle": {
+        "ir": 13.259386,
+        "exc": 0,
+        "sharpe": 6.955128,
+        "var95": 6.807065,
+        "mdd": 7.141148
+      },
+      "miembros": [
+        {
+          "nombre": "Agustina María Correa Erlbaum",
+          "linkedin": "https://www.linkedin.com/in/agustinacorreaerlbaum"
+        },
+        {
+          "nombre": "Jacinta Lucía Olavarría Quingles",
+          "linkedin": "https://www.linkedin.com/in/jacinta-lucía-olavarría-quingles-603833364?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+        },
+        {
+          "nombre": "Vicente Gabriel Gómez Órdenes",
+          "linkedin": "https://www.linkedin.com/in/vicenteggomez"
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 54.4,
+          "posicion": 30,
+          "ret": 0.0491
+        },
+        {
+          "semana": 6,
+          "puntos": 58.55,
+          "posicion": 21,
+          "ret": 0.0853
+        },
+        {
+          "semana": 7,
+          "puntos": 49.91,
+          "posicion": 33,
+          "ret": 0.042
+        },
+        {
+          "semana": 8,
+          "puntos": 44.88,
+          "posicion": 32,
+          "ret": 0.0369
+        },
+        {
+          "semana": 9,
+          "puntos": 54.12,
+          "posicion": 26,
+          "ret": 0.0526
+        },
+        {
+          "semana": 10,
+          "puntos": 45.76,
+          "posicion": 28,
+          "ret": 0.008
+        },
+        {
+          "semana": 11,
+          "puntos": 34.16,
+          "posicion": 31,
+          "ret": 0.0097
+        }
+      ]
+    },
+    {
+      "id": "emax-wealth",
+      "nombre": "Emax Wealth",
+      "posicion": 32,
+      "puntos": 33.94,
+      "retRel": -0.0929,
+      "delta": 1,
+      "metricas": {
+        "ir": 0.26,
+        "exc": -0.0929,
+        "sharpe": 0.16,
+        "var95": -0.0216,
+        "mdd": -0.0733
+      },
+      "puntosDetalle": {
+        "ir": 12.133106,
+        "exc": 0,
+        "sharpe": 6.50641,
+        "var95": 7.581522,
+        "mdd": 7.715311
+      },
+      "miembros": [
+        {
+          "nombre": "Maximiliano Bittelman Olmos",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Emilia Jorquera Perez",
+          "linkedin": ""
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 51.22,
+          "posicion": 34,
+          "ret": 0.0431
+        },
+        {
+          "semana": 6,
+          "puntos": 53.07,
+          "posicion": 31,
+          "ret": 0.0725
+        },
+        {
+          "semana": 7,
+          "puntos": 47.39,
+          "posicion": 36,
+          "ret": 0.0344
+        },
+        {
+          "semana": 8,
+          "puntos": 44.15,
+          "posicion": 34,
+          "ret": 0.0308
+        },
+        {
+          "semana": 9,
+          "puntos": 51.33,
+          "posicion": 29,
+          "ret": 0.0433
+        },
+        {
+          "semana": 10,
+          "puntos": 33.64,
+          "posicion": 33,
+          "ret": 0.0012
+        },
+        {
+          "semana": 11,
+          "puntos": 33.94,
+          "posicion": 32,
+          "ret": 0.0022
+        }
+      ]
+    },
+    {
+      "id": "orb-asset-management",
+      "nombre": "ORB Asset Management",
+      "posicion": 33,
+      "puntos": 31.09,
+      "retRel": -0.0086,
+      "delta": 1,
+      "metricas": {
+        "ir": 0.26,
+        "exc": -0.0086,
+        "sharpe": 0.17,
+        "var95": -0.0246,
+        "mdd": -0.08710000000000001
+      },
+      "puntosDetalle": {
+        "ir": 12.133106,
+        "exc": 0,
+        "sharpe": 6.538462,
+        "var95": 6.358696,
+        "mdd": 6.064593
+      },
+      "miembros": [
+        {
+          "nombre": "Oscar Troncoso Espinosa",
+          "linkedin": "https://www.linkedin.com/in/oscar-troncoso-espinosa-6145bb259"
+        },
+        {
+          "nombre": "Benjamín Caro Cuevas",
+          "linkedin": "https://www.linkedin.com/in/benjam%C3%ADn-alonso-caro-cuevas-70a348343"
+        },
+        {
+          "nombre": "Rafael Román Durán",
+          "linkedin": ""
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 50.87,
+          "posicion": 35,
+          "ret": 0.0469
+        },
+        {
+          "semana": 6,
+          "puntos": 55.49,
+          "posicion": 25,
+          "ret": 0.0854
+        },
+        {
+          "semana": 7,
+          "puntos": 44.59,
+          "posicion": 39,
+          "ret": 0.0376
+        },
+        {
+          "semana": 8,
+          "puntos": 40.27,
+          "posicion": 37,
+          "ret": 0.0276
+        },
+        {
+          "semana": 9,
+          "puntos": 50.22,
+          "posicion": 31,
+          "ret": 0.0481
+        },
+        {
+          "semana": 10,
+          "puntos": 30.6,
+          "posicion": 34,
+          "ret": -0.0012
+        },
+        {
+          "semana": 11,
+          "puntos": 31.09,
+          "posicion": 33,
+          "ret": 0.0017
+        }
+      ]
+    },
+    {
+      "id": "sa-partners",
+      "nombre": "SA Partners",
+      "posicion": 34,
+      "puntos": 29.96,
+      "retRel": -0.0519,
+      "delta": 1,
+      "metricas": {
+        "ir": -0.27,
+        "exc": -0.0519,
+        "sharpe": -1.04,
+        "var95": -0.0034999999999999996,
+        "mdd": -0.0124
+      },
+      "puntosDetalle": {
+        "ir": 0,
+        "exc": 0,
+        "sharpe": 0,
+        "var95": 14.959239,
+        "mdd": 15.0
+      },
+      "miembros": [
+        {
+          "nombre": "Gabriel Soliz",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Sebastian Atencia",
+          "linkedin": ""
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 40.7,
+          "posicion": 47,
+          "ret": 0.002
+        },
+        {
+          "semana": 6,
+          "puntos": 37.12,
+          "posicion": 49,
+          "ret": 0.0033
+        },
+        {
+          "semana": 7,
+          "puntos": 47.81,
+          "posicion": 35,
+          "ret": 0.0004
+        },
+        {
+          "semana": 8,
+          "puntos": 30.0,
+          "posicion": 43,
+          "ret": -0.0006
+        },
+        {
+          "semana": 9,
+          "puntos": 35.76,
+          "posicion": 41,
+          "ret": 0.0025
+        },
+        {
+          "semana": 10,
+          "puntos": 30.0,
+          "posicion": 35,
+          "ret": -0.0049
+        },
+        {
+          "semana": 11,
+          "puntos": 29.96,
+          "posicion": 34,
+          "ret": -0.0067
+        }
+      ]
+    },
+    {
+      "id": "mosqueteros",
+      "nombre": "Mosqueteros",
+      "posicion": 35,
+      "puntos": 28.89,
+      "retRel": -0.015600000000000001,
+      "delta": -8,
+      "metricas": {
+        "ir": -0.07,
+        "exc": -0.015600000000000001,
+        "sharpe": -0.08,
+        "var95": -0.0044,
+        "mdd": -0.0183
+      },
+      "puntosDetalle": {
+        "ir": 0,
+        "exc": 0,
+        "sharpe": 0,
+        "var95": 14.592391,
+        "mdd": 14.294258
+      },
+      "miembros": [
+        {
+          "nombre": "Jorge Mery",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Clemente Hurtado",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Borja Bizzarri Edwars",
+          "linkedin": ""
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 39.26,
+          "posicion": 48,
+          "ret": 0.0054
+        },
+        {
+          "semana": 6,
+          "puntos": 40.0,
+          "posicion": 48,
+          "ret": 0.0121
+        },
+        {
+          "semana": 7,
+          "puntos": 45.85,
+          "posicion": 37,
+          "ret": 0.0015
+        },
+        {
+          "semana": 8,
+          "puntos": 39.9,
+          "posicion": 38,
+          "ret": 0.0044
+        },
+        {
+          "semana": 9,
+          "puntos": 45.45,
+          "posicion": 35,
+          "ret": 0.0094
+        },
+        {
+          "semana": 10,
+          "puntos": 46.15,
+          "posicion": 27,
+          "ret": 0.0012
+        },
+        {
+          "semana": 11,
+          "puntos": 28.89,
+          "posicion": 35,
+          "ret": -0.0012
+        }
+      ]
+    },
+    {
+      "id": "inversion-racional",
+      "nombre": "Inversión Racional",
+      "posicion": 36,
+      "puntos": 28.56,
+      "retRel": -0.084,
+      "delta": 1,
+      "metricas": {
+        "ir": -0.37,
+        "exc": -0.084,
+        "sharpe": -0.8,
+        "var95": -0.0034000000000000002,
+        "mdd": -0.024399999999999998
+      },
+      "puntosDetalle": {
+        "ir": 0,
+        "exc": 0,
+        "sharpe": 0,
+        "var95": 15.0,
+        "mdd": 13.564593
+      },
+      "miembros": [
+        {
+          "nombre": "Patricio Caceres",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Jonas jncharles",
+          "linkedin": ""
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 24.79,
+          "posicion": 54,
+          "ret": -0.0084
+        },
+        {
+          "semana": 6,
+          "puntos": 25.54,
+          "posicion": 55,
+          "ret": -0.0064
+        },
+        {
+          "semana": 7,
+          "puntos": 26.78,
+          "posicion": 54,
+          "ret": -0.0103
+        },
+        {
+          "semana": 8,
+          "puntos": 27.29,
+          "posicion": 46,
+          "ret": -0.0032
+        },
+        {
+          "semana": 9,
+          "puntos": 27.58,
+          "posicion": 47,
+          "ret": -0.0025
+        },
+        {
+          "semana": 10,
+          "puntos": 28.37,
+          "posicion": 37,
+          "ret": -0.0063
+        },
+        {
+          "semana": 11,
+          "puntos": 28.56,
+          "posicion": 36,
+          "ret": -0.0085
+        }
+      ]
+    },
+    {
+      "id": "vantedge-asset-management",
+      "nombre": "Vantedge Asset Management",
+      "posicion": 37,
+      "puntos": 27.77,
+      "retRel": -0.062,
+      "delta": 19,
+      "metricas": {
+        "ir": 0.15,
+        "exc": -0.062,
+        "sharpe": 0.1,
+        "var95": -0.028399999999999998,
+        "mdd": -0.09539999999999998
+      },
+      "puntosDetalle": {
+        "ir": 11.569966,
+        "exc": 0,
+        "sharpe": 6.314103,
+        "var95": 4.809783,
+        "mdd": 5.07177
+      },
+      "miembros": [
+        {
+          "nombre": "Yommer Haniel Hernandez Herrera",
+          "linkedin": "https://www.linkedin.com/in/yommer-haniel-hernandez-herrera-b53a5b304?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
+        },
+        {
+          "nombre": "Cristobal Maximiliano Saavedra Fuentes",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Vicente Andrés Avendaño Stevenson",
+          "linkedin": ""
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 65.07,
+          "posicion": 13,
+          "ret": 0.0562
+        },
+        {
+          "semana": 6,
+          "puntos": 71.01,
+          "posicion": 4,
+          "ret": 0.0909
+        },
+        {
+          "semana": 7,
+          "puntos": 62.27,
+          "posicion": 16,
+          "ret": 0.0559
+        },
+        {
+          "semana": 8,
+          "puntos": 50.26,
+          "posicion": 26,
+          "ret": 0.0408
+        },
+        {
+          "semana": 9,
+          "puntos": 53.37,
+          "posicion": 27,
+          "ret": 0.0459
+        },
+        {
+          "semana": 10,
+          "puntos": 9.86,
+          "posicion": 56,
+          "ret": -0.0122
+        },
+        {
+          "semana": 11,
+          "puntos": 27.77,
+          "posicion": 37,
+          "ret": -0.0012
+        }
+      ]
+    },
+    {
+      "id": "vbp-investments",
+      "nombre": "VBP Investments",
+      "posicion": 38,
+      "puntos": 25.77,
+      "retRel": -0.1002,
+      "delta": -7,
+      "metricas": {
+        "ir": -0.07,
+        "exc": -0.1002,
+        "sharpe": -0.04,
+        "var95": -0.0066,
+        "mdd": -0.0369
+      },
+      "puntosDetalle": {
+        "ir": 0,
+        "exc": 0,
+        "sharpe": 0,
+        "var95": 13.695652,
+        "mdd": 12.069378
+      },
+      "miembros": [
+        {
+          "nombre": "Pablo Andres Menning Squella",
+          "linkedin": "https://www.linkedin.com/in/pablo-menning-squella-ba8061349?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
+        },
+        {
+          "nombre": "Benjamin Maximiliano Valenzuela Vigas",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Vicente Alejandro Fuenzalida León",
+          "linkedin": "https://www.linkedin.com/in/vicente-fuenzalida-leon-550a50278?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 19.61,
+          "posicion": 56,
+          "ret": -0.0044
+        },
+        {
+          "semana": 6,
+          "puntos": 21.11,
+          "posicion": 58,
+          "ret": -0.0008
+        },
+        {
+          "semana": 7,
+          "puntos": 27.3,
+          "posicion": 53,
+          "ret": -0.0064
+        },
+        {
+          "semana": 8,
+          "puntos": 29.46,
+          "posicion": 44,
+          "ret": 0.0008
+        },
+        {
+          "semana": 9,
+          "puntos": 29.56,
+          "posicion": 45,
+          "ret": 0.0032
+        },
+        {
+          "semana": 10,
+          "puntos": 36.83,
+          "posicion": 31,
+          "ret": -0.0016
+        },
+        {
+          "semana": 11,
+          "puntos": 25.77,
+          "posicion": 38,
+          "ret": -0.0015
+        }
+      ]
+    },
+    {
+      "id": "9-financiero",
+      "nombre": "9 financiero",
+      "posicion": 39,
+      "puntos": 22.48,
+      "retRel": -0.0759,
+      "delta": -1,
+      "metricas": {
+        "ir": -0.09,
+        "exc": -0.0759,
+        "sharpe": -0.02,
+        "var95": -0.0111,
+        "mdd": -0.049
+      },
+      "puntosDetalle": {
+        "ir": 0,
+        "exc": 0,
+        "sharpe": 0,
+        "var95": 11.861413,
+        "mdd": 10.62201
+      },
+      "miembros": [
+        {
+          "nombre": "Vicente Andrés Arias Venegas",
+          "linkedin": "https://www.linkedin.com/in/vicente-arias-1bb45625b?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
+        },
+        {
+          "nombre": "Alfonso Gómez-Lobo Alcalde",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Clemente Laborde Benavente",
+          "linkedin": "https://www.linkedin.com/in/clemente-laborde-benavente-649600241?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 45.54,
+          "posicion": 43,
+          "ret": 0.02
+        },
+        {
+          "semana": 6,
+          "puntos": 46.5,
+          "posicion": 41,
+          "ret": 0.0345
+        },
+        {
+          "semana": 7,
+          "puntos": 38.97,
+          "posicion": 44,
+          "ret": 0.009
+        },
+        {
+          "semana": 8,
+          "puntos": 27.84,
+          "posicion": 45,
+          "ret": 0.0103
+        },
+        {
+          "semana": 9,
+          "puntos": 28.02,
+          "posicion": 46,
+          "ret": 0.0148
+        },
+        {
+          "semana": 10,
+          "puntos": 22.81,
+          "posicion": 38,
+          "ret": -0.0028
+        },
+        {
+          "semana": 11,
+          "puntos": 22.48,
+          "posicion": 39,
+          "ret": -0.0022
+        }
+      ]
+    },
+    {
+      "id": "vnm-capital-partners",
+      "nombre": "VNM Capital Partners",
+      "posicion": 40,
+      "puntos": 22.11,
+      "retRel": -0.2007,
+      "delta": -1,
+      "metricas": {
+        "ir": -1.14,
+        "exc": -0.2007,
+        "sharpe": -1.11,
+        "var95": -0.0109,
+        "mdd": -0.0528
+      },
+      "puntosDetalle": {
+        "ir": 0,
+        "exc": 0,
+        "sharpe": 0,
+        "var95": 11.942935,
+        "mdd": 10.167464
+      },
+      "miembros": [
+        {
+          "nombre": "Javier Villavicencio",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Benjamin Madariaga",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Sebastian Norambuena",
+          "linkedin": ""
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 20.17,
+          "posicion": 55,
+          "ret": -0.0119
+        },
+        {
+          "semana": 6,
+          "puntos": 21.56,
+          "posicion": 57,
+          "ret": -0.0063
+        },
+        {
+          "semana": 7,
+          "puntos": 22.42,
+          "posicion": 55,
+          "ret": -0.0214
+        },
+        {
+          "semana": 8,
+          "puntos": 23.11,
+          "posicion": 50,
+          "ret": -0.013
+        },
+        {
+          "semana": 9,
+          "puntos": 22.74,
+          "posicion": 49,
+          "ret": -0.0124
+        },
+        {
+          "semana": 10,
+          "puntos": 22.45,
+          "posicion": 39,
+          "ret": -0.0321
+        },
+        {
+          "semana": 11,
+          "puntos": 22.11,
+          "posicion": 40,
+          "ret": -0.0235
+        }
+      ]
+    },
+    {
+      "id": "ccq",
+      "nombre": "CCQ",
+      "posicion": 41,
+      "puntos": 21.98,
+      "retRel": -0.1429,
+      "delta": -1,
+      "metricas": {
+        "ir": -0.36,
+        "exc": -0.1429,
+        "sharpe": -0.17,
+        "var95": -0.0109,
+        "mdd": -0.053899999999999997
+      },
+      "puntosDetalle": {
+        "ir": 0,
+        "exc": 0,
+        "sharpe": 0,
+        "var95": 11.942935,
+        "mdd": 10.035885
+      },
+      "miembros": [
+        {
+          "nombre": "Jeferson Alexis Quispe Infante",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Jeferson Alexis Quispe Infante",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Benjamín Ignacio Castillo Collio",
+          "linkedin": ""
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 40.77,
+          "posicion": 46,
+          "ret": 0.0128
+        },
+        {
+          "semana": 6,
+          "puntos": 41.39,
+          "posicion": 46,
+          "ret": 0.0256
+        },
+        {
+          "semana": 7,
+          "puntos": 35.91,
+          "posicion": 48,
+          "ret": 0.0047
+        },
+        {
+          "semana": 8,
+          "puntos": 26.64,
+          "posicion": 47,
+          "ret": 0.0054
+        },
+        {
+          "semana": 9,
+          "puntos": 26.57,
+          "posicion": 48,
+          "ret": 0.0124
+        },
+        {
+          "semana": 10,
+          "puntos": 21.89,
+          "posicion": 40,
+          "ret": -0.012
+        },
+        {
+          "semana": 11,
+          "puntos": 21.98,
+          "posicion": 41,
+          "ret": -0.007
+        }
+      ]
+    },
+    {
+      "id": "fat-fingers",
+      "nombre": "Fat fingers",
+      "posicion": 42,
+      "puntos": 19.58,
+      "retRel": -0.214,
+      "delta": 17,
+      "metricas": {
+        "ir": 0.14,
+        "exc": -0.214,
+        "sharpe": 0.12,
+        "var95": -0.0393,
+        "mdd": -0.1268
+      },
+      "puntosDetalle": {
+        "ir": 11.518771,
+        "exc": 0,
+        "sharpe": 6.378205,
+        "var95": 0.366848,
+        "mdd": 1.315789
+      },
+      "miembros": [
+        {
+          "nombre": "Benjamín Palma",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Nicolás Saba",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Santiago Phillips",
+          "linkedin": ""
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 59.1,
+          "posicion": 21,
+          "ret": 0.0671
+        },
+        {
+          "semana": 6,
+          "puntos": 54.11,
+          "posicion": 28,
+          "ret": 0.1038
+        },
+        {
+          "semana": 7,
+          "puntos": 43.2,
+          "posicion": 41,
+          "ret": 0.0521
+        },
+        {
+          "semana": 8,
+          "puntos": 31.17,
+          "posicion": 41,
+          "ret": 0.0307
+        },
+        {
+          "semana": 9,
+          "puntos": 36.61,
+          "posicion": 40,
+          "ret": 0.0438
+        },
+        {
+          "semana": 10,
+          "puntos": 1.3,
+          "posicion": 59,
+          "ret": -0.0166
+        },
+        {
+          "semana": 11,
+          "puntos": 19.58,
+          "posicion": 42,
+          "ret": -0.0049
+        }
+      ]
+    },
+    {
+      "id": "indarra-investments",
+      "nombre": "Indarra Investments",
+      "posicion": 43,
+      "puntos": 19.49,
+      "retRel": -0.0403,
+      "delta": -2,
+      "metricas": {
+        "ir": -0.39,
+        "exc": -0.0403,
+        "sharpe": -0.18,
+        "var95": -0.0169,
+        "mdd": -0.054299999999999994
+      },
+      "puntosDetalle": {
+        "ir": 0,
+        "exc": 0,
+        "sharpe": 0,
+        "var95": 9.497283,
+        "mdd": 9.988038
+      },
+      "miembros": [
+        {
+          "nombre": "Benjamín Alfonso Reyes Meza",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Ignacio Paul Sepúlveda Inzunza",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Pol Antón Martí Rishmague",
+          "linkedin": ""
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 49.21,
+          "posicion": 37,
+          "ret": 0.0219
+        },
+        {
+          "semana": 6,
+          "puntos": 50.3,
+          "posicion": 36,
+          "ret": 0.0412
+        },
+        {
+          "semana": 7,
+          "puntos": 45.29,
+          "posicion": 38,
+          "ret": 0.0135
+        },
+        {
+          "semana": 8,
+          "puntos": 44.26,
+          "posicion": 33,
+          "ret": 0.0144
+        },
+        {
+          "semana": 9,
+          "puntos": 47.59,
+          "posicion": 33,
+          "ret": 0.0232
+        },
+        {
+          "semana": 10,
+          "puntos": 19.25,
+          "posicion": 41,
+          "ret": -0.0105
+        },
+        {
+          "semana": 11,
+          "puntos": 19.49,
+          "posicion": 43,
+          "ret": -0.0108
+        }
+      ]
+    },
+    {
+      "id": "black-bulls",
+      "nombre": "Black Bulls",
+      "posicion": 44,
+      "puntos": 19.08,
+      "retRel": -0.15560000000000002,
+      "delta": -2,
+      "metricas": {
+        "ir": -0.87,
+        "exc": -0.15560000000000002,
+        "sharpe": -0.34,
+        "var95": -0.014499999999999999,
+        "mdd": -0.0659
+      },
+      "puntosDetalle": {
+        "ir": 0,
+        "exc": 0,
+        "sharpe": 0,
+        "var95": 10.475543,
+        "mdd": 8.600478
+      },
+      "miembros": [
+        {
+          "nombre": "Pablo Fernando Aguilera Bravo",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Cristobal Riveros",
+          "linkedin": ""
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 26.3,
+          "posicion": 53,
+          "ret": 0.0108
+        },
+        {
+          "semana": 6,
+          "puntos": 28.98,
+          "posicion": 53,
+          "ret": 0.0204
+        },
+        {
+          "semana": 7,
+          "puntos": 14.46,
+          "posicion": 57,
+          "ret": -0.0024
+        },
+        {
+          "semana": 8,
+          "puntos": 21.2,
+          "posicion": 52,
+          "ret": 0.0046
+        },
+        {
+          "semana": 9,
+          "puntos": 21.27,
+          "posicion": 51,
+          "ret": 0.0073
+        },
+        {
+          "semana": 10,
+          "puntos": 18.12,
+          "posicion": 42,
+          "ret": -0.0118
+        },
+        {
+          "semana": 11,
+          "puntos": 19.08,
+          "posicion": 44,
+          "ret": -0.014
+        }
+      ]
+    },
+    {
+      "id": "free-riders",
+      "nombre": "Free Riders",
+      "posicion": 45,
+      "puntos": 17.72,
+      "retRel": -0.16699999999999998,
+      "delta": 13,
+      "metricas": {
+        "ir": 0.0,
+        "exc": -0.16699999999999998,
+        "sharpe": 0.01,
+        "var95": -0.038,
+        "mdd": -0.1378
+      },
+      "puntosDetalle": {
+        "ir": 10.802048,
+        "exc": 0,
+        "sharpe": 6.025641,
+        "var95": 0.896739,
+        "mdd": 0
+      },
+      "miembros": [
+        {
+          "nombre": "Lucas Daniel Valenzuela Pavez",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Martin Amaru Farias Gaete",
+          "linkedin": ""
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 52.6,
+          "posicion": 33,
+          "ret": 0.0684
+        },
+        {
+          "semana": 6,
+          "puntos": 63.58,
+          "posicion": 15,
+          "ret": 0.1318
+        },
+        {
+          "semana": 7,
+          "puntos": 47.86,
+          "posicion": 34,
+          "ret": 0.0699
+        },
+        {
+          "semana": 8,
+          "puntos": 36.35,
+          "posicion": 39,
+          "ret": 0.0416
+        },
+        {
+          "semana": 9,
+          "puntos": 43.53,
+          "posicion": 36,
+          "ret": 0.0532
+        },
+        {
+          "semana": 10,
+          "puntos": 1.66,
+          "posicion": 58,
+          "ret": -0.0159
+        },
+        {
+          "semana": 11,
+          "puntos": 17.72,
+          "posicion": 45,
+          "ret": -0.0139
+        }
+      ]
+    },
+    {
+      "id": "pgat",
+      "nombre": "PGAt",
+      "posicion": 46,
+      "puntos": 17.02,
+      "retRel": -0.17679999999999998,
+      "delta": -3,
+      "metricas": {
+        "ir": -0.46,
+        "exc": -0.17679999999999998,
+        "sharpe": -0.22,
+        "var95": -0.0179,
+        "mdd": -0.07150000000000001
+      },
+      "puntosDetalle": {
+        "ir": 0,
+        "exc": 0,
+        "sharpe": 0,
+        "var95": 9.089674,
+        "mdd": 7.930622
+      },
+      "miembros": [
+        {
+          "nombre": "Agustin Palacios",
+          "linkedin": "https://www.linkedin.com/in/agustin-palacios-soto"
+        },
+        {
+          "nombre": "José Pedro Amenábar",
+          "linkedin": "https://www.linkedin.com/in/jose-amenabar/"
+        },
+        {
+          "nombre": "Tomás Guzmán",
+          "linkedin": "https://www.linkedin.com/in/tom%C3%A1s-agust%C3%ADn-guzm%C3%A1n-di-giammarino-211407389/"
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 41.5,
+          "posicion": 45,
+          "ret": 0.0207
+        },
+        {
+          "semana": 6,
+          "puntos": 43.61,
+          "posicion": 43,
+          "ret": 0.039
+        },
+        {
+          "semana": 7,
+          "puntos": 35.5,
+          "posicion": 49,
+          "ret": 0.0044
+        },
+        {
+          "semana": 8,
+          "puntos": 21.54,
+          "posicion": 51,
+          "ret": -0.003
+        },
+        {
+          "semana": 9,
+          "puntos": 22.06,
+          "posicion": 50,
+          "ret": 0.007
+        },
+        {
+          "semana": 10,
+          "puntos": 17.11,
+          "posicion": 43,
+          "ret": -0.0234
+        },
+        {
+          "semana": 11,
+          "puntos": 17.02,
+          "posicion": 46,
+          "ret": -0.0142
+        }
+      ]
+    },
+    {
+      "id": "edp",
+      "nombre": "EDP",
+      "posicion": 47,
+      "puntos": 16.97,
+      "retRel": -0.08929999999999999,
+      "delta": -3,
+      "metricas": {
+        "ir": -0.37,
+        "exc": -0.08929999999999999,
+        "sharpe": -0.19,
+        "var95": -0.0174,
+        "mdd": -0.0736
+      },
+      "puntosDetalle": {
+        "ir": 0,
+        "exc": 0,
+        "sharpe": 0,
+        "var95": 9.293478,
+        "mdd": 7.679426
+      },
+      "miembros": [
+        {
+          "nombre": "Ignacio Aylwin Campos",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Cristian Eduardo Meriño Riquelme",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Richard Orlando Figueroa Villegas",
+          "linkedin": ""
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 27.01,
+          "posicion": 52,
+          "ret": 0.0071
+        },
+        {
+          "semana": 6,
+          "puntos": 32.41,
+          "posicion": 51,
+          "ret": 0.0283
+        },
+        {
+          "semana": 7,
+          "puntos": 42.31,
+          "posicion": 42,
+          "ret": 0.017
+        },
+        {
+          "semana": 8,
+          "puntos": 49.95,
+          "posicion": 27,
+          "ret": 0.0382
+        },
+        {
+          "semana": 9,
+          "puntos": 50.07,
+          "posicion": 32,
+          "ret": 0.0343
+        },
+        {
+          "semana": 10,
+          "puntos": 16.98,
+          "posicion": 44,
+          "ret": -0.0099
+        },
+        {
+          "semana": 11,
+          "puntos": 16.97,
+          "posicion": 47,
+          "ret": -0.0137
+        }
+      ]
+    },
+    {
+      "id": "bbr-investments",
+      "nombre": "BBR Investments",
+      "posicion": 48,
+      "puntos": 16.33,
+      "retRel": -0.17010000000000003,
+      "delta": -3,
+      "metricas": {
+        "ir": -0.26,
+        "exc": -0.17010000000000003,
+        "sharpe": -0.13,
+        "var95": -0.021099999999999997,
+        "mdd": -0.0664
+      },
+      "puntosDetalle": {
+        "ir": 0,
+        "exc": 0,
+        "sharpe": 0,
+        "var95": 7.785326,
+        "mdd": 8.54067
+      },
+      "miembros": [
+        {
+          "nombre": "Benjamin Lavin Pulido",
+          "linkedin": "https://www.linkedin.com/in/benjamin-lavin-pulido-066390347?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+        },
+        {
+          "nombre": "Bastian Alexander Angulo Rojas",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Rodrigo ignacio dumigual gomez",
+          "linkedin": ""
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 55.17,
+          "posicion": 28,
+          "ret": 0.035
+        },
+        {
+          "semana": 6,
+          "puntos": 53.05,
+          "posicion": 32,
+          "ret": 0.0482
+        },
+        {
+          "semana": 7,
+          "puntos": 39.58,
+          "posicion": 43,
+          "ret": 0.0075
+        },
+        {
+          "semana": 8,
+          "puntos": 25.4,
+          "posicion": 49,
+          "ret": 0.009
+        },
+        {
+          "semana": 9,
+          "puntos": 34.4,
+          "posicion": 42,
+          "ret": 0.0198
+        },
+        {
+          "semana": 10,
+          "puntos": 16.8,
+          "posicion": 45,
+          "ret": -0.0149
+        },
+        {
+          "semana": 11,
+          "puntos": 16.33,
+          "posicion": 48,
+          "ret": -0.0095
+        }
+      ]
+    },
+    {
+      "id": "portafen",
+      "nombre": "Portafen",
+      "posicion": 49,
+      "puntos": 14.95,
+      "retRel": -0.0463,
+      "delta": -3,
+      "metricas": {
+        "ir": -0.1,
+        "exc": -0.0463,
+        "sharpe": -0.04,
+        "var95": -0.0215,
+        "mdd": -0.0765
+      },
+      "puntosDetalle": {
+        "ir": 0,
+        "exc": 0,
+        "sharpe": 0,
+        "var95": 7.622283,
+        "mdd": 7.332536
+      },
+      "miembros": [
+        {
+          "nombre": "renato retamales",
+          "linkedin": ""
+        },
+        {
+          "nombre": "gabriel loyola",
+          "linkedin": ""
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 44.41,
+          "posicion": 44,
+          "ret": 0.035
+        },
+        {
+          "semana": 6,
+          "puntos": 48.56,
+          "posicion": 39,
+          "ret": 0.0632
+        },
+        {
+          "semana": 7,
+          "puntos": 37.98,
+          "posicion": 45,
+          "ret": 0.0186
+        },
+        {
+          "semana": 8,
+          "puntos": 31.46,
+          "posicion": 40,
+          "ret": 0.012
+        },
+        {
+          "semana": 9,
+          "puntos": 33.49,
+          "posicion": 44,
+          "ret": 0.0261
+        },
+        {
+          "semana": 10,
+          "puntos": 15.21,
+          "posicion": 46,
+          "ret": -0.0134
+        },
+        {
+          "semana": 11,
+          "puntos": 14.95,
+          "posicion": 49,
+          "ret": -0.0092
+        }
+      ]
+    },
+    {
+      "id": "diagonal-capital",
+      "nombre": "Diagonal Capital",
+      "posicion": 50,
+      "puntos": 14.35,
+      "retRel": -0.2843,
+      "delta": -3,
+      "metricas": {
+        "ir": -1.47,
+        "exc": -0.2843,
+        "sharpe": -0.8,
+        "var95": -0.0226,
+        "mdd": -0.07780000000000001
+      },
+      "puntosDetalle": {
+        "ir": 0,
+        "exc": 0,
+        "sharpe": 0,
+        "var95": 7.173913,
+        "mdd": 7.177033
+      },
+      "miembros": [
+        {
+          "nombre": "Matías Alejandro Garrido Henríquez",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Sebastián Alonso Quiroz Gómez",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Jorge Ignacio Cantallopts Jara",
+          "linkedin": ""
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 54.95,
+          "posicion": 29,
+          "ret": 0.0263
+        },
+        {
+          "semana": 6,
+          "puntos": 58.27,
+          "posicion": 22,
+          "ret": 0.0472
+        },
+        {
+          "semana": 7,
+          "puntos": 56.84,
+          "posicion": 22,
+          "ret": 0.0259
+        },
+        {
+          "semana": 8,
+          "puntos": 26.38,
+          "posicion": 48,
+          "ret": 0.0069
+        },
+        {
+          "semana": 9,
+          "puntos": 33.87,
+          "posicion": 43,
+          "ret": 0.019
+        },
+        {
+          "semana": 10,
+          "puntos": 15.07,
+          "posicion": 47,
+          "ret": -0.0279
+        },
+        {
+          "semana": 11,
+          "puntos": 14.35,
+          "posicion": 50,
+          "ret": -0.0314
+        }
+      ]
+    },
+    {
+      "id": "seriosfc",
+      "nombre": "SeriosFc",
+      "posicion": 51,
+      "puntos": 14.3,
+      "retRel": -0.1702,
+      "delta": -3,
+      "metricas": {
+        "ir": -0.64,
+        "exc": -0.1702,
+        "sharpe": -0.31,
+        "var95": -0.0219,
+        "mdd": -0.0806
+      },
+      "puntosDetalle": {
+        "ir": 0,
+        "exc": 0,
+        "sharpe": 0,
+        "var95": 7.459239,
+        "mdd": 6.842105
+      },
+      "miembros": [
+        {
+          "nombre": "Tomas Rojas Moya",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Flavio Pérez Bustos",
+          "linkedin": ""
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 38.56,
+          "posicion": 49,
+          "ret": 0.0211
+        },
+        {
+          "semana": 6,
+          "puntos": 44.15,
+          "posicion": 42,
+          "ret": 0.0477
+        },
+        {
+          "semana": 7,
+          "puntos": 36.39,
+          "posicion": 46,
+          "ret": 0.0086
+        },
+        {
+          "semana": 8,
+          "puntos": 31.17,
+          "posicion": 42,
+          "ret": 0.0088
+        },
+        {
+          "semana": 9,
+          "puntos": 20.62,
+          "posicion": 53,
+          "ret": 0.0126
+        },
+        {
+          "semana": 10,
+          "puntos": 14.95,
+          "posicion": 48,
+          "ret": -0.0243
+        },
+        {
+          "semana": 11,
+          "puntos": 14.3,
+          "posicion": 51,
+          "ret": -0.0223
+        }
+      ]
+    },
+    {
+      "id": "default-capital",
+      "nombre": "Default Capital",
+      "posicion": 52,
+      "puntos": 13.9,
+      "retRel": -0.2536,
+      "delta": -3,
+      "metricas": {
+        "ir": -1.58,
+        "exc": -0.2536,
+        "sharpe": -0.77,
+        "var95": -0.0236,
+        "mdd": -0.0782
+      },
+      "puntosDetalle": {
+        "ir": 0,
+        "exc": 0,
+        "sharpe": 0,
+        "var95": 6.766304,
+        "mdd": 7.129187
+      },
+      "miembros": [
+        {
+          "nombre": "Nicolas Valdivieso",
+          "linkedin": "https://www.linkedin.com/in/nicol%C3%A1s-valdivieso-jara-462261234?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+        },
+        {
+          "nombre": "Max Turner",
+          "linkedin": "https://www.linkedin.com/in/max-turner-bezanilla-a07161380"
+        },
+        {
+          "nombre": "Cristobal Matte",
+          "linkedin": ""
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 15.81,
+          "posicion": 57,
+          "ret": 0.0033
+        },
+        {
+          "semana": 6,
+          "puntos": 32.86,
+          "posicion": 50,
+          "ret": 0.0234
+        },
+        {
+          "semana": 7,
+          "puntos": 14.66,
+          "posicion": 56,
+          "ret": -0.0107
+        },
+        {
+          "semana": 8,
+          "puntos": 16.71,
+          "posicion": 53,
+          "ret": -0.0092
+        },
+        {
+          "semana": 9,
+          "puntos": 20.87,
+          "posicion": 52,
+          "ret": -0.0041
+        },
+        {
+          "semana": 10,
+          "puntos": 14.19,
+          "posicion": 49,
+          "ret": -0.0491
+        },
+        {
+          "semana": 11,
+          "puntos": 13.9,
+          "posicion": 52,
+          "ret": -0.0427
+        }
+      ]
+    },
+    {
+      "id": "alpha-partners",
+      "nombre": "Alpha Partners",
+      "posicion": 53,
+      "puntos": 13.15,
+      "retRel": -0.3233,
+      "delta": -3,
+      "metricas": {
+        "ir": -1.11,
+        "exc": -0.3233,
+        "sharpe": -0.68,
+        "var95": -0.024,
+        "mdd": -0.08310000000000001
+      },
+      "puntosDetalle": {
+        "ir": 0,
+        "exc": 0,
+        "sharpe": 0,
+        "var95": 6.603261,
+        "mdd": 6.543062
+      },
+      "miembros": [
+        {
+          "nombre": "Antonia Paz Vilches Ureta",
+          "linkedin": "https://www.linkedin.com/in/antoniavilchesureta"
+        },
+        {
+          "nombre": "Elizabeth Salome Núñez Neira",
+          "linkedin": "https://www.linkedin.com/in/elizabethnuñez"
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 46.24,
+          "posicion": 42,
+          "ret": 0.0153
+        },
+        {
+          "semana": 6,
+          "puntos": 52.7,
+          "posicion": 33,
+          "ret": 0.0421
+        },
+        {
+          "semana": 7,
+          "puntos": 36.11,
+          "posicion": 47,
+          "ret": 0.0021
+        },
+        {
+          "semana": 8,
+          "puntos": 14.75,
+          "posicion": 55,
+          "ret": -0.0135
+        },
+        {
+          "semana": 9,
+          "puntos": 18.99,
+          "posicion": 54,
+          "ret": -0.0006
+        },
+        {
+          "semana": 10,
+          "puntos": 13.04,
+          "posicion": 50,
+          "ret": -0.0386
+        },
+        {
+          "semana": 11,
+          "puntos": 13.15,
+          "posicion": 53,
+          "ret": -0.0349
+        }
+      ]
+    },
+    {
+      "id": "cimientos-financieros",
+      "nombre": "Cimientos financieros",
+      "posicion": 54,
+      "puntos": 12.66,
+      "retRel": -0.20879999999999999,
+      "delta": -3,
+      "metricas": {
+        "ir": -0.26,
+        "exc": -0.20879999999999999,
+        "sharpe": -0.15,
+        "var95": -0.024399999999999998,
+        "mdd": -0.0858
+      },
+      "puntosDetalle": {
+        "ir": 0,
+        "exc": 0,
+        "sharpe": 0,
+        "var95": 6.440217,
+        "mdd": 6.220096
+      },
+      "miembros": [
+        {
+          "nombre": "Javiera Esperanza González Herrera",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Camila Antonia Retamales Rodríguez",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Felipe Andrés Pérez Belmar",
+          "linkedin": ""
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 67.63,
+          "posicion": 10,
+          "ret": 0.0398
+        },
+        {
+          "semana": 6,
+          "puntos": 68.59,
+          "posicion": 6,
+          "ret": 0.0651
+        },
+        {
+          "semana": 7,
+          "puntos": 52.91,
+          "posicion": 28,
+          "ret": 0.0316
+        },
+        {
+          "semana": 8,
+          "puntos": 40.72,
+          "posicion": 36,
+          "ret": 0.0192
+        },
+        {
+          "semana": 9,
+          "puntos": 46.04,
+          "posicion": 34,
+          "ret": 0.0311
+        },
+        {
+          "semana": 10,
+          "puntos": 12.88,
+          "posicion": 51,
+          "ret": -0.015
+        },
+        {
+          "semana": 11,
+          "puntos": 12.66,
+          "posicion": 54,
+          "ret": -0.0116
+        }
+      ]
+    },
+    {
+      "id": "mvf-capital",
+      "nombre": "MVF Capital",
+      "posicion": 55,
+      "puntos": 10.69,
+      "retRel": -0.2039,
+      "delta": -3,
+      "metricas": {
+        "ir": -0.73,
+        "exc": -0.2039,
+        "sharpe": -0.45,
+        "var95": -0.026699999999999998,
+        "mdd": -0.0944
+      },
+      "puntosDetalle": {
+        "ir": 0,
+        "exc": 0,
+        "sharpe": 0,
+        "var95": 5.502717,
+        "mdd": 5.191388
+      },
+      "miembros": [
+        {
+          "nombre": "Santiago Meza Fernandez",
+          "linkedin": "https://www.linkedin.com/in/santiago-meza-fern%C3%A1ndez-b95258365"
+        },
+        {
+          "nombre": "Matías Vial Correa",
+          "linkedin": "https://www.linkedin.com/in/matias-vial-0191bb271"
+        },
+        {
+          "nombre": "José Fabres Bengolea",
+          "linkedin": ""
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 33.89,
+          "posicion": 50,
+          "ret": 0.0152
+        },
+        {
+          "semana": 6,
+          "puntos": 41.24,
+          "posicion": 47,
+          "ret": 0.0489
+        },
+        {
+          "semana": 7,
+          "puntos": 29.73,
+          "posicion": 52,
+          "ret": -0.0005
+        },
+        {
+          "semana": 8,
+          "puntos": 10.6,
+          "posicion": 58,
+          "ret": -0.0205
+        },
+        {
+          "semana": 9,
+          "puntos": 15.73,
+          "posicion": 56,
+          "ret": -0.0015
+        },
+        {
+          "semana": 10,
+          "puntos": 10.67,
+          "posicion": 52,
+          "ret": -0.0441
+        },
+        {
+          "semana": 11,
+          "puntos": 10.69,
+          "posicion": 55,
+          "ret": -0.0381
+        }
+      ]
+    },
+    {
+      "id": "sharpe-fox",
+      "nombre": "Sharpe Fox",
+      "posicion": 56,
+      "puntos": 10.13,
+      "retRel": -0.1545,
+      "delta": -3,
+      "metricas": {
+        "ir": -2.11,
+        "exc": -0.1545,
+        "sharpe": -1.87,
+        "var95": -0.0206,
+        "mdd": -0.1199
+      },
+      "puntosDetalle": {
+        "ir": 0,
+        "exc": 0,
+        "sharpe": 0,
+        "var95": 7.98913,
+        "mdd": 2.141148
+      },
+      "miembros": [
+        {
+          "nombre": "Laura Beatriz Fuentes Montes",
+          "linkedin": "https://www.linkedin.com/in/andres-guiñez-62bba1326"
+        },
+        {
+          "nombre": "Laura Beatriz Fuentes Montes",
+          "linkedin": "https://linkedin.com/in/laura-beatriz-fuentes-montes-084591337"
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 10.54,
+          "posicion": 59,
+          "ret": -0.075
+        },
+        {
+          "semana": 6,
+          "puntos": 5.46,
+          "posicion": 59,
+          "ret": -0.0734
+        },
+        {
+          "semana": 7,
+          "puntos": 11.12,
+          "posicion": 58,
+          "ret": -0.0853
+        },
+        {
+          "semana": 8,
+          "puntos": 8.31,
+          "posicion": 59,
+          "ret": -0.0904
+        },
+        {
+          "semana": 9,
+          "puntos": 8.58,
+          "posicion": 59,
+          "ret": -0.0791
+        },
+        {
+          "semana": 10,
+          "puntos": 10.4,
+          "posicion": 53,
+          "ret": -0.113
+        },
+        {
+          "semana": 11,
+          "puntos": 10.13,
+          "posicion": 56,
+          "ret": -0.1122
+        }
+      ]
+    },
+    {
+      "id": "los-estadisticos-inconscientes",
+      "nombre": "Los Estadísticos Inconscientes",
+      "posicion": 57,
+      "puntos": 9.89,
+      "retRel": -0.2336,
+      "delta": -2,
+      "metricas": {
+        "ir": -0.73,
+        "exc": -0.2336,
+        "sharpe": -0.43,
+        "var95": -0.0253,
+        "mdd": -0.1059
+      },
+      "puntosDetalle": {
+        "ir": 0,
+        "exc": 0,
+        "sharpe": 0,
+        "var95": 6.07337,
+        "mdd": 3.815789
+      },
+      "miembros": [
+        {
+          "nombre": "Diego Alejandro Muñoz Gutierrez",
+          "linkedin": "https://www.linkedin.com/in/diego-a-mu%C3%B1oz-g-9060a9215?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
+        },
+        {
+          "nombre": "Jorge Andrés Bustamante Bustamante",
+          "linkedin": "https://www.linkedin.com/in/jorge-bustamante-565a922a4"
+        },
+        {
+          "nombre": "Juan Luis Silva Garrido",
+          "linkedin": ""
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 31.85,
+          "posicion": 51,
+          "ret": 0.0225
+        },
+        {
+          "semana": 6,
+          "puntos": 43.42,
+          "posicion": 44,
+          "ret": 0.0615
+        },
+        {
+          "semana": 7,
+          "puntos": 31.54,
+          "posicion": 51,
+          "ret": 0.0116
+        },
+        {
+          "semana": 8,
+          "puntos": 16.58,
+          "posicion": 54,
+          "ret": 0.0043
+        },
+        {
+          "semana": 9,
+          "puntos": 16.78,
+          "posicion": 55,
+          "ret": 0.0139
+        },
+        {
+          "semana": 10,
+          "puntos": 10.24,
+          "posicion": 55,
+          "ret": -0.038
+        },
+        {
+          "semana": 11,
+          "puntos": 9.89,
+          "posicion": 57,
+          "ret": -0.0328
+        }
+      ]
+    },
+    {
+      "id": "jose",
+      "nombre": "Jose",
+      "posicion": 58,
+      "puntos": 9.57,
+      "retRel": -0.35810000000000003,
+      "delta": -4,
+      "metricas": {
+        "ir": -1.92,
+        "exc": -0.35810000000000003,
+        "sharpe": -1.04,
+        "var95": -0.0236,
+        "mdd": -0.1144
+      },
+      "puntosDetalle": {
+        "ir": 0,
+        "exc": 0,
+        "sharpe": 0,
+        "var95": 6.766304,
+        "mdd": 2.799043
+      },
+      "miembros": [
+        {
+          "nombre": "José Toledo",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Sebastián López",
+          "linkedin": "https://www.linkedin.com/in/sebastián-lópez-a3811737a/?skipRedirect=true"
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 11.6,
+          "posicion": 58,
+          "ret": 0.0017
+        },
+        {
+          "semana": 6,
+          "puntos": 25.32,
+          "posicion": 56,
+          "ret": 0.024
+        },
+        {
+          "semana": 7,
+          "puntos": 8.52,
+          "posicion": 59,
+          "ret": -0.0156
+        },
+        {
+          "semana": 8,
+          "puntos": 11.56,
+          "posicion": 57,
+          "ret": -0.0257
+        },
+        {
+          "semana": 9,
+          "puntos": 11.88,
+          "posicion": 58,
+          "ret": -0.0191
+        },
+        {
+          "semana": 10,
+          "puntos": 10.29,
+          "posicion": 54,
+          "ret": -0.0571
+        },
+        {
+          "semana": 11,
+          "puntos": 9.57,
+          "posicion": 58,
+          "ret": -0.0645
+        }
+      ]
+    },
+    {
+      "id": "rs-investment-group",
+      "nombre": "R&S Investment Group",
+      "posicion": 59,
+      "puntos": 5.03,
+      "retRel": -0.3325,
+      "delta": -2,
+      "metricas": {
+        "ir": -1.21,
+        "exc": -0.3325,
+        "sharpe": -0.83,
+        "var95": -0.0319,
+        "mdd": -0.124
+      },
+      "puntosDetalle": {
+        "ir": 0,
+        "exc": 0,
+        "sharpe": 0,
+        "var95": 3.383152,
+        "mdd": 1.650718
+      },
+      "miembros": [
+        {
+          "nombre": "Diego Alonso Ruz Castillo",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Arturo Andrés Saavedra Sepúlveda",
+          "linkedin": ""
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 64.27,
+          "posicion": 15,
+          "ret": 0.0464
+        },
+        {
+          "semana": 6,
+          "puntos": 65.07,
+          "posicion": 11,
+          "ret": 0.0678
+        },
+        {
+          "semana": 7,
+          "puntos": 63.06,
+          "posicion": 14,
+          "ret": 0.0446
+        },
+        {
+          "semana": 8,
+          "puntos": 12.32,
+          "posicion": 56,
+          "ret": -0.0081
+        },
+        {
+          "semana": 9,
+          "puntos": 14.3,
+          "posicion": 57,
+          "ret": 0.0083
+        },
+        {
+          "semana": 10,
+          "puntos": 5.68,
+          "posicion": 57,
+          "ret": -0.0592
+        },
+        {
+          "semana": 11,
+          "puntos": 5.03,
+          "posicion": 59,
+          "ret": -0.0501
+        }
+      ]
+    }
+  ]
+}

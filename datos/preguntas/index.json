@@ -1,0 +1,26 @@
+{
+  "_que_es": "Índice del banco de preguntas del Desafío FIG. La página desafio/index.html lo lee primero y luego carga los archivos (shards) listados. Cada shard es un array de preguntas con el esquema documentado en LEEME.md. Mantener shards de máximo ~200 preguntas / ~150 KB; al crecer un tema, crear macro-02.json, macro-03.json… y listarlos aquí. SIEMPRE correr validar_preguntas.py antes de commitear.",
+  "version": 1,
+  "temas": [
+    {"id": "renta-variable", "nombre": "Renta Variable"},
+    {"id": "renta-fija", "nombre": "Renta Fija"},
+    {"id": "macroeconomia", "nombre": "Macroeconomía"},
+    {"id": "historia-mercados", "nombre": "Historia de los Mercados"},
+    {"id": "matematica-financiera", "nombre": "Matemática Financiera"},
+    {"id": "analisis-financiero", "nombre": "Análisis Financiero (Ratios)"},
+    {"id": "riesgo-financiero", "nombre": "Riesgo Financiero"},
+    {"id": "evaluacion-proyectos", "nombre": "Evaluación de Proyectos"},
+    {"id": "estructura-capital", "nombre": "Estructura de Capital"},
+    {"id": "fundamentos-corporativos", "nombre": "Fundamentos y Gobierno Corporativo"},
+    {"id": "derivados-futuros", "nombre": "Derivados: Futuros y Forwards"},
+    {"id": "derivados-opciones", "nombre": "Derivados: Opciones"}
+  ],
+  "ramos": [
+    {"id": "finanzas-i", "nombre": "Finanzas I"},
+    {"id": "finanzas-ii", "nombre": "Finanzas II"},
+    {"id": "economia", "nombre": "Economía"},
+    {"id": "intro-finanzas", "nombre": "Introducción a Finanzas"},
+    {"id": "apf", "nombre": "Administración de Portafolios Financieros"}
+  ],
+  "archivos": ["semilla.json", "finanzas-01.json", "finanzas-02.json", "finanzas-03.json", "finanzas-04.json", "finanzas-05.json", "finanzas-06.json", "finanzas-07.json", "finanzas-08.json", "finanzas-09.json", "finanzas-10.json", "finanzas-11.json", "finanzas-12.json", "finanzas-13.json", "finanzas-14.json", "finanzas-15.json", "finanzas-16.json", "finanzas-17.json", "finanzas-18.json", "finanzas-19.json", "finanzas-20.json", "finanzas-21.json", "finanzas-22.json", "finanzas-23.json", "finanzas-24.json", "finanzas-25.json", "finanzas-26.json", "finanzas-27.json", "finanzas-28.json", "finanzas-29.json", "finanzas-30.json", "finanzas-31.json"]
+}

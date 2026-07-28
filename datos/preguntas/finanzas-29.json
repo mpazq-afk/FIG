@@ -1,0 +1,50 @@
+[
+  {
+    "id": "rif-016",
+    "tema": "riesgo-financiero",
+    "ramo": "finanzas-ii",
+    "dificultad": 3,
+    "pregunta": "Al estimar el premio por riesgo de mercado (PRM) para calcular el costo de capital vía CAPM, ¿importa qué índice bursátil se use (por ejemplo IPSA vs. IGPA)?",
+    "alternativas": [
+      "Sí: el índice del PRM debe ser el mismo que se usó para estimar el beta de la comparable, porque distintos índices dan valores distintos",
+      "No, ningún índice bursátil da resultados distintos entre sí para el PRM, por lo que la elección es irrelevante",
+      "Sí, pero solo se puede usar el IPSA; usar cualquier otro índice está teóricamente prohibido en el CAPM",
+      "No importa, porque el PRM siempre se obtiene de datos internacionales y nunca de un índice bursátil local"
+    ],
+    "correcta": 0,
+    "explicacion": "Distintos índices (por ejemplo IPSA vs. IGPA) pueden arrojar estimaciones de PRM bastante distintas entre sí. Para que la estimación de costo de capital sea coherente, el índice usado para el PRM debe ser el mismo que se usó al estimar el beta de la empresa comparable mediante regresión.",
+    "fuente": "Finanzas II · Pauta Solemne González (2016 Otoño, caso Casas del Bosque)"
+  },
+  {
+    "id": "ec-038",
+    "tema": "estructura-capital",
+    "ramo": "finanzas-ii",
+    "dificultad": 3,
+    "pregunta": "En el problema de sustitución de activos, ¿son \"sustitución de activos\" y \"dilución de pagos\" el mismo efecto sobre los bonistas, o dos efectos distintos que pueden ocurrir a la vez?",
+    "alternativas": [
+      "Son dos efectos distintos que pueden ocurrir simultáneamente: ambos perjudican a los bonistas originales, pero por mecanismos diferentes",
+      "Son exactamente el mismo efecto, solo con nombres distintos según el autor que lo describe",
+      "Solo puede ocurrir uno de los dos a la vez, nunca ambos en el mismo proyecto",
+      "Ninguno de los dos efectos perjudica realmente a los bonistas si el proyecto tiene VAN positivo"
+    ],
+    "correcta": 0,
+    "explicacion": "La sustitución de activos ocurre cuando se reemplaza un proyecto seguro por uno más riesgoso, trasladando riesgo a los bonistas; la dilución de pagos ocurre cuando se emite deuda nueva de igual prioridad que compite por los mismos flujos con la deuda existente. Ambos efectos pueden estar presentes en el mismo caso y perjudicar a los bonistas originales por razones distintas.",
+    "fuente": "Finanzas II · Pauta Solemne González (2016 Otoño, caso Portuguesa)"
+  },
+  {
+    "id": "ec-039",
+    "tema": "estructura-capital",
+    "ramo": "finanzas-ii",
+    "dificultad": 3,
+    "pregunta": "Según Modigliani & Miller (1963), ¿por qué el costo de capital promedio ponderado (WACC) de una empresa disminuye a medida que aumenta su nivel de endeudamiento?",
+    "alternativas": [
+      "Porque el escudo tributario actúa como un 'activo' adicional de riesgo casi nulo, reduciendo el riesgo promedio de los activos de la empresa",
+      "Porque los accionistas dejan de exigir compensación por el mayor riesgo financiero al aumentar la deuda",
+      "Porque, en la práctica, más deuda siempre reduce el riesgo operacional de los activos de la empresa",
+      "El costo de capital no disminuye con más deuda en este modelo; se mantiene siempre constante"
+    ],
+    "correcta": 0,
+    "explicacion": "El escudo tributario (el ahorro de impuestos por pagar intereses) es, en la práctica, un flujo casi libre de riesgo que la empresa recibe 'gratis' del Estado. Al considerarse como un activo adicional de bajo riesgo dentro del conjunto de activos de la empresa, más deuda (y por tanto más escudo tributario) reduce el riesgo promedio de los activos y, con ello, el costo de capital total.",
+    "fuente": "Finanzas II · Pauta Examen González (2016 Primavera)"
+  }
+]

@@ -1,0 +1,226 @@
+[
+  {
+    "id": "rf-028",
+    "tema": "renta-fija",
+    "ramo": "finanzas-i",
+    "dificultad": 3,
+    "pregunta": "¿Cuál es una diferencia clave entre una Letra de Crédito Hipotecaria (LCH) y un Mutuo Hipotecario Endosable (MHE) como instrumentos de financiamiento hipotecario?",
+    "alternativas": [
+      "La LCH es seriada, se transa en bolsa y no asegura el 100% de la colocación; el MHE es único y sí asegura el 100% de la colocación",
+      "Ambos instrumentos son exactamente iguales en su forma de colocación y no existe ninguna diferencia relevante entre ellos",
+      "La LCH siempre asegura el 100% de la colocación mientras el MHE nunca logra colocarse completamente",
+      "El MHE se transa obligatoriamente en bolsa mientras la LCH nunca se transa en el mercado secundario"
+    ],
+    "correcta": 0,
+    "explicacion": "La LCH es un título seriado que se coloca gradualmente en bolsa sin garantía de colocación total, mientras el MHE es un instrumento único cuyos recursos provienen directamente del banco, asegurando el 100% del financiamiento.",
+    "fuente": "Finanzas I · Pauta Solemne I Primavera 2014 (Patricio Espinoza).doc"
+  },
+  {
+    "id": "rf-029",
+    "tema": "renta-fija",
+    "ramo": "finanzas-i",
+    "dificultad": 2,
+    "pregunta": "¿Qué diferencia el perfil de inversión de una Cuota de Fondo de Inversión (CFI) respecto de una Cuota de Fondo Mutuo (CFM)?",
+    "alternativas": [
+      "La CFI obtiene liquidez transándose en bolsa y puede invertir a más largo plazo; la CFM es rescatable y por eso invierte en instrumentos de mayor liquidez",
+      "Ambas cuotas son exactamente igual de líquidas y tienen el mismo horizonte de inversión permitido",
+      "La CFM nunca puede rescatarse mientras la CFI siempre puede rescatarse en cualquier momento",
+      "La CFI invierte solo en depósitos a plazo mientras la CFM invierte solo en acciones"
+    ],
+    "correcta": 0,
+    "explicacion": "Al no ser rescatable, la CFI logra liquidez vendiéndose en bolsa y puede invertir en activos de más largo plazo; la CFM, al ser rescatable, debe mantener una cartera más líquida para hacer frente a los rescates.",
+    "fuente": "Finanzas I · Pauta Solemne I Primavera 2014 (Patricio Espinoza).doc"
+  },
+  {
+    "id": "rf-030",
+    "tema": "renta-fija",
+    "ramo": "finanzas-i",
+    "dificultad": 3,
+    "pregunta": "¿Qué diferencia estructural existe entre un Pagaré Reajustable del Banco Central (PRC) y un Bono del Banco Central en UF (BCU)?",
+    "alternativas": [
+      "El PRC tiene estructura francesa (cupones iguales con interés y amortización); el BCU es bullet (solo interés, capital al final)",
+      "Ambos instrumentos tienen exactamente la misma estructura de pagos y solo cambia el nombre con que se les conoce",
+      "El BCU siempre paga cupones semestrales mientras el PRC solo paga un único cupón al vencimiento",
+      "El PRC es emitido por bancos comerciales mientras el BCU es emitido únicamente por el Banco Central"
+    ],
+    "correcta": 0,
+    "explicacion": "El PRC amortiza gradualmente con cupones iguales (estructura francesa), mientras el BCU, que lo reemplazó, solo paga intereses hasta el vencimiento y amortiza el capital en el último cupón, dándole mayor duración.",
+    "fuente": "Finanzas I · Pauta Solemne I Primavera 2014 (Patricio Espinoza).doc"
+  },
+  {
+    "id": "rf-031",
+    "tema": "renta-fija",
+    "ramo": "finanzas-i",
+    "dificultad": 3,
+    "pregunta": "Un fondo de pensiones debe pagar una obligación en 8 años, pero la duración actual de su cartera de bonos es de solo 3,47 años. ¿Qué estrategia de inmunización debería seguir?",
+    "alternativas": [
+      "Vender parte de la cartera y comprar bonos de mayor duración (por ejemplo cupón cero de plazo largo) hasta igualar la duración al horizonte de la obligación",
+      "Mantener exactamente la misma cartera de bonos sin ningún cambio, ya que la duración no afecta el riesgo de la obligación futura",
+      "Vender toda la cartera y mantener el dinero en efectivo hasta el vencimiento de la obligación",
+      "Comprar únicamente bonos de muy corto plazo para reducir aún más la duración de la cartera"
+    ],
+    "correcta": 0,
+    "explicacion": "La inmunización de tasa de interés requiere que la duración de los activos iguale el horizonte de la obligación; si la duración actual es menor que el objetivo, se debe reemplazar parte de la cartera por instrumentos de mayor duración.",
+    "fuente": "Finanzas I · Pauta Solemne I Primavera 2014 (Patricio Espinoza).doc"
+  },
+  {
+    "id": "rf-032",
+    "tema": "renta-fija",
+    "ramo": "intro-finanzas",
+    "dificultad": 2,
+    "pregunta": "Bajo la teoría de la hipótesis de las expectativas, ¿qué representa la tasa forward calculada a partir de la estructura de tasas spot?",
+    "alternativas": [
+      "La mejor estimación del mercado sobre cuál será la tasa spot futura para ese período, ya que los inversionistas son neutros al riesgo",
+      "Una tasa fija que el Banco Central garantiza para todos los préstamos futuros de ese plazo",
+      "El promedio simple entre la tasa cupón y la tasa de descuento actual del instrumento",
+      "Un valor sin ninguna relación con las expectativas del mercado sobre tasas futuras"
+    ],
+    "correcta": 0,
+    "explicacion": "Bajo la hipótesis de las expectativas, al asumir inversionistas neutros al riesgo, la tasa forward implícita en la curva de tasas spot es el mejor predictor disponible de la tasa spot que regirá en ese período futuro.",
+    "fuente": "Intro a Finanzas · Pauta Solemne Hansen Primavera 2013.pdf"
+  },
+  {
+    "id": "rf-033",
+    "tema": "renta-fija",
+    "ramo": "intro-finanzas",
+    "dificultad": 3,
+    "pregunta": "Bajo la teoría de segmentación de mercado, ¿es posible estimar las tasas de interés futuras a partir de la estructura de tasas actual?",
+    "alternativas": [
+      "No, porque esta teoría postula que las tasas de cada plazo se determinan de forma independiente en su propio segmento de mercado",
+      "Sí, exactamente de la misma forma que bajo la hipótesis de las expectativas, usando las tasas forward implícitas",
+      "Sí, pero solo si se conoce además la tasa de política monetaria del Banco Central",
+      "No, porque bajo esta teoría las tasas de interés nunca cambian en el tiempo"
+    ],
+    "correcta": 0,
+    "explicacion": "La teoría de segmentación de mercado sostiene que oferta y demanda determinan la tasa de cada plazo en mercados separados, por lo que no existe una relación que permita inferir tasas futuras a partir de la curva actual.",
+    "fuente": "Intro a Finanzas · Pauta Solemne Hansen Primavera 2013.pdf"
+  },
+  {
+    "id": "rv-015",
+    "tema": "renta-variable",
+    "ramo": "intro-finanzas",
+    "dificultad": 3,
+    "pregunta": "¿Qué efecto tiene incorporar un instrumento libre de riesgo al análisis de teoría de portafolios sobre el conjunto de portafolios eficientes?",
+    "alternativas": [
+      "Cambia qué portafolios son eficientes: genera una nueva frontera lineal (Línea de Mercado de Capitales) entre el activo libre de riesgo y el portafolio tangente",
+      "No tiene ningún efecto relevante, simplemente se suma como una opción de inversión más entre muchas",
+      "Elimina por completo la posibilidad de diversificar el riesgo mediante una cartera de activos riesgosos",
+      "Hace que todos los portafolios riesgosos pasen a tener el mismo nivel de riesgo total"
+    ],
+    "correcta": 0,
+    "explicacion": "La incorporación de un activo libre de riesgo transforma la frontera eficiente en una combinación lineal entre ese activo y el portafolio tangente de mercado, la llamada Línea de Mercado de Capitales (LMC o CML).",
+    "fuente": "Intro a Finanzas · Pauta Examen Verano 2017 Intro Finanzas (Marcelo González).pdf"
+  },
+  {
+    "id": "rv-016",
+    "tema": "renta-variable",
+    "ramo": "intro-finanzas",
+    "dificultad": 3,
+    "pregunta": "Si se dispone de dos activos con betas conocidos y se busca construir un portafolio cuyo beta total sea exactamente igual a 1, ¿qué se debe hacer?",
+    "alternativas": [
+      "Determinar las ponderaciones de cada activo para que la suma ponderada de sus betas sea igual a 1, resolviendo la ecuación correspondiente",
+      "Invertir el 100% de los recursos en el activo con el beta más alto disponible, sin importar el otro activo",
+      "Invertir en partes iguales (50%/50%) en ambos activos sin importar sus betas individuales",
+      "Es imposible construir un portafolio con beta igual a 1 usando solo dos activos riesgosos"
+    ],
+    "correcta": 0,
+    "explicacion": "El beta de un portafolio es el promedio ponderado de los betas de sus componentes; para lograr beta 1, se despejan las ponderaciones que satisfacen esa igualdad usando los betas conocidos de cada activo.",
+    "fuente": "Intro a Finanzas · Pauta Ayudantía 7 Primavera 2014 (Marcelo González).pdf"
+  },
+  {
+    "id": "rv-017",
+    "tema": "renta-variable",
+    "ramo": "intro-finanzas",
+    "dificultad": 3,
+    "pregunta": "Si se conocen el beta y el rendimiento esperado de dos acciones distintas y se asume que el mercado está en equilibrio según CAPM, ¿cómo se puede determinar la tasa libre de riesgo y el rendimiento esperado del mercado?",
+    "alternativas": [
+      "Planteando dos ecuaciones de CAPM (una por acción) y despejando simultáneamente la tasa libre de riesgo y el premio por riesgo de mercado",
+      "Promediando directamente los rendimientos esperados de ambas acciones sin usar sus betas",
+      "Es imposible determinar esos valores sin conocer directamente el índice de mercado utilizado",
+      "Usando solo el beta de la acción con mayor rendimiento esperado, ignorando la otra acción"
+    ],
+    "correcta": 0,
+    "explicacion": "Con dos ecuaciones del CAPM (una por cada activo, cada una con su propio beta y rendimiento esperado), se puede despejar el sistema para obtener tanto la tasa libre de riesgo como el premio por riesgo de mercado implícitos.",
+    "fuente": "Intro a Finanzas · Pauta Ayudantía 7 Primavera 2014 (Marcelo González).pdf"
+  },
+  {
+    "id": "rv-018",
+    "tema": "renta-variable",
+    "ramo": "intro-finanzas",
+    "dificultad": 2,
+    "pregunta": "Si una acción ofrece un rendimiento esperado mayor al rendimiento que le exige el CAPM dado su beta, mientras otra ofrece un rendimiento menor al exigido, ¿qué decisión de inversión es consistente con esta información?",
+    "alternativas": [
+      "Invertir en la acción cuyo rendimiento ofrecido supera al exigido, y evitar la que ofrece menos de lo que su riesgo justifica",
+      "Invertir en ambas acciones por igual, ya que el CAPM no permite diferenciar entre oportunidades de inversión",
+      "Evitar ambas acciones, ya que ninguna cumple exactamente con el rendimiento exigido por el CAPM",
+      "Invertir únicamente en la acción con menor beta, sin importar la comparación entre rendimiento ofrecido y exigido"
+    ],
+    "correcta": 0,
+    "explicacion": "Cuando el rendimiento ofrecido por una acción supera al exigido según su riesgo sistemático (beta), esa acción está subvalorada y conviene comprarla; lo contrario ocurre cuando el rendimiento ofrecido es menor al exigido.",
+    "fuente": "Intro a Finanzas · Pauta Examen Verano 2017 Intro Finanzas (Marcelo González).pdf"
+  },
+  {
+    "id": "ep-036",
+    "tema": "evaluacion-proyectos",
+    "ramo": "intro-finanzas",
+    "dificultad": 3,
+    "pregunta": "Para evaluar un proyecto de inversión, ¿de qué riesgo debe depender principalmente la tasa de descuento a utilizar?",
+    "alternativas": [
+      "Del riesgo propio del proyecto a evaluar y de la forma en que este se financiará, no del riesgo general de la empresa que lo evalúa",
+      "Únicamente del riesgo y la tasa de descuento histórica de la empresa que realiza la evaluación",
+      "Del riesgo promedio de toda la industria en la que participa la empresa evaluadora, sin distinción por proyecto",
+      "La tasa de descuento nunca depende del riesgo, solo del monto de la inversión inicial"
+    ],
+    "correcta": 0,
+    "explicacion": "La tasa de descuento apropiada para un proyecto debe reflejar el riesgo específico de ese proyecto y su estructura de financiamiento, y no necesariamente el riesgo (y tasa) de la empresa evaluadora en su conjunto.",
+    "fuente": "Intro a Finanzas · Pauta Examen Verano 2017 Intro Finanzas (Marcelo González).pdf"
+  },
+  {
+    "id": "ep-037",
+    "tema": "evaluacion-proyectos",
+    "ramo": "intro-finanzas",
+    "dificultad": 2,
+    "pregunta": "¿Es siempre necesario considerar tanto los flujos de entrada como los de salida al evaluar la conveniencia de un proyecto?",
+    "alternativas": [
+      "No necesariamente: cuando se compara contra una situación base con ingresos iguales entre alternativas, los flujos relevantes pueden ser solo los de costos",
+      "Sí, siempre es obligatorio incluir tanto ingresos como costos en cualquier evaluación de proyectos, sin excepción",
+      "No, los ingresos nunca son relevantes en la evaluación de proyectos de inversión",
+      "Sí, pero solo en proyectos financiados exclusivamente con capital propio"
+    ],
+    "correcta": 0,
+    "explicacion": "Cuando se evalúa un cambio respecto a una situación base con condiciones de ingreso iguales entre alternativas (como decisiones que solo afectan costos), los flujos relevantes para la decisión pueden limitarse a los de costos.",
+    "fuente": "Intro a Finanzas · Pauta Examen Verano 2017 Intro Finanzas (Marcelo González).pdf"
+  },
+  {
+    "id": "fc-007",
+    "tema": "fundamentos-corporativos",
+    "ramo": "finanzas-i",
+    "dificultad": 2,
+    "pregunta": "Además de las ventajas de especialización y diversificación, ¿qué desventaja importante trae consigo la separación entre propiedad y administración de una empresa?",
+    "alternativas": [
+      "Favorece conflictos de interés (problema de agencia) entre dueños y ejecutivos, quienes podrían descuidar sus obligaciones al administrar dinero que no es suyo",
+      "Impide por completo que la empresa pueda emitir nuevas acciones para reunir capital adicional",
+      "Elimina toda posibilidad de que los accionistas diversifiquen su riqueza en distintas sociedades",
+      "Obliga a que la empresa nunca pueda contratar administradores con conocimiento especializado"
+    ],
+    "correcta": 0,
+    "explicacion": "La separación de propiedad y administración genera el clásico problema de agencia: los administradores podrían no actuar siempre en el mejor interés de los accionistas, quienes además no tienen toda la información sobre su desempeño.",
+    "fuente": "Finanzas I · Pauta Ayudantía 1 Otoño 2010 (Aldo Bombardiere).docx"
+  },
+  {
+    "id": "fc-008",
+    "tema": "fundamentos-corporativos",
+    "ramo": "finanzas-i",
+    "dificultad": 1,
+    "pregunta": "¿Es correcto afirmar que en finanzas lo más relevante para la toma de decisiones es el desempeño pasado de una empresa o proyecto?",
+    "alternativas": [
+      "No, lo más relevante es el presente y el futuro: el valor económico se basa en flujos futuros actualizados, aunque el pasado sirva para proyectar",
+      "Sí, en finanzas el pasado es siempre lo único relevante para tomar cualquier decisión de inversión",
+      "No, en finanzas el pasado nunca se utiliza para ningún propósito, ni siquiera para proyectar el futuro",
+      "Sí, porque el valor contable de una empresa siempre determina su valor de mercado futuro"
+    ],
+    "correcta": 0,
+    "explicacion": "El valor económico en finanzas se basa en flujos futuros actualizados a valor presente; los datos pasados son útiles como insumo para proyectar el futuro, pero no son en sí mismos lo relevante para decidir.",
+    "fuente": "Finanzas I · Pauta Ayudantía 1 Otoño 2010 (Aldo Bombardiere).docx"
+  }
+]

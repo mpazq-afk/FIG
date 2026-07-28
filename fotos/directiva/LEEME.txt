@@ -1,0 +1,32 @@
+FOTOS DE LA DIRECTIVA — cómo subirlas
+=====================================
+
+El expediente de cofundadores (index.html → sección "Nosotros" → clic en
+una tarjeta) muestra automáticamente la foto de la persona si existe un
+archivo en esta carpeta con el nombre correcto. Si no hay foto, muestra
+sus iniciales en dorado (también se ve bien, no es obligatorio).
+
+Nombre del archivo: el nombre completo de la persona en minúsculas, sin
+tildes ni eñes, con guiones en vez de espacios. Extensiones aceptadas:
+.jpg  .jpeg  .png  .webp
+
+Ejemplos:
+  Benjamín Sáez Molina    → benjamin-saez-molina.jpg
+  Jhosep García           → jhosep-garcia.jpg
+  Manuel Paz              → manuel-paz.jpg
+  Francisco Valenzuela    → francisco-valenzuela.jpg
+  Agustín Arriagada       → agustin-arriagada.jpg
+  Benjamín Disi           → benjamin-disi.jpg
+  Benjamín Solís          → benjamin-solis.jpg
+  Rafael Aliendre         → rafael-aliendre.jpg
+  Juan José Limari        → juan-jose-limari.jpg
+  Juan Pablo Díaz Cerda   → juan-pablo-diaz-cerda.jpg
+  David González Cañon    → david-gonzalez-canon.jpg
+  Delia Avilán            → delia-avilan.jpg
+  Samuel Rodríguez Arnolds → samuel-rodriguez-arnolds.jpg
+
+Recomendaciones:
+- Foto vertical (retrato), idealmente 800×1000 px o más.
+- Correr `python3 optimizar_fotos.py` después de agregarlas para
+  comprimirlas (igual que con las fotos de eventos).
+- No hace falta tocar ningún JSON ni HTML: la página detecta la foto sola.

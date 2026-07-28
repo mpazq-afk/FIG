@@ -1,0 +1,194 @@
+[
+  {
+    "id": "df-001",
+    "tema": "derivados-futuros",
+    "ramo": "finanzas-i",
+    "dificultad": 2,
+    "pregunta": "¿Cómo se calcula el precio teórico de un contrato forward sobre una acción que no paga dividendos?",
+    "alternativas": [
+      "Capitalizando el precio spot de la acción a la tasa libre de riesgo durante el plazo del contrato (F0 = S0 · e^(r·T))",
+      "Descontando el precio spot de la acción a la tasa libre de riesgo durante el plazo del contrato",
+      "Sumando directamente la tasa libre de riesgo en pesos al precio spot, sin capitalizar",
+      "El precio forward siempre es igual al precio spot, sin importar el plazo del contrato"
+    ],
+    "correcta": 0,
+    "explicacion": "Bajo el principio de no arbitraje, el precio forward de un activo que no paga dividendos se obtiene capitalizando el precio spot a la tasa libre de riesgo durante el tiempo que falta para el vencimiento.",
+    "fuente": "Finanzas I · Pauta Ayudantía 6 y 7 (Carolina Rivas).pdf"
+  },
+  {
+    "id": "df-002",
+    "tema": "derivados-futuros",
+    "ramo": "finanzas-i",
+    "dificultad": 1,
+    "pregunta": "¿Cuál es el valor de un contrato forward al momento de firmarlo (t=0)?",
+    "alternativas": [
+      "Cero, ya que el precio pactado se fija justamente para que ninguna de las partes deba pagar algo al inicio",
+      "Siempre positivo para quien toma la posición larga en el contrato",
+      "Siempre negativo para quien toma la posición larga en el contrato",
+      "Igual al precio spot del activo subyacente en ese momento"
+    ],
+    "correcta": 0,
+    "explicacion": "El precio forward se determina de modo que el contrato tenga valor cero al inicio; su valor cambia después según cómo evolucione el precio spot del activo respecto al precio pactado.",
+    "fuente": "Finanzas I · Pauta Ayudantía 6 Forward (Jorge Gregoire).pdf"
+  },
+  {
+    "id": "df-003",
+    "tema": "derivados-futuros",
+    "ramo": "finanzas-i",
+    "dificultad": 3,
+    "pregunta": "Si el precio de mercado de un contrato forward es mayor que su precio teórico calculado por no arbitraje, ¿qué estrategia permite obtener una ganancia libre de riesgo?",
+    "alternativas": [
+      "Vender el forward (posición corta), comprar el activo al contado y financiar la compra pidiendo prestado a la tasa libre de riesgo",
+      "Comprar el forward (posición larga) y esperar a que el precio de mercado converja al precio teórico sin hacer nada más",
+      "Vender el activo al contado y comprar el forward, sin necesidad de pedir ni dar préstamos",
+      "No existe ninguna estrategia posible cuando el precio de mercado difiere del precio teórico"
+    ],
+    "correcta": 0,
+    "explicacion": "Cuando el forward está sobrevalorado, la estrategia de arbitraje (cash and carry) consiste en venderlo y replicar sintéticamente una posición larga comprando el activo al contado financiado con deuda a la tasa libre de riesgo.",
+    "fuente": "Finanzas I · Pauta Ayudantía 6 Forward (Jorge Gregoire).pdf"
+  },
+  {
+    "id": "df-004",
+    "tema": "derivados-futuros",
+    "ramo": "finanzas-i",
+    "dificultad": 3,
+    "pregunta": "Al calcular el precio teórico de un contrato futuro sobre un commodity que tiene costo de almacenaje, ¿cómo se incorpora ese costo?",
+    "alternativas": [
+      "Sumando el valor presente del costo de almacenaje al precio spot antes de capitalizar a la tasa libre de riesgo",
+      "Restando el costo de almacenaje directamente del precio futuro final, sin traerlo a valor presente",
+      "El costo de almacenaje nunca afecta el precio teórico de un contrato futuro sobre commodities",
+      "Dividiendo el precio spot por el costo de almacenaje antes de aplicar la tasa libre de riesgo"
+    ],
+    "correcta": 0,
+    "explicacion": "Para activos de consumo con costo de mantenimiento (como el almacenaje), este se suma al precio spot (en valor presente) antes de capitalizar a la tasa libre de riesgo para obtener el precio forward teórico.",
+    "fuente": "Finanzas I · Pauta Ayudantía 6 Forward (Jorge Gregoire).pdf"
+  },
+  {
+    "id": "df-005",
+    "tema": "derivados-futuros",
+    "ramo": "finanzas-i",
+    "dificultad": 2,
+    "pregunta": "En el contexto de futuros sobre commodities, ¿qué es el \"rendimiento de conveniencia\"?",
+    "alternativas": [
+      "El beneficio que obtiene quien mantiene físicamente el inventario del activo de consumo, más allá de su valor de mercado",
+      "La tasa de interés que se cobra por almacenar el commodity durante la vida del contrato",
+      "La diferencia entre el precio spot y el precio futuro de cualquier activo financiero",
+      "El costo de transporte que se debe pagar para entregar el commodity al vencimiento"
+    ],
+    "correcta": 0,
+    "explicacion": "El rendimiento de conveniencia es el beneficio de tener el inventario físico disponible (por ejemplo, para no detener la producción), y reduce el precio forward teórico respecto al costo de mantenimiento puro.",
+    "fuente": "Finanzas I · Pauta Ayudantía 6 Forward (Jorge Gregoire).pdf"
+  },
+  {
+    "id": "df-006",
+    "tema": "derivados-futuros",
+    "ramo": "finanzas-i",
+    "dificultad": 3,
+    "pregunta": "¿Cómo se determina el tipo de cambio forward teórico entre dos monedas según la paridad de tasas de interés cubierta?",
+    "alternativas": [
+      "El tipo de cambio spot capitalizado por la diferencia entre la tasa de interés nacional y la extranjera durante el plazo del contrato",
+      "El promedio simple entre la tasa de interés nacional y la extranjera, sin usar el tipo de cambio spot",
+      "El tipo de cambio forward siempre es igual al tipo de cambio spot, sin importar las tasas de cada país",
+      "La suma directa del tipo de cambio spot más la tasa de interés extranjera, sin considerar la nacional"
+    ],
+    "correcta": 0,
+    "explicacion": "La paridad de tasas de interés cubierta indica que el tipo de cambio forward se obtiene capitalizando el spot por la diferencia entre la tasa doméstica y la extranjera, evitando oportunidades de arbitraje entre mercados.",
+    "fuente": "Finanzas I · Pauta Ayudantía 6 Forward (Jorge Gregoire).pdf"
+  },
+  {
+    "id": "df-007",
+    "tema": "derivados-futuros",
+    "ramo": "finanzas-i",
+    "dificultad": 2,
+    "pregunta": "Un importador debe pagar a un proveedor extranjero en unos meses más. ¿Qué posición en un contrato forward de moneda le permite eliminar el riesgo cambiario de ese pago?",
+    "alternativas": [
+      "Comprar (posición larga) el forward de la moneda extranjera, fijando hoy el tipo de cambio al que comprará esa moneda en el futuro",
+      "Vender (posición corta) el forward de la moneda extranjera, sin importar que deba pagar en esa moneda",
+      "No tomar ninguna posición, ya que los forwards no sirven para cubrir riesgo cambiario de importadores",
+      "Comprar un forward sobre una moneda distinta a la que debe pagar, sin relación con su obligación real"
+    ],
+    "correcta": 0,
+    "explicacion": "Al comprar el forward de la moneda extranjera, el importador fija hoy el tipo de cambio al que adquirirá esa moneda en el futuro, eliminando la incertidumbre sobre el costo en moneda local de su pago.",
+    "fuente": "Finanzas I · Pauta Examen Recuperativo 2025 (José Luis Ruiz).pdf"
+  },
+  {
+    "id": "df-008",
+    "tema": "derivados-futuros",
+    "ramo": "finanzas-i",
+    "dificultad": 3,
+    "pregunta": "Al usar contratos de futuros que no coinciden exactamente con el activo que se quiere cubrir, ¿qué mide el \"ratio de cobertura de mínima varianza\"?",
+    "alternativas": [
+      "La proporción óptima de contratos de futuros a utilizar, en función de la correlación y las volatilidades relativas entre el activo a cubrir y el futuro usado",
+      "El número exacto de contratos de futuros disponibles en el mercado para ese activo específico",
+      "La diferencia porcentual entre el precio spot y el precio futuro del activo a cubrir",
+      "La tasa de interés libre de riesgo aplicable durante el período de cobertura"
+    ],
+    "correcta": 0,
+    "explicacion": "El ratio de cobertura de mínima varianza se calcula a partir de la correlación entre los precios spot y futuro, y la razón entre sus volatilidades, minimizando el riesgo residual de la posición cubierta.",
+    "fuente": "Finanzas I · Pauta Ayudantía 6 Forward (Jorge Gregoire).pdf"
+  },
+  {
+    "id": "df-009",
+    "tema": "derivados-futuros",
+    "ramo": "finanzas-i",
+    "dificultad": 2,
+    "pregunta": "Si un cubridor de riesgo utiliza un número de contratos de futuros distinto al óptimo indicado por el ratio de cobertura de mínima varianza, ¿qué ocurre?",
+    "alternativas": [
+      "Aumenta la varianza (el riesgo) de la posición cubierta, alejándose del objetivo de minimizar el riesgo residual",
+      "El riesgo de la posición siempre se reduce a cero, sin importar cuántos contratos se usen",
+      "No hay ningún efecto sobre el riesgo de la posición, ya que el número de contratos es irrelevante",
+      "La cobertura se vuelve automáticamente perfecta, eliminando toda incertidumbre de precio"
+    ],
+    "correcta": 0,
+    "explicacion": "El ratio óptimo minimiza la varianza de la posición cubierta; alejarse de ese número, ya sea usando más o menos contratos, aumenta la varianza residual de la cobertura.",
+    "fuente": "Finanzas I · Pauta Ayudantía 6 Forward (Jorge Gregoire).pdf"
+  },
+  {
+    "id": "df-010",
+    "tema": "derivados-futuros",
+    "ramo": "finanzas-i",
+    "dificultad": 3,
+    "pregunta": "Una empresa tiene simultáneamente un pago y un cobro en la misma moneda extranjera, en fechas cercanas. ¿Qué estrategia de cobertura es más eficiente?",
+    "alternativas": [
+      "Compensar ambos flujos entre sí (netting) y cubrir con derivados solo la exposición neta resultante, no cada flujo por separado",
+      "Cubrir el pago y el cobro por separado con el monto total de cada uno, ignorando que se compensan parcialmente",
+      "No es posible compensar flujos de distinta naturaleza (pago y cobro) en la misma moneda",
+      "Cubrir únicamente el flujo de mayor monto y dejar el otro completamente sin cobertura"
+    ],
+    "correcta": 0,
+    "explicacion": "Cuando una empresa tiene flujos de entrada y salida en la misma moneda, conviene compensarlos (netting) y cubrir con derivados solo la exposición neta, reduciendo el costo de transacción de la cobertura.",
+    "fuente": "Finanzas I · Pauta Examen Recuperativo 2025 (José Luis Ruiz).pdf"
+  },
+  {
+    "id": "df-011",
+    "tema": "derivados-futuros",
+    "ramo": "finanzas-i",
+    "dificultad": 3,
+    "pregunta": "Al valorar un contrato forward sobre un bono que paga cupones durante la vida del contrato, ¿qué ajuste adicional se debe hacer respecto a un forward sobre un activo que no paga flujos intermedios?",
+    "alternativas": [
+      "Restar el valor presente de los cupones que se pagan antes del vencimiento del forward, antes de capitalizar el precio a la tasa libre de riesgo",
+      "Sumar el valor nominal completo del bono al precio spot, sin ningún otro ajuste",
+      "Ignorar por completo los cupones, ya que no afectan el precio forward de un bono",
+      "Multiplicar el precio spot del bono por la tasa cupón antes de capitalizarlo"
+    ],
+    "correcta": 0,
+    "explicacion": "Los cupones que el tenedor del bono recibiría antes del vencimiento del forward deben restarse (en valor presente) del precio spot, ya que quien toma la posición forward no los recibe; luego se capitaliza el resultado.",
+    "fuente": "Finanzas I · Pauta Examen 2025b (José Luis Ruiz).pdf"
+  },
+  {
+    "id": "df-012",
+    "tema": "derivados-futuros",
+    "ramo": "finanzas-i",
+    "dificultad": 2,
+    "pregunta": "¿Tienen la misma función de pago una posición larga en futuros y una posición larga en una opción de compra (call)?",
+    "alternativas": [
+      "Ninguna en su forma: el futuro tiene pago lineal en el precio del subyacente, mientras la call es no lineal (con quiebre en el precio de ejercicio)",
+      "Ambas tienen exactamente la misma función de pago lineal en el precio del activo subyacente",
+      "Ambas tienen función de pago no lineal, con el mismo punto de quiebre en el precio de ejercicio",
+      "El futuro y la opción call son instrumentos idénticos en todos sus aspectos, solo cambia el nombre"
+    ],
+    "correcta": 0,
+    "explicacion": "La posición larga en futuros tiene un pago lineal (ST - F0) que puede ser positivo o negativo, mientras que la opción call tiene un pago no lineal (máximo entre cero y ST - K), acotando la pérdida a la prima pagada.",
+    "fuente": "Finanzas I · Pauta Examen 2025b (José Luis Ruiz).pdf"
+  }
+]

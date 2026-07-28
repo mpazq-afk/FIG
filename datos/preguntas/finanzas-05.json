@@ -1,0 +1,162 @@
+[
+  {
+    "id": "ec-001",
+    "tema": "estructura-capital",
+    "ramo": "intro-finanzas",
+    "dificultad": 2,
+    "pregunta": "Cuando una empresa recompra acciones, ¿pierden riqueza los accionistas que NO participan en la recompra?",
+    "alternativas": [
+      "No, porque el precio de recompra es el mismo que el precio de las acciones que permanecen en circulación",
+      "Sí, porque reciben un pago menor al de quienes se quedan en la empresa",
+      "Sí, siempre pierden las oportunidades de crecimiento futuro de la empresa",
+      "Depende exclusivamente del tamaño de la empresa que realiza la recompra"
+    ],
+    "correcta": 0,
+    "explicacion": "No existe pérdida de riqueza para los accionistas salientes: el precio al que se recompran las acciones es el mismo que cotizan las que se mantienen en circulación.",
+    "fuente": "Intro a Finanzas · Pauta Examen Hansen Prim 2013.pdf"
+  },
+  {
+    "id": "ec-002",
+    "tema": "estructura-capital",
+    "ramo": "intro-finanzas",
+    "dificultad": 2,
+    "pregunta": "Al valorar por múltiplos comparables una empresa diversificada (que opera en más de una industria), ¿cuál es el enfoque correcto?",
+    "alternativas": [
+      "Valorar cada segmento de negocio con el múltiplo de su propia industria, y sumar los valores",
+      "Usar un único múltiplo promedio de todas las industrias en que opera la empresa",
+      "Valorar solo el segmento más grande de la empresa e ignorar los demás",
+      "Aplicar el múltiplo de la industria del competidor más grande del mercado"
+    ],
+    "correcta": 0,
+    "explicacion": "Al ser una firma con más de un rubro productivo, lo correcto es evaluar cada segmento con el múltiplo de su propia industria y sumar los valores estimados de las partes.",
+    "fuente": "Intro a Finanzas · Pauta Examen Hansen Prim 2013.pdf"
+  },
+  {
+    "id": "ec-003",
+    "tema": "estructura-capital",
+    "ramo": "intro-finanzas",
+    "dificultad": 2,
+    "pregunta": "¿Qué establece la \"propiedad de separación\" en la teoría de portafolios?",
+    "alternativas": [
+      "Que, ya identificado el portafolio de mercado, el inversionista elige libremente su punto sobre la Línea de Mercado de Capitales",
+      "Que todos los inversionistas deben invertir exclusivamente en el portafolio de mercado",
+      "Que el portafolio óptimo depende solo de la aversión al riesgo, sin relación con la LMC",
+      "Que no es posible combinar activos riesgosos con el activo libre de riesgo"
+    ],
+    "correcta": 0,
+    "explicacion": "La propiedad de separación indica que la elección del portafolio óptimo de activos riesgosos es independiente de las preferencias de riesgo del inversionista; estas solo determinan en qué punto de la LMC se ubica.",
+    "fuente": "Intro a Finanzas · Pauta Examen Hansen Prim 2013.pdf"
+  },
+  {
+    "id": "ec-004",
+    "tema": "estructura-capital",
+    "ramo": "intro-finanzas",
+    "dificultad": 3,
+    "pregunta": "Si sube la tasa libre de riesgo, ¿qué le ocurre al portafolio tangente (óptimo de activos riesgosos)?",
+    "alternativas": [
+      "Se aleja del origen, quedando con mayor riesgo y mayor retorno esperado",
+      "Se vuelve automáticamente menos riesgoso",
+      "No sufre ningún cambio ante variaciones de la tasa libre de riesgo",
+      "Se convierte en el nuevo activo libre de riesgo del mercado"
+    ],
+    "correcta": 0,
+    "explicacion": "Un alza en la tasa libre de riesgo desplaza el portafolio tangente más lejos del origen, aumentando tanto su riesgo como su retorno esperado.",
+    "fuente": "Intro a Finanzas · Pauta Examen Hansen Prim 2013.pdf"
+  },
+  {
+    "id": "ec-005",
+    "tema": "estructura-capital",
+    "ramo": "intro-finanzas",
+    "dificultad": 1,
+    "pregunta": "Según la Proposición I de Modigliani-Miller SIN impuestos (M&M 1958), ¿de qué depende el valor de una empresa?",
+    "alternativas": [
+      "Es independiente del nivel de apalancamiento (deuda) que utilice la empresa",
+      "Aumenta siempre que la empresa se endeude más",
+      "Depende exclusivamente del beta de sus acciones",
+      "Disminuye a medida que la empresa se endeuda más"
+    ],
+    "correcta": 0,
+    "explicacion": "El resultado central de M&M 1958 es que, en un mercado sin impuestos ni fricciones, el valor de la empresa no cambia con su estructura de financiamiento.",
+    "fuente": "Intro a Finanzas · Pauta Examen Hansen Prim 2013.pdf"
+  },
+  {
+    "id": "ec-006",
+    "tema": "estructura-capital",
+    "ramo": "intro-finanzas",
+    "dificultad": 2,
+    "pregunta": "Según Modigliani-Miller CON impuestos (M&M 1963), ¿por qué aumenta el valor de la empresa al endeudarse más?",
+    "alternativas": [
+      "Por el escudo tributario que genera la deducción de los intereses de la deuda",
+      "Porque la deuda siempre es más barata que el patrimonio en cualquier escenario",
+      "Porque los acreedores exigen menor rentabilidad que los accionistas",
+      "Porque el riesgo total de la empresa disminuye al endeudarse más"
+    ],
+    "correcta": 0,
+    "explicacion": "Al pagar menos impuestos por deducir los intereses de la deuda, la empresa retiene más valor para sus dueños y acreedores en conjunto, ese ahorro tributario es el escudo fiscal.",
+    "fuente": "Intro a Finanzas · Pauta Examen Hansen Prim 2013.pdf"
+  },
+  {
+    "id": "ec-007",
+    "tema": "estructura-capital",
+    "ramo": "intro-finanzas",
+    "dificultad": 3,
+    "pregunta": "Si M&M con impuestos sugiere que el valor de la empresa aumenta con la deuda, ¿por qué en la práctica no se observan empresas 100% financiadas con deuda?",
+    "alternativas": [
+      "Porque existen costos de quiebra que contrarrestan el beneficio del escudo tributario a niveles altos de deuda",
+      "Porque la ley prohíbe que las empresas se financien completamente con deuda",
+      "Porque las tasas de interés siempre suben al 100% cuando hay demasiada deuda",
+      "Porque los inversionistas nunca prestan dinero a empresas rentables"
+    ],
+    "correcta": 0,
+    "explicacion": "A mayor endeudamiento, crece la probabilidad de quiebra y sus costos asociados, lo que a cierto nivel supera el beneficio del escudo tributario y frena el endeudamiento óptimo.",
+    "fuente": "Intro a Finanzas · Pauta Examen Hansen Prim 2013.pdf"
+  },
+  {
+    "id": "ec-008",
+    "tema": "estructura-capital",
+    "ramo": "intro-finanzas",
+    "dificultad": 1,
+    "pregunta": "En una empresa financiada 100% con patrimonio, según el CAPM, ¿cómo se determina su costo patrimonial (kp)?",
+    "alternativas": [
+      "Es igual a la rentabilidad exigida a sus activos: kp = rf + β(rm − rf)",
+      "Es siempre igual a la tasa libre de riesgo, sin ningún ajuste por riesgo",
+      "Depende únicamente de la tasa de interés que cobran los bancos por deuda",
+      "Es igual al WACC de cualquier empresa, sin importar su estructura de capital"
+    ],
+    "correcta": 0,
+    "explicacion": "Cuando no hay deuda, el costo de capital de la empresa coincide con el costo patrimonial, calculado directamente vía CAPM usando el beta del negocio.",
+    "fuente": "Intro a Finanzas · Pauta Examen Hansen Prim 2013.pdf"
+  },
+  {
+    "id": "ec-009",
+    "tema": "estructura-capital",
+    "ramo": "intro-finanzas",
+    "dificultad": 2,
+    "pregunta": "¿Qué ocurre con el costo patrimonial (kp) de una empresa a medida que aumenta su razón deuda/patrimonio (B/P)?",
+    "alternativas": [
+      "Aumenta, porque los accionistas exigen mayor retorno al asumir más riesgo financiero por el apalancamiento",
+      "Disminuye, porque la deuda reduce el riesgo total que enfrenta la empresa",
+      "Se mantiene constante, independiente del nivel de endeudamiento",
+      "Se iguala automáticamente al costo de la deuda de la empresa"
+    ],
+    "correcta": 0,
+    "explicacion": "A mayor apalancamiento, el riesgo financiero que asumen los accionistas crece, por lo que exigen una rentabilidad patrimonial mayor, esta relación se refleja explícitamente en la fórmula de M&M con impuestos.",
+    "fuente": "Intro a Finanzas · Pauta Examen Hansen Prim 2013.pdf"
+  },
+  {
+    "id": "ec-010",
+    "tema": "estructura-capital",
+    "ramo": "intro-finanzas",
+    "dificultad": 2,
+    "pregunta": "El Costo de Capital Promedio Ponderado (WACC) de una empresa combina...",
+    "alternativas": [
+      "El costo del patrimonio y el costo de la deuda después de impuestos, ponderados por su participación en el valor total de la empresa",
+      "Solo el costo de la deuda de la empresa, sin considerar el patrimonio",
+      "Solo el costo patrimonial calculado por CAPM, sin ningún ajuste por deuda",
+      "El promedio simple entre la tasa libre de riesgo y la tasa de la deuda"
+    ],
+    "correcta": 0,
+    "explicacion": "El WACC pondera el costo patrimonial y el costo de la deuda (neto del beneficio tributario) según el peso que cada fuente de financiamiento tiene sobre el valor total de la empresa.",
+    "fuente": "Intro a Finanzas · Pauta Examen Hansen Prim 2013.pdf"
+  }
+]

@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="es" class="no-js">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Desafío FIG — Trivia de finanzas</title>
+<meta name="description" content="El Desafío FIG: preguntas de finanzas, economía e historia de los mercados. Responde contra el reloj, descubre tus áreas fuertes y débiles, o entra al modo estudio.">
+<meta name="theme-color" content="#0A1128">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%230A1128'/%3E%3Ccircle cx='50' cy='50' r='34' fill='%23D4AF37'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================================
+   FIG · DESAFÍO FIG — trivia de finanzas, economía e historia de mercados.
+   Datos: banco embebido de respaldo, sobreescrito por datos/preguntas/
+   (index.json + shards — ver datos/preguntas/LEEME.md para autoría).
+   Modo DESAFÍO: preguntas secuenciales sin volver atrás; fase de lectura
+   (solo el enunciado) y luego alternativas con puntaje que decae en el
+   tiempo; malas descuentan, saltadas no suman; al final: revisión con
+   explicaciones, áreas fuertes/débiles y ranking (localStorage).
+   Modo ESTUDIO: eliges tema o ramo, sin reloj, feedback inmediato.
+   ============================================================================ */
+:root{
+  --navy-deep:#060B1C; --navy:#0A1128; --navy-panel:#0F1934;
+  --gold:#D4AF37; --gold-light:#EBD388; --gold-deep:#9E7E1E;
+  --gold-dim:rgba(212,175,55,.32); --gold-faint:rgba(212,175,55,.11);
+  --ivory:#F7F4EC; --line-d:rgba(212,175,55,.17);
+  --up:#5FC08B; --down:#E07A5F; --skip:#C8CDD6;
+  --f-disp:"Playfair Display",Georgia,serif;
+  --f-body:"Inter",-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono","SF Mono",monospace;
+  --wrap:880px; --ease:cubic-bezier(.22,.61,.21,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.001s!important;transition-duration:.001s!important}}
+body{background:var(--navy);color:var(--ivory);font-family:var(--f-body);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--gold);color:var(--navy)}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:2px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 28px;position:relative;z-index:2}
+.kicker{font-family:var(--f-mono);font-size:.72rem;font-weight:500;letter-spacing:.42em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:14px}
+.kicker::before{content:"";width:34px;height:1px;background:var(--gold);opacity:.7;flex:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:600;font-size:.9rem;padding:13px 26px;border-radius:2px;transition:transform .3s var(--ease),box-shadow .3s,background .3s,color .3s,border-color .3s;white-space:nowrap}
+.btn--gold{background:var(--gold);color:var(--navy)}
+.btn--gold:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 16px 38px -12px rgba(212,175,55,.55)}
+.btn--ghost{border:1px solid var(--gold-dim);color:var(--ivory)}
+.btn--ghost:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
+.brand-logo{width:40px;height:40px;object-fit:contain;flex:none}
+
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:20px 0;background:rgba(6,11,28,.82);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--line-d)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;max-width:1180px}
+.brand{display:flex;align-items:center;gap:13px}
+.brand-name{font-family:var(--f-disp);font-weight:600;font-size:1.02rem;line-height:1.15}
+.brand-sub{font-family:var(--f-mono);font-size:.55rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);display:block;margin-top:2px}
+.nav a.back{font-size:.84rem;font-weight:500;color:rgba(247,244,236,.82)}
+.nav a.back:hover{color:var(--gold)}
+
+main{padding:clamp(7.5rem,13vh,9.5rem) 0 5rem;min-height:100vh;
+  background:radial-gradient(1100px 520px at 85% -10%,rgba(212,175,55,.1),transparent 60%),var(--navy)}
+.screen{display:none}
+.screen.on{display:block}
+h1{font-family:var(--f-disp);font-weight:600;font-size:clamp(1.9rem,4.4vw,3rem);line-height:1.1;margin:16px 0 12px}
+h1 em{font-style:italic;color:var(--gold)}
+.lead{color:rgba(247,244,236,.75);max-width:60ch;font-size:.98rem}
+
+/* home */
+.modes{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;margin-top:34px}
+.mode{border:1px solid var(--line-d);border-radius:12px;background:linear-gradient(165deg,var(--navy-panel),rgba(10,17,40,.95));padding:26px 24px;text-align:left;transition:transform .3s var(--ease),border-color .3s}
+.mode:hover{transform:translateY(-4px);border-color:var(--gold)}
+.mode b{font-family:var(--f-disp);font-weight:600;font-size:1.2rem;display:block;margin-bottom:8px}
+.mode span{font-size:.84rem;color:rgba(247,244,236,.65);line-height:1.55;display:block}
+.mode .tagm{font-family:var(--f-mono);font-size:.56rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);display:inline-block;margin-bottom:12px;border:1px solid var(--gold-dim);border-radius:100px;padding:3px 11px}
+
+/* selector estudio */
+.picks{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.pick{border:1px solid var(--line-d);border-radius:100px;padding:11px 22px;font-family:var(--f-mono);font-size:.74rem;letter-spacing:.08em;transition:border-color .3s,color .3s,transform .3s var(--ease)}
+.pick:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
+.pick small{color:rgba(247,244,236,.45);margin-left:8px}
+
+/* quiz */
+.q-top{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:20px;font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.q-prog{font-size:.68rem;letter-spacing:.2em;color:rgba(247,244,236,.55)}
+.q-score{font-size:.72rem;letter-spacing:.1em;color:var(--gold);border:1px solid var(--gold-dim);border-radius:100px;padding:6px 14px}
+.q-val{margin-left:auto;font-size:.72rem;letter-spacing:.1em;color:var(--up)}
+.q-val.low{color:var(--down)}
+.q-bar{height:4px;background:rgba(247,244,236,.08);border-radius:99px;overflow:hidden;margin-bottom:26px}
+.q-bar i{display:block;height:100%;width:100%;background:linear-gradient(90deg,var(--gold-deep),var(--gold-light));border-radius:99px;transition:width .2s linear}
+.q-card{border:1px solid var(--line-d);border-radius:14px;background:linear-gradient(165deg,var(--navy-panel),rgba(10,17,40,.97));padding:clamp(1.6rem,4vw,2.6rem);position:relative;overflow:hidden}
+.q-card::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.6}
+.q-meta{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.mono-tag{font-family:var(--f-mono);font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold-dim);border-radius:100px;padding:4px 12px}
+.q-text{font-family:var(--f-disp);font-weight:600;font-size:clamp(1.2rem,2.8vw,1.6rem);line-height:1.35;text-wrap:balance}
+.q-think{margin-top:22px;font-family:var(--f-mono);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(247,244,236,.5);display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.q-think b{color:var(--gold);font-size:1rem}
+.alts{display:flex;flex-direction:column;gap:12px;margin-top:24px}
+.alt{border:1px solid var(--line-d);border-radius:10px;background:rgba(247,244,236,.03);padding:15px 18px;text-align:left;font-size:.94rem;line-height:1.5;display:flex;gap:14px;align-items:baseline;transition:border-color .25s,background .25s,transform .25s var(--ease)}
+.alt:hover{border-color:var(--gold);transform:translateX(4px)}
+.alt .letra{font-family:var(--f-mono);font-weight:600;font-size:.72rem;color:var(--gold);flex:none}
+.alt.ok{border-color:rgba(95,192,139,.6);background:rgba(95,192,139,.08)}
+.alt.mal{border-color:rgba(224,122,95,.6);background:rgba(224,122,95,.08)}
+.q-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:24px;align-items:center}
+.q-fb{margin-top:20px;border:1px dashed var(--gold-dim);border-radius:10px;padding:16px 18px;font-size:.88rem;color:rgba(247,244,236,.8);line-height:1.6}
+.q-fb b{color:var(--gold)}
+.hidden{display:none!important}
+
+/* fin / revisión */
+.end-score{font-family:var(--f-mono);font-weight:600;font-size:clamp(2.2rem,7vw,3.6rem);color:var(--gold);margin:10px 0 4px}
+.end-sub{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(247,244,236,.5)}
+.areas{display:flex;gap:12px;flex-wrap:wrap;margin:22px 0}
+.area{border:1px solid var(--line-d);border-radius:10px;padding:12px 18px;font-family:var(--f-mono);font-size:.7rem;letter-spacing:.08em}
+.area b{display:block;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;margin-bottom:4px}
+.area.fu b{color:var(--up)}
+.area.de b{color:var(--down)}
+.rev{margin-top:30px;display:flex;flex-direction:column;gap:14px}
+.rev-item{border:1px solid var(--line-d);border-radius:12px;padding:18px 20px;background:rgba(15,25,52,.4)}
+.rev-item .rh{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;margin-bottom:8px}
+.rev-item .est{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.16em;border-radius:100px;padding:3px 12px;border:1px solid}
+.est.ok{color:var(--up);border-color:rgba(95,192,139,.4)}
+.est.mal{color:var(--down);border-color:rgba(224,122,95,.4)}
+.est.salto{color:var(--skip);border-color:rgba(200,205,214,.35)}
+.rev-item .rq{font-weight:600;font-size:.94rem}
+.rev-item .rr{font-size:.84rem;color:rgba(247,244,236,.7);margin-top:6px}
+.rev-item .rr b{color:var(--up);font-weight:600}
+.rev-item .rr .tuya{color:var(--down)}
+.rev-item .rx{font-size:.84rem;color:rgba(247,244,236,.75);margin-top:10px;padding-top:10px;border-top:1px dashed rgba(212,175,55,.2);line-height:1.6}
+.name-row{display:flex;gap:10px;flex-wrap:wrap;margin:26px 0}
+.name-row input{background:rgba(247,244,236,.05);border:1px solid var(--line-d);border-radius:8px;padding:12px 16px;color:var(--ivory);font-family:var(--f-mono);font-size:.9rem;width:min(280px,70vw)}
+.name-row input:focus{outline:none;border-color:var(--gold)}
+
+/* ranking */
+.rank-sec{margin-top:56px}
+.rank-head{display:flex;align-items:baseline;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:14px}
+.rank-head h3{font-family:var(--f-disp);font-weight:600;font-size:1.3rem}
+.rank-head span{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(247,244,236,.45)}
+.rank{border:1px solid var(--line-d);border-radius:12px;overflow:hidden;background:rgba(15,25,52,.4)}
+.rank-row{display:grid;grid-template-columns:52px 1fr 110px 210px;gap:12px;align-items:center;padding:12px 20px;border-bottom:1px solid rgba(212,175,55,.08);font-family:var(--f-mono);font-variant-numeric:tabular-nums;font-size:.8rem}
+.rank-row:last-child{border-bottom:none}
+.rank-row.head{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(247,244,236,.45);background:rgba(15,25,52,.6)}
+.rank-row .pos{color:var(--gold);font-weight:600}
+.rank-row .val{text-align:right;color:var(--gold)}
+.rank-row .ar{font-size:.62rem;color:rgba(247,244,236,.6);text-align:right}
+.rank-row .ar i{font-style:normal;color:var(--up)}
+.rank-row .ar u{text-decoration:none;color:var(--down)}
+.rank-empty{padding:30px 20px;text-align:center;font-family:var(--f-mono);font-size:.7rem;letter-spacing:.1em;color:rgba(247,244,236,.5)}
+
+footer{background:var(--navy-deep);padding:30px 0;border-top:1px solid var(--line-d)}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:var(--f-mono);font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(247,244,236,.45);max-width:1180px}
+footer a{color:rgba(247,244,236,.65)}
+footer a:hover{color:var(--gold)}
+@media (max-width:680px){.rank-row{grid-template-columns:40px 1fr 90px;padding:12px 14px}.rank-row .ar{display:none}}
+</style>
+<script>
+  if (window.location.pathname.endsWith('/index.html')) {
+    const cleanPath = window.location.pathname.replace(/\/index\.html$/, '/') + window.location.search + window.location.hash;
+    window.history.replaceState(null, '', cleanPath);
+  }
+</script>
+
+<script>
+  // Prevenir que el # aparezca en la URL al hacer clic en enlaces internos
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+      anchor.addEventListener('click', function (e) {
+        var targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        var targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          e.preventDefault();
+          targetElement.scrollIntoView({ behavior: 'smooth' });
+          // Mantiene la URL limpia sin el #
+          window.history.pushState(null, null, window.location.pathname + window.location.search);
+        }
+      });
+    });
+  });
+</script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a href="../" class="brand" aria-label="FEN Investment Group — Inicio">
+      <img class="brand-logo" src="../logos/fig-oro.png" alt="FIG">
+      <div><div class="brand-name">Desafío FIG</div><span class="brand-sub">Trivia de finanzas</span></div>
+    </a>
+    <a href="../" class="back">← Volver a FIG</a>
+  </div>
+</nav>
+
+<main>
+  <div class="wrap">
+
+    <!-- ============ HOME ============ -->
+    <section class="screen on" id="scrHome">
+      <div class="kicker">Ponte a prueba</div>
+      <h1>¿Cuánto sabes <em>de verdad?</em></h1>
+      <p class="lead">Finanzas, economía e historia de los mercados. En el desafío las preguntas van una a una, sin volver atrás, y valen más mientras más rápido respondas. Las malas descuentan; saltar es gratis pero no suma. Al final: tu puntaje, tus áreas fuertes y débiles, y la explicación de cada error.</p>
+      <div class="modes">
+        <button class="mode" id="mDesafio">
+          <span class="tagm">RANKING · CONTRA EL RELOJ</span>
+          <b>Desafío</b>
+          <span id="mDesafioSub">10 preguntas de todos los temas. El puntaje decae mientras piensas. Registra tu nombre al final.</span>
+        </button>
+        <button class="mode" id="mTema">
+          <span class="tagm">ESTUDIO · SIN RELOJ</span>
+          <b>Estudiar un tema</b>
+          <span>Elige un área (renta fija, macro, historia…) y practica con feedback inmediato tras cada respuesta.</span>
+        </button>
+        <button class="mode" id="mRamo">
+          <span class="tagm">ESTUDIO · SIN RELOJ</span>
+          <b>Estudiar un ramo</b>
+          <span>Preguntas creadas desde la materia de una asignatura específica. Ideal antes de una prueba.</span>
+        </button>
+      </div>
+
+      <div class="rank-sec">
+        <div class="rank-head">
+          <h3>Ranking de este navegador</h3>
+          <span>SOLO MODO DESAFÍO</span>
+        </div>
+        <div class="rank">
+          <div class="rank-row head"><span>POS</span><span>NOMBRE</span><span style="text-align:right">PUNTOS</span><span style="text-align:right">FUERTE / DÉBIL</span></div>
+          <div id="rankBody"><div class="rank-empty">NADIE HA COMPLETADO EL DESAFÍO AÚN</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SELECTOR ESTUDIO ============ -->
+    <section class="screen" id="scrPick">
+      <div class="kicker">Modo estudio</div>
+      <h1 id="pickTitle">Elige un tema</h1>
+      <p class="lead">Sin reloj y con la explicación al instante después de cada respuesta.</p>
+      <div class="picks" id="pickList"></div>
+      <div style="margin-top:30px"><button class="btn btn--ghost" id="btnPickBack">← Volver</button></div>
+    </section>
+
+    <!-- ============ QUIZ ============ -->
+    <section class="screen" id="scrQuiz">
+      <div class="q-top">
+        <span class="q-prog" id="qProg">PREGUNTA 1 / 10</span>
+        <span class="q-score" id="qScore">0 PTS</span>
+        <span class="q-val" id="qVal"></span>
+      </div>
+      <div class="q-bar"><i id="qBarFill"></i></div>
+      <div class="q-card">
+        <div class="q-meta" id="qMeta"></div>
+        <div class="q-text" id="qText"></div>
+        <div class="q-think" id="qThink"><span>LEE Y PIENSA…</span><b id="qThinkN">5</b><button class="btn btn--ghost" id="btnShowAlts" style="padding:8px 18px;font-size:.76rem">Ver alternativas →</button></div>
+        <div class="alts hidden" id="qAlts"></div>
+        <div class="q-fb hidden" id="qFb"></div>
+        <div class="q-actions">
+          <button class="btn btn--ghost hidden" id="btnSkip">Saltar (0 pts) →</button>
+          <button class="btn btn--gold hidden" id="btnNext">Siguiente →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FIN ============ -->
+    <section class="screen" id="scrEnd">
+      <div class="kicker" id="endKicker">Resultado del desafío</div>
+      <div class="end-score" id="endScore">0 PTS</div>
+      <div class="end-sub" id="endSub"></div>
+      <div class="areas" id="endAreas"></div>
+      <div class="name-row" id="saveRow">
+        <input id="inpName" type="text" maxlength="24" placeholder="Tu nombre para el ranking" autocomplete="off">
+        <button class="btn btn--gold" id="btnSave">Guardar en el ranking</button>
+      </div>
+      <div>
+        <button class="btn btn--gold" id="btnRetry">Jugar de nuevo →</button>
+        <button class="btn btn--ghost" id="btnHome" style="margin-left:10px">Menú principal</button>
+      </div>
+      <div class="rev" id="endRev"></div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 FEN Investment Group · Desafío FIG</span>
+    <span>Creado por <a href="https://www.linkedin.com/in/francisco-ignacio-andr%C3%A9s-valenzuela-lecaros-128a69396/" target="_blank" rel="noopener">Francisco Valenzuela</a> y <a href="https://www.linkedin.com/in/mpazq" target="_blank" rel="noopener">Manuel Paz</a></span>
+    <a href="../juego/">¿Prefieres correr? El Rally del Toro →</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+"use strict";
+document.documentElement.classList.remove("no-js");
+function $(s,r){return (r||document).querySelector(s)}
+function $$(s,r){return [].slice.call((r||document).querySelectorAll(s))}
+function esc(t){return String(t==null?"":t).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+function shuffle(a){
+  a=a.slice();
+  for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t;}
+  return a;
+}
+var LETRAS=["A","B","C","D","E"];
+
+/* ==========================================================================
+   BANCO — respaldo embebido (mínimo). El banco real vive en
+   datos/preguntas/ y lo mantiene el pipeline documentado en su LEEME.md.
+   ========================================================================== */
+var INDICE={
+  temas:[{id:"renta-variable",nombre:"Renta Variable"},{id:"renta-fija",nombre:"Renta Fija"},
+         {id:"macroeconomia",nombre:"Macroeconomía"},{id:"historia-mercados",nombre:"Historia de los Mercados"}],
+  ramos:[{id:"finanzas-i",nombre:"Finanzas I"},{id:"economia",nombre:"Economía"}]
+};
+var BANCO=[
+ {id:"rv-001",tema:"renta-variable",ramo:"finanzas-i",dificultad:1,
+  pregunta:"¿Qué mide el ratio precio/utilidad (P/E) de una acción?",
+  alternativas:["Cuántas veces la utilidad por acción está contenida en el precio de la acción","El porcentaje de la utilidad que se reparte como dividendo","La deuda de la empresa respecto de su patrimonio","El retorno esperado de la acción el próximo año"],
+  correcta:0,explicacion:"El P/E divide el precio de la acción por la utilidad por acción (EPS): indica cuántos años de utilidades 'pagas' al precio actual. Un P/E alto suele reflejar expectativas de crecimiento, no una promesa de retorno."},
+ {id:"rv-002",tema:"renta-variable",ramo:"finanzas-i",dificultad:1,
+  pregunta:"La diversificación de un portafolio reduce principalmente…",
+  alternativas:["El riesgo idiosincrático (propio de cada empresa)","El riesgo de mercado (sistemático)","Los costos de transacción","La carga tributaria de las ganancias"],
+  correcta:0,explicacion:"Combinando activos poco correlacionados se diluye el riesgo específico de cada empresa. El riesgo sistemático, el del mercado completo, no se elimina diversificando; ese se gestiona con asignación de activos y cobertura."},
+ {id:"rf-001",tema:"renta-fija",ramo:"finanzas-i",dificultad:1,
+  pregunta:"Si las tasas de interés de mercado suben, el precio de un bono ya emitido…",
+  alternativas:["Baja","Sube","No cambia","Sube solo si el bono paga cupones"],
+  correcta:0,explicacion:"Los flujos futuros del bono se descuentan a una tasa mayor, así que su valor presente cae. Es la relación inversa fundamental de la renta fija: tasas arriba, precios abajo."},
+ {id:"rf-002",tema:"renta-fija",ramo:"finanzas-i",dificultad:2,
+  pregunta:"¿Qué mide la duración (duration) de un bono?",
+  alternativas:["La sensibilidad del precio del bono ante cambios en la tasa de interés","Los años que faltan exactos hasta el vencimiento","La probabilidad de que el emisor no pague","El monto total de cupones que quedan por cobrar"],
+  correcta:0,explicacion:"La duración aproxima cuánto cae (o sube) el precio ante un alza (o baja) de 1% en la tasa. No es lo mismo que el plazo al vencimiento, aunque se mida en años: un bono con cupones altos tiene duración menor que su plazo."},
+ {id:"mac-001",tema:"macroeconomia",ramo:"economia",dificultad:1,
+  pregunta:"¿Qué mide el IPC (Índice de Precios al Consumidor)?",
+  alternativas:["La variación del precio de una canasta representativa de consumo","El precio de las acciones de las empresas de consumo","El crecimiento del producto interno bruto","El tipo de cambio del dólar"],
+  correcta:0,explicacion:"El IPC sigue el costo de una canasta de bienes y servicios de los hogares; su variación porcentual es la medida estándar de inflación. Por eso los bancos centrales lo miran para decidir la tasa de política monetaria."},
+ {id:"mac-002",tema:"macroeconomia",ramo:"economia",dificultad:1,
+  pregunta:"Cuando un banco central quiere contener una inflación alta, típicamente…",
+  alternativas:["Sube la tasa de política monetaria","Baja la tasa de política monetaria","Compra acciones en la bolsa local","Congela los precios por decreto"],
+  correcta:0,explicacion:"Subir la tasa encarece el crédito y enfría la demanda, lo que presiona los precios a la baja. Es remedio con costo: menos consumo e inversión en el corto plazo a cambio de estabilidad de precios."},
+ {id:"his-001",tema:"historia-mercados",ramo:"economia",dificultad:1,
+  pregunta:"El crash bursátil de octubre de 1929 en Estados Unidos dio inicio a…",
+  alternativas:["La Gran Depresión","La crisis del petróleo","La burbuja puntocom","La crisis subprime"],
+  correcta:0,explicacion:"Tras años de euforia y compras apalancadas, el mercado colapsó en octubre de 1929 (el 'martes negro' fue el 29). Le siguió la Gran Depresión: una década de contracción que redefinió la regulación financiera moderna."},
+ {id:"his-003",tema:"historia-mercados",ramo:"economia",dificultad:2,
+  pregunta:"La quiebra de Lehman Brothers en septiembre de 2008 fue un hito de…",
+  alternativas:["La crisis financiera global originada en las hipotecas subprime","La crisis asiática de 1997","El lunes negro de 1987","La crisis de la deuda latinoamericana de los 80"],
+  correcta:0,explicacion:"Lehman cayó cargada de activos ligados a hipotecas de alto riesgo y su quiebra congeló el crédito mundial. La lección para el inversionista: el riesgo de contraparte y el apalancamiento importan incluso en los gigantes."}
+];
+
+/* carga del banco real (sobrescribe el respaldo) */
+fetch("../datos/preguntas/index.json",{cache:"no-store"})
+  .then(function(r){return r.ok?r.json():null})
+  .then(function(idx){
+    if(!idx||!idx.archivos)return;
+    return Promise.all(idx.archivos.map(function(a){
+      return fetch("../datos/preguntas/"+a,{cache:"no-store"})
+        .then(function(r){return r.ok?r.json():[]})
+        .catch(function(){return []});
+    })).then(function(shards){
+      var todas=[];
+      shards.forEach(function(s){if(s&&s.length)todas=todas.concat(s)});
+      if(todas.length){
+        BANCO=todas;
+        INDICE={temas:idx.temas,ramos:idx.ramos};
+        $("#mDesafioSub").textContent=Math.min(10,todas.length)+" preguntas de "
+          +idx.temas.length+" temas ("+todas.length+" en el banco). El puntaje decae mientras piensas.";
+      }
+    });
+  }).catch(function(){});
+
+/* ==========================================================================
+   CONFIG DE JUEGO
+   ========================================================================== */
+var N_DESAFIO=10;        /* preguntas por ronda de desafío */
+var VAL_MAX=100,VAL_MIN=20,DECAY_S=14; /* valor de la pregunta y su caída */
+var PENAL=32;            /* descuento por respuesta mala */
+var LS_KEY="figDesafioScores";
+
+/* ---------------- estado de ronda ---------------- */
+var modo="",ronda=[],idx=0,total=0,resultados=[];
+var decayT=null,thinkT=null,valorActual=VAL_MAX,tAlts=0;
+
+function nombreTema(id){
+  for(var i=0;i<INDICE.temas.length;i++)if(INDICE.temas[i].id===id)return INDICE.temas[i].nombre;
+  return id;
+}
+function nombreRamo(id){
+  for(var i=0;i<INDICE.ramos.length;i++)if(INDICE.ramos[i].id===id)return INDICE.ramos[i].nombre;
+  return id;
+}
+function show(id){
+  $$(".screen").forEach(function(s){s.classList.remove("on")});
+  $("#"+id).classList.add("on");
+  window.scrollTo(0,0);
+}
+
+/* ---------------- ranking ---------------- */
+function getScores(){try{return JSON.parse(localStorage.getItem(LS_KEY)||"[]")}catch(e){return []}}
+function renderRank(){
+  var s=getScores(),body=$("#rankBody");
+  if(!s.length){body.innerHTML='<div class="rank-empty">NADIE HA COMPLETADO EL DESAFÍO AÚN</div>';return;}
+  body.innerHTML=s.map(function(r,i){
+    return '<div class="rank-row"><span class="pos">'+(i+1)+'</span><span>'+esc(r.n)+'</span>'
+      +'<span class="val">'+r.p+'</span>'
+      +'<span class="ar"><i>▲ '+esc(r.fu||"—")+'</i> · <u>▼ '+esc(r.de||"—")+'</u></span></div>';
+  }).join("");
+}
+
+/* ---------------- armado de rondas ---------------- */
+function armarDesafio(){
+  /* mezcla equilibrada por tema, priorizando dificultad 2 y 3 (el desafío
+     debe sentirse exigente) — dificultad 1 solo entra para completar si
+     no alcanzan las preguntas más difíciles de un tema */
+  var pool=BANCO.filter(function(q){return q.dificultad>=2});
+  if(pool.length<N_DESAFIO)pool=BANCO.slice();
+  var porTema={};
+  pool.forEach(function(q){(porTema[q.tema]=porTema[q.tema]||[]).push(q)});
+  var colas=Object.keys(porTema).map(function(k){
+    return shuffle(porTema[k]).sort(function(a,b){return b.dificultad-a.dificultad});
+  });
+  colas=shuffle(colas);
+  var out=[],i=0;
+  while(out.length<Math.min(N_DESAFIO,pool.length)){
+    var cola=colas[i%colas.length];
+    if(cola.length)out.push(cola.shift());
+    if(colas.every(function(c){return !c.length}))break;
+    i++;
+  }
+  return shuffle(out);
+}
+function armarEstudio(campo,valor){
+  return shuffle(BANCO.filter(function(q){return q[campo]===valor})).slice(0,20);
+}
+
+/* ---------------- flujo de pregunta ---------------- */
+function empezar(m,preguntas){
+  modo=m;ronda=preguntas;idx=0;total=0;resultados=[];
+  show("scrQuiz");
+  mostrarPregunta();
+}
+function limpiarTimers(){
+  if(decayT){clearInterval(decayT);decayT=null;}
+  if(thinkT){clearInterval(thinkT);thinkT=null;}
+}
+function mostrarPregunta(){
+  limpiarTimers();
+  var q=ronda[idx];
+  $("#qProg").textContent="PREGUNTA "+(idx+1)+" / "+ronda.length;
+  $("#qScore").textContent=total+" PTS";
+  $("#qMeta").innerHTML='<span class="mono-tag">'+esc(nombreTema(q.tema))+'</span>'
+    +'<span class="mono-tag">'+esc(nombreRamo(q.ramo))+'</span>'
+    +'<span class="mono-tag">DIFICULTAD '+q.dificultad+'</span>';
+  $("#qText").textContent=q.pregunta;
+  $("#qFb").classList.add("hidden");
+  $("#btnNext").classList.add("hidden");
+  $("#qAlts").classList.add("hidden");
+  $("#qAlts").innerHTML="";
+  $("#qVal").textContent="";
+  $("#qBarFill").style.width="100%";
+
+  /* barajar alternativas guardando cuál es la correcta */
+  var orden=shuffle(q.alternativas.map(function(a,i){return i}));
+  q._orden=orden;
+
+  if(modo==="desafio"){
+    /* fase de lectura: solo el enunciado */
+    $("#qThink").classList.remove("hidden");
+    $("#btnSkip").classList.add("hidden");
+    var lect=Math.max(2,Math.min(6,Math.round(2+q.pregunta.length/70)));
+    $("#qThinkN").textContent=lect;
+    thinkT=setInterval(function(){
+      lect--;
+      $("#qThinkN").textContent=lect;
+      if(lect<=0)mostrarAlternativas();
+    },1000);
+  }else{
+    $("#qThink").classList.add("hidden");
+    mostrarAlternativas();
+  }
+}
+function mostrarAlternativas(){
+  limpiarTimers();
+  var q=ronda[idx];
+  $("#qThink").classList.add("hidden");
+  var box=$("#qAlts");
+  box.innerHTML=q._orden.map(function(origIdx,pos){
+    return '<button class="alt" data-orig="'+origIdx+'"><span class="letra">'+LETRAS[pos]+'</span><span>'+esc(q.alternativas[origIdx])+'</span></button>';
+  }).join("");
+  box.classList.remove("hidden");
+  $$(".alt",box).forEach(function(b){
+    b.addEventListener("click",function(){responder(parseInt(b.getAttribute("data-orig"),10),b)});
+  });
+  $("#btnSkip").classList.remove("hidden");
+
+  if(modo==="desafio"){
+    valorActual=VAL_MAX;tAlts=Date.now();
+    $("#qVal").textContent="VALE "+VAL_MAX+" PTS";
+    $("#qVal").classList.remove("low");
+    decayT=setInterval(function(){
+      var t=(Date.now()-tAlts)/1000;
+      valorActual=Math.max(VAL_MIN,Math.round(VAL_MAX-(VAL_MAX-VAL_MIN)*(t/DECAY_S)));
+      $("#qVal").textContent="VALE "+valorActual+" PTS";
+      $("#qVal").classList.toggle("low",valorActual<=40);
+      $("#qBarFill").style.width=((valorActual-VAL_MIN)/(VAL_MAX-VAL_MIN)*100)+"%";
+    },200);
+  }
+}
+function responder(origIdx,boton){
+  limpiarTimers();
+  var q=ronda[idx],ok=origIdx===q.correcta;
+  var pts=modo==="desafio"?(ok?valorActual:-PENAL):0;
+  total+=pts;
+  resultados.push({q:q,estado:ok?"ok":"mal",elegida:origIdx,pts:pts});
+  $$(".alt").forEach(function(b){b.disabled=true;b.style.pointerEvents="none"});
+  if(boton)boton.classList.add(ok?"ok":"mal");
+  /* marcar la correcta siempre */
+  $$(".alt").forEach(function(b){
+    if(parseInt(b.getAttribute("data-orig"),10)===q.correcta)b.classList.add("ok");
+  });
+  $("#btnSkip").classList.add("hidden");
+  if(modo!=="desafio"){
+    $("#qFb").innerHTML="<b>"+(ok?"Correcto.":"Incorrecto.")+"</b> "+esc(q.explicacion);
+    $("#qFb").classList.remove("hidden");
+    $("#btnNext").classList.remove("hidden");
+  }else{
+    $("#qScore").textContent=total+" PTS";
+    setTimeout(avanzar,650);
+  }
+}
+function saltar(){
+  limpiarTimers();
+  var q=ronda[idx];
+  resultados.push({q:q,estado:"salto",elegida:null,pts:0});
+  if(modo!=="desafio"){
+    $$(".alt").forEach(function(b){
+      b.disabled=true;b.style.pointerEvents="none";
+      if(parseInt(b.getAttribute("data-orig"),10)===q.correcta)b.classList.add("ok");
+    });
+    $("#btnSkip").classList.add("hidden");
+    $("#qFb").innerHTML="<b>Saltada.</b> "+esc(q.explicacion);
+    $("#qFb").classList.remove("hidden");
+    $("#btnNext").classList.remove("hidden");
+  }else{
+    avanzar();
+  }
+}
+function avanzar(){
+  idx++;
+  if(idx<ronda.length)mostrarPregunta();
+  else terminar();
+}
+
+/* ---------------- fin de ronda ---------------- */
+function areasResumen(){
+  var por={};
+  resultados.forEach(function(r){
+    var t=r.q.tema;
+    por[t]=por[t]||{ok:0,mal:0,salto:0};
+    por[t][r.estado]++;
+  });
+  var lista=Object.keys(por).map(function(t){
+    return {tema:t,neto:por[t].ok-por[t].mal,det:por[t]};
+  });
+  lista.sort(function(a,b){return b.neto-a.neto});
+  return lista;
+}
+function terminar(){
+  limpiarTimers();
+  show("scrEnd");
+  var esD=modo==="desafio";
+  $("#endKicker").textContent=esD?"Resultado del desafío":"Fin de la sesión de estudio";
+  $("#endScore").textContent=esD?total+" PTS":"";
+  var oks=resultados.filter(function(r){return r.estado==="ok"}).length;
+  var mals=resultados.filter(function(r){return r.estado==="mal"}).length;
+  var sals=resultados.filter(function(r){return r.estado==="salto"}).length;
+  $("#endSub").textContent=oks+" CORRECTAS · "+mals+" INCORRECTAS (−"+PENAL+" C/U) · "+sals+" SALTADAS";
+  if(!esD)$("#endSub").textContent=oks+" CORRECTAS · "+mals+" INCORRECTAS · "+sals+" SALTADAS";
+
+  var areas=areasResumen(),box=$("#endAreas");
+  box.innerHTML="";
+  if(areas.length>=2){
+    var fu=areas[0],de=areas[areas.length-1];
+    box.innerHTML='<span class="area fu"><b>▲ ÁREA FUERTE</b>'+esc(nombreTema(fu.tema))+' ('+fu.det.ok+'/'+(fu.det.ok+fu.det.mal+fu.det.salto)+')</span>'
+      +'<span class="area de"><b>▼ ÁREA DÉBIL</b>'+esc(nombreTema(de.tema))+' ('+de.det.ok+'/'+(de.det.ok+de.det.mal+de.det.salto)+')</span>';
+  }
+  $("#saveRow").style.display=esD?"flex":"none";
+
+  /* revisión: explica cada error y cada salto (las correctas, compactas) */
+  $("#endRev").innerHTML=resultados.map(function(r,i){
+    var est=r.estado,q=r.q;
+    var chip=est==="ok"?'<span class="est ok">✓ CORRECTA'+(modo==="desafio"?" · +"+r.pts:"")+'</span>'
+      :est==="mal"?'<span class="est mal">✗ INCORRECTA'+(modo==="desafio"?" · −"+PENAL:"")+'</span>'
+      :'<span class="est salto">→ SALTADA · 0</span>';
+    var cuerpo='<div class="rh">'+chip+'<span class="mono-tag">'+esc(nombreTema(q.tema))+'</span></div>'
+      +'<div class="rq">'+(i+1)+'. '+esc(q.pregunta)+'</div>';
+    if(est==="mal")cuerpo+='<div class="rr">Marcaste: <span class="tuya">'+esc(q.alternativas[r.elegida])+'</span><br>Correcta: <b>'+esc(q.alternativas[q.correcta])+'</b></div>';
+    if(est==="salto")cuerpo+='<div class="rr">La respuesta era: <b>'+esc(q.alternativas[q.correcta])+'</b></div>';
+    if(est!=="ok")cuerpo+='<div class="rx">'+esc(q.explicacion)+'</div>';
+    return '<div class="rev-item">'+cuerpo+'</div>';
+  }).join("");
+}
+
+/* ---------------- guardar en ranking ---------------- */
+$("#btnSave").addEventListener("click",function(){
+  var n=$("#inpName").value.trim();
+  if(!n){$("#inpName").focus();return;}
+  var areas=areasResumen();
+  var s=getScores();
+  s.push({n:n,p:total,f:new Date().toISOString().slice(0,10),
+          fu:areas.length?nombreTema(areas[0].tema):"",
+          de:areas.length>=2?nombreTema(areas[areas.length-1].tema):""});
+  s.sort(function(a,b){return b.p-a.p});
+  try{localStorage.setItem(LS_KEY,JSON.stringify(s.slice(0,10)))}catch(e){}
+  $("#inpName").value="";
+  $("#saveRow").style.display="none";
+  renderRank();
+});
+
+/* ---------------- navegación ---------------- */
+$("#mDesafio").addEventListener("click",function(){empezar("desafio",armarDesafio())});
+function abrirPick(campo){
+  $("#pickTitle").textContent=campo==="tema"?"Elige un tema":"Elige un ramo";
+  var lista=campo==="tema"?INDICE.temas:INDICE.ramos;
+  $("#pickList").innerHTML=lista.map(function(it){
+    var n=BANCO.filter(function(q){return q[campo]===it.id}).length;
+    return '<button class="pick" data-v="'+esc(it.id)+'" '+(n?"":"disabled style='opacity:.35'")+'>'+esc(it.nombre)+'<small>'+n+' preg.</small></button>';
+  }).join("");
+  $$(".pick",$("#pickList")).forEach(function(b){
+    b.addEventListener("click",function(){
+      empezar("estudio",armarEstudio(campo,b.getAttribute("data-v")));
+    });
+  });
+  show("scrPick");
+}
+$("#mTema").addEventListener("click",function(){abrirPick("tema")});
+$("#mRamo").addEventListener("click",function(){abrirPick("ramo")});
+$("#btnPickBack").addEventListener("click",function(){show("scrHome")});
+$("#btnShowAlts").addEventListener("click",mostrarAlternativas);
+$("#btnSkip").addEventListener("click",saltar);
+$("#btnNext").addEventListener("click",avanzar);
+$("#btnRetry").addEventListener("click",function(){
+  if(modo==="desafio")empezar("desafio",armarDesafio());
+  else show("scrHome");
+});
+$("#btnHome").addEventListener("click",function(){show("scrHome")});
+
+renderRank();
+})();
+</script>
+<script>
+/* Métricas anónimas de visitas — SIN cookies ni identificadores. Usa el
+   mismo Apps Script COMPARTIDO del sitio (config.figEndpoint), con
+   tipo:"visita" para que escriba en la pestaña correcta. Solo se activa
+   si config.figEndpoint está configurado en datos/club.json (código
+   completo en HOJA_DE_RUTA_FIG.md). Registra página, fecha y origen. */
+(function(){
+try{
+fetch("../datos/club.json",{cache:"force-cache"})
+.then(function(r){return r.ok?r.json():null})
+.then(function(d){
+  var u=d&&d.config&&d.config.figEndpoint;if(!u)return;
+  var b=JSON.stringify({tipo:"visita",pagina:location.pathname,fecha:new Date().toISOString(),origen:(document.referrer.split("/")[2]||"")});
+  if(navigator.sendBeacon){navigator.sendBeacon(u,b);}
+  else{fetch(u,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:b}).catch(function(){});}
+}).catch(function(){});
+}catch(e){}
+})();
+</script>
+</body>
+</html>

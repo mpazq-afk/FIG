@@ -1,0 +1,210 @@
+[
+  {
+    "id": "rv-035",
+    "tema": "renta-variable",
+    "ramo": "finanzas-i",
+    "dificultad": 3,
+    "pregunta": "¿Depende el máximo Ratio de Sharpe alcanzable en la Línea de Mercado de Capitales (LMC) del nivel de riesgo que cada inversionista esté dispuesto a asumir?",
+    "alternativas": [
+      "No, ese máximo Ratio de Sharpe es el mismo para todos los inversionistas; cada uno solo elige un punto distinto sobre la LMC según su propia utilidad",
+      "Sí, cada inversionista tiene su propia LMC con un Ratio de Sharpe máximo distinto según su aversión al riesgo",
+      "No, el Ratio de Sharpe máximo siempre es cero en la LMC, sin importar el inversionista",
+      "Sí, mientras más averso al riesgo sea el inversionista, mayor será el Ratio de Sharpe máximo que puede alcanzar"
+    ],
+    "correcta": 0,
+    "explicacion": "La LMC surge de maximizar el Ratio de Sharpe del portafolio tangente, que es el mismo para todos los inversionistas; las preferencias individuales solo determinan qué punto de esa línea elige cada uno, no la pendiente máxima.",
+    "fuente": "Finanzas I · Finanzas I Solemne Otoño 2024 (Francisco Marcet).pdf"
+  },
+  {
+    "id": "rf-044",
+    "tema": "renta-fija",
+    "ramo": "finanzas-i",
+    "dificultad": 2,
+    "pregunta": "¿Es correcto afirmar que un bono perpetuo (que paga cupones constantes para siempre) tiene un precio infinito, ya que pagará cupones eternamente?",
+    "alternativas": [
+      "No, el precio de un bono perpetuo es finito y se calcula como el cupón dividido por la tasa de descuento (TIR), no como la suma nominal de infinitos pagos",
+      "Sí, cualquier instrumento que pague flujos por un tiempo infinito necesariamente tiene un precio infinito",
+      "No, el precio de un bono perpetuo siempre es igual a cero, sin importar el monto del cupón",
+      "Sí, pero solo si la tasa de descuento aplicable es menor al 5% anual"
+    ],
+    "correcta": 0,
+    "explicacion": "Aunque los pagos sean infinitos en número, al descontarlos a valor presente forman una serie convergente; el precio de una perpetuidad es simplemente el cupón dividido por la tasa de descuento, un valor finito.",
+    "fuente": "Finanzas I · Finanzas I Solemne Otoño 2024 (Francisco Marcet).pdf"
+  },
+  {
+    "id": "rv-036",
+    "tema": "renta-variable",
+    "ramo": "finanzas-i",
+    "dificultad": 3,
+    "pregunta": "¿Es correcto afirmar que a mayor riesgo individual (idiosincrático) de una acción, mayor es el retorno esperado que esa acción aporta a un portafolio diversificado?",
+    "alternativas": [
+      "No, el retorno adicional exigido depende de la sensibilidad de la acción al riesgo sistemático (no diversificable), no de su riesgo individual total",
+      "Sí, cualquier aumento en el riesgo individual de una acción siempre incrementa el retorno que aporta al portafolio",
+      "No, el riesgo individual de una acción nunca tiene relación con el retorno esperado del portafolio",
+      "Sí, pero solo si la acción representa más del 50% del portafolio total"
+    ],
+    "correcta": 0,
+    "explicacion": "En un portafolio diversificado, el retorno exigido a un activo depende de su beta (riesgo sistemático), ya que el riesgo idiosincrático se elimina con la diversificación y el mercado no lo compensa con mayor retorno esperado.",
+    "fuente": "Finanzas I · Finanzas I Solemne Otoño 2024 (Francisco Marcet).pdf"
+  },
+  {
+    "id": "rv-037",
+    "tema": "renta-variable",
+    "ramo": "finanzas-i",
+    "dificultad": 3,
+    "pregunta": "Si el precio de una acción sube levemente un día antes de un anuncio público importante, y luego sube fuertemente el día del anuncio, ¿implica esto necesariamente que el mercado no es eficiente en su forma semifuerte?",
+    "alternativas": [
+      "No necesariamente, el alza previa al anuncio podría deberse a ruido de mercado o especulación, no a un incumplimiento comprobado de la hipótesis",
+      "Sí, cualquier movimiento de precio antes de un anuncio público siempre prueba que el mercado no es eficiente en ninguna forma",
+      "No, porque la eficiencia semifuerte no tiene relación alguna con anuncios públicos de las empresas",
+      "Sí, pero solo si el anuncio fue hecho por una empresa del sector financiero"
+    ],
+    "correcta": 0,
+    "explicacion": "Un pequeño movimiento de precio antes del anuncio no prueba por sí solo una filtración de información; puede explicarse por ruido de mercado o especulación, sin que eso constituya evidencia concluyente contra la eficiencia semifuerte.",
+    "fuente": "Finanzas I · Finanzas I Solemne Otoño 2024 (Francisco Marcet).pdf"
+  },
+  {
+    "id": "do-018",
+    "tema": "derivados-opciones",
+    "ramo": "finanzas-i",
+    "dificultad": 3,
+    "pregunta": "Para verificar si existe oportunidad de arbitraje en el precio de una opción sin usar un modelo de valoración completo, ¿qué se puede comprobar mediante un análisis de cotas (límites superior e inferior)?",
+    "alternativas": [
+      "Que el precio esté dentro de los límites teóricos que impone la ausencia de arbitraje (ej. que una call nunca valga más que el subyacente)",
+      "Que el precio de la opción sea exactamente igual al precio del activo subyacente, sin ningún rango de valores posibles",
+      "Que la tasa libre de riesgo utilizada sea la misma para todas las opciones del mercado",
+      "Que el precio de ejercicio de la opción sea menor al precio del activo subyacente en todos los casos"
+    ],
+    "correcta": 0,
+    "explicacion": "Existen límites teóricos (cotas superior e inferior) que el precio de una opción debe respetar bajo ausencia de arbitraje; si el precio observado en el mercado cae fuera de esos límites, existe una oportunidad de arbitraje.",
+    "fuente": "Finanzas II · Ayudantía 5/7/8 Opciones (Jorge Gregoire).pdf"
+  },
+  {
+    "id": "do-019",
+    "tema": "derivados-opciones",
+    "ramo": "finanzas-i",
+    "dificultad": 2,
+    "pregunta": "¿Cuál es la cota superior teórica para el precio de una opción call sobre una acción?",
+    "alternativas": [
+      "El precio actual de la acción (el subyacente), ya que la call nunca puede valer más que el activo que da derecho a comprar",
+      "El precio de ejercicio de la opción, sin importar el precio actual de la acción",
+      "El valor presente del precio de ejercicio descontado a la tasa libre de riesgo",
+      "No existe ninguna cota superior teórica para el precio de una opción call"
+    ],
+    "correcta": 0,
+    "explicacion": "Una call nunca puede valer más que el propio activo subyacente, ya que en el peor caso el tenedor podría simplemente comprar la acción directamente; por eso el precio de la acción es la cota superior del precio de la call.",
+    "fuente": "Finanzas II · Ayudantía 5/7/8 Opciones (Jorge Gregoire).pdf"
+  },
+  {
+    "id": "do-020",
+    "tema": "derivados-opciones",
+    "ramo": "finanzas-i",
+    "dificultad": 3,
+    "pregunta": "Al valorar una opción mediante un árbol binomial usando probabilidades neutrales al riesgo, ¿importa cuál es la probabilidad real (del mundo real) de que el precio del subyacente suba o baje?",
+    "alternativas": [
+      "No, el retorno esperado real del activo es irrelevante para la valoración; solo se usa la probabilidad neutral al riesgo derivada de la tasa libre de riesgo",
+      "Sí, la probabilidad real de alza o baja siempre debe usarse directamente en la fórmula de valoración de la opción",
+      "No, porque en los árboles binomiales nunca se usa ningún tipo de probabilidad para valorar opciones",
+      "Sí, pero solo cuando la opción es de tipo americana en vez de europea"
+    ],
+    "correcta": 0,
+    "explicacion": "Un resultado central de la valoración por árboles binomiales es que el retorno esperado real del activo es irrelevante: la opción se valora usando probabilidades neutrales al riesgo, que dependen de la tasa libre de riesgo y de los factores de alza/baja, no de las probabilidades reales.",
+    "fuente": "Finanzas II · Árboles Binomiales (José Luis Ruiz).pdf"
+  },
+  {
+    "id": "do-021",
+    "tema": "derivados-opciones",
+    "ramo": "finanzas-i",
+    "dificultad": 3,
+    "pregunta": "¿Cómo se determinan los factores de alza (u) y de baja (d) en un árbol binomial siguiendo la aproximación de Cox, Ross y Rubinstein?",
+    "alternativas": [
+      "Se ajustan para que coincidan con la volatilidad del activo: u = e elevado a (volatilidad por raíz del paso de tiempo), y d es el inverso de u",
+      "Se fijan siempre en un 10% de alza y un 10% de baja, sin relación con la volatilidad del activo",
+      "Se calculan dividiendo el precio de ejercicio por el precio spot del activo subyacente",
+      "Se determinan únicamente a partir de la tasa libre de riesgo, sin considerar la volatilidad"
+    ],
+    "correcta": 0,
+    "explicacion": "La aproximación de Cox-Ross-Rubinstein calibra los factores u y d para que el árbol binomial replique la volatilidad del activo subyacente, usando u = e^(σ√Δt) y d = 1/u = e^(-σ√Δt).",
+    "fuente": "Finanzas II · Árboles Binomiales (José Luis Ruiz).pdf"
+  },
+  {
+    "id": "do-022",
+    "tema": "derivados-opciones",
+    "ramo": "finanzas-i",
+    "dificultad": 3,
+    "pregunta": "¿Cómo se adaptan las fórmulas de Black-Scholes para valorar una opción europea sobre un activo que paga una tasa continua de dividendos?",
+    "alternativas": [
+      "Se sustituye el precio spot del activo por ese precio multiplicado por el factor de descuento de los dividendos durante la vida de la opción",
+      "Se suma directamente la tasa de dividendos a la tasa libre de riesgo utilizada en toda la fórmula",
+      "Las fórmulas de Black-Scholes no pueden usarse en absoluto para activos que pagan dividendos",
+      "Se ignoran los dividendos por completo, ya que no afectan el valor de una opción europea"
+    ],
+    "correcta": 0,
+    "explicacion": "Cuando el activo paga dividendos a una tasa continua, se sustituye el precio spot S por S·e^(-qT) en las fórmulas de Black-Scholes, reflejando que el tenedor de la opción no recibe esos dividendos.",
+    "fuente": "Finanzas II · Clase Black-Scholes (José Luis Ruiz).pdf"
+  },
+  {
+    "id": "do-023",
+    "tema": "derivados-opciones",
+    "ramo": "finanzas-i",
+    "dificultad": 3,
+    "pregunta": "¿Qué ventaja práctica tiene valorar una opción sobre un contrato de futuros con Black-Scholes, en comparación con una opción sobre el activo subyacente directamente?",
+    "alternativas": [
+      "No es necesario estimar la tasa de dividendos del activo, ya que el precio del futuro ya incorpora esa información dentro de la fórmula",
+      "El precio de la opción sobre futuros siempre resulta menor que el de la opción sobre el activo directo",
+      "Las opciones sobre futuros nunca requieren estimar la volatilidad del activo subyacente",
+      "No existe ninguna diferencia práctica entre valorar una opción sobre futuros y una sobre el activo directo"
+    ],
+    "correcta": 0,
+    "explicacion": "Al sustituir el precio spot por el precio del futuro capitalizado, la fórmula de Black-Scholes para opciones sobre futuros ya no requiere estimar por separado la tasa de dividendos del activo subyacente.",
+    "fuente": "Finanzas II · Clase Black-Scholes (José Luis Ruiz).pdf"
+  },
+  {
+    "id": "df-015",
+    "tema": "derivados-futuros",
+    "ramo": "finanzas-i",
+    "dificultad": 2,
+    "pregunta": "¿Cuál es una diferencia clave entre un contrato de futuros y un contrato forward?",
+    "alternativas": [
+      "Los futuros se transan en bolsa bajo normas estandarizadas y tienen cámara de compensación que reduce el riesgo de incumplimiento; los forwards son privados",
+      "Los forwards siempre se transan en bolsa mientras los futuros son acuerdos privados entre dos partes",
+      "Ambos contratos son exactamente iguales en todos sus aspectos, solo cambia el nombre con que se les conoce",
+      "Los futuros nunca tienen fecha de vencimiento, a diferencia de los forwards"
+    ],
+    "correcta": 0,
+    "explicacion": "Los futuros son contratos estandarizados que se transan en bolsa, con una cámara de compensación que reduce el riesgo de default; los forwards son acuerdos privados y bilaterales, más flexibles pero con mayor riesgo de que una parte incumpla.",
+    "fuente": "Finanzas II · Ayudantía 9 Otoño 2014 (Erwin Hansen).pdf"
+  },
+  {
+    "id": "df-016",
+    "tema": "derivados-futuros",
+    "ramo": "finanzas-i",
+    "dificultad": 2,
+    "pregunta": "¿Por qué alguien podría preferir comprar un contrato de futuros sobre un commodity en vez de comprar directamente el activo subyacente?",
+    "alternativas": [
+      "Los futuros permiten especular o cubrirse del riesgo de precio sin manejar el activo físico, y suelen ser más líquidos para entrar y salir de la posición",
+      "Comprar un futuro siempre es más barato que comprar el activo subyacente directamente, sin excepción",
+      "Los futuros eliminan por completo cualquier tipo de riesgo asociado al precio del activo subyacente",
+      "No existe ninguna razón práctica para preferir un futuro sobre la compra directa del activo"
+    ],
+    "correcta": 0,
+    "explicacion": "Los futuros permiten tomar exposición al precio de un activo (para especular o cubrirse) sin necesidad de almacenarlo o transportarlo físicamente, y su mayor liquidez facilita entrar y salir de la posición cuantas veces se desee.",
+    "fuente": "Finanzas II · Ayudantía 9 Otoño 2014 (Erwin Hansen).pdf"
+  },
+  {
+    "id": "do-024",
+    "tema": "derivados-opciones",
+    "ramo": "finanzas-i",
+    "dificultad": 3,
+    "pregunta": "Una estrategia con opciones consiste en comprar una call de precio de ejercicio bajo, comprar otra call de precio de ejercicio alto, y vender dos calls de precio de ejercicio intermedio (todas sobre el mismo subyacente y vencimiento). ¿Qué nombre recibe esta estrategia y quién la usaría?",
+    "alternativas": [
+      "Diferencial mariposa (butterfly spread); la usa quien cree que el precio se mantendrá cerca del strike intermedio, sin grandes movimientos",
+      "Diferencial alcista (bull spread); la usa un inversionista que espera un alza fuerte y sostenida en el precio del activo",
+      "Straddle; la usa un inversionista que espera un movimiento muy grande del precio, sin saber la dirección",
+      "Collar; la usa un inversionista que quiere eliminar por completo cualquier riesgo de su posición en el activo"
+    ],
+    "correcta": 0,
+    "explicacion": "Esta combinación de posiciones forma un diferencial mariposa, cuyo beneficio máximo ocurre cuando el precio final se mantiene cerca del precio de ejercicio intermedio, siendo apropiada cuando se espera baja volatilidad en el precio del activo.",
+    "fuente": "Finanzas II · Ayudantía 5/7/8 Opciones (Jorge Gregoire).pdf"
+  }
+]

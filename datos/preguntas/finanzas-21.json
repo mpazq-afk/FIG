@@ -1,0 +1,162 @@
+[
+  {
+    "id": "do-011",
+    "tema": "derivados-opciones",
+    "ramo": "finanzas-i",
+    "dificultad": 3,
+    "pregunta": "¿Es correcto afirmar que una opción call americana siempre vale más que una call europea equivalente, sin importar la trayectoria del precio del subyacente?",
+    "alternativas": [
+      "No, ambas pueden valer lo mismo si la trayectoria del precio nunca hace atractivo ejercer la call americana antes del vencimiento",
+      "Sí, la call americana siempre vale estrictamente más, en cualquier escenario posible de precios",
+      "No, la call americana siempre vale menos que la europea equivalente, en cualquier escenario",
+      "Sí, pero solo si el activo subyacente paga dividendos durante la vida de la opción"
+    ],
+    "correcta": 0,
+    "explicacion": "El valor adicional de una call americana proviene de la posibilidad de ejercicio anticipado; si esa opción nunca resulta óptima de ejercer antes del vencimiento, ambas opciones (americana y europea) terminan valiendo lo mismo.",
+    "fuente": "Finanzas I · Finanzas I Examen Otoño 2024 (Francisco Marcet).pdf"
+  },
+  {
+    "id": "do-012",
+    "tema": "derivados-opciones",
+    "ramo": "finanzas-i",
+    "dificultad": 3,
+    "pregunta": "En el modelo de Black-Scholes para valorar una opción europea, de los cinco datos requeridos (precio del subyacente, precio de ejercicio, tasa libre de riesgo, volatilidad y tiempo al vencimiento), ¿cuál es el único que normalmente no se conoce directamente y debe estimarse?",
+    "alternativas": [
+      "La volatilidad de la rentabilidad de la acción, que se estima a partir de datos históricos o mediante la volatilidad implícita",
+      "La tasa de rentabilidad esperada de la acción, que es el dato central y único desconocido del modelo",
+      "El precio actual de la acción, que nunca se conoce con certeza en el mercado",
+      "El precio de ejercicio, que siempre debe estimarse mediante métodos estadísticos"
+    ],
+    "correcta": 0,
+    "explicacion": "De los cinco parámetros de Black-Scholes, la volatilidad es el único que no se observa directamente en el mercado y debe estimarse, ya sea con datos históricos de rentabilidad o calculando la volatilidad implícita a partir de precios de mercado.",
+    "fuente": "Finanzas I · Ejercicios propuestos para el examen Otoño 2016.pdf"
+  },
+  {
+    "id": "do-013",
+    "tema": "derivados-opciones",
+    "ramo": "finanzas-i",
+    "dificultad": 3,
+    "pregunta": "¿Es correcto esperar que opciones sobre la misma acción, con el mismo período de madurez pero distinto precio de ejercicio, tengan siempre la misma volatilidad implícita?",
+    "alternativas": [
+      "En teoría sí, pero en la práctica difiere según el strike, fenómeno conocido como sonrisa de volatilidad",
+      "Sí, esa es una de las condiciones necesarias que exige el modelo de Black-Scholes para poder aplicarse",
+      "No, cada precio de ejercicio define un activo subyacente distinto, así que no tiene sentido compararlas",
+      "Depende exclusivamente de si la opción es americana o europea, no del precio de ejercicio"
+    ],
+    "correcta": 0,
+    "explicacion": "Teóricamente, la volatilidad implícita debería ser la misma para opciones del mismo subyacente y vencimiento; en la práctica se observa que varía con el precio de ejercicio, un fenómeno conocido como sonrisa de volatilidad y una limitación reconocida del modelo.",
+    "fuente": "Finanzas I · Ejercicios propuestos para el examen Otoño 2016.pdf"
+  },
+  {
+    "id": "do-014",
+    "tema": "derivados-opciones",
+    "ramo": "finanzas-i",
+    "dificultad": 2,
+    "pregunta": "Al comparar dos opciones call sobre la misma acción y mismo vencimiento, pero con distinto precio de ejercicio (strike), ¿cuál tiene mayor valor?",
+    "alternativas": [
+      "La que tiene el precio de ejercicio más bajo, ya que tiene mayor probabilidad de ser ejercida (que el precio final supere ese strike)",
+      "La que tiene el precio de ejercicio más alto, ya que ofrece un mayor beneficio potencial al ejercerla",
+      "Ambas opciones siempre tienen exactamente el mismo valor, sin importar su precio de ejercicio",
+      "Depende únicamente de la tasa libre de riesgo vigente, no del precio de ejercicio"
+    ],
+    "correcta": 0,
+    "explicacion": "Una call con menor precio de ejercicio tiene mayor probabilidad de que el precio final del subyacente lo supere, por lo que resulta más deseable y su valor de mercado es mayor que el de una call idéntica con strike más alto.",
+    "fuente": "Finanzas I · Ejercicios propuestos para el examen Otoño 2016.pdf"
+  },
+  {
+    "id": "do-015",
+    "tema": "derivados-opciones",
+    "ramo": "finanzas-i",
+    "dificultad": 2,
+    "pregunta": "De las cuatro posiciones básicas con opciones (compra o venta de call o put), ¿cuál es a priori la más riesgosa y por qué?",
+    "alternativas": [
+      "La venta (posición corta) de una call, porque las pérdidas potenciales no están acotadas a medida que sube el precio del subyacente",
+      "La compra (posición larga) de una put, porque la pérdida máxima puede superar el precio pagado por la prima",
+      "La compra (posición larga) de una call, porque siempre implica un riesgo ilimitado de pérdida",
+      "La venta (posición corta) de una put, porque no existe ningún límite a la ganancia potencial de esa posición"
+    ],
+    "correcta": 0,
+    "explicacion": "Al vender una call, la pérdida potencial crece sin límite conforme sube el precio del subyacente, ya que el vendedor está obligado a entregar el activo al precio de ejercicio sin importar cuánto haya subido el precio de mercado.",
+    "fuente": "Finanzas I · Ejercicios propuestos para el examen Otoño 2016.pdf"
+  },
+  {
+    "id": "do-016",
+    "tema": "derivados-opciones",
+    "ramo": "finanzas-i",
+    "dificultad": 2,
+    "pregunta": "¿Por qué se puede considerar que un Credit Default Swap (CDS) es un instrumento derivado?",
+    "alternativas": [
+      "Porque su valor y sus pagos dependen de un evento asociado a otro activo subyacente (por ejemplo, si un bono cae en default o no)",
+      "Porque siempre se transa en bolsa junto con las acciones de la empresa que emite el bono protegido",
+      "Porque su valor es completamente independiente de cualquier otro activo financiero",
+      "Porque garantiza un pago fijo sin relación con el desempeño de ningún bono ni empresa"
+    ],
+    "correcta": 0,
+    "explicacion": "Un derivado es un instrumento cuyo valor depende del valor o del comportamiento de otro activo; en un CDS, el pago del garante al beneficiario depende de si ocurre o no un evento de default en el bono o préstamo subyacente.",
+    "fuente": "Finanzas I · Ejercicios propuestos para el examen Otoño 2016.pdf"
+  },
+  {
+    "id": "df-013",
+    "tema": "derivados-futuros",
+    "ramo": "finanzas-i",
+    "dificultad": 3,
+    "pregunta": "Al calcular el precio forward teórico de una acción que pagará dividendos conocidos antes del vencimiento del contrato, ¿qué ajuste se debe hacer respecto a una acción que no paga dividendos?",
+    "alternativas": [
+      "Restar el valor presente de los dividendos esperados al precio spot, antes de capitalizar el resultado a la tasa libre de riesgo",
+      "Sumar el valor nominal completo de los dividendos futuros al precio spot, sin traerlos a valor presente",
+      "Los dividendos nunca afectan el precio forward teórico de una acción bajo ningún supuesto",
+      "Multiplicar el precio spot por la suma de los dividendos antes de aplicar la tasa libre de riesgo"
+    ],
+    "correcta": 0,
+    "explicacion": "Como quien mantiene la posición forward no recibe los dividendos que sí recibiría el dueño de la acción, se debe restar el valor presente de esos dividendos del precio spot antes de capitalizar a la tasa libre de riesgo para obtener el forward teórico.",
+    "fuente": "Finanzas I · Ejercicios propuestos para el examen Otoño 2016.pdf"
+  },
+  {
+    "id": "df-014",
+    "tema": "derivados-futuros",
+    "ramo": "finanzas-i",
+    "dificultad": 3,
+    "pregunta": "¿Es correcto afirmar que al hacer transacciones con contratos forward siempre existirá riesgo de base?",
+    "alternativas": [
+      "No, surge solo cuando el monto o el vencimiento del contrato no coinciden exactamente con lo que se quiere cubrir",
+      "Sí, es una característica intrínseca de todo forward, independiente de cómo se calce el contrato",
+      "No, ese riesgo es exclusivo de los futuros por transarse en bolsa, nunca ocurre con forwards",
+      "Sí, pero únicamente en operaciones de cobertura cambiaria, nunca en cobertura de commodities"
+    ],
+    "correcta": 0,
+    "explicacion": "El riesgo de base aparece cuando el monto o el vencimiento del contrato disponible no calzan exactamente con la exposición que se quiere cubrir; si el contrato coincide perfectamente con la necesidad de cobertura, ese riesgo no está presente.",
+    "fuente": "Finanzas I · Ejercicios propuestos para el examen Otoño 2016.pdf"
+  },
+  {
+    "id": "rif-013",
+    "tema": "riesgo-financiero",
+    "ramo": "finanzas-i",
+    "dificultad": 2,
+    "pregunta": "¿Qué mide el índice VIX y qué implica un valor alto de este índice para el mercado accionario?",
+    "alternativas": [
+      "Mide la volatilidad implícita del mercado de opciones; un VIX alto refleja mayor incertidumbre, peor condición para comprar acciones directamente",
+      "Mide el nivel promedio de precios de las acciones en el mercado; un VIX alto indica que las acciones están baratas",
+      "Mide la tasa de interés libre de riesgo vigente en el mercado, sin relación con la volatilidad",
+      "Mide el volumen de transacciones diarias en la bolsa, sin relación con el riesgo del mercado"
+    ],
+    "correcta": 0,
+    "explicacion": "El VIX refleja la volatilidad implícita extraída de precios de opciones; un valor alto señala mayor incertidumbre del mercado, lo que generalmente es desfavorable para tomar posiciones directas en acciones, aunque puede favorecer estrategias con opciones.",
+    "fuente": "Finanzas I · Ejercicios propuestos para el examen Otoño 2016.pdf"
+  },
+  {
+    "id": "rif-014",
+    "tema": "riesgo-financiero",
+    "ramo": "finanzas-i",
+    "dificultad": 3,
+    "pregunta": "¿En qué se diferencian el Valor en Riesgo (VaR) calculado bajo el estándar de Basilea y el calculado con la metodología RiskMetrics?",
+    "alternativas": [
+      "Basilea usa 99% de confianza a 10 días (para bancos), mientras RiskMetrics usa 95% a 1 día (para inversiones de corto plazo como fondos mutuos)",
+      "Ambos métodos son exactamente idénticos en nivel de confianza y horizonte de tiempo utilizado",
+      "Basilea se usa solo para acciones, mientras RiskMetrics se usa solo para instrumentos de renta fija",
+      "RiskMetrics siempre entrega un valor de VaR mayor que Basilea, sin importar el activo evaluado"
+    ],
+    "correcta": 0,
+    "explicacion": "Basilea usa un horizonte más largo (10 días) y mayor confianza (99%), apropiado para instituciones financieras con posiciones más permanentes, mientras RiskMetrics usa un horizonte corto (1 día) y menor confianza (95%), más apto para inversiones de rotación más rápida.",
+    "fuente": "Finanzas I · Ejercicios propuestos para el examen Otoño 2016.pdf"
+  }
+]

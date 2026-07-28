@@ -1,0 +1,178 @@
+[
+  {
+    "id": "rf-039",
+    "tema": "renta-fija",
+    "ramo": "finanzas-i",
+    "dificultad": 3,
+    "pregunta": "Manteniendo todo lo demás constante, ¿cómo cambia la duración de Macaulay de un bono si su tasa cupón disminuye?",
+    "alternativas": [
+      "La duración aumenta, porque los pagos intermedios pesan relativamente menos frente al pago final, que concentra más del valor presente del bono",
+      "La duración disminuye, porque un cupón más bajo siempre reduce el tiempo promedio ponderado de los flujos",
+      "La duración no se ve afectada en absoluto por cambios en la tasa cupón del bono",
+      "La duración se vuelve negativa cuando la tasa cupón cae por debajo de la tasa de mercado"
+    ],
+    "correcta": 0,
+    "explicacion": "Un cupón más bajo reduce el peso relativo de los pagos intermedios, concentrando más valor presente en el pago final del bono, lo que aumenta su duración de Macaulay.",
+    "fuente": "Finanzas I · Ejercicios Extras Renta Fija e Inmunización (Jorge Gregoire).pdf"
+  },
+  {
+    "id": "rf-040",
+    "tema": "renta-fija",
+    "ramo": "finanzas-i",
+    "dificultad": 3,
+    "pregunta": "Manteniendo todo lo demás constante, ¿qué relación existe entre la TIR de mercado de un bono y su duración de Macaulay?",
+    "alternativas": [
+      "Una relación inversa: a mayor TIR, menor duración, porque los flujos lejanos pierden peso relativo al descontarse más fuertemente",
+      "Una relación directa: a mayor TIR, mayor duración del bono",
+      "No existe ninguna relación entre la TIR de mercado y la duración de un bono",
+      "La relación es siempre proporcional uno a uno entre la TIR y la duración"
+    ],
+    "correcta": 0,
+    "explicacion": "Al subir la TIR, los flujos más lejanos en el tiempo se descuentan más fuertemente y pierden peso relativo en el valor presente total, lo que reduce la duración; por eso la relación entre TIR y duración es inversa.",
+    "fuente": "Finanzas I · Ejercicios Extras Renta Fija e Inmunización (Jorge Gregoire).pdf"
+  },
+  {
+    "id": "rf-041",
+    "tema": "renta-fija",
+    "ramo": "finanzas-i",
+    "dificultad": 2,
+    "pregunta": "¿Cuál es la duración de Macaulay de un bono cupón cero, y por qué se considera el bono con mayor duración para un plazo dado?",
+    "alternativas": [
+      "Es igual a su plazo al vencimiento, ya que todo su valor presente se concentra en un único pago final, sin flujos intermedios",
+      "Es siempre igual a cero, independiente de su plazo al vencimiento",
+      "Es la mitad de su plazo al vencimiento, igual que en cualquier otro tipo de bono",
+      "No se puede calcular la duración de Macaulay para un bono cupón cero"
+    ],
+    "correcta": 0,
+    "explicacion": "Al no pagar cupones intermedios, todo el valor presente del bono cupón cero se concentra en el único pago final, por lo que su duración de Macaulay coincide exactamente con su plazo al vencimiento, siendo la máxima posible para ese plazo.",
+    "fuente": "Finanzas I · Ejercicios Extras Renta Fija e Inmunización (Jorge Gregoire).pdf"
+  },
+  {
+    "id": "rf-042",
+    "tema": "renta-fija",
+    "ramo": "finanzas-i",
+    "dificultad": 3,
+    "pregunta": "¿Cómo se utiliza la duración modificada de un bono para estimar el cambio porcentual en su precio ante un cambio pequeño en la tasa de mercado?",
+    "alternativas": [
+      "El cambio porcentual del precio es aproximadamente igual a la duración modificada multiplicada por el cambio en la tasa, con signo negativo",
+      "El cambio porcentual del precio es igual a la duración de Macaulay dividida por el precio actual del bono",
+      "La duración modificada no tiene ninguna aplicación práctica para estimar cambios de precio",
+      "El cambio porcentual del precio se calcula multiplicando la duración modificada por el precio nominal del bono"
+    ],
+    "correcta": 0,
+    "explicacion": "La aproximación de primer orden usa la duración modificada: el cambio porcentual esperado en el precio del bono es aproximadamente -D_mod multiplicado por el cambio en la tasa de interés (Δy), reflejando la relación inversa precio-tasa.",
+    "fuente": "Finanzas I · Finanzas I Solemne Otoño 2024 (Francisco Marcet).pdf"
+  },
+  {
+    "id": "rf-043",
+    "tema": "renta-fija",
+    "ramo": "finanzas-i",
+    "dificultad": 3,
+    "pregunta": "¿Es correcto afirmar que a mayor convexidad de un bono, mayor es la sensibilidad de su precio ante un alza en la tasa de interés?",
+    "alternativas": [
+      "No, la convexidad mejora la precisión de la estimación del cambio de precio basada en duración, pero no hace al bono más sensible a los cambios de tasa",
+      "Sí, a mayor convexidad, el precio del bono siempre cae más fuertemente ante cualquier alza de tasas",
+      "No, la convexidad no tiene ninguna relación con la sensibilidad del precio de un bono",
+      "Sí, pero solo para bonos con tasa cupón igual a cero"
+    ],
+    "correcta": 0,
+    "explicacion": "La convexidad corrige y mejora la aproximación de la duración (que es lineal) al capturar la curvatura de la relación precio-tasa, pero no implica que el bono se vuelva más sensible a las variaciones de tasa de interés.",
+    "fuente": "Finanzas I · Finanzas I Solemne Otoño 2024 (Francisco Marcet).pdf"
+  },
+  {
+    "id": "rv-029",
+    "tema": "renta-variable",
+    "ramo": "finanzas-i",
+    "dificultad": 3,
+    "pregunta": "¿Qué mide el Ratio de Sharpe de un portafolio y cuándo es la métrica más apropiada para evaluar su desempeño?",
+    "alternativas": [
+      "Mide el exceso de retorno sobre la tasa libre de riesgo por unidad de riesgo total; apropiado si el portafolio es la única inversión del inversionista",
+      "Mide el exceso de retorno por unidad de riesgo sistemático (beta); es apropiado únicamente para portafolios ya diversificados",
+      "Mide únicamente el retorno bruto del portafolio, sin ajustar por ningún tipo de riesgo",
+      "Mide la correlación del portafolio con el mercado, sin considerar su retorno ni su riesgo"
+    ],
+    "correcta": 0,
+    "explicacion": "El Ratio de Sharpe divide el exceso de retorno sobre la tasa libre de riesgo por la desviación estándar (riesgo total) del portafolio, siendo el indicador correcto cuando el portafolio representa toda la riqueza riesgosa del inversionista.",
+    "fuente": "Finanzas I · Pauta Control 2 Erwin Hansen Primavera 2020.pdf"
+  },
+  {
+    "id": "rv-030",
+    "tema": "renta-variable",
+    "ramo": "finanzas-i",
+    "dificultad": 3,
+    "pregunta": "¿En qué se diferencia el Ratio de Treynor del Ratio de Sharpe al evaluar el desempeño de un portafolio?",
+    "alternativas": [
+      "El Treynor divide el exceso de retorno por el beta, no por la volatilidad total; más apropiado si el portafolio se suma a otras inversiones diversificadas",
+      "El Treynor y el Sharpe son exactamente la misma métrica, solo con un nombre distinto",
+      "El Treynor mide el retorno absoluto del portafolio sin ajustar por ningún riesgo, a diferencia del Sharpe",
+      "El Treynor solo puede calcularse para portafolios que invierten exclusivamente en bonos"
+    ],
+    "correcta": 0,
+    "explicacion": "El Ratio de Treynor usa el beta en el denominador en vez de la volatilidad total, siendo más adecuado cuando se evalúa un portafolio que forma parte de una cartera más amplia y diversificada, donde el riesgo relevante es solo el sistemático.",
+    "fuente": "Finanzas I · Pauta Control 2 Erwin Hansen Primavera 2020.pdf"
+  },
+  {
+    "id": "rv-031",
+    "tema": "renta-variable",
+    "ramo": "finanzas-i",
+    "dificultad": 3,
+    "pregunta": "¿Qué mide el Alfa de Jensen de un portafolio gestionado activamente?",
+    "alternativas": [
+      "El exceso de retorno del portafolio sobre el retorno que predice el CAPM dado su beta, interpretado como medida de la habilidad del gestor",
+      "El retorno total del portafolio sin ningún ajuste por riesgo o por lo predicho por algún modelo",
+      "La diferencia entre el retorno del portafolio y el retorno del activo libre de riesgo, sin considerar el beta",
+      "El nivel de diversificación del portafolio medido en número de activos distintos que lo componen"
+    ],
+    "correcta": 0,
+    "explicacion": "El alfa de Jensen compara el retorno efectivamente obtenido por el portafolio contra el retorno exigido por el CAPM según su beta; un alfa positivo sugiere que el gestor generó valor más allá de lo que su nivel de riesgo sistemático justificaría.",
+    "fuente": "Finanzas I · Pauta Control 2 Erwin Hansen Primavera 2020.pdf"
+  },
+  {
+    "id": "rv-032",
+    "tema": "renta-variable",
+    "ramo": "finanzas-i",
+    "dificultad": 3,
+    "pregunta": "Si un portafolio gestionado tiene un Ratio de Sharpe menor que el del mercado, pero un Ratio de Treynor mayor que el del mercado, ¿qué se puede concluir sobre ese portafolio?",
+    "alternativas": [
+      "Que el desempeño ajustado por riesgo sistemático es superior al mercado, pero probablemente no está bien diversificado (carga riesgo no sistemático)",
+      "Que el portafolio tiene exactamente el mismo desempeño que el mercado bajo cualquier métrica utilizada",
+      "Que el portafolio es más riesgoso que el mercado en todos los aspectos posibles, sin excepción",
+      "Que el resultado es imposible matemáticamente y refleja necesariamente un error de cálculo"
+    ],
+    "correcta": 0,
+    "explicacion": "Un Treynor superior indica buen desempeño respecto al riesgo sistemático (beta), pero un Sharpe inferior sugiere que la volatilidad total es alta en relación al retorno, lo que apunta a riesgo no sistemático (diversificable) sin compensar en el portafolio.",
+    "fuente": "Finanzas I · Pauta Control 2 Erwin Hansen Primavera 2020.pdf"
+  },
+  {
+    "id": "rv-033",
+    "tema": "renta-variable",
+    "ramo": "finanzas-i",
+    "dificultad": 3,
+    "pregunta": "¿Qué evidencia se necesita para concluir que un mercado NO es eficiente en su forma fuerte, pero sin decir nada sobre su eficiencia débil?",
+    "alternativas": [
+      "Que alguien con información privada (no pública) logre generar retornos anormales de forma sistemática usando esa información",
+      "Que los precios pasados de una acción permitan predecir sus precios futuros de forma consistente",
+      "Que el análisis fundamental basado en información contable pública no logre superar al mercado",
+      "Que el precio de una acción reaccione de inmediato a un anuncio público de la empresa"
+    ],
+    "correcta": 0,
+    "explicacion": "La eficiencia en forma fuerte exige que ni siquiera la información privada permita obtener retornos anormales; si alguien logra hacerlo con información privada, eso refuta la forma fuerte, pero no dice nada directamente sobre la eficiencia débil o semifuerte.",
+    "fuente": "Finanzas I · Pauta Solemne 2025 (José Luis Ruiz).pdf"
+  },
+  {
+    "id": "rv-034",
+    "tema": "renta-variable",
+    "ramo": "finanzas-i",
+    "dificultad": 2,
+    "pregunta": "¿Con qué forma de eficiencia de mercado se relaciona el uso de información económica y contable pública (análisis fundamental) para intentar predecir el precio de las acciones?",
+    "alternativas": [
+      "Con la eficiencia en su forma semifuerte, que exige que toda la información pública (no solo el historial de precios) se refleje rápidamente en los precios",
+      "Con la eficiencia en su forma débil, que se relaciona exclusivamente con el historial de precios pasados",
+      "Con la eficiencia en su forma fuerte, que se relaciona exclusivamente con información privada",
+      "El análisis fundamental no tiene relación con ninguna forma de eficiencia de mercado"
+    ],
+    "correcta": 0,
+    "explicacion": "El análisis fundamental usa información pública (contable y económica) más allá del historial de precios; su capacidad o incapacidad de generar retornos anormales de forma consistente se relaciona con la eficiencia en forma semifuerte, no con la débil.",
+    "fuente": "Finanzas I · Pauta Solemne 2025 (José Luis Ruiz).pdf"
+  }
+]

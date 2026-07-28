@@ -1,0 +1,162 @@
+[
+  {
+    "id": "ec-017",
+    "tema": "estructura-capital",
+    "ramo": "finanzas-ii",
+    "dificultad": 3,
+    "pregunta": "Según el modelo de Modigliani & Miller (1958), ¿qué ocurre cuando una empresa aumenta su proporción de endeudamiento?",
+    "alternativas": [
+      "Aumenta el riesgo financiero de los accionistas y su tasa de costo patrimonial exigida, pero el valor de la empresa no cambia",
+      "Disminuye el riesgo operacional asumido por los accionistas, reduciendo su tasa de costo patrimonial exigida",
+      "El valor de la empresa aumenta porque la deuda es una fuente de financiamiento más barata",
+      "El costo de capital promedio ponderado (WACC) disminuye de forma permanente"
+    ],
+    "correcta": 0,
+    "explicacion": "En MM 1958 (sin impuestos), más deuda no cambia el riesgo operacional de los activos ni el valor de la empresa: solo traslada más riesgo financiero a los accionistas, quienes exigen mayor retorno para compensarlo, efecto que cancela exactamente el ahorro de usar deuda 'barata'.",
+    "fuente": "Finanzas II · Pauta Solemne González (2018 Verano)"
+  },
+  {
+    "id": "ec-018",
+    "tema": "estructura-capital",
+    "ramo": "finanzas-ii",
+    "dificultad": 3,
+    "pregunta": "En el modelo de Modigliani & Miller (1963), si la tasa de costo de la deuda de una empresa baja pero su proporción de endeudamiento se mantiene constante, ¿qué pasa con su costo de capital total?",
+    "alternativas": [
+      "Se mantiene igual: solo hay una redistribución interna del riesgo entre bonistas y accionistas",
+      "Disminuye, porque la deuda se vuelve más barata",
+      "Aumenta, porque los accionistas exigen compensación por el menor costo de la deuda",
+      "Se vuelve indeterminado sin conocer la tasa de impuestos"
+    ],
+    "correcta": 0,
+    "explicacion": "A igual proporción de endeudamiento, una deuda más barata no cambia el riesgo total de la empresa: los bonistas asumen menos riesgo y los accionistas un poco más, pero el riesgo agregado, y por tanto el costo de capital y el valor de la empresa, no varía.",
+    "fuente": "Finanzas II · Pauta Solemne González (2018 Verano)"
+  },
+  {
+    "id": "ec-019",
+    "tema": "estructura-capital",
+    "ramo": "finanzas-ii",
+    "dificultad": 3,
+    "pregunta": "¿Qué distingue al modelo de Myers y Majluf (1984) del modelo de señalización de Ross (1977)?",
+    "alternativas": [
+      "Myers y Majluf proponen un orden de financiamiento (pecking order) ante la asimetría de información; Ross explica por qué la deuda señaliza buena calidad",
+      "Myers y Majluf se basan en problemas de agencia, mientras Ross se basa en asimetría de información",
+      "Ambos modelos concluyen que el endeudamiento es irrelevante para el valor de la empresa",
+      "Myers y Majluf recomiendan financiarse siempre con acciones nuevas antes que con deuda"
+    ],
+    "correcta": 0,
+    "explicacion": "Ambos parten de la asimetría de información, no de problemas de agencia. Myers y Majluf recomiendan la jerarquía recursos propios → deuda segura → deuda riesgosa → acciones nuevas; Ross explica que las empresas de buena calidad usan altos niveles de deuda como señal creíble de su capacidad de pago.",
+    "fuente": "Finanzas II · Pauta Examen Final González (2019)"
+  },
+  {
+    "id": "ec-020",
+    "tema": "estructura-capital",
+    "ramo": "finanzas-ii",
+    "dificultad": 3,
+    "pregunta": "La evidencia empírica sobre estructura de capital muestra que los escudos tributarios no asociados a la deuda, la unicidad de los activos y la volatilidad de los flujos de caja están, en general, ¿cómo relacionados con el nivel de endeudamiento de una empresa?",
+    "alternativas": [
+      "Negativamente relacionados: funcionan como sustitutos de la deuda o dificultan su acceso",
+      "Positivamente relacionados: mientras más de estas variables, más deuda usa la empresa",
+      "No tienen ninguna relación estadísticamente significativa",
+      "La relación depende exclusivamente del tamaño de la empresa"
+    ],
+    "correcta": 0,
+    "explicacion": "Los escudos tributarios no ligados a deuda sustituyen el ahorro fiscal de endeudarse; los activos únicos valen poco en una liquidación (menos deuda); y flujos volátiles hacen más riesgoso prestar. Las tres variables se relacionan negativamente con el endeudamiento observado.",
+    "fuente": "Finanzas II · Pauta Examen Final González (2019)"
+  },
+  {
+    "id": "ec-021",
+    "tema": "estructura-capital",
+    "ramo": "finanzas-ii",
+    "dificultad": 2,
+    "pregunta": "Al estimar la tasa de descuento de una empresa que no transa frecuentemente en bolsa, ¿qué ajuste adicional al CAPM tradicional es habitual incluir?",
+    "alternativas": [
+      "Un premio por liquidez, que compensa el mayor riesgo de no poder vender fácilmente la inversión en esa empresa",
+      "Un descuento por tamaño, que siempre reduce la tasa exigida",
+      "Eliminar el premio por riesgo de mercado, ya que no aplica a empresas no transadas",
+      "Duplicar la tasa libre de riesgo para compensar la iliquidez"
+    ],
+    "correcta": 0,
+    "explicacion": "Las acciones de empresas que no transan frecuentemente son más difíciles de vender rápido sin afectar su precio, por lo que se suele sumar un premio por liquidez a la tasa de descuento estimada vía CAPM, además del premio por riesgo de mercado.",
+    "fuente": "Finanzas II · Pauta Examen Final González (2019)"
+  },
+  {
+    "id": "ec-022",
+    "tema": "estructura-capital",
+    "ramo": "finanzas-ii",
+    "dificultad": 2,
+    "pregunta": "En el modelo de crecimiento constante a perpetuidad (modelo de Gordon), ¿es cierto que aumentar la tasa de retención de utilidades siempre conviene porque incrementa el valor de la empresa?",
+    "alternativas": [
+      "No: solo conviene si esos recursos retenidos se invierten en proyectos con VAN positivo (rentabilidad sobre la tasa de costo de oportunidad)",
+      "Sí, siempre, porque menos dividendos hoy implican mayor crecimiento futuro garantizado",
+      "No, porque la tasa de retención no tiene ningún efecto sobre el valor de la empresa",
+      "Sí, pero únicamente si la empresa no paga impuestos corporativos"
+    ],
+    "correcta": 0,
+    "explicacion": "Retener más utilidades reduce dividendos hoy a cambio de mayor crecimiento futuro, pero eso solo agrega valor si los recursos se destinan a proyectos con VAN positivo. Retener e invertir en proyectos con retorno bajo la tasa de descuento destruye valor, aunque el crecimiento contable se vea mayor.",
+    "fuente": "Finanzas II · Pauta Solemne González (2018 Verano)"
+  },
+  {
+    "id": "ep-052",
+    "tema": "evaluacion-proyectos",
+    "ramo": "finanzas-ii",
+    "dificultad": 2,
+    "pregunta": "Al valorar una empresa usando múltiplos de mercado, ¿es cierto que cualquier múltiplo utilizado entregará el mismo resultado y la misma relevancia?",
+    "alternativas": [
+      "No: cada múltiplo captura un value driver distinto, por ejemplo Precio/Utilidad estima el precio de la acción y EV/Ventas estima el valor total de la empresa",
+      "Sí, porque todos los múltiplos convergen matemáticamente al mismo valor si la muestra comparable es correcta",
+      "Sí, siempre que se use el promedio de al menos 3 múltiplos distintos",
+      "No, pero solo porque los múltiplos contables están desactualizados respecto a los de mercado"
+    ],
+    "correcta": 0,
+    "explicacion": "Distintos múltiplos apuntan a distintas partes del negocio (patrimonio vs. empresa completa) y capturan de forma distinta los drivers de valor de una industria, por lo que ninguno es intercambiable ni igual de apropiado para todos los casos.",
+    "fuente": "Finanzas II · Pauta Examen Final González (2019)"
+  },
+  {
+    "id": "ep-053",
+    "tema": "evaluacion-proyectos",
+    "ramo": "finanzas-ii",
+    "dificultad": 2,
+    "pregunta": "¿En qué situación es especialmente útil evaluar un proyecto con el método del Valor Presente Neto Ajustado (VPNA o APV), separando el VPN puro del VPN del financiamiento?",
+    "alternativas": [
+      "Cuando el proyecto tiene condiciones de financiamiento especiales, como un préstamo subsidiado a una tasa distinta a la de mercado",
+      "Cuando el proyecto se financia 100% con recursos propios de la empresa",
+      "Cuando no existe información sobre la tasa de impuestos corporativos",
+      "Únicamente cuando el proyecto tiene una duración menor a un año"
+    ],
+    "correcta": 0,
+    "explicacion": "El VPNA separa el valor del proyecto 'puro' (como si se financiara 100% patrimonio) del valor que aporta o resta la forma específica de financiarlo, por eso es especialmente útil cuando hay condiciones no estándar, como un préstamo subsidiado o con comisiones particulares.",
+    "fuente": "Finanzas II · Pauta Examen Final González (2019)"
+  },
+  {
+    "id": "rf-045",
+    "tema": "renta-fija",
+    "ramo": "finanzas-ii",
+    "dificultad": 1,
+    "pregunta": "¿Cuál es la diferencia entre un bono tipo 'bullet' (americano) y uno tipo 'francés' en el pago de la deuda?",
+    "alternativas": [
+      "El bullet paga solo intereses y amortiza el 100% del capital al vencimiento; el francés paga cuotas iguales que mezclan interés y amortización cada período",
+      "El bullet amortiza capital en cada cuota y el francés amortiza todo el capital al final",
+      "Ambos amortizan el capital de la misma forma; la diferencia está solo en la moneda de emisión",
+      "El bullet no paga intereses hasta el vencimiento, mientras el francés los paga desde el primer período"
+    ],
+    "correcta": 0,
+    "explicacion": "En un bono bullet, cada cupón es solo interés y el capital se paga íntegro al final. En un bono francés, la cuota es constante y combina interés (decreciente) y amortización de capital (creciente) en cada período, como un crédito hipotecario tradicional.",
+    "fuente": "Finanzas II · Pauta Solemne González (2018 Verano / 2019 Primavera)"
+  },
+  {
+    "id": "rf-046",
+    "tema": "renta-fija",
+    "ramo": "finanzas-ii",
+    "dificultad": 2,
+    "pregunta": "¿Por qué la TIR de un bono puede interpretarse tanto como la 'rentabilidad ofrecida' por el bono como la 'tasa exigida' por el mercado?",
+    "alternativas": [
+      "Porque el precio del bono ya se calculó descontando sus flujos a la tasa exigida por el mercado; al obtener la TIR desde ese precio, ambas convergen",
+      "Porque la TIR de los bonos, a diferencia de la de los proyectos, se fija por ley y no depende del precio",
+      "Porque los bonos no tienen riesgo de default, por lo que la tasa exigida y la ofrecida son siempre iguales",
+      "Porque la TIR de un bono se calcula sin usar su precio de mercado"
+    ],
+    "correcta": 0,
+    "explicacion": "El precio del bono se forma descontando sus cupones y capital a la tasa que el mercado exige. Al calcular la TIR a partir de ese mismo precio, se recupera exactamente la tasa exigida, por eso, a diferencia de un proyecto de inversión, en un bono 'tasa ofrecida' y 'tasa exigida' son la misma cosa.",
+    "fuente": "Finanzas II · Pauta Solemne González (2019 Primavera)"
+  }
+]

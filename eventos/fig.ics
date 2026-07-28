@@ -1,0 +1,122 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//FEN Investment Group//Bitacora FIG//ES
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:FEN Investment Group
+X-WR-CALDESC:Actividades de FEN Investment Group — torneos\, visitas\, charlas y comunidad. Universidad de Chile.
+X-WR-TIMEZONE:America/Santiago
+BEGIN:VEVENT
+UID:torneo-portafolio-2026@feninvestmentgroup
+DTSTAMP:20260726T185133Z
+DTSTART;VALUE=DATE:20260511
+DTEND;VALUE=DATE:20260512
+SUMMARY:Torneo Portafolio 2026
+LOCATION:Bloomberg Lab · FEN
+DESCRIPTION:63 equipos gestionan carteras simuladas de USD 10 millones en 
+ ETFs de iShares/BlackRock\, medidas contra el MSCI ACWI con métricas de 
+ Bloomberg. Ranking semanal cada viernes y final ante jurado el 9 de novie
+ mbre.\nFecha: MAY — NOV · 2026
+CATEGORIES:TORNEO
+END:VEVENT
+BEGIN:VEVENT
+UID:clase-edv-2026@feninvestmentgroup
+DTSTAMP:20260726T185133Z
+DTSTART;VALUE=DATE:20260623
+DTEND;VALUE=DATE:20260624
+SUMMARY:Clase EDV — Colegios
+LOCATION:FEN · Universidad de Chile
+DESCRIPTION:Educación financiera para estudiantes de educación media. In
+ troducción a conceptos de inversiones\, análisis de mercados y construc
+ ción de portafolio con ejercicios prácticos en el Bloomberg Lab.\nFecha
+ : 23 · JUN · 2026
+CATEGORIES:CHARLA
+END:VEVENT
+BEGIN:VEVENT
+UID:visita-santander-2026@feninvestmentgroup
+DTSTAMP:20260726T185133Z
+DTSTART;VALUE=DATE:20260622
+DTEND;VALUE=DATE:20260623
+SUMMARY:Visita a Santander
+LOCATION:Banco Santander Chile
+DESCRIPTION:Visita corporativa a las oficinas del Banco Santander Chile. P
+ resentación sobre gestión de fondos money market\, operaciones de tesor
+ ería y experiencias del equipo de inversiones.\nFecha: 22 · JUN · 2026
+CATEGORIES:VISITA
+END:VEVENT
+BEGIN:VEVENT
+UID:visita-moneda-2026@feninvestmentgroup
+DTSTAMP:20260726T185133Z
+DTSTART;VALUE=DATE:20260619
+DTEND;VALUE=DATE:20260620
+SUMMARY:Visita a Moneda Patria
+LOCATION:Moneda Patria Investments
+DESCRIPTION:Visita institucional a Moneda Patria Investments\, una de las 
+ gestoras de activos más relevantes de América Latina. Una mirada de pri
+ mera fuente al trabajo de una administradora de fondos y a cómo se toman
+  las decisiones de inversión en la industria.\nFecha: JUN · 2026
+CATEGORIES:VISITA
+END:VEVENT
+BEGIN:VEVENT
+UID:fiw-mayo-2026@feninvestmentgroup
+DTSTAMP:20260726T185133Z
+DTSTART;VALUE=DATE:20260527
+DTEND;VALUE=DATE:20260528
+SUMMARY:Encuentro FEN Investment Woman
+LOCATION:FEN · Universidad de Chile
+DESCRIPTION:Encuentro de FEN Investment Woman\, iniciativa que impulsa la 
+ participación de mujeres en inversión y mercados financieros. Red de co
+ laboración\, mentoría y desarrollo profesional.\nFecha: 27 · MAY · 20
+ 26
+CATEGORIES:COMUNIDAD
+END:VEVENT
+BEGIN:VEVENT
+UID:charla-analisis-tecnico-2025@feninvestmentgroup
+DTSTAMP:20260726T185133Z
+DTSTART;VALUE=DATE:20251030
+DTEND;VALUE=DATE:20251031
+SUMMARY:Charla de Análisis Técnico
+LOCATION:FEN · Universidad de Chile
+DESCRIPTION:Masterclass sobre análisis técnico de mercados: lectura de g
+ ráficos\, identificación de patrones y tendencias\, gestión de riesgo 
+ y operativa en el corto plazo.\nFecha: 30 · OCT · 2025
+CATEGORIES:CHARLA
+END:VEVENT
+BEGIN:VEVENT
+UID:torneo-primavera-2025@feninvestmentgroup
+DTSTAMP:20260726T185133Z
+DTSTART;VALUE=DATE:20250911
+DTEND;VALUE=DATE:20250912
+SUMMARY:Torneo — Primavera 2025
+LOCATION:FEN · Universidad de Chile
+DESCRIPTION:Primera edición del Torneo de Portafolio FIG: competencia com
+ pleta con gestión de carteras simuladas\, presentaciones de equipos y pr
+ emiación de ganadores.\nFecha: SEP · 2025
+CATEGORIES:TORNEO
+END:VEVENT
+BEGIN:VEVENT
+UID:charla-colegios-lab-2025@feninvestmentgroup
+DTSTAMP:20260726T185133Z
+DTSTART;VALUE=DATE:20250819
+DTEND;VALUE=DATE:20250820
+SUMMARY:Charla educativa — Colegios en el laboratorio
+LOCATION:Bloomberg Lab · FEN
+DESCRIPTION:Introducción a los mercados financieros para estudiantes de e
+ ducación media. Actividad en el Bloomberg Lab con demostraciones prácti
+ cas de herramientas de inversión.\nFecha: 19 · AGO · 2025
+CATEGORIES:CHARLA
+END:VEVENT
+BEGIN:VEVENT
+UID:lanzamiento-club-2025@feninvestmentgroup
+DTSTAMP:20260726T185133Z
+DTSTART;VALUE=DATE:20250908
+DTEND;VALUE=DATE:20250909
+SUMMARY:Lanzamiento de FEN Investment Group
+LOCATION:FEN · Universidad de Chile
+DESCRIPTION:Presentación oficial de FEN Investment Group ante la comunida
+ d de la FEN. Lanzamiento de la iniciativa con participación de fundadore
+ s\, socios estratégicos y potenciales miembros.\nFecha: PRIMAVERA · 202
+ 5
+CATEGORIES:COMUNIDAD
+END:VEVENT
+END:VCALENDAR

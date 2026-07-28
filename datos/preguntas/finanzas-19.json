@@ -1,0 +1,162 @@
+[
+  {
+    "id": "do-001",
+    "tema": "derivados-opciones",
+    "ramo": "finanzas-i",
+    "dificultad": 1,
+    "pregunta": "¿Es siempre mejor estar en posición larga (comprador) en una opción, ya sea de compra o de venta, que estar en posición corta (vendedor) en la misma?",
+    "alternativas": [
+      "No necesariamente: aunque tener un derecho es mejor que tener una obligación, la conveniencia depende del precio (prima) que se deba pagar por ese derecho",
+      "Sí, siempre es mejor la posición larga porque un derecho siempre vale más que una obligación, sin importar el precio pagado",
+      "No, la posición corta siempre es preferible porque se recibe la prima de inmediato",
+      "Es indiferente, ya que ambas posiciones tienen exactamente el mismo perfil de riesgo y retorno"
+    ],
+    "correcta": 0,
+    "explicacion": "Si bien tener el derecho (opción) es preferible a tener la obligación, la conveniencia final de la posición larga depende de si el precio pagado por ese derecho (la prima) es razonable respecto al beneficio esperado.",
+    "fuente": "Finanzas I · Pauta Ayudantía 6 y 7 (Carolina Rivas).pdf"
+  },
+  {
+    "id": "do-002",
+    "tema": "derivados-opciones",
+    "ramo": "finanzas-i",
+    "dificultad": 2,
+    "pregunta": "Si se espera que el precio del activo subyacente suba, ¿qué combinación de posiciones en opciones es la más recomendable, independiente del monto que varíe el precio?",
+    "alternativas": [
+      "Una posición larga en una opción de compra y una posición corta en una opción de venta",
+      "Una posición corta en una opción de compra y una posición larga en una opción de venta",
+      "Posiciones cortas simultáneas en ambos tipos de opción, de compra y de venta",
+      "Posiciones largas simultáneas en ambos tipos de opción, de compra y de venta"
+    ],
+    "correcta": 0,
+    "explicacion": "Ante una expectativa alcista, comprar una call (beneficio si sube) y vender una put (obligación que no se ejerce si sube) es la combinación coherente con esa expectativa direccional.",
+    "fuente": "Finanzas I · Pauta Ayudantía 6 y 7 (Carolina Rivas).pdf"
+  },
+  {
+    "id": "do-003",
+    "tema": "derivados-opciones",
+    "ramo": "finanzas-i",
+    "dificultad": 2,
+    "pregunta": "¿Cuál es el precio mínimo posible que puede tener una opción, ya sea call o put?",
+    "alternativas": [
+      "Cero, ya que el tenedor de la opción nunca está obligado a ejercerla si no le conviene",
+      "El precio del activo subyacente en el mercado, sin importar el precio de ejercicio",
+      "Un valor siempre negativo, reflejando el costo de oportunidad de comprarla",
+      "El precio de ejercicio multiplicado por la tasa libre de riesgo del período"
+    ],
+    "correcta": 0,
+    "explicacion": "Al ser un derecho y no una obligación, el valor de una opción nunca puede ser negativo: en el peor de los casos, el tenedor simplemente no la ejerce y su valor tiende a cero.",
+    "fuente": "Finanzas I · Pauta Ayudantía 6 y 7 (Carolina Rivas).pdf"
+  },
+  {
+    "id": "do-004",
+    "tema": "derivados-opciones",
+    "ramo": "finanzas-i",
+    "dificultad": 3,
+    "pregunta": "¿Qué establece la paridad put-call para opciones europeas sobre un mismo activo, con el mismo precio de ejercicio y vencimiento?",
+    "alternativas": [
+      "Que el precio de la call más el valor presente del precio de ejercicio debe ser igual al precio de la put más el precio del activo subyacente",
+      "Que el precio de la call siempre debe ser igual al precio de la put, sin ningún otro ajuste",
+      "Que el precio de la put siempre es el doble del precio de la call, para el mismo strike y vencimiento",
+      "Que no existe ninguna relación matemática entre el precio de una call y una put sobre el mismo activo"
+    ],
+    "correcta": 0,
+    "explicacion": "La paridad put-call es una relación de no arbitraje: c + K·e^(-rT) = p + S0, que debe cumplirse para opciones europeas con el mismo strike y vencimiento sobre el mismo subyacente.",
+    "fuente": "Finanzas I · Pauta Ayudantía 6 y 7 (Carolina Rivas).pdf"
+  },
+  {
+    "id": "do-005",
+    "tema": "derivados-opciones",
+    "ramo": "finanzas-i",
+    "dificultad": 3,
+    "pregunta": "Si en el mercado los precios de una call y una put no cumplen la relación de paridad put-call, ¿qué se puede hacer?",
+    "alternativas": [
+      "Aprovechar una oportunidad de arbitraje comprando lo que está relativamente barato y vendiendo lo que está relativamente caro entre ambas opciones y el activo",
+      "No se puede hacer nada, ya que la paridad put-call es solo una aproximación teórica sin aplicación práctica",
+      "Se debe esperar a que ambas opciones venzan sin ejercerlas, sin tomar ninguna posición adicional",
+      "Solo se puede aprovechar la diferencia si se cuenta con información privilegiada sobre el activo"
+    ],
+    "correcta": 0,
+    "explicacion": "Cuando el mercado se desvía de la paridad put-call, existe una oportunidad de arbitraje: se compra el lado relativamente barato (opciones más el activo o bonos según corresponda) y se vende el lado relativamente caro.",
+    "fuente": "Finanzas I · Pauta Examen 2025b (José Luis Ruiz).pdf"
+  },
+  {
+    "id": "do-006",
+    "tema": "derivados-opciones",
+    "ramo": "finanzas-i",
+    "dificultad": 2,
+    "pregunta": "¿Qué efecto tiene un aumento en la volatilidad esperada del activo subyacente sobre el valor de las opciones call y put?",
+    "alternativas": [
+      "Sube el valor de ambas, ya que más volatilidad aumenta la probabilidad de resultados favorables extremos sin aumentar la pérdida máxima (la prima)",
+      "Sube el valor de la call pero baja el valor de la put, moviéndose siempre en direcciones opuestas",
+      "Baja el valor de ambas opciones, ya que mayor incertidumbre siempre reduce el precio de cualquier activo",
+      "No tiene ningún efecto sobre el valor de ninguna de las dos opciones"
+    ],
+    "correcta": 0,
+    "explicacion": "Como el comprador de una opción tiene pérdida acotada a la prima pero ganancia potencialmente ilimitada (o grande), una mayor volatilidad del subyacente aumenta el valor tanto de calls como de puts.",
+    "fuente": "Finanzas I · Pauta Examen Bernales 2024.pdf"
+  },
+  {
+    "id": "do-007",
+    "tema": "derivados-opciones",
+    "ramo": "finanzas-i",
+    "dificultad": 3,
+    "pregunta": "¿Para valorar opciones americanas (que permiten ejercicio anticipado), qué modelo es más apropiado usar entre Black-Scholes y árboles binomiales?",
+    "alternativas": [
+      "Los árboles binomiales, que permiten evaluar en cada nodo si conviene ejercer antes; Black-Scholes estándar solo valora opciones europeas",
+      "El modelo de Black-Scholes, ya que fue diseñado específicamente para opciones con ejercicio anticipado",
+      "Ambos modelos son completamente equivalentes para cualquier tipo de opción, americana o europea",
+      "Ninguno de los dos modelos puede utilizarse para valorar opciones americanas bajo ninguna circunstancia"
+    ],
+    "correcta": 0,
+    "explicacion": "Los árboles binomiales permiten comparar en cada nodo el valor de continuar versus ejercer de inmediato, lo que los hace apropiados para opciones americanas; Black-Scholes en su versión clásica asume ejercicio solo al vencimiento (europeas).",
+    "fuente": "Finanzas I · Pauta Examen Bernales 2024.pdf"
+  },
+  {
+    "id": "do-008",
+    "tema": "derivados-opciones",
+    "ramo": "finanzas-i",
+    "dificultad": 3,
+    "pregunta": "¿Qué mide la \"delta\" de una opción y para qué se utiliza en la cobertura de una posición?",
+    "alternativas": [
+      "Mide cuánto varía el precio de la opción ante un cambio pequeño del subyacente; se usa para saber cuántas unidades comprar o vender para cubrir la posición",
+      "Mide el tiempo que falta para el vencimiento de la opción, sin relación con el precio del subyacente",
+      "Mide la tasa de interés libre de riesgo implícita en el precio de mercado de la opción",
+      "Mide únicamente la diferencia entre el precio de ejercicio y el precio spot del activo"
+    ],
+    "correcta": 0,
+    "explicacion": "La delta indica la sensibilidad del precio de la opción ante cambios en el subyacente; para cubrir una posición en opciones, se toma una posición en el subyacente proporcional a la delta multiplicada por la cantidad de opciones.",
+    "fuente": "Finanzas I · Pauta Ayudantía Opciones y Letras Griegas (Jorge Gregoire).pdf"
+  },
+  {
+    "id": "do-009",
+    "tema": "derivados-opciones",
+    "ramo": "finanzas-i",
+    "dificultad": 3,
+    "pregunta": "Si un inversionista cubre una posición en opciones ajustando su posición en el activo subyacente según la delta, ¿por qué debe reajustar esa cobertura periódicamente?",
+    "alternativas": [
+      "Porque la delta cambia con el tiempo y con el precio del subyacente, por lo que la cobertura debe rebalancearse dinámicamente para mantenerse efectiva",
+      "Porque las opciones cambian su precio de ejercicio automáticamente cada cierto tiempo",
+      "Porque la tasa libre de riesgo cambia todos los días, invalidando la cobertura inicial",
+      "En realidad no es necesario reajustar nunca una cobertura delta una vez establecida"
+    ],
+    "correcta": 0,
+    "explicacion": "La delta no es constante: varía a medida que cambia el precio del subyacente y se acerca el vencimiento, por lo que una cobertura delta debe ajustarse periódicamente (delta hedging dinámico) para seguir siendo efectiva.",
+    "fuente": "Finanzas I · Pauta Ayudantía Opciones y Letras Griegas (Jorge Gregoire).pdf"
+  },
+  {
+    "id": "do-010",
+    "tema": "derivados-opciones",
+    "ramo": "finanzas-i",
+    "dificultad": 2,
+    "pregunta": "Si se espera que la volatilidad del activo subyacente aumente, pero no se tiene una expectativa clara sobre si el precio subirá o bajará, ¿qué tipo de estrategia con opciones es más apropiada?",
+    "alternativas": [
+      "Una estrategia de volatilidad como un straddle o strangle (posiciones largas en call y put), que gana si el precio se mueve fuerte en cualquier dirección",
+      "Un bull spread, que es una estrategia direccional pensada para cuando se espera que el precio suba",
+      "Una posición corta simple en una opción call, sin combinarla con ninguna otra posición",
+      "No existe ninguna estrategia con opciones que se beneficie de un aumento en la volatilidad"
+    ],
+    "correcta": 0,
+    "explicacion": "Estrategias como el straddle o strangle combinan posiciones largas en call y put, beneficiándose de movimientos fuertes del precio en cualquier dirección, a diferencia de estrategias direccionales como el bull spread.",
+    "fuente": "Finanzas I · Pauta Examen 2025b (José Luis Ruiz).pdf"
+  }
+]

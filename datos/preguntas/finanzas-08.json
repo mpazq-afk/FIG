@@ -1,0 +1,82 @@
+[
+  {
+    "id": "mf-018",
+    "tema": "matematica-financiera",
+    "ramo": "intro-finanzas",
+    "dificultad": 2,
+    "pregunta": "En la valoración de una perpetuidad creciente, ¿por qué la tasa de crecimiento de los flujos (g) no puede ser mayor que la tasa de descuento (r)?",
+    "alternativas": [
+      "Porque el valor presente se volvería infinito, ya que la serie de flujos descontados dejaría de converger",
+      "Porque la fórmula arroja automáticamente un valor negativo sin ninguna razón matemática de fondo",
+      "Porque los flujos negativos no pueden capitalizarse bajo ninguna tasa",
+      "Porque el valor presente resultante sería exactamente cero"
+    ],
+    "correcta": 0,
+    "explicacion": "Si g fuera mayor que r, la suma de flujos descontados no converge a un valor finito; la fórmula solo es válida cuando r > g.",
+    "fuente": "Intro a Finanzas · Pauta Examen verano 2017.pdf"
+  },
+  {
+    "id": "ep-013",
+    "tema": "evaluacion-proyectos",
+    "ramo": "intro-finanzas",
+    "dificultad": 2,
+    "pregunta": "En el modelo de dos períodos aplicado a empresas, ¿por qué las inversiones deben realizarse en t=0 y no en t=1?",
+    "alternativas": [
+      "Porque si se realizaran en t=1, no quedaría tiempo dentro del modelo para que generaran resultados",
+      "Porque los resultados de las inversiones en t=1 son inciertos, a diferencia de las de t=0",
+      "Porque el modelo prohíbe legalmente invertir en el segundo período",
+      "Porque en t=1 ya no existen proyectos disponibles para invertir"
+    ],
+    "correcta": 0,
+    "explicacion": "El modelo de dos períodos es de certidumbre, no de incertidumbre; el motivo real es que una inversión hecha en t=1 no alcanzaría a generar flujos dentro del horizonte del modelo.",
+    "fuente": "Intro a Finanzas · Pauta Examen verano 2017.pdf"
+  },
+  {
+    "id": "ep-014",
+    "tema": "evaluacion-proyectos",
+    "ramo": "intro-finanzas",
+    "dificultad": 3,
+    "pregunta": "En el modelo de dos períodos con emisión de nuevas acciones para financiar proyectos, ¿por qué no existe sesgo hacia preferir financiamiento con deuda en vez de patrimonio?",
+    "alternativas": [
+      "Porque el beneficio (VAN) de los buenos proyectos lo reciben los accionistas originales, y los nuevos solo ganan la tasa de mercado",
+      "Porque la deuda siempre resulta más cara que el patrimonio dentro de este modelo",
+      "Porque el modelo no permite financiar proyectos con deuda bajo ninguna circunstancia",
+      "Porque los accionistas nuevos siempre se quedan con todo el VAN de los proyectos"
+    ],
+    "correcta": 0,
+    "explicacion": "Los nuevos accionistas solo obtienen su costo de oportunidad (la tasa de mercado); el exceso de valor de los buenos proyectos queda para los accionistas originales, sin importar cómo se financie el déficit.",
+    "fuente": "Intro a Finanzas · Pauta Examen verano 2017.pdf"
+  },
+  {
+    "id": "mf-019",
+    "tema": "matematica-financiera",
+    "ramo": "intro-finanzas",
+    "dificultad": 2,
+    "pregunta": "¿Qué son las tasas spot en el contexto de la estructura de tasas de interés?",
+    "alternativas": [
+      "Tasas que cubren períodos futuros pero que ya son conocidas hoy, medidas desde el presente",
+      "Tasas que solo se conocen una vez que llega el período futuro que cubren",
+      "Tasas que necesariamente aumentan mientras mayor sea el plazo asociado",
+      "Tasas que se aplican únicamente a instrumentos de renta variable"
+    ],
+    "correcta": 0,
+    "explicacion": "Las tasas spot se observan y conocen en el presente, aunque cubran un período futuro; no necesariamente son crecientes con el plazo, eso depende de la forma de la curva de tasas.",
+    "fuente": "Intro a Finanzas · Pauta Examen verano 2017.pdf"
+  },
+  {
+    "id": "mf-020",
+    "tema": "matematica-financiera",
+    "ramo": "intro-finanzas",
+    "dificultad": 1,
+    "pregunta": "En un crédito hipotecario con cuotas mensuales iguales (sistema francés), si se prepaga anticipadamente con una cláusula de prepago del 110% sobre el saldo insoluto, ¿qué representa ese 10% adicional?",
+    "alternativas": [
+      "Una penalidad sobre el saldo de capital que aún resta por amortizar",
+      "Un descuento que se aplica sobre el valor original del crédito",
+      "El interés acumulado durante el primer año del crédito",
+      "El impuesto que cobra el banco por otorgar el crédito hipotecario"
+    ],
+    "correcta": 0,
+    "explicacion": "La cláusula de prepago aplica un castigo del 10% sobre el saldo de capital pendiente (no sobre el crédito original), como compensación al banco por el prepago anticipado.",
+    "fuente": "Intro a Finanzas · Pauta Examen verano 2017.pdf"
+  }
+]

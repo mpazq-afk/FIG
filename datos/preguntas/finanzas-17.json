@@ -1,0 +1,130 @@
+[
+  {
+    "id": "mf-035",
+    "tema": "matematica-financiera",
+    "ramo": "intro-finanzas",
+    "dificultad": 3,
+    "pregunta": "¿Qué representa el Flujo de Caja Anual Equivalente (FAE, también llamado CAE) de un proyecto de inversión?",
+    "alternativas": [
+      "El VAN del proyecto convertido en una cuota anual constante equivalente, útil para comparar proyectos de distinta duración",
+      "El promedio simple de los flujos de caja nominales del proyecto en cada año, sin descontar",
+      "El flujo de caja del primer año del proyecto, usado como referencia para todos los años siguientes",
+      "La suma total de todos los flujos de caja del proyecto sin ningún ajuste por el valor del dinero en el tiempo"
+    ],
+    "correcta": 0,
+    "explicacion": "El FAE o CAE transforma el VAN de un proyecto en una anualidad equivalente, lo que permite comparar de forma justa proyectos con distinta vida útil o forma de flujos.",
+    "fuente": "Intro a Finanzas · Pauta Control 2 Ejercicios Primavera 2016 (Nicolás Martínez).pdf"
+  },
+  {
+    "id": "ec-015",
+    "tema": "estructura-capital",
+    "ramo": "intro-finanzas",
+    "dificultad": 3,
+    "pregunta": "Al comparar dos proyectos mutuamente excluyentes cuya clasificación según VAN difiere de su clasificación según TIR (dependiendo de la tasa de descuento usada), ¿qué concepto permite identificar el punto en que ambos criterios coinciden?",
+    "alternativas": [
+      "La tasa de Fisher (o tasa de cruce), que es la tasa de descuento a la cual ambos proyectos tienen el mismo VAN",
+      "La tasa cupón promedio de los bonos emitidos por la empresa que evalúa los proyectos",
+      "El promedio aritmético simple entre las dos TIR de los proyectos comparados",
+      "La tasa de inflación esperada durante la vida útil de los proyectos evaluados"
+    ],
+    "correcta": 0,
+    "explicacion": "La tasa de Fisher es la tasa de descuento a la que el VAN de ambos proyectos se iguala; por debajo o por encima de esa tasa, el ranking de VAN entre los proyectos puede invertirse respecto al ranking de TIR.",
+    "fuente": "Intro a Finanzas · Pauta Control 2 Ejercicios Primavera 2016 (Nicolás Martínez).pdf"
+  },
+  {
+    "id": "rf-036",
+    "tema": "renta-fija",
+    "ramo": "intro-finanzas",
+    "dificultad": 3,
+    "pregunta": "Si se conocen los precios de dos bonos bullet con distinta tasa cupón pero mismo plazo, ¿cómo se puede sintetizar un bono cupón cero de ese plazo usando una cartera de ambos bonos?",
+    "alternativas": [
+      "Tomando una posición larga en un bono y corta en el otro, en la proporción que cancele los cupones intermedios",
+      "Comprando ambos bonos en partes iguales, sin ninguna posición corta ni cálculo de proporciones",
+      "Es imposible sintetizar un bono cupón cero a partir de bonos que sí pagan cupones",
+      "Vendiendo ambos bonos simultáneamente y esperando a que venzan sin recibir ningún flujo"
+    ],
+    "correcta": 0,
+    "explicacion": "Al tomar una posición larga en un bono y corta en otro con la proporción adecuada, los cupones intermedios se cancelan entre las dos posiciones, replicando el flujo de un bono cupón cero para ese plazo.",
+    "fuente": "Intro a Finanzas · Pauta Ayudantía 2 Parte 1 Primavera 2014 (Marcelo González).pdf"
+  },
+  {
+    "id": "ep-050",
+    "tema": "evaluacion-proyectos",
+    "ramo": "intro-finanzas",
+    "dificultad": 3,
+    "pregunta": "En un proyecto donde parte de los ingresos futuros son inciertos (por ejemplo, un porcentaje variable de las ventas de arrendatarios), ¿cómo se calcula el nivel de ventas de largo plazo que hace que el proyecto tenga exactamente VAN igual a cero (punto de equilibrio)?",
+    "alternativas": [
+      "Se despeja el nivel de ventas de la ecuación del VAN igualada a cero, dejando como incógnita el monto de ventas de los períodos inciertos",
+      "Se usa siempre el nivel de ventas del primer año del proyecto como el punto de equilibrio",
+      "El punto de equilibrio de ventas es independiente del VAN y se calcula solo con los costos fijos del proyecto",
+      "No es posible calcular un punto de equilibrio cuando el proyecto tiene ingresos variables en el tiempo"
+    ],
+    "correcta": 0,
+    "explicacion": "El punto de equilibrio de ventas se obtiene planteando la ecuación del VAN con el nivel de ventas como incógnita, e igualando el VAN total del proyecto a cero para despejar ese nivel crítico.",
+    "fuente": "Intro a Finanzas · Pauta Examen Prim 2016 (Marcelo González).pdf"
+  },
+  {
+    "id": "ep-051",
+    "tema": "evaluacion-proyectos",
+    "ramo": "intro-finanzas",
+    "dificultad": 1,
+    "pregunta": "Según el criterio del período de recuperación (payback), al comparar dos proyectos mutuamente excluyentes, ¿cuál se debería elegir?",
+    "alternativas": [
+      "El que recupera la inversión inicial en menos tiempo, sin considerar los flujos posteriores a ese punto",
+      "El que tiene la mayor inversión inicial, sin importar cuánto tiempo tarde en recuperarse",
+      "El que genera el mayor flujo de caja en el último año de su vida útil, sin importar el resto",
+      "Siempre se debe elegir el proyecto con mayor VAN según este criterio, ignorando el tiempo de recuperación"
+    ],
+    "correcta": 0,
+    "explicacion": "El criterio del período de recuperación elige el proyecto que recupera la inversión inicial más rápido, sin considerar el valor del dinero en el tiempo ni los flujos que ocurren después de ese punto.",
+    "fuente": "Intro a Finanzas · Pauta Ayudantía 3 Primavera 2014 (Marcelo González).pdf"
+  },
+  {
+    "id": "rf-037",
+    "tema": "renta-fija",
+    "ramo": "intro-finanzas",
+    "dificultad": 3,
+    "pregunta": "¿Bajo qué condición específica la tasa forward implícita en la curva de tasas es exactamente igual a la tasa spot que el mercado espera que rija en el futuro?",
+    "alternativas": [
+      "Cuando los inversionistas son neutros al riesgo, ya que en ese caso no exigen ningún premio adicional por incertidumbre sobre tasas futuras",
+      "Siempre, sin importar las preferencias de riesgo de los inversionistas del mercado",
+      "Solo cuando la inflación esperada es igual a cero durante todo el horizonte de la curva",
+      "Nunca, la tasa forward jamás coincide con la tasa spot esperada bajo ninguna condición"
+    ],
+    "correcta": 0,
+    "explicacion": "La igualdad entre la tasa forward y la tasa spot esperada requiere el supuesto de neutralidad al riesgo de los inversionistas; si existe aversión al riesgo, la tasa forward puede incluir un premio adicional.",
+    "fuente": "Intro a Finanzas · 2016 Primavera - Pauta Solemne (Marcelo González).pdf"
+  },
+  {
+    "id": "mf-036",
+    "tema": "matematica-financiera",
+    "ramo": "intro-finanzas",
+    "dificultad": 2,
+    "pregunta": "Al comparar dos ofertas de crédito donde una cobra un gasto de gestión como porcentaje del monto solicitado y la otra cobra un monto fijo, ¿por qué no basta con comparar solo las tasas de interés nominales de cada oferta?",
+    "alternativas": [
+      "Porque el gasto de gestión también encarece el crédito y debe incorporarse al calcular la cuota o el costo efectivo total de cada alternativa",
+      "Porque las tasas de interés nominales nunca son comparables entre distintas instituciones financieras",
+      "Porque los gastos de gestión siempre son iguales entre bancos, por lo que no afectan la comparación",
+      "Porque el monto del crédito solicitado no influye en el costo total de ninguna alternativa de financiamiento"
+    ],
+    "correcta": 0,
+    "explicacion": "Los gastos de gestión, ya sean fijos o proporcionales al monto, forman parte del costo efectivo del crédito y deben incluirse en el cálculo de la cuota o el costo total para comparar correctamente las alternativas.",
+    "fuente": "Intro a Finanzas · 2016 Primavera - Pauta Solemne (Marcelo González).pdf"
+  },
+  {
+    "id": "rv-020",
+    "tema": "renta-variable",
+    "ramo": "intro-finanzas",
+    "dificultad": 3,
+    "pregunta": "Para calcular la desviación estándar de un portafolio compuesto por dos acciones cuyos rendimientos históricos varían según distintos escenarios económicos, ¿qué se necesita construir además del rendimiento esperado de cada acción?",
+    "alternativas": [
+      "La matriz varianza-covarianza de los rendimientos de ambas acciones, que captura cómo se mueven en conjunto bajo cada escenario",
+      "Únicamente el precio de mercado actual de cada acción, sin ningún otro cálculo adicional",
+      "El valor nominal de cada acción según su registro contable, sin considerar sus rendimientos",
+      "Solamente la tasa libre de riesgo, sin necesidad de calcular ninguna covarianza entre las acciones"
+    ],
+    "correcta": 0,
+    "explicacion": "El riesgo de un portafolio de dos activos depende no solo de la varianza individual de cada uno, sino también de su covarianza, por lo que se debe construir la matriz varianza-covarianza a partir de los rendimientos en cada escenario.",
+    "fuente": "Intro a Finanzas · Pauta Ayudantía 3 Primavera 2014 (Marcelo González).pdf"
+  }
+]

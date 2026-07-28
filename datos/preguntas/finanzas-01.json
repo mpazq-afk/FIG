@@ -1,0 +1,418 @@
+[
+  {
+    "id": "mf-001",
+    "tema": "matematica-financiera",
+    "ramo": "intro-finanzas",
+    "dificultad": 1,
+    "pregunta": "¿Qué representa el Valor Actual (VA) de un activo?",
+    "alternativas": [
+      "El valor presente de sus flujos futuros, descontados al costo de oportunidad",
+      "El precio de compra original que se pagó por el activo",
+      "El total de flujos futuros del activo, sin descontar",
+      "El valor contable registrado en los libros de la empresa"
+    ],
+    "correcta": 0,
+    "explicacion": "El VA descuenta los flujos futuros esperados a una tasa r que refleja el costo de oportunidad; no es simplemente la suma de flujos ni el valor contable.",
+    "fuente": "Intro a Finanzas · Guía de Materia Concepto de Valor Actual.pdf"
+  },
+  {
+    "id": "mf-002",
+    "tema": "matematica-financiera",
+    "ramo": "intro-finanzas",
+    "dificultad": 1,
+    "pregunta": "Según el valor del dinero en el tiempo, $1 recibido hoy vale...",
+    "alternativas": [
+      "Más que $1 recibido mañana, porque puede invertirse y generar intereses",
+      "Lo mismo que $1 recibido mañana si no hay inflación",
+      "Menos que $1 recibido mañana, por el riesgo de inflación",
+      "Depende únicamente del monto nominal, no del momento en que se recibe"
+    ],
+    "correcta": 0,
+    "explicacion": "Un peso disponible hoy puede invertirse a una tasa r y crecer, por lo que siempre vale más que el mismo peso recibido en el futuro, esto es independiente de la inflación.",
+    "fuente": "Intro a Finanzas · Guía de Materia Concepto de Valor Actual.pdf"
+  },
+  {
+    "id": "mf-003",
+    "tema": "matematica-financiera",
+    "ramo": "intro-finanzas",
+    "dificultad": 1,
+    "pregunta": "En la fórmula VF = VP(1+r)^t, ¿qué representa la variable r?",
+    "alternativas": [
+      "La tasa de descuento o costo de oportunidad de los fondos",
+      "El monto total invertido inicialmente",
+      "El número de períodos de capitalización",
+      "La inflación acumulada durante el período"
+    ],
+    "correcta": 0,
+    "explicacion": "r es la tasa de interés o costo de oportunidad que compensa por posponer el consumo y asumir riesgo; el número de períodos lo representa t, no r.",
+    "fuente": "Intro a Finanzas · Guía de Materia Concepto de Valor Actual.pdf"
+  },
+  {
+    "id": "mf-004",
+    "tema": "matematica-financiera",
+    "ramo": "intro-finanzas",
+    "dificultad": 2,
+    "pregunta": "Si deposita $1.000 hoy en una cuenta que paga 5% de interés compuesto anual, ¿cuál es el saldo aproximado al cabo de 4 años?",
+    "alternativas": [
+      "$1.215,51",
+      "$1.200,00",
+      "$1.157,63",
+      "$1.262,48"
+    ],
+    "correcta": 0,
+    "explicacion": "VF = VP(1+r)^t = 1.000×(1,05)^4 = $1.215,51. Usar interés simple ($1.200) o contar mal los períodos son errores típicos de este cálculo.",
+    "fuente": "Intro a Finanzas · Guía de Materia Concepto de Valor Actual.pdf"
+  },
+  {
+    "id": "mf-005",
+    "tema": "matematica-financiera",
+    "ramo": "intro-finanzas",
+    "dificultad": 2,
+    "pregunta": "Una empresa pagó $2,30 por acción en dividendos en 1995 y $4,20 en 1999. ¿Cuál es la tasa de crecimiento anual compuesta de esos dividendos?",
+    "alternativas": [
+      "16,25%",
+      "20,65%",
+      "82,61%",
+      "25,00%"
+    ],
+    "correcta": 0,
+    "explicacion": "r = (VF/VP)^(1/t) − 1 = (4,20/2,30)^(1/4) − 1 = 16,25%. Dividir el crecimiento total por los años (20,65%) ignora la capitalización compuesta.",
+    "fuente": "Intro a Finanzas · Guía de Materia Concepto de Valor Actual.pdf"
+  },
+  {
+    "id": "mf-006",
+    "tema": "matematica-financiera",
+    "ramo": "intro-finanzas",
+    "dificultad": 2,
+    "pregunta": "¿Qué es una anualidad ordinaria?",
+    "alternativas": [
+      "Una serie de flujos de efectivo iguales en la que el primer pago ocurre un período a futuro",
+      "Una serie de flujos de efectivo iguales en la que el primer pago ocurre hoy mismo",
+      "Un único flujo de efectivo descontado a valor presente",
+      "Una serie de flujos de efectivo que crece indefinidamente"
+    ],
+    "correcta": 0,
+    "explicacion": "En la anualidad ordinaria el primer flujo se recibe al final del primer período; si el primer pago fuera hoy, se llamaría anualidad exacta o anticipada.",
+    "fuente": "Intro a Finanzas · Guía de Materia Concepto de Valor Actual.pdf"
+  },
+  {
+    "id": "mf-007",
+    "tema": "matematica-financiera",
+    "ramo": "intro-finanzas",
+    "dificultad": 1,
+    "pregunta": "¿Cómo se calcula el valor presente de una deuda perpetua que paga un flujo fijo F cada año?",
+    "alternativas": [
+      "VP = F / r",
+      "VP = F × r",
+      "VP = F × t",
+      "VP = F / (1+r)^t"
+    ],
+    "correcta": 0,
+    "explicacion": "La perpetuidad simple tiene valor presente igual al flujo dividido por la tasa de descuento, porque la suma infinita de la serie geométrica converge a F/r.",
+    "fuente": "Intro a Finanzas · Guía de Materia Concepto de Valor Actual.pdf"
+  },
+  {
+    "id": "mf-008",
+    "tema": "matematica-financiera",
+    "ramo": "intro-finanzas",
+    "dificultad": 3,
+    "pregunta": "Para una deuda perpetua creciente con tasa de crecimiento g menor que r, ¿cómo se calcula su valor presente?",
+    "alternativas": [
+      "VA = F₁ / (r − g)",
+      "VA = F₁ / (r + g)",
+      "VA = F₁ × (r − g)",
+      "VA = F₁ / g"
+    ],
+    "correcta": 0,
+    "explicacion": "Al incorporar un crecimiento constante g en los flujos, la fórmula de la perpetuidad simple se ajusta restando g de la tasa de descuento r, siempre que r sea mayor que g.",
+    "fuente": "Intro a Finanzas · Guía de Materia Concepto de Valor Actual.pdf"
+  },
+  {
+    "id": "mf-009",
+    "tema": "matematica-financiera",
+    "ramo": "intro-finanzas",
+    "dificultad": 2,
+    "pregunta": "Si la tasa de interés anual es 12% capitalizable mensualmente (m=12), ¿cuál es la tasa nominal mensual?",
+    "alternativas": [
+      "1%",
+      "12%",
+      "0,12%",
+      "6%"
+    ],
+    "correcta": 0,
+    "explicacion": "Al capitalizar mensualmente, la tasa anual nominal se divide entre los 12 períodos de composición: 12%/12 = 1% mensual.",
+    "fuente": "Intro a Finanzas · Guía de Materia Concepto de Valor Actual.pdf"
+  },
+  {
+    "id": "mf-010",
+    "tema": "matematica-financiera",
+    "ramo": "intro-finanzas",
+    "dificultad": 3,
+    "pregunta": "¿Por qué la tasa de interés efectiva anual (i) es distinta de la tasa nominal (r) cuando hay capitalización más de una vez al año?",
+    "alternativas": [
+      "Porque i = (1+r/m)^m − 1 incorpora el efecto de interés sobre interés dentro del año",
+      "Porque i siempre es menor que r por definición matemática",
+      "Porque r ya incluye la inflación esperada e i no la incluye",
+      "Porque i solo se calcula para inversiones a más de un año"
+    ],
+    "correcta": 0,
+    "explicacion": "Cuando m>1, los intereses generados en un subperíodo se reinvierten y generan más intereses, por lo que la tasa efectiva anual supera a la tasa nominal dividida simplemente entre m.",
+    "fuente": "Intro a Finanzas · Guía de Materia Concepto de Valor Actual.pdf"
+  },
+  {
+    "id": "mf-011",
+    "tema": "matematica-financiera",
+    "ramo": "intro-finanzas",
+    "dificultad": 1,
+    "pregunta": "Si tiene dos flujos de efectivo A y B, ¿cómo se relaciona el valor presente de su suma con los valores presentes individuales?",
+    "alternativas": [
+      "VP(A+B) = VP(A) + VP(B)",
+      "VP(A+B) = VP(A) × VP(B)",
+      "VP(A+B) siempre es mayor que VP(A) más VP(B)",
+      "VP(A+B) depende del orden en que se reciban los flujos"
+    ],
+    "correcta": 0,
+    "explicacion": "Como todos los valores presentes están expresados en la misma unidad monetaria de hoy, pueden sumarse directamente, esta es la base del criterio de aditividad y del flujo de tesorería descontado.",
+    "fuente": "Intro a Finanzas · Guía de Materia Concepto de Valor Actual.pdf"
+  },
+  {
+    "id": "mf-012",
+    "tema": "matematica-financiera",
+    "ramo": "intro-finanzas",
+    "dificultad": 2,
+    "pregunta": "Al calcular el Valor Actual Neto (VAN) de un proyecto, ¿qué se agrega a la suma de los flujos futuros descontados?",
+    "alternativas": [
+      "El flujo de inversión inicial (F₀), normalmente negativo",
+      "La tasa de descuento del período siguiente",
+      "El valor de rescate del proyecto multiplicado por dos",
+      "La inflación proyectada de cada año del proyecto"
+    ],
+    "correcta": 0,
+    "explicacion": "El VAN suma el flujo inicial (usualmente un desembolso negativo) a los flujos futuros descontados, para reflejar el costo de emprender el proyecto.",
+    "fuente": "Intro a Finanzas · Guía de Materia Concepto de Valor Actual.pdf"
+  },
+  {
+    "id": "mf-013",
+    "tema": "matematica-financiera",
+    "ramo": "intro-finanzas",
+    "dificultad": 1,
+    "pregunta": "En la ecuación VF = VP(1+r)^t, si quiere calcular VP conociendo VF, ¿cómo se despeja la fórmula?",
+    "alternativas": [
+      "VP = VF / (1+r)^t",
+      "VP = VF × (1+r)^t",
+      "VP = VF − (1+r)^t",
+      "VP = VF / (1+r×t)"
+    ],
+    "correcta": 0,
+    "explicacion": "Despejar VP de la ecuación básica implica dividir VF por el factor de capitalización (1+r)^t, invirtiendo la operación de trasladar valores al futuro.",
+    "fuente": "Intro a Finanzas · Guía de Materia Concepto de Valor Actual.pdf"
+  },
+  {
+    "id": "mf-014",
+    "tema": "matematica-financiera",
+    "ramo": "intro-finanzas",
+    "dificultad": 3,
+    "pregunta": "Un inversionista quiere tener $20.000.000 en 5 años depositando hoy una suma única, con una tasa de 4% anual compuesta. ¿Cuál es aproximadamente el depósito necesario?",
+    "alternativas": [
+      "$16.438.540",
+      "$20.000.000",
+      "$19.230.769",
+      "$16.000.000"
+    ],
+    "correcta": 0,
+    "explicacion": "VP = 20.000.000/(1,04)^5 = 20.000.000/1,2167 ≈ $16.438.540, hay que descontar cinco períodos completos, no solo dividir una vez por (1+r).",
+    "fuente": "Intro a Finanzas · Guía de Materia Concepto de Valor Actual.pdf"
+  },
+  {
+    "id": "af-001",
+    "tema": "analisis-financiero",
+    "ramo": "intro-finanzas",
+    "dificultad": 1,
+    "pregunta": "¿Qué mide el ROA (Rentabilidad sobre Activos)?",
+    "alternativas": [
+      "La eficiencia de la empresa en generar utilidad operacional a partir de sus activos totales",
+      "El precio de mercado de las acciones respecto a su utilidad",
+      "La proporción de deuda sobre el patrimonio de la empresa",
+      "La velocidad con que la empresa cobra a sus clientes"
+    ],
+    "correcta": 0,
+    "explicacion": "ROA = EBIT/Activos totales promedio: mide qué tan bien la administración usa los activos para generar resultados operacionales, sin considerar cómo se financian.",
+    "fuente": "Intro a Finanzas · Ratios Financieros.pdf + Ratios.pdf"
+  },
+  {
+    "id": "af-002",
+    "tema": "analisis-financiero",
+    "ramo": "intro-finanzas",
+    "dificultad": 1,
+    "pregunta": "El ROE (Rentabilidad sobre el Patrimonio) se calcula como (Utilidad neta − Dividendos preferentes) / Patrimonio promedio accionistas comunes. ¿Qué mide?",
+    "alternativas": [
+      "La rentabilidad que obtienen los accionistas comunes sobre su inversión en la empresa",
+      "La rentabilidad total de todos los activos de la empresa",
+      "El margen de utilidad de la empresa sobre sus ventas",
+      "La capacidad de pago de deuda de corto plazo"
+    ],
+    "correcta": 0,
+    "explicacion": "El ROE se enfoca específicamente en el retorno para los dueños comunes de la empresa, descontando lo que corresponde a acciones preferentes.",
+    "fuente": "Intro a Finanzas · Ratios Financieros.pdf + Ratios.pdf"
+  },
+  {
+    "id": "af-003",
+    "tema": "analisis-financiero",
+    "ramo": "intro-finanzas",
+    "dificultad": 2,
+    "pregunta": "La Razón Corriente (Total activo circulante / Total pasivo circulante) mide...",
+    "alternativas": [
+      "La capacidad de la empresa para cubrir sus obligaciones de corto plazo con sus activos de corto plazo",
+      "La rentabilidad de los activos circulantes de la empresa",
+      "El nivel de endeudamiento total respecto al patrimonio",
+      "La eficiencia en la rotación del inventario"
+    ],
+    "correcta": 0,
+    "explicacion": "Es un ratio de liquidez: compara lo que la empresa posee en el corto plazo contra lo que debe pagar en el corto plazo.",
+    "fuente": "Intro a Finanzas · Ratios Financieros.pdf + Ratios.pdf"
+  },
+  {
+    "id": "af-004",
+    "tema": "analisis-financiero",
+    "ramo": "intro-finanzas",
+    "dificultad": 2,
+    "pregunta": "¿En qué se diferencia la Prueba Ácida de la Razón Corriente?",
+    "alternativas": [
+      "La Prueba Ácida excluye los inventarios del activo circulante, por ser el activo menos líquido",
+      "La Prueba Ácida incluye además los activos fijos de la empresa",
+      "La Prueba Ácida se calcula solo con el pasivo de largo plazo",
+      "La Prueba Ácida usa el patrimonio en vez del pasivo circulante"
+    ],
+    "correcta": 0,
+    "explicacion": "Prueba Ácida = (Activo circulante − Inventarios)/Pasivo circulante; al restar inventarios, entrega una medida más conservadora de liquidez inmediata.",
+    "fuente": "Intro a Finanzas · Ratios Financieros.pdf + Ratios.pdf"
+  },
+  {
+    "id": "af-005",
+    "tema": "analisis-financiero",
+    "ramo": "intro-finanzas",
+    "dificultad": 1,
+    "pregunta": "¿Qué mide la Razón de Cobertura de Intereses (EBIT, utilidad antes de intereses e impuestos / Gasto de intereses)?",
+    "alternativas": [
+      "La capacidad de la empresa para pagar sus gastos financieros con las utilidades operacionales generadas",
+      "El total de deuda que la empresa podría solicitar en el futuro",
+      "La proporción de intereses sobre las ventas totales",
+      "La rentabilidad de la empresa después de impuestos"
+    ],
+    "correcta": 0,
+    "explicacion": "Compara el EBIT (utilidad antes de intereses e impuestos) contra el gasto financiero, mientras más alto, mayor holgura para cubrir la deuda con la operación.",
+    "fuente": "Intro a Finanzas · Ratios Financieros.pdf + Ratios.pdf"
+  },
+  {
+    "id": "af-006",
+    "tema": "analisis-financiero",
+    "ramo": "intro-finanzas",
+    "dificultad": 2,
+    "pregunta": "Si el Pasivo Total de una empresa es $600 millones y su Patrimonio es $400 millones, ¿cuál es su razón Pasivo total a patrimonio?",
+    "alternativas": [
+      "1,5",
+      "0,67",
+      "1,0",
+      "2,4"
+    ],
+    "correcta": 0,
+    "explicacion": "Razón pasivo a patrimonio = Pasivo total/Patrimonio total = 600/400 = 1,5, indicando que la deuda equivale a 1,5 veces el patrimonio.",
+    "fuente": "Intro a Finanzas · Ratios Financieros.pdf + Ratios.pdf"
+  },
+  {
+    "id": "af-007",
+    "tema": "analisis-financiero",
+    "ramo": "intro-finanzas",
+    "dificultad": 2,
+    "pregunta": "La Rotación de Inventarios se calcula como Costo de productos vendidos / Inventario promedio. ¿Qué indica un valor alto de este ratio?",
+    "alternativas": [
+      "Que la empresa vende y repone su inventario rápidamente",
+      "Que la empresa mantiene demasiado stock inmovilizado",
+      "Que los costos de producción están subiendo",
+      "Que el margen de utilidad de la empresa es mayor"
+    ],
+    "correcta": 0,
+    "explicacion": "Una rotación alta significa que el inventario se convierte en ventas rápidamente; una rotación baja es una causa típica de ROI bajo por administración ineficiente de activos.",
+    "fuente": "Intro a Finanzas · Ratios Financieros.pdf + Ratios.pdf"
+  },
+  {
+    "id": "af-008",
+    "tema": "analisis-financiero",
+    "ramo": "intro-finanzas",
+    "dificultad": 1,
+    "pregunta": "¿Qué son los ratios de crecimiento dentro de las medidas de desempeño financiero?",
+    "alternativas": [
+      "Indicadores que comparan la evolución de la empresa (ventas, utilidades) con la economía o la industria",
+      "Indicadores que miden exclusivamente la deuda de largo plazo",
+      "Indicadores de liquidez de corto plazo",
+      "Indicadores del precio de mercado de las acciones"
+    ],
+    "correcta": 0,
+    "explicacion": "Estos ratios comparan, por ejemplo, el crecimiento de las ventas de la empresa contra el crecimiento del PIB o del sector industrial en que opera.",
+    "fuente": "Intro a Finanzas · Ratios Financieros.pdf + Ratios.pdf"
+  },
+  {
+    "id": "af-009",
+    "tema": "analisis-financiero",
+    "ramo": "intro-finanzas",
+    "dificultad": 3,
+    "pregunta": "Según el material, ¿cuáles son dos causas típicas de un ROI bajo por activos administrados ineficientemente?",
+    "alternativas": [
+      "Baja rotación de inventario y cobranza lenta",
+      "Alta rotación de activos y bajo período de cobranza",
+      "Exceso de liquidez y bajo nivel de endeudamiento",
+      "Alta utilidad neta y bajo patrimonio"
+    ],
+    "correcta": 0,
+    "explicacion": "El material identifica específicamente inventarios excesivos (baja rotación) y cobranzas lentas como fuentes de mala administración de activos que deprimen el ROI.",
+    "fuente": "Intro a Finanzas · Ratios Financieros.pdf + Ratios.pdf"
+  },
+  {
+    "id": "af-010",
+    "tema": "analisis-financiero",
+    "ramo": "intro-finanzas",
+    "dificultad": 2,
+    "pregunta": "La Utilidad por Acción se calcula como (Utilidad neta − Dividendos preferentes) / Acciones comunes promedio en circulación. ¿Para qué sirve este indicador?",
+    "alternativas": [
+      "Para medir cuánta utilidad genera la empresa por cada acción común en manos de los inversionistas",
+      "Para medir la liquidez de la acción en el mercado bursátil",
+      "Para calcular el porcentaje de deuda financiada con acciones",
+      "Para determinar el precio justo de emisión de nuevas acciones"
+    ],
+    "correcta": 0,
+    "explicacion": "Es la base para comparar la rentabilidad entre empresas de distinto tamaño y para calcular otros indicadores de mercado como la razón precio-utilidad.",
+    "fuente": "Intro a Finanzas · Ratios Financieros.pdf + Ratios.pdf"
+  },
+  {
+    "id": "af-011",
+    "tema": "analisis-financiero",
+    "ramo": "intro-finanzas",
+    "dificultad": 1,
+    "pregunta": "La Razón Precio-Utilidad (Precio de mercado / Utilidad por acción) es un indicador de...",
+    "alternativas": [
+      "Valuación de mercado: cuánto están dispuestos a pagar los inversionistas por cada peso de utilidad",
+      "Liquidez de corto plazo de la empresa",
+      "Nivel de endeudamiento de la empresa",
+      "Eficiencia operativa en el uso de activos"
+    ],
+    "correcta": 0,
+    "explicacion": "Es una medida de valuación que refleja las expectativas del mercado sobre el crecimiento futuro de la empresa, no su liquidez ni su estructura de deuda.",
+    "fuente": "Intro a Finanzas · Ratios Financieros.pdf + Ratios.pdf"
+  },
+  {
+    "id": "af-012",
+    "tema": "analisis-financiero",
+    "ramo": "intro-finanzas",
+    "dificultad": 3,
+    "pregunta": "El Ciclo Financiero Neto suma los días de rotación de disponible, inventario y cuentas por cobrar, y resta los días de cuentas por pagar. ¿Qué representa un ciclo más corto?",
+    "alternativas": [
+      "Que la empresa necesita financiar un período más corto de su operación",
+      "Que la empresa tiene mayor endeudamiento de largo plazo",
+      "Que el margen de utilidad de la empresa es más alto",
+      "Que la empresa paga menos impuestos por sus ventas"
+    ],
+    "correcta": 0,
+    "explicacion": "Un ciclo financiero neto corto significa que la empresa recupera el efectivo invertido en operaciones más rápido, reduciendo la necesidad de financiamiento externo para el capital de trabajo.",
+    "fuente": "Intro a Finanzas · Ratios Financieros.pdf + Ratios.pdf"
+  }
+]

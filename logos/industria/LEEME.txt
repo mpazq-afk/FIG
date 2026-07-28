@@ -1,0 +1,35 @@
+LOGOS DE "FIG EN LA INDUSTRIA" — cómo subirlos
+===============================================
+
+La sección "FIG en la industria" de index.html (§Nosotros) ya agrupa a las
+personas por empresa y muestra el logo real si existe un archivo en esta
+carpeta con el nombre correcto. Si no hay logo, muestra las iniciales de
+la empresa en un chip (también se ve bien, no es obligatorio).
+
+Al pasar el cursor (o tocar en el celular) sobre la tarjeta de una
+empresa, se despliega quiénes de FIG han pasado por ahí.
+
+Nombre del archivo: el nombre de la empresa tal como aparece en el campo
+"rol" de datos/club.json (antes del " · "), en minúsculas, sin tildes ni
+eñes, con guiones en vez de espacios. Extensiones aceptadas:
+.png  .svg  .jpg  .jpeg  .webp
+
+Empresas actuales en datos/club.json → nombre de archivo esperado:
+  Itaú               → itau.png            (YA SUBIDO — es el mismo logo
+                                              que usa la página del torneo)
+  CODELCO            → codelco.png
+  MoonValley Capital → moonvalley-capital.png
+  LarraínVial        → larrainvial.png
+  HSBC                → hsbc.png
+  BCI Seguros          → bci-seguros.png
+
+Recomendaciones:
+- Logo con fondo transparente si es posible (PNG o SVG), se ve mejor
+  sobre el chip blanco de la tarjeta.
+- Tamaño moderado, no hace falta más de 400×400 px — la página lo ajusta
+  sola dentro de un chip de 56×56 px.
+- No hace falta tocar ningún JSON ni HTML: la página detecta el logo sola
+  apenas subas el archivo con el nombre correcto.
+- Si una empresa nueva aparece en datos/club.json (nueva práctica de
+  algún cofundador), su nombre de archivo sigue la misma regla: minúsculas,
+  sin tildes, guiones en vez de espacios.

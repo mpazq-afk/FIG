@@ -1,0 +1,130 @@
+[
+  {
+    "id": "mf-015",
+    "tema": "matematica-financiera",
+    "ramo": "intro-finanzas",
+    "dificultad": 2,
+    "pregunta": "Si la tasa base de capitalización es una tasa EFECTIVA, ¿qué ocurre con el monto acumulado al aumentar la frecuencia de capitalización?",
+    "alternativas": [
+      "No cambia, el monto acumulado permanece igual",
+      "Siempre aumenta, sin importar el tipo de tasa base",
+      "Siempre disminuye al aumentar la frecuencia",
+      "Depende exclusivamente del plazo total de la inversión"
+    ],
+    "correcta": 0,
+    "explicacion": "Si la tasa base ya es efectiva, aumentar la frecuencia de capitalización no afecta el monto acumulado final; el efecto solo aparece cuando la tasa base es nominal.",
+    "fuente": "Intro a Finanzas · 2016 Otoño - Pauta Solemne Pauta solemne Gonzalez.pdf"
+  },
+  {
+    "id": "mf-016",
+    "tema": "matematica-financiera",
+    "ramo": "intro-finanzas",
+    "dificultad": 3,
+    "pregunta": "Si la tasa base de capitalización es NOMINAL (no efectiva), ¿qué ocurre con el monto acumulado al aumentar la frecuencia de capitalización?",
+    "alternativas": [
+      "Aumenta, porque se generan más períodos de interés sobre interés",
+      "Permanece exactamente igual, sin importar la frecuencia",
+      "Disminuye porque la tasa se diluye entre más períodos",
+      "Solo cambia si la inversión dura más de un año calendario"
+    ],
+    "correcta": 0,
+    "explicacion": "Con una tasa base nominal, capitalizar más seguido genera más ciclos de interés sobre interés dentro del año, por lo que el monto acumulado final es mayor.",
+    "fuente": "Intro a Finanzas · 2016 Otoño - Pauta Solemne Pauta solemne Gonzalez.pdf"
+  },
+  {
+    "id": "rf-014",
+    "tema": "renta-fija",
+    "ramo": "intro-finanzas",
+    "dificultad": 3,
+    "pregunta": "Según la teoría de preferencia por liquidez, para que un inversionista averso al riesgo prefiera una estrategia de mediano plazo (comprar y renovar bonos cortos) en vez de un bono directo a largo plazo, ¿qué relación debe cumplirse entre la tasa spot esperada futura (2r3) y la tasa forward (2f3)?",
+    "alternativas": [
+      "La tasa spot esperada debe ser mayor que la tasa forward (2r3 > 2f3), como compensación por el riesgo adicional",
+      "Ambas tasas deben ser exactamente iguales entre sí",
+      "La tasa forward debe ser mayor que la tasa spot esperada",
+      "No existe ninguna relación entre ambas tasas bajo esta teoría"
+    ],
+    "correcta": 0,
+    "explicacion": "La estrategia indirecta (bonos cortos renovados) es más riesgosa que la directa a largo plazo, por lo que debe ofrecer un flujo esperado mayor para compensar ese riesgo adicional.",
+    "fuente": "Intro a Finanzas · 2016 Otoño - Pauta Solemne Pauta solemne Gonzalez.pdf"
+  },
+  {
+    "id": "ep-011",
+    "tema": "evaluacion-proyectos",
+    "ramo": "intro-finanzas",
+    "dificultad": 2,
+    "pregunta": "¿Cuál de las siguientes es una limitación real del criterio TIR frente al criterio VAN?",
+    "alternativas": [
+      "Puede arrojar múltiples soluciones y no distingue bien entre proyectos de inversión y de financiamiento",
+      "No puede calcularse sin conocer previamente la tasa de descuento del proyecto",
+      "Siempre entrega exactamente el mismo resultado que el VAN",
+      "Solo puede aplicarse a proyectos que duran un único período"
+    ],
+    "correcta": 0,
+    "explicacion": "Además del problema de múltiples TIR con flujos negativos intermedios, la TIR tiene problemas de escala y de timing al comparar proyectos mutuamente excluyentes.",
+    "fuente": "Intro a Finanzas · 2016 Otoño - Pauta Solemne Pauta solemne Gonzalez.pdf"
+  },
+  {
+    "id": "ep-012",
+    "tema": "evaluacion-proyectos",
+    "ramo": "intro-finanzas",
+    "dificultad": 2,
+    "pregunta": "Aunque la TIR se calcula solo con la información propia de un proyecto, ¿por qué no es más \"autosuficiente\" que el VAN para tomar una decisión de inversión?",
+    "alternativas": [
+      "Porque igual se necesita comparar la TIR obtenida contra la tasa de descuento apropiada para poder decidir",
+      "Porque el VAN tampoco necesita ninguna tasa de descuento externa para calcularse",
+      "Porque la TIR nunca puede calcularse matemáticamente para ningún proyecto",
+      "Porque el VAN siempre requiere más información que la TIR para calcularse"
+    ],
+    "correcta": 0,
+    "explicacion": "Calcular la TIR es solo la mitad del trabajo: sin compararla contra la tasa de descuento apropiada del proyecto, no es posible tomar una decisión de aceptar o rechazar.",
+    "fuente": "Intro a Finanzas · 2016 Otoño - Pauta Solemne Pauta solemne Gonzalez.pdf"
+  },
+  {
+    "id": "rf-015",
+    "tema": "renta-fija",
+    "ramo": "intro-finanzas",
+    "dificultad": 1,
+    "pregunta": "En un bono, si la tasa de colocación (de mercado) es MAYOR que la tasa cupón del bono, ¿cómo se coloca ese bono respecto a su valor nominal?",
+    "alternativas": [
+      "Se coloca bajo par (por debajo del 100% de su valor nominal)",
+      "Se coloca sobre par (por encima del 100% de su valor nominal)",
+      "Se coloca exactamente a la par (100% de su valor nominal)",
+      "No es posible colocar el bono bajo esas condiciones de mercado"
+    ],
+    "correcta": 0,
+    "explicacion": "Cuando la tasa que exige el mercado supera la tasa cupón prometida, los inversionistas solo compran el bono con un descuento sobre su valor nominal.",
+    "fuente": "Intro a Finanzas · 2016 Otoño - Pauta Solemne Pauta solemne Gonzalez.pdf"
+  },
+  {
+    "id": "rf-016",
+    "tema": "renta-fija",
+    "ramo": "intro-finanzas",
+    "dificultad": 2,
+    "pregunta": "En un bono Tipo Francés, ¿por qué el saldo insoluto (valor par pendiente de amortizar) cambia con el tiempo, aunque la cuota que se paga sea siempre la misma?",
+    "alternativas": [
+      "Porque cada cuota combina intereses y amortización, y la proporción de amortización de capital crece a medida que se acerca el vencimiento",
+      "Porque la tasa cupón del bono cambia cada trimestre según el mercado",
+      "Porque el monto de la cuota disminuye progresivamente con el tiempo",
+      "Porque el valor nominal del bono se recalcula automáticamente cada año"
+    ],
+    "correcta": 0,
+    "explicacion": "En el sistema francés, la cuota total es constante, pero la parte que corresponde a intereses disminuye mientras la de amortización de capital aumenta a medida que avanza el plazo.",
+    "fuente": "Intro a Finanzas · 2016 Otoño - Pauta Solemne Pauta solemne Gonzalez.pdf"
+  },
+  {
+    "id": "mf-017",
+    "tema": "matematica-financiera",
+    "ramo": "intro-finanzas",
+    "dificultad": 2,
+    "pregunta": "En el cálculo de una pensión mediante anualidades, si se aumenta el porcentaje de aporte obligatorio del sueldo (por ejemplo, de 10% a 13%) manteniendo el mismo horizonte de ahorro, ¿qué ocurre con el monto acumulado al momento de jubilar?",
+    "alternativas": [
+      "Aumenta, porque el monto ahorrado cada período es mayor",
+      "Disminuye, porque se descuenta más impuesto sobre el aporte",
+      "Se mantiene igual, porque la tasa de rentabilidad no cambia",
+      "Depende exclusivamente de la edad de jubilación, no del aporte"
+    ],
+    "correcta": 0,
+    "explicacion": "Con el mismo plazo y la misma tasa de rentabilidad, un aporte periódico mayor genera un valor futuro proporcionalmente mayor al acumularse.",
+    "fuente": "Intro a Finanzas · 2016 Otoño - Pauta Solemne Pauta solemne Gonzalez.pdf"
+  }
+]

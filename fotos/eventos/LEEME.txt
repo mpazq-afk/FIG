@@ -1,0 +1,18 @@
+CÓMO SUBIR FOTOS (sin tocar código)
+
+1) Eventos → fotos/eventos/<carpeta-del-evento>/
+   La <carpeta-del-evento> debe llamarse igual que el campo "carpeta"
+   del evento en datos/eventos.json (ej: visita-santander-2026).
+
+2) FIW → fotos/fiw/
+
+3) Nombrar las fotos: 1.jpg, 2.jpg, 3.jpg, 4.jpg…
+   - Empezar en 1 y SIN saltos (si falta el 3, no se cargan la 4 en adelante).
+   - Formatos aceptados: .jpg, .jpeg, .webp, .png
+   - La foto 1 es la portada (fondo de la tarjeta del evento).
+
+Las páginas detectan las fotos automáticamente: aparecen como fondo del
+evento, en su galería, y en el hero/galería de FIW. Nada más que hacer.
+
+Consejo: comprimir a ~1600px de ancho (las fotos de cámara de 8MB
+hacen lenta la página; squoosh.app sirve para esto).

@@ -1,0 +1,194 @@
+[
+  {
+    "id": "rv-001",
+    "tema": "renta-variable",
+    "ramo": "finanzas-i",
+    "dificultad": 1,
+    "pregunta": "¿Qué mide el ratio precio/utilidad (P/E) de una acción?",
+    "alternativas": [
+      "Cuántas veces la utilidad por acción está contenida en el precio de la acción",
+      "El porcentaje de la utilidad que se reparte como dividendo",
+      "La deuda de la empresa respecto de su patrimonio",
+      "El retorno esperado de la acción el próximo año"
+    ],
+    "correcta": 0,
+    "explicacion": "El P/E divide el precio de la acción por la utilidad por acción (EPS): indica cuántos años de utilidades 'pagas' al precio actual. Un P/E alto suele reflejar expectativas de crecimiento, no una promesa de retorno.",
+    "fuente": "semilla-demo"
+  },
+  {
+    "id": "rv-002",
+    "tema": "renta-variable",
+    "ramo": "finanzas-i",
+    "dificultad": 1,
+    "pregunta": "La diversificación de un portafolio reduce principalmente…",
+    "alternativas": [
+      "El riesgo idiosincrático (propio de cada empresa)",
+      "El riesgo de mercado (sistemático)",
+      "Los costos de transacción",
+      "La carga tributaria de las ganancias"
+    ],
+    "correcta": 0,
+    "explicacion": "Combinando activos poco correlacionados se diluye el riesgo específico de cada empresa. El riesgo sistemático, el del mercado completo, no se elimina diversificando; ese se gestiona con asignación de activos y cobertura.",
+    "fuente": "semilla-demo"
+  },
+  {
+    "id": "rv-003",
+    "tema": "renta-variable",
+    "ramo": "finanzas-i",
+    "dificultad": 2,
+    "pregunta": "En el Torneo Portafolio de FIG las carteras se miden contra el iShares MSCI ACWI. ¿Qué rol cumple ese índice?",
+    "alternativas": [
+      "Es el benchmark: la vara contra la que se compara el desempeño",
+      "Es el activo libre de riesgo del modelo",
+      "Es el único ETF en que se puede invertir",
+      "Define el monto inicial de cada cartera"
+    ],
+    "correcta": 0,
+    "explicacion": "Un benchmark es el punto de comparación: ganarle al ACWI significa generar retorno por sobre el mercado global accesible. Métricas como el information ratio miden precisamente ese exceso ajustado por riesgo.",
+    "fuente": "semilla-demo"
+  },
+  {
+    "id": "rf-001",
+    "tema": "renta-fija",
+    "ramo": "finanzas-i",
+    "dificultad": 1,
+    "pregunta": "Si las tasas de interés de mercado suben, el precio de un bono ya emitido…",
+    "alternativas": [
+      "Baja",
+      "Sube",
+      "No cambia",
+      "Sube solo si el bono paga cupones"
+    ],
+    "correcta": 0,
+    "explicacion": "Los flujos futuros del bono se descuentan a una tasa mayor, así que su valor presente cae. Es la relación inversa fundamental de la renta fija: tasas arriba, precios abajo.",
+    "fuente": "semilla-demo"
+  },
+  {
+    "id": "rf-002",
+    "tema": "renta-fija",
+    "ramo": "finanzas-i",
+    "dificultad": 2,
+    "pregunta": "¿Qué mide la duración (duration) de un bono?",
+    "alternativas": [
+      "La sensibilidad del precio del bono ante cambios en la tasa de interés",
+      "Los años que faltan exactos hasta el vencimiento",
+      "La probabilidad de que el emisor no pague",
+      "El monto total de cupones que quedan por cobrar"
+    ],
+    "correcta": 0,
+    "explicacion": "La duración aproxima cuánto cae (o sube) el precio ante un alza (o baja) de 1% en la tasa. No es lo mismo que el plazo al vencimiento, aunque se mida en años: un bono con cupones altos tiene duración menor que su plazo.",
+    "fuente": "semilla-demo"
+  },
+  {
+    "id": "rf-003",
+    "tema": "renta-fija",
+    "ramo": "finanzas-i",
+    "dificultad": 2,
+    "pregunta": "Un bono cupón cero se caracteriza por…",
+    "alternativas": [
+      "No pagar cupones: se compra con descuento y paga todo al vencimiento",
+      "Pagar cupones solo si la empresa tiene utilidades",
+      "Tener tasa de interés igual a cero",
+      "No tener fecha de vencimiento"
+    ],
+    "correcta": 0,
+    "explicacion": "El cupón cero se vende bajo su valor nominal y la ganancia del inversionista es la diferencia al vencimiento. Que no pague cupones no significa tasa cero: la rentabilidad está implícita en el descuento.",
+    "fuente": "semilla-demo"
+  },
+  {
+    "id": "mac-001",
+    "tema": "macroeconomia",
+    "ramo": "economia",
+    "dificultad": 1,
+    "pregunta": "¿Qué mide el IPC (Índice de Precios al Consumidor)?",
+    "alternativas": [
+      "La variación del precio de una canasta representativa de consumo",
+      "El precio de las acciones de las empresas de consumo",
+      "El crecimiento del producto interno bruto",
+      "El tipo de cambio del dólar"
+    ],
+    "correcta": 0,
+    "explicacion": "El IPC sigue el costo de una canasta de bienes y servicios de los hogares; su variación porcentual es la medida estándar de inflación. Por eso los bancos centrales lo miran para decidir la tasa de política monetaria.",
+    "fuente": "semilla-demo"
+  },
+  {
+    "id": "mac-002",
+    "tema": "macroeconomia",
+    "ramo": "economia",
+    "dificultad": 1,
+    "pregunta": "Cuando un banco central quiere contener una inflación alta, típicamente…",
+    "alternativas": [
+      "Sube la tasa de política monetaria",
+      "Baja la tasa de política monetaria",
+      "Compra acciones en la bolsa local",
+      "Congela los precios por decreto"
+    ],
+    "correcta": 0,
+    "explicacion": "Subir la tasa encarece el crédito y enfría la demanda, lo que presiona los precios a la baja. Es remedio con costo: menos consumo e inversión en el corto plazo a cambio de estabilidad de precios.",
+    "fuente": "semilla-demo"
+  },
+  {
+    "id": "mac-003",
+    "tema": "macroeconomia",
+    "ramo": "economia",
+    "dificultad": 2,
+    "pregunta": "El PIB de un país corresponde a…",
+    "alternativas": [
+      "El valor de los bienes y servicios finales producidos dentro del país en un período",
+      "La suma de todo el dinero que circula en la economía",
+      "Los ingresos del Estado por impuestos",
+      "El valor de las exportaciones menos las importaciones"
+    ],
+    "correcta": 0,
+    "explicacion": "El PIB mide producción final dentro de las fronteras en un período dado. Las exportaciones netas son solo uno de sus componentes (junto a consumo, inversión y gasto de gobierno).",
+    "fuente": "semilla-demo"
+  },
+  {
+    "id": "his-001",
+    "tema": "historia-mercados",
+    "ramo": "economia",
+    "dificultad": 1,
+    "pregunta": "El crash bursátil de octubre de 1929 en Estados Unidos dio inicio a…",
+    "alternativas": [
+      "La Gran Depresión",
+      "La crisis del petróleo",
+      "La burbuja puntocom",
+      "La crisis subprime"
+    ],
+    "correcta": 0,
+    "explicacion": "Tras años de euforia y compras apalancadas, el mercado colapsó en octubre de 1929 (el 'martes negro' fue el 29). Le siguió la Gran Depresión: una década de contracción que redefinió la regulación financiera moderna.",
+    "fuente": "semilla-demo"
+  },
+  {
+    "id": "his-002",
+    "tema": "historia-mercados",
+    "ramo": "economia",
+    "dificultad": 2,
+    "pregunta": "La burbuja 'puntocom' que reventó en el año 2000 se caracterizó por…",
+    "alternativas": [
+      "Valorizaciones extremas de empresas de internet sin utilidades",
+      "El colapso del precio del petróleo",
+      "Una crisis de deuda soberana europea",
+      "La quiebra masiva de bancos hipotecarios"
+    ],
+    "correcta": 0,
+    "explicacion": "A fines de los 90 bastaba un '.com' para levantar capital; muchas empresas cotizaban a múltiplos absurdos sin generar caja. El Nasdaq cayó cerca de un 78% desde su peak, recordatorio de que el precio necesita utilidades detrás.",
+    "fuente": "semilla-demo"
+  },
+  {
+    "id": "his-003",
+    "tema": "historia-mercados",
+    "ramo": "economia",
+    "dificultad": 2,
+    "pregunta": "La quiebra de Lehman Brothers en septiembre de 2008 fue un hito de…",
+    "alternativas": [
+      "La crisis financiera global originada en las hipotecas subprime",
+      "La crisis asiática de 1997",
+      "El lunes negro de 1987",
+      "La crisis de la deuda latinoamericana de los 80"
+    ],
+    "correcta": 0,
+    "explicacion": "Lehman cayó cargada de activos ligados a hipotecas de alto riesgo y su quiebra congeló el crédito mundial. La lección para el inversionista: el riesgo de contraparte y el apalancamiento importan incluso en los gigantes.",
+    "fuente": "semilla-demo"
+  }
+]

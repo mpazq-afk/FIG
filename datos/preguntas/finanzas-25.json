@@ -1,0 +1,114 @@
+[
+  {
+    "id": "ec-023",
+    "tema": "estructura-capital",
+    "ramo": "finanzas-ii",
+    "dificultad": 3,
+    "pregunta": "En el modelo multiperíodo de Modigliani & Miller (1961), ¿cómo se define correctamente el valor de una empresa?",
+    "alternativas": [
+      "Como el VP de los flujos de los activos actuales más el VP de los proyectos futuros que la empresa acepte",
+      "Como el patrimonio económico de la empresa más el valor presente de su deuda financiera vigente",
+      "Como la suma de los dividendos históricos pagados desde su fundación, sin descontar",
+      "Como el valor contable de los activos menos el valor contable de los pasivos"
+    ],
+    "correcta": 0,
+    "explicacion": "MM (1961) extiende su resultado a varios períodos: el valor de la empresa es el VP de los flujos que generan los activos que ya posee, más el VP de los flujos de los proyectos futuros que decida emprender, la política de dividendos sigue sin afectar ese valor.",
+    "fuente": "Finanzas II · Pauta Examen González (2018 Verano)"
+  },
+  {
+    "id": "ec-024",
+    "tema": "estructura-capital",
+    "ramo": "finanzas-ii",
+    "dificultad": 3,
+    "pregunta": "Modigliani & Miller (1963), al incorporar impuestos corporativos, concluyen que el valor de la empresa aumenta con más deuda por el escudo tributario. ¿Implica esto que una empresa debería endeudarse el 100%?",
+    "alternativas": [
+      "No: el resultado solo es válido para razones deuda/valor entre 0% y 100%, y en la práctica otros costos limitan el endeudamiento óptimo",
+      "Sí, porque mientras más deuda, menor es siempre el costo de capital total sin ningún límite",
+      "No, porque MM (1963) prohíbe explícitamente superar el 50% de deuda sobre el valor de la empresa",
+      "Sí, siempre que la tasa de impuesto corporativo sea menor al 20%"
+    ],
+    "correcta": 0,
+    "explicacion": "Aunque el modelo de 1963 muestra que el escudo tributario suma valor con más deuda, la razón B/V solo tiene sentido económico entre 0% y 100%; en la práctica, costos de quiebra y de agencia (no incluidos en este modelo simple) frenan el endeudamiento antes de llegar a ese extremo.",
+    "fuente": "Finanzas II · Pauta Examen González (2018 Verano)"
+  },
+  {
+    "id": "ep-054",
+    "tema": "evaluacion-proyectos",
+    "ramo": "finanzas-ii",
+    "dificultad": 2,
+    "pregunta": "¿Qué caracteriza al método de flujos al patrimonio (flujo de caja del accionista) para valorar una empresa, en comparación con el flujo de caja total (FCFF)?",
+    "alternativas": [
+      "Descuenta al costo patrimonial (kp) los flujos que quedan tras pagar intereses, amortizar deuda e impuestos, reflejando la perspectiva del accionista",
+      "Es una perspectiva 'total' de la empresa que ignora la estructura de financiamiento por completo",
+      "Se descuenta siempre al WACC, igual que el flujo de caja total",
+      "No incluye el pago de impuestos, ya que esos los asume directamente el Estado"
+    ],
+    "correcta": 0,
+    "explicacion": "El flujo al patrimonio (FCFE) es la caja que efectivamente le queda al accionista tras cubrir intereses, amortización de capital e impuestos; por representar su perspectiva, se descuenta a la tasa de costo patrimonial (kp), no al WACC.",
+    "fuente": "Finanzas II · Pauta Examen P1P3 González (2018 Primavera)"
+  },
+  {
+    "id": "ec-025",
+    "tema": "estructura-capital",
+    "ramo": "finanzas-ii",
+    "dificultad": 2,
+    "pregunta": "¿En qué se diferencian la teoría del trade-off (estática) y la teoría del pecking order (jerarquía de financiamiento) respecto al endeudamiento de una empresa?",
+    "alternativas": [
+      "El trade-off predice una razón de endeudamiento óptima y estable; el pecking order no predice un óptimo, solo un orden de preferencia de fuentes",
+      "Ambas teorías predicen exactamente la misma razón de endeudamiento óptima para cualquier empresa",
+      "El pecking order predice un óptimo estable, mientras el trade-off solo ordena las fuentes de financiamiento",
+      "Ambas teorías rechazan por completo el uso de deuda como fuente de financiamiento"
+    ],
+    "correcta": 0,
+    "explicacion": "El trade-off balancea el escudo tributario de la deuda contra los costos de quiebra/agencia y predice un nivel óptimo hacia el cual las empresas convergen; el pecking order, en cambio, es dinámico y solo predice el orden en que se usan las fuentes (recursos propios → deuda → acciones), sin apuntar a un óptimo fijo.",
+    "fuente": "Finanzas II · Pauta Examen P1P3 González (2018 Primavera)"
+  },
+  {
+    "id": "ep-055",
+    "tema": "evaluacion-proyectos",
+    "ramo": "finanzas-ii",
+    "dificultad": 3,
+    "pregunta": "Al aplicar el Valor Presente Neto Ajustado (VPNA), ¿qué parte de una cuota de un crédito genera el escudo tributario que se descuenta por separado?",
+    "alternativas": [
+      "Solo la parte de interés de la cuota; la amortización de capital no genera ahorro tributario",
+      "La cuota completa, incluyendo tanto el interés como la amortización de capital",
+      "Solo la amortización de capital, porque reduce el saldo de la deuda",
+      "Ninguna parte de la cuota genera escudo tributario en el método VPNA"
+    ],
+    "correcta": 0,
+    "explicacion": "El escudo tributario de la deuda viene de que el interés es gasto deducible de impuestos; la amortización de capital es solo la devolución del préstamo y no reduce la base imponible, por lo que no genera ahorro tributario alguno.",
+    "fuente": "Finanzas II · Pauta Examen N1 (2016)"
+  },
+  {
+    "id": "ec-026",
+    "tema": "estructura-capital",
+    "ramo": "finanzas-ii",
+    "dificultad": 2,
+    "pregunta": "La evidencia empírica sobre determinantes de la estructura de capital muestra que las oportunidades de crecimiento, la rentabilidad y la intensidad de activos intangibles de una empresa están, en general, ¿cómo relacionadas con su nivel de endeudamiento?",
+    "alternativas": [
+      "Negativamente relacionadas: empresas más rentables, con más oportunidades de crecimiento o más intangibles tienden a endeudarse menos",
+      "Positivamente relacionadas: a mayor rentabilidad y crecimiento, mayor es el endeudamiento observado",
+      "No existe ninguna relación empírica documentada entre esas variables y el endeudamiento",
+      "La relación es positiva solo para intangibles y negativa solo para rentabilidad"
+    ],
+    "correcta": 0,
+    "explicacion": "Empresas más rentables prefieren autofinanciarse (menos necesidad de deuda, coherente con pecking order); empresas con más oportunidades de crecimiento o intangibles enfrentan mayores costos de agencia y de quiebra al endeudarse, por lo que la evidencia muestra una relación negativa en los tres casos.",
+    "fuente": "Finanzas II · Pauta Examen P1P3 González (2018 Primavera)"
+  },
+  {
+    "id": "ec-027",
+    "tema": "estructura-capital",
+    "ramo": "finanzas-ii",
+    "dificultad": 2,
+    "pregunta": "Según Myers y Majluf (1984), ¿qué efecto tiene contar con poca reserva financiera (holgura o 'slack') sobre las decisiones de una empresa?",
+    "alternativas": [
+      "Aumenta el riesgo de subinversión: la empresa puede rechazar proyectos con VAN positivo por no querer emitir acciones subvaloradas por el mercado",
+      "No tiene ningún efecto, porque la reserva financiera es irrelevante para decidir qué proyectos aceptar",
+      "Hace que la empresa emita acciones nuevas con más facilidad, sin ningún costo asociado",
+      "Elimina por completo el problema de asimetría de información entre gerentes e inversionistas"
+    ],
+    "correcta": 0,
+    "explicacion": "Con poca holgura financiera, financiar un buen proyecto puede requerir emitir acciones que el mercado interprete como señal negativa (asimetría de información) y subvalore, llevando a la empresa a rechazar proyectos con VAN positivo antes que emitir en esas condiciones, el problema de subinversión central de Myers-Majluf.",
+    "fuente": "Finanzas II · Pauta Examen N1 (2016)"
+  }
+]
