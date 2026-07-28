@@ -278,6 +278,7 @@ def leer_inscripciones(ruta):
             if not eq:
                 continue
             integrantes = []
+            seen = set()
             for pre in prefijos:
                 ni, li_i = idx.get(f"{pre}_nombre"), idx.get(f"{pre}_linkedin")
                 if ni is None or ni >= len(fila):
@@ -285,6 +286,10 @@ def leer_inscripciones(ruta):
                 nom = fila[ni]
                 if not nom or not str(nom).strip():
                     continue
+                nom_norm = normalizar(str(nom))
+                if nom_norm in seen:
+                    continue
+                seen.add(nom_norm)
                 li = _normalizar_linkedin(fila[li_i]) if li_i is not None and li_i < len(fila) else ""
                 integrantes.append({"nombre": str(nom).strip(), "linkedin": li})
             if integrantes:
@@ -304,8 +309,15 @@ def leer_inscripciones(ruta):
         eq, nom = val("equipo"), val("nombre")
         if not eq or not nom:
             continue
+        eq_slug = slug(eq)
+        nom_norm = normalizar(str(nom))
+        
+        eq_miembros = miembros.setdefault(eq_slug, [])
+        if any(normalizar(m["nombre"]) == nom_norm for m in eq_miembros):
+            continue
+            
         li = _normalizar_linkedin(val("linkedin"))
-        miembros.setdefault(slug(eq), []).append({"nombre": str(nom).strip(), "linkedin": li})
+        eq_miembros.append({"nombre": str(nom).strip(), "linkedin": li})
     return miembros
 
 
