@@ -113,13 +113,48 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .hero__meta{margin-top:30px;font-family:var(--f-mono);font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(247,244,236,.55);display:flex;gap:22px;flex-wrap:wrap}
 .hero__meta b{color:var(--gold);font-weight:600}
 
+/* Línea de tiempo horizontal: hitos del torneo + actividades FIG */
+.tl-section{padding:clamp(1.5rem,3vw,2.5rem) 0 0}
+.fig-timeline{border:1px solid var(--line-d);background:var(--navy-panel);border-radius:12px;padding:clamp(1.8rem,4vw,2.6rem)}
+.fig-tl-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:20px}
+.fig-timeline h3{font-family:var(--f-disp);font-weight:600;font-size:clamp(1.4rem,2.6vw,1.9rem);color:var(--ivory);margin:0 0 10px}
+.tl-hint{font-family:var(--f-mono);font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(247,244,236,.5);margin:0 0 4px!important}
+.axis-scroll{overflow-x:auto;padding:16px 4px 14px;-webkit-overflow-scrolling:touch}
+.axis{position:relative;padding:38px 14px 6px;width:max-content;min-width:100%}
+.axis-line{position:absolute;top:43px;left:14px;right:14px;height:1px;background:rgba(212,175,55,.25)}
+.axis-fill{position:absolute;top:43px;left:14px;height:1px;width:0;background:linear-gradient(90deg,var(--gold-deep),var(--gold));transition:width 1.4s var(--ease)}
+.axis-now{position:absolute;top:43px;left:0;transform:translate(-50%,-50%);z-index:4;width:11px;height:11px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(212,175,55,.22);pointer-events:none}
+@media (prefers-reduced-motion:no-preference){.axis-now{animation:axnow 2s ease-out infinite}}
+@keyframes axnow{0%{box-shadow:0 0 0 0 rgba(212,175,55,.5)}70%{box-shadow:0 0 0 9px rgba(212,175,55,0)}100%{box-shadow:0 0 0 0 rgba(212,175,55,0)}}
+.axis-now .an-lab{position:absolute;top:-30px;left:50%;transform:translateX(-50%);font-family:var(--f-mono);font-size:.58rem;letter-spacing:.18em;color:var(--gold-light);white-space:nowrap;font-weight:600}
+.axis-items{display:flex;position:relative}
+.ax{position:relative;flex:0 0 auto;width:112px;text-align:center;padding-top:22px;cursor:pointer;transition:transform .3s var(--ease),opacity .3s}
+.ax:hover,.ax:focus-visible{transform:scale(1.14);z-index:3}
+.ax::before{content:"";position:absolute;top:2px;left:50%;transform:translate(-50%,-50%);width:9px;height:9px;border-radius:50%;background:var(--navy-panel);border:1.5px solid var(--gold-deep);z-index:2;transition:transform .3s var(--ease)}
+.ax:hover::before,.ax:focus-visible::before{transform:translate(-50%,-50%) scale(1.3)}
+.ax.tl-past{opacity:.5}
+.ax.tl-past::before{background:var(--gold-deep)}
+.ax.tl-ev::before{border-radius:2px}
+.ax.tl-rec::before{border-style:dashed}
+.ax.tl-next::before{background:var(--gold);border-color:var(--gold);box-shadow:0 0 0 4px rgba(212,175,55,.22)}
+@media (prefers-reduced-motion:no-preference){.ax.tl-next::before{animation:tlpulse 2.4s ease-in-out infinite}}
+@keyframes tlpulse{0%,100%{box-shadow:0 0 0 4px rgba(212,175,55,.22)}50%{box-shadow:0 0 0 8px rgba(212,175,55,.1)}}
+.ax .ax-d{display:block;font-family:var(--f-mono);font-size:.6rem;letter-spacing:.1em;color:var(--gold-light);font-weight:600}
+.ax .ax-t{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:.74rem;color:rgba(247,244,236,.72);margin-top:4px;line-height:1.35}
+.ax-pop{position:fixed;z-index:2000;width:240px;background:var(--navy-panel);border:1px solid rgba(212,175,55,.4);border-radius:10px;padding:16px 18px;box-shadow:0 24px 50px -20px rgba(0,0,0,.6);opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;transform:translateY(6px);text-align:left}
+.ax-pop.show{opacity:1;transform:translateY(0)}
+.ax-pop b{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-family:var(--f-mono);font-weight:600;font-size:.62rem;letter-spacing:.08em;color:var(--ivory);margin-bottom:6px}
+.ax-pop .tag{font-family:var(--f-mono);font-size:.5rem;font-weight:500;letter-spacing:.16em;color:var(--gold-light);border:1px solid rgba(212,175,55,.4);border-radius:100px;padding:1px 8px}
+.ax-pop p{font-size:.8rem;color:rgba(247,244,236,.72);line-height:1.55;margin:0}
+.ax-pop .ax-go{display:block;margin-top:10px;font-family:var(--f-mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+
 /* Filtros */
-.filters{padding:0 0 clamp(1rem,2vw,1.5rem);position:relative;z-index:3}
-.pill-row{display:flex;gap:12px;flex-wrap:wrap}
+.filters{padding:clamp(1.5rem,3vw,2.5rem) 0 clamp(1rem,2vw,1.5rem);position:relative;z-index:3}
+.pill-row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:10px}
 .pill{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;padding:11px 22px;border:1px solid rgba(247,244,236,.22);border-radius:100px;color:rgba(247,244,236,.66);transition:all .35s var(--ease)}
 .pill:hover{border-color:var(--gold);color:var(--gold)}
 .pill.active{background:var(--gold);border-color:var(--gold);color:var(--navy)}
-#yearRow{margin-top:10px}
+#yearRow{margin-top:10px;margin-bottom:0}
 #yearRow .pill{font-size:.6rem;padding:8px 18px}
 #yearRow:empty{display:none}
 
@@ -160,6 +195,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .ev-date{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:600}
 .ev-type{font-family:var(--f-mono);font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(247,244,236,.65);border:1px solid rgba(247,244,236,.2);border-radius:100px;padding:4px 11px}
 .ev-live{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-mono);font-size:.58rem;letter-spacing:.2em;color:#5FC08B}
+.ev-proximo{color:var(--gold);border-color:var(--gold-dim)}
 .live-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#5FC08B;animation:pulse 1.9s ease-out infinite}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(95,192,139,.55)}70%{box-shadow:0 0 0 9px rgba(95,192,139,0)}100%{box-shadow:0 0 0 0 rgba(95,192,139,0)}}
 .ev-card h3{font-family:var(--f-disp);font-weight:600;font-size:clamp(1.4rem,2.4vw,1.9rem);line-height:1.2}
@@ -242,7 +278,7 @@ footer a:hover{color:var(--gold)}
     <ul class="nav__links">
       <li><a href="../index.html">Inicio</a></li>
       <li><a href="#" class="active">Eventos</a></li>
-      <li><a href="../fiw/index.html">FEN Investment Woman</a></li>
+      <!-- FIW_TEMP_OCULTO <li><a href="../fiw/index.html">FEN Investment Woman</a></li> -->
     </ul>
     <a href="https://feninvestmentgroup.com/torneoportafolio2026/" class="btn btn--gold btn--nav">Torneo 2026</a>
     <button class="nav__burger" id="burger" aria-label="Abrir menú" aria-expanded="false"><i></i><i></i><i></i></button>
@@ -251,7 +287,7 @@ footer a:hover{color:var(--gold)}
 <div class="m-menu" id="mmenu">
   <a href="../index.html">Inicio</a>
   <a href="#" >Eventos</a>
-  <a href="../fiw/index.html">FEN Investment Woman</a>
+  <!-- FIW_TEMP_OCULTO <a href="../fiw/index.html">FEN Investment Woman</a> -->
   <a href="https://feninvestmentgroup.com/torneoportafolio2026/">Torneo 2026</a>
 </div>
 
@@ -268,6 +304,29 @@ footer a:hover{color:var(--gold)}
   </div>
 </header>
 
+<!-- Línea de tiempo: hitos del torneo + actividades FIG, integrada desde
+     ../datos/linea_tiempo.json + ../datos/eventos.json (versión destacada en index.html) -->
+<section class="tl-section">
+  <div class="wrap">
+    <div class="fig-timeline reveal" id="figTlWrap">
+      <div class="fig-tl-head">
+        <span class="mono-tag" id="tlWeek">Torneo en curso</span>
+      </div>
+      <h3>El torneo y la vida del club</h3>
+      <p class="tl-hint">Hitos del torneo + actividades FIG · pasa el cursor (o toca) un punto para ver su resumen · haz clic para ir directo</p>
+      <div class="axis-scroll">
+        <div class="axis">
+          <span class="axis-line"></span>
+          <span class="axis-fill" id="axisFill"></span>
+          <span class="axis-now" id="axisNow" hidden><span class="an-lab">HOY</span></span>
+          <div class="axis-items" id="figTl"><!-- se arma con ../datos/linea_tiempo.json + ../datos/eventos.json --></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="ax-pop" id="axPop"></div>
+
 <div class="filters">
   <div class="wrap">
     <div class="pill-row reveal" id="filterRow">
@@ -276,6 +335,11 @@ footer a:hover{color:var(--gold)}
       <button class="pill" data-f="visita">Visitas</button>
       <button class="pill" data-f="charla">Charlas</button>
       <button class="pill" data-f="comunidad">Comunidad</button>
+    </div>
+    <div class="pill-row reveal" id="whenRow">
+      <button class="pill active" data-w="todos">Todos</button>
+      <button class="pill" data-w="pasados">Pasados</button>
+      <button class="pill" data-w="proximos">Próximos</button>
     </div>
     <div class="pill-row reveal" id="yearRow"><!-- años, se generan desde los datos --></div>
   </div>
@@ -395,13 +459,15 @@ function probeFotos(carpeta,max,cb){
 }
 
 /* ---------------- Render de la grilla ---------------- */
-var currentFilter="todos",currentYear="todos";
+var currentFilter="todos",currentYear="todos",currentWhen="todos";
+function esPasado(e){return !e.live&&Date.parse((e.fecha||"")+"T23:59:59-03:00")<Date.now()}
 function renderGrid(){
   var g=$("#evGrid");
   var evs=DATA.eventos.slice().sort(function(a,b){return b.fecha<a.fecha?-1:1});
   var list=evs.filter(function(e){
     return (currentFilter==="todos"||e.tipo===currentFilter)
-        && (currentYear==="todos"||(e.fecha||"").slice(0,4)===currentYear);
+        && (currentYear==="todos"||(e.fecha||"").slice(0,4)===currentYear)
+        && (currentWhen==="todos"||(currentWhen==="pasados"?esPasado(e):!esPasado(e)));
   });
   if(!list.length){g.innerHTML='<div class="ev-empty">Aún no hay eventos en esta categoría, pronto habrá novedades.</div>';return;}
   var html="";
@@ -415,7 +481,7 @@ function renderGrid(){
         +   '<div class="ev-top">'
         +     '<span class="ev-date">'+esc(e.fechaTexto||e.fecha)+'</span>'
         +     '<span class="ev-type">'+esc(TIPOS[e.tipo]||e.tipo)+'</span>'
-        +     (e.live?'<span class="ev-live"><span class="live-dot"></span>EN CURSO</span>':"")
+        +     (e.live?'<span class="ev-live"><span class="live-dot"></span>EN CURSO</span>':(!esPasado(e)?'<span class="ev-type ev-proximo">PRÓXIMO</span>':""))
         +   '</div>'
         +   '<h3>'+esc(e.titulo)+'</h3>'
         +   '<p class="ev-res">'+esc((e.resumen||"").replace(/\[Resumen por completar\]/,"").trim()||"Resumen por completar.")+'</p>'
@@ -451,6 +517,13 @@ $$("#filterRow .pill").forEach(function(p){
   p.addEventListener("click",function(){
     currentFilter=p.getAttribute("data-f");
     $$("#filterRow .pill").forEach(function(x){x.classList.toggle("active",x===p)});
+    renderGrid();
+  });
+});
+$$("#whenRow .pill").forEach(function(p){
+  p.addEventListener("click",function(){
+    currentWhen=p.getAttribute("data-w");
+    $$("#whenRow .pill").forEach(function(x){x.classList.toggle("active",x===p)});
     renderGrid();
   });
 });
@@ -535,6 +608,122 @@ function closeEvento(){
 $("#ovClose").addEventListener("click",closeEvento);
 ov.addEventListener("click",function(e){if(e.target===ov||e.target.classList.contains("ov-scroll"))closeEvento()});
 document.addEventListener("keydown",function(e){if(e.key==="Escape"&&ov.classList.contains("open"))closeEvento()});
+
+/* ---------------- Línea de tiempo horizontal: hitos del torneo + actividades FIG ----------------
+   Fuente: ../datos/linea_tiempo.json (hitos estructurales del torneo) + ../datos/eventos.json
+   (actividades reales del club, integradas y ordenadas junto a los hitos) sobre un eje
+   horizontal con scroll. El punto "HOY" avanza solo con el tiempo (interpolado entre los
+   dos puntos vecinos según su fecha real). Pasar el cursor (o tocar) un punto muestra su
+   resumen en una tarjeta flotante; clic navega directo: un hito de torneo va a
+   torneo/index.html#metodologia, una actividad abre su detalle acá mismo (reusa
+   openEvento, sin recargar la página). Versión destacada (mismo motor) en la principal. */
+function fmtFechaTl(iso){
+  var d=new Date(iso);
+  var meses=["ENE","FEB","MAR","ABR","MAY","JUN","JUL","AGO","SEP","OCT","NOV","DIC"];
+  return d.getDate()+" · "+meses[d.getMonth()]+" · "+d.getFullYear();
+}
+function initFigTimeline(sel,opts){
+  var tl=$(sel); if(!tl)return;
+  opts=opts||{};
+  var torneoHref=opts.torneoHref||"../torneo/index.html#metodologia";
+  var pop=$(opts.popSel||"#axPop");
+  function ocultarPop(){if(pop){pop.classList.remove("show")}}
+  function mostrarPop(el,it){
+    if(!pop)return;
+    var html="<b>"+esc(it.textoFecha||fmtFechaTl(it.iso));
+    if(it.tag)html+=' <span class="tag">'+esc(it.tag)+"</span>";
+    html+="</b>";
+    html+="<p>"+esc(it.titulo||"")+(it.resumen?" — "+esc(it.resumen):"")+"</p>";
+    html+='<span class="ax-go">'+(it.destino&&it.destino.evento?"Ver evento →":"Ir al torneo →")+"</span>";
+    pop.innerHTML=html;
+    var r=el.getBoundingClientRect();
+    var pw=240,vw=window.innerWidth;
+    var left=Math.min(Math.max(r.left+r.width/2-pw/2,10),vw-pw-10);
+    pop.style.left=left+"px";
+    pop.style.visibility="hidden";pop.classList.add("show");
+    var ph=pop.getBoundingClientRect().height;
+    pop.style.top=Math.max(r.top-ph-14,10)+"px";
+    pop.style.visibility="visible";
+  }
+  function fila(it){
+    var el=document.createElement("div");
+    el.tabIndex=0; el.setAttribute("role","link");
+    el.className="ax"+(it.cls?" "+it.cls:"");
+    if(it.iso)el.setAttribute("data-when",it.iso);
+    var d=document.createElement("span");d.className="ax-d";d.textContent=it.textoFecha||fmtFechaTl(it.iso);
+    var t=document.createElement("span");t.className="ax-t";t.textContent=it.titulo||"";
+    el.appendChild(d);el.appendChild(t);
+    function ir(){
+      if(it.destino&&it.destino.evento){
+        if(opts.onEvento)opts.onEvento(it.destino.evento);
+      }else{location.href=torneoHref;}
+    }
+    el.addEventListener("click",ir);
+    el.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();ir();}});
+    el.addEventListener("mouseenter",function(){mostrarPop(el,it)});
+    el.addEventListener("focus",function(){mostrarPop(el,it)});
+    el.addEventListener("mouseleave",ocultarPop);
+    el.addEventListener("blur",ocultarPop);
+    return el;
+  }
+  Promise.all([
+    fetch("../datos/linea_tiempo.json",{cache:"no-store"}).then(function(r){return r.ok?r.json():null}).catch(function(){return null}),
+    fetch("../datos/eventos.json",{cache:"no-store"}).then(function(r){return r.ok?r.json():null}).catch(function(){return null})
+  ]).then(function(res){
+    var hitos=(res[0]&&res[0].hitos)||[];
+    var eventos=(res[1]&&res[1].eventos)||[];
+    if(opts.onHitos)opts.onHitos(hitos);
+    var items=[];
+    var minTs=Infinity;
+    hitos.forEach(function(h){if(h.cuando){var t=Date.parse(h.cuando);if(t<minTs)minTs=t;}});
+    hitos.forEach(function(h){
+      if(h.recurrente){items.push({ts:minTs+1,iso:null,textoFecha:h.textoFecha,titulo:h.titulo,resumen:h.resumen,tag:null,cls:"tl-rec",destino:{}});return;}
+      if(!h.cuando)return;
+      items.push({ts:Date.parse(h.cuando),iso:h.cuando,titulo:h.titulo,resumen:h.resumen,tag:null,cls:"",destino:{}});
+    });
+    eventos.forEach(function(e){
+      if(!e||!e.fecha||e.id==="torneo-portafolio-2026")return;
+      var iso=e.fecha+"T12:00:00-03:00";
+      items.push({ts:Date.parse(iso),iso:iso,titulo:e.titulo,resumen:(e.resumen||"")+(e.lugar?" — "+e.lugar:""),tag:String(e.tipo||"evento").toUpperCase(),cls:"tl-ev",destino:{evento:e.id}});
+    });
+    items.sort(function(a,b){return a.ts-b.ts});
+    tl.innerHTML="";
+    var now=Date.now(),next=null,els=[];
+    items.forEach(function(it){
+      var el=fila(it);
+      if(it.iso){
+        if(Date.parse(it.iso)<=now)el.classList.add("tl-past");
+        else if(!next)next=el;
+      }
+      tl.appendChild(el);
+      els.push(el);
+    });
+    if(next){
+      next.classList.add("tl-next");
+    }
+    var axisEl=tl.closest(".axis");
+    var fillEl=axisEl&&axisEl.querySelector(".axis-fill"),nowEl=axisEl&&axisEl.querySelector(".axis-now");
+    function colocarHoy(){
+      if(!axisEl||!items.length)return;
+      var xs=els.map(function(el){return el.offsetLeft+el.offsetWidth/2});
+      var x;
+      if(now<=items[0].ts)x=xs[0];
+      else if(now>=items[items.length-1].ts)x=xs[xs.length-1];
+      else{
+        for(var i=0;i<items.length-1;i++){
+          if(now>=items[i].ts&&now<items[i+1].ts){x=xs[i]+((now-items[i].ts)/(items[i+1].ts-items[i].ts))*(xs[i+1]-xs[i]);break;}
+        }
+      }
+      fillEl.style.width=Math.max(0,x-14)+"px";
+      nowEl.style.left=x+"px";
+      nowEl.hidden=false;
+    }
+    colocarHoy();
+    window.addEventListener("resize",colocarHoy);
+    var scroller=axisEl&&axisEl.closest(".axis-scroll");
+    if(scroller)scroller.addEventListener("scroll",function(){colocarHoy();ocultarPop();},{passive:true});
+  });
+}
 
 /* ---------------- Override desde JSON ---------------- */
 fetch("../datos/eventos.json",{cache:"no-store"})
@@ -663,6 +852,15 @@ function openFromHash(){
 buildYearRow();
 renderGrid();
 observeReveals(document);
+initFigTimeline("#figTl",{onEvento:openEvento,onHitos:function(hitos){
+  var inicio=null;
+  hitos.forEach(function(h){if(h.cuando&&(!inicio||Date.parse(h.cuando)<inicio))inicio=Date.parse(h.cuando);});
+  var tag=$("#tlWeek"); if(!tag||!inicio)return;
+  var now=Date.now(),wk=Math.floor((now-inicio)/(7*864e5))+1;
+  if(now<inicio)tag.textContent="Torneo Portafolio 2026";
+  else if(wk>25)tag.textContent="Torneo finalizado · ranking oficial publicado";
+  else tag.textContent="Semana "+wk+" de 25 · torneo en curso";
+}});
 (function(){
   var pre=$("#preloader"),seen=false;
   try{seen=!!sessionStorage.getItem("figIntro:eventos")}catch(e){}
