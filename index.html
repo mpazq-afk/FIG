@@ -158,19 +158,6 @@ section{padding:clamp(5rem,10vw,9rem) 0;position:relative}
 .btn .arr{transition:transform .35s var(--ease)}
 .btn:hover .arr{transform:translateX(4px)}
 
-/* ---------- Cursor personalizado (solo puntero fino) ---------- */
-#cursorDot,#cursorRing{
-  position:fixed;top:0;left:0;pointer-events:none;z-index:2400;border-radius:50%;
-  opacity:0;transition:opacity .3s;will-change:transform;
-}
-#cursorDot{width:6px;height:6px;background:var(--gold)}
-#cursorRing{
-  width:36px;height:36px;border:1px solid rgba(212,175,55,.55);
-  transition:opacity .3s, width .3s var(--ease), height .3s var(--ease), border-color .3s;
-}
-body.cursor-on #cursorDot,body.cursor-on #cursorRing{opacity:1}
-body.cursor-on #cursorRing.grow{width:58px;height:58px;border-color:var(--gold)}
-
 /* ---------- Barra de progreso (móvil / tablet) ---------- */
 #scrollbar{position:fixed;top:0;left:0;height:2.5px;width:0;background:linear-gradient(90deg,var(--gold),var(--gold-light));z-index:1002}
 
@@ -951,36 +938,9 @@ body.has-ticker{padding-bottom:38px}
   .desk-item .di-name{font-size:1.4rem}
 }
 </style>
-<script>
-  if (window.location.pathname.endsWith('/index.html')) {
-    const cleanPath = window.location.pathname.replace(/\/index\.html$/, '/') + window.location.search + window.location.hash;
-    window.history.replaceState(null, '', cleanPath);
-  }
-</script>
-
-<script>
-  // Prevenir que el # aparezca en la URL al hacer clic en enlaces internos
-  document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
-      anchor.addEventListener('click', function (e) {
-        var targetId = this.getAttribute('href');
-        if (targetId === '#') return;
-        var targetElement = document.querySelector(targetId);
-        if (targetElement) {
-          e.preventDefault();
-          targetElement.scrollIntoView({ behavior: 'smooth' });
-          // Mantiene la URL limpia sin el #
-          window.history.pushState(null, null, window.location.pathname + window.location.search);
-        }
-      });
-    });
-  });
-</script>
 </head>
 <body>
 
-<div id="cursorDot" aria-hidden="true"></div>
-<div id="cursorRing" aria-hidden="true"></div>
 <div id="scrollbar"></div>
 
 <!-- Riel «equity curve»: se construye por JS a partir de [data-rail] -->
@@ -1013,18 +973,18 @@ body.has-ticker{padding-bottom:38px}
     </a>
     <ul class="nav__links">
       <li><a href="#nosotros">Nosotros</a></li>
-      <li><a href="eventos/">Eventos</a></li>
+      <li><a href="eventos/index.html">Eventos</a></li>
       <li><a href="#areas">Áreas</a></li>
-      <li><a href="valuation/">Valuation</a></li>
+      <li><a href="valuation/index.html">Valuation</a></li>
       <li><a href="#torneo">Torneo</a></li>
       <li><a href="#historia">Historia</a></li>
       <li><a href="#equipo">Equipo</a></li>
-      <!-- FIW_TEMP_OCULTO (2026-07-24, pedido de Francisco: ocultar hasta publicar el área) <li><a href="fiw/">FIG Woman</a></li> -->
+      <li><a href="fiw/index.html">FIG Woman</a></li>
       <li class="nav__play">
-        <a href="juego/" aria-haspopup="true">Jugar ▾</a>
+        <a href="juego/index.html" aria-haspopup="true">Jugar ▾</a>
         <div class="nav__play-menu">
-          <a href="juego/">El Rally del Toro<small>Runner · vende a tiempo</small></a>
-          <a href="desafio/">Desafío FIG<small>Trivia de finanzas · 300 preguntas</small></a>
+          <a href="juego/index.html">El Rally del Toro<small>Runner · vende a tiempo</small></a>
+          <a href="desafio/index.html">Desafío FIG<small>Trivia de finanzas · 300 preguntas</small></a>
         </div>
       </li>
     </ul>
@@ -1037,15 +997,15 @@ body.has-ticker{padding-bottom:38px}
 
 <div class="m-menu" id="mmenu">
   <a href="#nosotros">Nosotros</a>
-  <a href="eventos/">Eventos</a>
+  <a href="eventos/index.html">Eventos</a>
   <a href="#areas">Áreas</a>
-  <a href="valuation/">Valuation</a>
+  <a href="valuation/index.html">Valuation</a>
   <a href="#torneo">Torneo 2026</a>
   <a href="#historia">Historia</a>
   <a href="#equipo">Equipo</a>
-  <!-- FIW_TEMP_OCULTO (2026-07-24) <a href="fiw/">FIG Woman</a> -->
-  <a href="juego/">El Rally del Toro</a>
-  <a href="desafio/">Desafío FIG</a>
+  <a href="fiw/index.html">FIG Woman</a>
+  <a href="juego/index.html">El Rally del Toro</a>
+  <a href="desafio/index.html">Desafío FIG</a>
   <span class="mono-tag">Forjando la Élite del Mañana</span>
 </div>
 
@@ -1134,7 +1094,7 @@ body.has-ticker{padding-bottom:38px}
         <div class="stat"><div class="stat__num counter" data-target="18">0</div><div class="stat__lbl">Directores fundadores</div></div>
         <div class="stat"><div class="stat__num"><span class="counter" data-target="250">0</span><sup>+</sup></div><div class="stat__lbl">Miembros de la comunidad</div></div>
         <div class="stat"><div class="stat__num counter" data-target="4">0</div><div class="stat__lbl">Áreas especializadas</div></div>
-        <div class="stat"><div class="stat__num counter" data-target="63">0</div><div class="stat__lbl">Equipos · Torneo 2026</div></div>
+        <div class="stat"><div class="stat__num counter" data-target="59">0</div><div class="stat__lbl">Equipos · Torneo 2026</div></div>
       </div>
     </div>
     <div class="pillars">
@@ -1168,7 +1128,7 @@ body.has-ticker{padding-bottom:38px}
       <div class="e-card e-card--live glowable reveal">
         <span class="e-date"><span class="live-dot" aria-hidden="true"></span>En curso · May — Nov 2026</span>
         <h3>Torneo Portafolio 2026</h3>
-        <p>63 equipos, USD 10M simulados por cartera y ranking publicado cada viernes. La final ante jurado se juega el 9 de noviembre.</p>
+        <p>59 equipos, USD 10M simulados por cartera y ranking publicado cada viernes. La final ante jurado se juega el 9 de noviembre.</p>
         <a data-link="torneo" href="#" class="a-link">Seguir el ranking <span class="arr">→</span></a>
       </div>
       <div class="e-card glowable reveal d1">
@@ -1185,7 +1145,7 @@ body.has-ticker{padding-bottom:38px}
       </div>
     </div>
     <div class="reveal" style="margin-top:32px">
-      <a href="eventos/" class="btn btn--ghost">Ver toda la bitácora de eventos <span class="arr">→</span></a>
+      <a href="eventos/index.html" class="btn btn--ghost">Ver toda la bitácora de eventos <span class="arr">→</span></a>
     </div>
   </div>
 </section>
@@ -1210,7 +1170,7 @@ body.has-ticker{padding-bottom:38px}
         <!-- Valuation es el único desk con página propia: se entra directo al
              tocarlo (los otros tres solo abren su panel). -->
         <a class="desk-item" role="tab" aria-selected="false" data-desk="2"
-           href="valuation/" aria-label="Valuation — ir a la página del área">
+           href="valuation/index.html" aria-label="Valuation — ir a la página del área">
           <span class="di-code">VAL</span><span class="di-name">Valuation</span><span class="di-arrow">→</span>
         </a>
         <button class="desk-item" role="tab" aria-selected="false" data-desk="3">
@@ -1249,7 +1209,7 @@ body.has-ticker{padding-bottom:38px}
             <span class="mono-tag">02 directores</span>
             <span class="mono-tag">Research fundamental</span>
           </div>
-          <a href="valuation/" class="a-link">Conocer el área <span class="arr">→</span></a>
+          <a href="valuation/index.html" class="a-link">Conocer el área <span class="arr">→</span></a>
           <div class="dp-bar"><i></i></div>
         </div>
         <div class="dp-view" data-view="3" role="tabpanel">
@@ -1261,7 +1221,7 @@ body.has-ticker{padding-bottom:38px}
             <span class="mono-tag">Fundadora · Delia Avilán</span>
             <span class="mono-tag">Comunidad abierta</span>
           </div>
-          <!-- FIW_TEMP_OCULTO (2026-07-24, pedido de Francisco: ocultar hasta publicar el área) <a href="fiw/" class="a-link">Conocer el área <span class="arr">→</span></a> -->
+          <a href="fiw/index.html" class="a-link">Conocer el área <span class="arr">→</span></a>
           <div class="dp-bar"><i></i></div>
         </div>
       </div>
@@ -1311,7 +1271,7 @@ body.has-ticker{padding-bottom:38px}
     <div class="axis-wrap reveal">
       <div class="axis-head">
         <span class="mono-tag" id="axisWeek">Torneo en curso</span>
-        <span class="mono-tag">USD 630M simulados en total</span>
+        <span class="mono-tag">USD 590M simulados en total</span>
       </div>
       <div class="axis-scroll">
         <div class="axis">
@@ -1372,7 +1332,7 @@ body.has-ticker{padding-bottom:38px}
         <div class="tl-card">
           <div class="tl-chap">Capítulo IV · 2026</div>
           <h3>Torneo Portafolio 2026</h3>
-          <p>63 equipos gestionan USD 10M simulados en Bloomberg durante seis meses. El mayor desafío organizado por FIG hasta hoy.</p>
+          <p>59 equipos gestionan USD 10M simulados en Bloomberg durante seis meses. El mayor desafío organizado por FIG hasta hoy.</p>
         </div>
       </div>
     </div>
@@ -1446,7 +1406,7 @@ body.has-ticker{padding-bottom:38px}
       </div>
       <div class="p-card reveal d2" data-group="directiva">
         <div class="avatar">DG</div>
-        <div><div class="p-name">David González Cañon</div><div class="p-role">Director · Valuation</div></div>
+        <div><div class="p-name">David González Cañon</div><div class="p-role">Fundador · Valuation</div></div>
         <p class="p-extra">Co-fundador.</p>
       </div>
       <div class="p-card reveal d3" data-group="directiva">
@@ -1573,7 +1533,7 @@ body.has-ticker{padding-bottom:38px}
           <li><a href="#areas">Portafolio</a></li>
           <li><a href="#areas">Trading</a></li>
           <li><a href="#areas">Valuation</a></li>
-          <!-- FIW_TEMP_OCULTO (2026-07-24, pedido de Francisco: ocultar hasta publicar el área) <li><a href="fiw/">FEN Investment Woman</a></li> -->
+          <li><a href="fiw/index.html">FEN Investment Woman</a></li>
         </ul>
       </div>
       <div class="f-col">
@@ -1592,7 +1552,7 @@ body.has-ticker{padding-bottom:38px}
           <li><a data-link="instagram" href="#">Instagram</a></li>
           <li><a data-link="linkedin" href="#">LinkedIn</a></li>
           <li><a data-link="contacto" href="#">Contacto</a></li>
-          <li><a href="en/">English brief 🌐</a></li>
+          <li><a href="en/index.html">English brief 🌐</a></li>
         </ul>
       </div>
     </div>
@@ -1624,11 +1584,11 @@ function clamp(v,a,b){return Math.max(a,Math.min(b,v))}
 
 /* ---------------- CONFIGURACIÓN (editar URLs reales aquí) ---------------- */
 var CONFIG = { urls:{
-  torneo:   "torneo/",
+  torneo:   "torneo/index.html",
   bases:    "#",   /* PDF de las Bases */
   instagram:"https://www.instagram.com/fen.investment.group/",
   linkedin: "https://www.linkedin.com/company/fen-investment-group",
-  postula:  "postula/",
+  postula:  "postula/index.html",
   contacto: "#"    /* Correo o formulario */
 }};
 
@@ -1639,14 +1599,14 @@ var CLUB_DATA = {
       {iniciales:"BS",nombre:"Benjamín Sáez Molina",rol:"Presidente",detalle:"Co-fundador · Área Portafolio.",destacado:true,linkedin:"https://www.linkedin.com/in/benjamin-saez-molina/",perfil:{bio:"Presidente y co-fundador de FEN Investment Group. Lidera el área Portafolio y la dirección estratégica del club, desde donde se articulan el Torneo Portafolio y las alianzas con la industria. Realizó su práctica profesional en Wealth Management en Itaú.",hitos:["Presidente de FEN Investment Group","Co-fundador · Área Portafolio","Práctica en Wealth Management · Itaú"]}},
       {iniciales:"JG",nombre:"Jhosep García",rol:"Vicepresidente",detalle:"Co-fundador · Área Valuation.",destacado:true,linkedin:"https://linkedin.com/in/jhosep-garcia",perfil:{bio:"Vicepresidente y co-fundador de FEN Investment Group. Lidera el área Valuation, donde los miembros analizan y valorizan compañías reales aplicando las metodologías que se usan en la industria financiera.",hitos:["Vicepresidente de FEN Investment Group","Co-fundador · Área Valuation"]}},
       {iniciales:"MP",nombre:"Manuel Paz",rol:"Director · Portafolio",detalle:"Comunicaciones, difusión y creador de la web original.",perfil:{bio:"Director del área Portafolio y responsable de comunicaciones y difusión del club. Creador de la web original de FIG, la primera presencia digital del grupo.",hitos:["Director · Portafolio","Comunicaciones y difusión de FIG","Creador de la web original del club"]}},
-      {iniciales:"FV",nombre:"Francisco Valenzuela",rol:"Director · Portafolio",detalle:"Plataforma web y co-creador del Torneo Portafolio 2026.",linkedin:"https://www.linkedin.com/in/francisco-ignacio-andr%C3%A9s-valenzuela-lecaros-128a69396/",perfil:{bio:"Director del área Portafolio, responsable de la plataforma web del club y co-creador del Torneo Portafolio 2026, la competencia insignia de FIG con 63 equipos y USD 10M simulados por cartera. Realizó su práctica profesional en el área de Riesgo de LarraínVial.",hitos:["Director · Portafolio","Co-creador del Torneo Portafolio 2026","Plataforma web de FIG","Práctica en Riesgo · LarraínVial"]}},
+      {iniciales:"FV",nombre:"Francisco Valenzuela",rol:"Director · Portafolio",detalle:"Plataforma web y co-creador del Torneo Portafolio 2026.",linkedin:"https://www.linkedin.com/in/francisco-ignacio-andr%C3%A9s-valenzuela-lecaros-128a69396/",perfil:{bio:"Director del área Portafolio, responsable de la plataforma web del club y co-creador del Torneo Portafolio 2026, la competencia insignia de FIG con 59 equipos y USD 10M simulados por cartera. Realizó su práctica profesional en el área de Riesgo de LarraínVial.",hitos:["Director · Portafolio","Co-creador del Torneo Portafolio 2026","Plataforma web de FIG","Práctica en Riesgo · LarraínVial"]}},
       {iniciales:"AA",nombre:"Agustín Arriagada",rol:"Director · Portafolio",detalle:"Co-fundador.",perfil:{bio:"Co-fundador de FEN Investment Group y director del área Portafolio, donde se gestionan las carteras simuladas y la metodología de inversión del club.",hitos:["Director · Portafolio","Co-fundador de FIG"]}},
       {iniciales:"BD",nombre:"Benjamín Disi",rol:"Director · Portafolio",detalle:"Magíster en Finanzas (en curso) · Tutor de Finanzas II y monitor del Lab. Bloomberg Itaú.",linkedin:"https://www.linkedin.com/in/benjam%C3%ADn-disi-hernandez-12b570297",perfil:{bio:"Co-fundador y director del área Portafolio. Titulado de Ingeniería Comercial y estudiante del Magíster en Finanzas de la Universidad de Chile. Tutor de Finanzas II y monitor del Laboratorio Bloomberg Itaú de la FEN, lideró el diseño de reglas, criterios de evaluación y metodología de construcción de portafolios del primer torneo de inversión de la facultad.",hitos:["Director · Portafolio","Magíster en Finanzas (en curso) · U. de Chile","Tutor de Finanzas II y monitor del Lab. Bloomberg Itaú · FEN","Diseño metodológico del Torneo Portafolio 2026","Top 10 · Torneo de trading Banco Itaú"]}},
       {iniciales:"BS",nombre:"Benjamín Solís",rol:"Director · Portafolio",detalle:"Co-fundador.",perfil:{bio:"Co-fundador de FEN Investment Group y director del área Portafolio.",hitos:["Director · Portafolio","Co-fundador de FIG"]}},
       {iniciales:"RA",nombre:"Rafael Aliendre",rol:"Director · Trading",detalle:"Co-fundador.",linkedin:"https://www.linkedin.com/in/rafael-aliendre-javier",perfil:{bio:"Co-fundador y director del área Trading. Memorista en la Dirección de Estrategia e Inteligencia de Mercado de CODELCO, con prácticas previas en Factoring Capital Express, Moxi SpA y Falabella Financiero.",hitos:["Director · Trading","Memorista · CODELCO, Estrategia e Inteligencia de Mercado","Prácticas en Factoring Capital Express, Moxi SpA y Falabella Financiero"]}},
       {iniciales:"JL",nombre:"Juan José Limari",rol:"Director · Trading",detalle:"Co-fundador.",perfil:{bio:"Co-fundador de FEN Investment Group y director del área Trading, donde se estudian estrategias de mercado y ejecución.",hitos:["Director · Trading","Co-fundador de FIG"]}},
       {iniciales:"JD",nombre:"Juan Pablo Díaz Cerda",rol:"Director · Trading",detalle:"Co-fundador.",perfil:{bio:"Co-fundador de FEN Investment Group y director del área Trading.",hitos:["Director · Trading","Co-fundador de FIG"]}},
-      {iniciales:"DG",nombre:"David González Cañon",rol:"Director · Valuation",detalle:"Práctica en HSBC · ex Banco BICE · Coordinador Lab. Bloomberg FEN.",linkedin:"https://www.linkedin.com/in/davidgonzalezca%C3%B1on/",perfil:{bio:"Co-fundador y director del área Valuation. Realizó su práctica en HSBC apoyando a banqueros de Instituciones Financieras, Sector Público y Grandes Corporativos, y antes se desempeñó como Analista de Riesgo Financiero Junior en Banco BICE. En la FEN ha sido coordinador del Laboratorio Bloomberg y ayudante de cursos.",hitos:["Director · Valuation","Práctica · HSBC, Large Corporates & Institutional Banking","Analista de Riesgo Financiero Junior · Banco BICE","Coordinador del Laboratorio Bloomberg · FEN"]}},
+      {iniciales:"DG",nombre:"David González Cañon",rol:"Fundador · Valuation",detalle:"Práctica en HSBC · ex Banco BICE · Coordinador Lab. Bloomberg FEN.",linkedin:"https://www.linkedin.com/in/davidgonzalezca%C3%B1on/",perfil:{bio:"Co-fundador del área Valuation. Realizó su práctica en HSBC apoyando a banqueros de Instituciones Financieras, Sector Público y Grandes Corporativos, y antes se desempeñó como Analista de Riesgo Financiero Junior en Banco BICE. En la FEN ha sido coordinador del Laboratorio Bloomberg y ayudante de cursos.",hitos:["Fundador · Valuation","Práctica · HSBC, Large Corporates & Institutional Banking","Analista de Riesgo Financiero Junior · Banco BICE","Coordinador del Laboratorio Bloomberg · FEN"]}},
       {iniciales:"DA",nombre:"Delia Avilán",rol:"Fundadora · FEN Investment Woman",detalle:"Co-fundadora.",perfil:{bio:"Co-fundadora de FEN Investment Group y fundadora de FEN Investment Woman, el área que impulsa la participación de mujeres en el mundo de las inversiones dentro de la FEN.",hitos:["Fundadora · FEN Investment Woman","Co-fundadora de FIG"]}},
       {iniciales:"+6",nombre:"Directiva completa",detalle:"Los 18 perfiles se cargan desde Nosotros_FIG.xlsx al conectar el pipeline.",mas:true}
     ],
@@ -1663,7 +1623,7 @@ var CLUB_DATA = {
     ]
   },
   eventos:[
-    {estado:"live",etiqueta:"En curso · May — Nov 2026",titulo:"Torneo Portafolio 2026",descripcion:"63 equipos, USD 10M simulados por cartera y ranking publicado cada viernes. La final ante jurado se juega el 9 de noviembre.",enlace:"torneo",cta:"Seguir el ranking"},
+    {estado:"live",etiqueta:"En curso · May — Nov 2026",titulo:"Torneo Portafolio 2026",descripcion:"59 equipos, USD 10M simulados por cartera y ranking publicado cada viernes. La final ante jurado se juega el 9 de noviembre.",enlace:"torneo",cta:"Seguir el ranking"},
     {etiqueta:"Programa de formación",titulo:"Workshops Bloomberg",descripcion:"Sesiones prácticas de terminal: PORT, TMSG y análisis de carteras con datos reales. Fechas por anunciar.",enlace:"instagram",cta:"Enterarme primero"},
     {etiqueta:"Ciclo de charlas",titulo:"FIG Talks · La industria en la FEN",descripcion:"Conversaciones con profesionales de la gestión de activos, trading y research. Fechas por anunciar.",enlace:"instagram",cta:"Enterarme primero"}
   ],
@@ -1671,7 +1631,7 @@ var CLUB_DATA = {
     {capitulo:"Capítulo I · Fundación",titulo:"Nace FEN Investment Group",texto:"Un grupo de estudiantes decide que los mercados se aprenden gestionándolos, no mirándolos. Nace FIG."},
     {capitulo:"Capítulo II · Estructura",titulo:"18 directores, 4 desks",texto:"La directiva fundadora organiza el club en cuatro áreas: Portafolio, Trading, Valuation y FEN Investment Woman."},
     {capitulo:"Capítulo III · Comunidad",titulo:"Más de 250 miembros",texto:"La comunidad FIG crece con estudiantes de toda la facultad, unidos por el interés en las inversiones y los mercados."},
-    {capitulo:"Capítulo IV · 2026",titulo:"Torneo Portafolio 2026",texto:"63 equipos gestionan USD 10M simulados en Bloomberg durante seis meses. El mayor desafío organizado por FIG hasta hoy."}
+    {capitulo:"Capítulo IV · 2026",titulo:"Torneo Portafolio 2026",texto:"59 equipos gestionan USD 10M simulados en Bloomberg durante seis meses. El mayor desafío organizado por FIG hasta hoy."}
   ]
 };
 
@@ -1884,7 +1844,7 @@ fetch("datos/club.json",{cache:"no-store"})
         return '<span class="tk-item"><b>'+e.posicion+'</b> '+esc(e.nombre)+' — '
              +(typeof e.puntos==="number"?e.puntos.toFixed(1)+" pts":"")+rel+delta+'</span>';
       }).join("")
-      +'<a class="tk-item" data-link="torneo" href="torneo/">VER RANKING COMPLETO →</a>';
+      +'<a class="tk-item" data-link="torneo" href="torneo/index.html">VER RANKING COMPLETO →</a>';
       $(".tk-move",t).innerHTML=html+html; /* duplicado para el loop continuo */
       $(".tk-tag",t).textContent="TORNEO · SEMANA "+(d.semana||"—");
       t.classList.add("on");
@@ -2194,27 +2154,6 @@ $$("a",mmenu).forEach(function(a){a.addEventListener("click",function(){toggleMe
     });
   },{rootMargin:"-45% 0px -50% 0px"});
   Object.keys(map).forEach(function(id){var s=document.getElementById(id);if(s)io.observe(s)});
-})();
-
-/* ---------------- Cursor crosshair ---------------- */
-(function(){
-  if(!FINE||RM)return;
-  var dot=$("#cursorDot"), ring=$("#cursorRing");
-  var x=0,y=0,rx=0,ry=0,on=false;
-  document.addEventListener("mousemove",function(e){
-    x=e.clientX; y=e.clientY;
-    if(!on){on=true;document.body.classList.add("cursor-on");}
-    dot.style.transform="translate("+x+"px,"+y+"px) translate(-50%,-50%)";
-  },{passive:true});
-  document.addEventListener("mouseleave",function(){document.body.classList.remove("cursor-on");on=false});
-  document.addEventListener("mouseover",function(e){
-    ring.classList.toggle("grow",!!(e.target.closest&&e.target.closest("a,button,#heroChart")));
-  });
-  (function loop(){
-    rx+=(x-rx)*.16; ry+=(y-ry)*.16;
-    ring.style.transform="translate("+rx+"px,"+ry+"px) translate(-50%,-50%)";
-    requestAnimationFrame(loop);
-  })();
 })();
 
 /* ---------------- Botones magnéticos ---------------- */
