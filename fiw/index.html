@@ -78,11 +78,6 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .btn:hover .arr{transform:translateX(4px)}
 
 /* Cursor / barra */
-#cursorDot,#cursorRing{position:fixed;top:0;left:0;pointer-events:none;z-index:2400;border-radius:50%;opacity:0;transition:opacity .3s;will-change:transform}
-#cursorDot{width:6px;height:6px;background:var(--acc)}
-#cursorRing{width:36px;height:36px;border:1px solid rgba(217,160,172,.6);transition:opacity .3s,width .3s var(--ease),height .3s var(--ease),border-color .3s}
-body.cursor-on #cursorDot,body.cursor-on #cursorRing{opacity:1}
-body.cursor-on #cursorRing.grow{width:58px;height:58px;border-color:var(--acc)}
 #scrollbar{position:fixed;top:0;left:0;height:2.5px;width:0;background:linear-gradient(90deg,var(--acc-deep),var(--acc),var(--acc-light));z-index:1002}
 
 /* Preloader */
@@ -249,48 +244,21 @@ html:not(.no-js) body:not(.hero-in) .hero .reveal{opacity:0;transform:translateY
   .hero__cta .btn{width:100%;justify-content:center}
 }
 </style>
-<script>
-  if (window.location.pathname.endsWith('/index.html')) {
-    const cleanPath = window.location.pathname.replace(/\/index\.html$/, '/') + window.location.search + window.location.hash;
-    window.history.replaceState(null, '', cleanPath);
-  }
-</script>
-
-<script>
-  // Prevenir que el # aparezca en la URL al hacer clic en enlaces internos
-  document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
-      anchor.addEventListener('click', function (e) {
-        var targetId = this.getAttribute('href');
-        if (targetId === '#') return;
-        var targetElement = document.querySelector(targetId);
-        if (targetElement) {
-          e.preventDefault();
-          targetElement.scrollIntoView({ behavior: 'smooth' });
-          // Mantiene la URL limpia sin el #
-          window.history.pushState(null, null, window.location.pathname + window.location.search);
-        }
-      });
-    });
-  });
-</script>
 </head>
 <body>
 
-<div id="cursorDot" aria-hidden="true"></div>
-<div id="cursorRing" aria-hidden="true"></div>
 <div id="scrollbar"></div>
 <div id="preloader"><div class="in-lock"><img class="in-logo" src="../logos/fig-blanco.png" alt=""><div class="in-text"><b>FEN Investment Woman</b><span>FEN Investment Group</span></div></div></div>
 
 <nav class="nav" id="nav">
   <div class="wrap">
-    <a href="../" class="brand" aria-label="FEN Investment Group — Inicio">
+    <a href="../index.html" class="brand" aria-label="FEN Investment Group — Inicio">
       <img class="brand-logo" src="../logos/fig-blanco.png" alt="FIW">
       <div><div class="brand-name">FEN Investment Woman</div><span class="brand-sub">Área de FIG</span></div>
     </a>
     <ul class="nav__links">
-      <li><a href="../">Inicio FIG</a></li>
-      <li><a href="../eventos/">Eventos</a></li>
+      <li><a href="../index.html">Inicio FIG</a></li>
+      <li><a href="../eventos/index.html">Eventos</a></li>
       <li><a href="#nosotras">Nosotras</a></li>
       <li><a href="#galeria">Galería</a></li>
     </ul>
@@ -299,8 +267,8 @@ html:not(.no-js) body:not(.hero-in) .hero .reveal{opacity:0;transform:translateY
   </div>
 </nav>
 <div class="m-menu" id="mmenu">
-  <a href="../">Inicio FIG</a>
-  <a href="../eventos/">Eventos</a>
+  <a href="../index.html">Inicio FIG</a>
+  <a href="../eventos/index.html">Eventos</a>
   <a href="#nosotras">Nosotras</a>
   <a href="#galeria">Galería</a>
   <a href="#unete">Únete</a>
@@ -415,7 +383,7 @@ html:not(.no-js) body:not(.hero-in) .hero .reveal{opacity:0;transform:translateY
   <div class="wrap">
     <span>© 2026 FEN Investment Woman · FIG</span>
     <span>Creado por <a href="https://www.linkedin.com/in/francisco-ignacio-andr%C3%A9s-valenzuela-lecaros-128a69396/" target="_blank" rel="noopener">Francisco Valenzuela</a> y <a href="https://www.linkedin.com/in/mpazq" target="_blank" rel="noopener">Manuel Paz</a></span>
-    <a href="../">← Volver a FEN Investment Group</a>
+    <a href="../index.html">← Volver a FEN Investment Group</a>
   </div>
 </footer>
 
@@ -584,23 +552,6 @@ function toggleMenu(f){
 }
 burger.addEventListener("click",function(){toggleMenu()});
 $$("a",mmenu).forEach(function(a){a.addEventListener("click",function(){toggleMenu(false)})});
-
-(function(){
-  if(!FINE||RM)return;
-  var dot=$("#cursorDot"),ring=$("#cursorRing"),x=0,y=0,rx=0,ry=0,on=false;
-  document.addEventListener("mousemove",function(e){
-    x=e.clientX;y=e.clientY;
-    if(!on){on=true;document.body.classList.add("cursor-on");}
-    dot.style.transform="translate("+x+"px,"+y+"px) translate(-50%,-50%)";
-  },{passive:true});
-  document.addEventListener("mouseleave",function(){document.body.classList.remove("cursor-on");on=false});
-  document.addEventListener("mouseover",function(e){
-    ring.classList.toggle("grow",!!(e.target.closest&&e.target.closest("a,button,.gal-grid img")));
-  });
-  (function loop(){rx+=(x-rx)*.16;ry+=(y-ry)*.16;
-    ring.style.transform="translate("+rx+"px,"+ry+"px) translate(-50%,-50%)";
-    requestAnimationFrame(loop);})();
-})();
 
 /* marquee: duplicar para loop */
 (function(){var t=$("#marqTrack");if(t)t.innerHTML+=t.innerHTML})();
