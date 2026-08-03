@@ -534,38 +534,40 @@ body.on-light .rail-node .rn-lab{color:#A8871C;text-shadow:none}
 }
 .sc-note{font-family:var(--f-mono);font-size:.61rem;letter-spacing:.1em;color:rgba(247,244,236,.5);margin-top:22px;line-height:1.85}
 
-/* Eje de hitos del torneo con marcador HOY en vivo */
-.axis-wrap{margin-top:clamp(3.4rem,7vw,5rem)}
-.axis-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:26px}
-.axis-head .mono-tag{border-color:rgba(168,135,28,.4);color:#A8871C}
-.axis-scroll{overflow-x:auto;padding-bottom:14px;-webkit-overflow-scrolling:touch}
-.axis{position:relative;min-width:820px;padding:36px 10px 6px}
-.axis-line{position:absolute;top:41px;left:10px;right:10px;height:1px;background:var(--line-l)}
-.axis-fill{
-  position:absolute;top:41px;left:10px;height:1px;width:0;
-  background:linear-gradient(90deg,var(--gold-deep),var(--gold));
-  transition:width 1.6s var(--ease);
-}
-.axis-now{
-  position:absolute;top:41px;transform:translate(-50%,-50%);z-index:3;
-  width:11px;height:11px;border-radius:50%;background:var(--gold);
-  box-shadow:0 0 0 4px rgba(212,175,55,.22);animation:pulse 2s ease-out infinite;
-}
-.axis-now .an-lab{
-  position:absolute;top:-32px;left:50%;transform:translateX(-50%);
-  font-family:var(--f-mono);font-size:.6rem;letter-spacing:.2em;color:#A8871C;
-  white-space:nowrap;font-weight:600;
-}
-.axis-items{display:flex;justify-content:space-between;position:relative}
-.ax{position:relative;flex:1;text-align:center;padding-top:20px}
-.ax::before{
-  content:"";position:absolute;top:1px;left:50%;transform:translate(-50%,-50%);
-  width:9px;height:9px;border-radius:50%;background:var(--ivory);
-  border:1.5px solid rgba(16,24,40,.4);z-index:2;
-}
-.ax.done::before{background:var(--gold);border-color:var(--gold)}
-.ax .ax-d{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.16em;color:#A8871C;font-weight:600}
-.ax .ax-t{font-size:.8rem;color:var(--ink-soft);margin-top:4px;line-height:1.4}
+/* Línea de tiempo horizontal: hitos del torneo + actividades FIG (datos/linea_tiempo.json + datos/eventos.json) */
+.fig-timeline{margin-top:clamp(3.4rem,7vw,5rem);border:1px solid var(--line-l);background:var(--paper);border-radius:12px;padding:clamp(1.8rem,4vw,2.6rem)}
+.fig-tl-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:20px}
+.fig-tl-head .mono-tag{border-color:rgba(168,135,28,.4);color:#A8871C}
+.fig-timeline h3{font-family:var(--f-disp);font-weight:600;font-size:clamp(1.4rem,2.6vw,1.9rem);color:var(--ink);margin:0 0 10px}
+.tl-hint{font-family:var(--f-mono);font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);opacity:.75;margin:0 0 4px!important}
+.axis-scroll{overflow-x:auto;padding:16px 4px 14px;-webkit-overflow-scrolling:touch}
+.axis{position:relative;padding:38px 14px 6px;width:max-content;min-width:100%}
+.axis-line{position:absolute;top:43px;left:14px;right:14px;height:1px;background:var(--line-l)}
+.axis-fill{position:absolute;top:43px;left:14px;height:1px;width:0;background:linear-gradient(90deg,var(--gold-deep),var(--gold));transition:width 1.4s var(--ease)}
+.axis-now{position:absolute;top:43px;left:0;transform:translate(-50%,-50%);z-index:4;width:11px;height:11px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(212,175,55,.22);pointer-events:none}
+@media (prefers-reduced-motion:no-preference){.axis-now{animation:axnow 2s ease-out infinite}}
+@keyframes axnow{0%{box-shadow:0 0 0 0 rgba(212,175,55,.5)}70%{box-shadow:0 0 0 9px rgba(212,175,55,0)}100%{box-shadow:0 0 0 0 rgba(212,175,55,0)}}
+.axis-now .an-lab{position:absolute;top:-30px;left:50%;transform:translateX(-50%);font-family:var(--f-mono);font-size:.58rem;letter-spacing:.18em;color:#A8871C;white-space:nowrap;font-weight:600}
+.axis-items{display:flex;position:relative}
+.ax{position:relative;flex:0 0 auto;width:112px;text-align:center;padding-top:22px;cursor:pointer;transition:transform .3s var(--ease),opacity .3s}
+.ax:hover,.ax:focus-visible{transform:scale(1.14);z-index:3}
+.ax::before{content:"";position:absolute;top:2px;left:50%;transform:translate(-50%,-50%);width:9px;height:9px;border-radius:50%;background:var(--paper);border:1.5px solid rgba(16,24,40,.4);z-index:2;transition:transform .3s var(--ease)}
+.ax:hover::before,.ax:focus-visible::before{transform:translate(-50%,-50%) scale(1.3)}
+.ax.tl-past{opacity:.55}
+.ax.tl-past::before{background:var(--gold-deep);border-color:var(--gold-deep)}
+.ax.tl-ev::before{border-radius:2px}
+.ax.tl-rec::before{border-style:dashed}
+.ax.tl-next::before{background:var(--gold);border-color:var(--gold);box-shadow:0 0 0 4px rgba(212,175,55,.22)}
+@media (prefers-reduced-motion:no-preference){.ax.tl-next::before{animation:tlpulse 2.4s ease-in-out infinite}}
+@keyframes tlpulse{0%,100%{box-shadow:0 0 0 4px rgba(212,175,55,.22)}50%{box-shadow:0 0 0 8px rgba(212,175,55,.1)}}
+.ax .ax-d{display:block;font-family:var(--f-mono);font-size:.6rem;letter-spacing:.1em;color:#A8871C;font-weight:600}
+.ax .ax-t{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:.74rem;color:var(--ink-soft);margin-top:4px;line-height:1.35}
+.ax-pop{position:fixed;z-index:2000;width:240px;background:var(--paper);border:1px solid rgba(158,126,30,.4);border-radius:10px;padding:16px 18px;box-shadow:0 24px 50px -20px rgba(16,24,40,.4);opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;transform:translateY(6px);text-align:left}
+.ax-pop.show{opacity:1;transform:translateY(0)}
+.ax-pop b{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-family:var(--f-mono);font-weight:600;font-size:.62rem;letter-spacing:.08em;color:var(--ink);margin-bottom:6px}
+.ax-pop .tag{font-family:var(--f-mono);font-size:.5rem;font-weight:500;letter-spacing:.16em;color:#9E7E1E;border:1px solid rgba(158,126,30,.45);border-radius:100px;padding:1px 8px}
+.ax-pop p{font-size:.8rem;color:var(--ink-soft);line-height:1.55;margin:0}
+.ax-pop .ax-go{display:block;margin-top:10px;font-family:var(--f-mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-deep)}
 
 /* ---------- Historia ---------- */
 .timeline{position:relative;max-width:860px;margin:0 auto}
@@ -979,7 +981,7 @@ body.has-ticker{padding-bottom:38px}
       <li><a href="#torneo">Torneo</a></li>
       <li><a href="#historia">Historia</a></li>
       <li><a href="#equipo">Equipo</a></li>
-      <li><a href="fiw/index.html">FIG Woman</a></li>
+      <!-- FIW_TEMP_OCULTO <li><a href="fiw/index.html">FIG Woman</a></li> -->
       <li class="nav__play">
         <a href="juego/index.html" aria-haspopup="true">Jugar ▾</a>
         <div class="nav__play-menu">
@@ -1003,7 +1005,7 @@ body.has-ticker{padding-bottom:38px}
   <a href="#torneo">Torneo 2026</a>
   <a href="#historia">Historia</a>
   <a href="#equipo">Equipo</a>
-  <a href="fiw/index.html">FIG Woman</a>
+  <!-- FIW_TEMP_OCULTO <a href="fiw/index.html">FIG Woman</a> -->
   <a href="juego/index.html">El Rally del Toro</a>
   <a href="desafio/index.html">Desafío FIG</a>
   <span class="mono-tag">Forjando la Élite del Mañana</span>
@@ -1221,7 +1223,7 @@ body.has-ticker{padding-bottom:38px}
             <span class="mono-tag">Fundadora · Delia Avilán</span>
             <span class="mono-tag">Comunidad abierta</span>
           </div>
-          <a href="fiw/index.html" class="a-link">Conocer el área <span class="arr">→</span></a>
+          <!-- FIW_TEMP_OCULTO <a href="fiw/index.html" class="a-link">Conocer el área <span class="arr">→</span></a> -->
           <div class="dp-bar"><i></i></div>
         </div>
       </div>
@@ -1267,31 +1269,27 @@ body.has-ticker{padding-bottom:38px}
       </div>
     </div>
 
-    <!-- Eje de hitos con marcador HOY calculado en vivo -->
-    <div class="axis-wrap reveal">
-      <div class="axis-head">
-        <span class="mono-tag" id="axisWeek">Torneo en curso</span>
+    <!-- Línea de tiempo: hitos del torneo + actividades FIG, integrada desde
+         datos/linea_tiempo.json + datos/eventos.json (versión completa en eventos/index.html) -->
+    <div class="fig-timeline reveal" id="figTlWrap">
+      <div class="fig-tl-head">
+        <span class="mono-tag" id="tlWeek">Torneo en curso</span>
         <span class="mono-tag">USD 590M simulados en total</span>
       </div>
+      <h3>El torneo y la vida del club</h3>
+      <p class="tl-hint">Hitos del torneo + actividades FIG · pasa el cursor (o toca) un punto para ver su resumen · haz clic para ir directo</p>
       <div class="axis-scroll">
         <div class="axis">
           <span class="axis-line"></span>
           <span class="axis-fill" id="axisFill"></span>
-          <span class="axis-now" id="axisNow" hidden><span class="an-lab" id="axisNowLab">HOY</span></span>
-          <div class="axis-items">
-            <div class="ax" data-ts="2026-05-11"><span class="ax-d">11 MAY</span><span class="ax-t">Inicio del torneo</span></div>
-            <div class="ax" data-ts="2026-05-20"><span class="ax-d">20 MAY</span><span class="ax-t">Últimas posiciones</span></div>
-            <div class="ax" data-ts="2026-07-03"><span class="ax-d">JUN</span><span class="ax-t">Rebalanceo I</span></div>
-            <div class="ax" data-ts="2026-08-07"><span class="ax-d">3–7 AGO</span><span class="ax-t">Rebalanceo II</span></div>
-            <div class="ax" data-ts="2026-10-09"><span class="ax-d">5–9 OCT</span><span class="ax-t">Rebalanceo III</span></div>
-            <div class="ax" data-ts="2026-11-02"><span class="ax-d">02 NOV</span><span class="ax-t">Cierre y ranking final</span></div>
-            <div class="ax" data-ts="2026-11-09"><span class="ax-d">09 NOV</span><span class="ax-t">Final ante jurado</span></div>
-          </div>
+          <span class="axis-now" id="axisNow" hidden><span class="an-lab">HOY</span></span>
+          <div class="axis-items" id="figTl"><!-- se arma con datos/linea_tiempo.json + datos/eventos.json --></div>
         </div>
       </div>
     </div>
   </div>
 </section>
+<div class="ax-pop" id="axPop"></div>
 
 <!-- ============ HISTORIA ============ -->
 <section class="section--deep" id="historia" data-rail="Historia" data-theme="dark">
@@ -1406,7 +1404,7 @@ body.has-ticker{padding-bottom:38px}
       </div>
       <div class="p-card reveal d2" data-group="directiva">
         <div class="avatar">DG</div>
-        <div><div class="p-name">David González Cañon</div><div class="p-role">Fundador · Valuation</div></div>
+        <div><div class="p-name">David González Cañon</div><div class="p-role">Fundador</div></div>
         <p class="p-extra">Co-fundador.</p>
       </div>
       <div class="p-card reveal d3" data-group="directiva">
@@ -1533,7 +1531,7 @@ body.has-ticker{padding-bottom:38px}
           <li><a href="#areas">Portafolio</a></li>
           <li><a href="#areas">Trading</a></li>
           <li><a href="#areas">Valuation</a></li>
-          <li><a href="fiw/index.html">FEN Investment Woman</a></li>
+          <!-- FIW_TEMP_OCULTO <li><a href="fiw/index.html">FEN Investment Woman</a></li> -->
         </ul>
       </div>
       <div class="f-col">
@@ -1606,7 +1604,7 @@ var CLUB_DATA = {
       {iniciales:"RA",nombre:"Rafael Aliendre",rol:"Director · Trading",detalle:"Co-fundador.",linkedin:"https://www.linkedin.com/in/rafael-aliendre-javier",perfil:{bio:"Co-fundador y director del área Trading. Memorista en la Dirección de Estrategia e Inteligencia de Mercado de CODELCO, con prácticas previas en Factoring Capital Express, Moxi SpA y Falabella Financiero.",hitos:["Director · Trading","Memorista · CODELCO, Estrategia e Inteligencia de Mercado","Prácticas en Factoring Capital Express, Moxi SpA y Falabella Financiero"]}},
       {iniciales:"JL",nombre:"Juan José Limari",rol:"Director · Trading",detalle:"Co-fundador.",perfil:{bio:"Co-fundador de FEN Investment Group y director del área Trading, donde se estudian estrategias de mercado y ejecución.",hitos:["Director · Trading","Co-fundador de FIG"]}},
       {iniciales:"JD",nombre:"Juan Pablo Díaz Cerda",rol:"Director · Trading",detalle:"Co-fundador.",perfil:{bio:"Co-fundador de FEN Investment Group y director del área Trading.",hitos:["Director · Trading","Co-fundador de FIG"]}},
-      {iniciales:"DG",nombre:"David González Cañon",rol:"Fundador · Valuation",detalle:"Práctica en HSBC · ex Banco BICE · Coordinador Lab. Bloomberg FEN.",linkedin:"https://www.linkedin.com/in/davidgonzalezca%C3%B1on/",perfil:{bio:"Co-fundador del área Valuation. Realizó su práctica en HSBC apoyando a banqueros de Instituciones Financieras, Sector Público y Grandes Corporativos, y antes se desempeñó como Analista de Riesgo Financiero Junior en Banco BICE. En la FEN ha sido coordinador del Laboratorio Bloomberg y ayudante de cursos.",hitos:["Fundador · Valuation","Práctica · HSBC, Large Corporates & Institutional Banking","Analista de Riesgo Financiero Junior · Banco BICE","Coordinador del Laboratorio Bloomberg · FEN"]}},
+      {iniciales:"DG",nombre:"David González Cañon",rol:"Fundador",detalle:"Práctica en HSBC · ex Banco BICE · Coordinador Lab. Bloomberg FEN.",linkedin:"https://www.linkedin.com/in/davidgonzalezca%C3%B1on/",perfil:{bio:"Co-fundador de FEN Investment Group. Realizó su práctica en HSBC apoyando a banqueros de Instituciones Financieras, Sector Público y Grandes Corporativos, y antes se desempeñó como Analista de Riesgo Financiero Junior en Banco BICE. En la FEN ha sido coordinador del Laboratorio Bloomberg y ayudante de cursos.",hitos:["Fundador de FIG","Práctica · HSBC, Large Corporates & Institutional Banking","Analista de Riesgo Financiero Junior · Banco BICE","Coordinador del Laboratorio Bloomberg · FEN"]}},
       {iniciales:"DA",nombre:"Delia Avilán",rol:"Fundadora · FEN Investment Woman",detalle:"Co-fundadora.",perfil:{bio:"Co-fundadora de FEN Investment Group y fundadora de FEN Investment Woman, el área que impulsa la participación de mujeres en el mundo de las inversiones dentro de la FEN.",hitos:["Fundadora · FEN Investment Woman","Co-fundadora de FIG"]}},
       {iniciales:"+6",nombre:"Directiva completa",detalle:"Los 18 perfiles se cargan desde Nosotros_FIG.xlsx al conectar el pipeline.",mas:true}
     ],
@@ -2399,30 +2397,123 @@ function watchDesks(){
   io.observe(sec);
 }
 
-/* ---------------- Eje del torneo con marcador HOY ---------------- */
-function initAxis(){
-  var items=$$(".ax"); if(!items.length)return;
-  var axis=$(".axis"), fill=$("#axisFill"), nowEl=$("#axisNow"), lab=$("#axisNowLab"), week=$("#axisWeek");
-  var now=Date.now();
-  var ts=items.map(function(el){return Date.parse(el.getAttribute("data-ts")+"T12:00:00-03:00")});
-  items.forEach(function(el,i){el.classList.toggle("done",now>=ts[i])});
-  var aR=axis.getBoundingClientRect();
-  var xs=items.map(function(el){var r=el.getBoundingClientRect();return r.left-aR.left+r.width/2});
-  var x;
-  if(now<=ts[0]) x=xs[0];
-  else if(now>=ts[ts.length-1]) x=xs[xs.length-1];
-  else{
-    for(var i=0;i<ts.length-1;i++){
-      if(now>=ts[i]&&now<ts[i+1]){x=xs[i]+((now-ts[i])/(ts[i+1]-ts[i]))*(xs[i+1]-xs[i]);break;}
-    }
+/* ---------------- Línea de tiempo horizontal: hitos del torneo + actividades FIG ----------------
+   Fuente: datos/linea_tiempo.json (hitos estructurales del torneo) + datos/eventos.json
+   (actividades reales del club, integradas y ordenadas junto a los hitos) sobre un eje
+   horizontal con scroll. El punto "HOY" avanza solo con el tiempo (interpolado entre los
+   dos puntos vecinos según su fecha real). Pasar el cursor (o tocar) un punto muestra su
+   resumen en una tarjeta flotante; clic navega directo: un hito de torneo va a
+   torneo/index.html#metodologia, una actividad va a su detalle en eventos/index.html#<id>.
+   Versión completa (mismo motor) en eventos/index.html. */
+function fmtFechaTl(iso){
+  var d=new Date(iso);
+  var meses=["ENE","FEB","MAR","ABR","MAY","JUN","JUL","AGO","SEP","OCT","NOV","DIC"];
+  return d.getDate()+" · "+meses[d.getMonth()]+" · "+d.getFullYear();
+}
+function initFigTimeline(sel,opts){
+  var tl=$(sel); if(!tl)return;
+  opts=opts||{};
+  var torneoHref=opts.torneoHref||"torneo/index.html#metodologia";
+  var eventosHref=opts.eventosHref||"eventos/index.html#";
+  var pop=$(opts.popSel||"#axPop");
+  function ocultarPop(){if(pop){pop.classList.remove("show")}}
+  function mostrarPop(el,it){
+    if(!pop)return;
+    var html="<b>"+esc(it.textoFecha||fmtFechaTl(it.iso));
+    if(it.tag)html+=' <span class="tag">'+esc(it.tag)+"</span>";
+    html+="</b>";
+    html+="<p>"+esc(it.titulo||"")+(it.resumen?" — "+esc(it.resumen):"")+"</p>";
+    html+='<span class="ax-go">'+(it.destino&&it.destino.evento?"Ver evento →":"Ir al torneo →")+"</span>";
+    pop.innerHTML=html;
+    var r=el.getBoundingClientRect();
+    var pw=240,vw=window.innerWidth;
+    var left=Math.min(Math.max(r.left+r.width/2-pw/2,10),vw-pw-10);
+    pop.style.left=left+"px";
+    pop.style.visibility="hidden";pop.classList.add("show");
+    var ph=pop.getBoundingClientRect().height;
+    pop.style.top=Math.max(r.top-ph-14,10)+"px";
+    pop.style.visibility="visible";
   }
-  fill.style.width=Math.max(0,x-10)+"px";
-  nowEl.style.left=x+"px";
-  nowEl.hidden=false;
-  var wk=Math.floor((now-ts[0])/(7*864e5))+1;
-  if(now<ts[0]){lab.textContent="PRONTO";week.textContent="Torneo Portafolio 2026";}
-  else if(now>ts[5]){lab.textContent="FINALIZADO";week.textContent="Torneo finalizado · ranking oficial publicado";}
-  else{lab.textContent="HOY · SEMANA "+wk;week.textContent="Semana "+wk+" de 25 · torneo en curso";}
+  function fila(it){
+    var el=document.createElement("div");
+    el.tabIndex=0; el.setAttribute("role","link");
+    el.className="ax"+(it.cls?" "+it.cls:"");
+    if(it.iso)el.setAttribute("data-when",it.iso);
+    var d=document.createElement("span");d.className="ax-d";d.textContent=it.textoFecha||fmtFechaTl(it.iso);
+    var t=document.createElement("span");t.className="ax-t";t.textContent=it.titulo||"";
+    el.appendChild(d);el.appendChild(t);
+    function ir(){
+      if(it.destino&&it.destino.evento){
+        if(opts.onEvento){opts.onEvento(it.destino.evento);}else{location.href=eventosHref+it.destino.evento;}
+      }else{location.href=torneoHref;}
+    }
+    el.addEventListener("click",ir);
+    el.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();ir();}});
+    el.addEventListener("mouseenter",function(){mostrarPop(el,it)});
+    el.addEventListener("focus",function(){mostrarPop(el,it)});
+    el.addEventListener("mouseleave",ocultarPop);
+    el.addEventListener("blur",ocultarPop);
+    return el;
+  }
+  Promise.all([
+    fetch("datos/linea_tiempo.json",{cache:"no-store"}).then(function(r){return r.ok?r.json():null}).catch(function(){return null}),
+    fetch("datos/eventos.json",{cache:"no-store"}).then(function(r){return r.ok?r.json():null}).catch(function(){return null})
+  ]).then(function(res){
+    var hitos=(res[0]&&res[0].hitos)||[];
+    var eventos=(res[1]&&res[1].eventos)||[];
+    if(opts.onHitos)opts.onHitos(hitos);
+    var items=[];
+    var minTs=Infinity;
+    hitos.forEach(function(h){if(h.cuando){var t=Date.parse(h.cuando);if(t<minTs)minTs=t;}});
+    hitos.forEach(function(h){
+      if(h.recurrente){items.push({ts:minTs+1,iso:null,textoFecha:h.textoFecha,titulo:h.titulo,resumen:h.resumen,tag:null,cls:"tl-rec",destino:{}});return;}
+      if(!h.cuando)return;
+      items.push({ts:Date.parse(h.cuando),iso:h.cuando,titulo:h.titulo,resumen:h.resumen,tag:null,cls:"",destino:{}});
+    });
+    eventos.forEach(function(e){
+      if(!e||!e.fecha||e.id==="torneo-portafolio-2026")return;
+      var iso=e.fecha+"T12:00:00-03:00";
+      items.push({ts:Date.parse(iso),iso:iso,titulo:e.titulo,resumen:(e.resumen||"")+(e.lugar?" — "+e.lugar:""),tag:String(e.tipo||"evento").toUpperCase(),cls:"tl-ev",destino:{evento:e.id}});
+    });
+    items.sort(function(a,b){return a.ts-b.ts});
+    tl.innerHTML="";
+    var now=Date.now(),next=null,els=[];
+    items.forEach(function(it){
+      var el=fila(it);
+      if(it.iso){
+        if(Date.parse(it.iso)<=now)el.classList.add("tl-past");
+        else if(!next)next=el;
+      }
+      tl.appendChild(el);
+      els.push(el);
+    });
+    if(next){
+      next.classList.add("tl-next");
+    }
+    /* Marcador HOY: interpola su posición entre los dos puntos vecinos según fecha real */
+    var axisEl=tl.closest(".axis");
+    var fillEl=axisEl&&axisEl.querySelector(".axis-fill"),nowEl=axisEl&&axisEl.querySelector(".axis-now");
+    function colocarHoy(){
+      if(!axisEl||!items.length)return;
+      var xs=els.map(function(el){return el.offsetLeft+el.offsetWidth/2});
+      var x;
+      if(now<=items[0].ts)x=xs[0];
+      else if(now>=items[items.length-1].ts)x=xs[xs.length-1];
+      else{
+        for(var i=0;i<items.length-1;i++){
+          if(now>=items[i].ts&&now<items[i+1].ts){x=xs[i]+((now-items[i].ts)/(items[i+1].ts-items[i].ts))*(xs[i+1]-xs[i]);break;}
+        }
+      }
+      fillEl.style.width=Math.max(0,x-14)+"px";
+      nowEl.style.left=x+"px";
+      nowEl.hidden=false;
+    }
+    colocarHoy();
+    window.addEventListener("resize",colocarHoy);
+    var scroller=axisEl&&axisEl.closest(".axis-scroll");
+    if(scroller)scroller.addEventListener("scroll",function(){colocarHoy();ocultarPop();},{passive:true});
+    if(opts.onDone)opts.onDone(items);
+  });
 }
 
 /* ---------------- Preloader (telón) y arranque ---------------- */
@@ -2433,7 +2524,16 @@ function boot(){
   observeReveals(document);
   watchCounters(); watchBars(); watchTimeline(); watchDesks();
   bindGlow(document);
-  initAxis(); layoutRail(); railScroll(); onScroll();
+  initFigTimeline("#figTl",{onHitos:function(hitos){
+    var inicio=null;
+    hitos.forEach(function(h){if(h.cuando&&(!inicio||Date.parse(h.cuando)<inicio))inicio=Date.parse(h.cuando);});
+    var tag=$("#tlWeek"); if(!tag||!inicio)return;
+    var now=Date.now(),wk=Math.floor((now-inicio)/(7*864e5))+1;
+    if(now<inicio)tag.textContent="Torneo Portafolio 2026";
+    else if(wk>25)tag.textContent="Torneo finalizado · ranking oficial publicado";
+    else tag.textContent="Semana "+wk+" de 25 · torneo en curso";
+  }});
+  layoutRail(); railScroll(); onScroll();
   if(chart)chart.play(RM?0:2400);
   var hk=$(".hero .scr"); if(hk&&!RM)scramble(hk);
 }
@@ -2464,11 +2564,11 @@ var rT;
 window.addEventListener("resize",function(){
   clearTimeout(rT);
   rT=setTimeout(function(){
-    layoutRail(); railScroll(); initAxis();
+    layoutRail(); railScroll();
     if(chart)chart.redraw();
   },140);
 });
-window.addEventListener("load",function(){layoutRail();railScroll();initAxis()});
+window.addEventListener("load",function(){layoutRail();railScroll();});
 
 /* ---------------- Render inicial con datos embebidos ---------------- */
 renderPeople(CLUB_DATA.personas);
