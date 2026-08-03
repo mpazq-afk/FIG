@@ -1,0 +1,11 @@
+{
+  "_como_editar": "Hitos ESTRUCTURALES del Torneo Portafolio (rebalanceos, cierres, final) — los eventos del club (charlas, visitas, comunidad) NO van aquí, esos se editan en Registro_Eventos y se integran solos en la línea de tiempo. Cada hito: 'cuando' es fecha+hora ISO (con huso horario de Chile, -03:00 o -04:00 según horario de verano); 'titulo' corto; 'resumen' 1-2 frases que se muestran al pasar el cursor o tocar; 'destino' es SIEMPRE 'torneo' (todo hito del torneo lleva a torneo/index.html#metodologia). El hito 'recurrente' (corte semanal) no tiene fecha fija, se muestra siempre. Esta línea de tiempo aparece en la portada (versión destacada) y en la página de eventos (versión completa) — se edita UNA vez acá y se actualiza en las dos.",
+  "hitos": [
+    {"cuando":"2026-05-11T09:00:00-04:00","titulo":"Inicio del torneo","resumen":"Arranca el Torneo Portafolio 2026: el cálculo since-inception de todas las métricas parte desde esta fecha.","destino":"torneo"},
+    {"recurrente":true,"titulo":"Corte semanal","textoFecha":"CADA VIERNES · 16:00 EST","resumen":"Se recalcula el ranking con el estado de cada portafolio a esa hora.","destino":"torneo"},
+    {"cuando":"2026-08-03T09:00:00-03:00","titulo":"Ventana de rebalanceo II","resumen":"Los equipos pueden ajustar la composición de su cartera dentro de esta ventana.","destino":"torneo"},
+    {"cuando":"2026-10-05T09:00:00-03:00","titulo":"Ventana de rebalanceo III","resumen":"Última ventana de rebalanceo antes del cierre del torneo.","destino":"torneo"},
+    {"cuando":"2026-11-02T17:00:00-03:00","titulo":"Cierre del torneo","resumen":"Cierre del torneo, último corte que cuenta para el ranking oficial.","destino":"torneo"},
+    {"cuando":"2026-11-09T18:00:00-03:00","titulo":"Final ante jurado","resumen":"Los cinco mejores equipos defienden su gestión ante un jurado experto.","destino":"torneo"}
+  ]
+}
