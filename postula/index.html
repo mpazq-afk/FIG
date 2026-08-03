@@ -120,45 +120,20 @@ footer a:hover{color:var(--gold)}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}}
 @media (max-width:720px){.f-grid{grid-template-columns:1fr}.nav__links{display:none}}
 </style>
-<script>
-  if (window.location.pathname.endsWith('/index.html')) {
-    const cleanPath = window.location.pathname.replace(/\/index\.html$/, '/') + window.location.search + window.location.hash;
-    window.history.replaceState(null, '', cleanPath);
-  }
-</script>
-
-<script>
-  // Prevenir que el # aparezca en la URL al hacer clic en enlaces internos
-  document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
-      anchor.addEventListener('click', function (e) {
-        var targetId = this.getAttribute('href');
-        if (targetId === '#') return;
-        var targetElement = document.querySelector(targetId);
-        if (targetElement) {
-          e.preventDefault();
-          targetElement.scrollIntoView({ behavior: 'smooth' });
-          // Mantiene la URL limpia sin el #
-          window.history.pushState(null, null, window.location.pathname + window.location.search);
-        }
-      });
-    });
-  });
-</script>
 </head>
 <body>
 
 <nav class="nav" id="nav">
   <div class="wrap">
-    <a href="../" class="brand" aria-label="FEN Investment Group — Inicio">
+    <a href="../index.html" class="brand" aria-label="FEN Investment Group — Inicio">
       <img class="brand-logo" src="../logos/fig-oro.png" alt="FIG">
       <div><div class="brand-name">FEN Investment Group</div><span class="brand-sub">Postulación</span></div>
     </a>
     <ul class="nav__links">
-      <li><a href="../">Inicio</a></li>
-      <li><a href="../eventos/">Eventos</a></li>
-      <li><a href="../torneo/">Torneo 2026</a></li>
-      <!-- FIW_TEMP_OCULTO (2026-07-24, pedido de Francisco: ocultar hasta publicar el área) <li><a href="../fiw/">FIW</a></li> -->
+      <li><a href="../index.html">Inicio</a></li>
+      <li><a href="../eventos/index.html">Eventos</a></li>
+      <li><a href="../torneo/index.html">Torneo 2026</a></li>
+      <!-- FIW_TEMP_OCULTO <li><a href="../fiw/index.html">FIW</a></li> -->
     </ul>
   </div>
 </nav>
@@ -174,7 +149,7 @@ footer a:hover{color:var(--gold)}
 <section class="form-sec">
   <div class="wrap">
     <div class="panel reveal">
-      <div id="cfgBanner">FORMULARIO EN CONFIGURACIÓN · El envío se habilitará cuando la directiva conecte el Apps Script del sitio (datos/club.json → config.figEndpoint).<br>Mientras tanto, escríbenos por Instagram o LinkedIn, o juega <a href="../juego/" style="color:var(--gold);text-decoration:underline">El Rally del Toro</a> y aprende cuándo salir del mercado.</div>
+      <div id="cfgBanner">FORMULARIO EN CONFIGURACIÓN · El envío se habilitará cuando la directiva conecte el Apps Script del sitio (datos/club.json → config.figEndpoint).<br>Mientras tanto, escríbenos por Instagram o LinkedIn, o juega <a href="../juego/index.html" style="color:var(--gold);text-decoration:underline">El Rally del Toro</a> y aprende cuándo salir del mercado.</div>
       <form id="fPostula" novalidate>
         <div class="f-grid">
           <div class="f-field">
@@ -225,7 +200,7 @@ footer a:hover{color:var(--gold)}
         <div class="coin"><span>FIG</span></div>
         <h2>Postulación <em>recibida</em>.</h2>
         <p>Gracias por querer ser parte de FEN Investment Group. La directiva revisará tu postulación y te contactará al correo que dejaste.</p>
-        <a href="../" class="btn btn--ghost">Volver al inicio</a>
+        <a href="../index.html" class="btn btn--ghost">Volver al inicio</a>
       </div>
       <div class="f-note">TUS DATOS SOLO SE USAN PARA GESTIONAR TU POSTULACIÓN AL CLUB · FEN INVESTMENT GROUP · UNIVERSIDAD DE CHILE</div>
     </div>
@@ -236,7 +211,7 @@ footer a:hover{color:var(--gold)}
   <div class="wrap">
     <span>© 2026 FEN Investment Group</span>
     <span>Creado por <a href="https://www.linkedin.com/in/francisco-ignacio-andr%C3%A9s-valenzuela-lecaros-128a69396/" target="_blank" rel="noopener">Francisco Valenzuela</a> y <a href="https://www.linkedin.com/in/mpazq" target="_blank" rel="noopener">Manuel Paz</a></span>
-    <a href="../">← Volver a FIG</a>
+    <a href="../index.html">← Volver a FIG</a>
   </div>
 </footer>
 
