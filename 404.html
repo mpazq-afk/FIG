@@ -97,45 +97,20 @@ footer a:hover{color:var(--gold)}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}}
 @media (max-width:720px){.nav__links{display:none}.nav-links{grid-template-columns:1fr}}
 </style>
-<script>
-  if (window.location.pathname.endsWith('/index.html')) {
-    const cleanPath = window.location.pathname.replace(/\/index\.html$/, '/') + window.location.search + window.location.hash;
-    window.history.replaceState(null, '', cleanPath);
-  }
-</script>
-
-<script>
-  // Prevenir que el # aparezca en la URL al hacer clic en enlaces internos
-  document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
-      anchor.addEventListener('click', function (e) {
-        var targetId = this.getAttribute('href');
-        if (targetId === '#') return;
-        var targetElement = document.querySelector(targetId);
-        if (targetElement) {
-          e.preventDefault();
-          targetElement.scrollIntoView({ behavior: 'smooth' });
-          // Mantiene la URL limpia sin el #
-          window.history.pushState(null, null, window.location.pathname + window.location.search);
-        }
-      });
-    });
-  });
-</script>
 </head>
 <body>
 
 <nav class="nav" id="nav">
   <div class="wrap">
-    <a href="./" class="brand" aria-label="FEN Investment Group — Inicio">
+    <a href="index.html" class="brand" aria-label="FEN Investment Group — Inicio">
       <img class="brand-logo" src="logos/fig-oro.png" alt="FIG">
       <div><div class="brand-name">FEN Investment Group</div><span class="brand-sub">Error 404</span></div>
     </a>
     <ul class="nav__links">
-      <li><a href="./">Inicio</a></li>
-      <li><a href="eventos/">Eventos</a></li>
-      <li><a href="torneo/">Torneo 2026</a></li>
-      <!-- FIW_TEMP_OCULTO (2026-07-24, pedido de Francisco: ocultar hasta publicar el área) <li><a href="fiw/">FIW</a></li> -->
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="eventos/index.html">Eventos</a></li>
+      <li><a href="torneo/index.html">Torneo 2026</a></li>
+      <!-- FIW_TEMP_OCULTO <li><a href="fiw/index.html">FIW</a></li> -->
     </ul>
   </div>
 </nav>
@@ -155,12 +130,12 @@ footer a:hover{color:var(--gold)}
       <h2 class="error-title reveal d1">No hay nada aquí</h2>
       <p class="error-desc reveal d2">Como en los mercados, a veces el riesgo es real. Pero en FIG, siempre hay otra oportunidad. Regresa al inicio o explora el resto del sitio.</p>
       <div class="nav-links reveal d3">
-        <a href="./">← Inicio</a>
-        <a href="eventos/">Eventos</a>
-        <a href="torneo/">Torneo</a>
-        <!-- FIW_TEMP_OCULTO (2026-07-24) <a href="fiw/">FIW</a> -->
-        <a href="postula/">Postula</a>
-        <a href="desafio/">Desafío</a>
+        <a href="index.html">← Inicio</a>
+        <a href="eventos/index.html">Eventos</a>
+        <a href="torneo/index.html">Torneo</a>
+        <!-- FIW_TEMP_OCULTO <a href="fiw/index.html">FIW</a> -->
+        <a href="postula/index.html">Postula</a>
+        <a href="desafio/index.html">Desafío</a>
       </div>
     </div>
   </div>
@@ -169,7 +144,7 @@ footer a:hover{color:var(--gold)}
 <footer>
   <div class="wrap">
     <span>© 2026 FEN Investment Group</span>
-    <a href="./">← Volver a FIG</a>
+    <a href="index.html">← Volver a FIG</a>
   </div>
 </footer>
 
