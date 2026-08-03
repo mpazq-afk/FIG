@@ -213,6 +213,30 @@ section{padding:clamp(5rem,9vw,8rem) 0;position:relative}
 .p-link{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--acc);margin-top:auto;display:inline-flex;align-items:center;gap:6px;transition:gap .3s}
 .p-link:hover{gap:11px}
 
+/* Eventos del área (mismo estilo de tarjeta que eventos/index.html, filtrado por area:"valuation") */
+.ev-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px}
+.ev-card{position:relative;border-radius:10px;overflow:hidden;min-height:320px;border:1px solid var(--line-d);background:var(--navy-panel);display:flex;flex-direction:column;justify-content:flex-end;transition:transform .5s var(--ease),border-color .5s,box-shadow .5s}
+.ev-card:hover{transform:translateY(-8px);border-color:rgba(212,175,55,.5);box-shadow:0 32px 64px -26px rgba(0,0,0,.65)}
+.ev-bg{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1.02);transition:transform 1.2s var(--ease);filter:saturate(.9)}
+.ev-card:hover .ev-bg{transform:scale(1.08)}
+.ev-veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,17,40,.25) 0%,rgba(10,17,40,.55) 45%,rgba(6,11,28,.94) 100%)}
+.ev-ghost{position:absolute;top:-6px;right:10px;font-family:var(--f-disp);font-weight:700;font-size:clamp(4.5rem,8vw,6.5rem);line-height:1;color:transparent;-webkit-text-stroke:1px rgba(212,175,55,.14);pointer-events:none;user-select:none}
+.ev-body{position:relative;padding:28px 28px 24px;display:flex;flex-direction:column;gap:12px}
+.ev-top{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.ev-date{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;color:var(--acc);font-weight:600}
+.ev-type{font-family:var(--f-mono);font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(249,246,239,.65);border:1px solid rgba(249,246,239,.2);border-radius:100px;padding:4px 11px}
+.ev-live{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-mono);font-size:.58rem;letter-spacing:.2em;color:#5FC08B}
+.ev-proximo{color:var(--acc);border-color:var(--acc-dim)}
+.live-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#5FC08B;animation:pulseGreen 1.9s ease-out infinite}
+@keyframes pulseGreen{0%{box-shadow:0 0 0 0 rgba(95,192,139,.55)}70%{box-shadow:0 0 0 9px rgba(95,192,139,0)}100%{box-shadow:0 0 0 0 rgba(95,192,139,0)}}
+.ev-card h3{font-family:var(--f-disp);font-weight:600;font-size:clamp(1.3rem,2.2vw,1.7rem);line-height:1.2}
+.ev-res{font-size:.9rem;color:rgba(249,246,239,.72);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;max-width:60ch}
+.ev-foot{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-top:4px;flex-wrap:wrap}
+.ev-part{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(249,246,239,.5)}
+.ev-link{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--acc);display:inline-flex;gap:9px;align-items:center}
+.ev-link .arr{transition:transform .35s var(--ease)}
+.ev-card:hover .ev-link .arr{transform:translateX(5px)}
+
 /* CTA */
 .cta-band{background:radial-gradient(900px 300px at 15% 0%,rgba(255,255,255,.24),transparent 60%),linear-gradient(120deg,var(--acc-deep),var(--acc) 48%,var(--acc-light));color:var(--navy);text-align:center;overflow:hidden}
 .cta-ghost{position:absolute;top:50%;left:0;transform:translateY(-50%);font-family:var(--f-disp);font-weight:700;font-size:clamp(5.5rem,15vw,11rem);line-height:1;color:transparent;-webkit-text-stroke:1.5px rgba(10,17,40,.12);white-space:nowrap;pointer-events:none;user-select:none;animation:ghostSlide 46s linear infinite}
@@ -243,6 +267,7 @@ html:not(.no-js) body:not(.hero-in) .hero .reveal{opacity:0;transform:translateY
   .pilares{grid-template-columns:1fr}
   .torneo-grid{grid-template-columns:1fr}
   .people{grid-template-columns:repeat(2,1fr)}
+  .ev-grid{grid-template-columns:1fr}
   .nav__links,.nav .btn--nav{display:none}
   .nav__burger{display:flex}
   .hero-rings{display:none}
@@ -373,6 +398,17 @@ html:not(.no-js) body:not(.hero-in) .hero .reveal{opacity:0;transform:translateY
         <span class="tc-tag"><span class="tc-dot"></span><span id="tvEstado">Inscripciones abiertas</span></span>
       </aside>
     </div>
+  </div>
+</section>
+
+<!-- EVENTOS DEL ÁREA (mismo estilo que eventos/index.html, filtrado por area:"valuation" en datos/eventos.json) -->
+<section class="section--dark" id="actividades" hidden>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker reveal"><span class="scr" data-text="Actividades de Valuation">Actividades de Valuation</span></div>
+      <h2 class="h-sec reveal d1">Lo que el área <em>ya hizo</em>.</h2>
+    </div>
+    <div class="ev-grid" id="valEventosGrid"><!-- se renderiza desde ../datos/eventos.json --></div>
   </div>
 </section>
 
@@ -536,6 +572,79 @@ function renderResponsables(){
   });
   observeReveals($("#valResponsables"));
 }
+
+/* ---------------- Eventos del área ----------------
+   Mismo dato que la bitácora general (../datos/eventos.json), filtrado por
+   area:"valuation" — un evento con esa etiqueta aparece ACÁ y en
+   eventos/index.html, no reemplaza uno por el otro. La sección queda
+   oculta mientras no exista ningún evento con esa etiqueta. */
+var TIPOS_EV={torneo:"Torneo",visita:"Visita",charla:"Charla · Capacitación",comunidad:"Comunidad"};
+var FOTOS_EV_BASE="../fotos/eventos/";
+function probeEvBg(carpeta,cb){
+  if(!carpeta){cb(null);return;}
+  var exts=["jpg","webp","png","jpeg","JPG"],i=0;
+  (function tryExt(){
+    if(i>=exts.length){cb(null);return;}
+    var img=new Image(),url=FOTOS_EV_BASE+carpeta+"/1."+exts[i];
+    img.onload=function(){cb(url)};
+    img.onerror=function(){i++;tryExt()};
+    img.src=url;
+  })();
+}
+function renderEventosArea(lista){
+  var sec=$("#actividades");
+  if(!lista||!lista.length){sec.hidden=true;return;}
+  sec.hidden=false;
+  var grid=$("#valEventosGrid");
+  var evs=lista.slice().sort(function(a,b){return b.fecha<a.fecha?-1:1});
+  grid.innerHTML=evs.map(function(e,i){
+    var yr=(e.fecha||"").slice(0,4);
+    return '<a class="ev-card reveal '+(i%2?"d1":"")+'" href="../eventos/index.html#'+esc(e.id)+'">'
+        + '<div class="ev-bg" data-carpeta="'+esc(e.carpeta||"")+'"></div>'
+        + '<div class="ev-veil"></div>'
+        + '<span class="ev-ghost" aria-hidden="true">'+esc(yr)+'</span>'
+        + '<div class="ev-body">'
+        +   '<div class="ev-top">'
+        +     '<span class="ev-date">'+esc(e.fechaTexto||e.fecha)+'</span>'
+        +     '<span class="ev-type">'+esc(TIPOS_EV[e.tipo]||e.tipo)+'</span>'
+        +     (e.live?'<span class="ev-live"><span class="live-dot"></span>EN CURSO</span>':(!e.live&&Date.parse((e.fecha||"")+"T23:59:59-03:00")>Date.now()?'<span class="ev-type ev-proximo">PRÓXIMO</span>':""))
+        +   '</div>'
+        +   '<h3>'+esc(e.titulo)+'</h3>'
+        +   '<p class="ev-res">'+esc((e.resumen||"").trim()||"Resumen por completar.")+'</p>'
+        +   '<div class="ev-foot">'
+        +     '<span class="ev-part">'+(e.participantes&&e.participantes.length?e.participantes.length+" participantes":"participantes por confirmar")+'</span>'
+        +     '<span class="ev-link">Ver evento <span class="arr">→</span></span>'
+        +   '</div>'
+        + '</div></a>';
+  }).join("");
+  observeReveals(grid);
+  $$(".ev-bg",grid).forEach(function(bg){
+    var c=bg.getAttribute("data-carpeta");if(!c)return;
+    probeEvBg(c,function(url){if(url)bg.style.backgroundImage="url('"+url+"')";});
+  });
+  addActividadesNavLink();
+}
+/* el enlace de nav a "Actividades" solo se agrega si hay al menos un evento real */
+function addActividadesNavLink(){
+  var t1=$('.nav__links a[href="#responsables"]');
+  if(t1&&!$('.nav__links a[href="#actividades"]')){
+    var li=document.createElement("li");
+    li.innerHTML='<a href="#actividades">Actividades</a>';
+    t1.parentElement.parentElement.insertBefore(li,t1.parentElement);
+  }
+  var t2=$('#mmenu a[href="#responsables"]');
+  if(t2&&!$('#mmenu a[href="#actividades"]')){
+    var a=document.createElement("a");
+    a.href="#actividades";a.textContent="Actividades";
+    t2.parentElement.insertBefore(a,t2);
+  }
+}
+fetch("../datos/eventos.json",{cache:"no-store"})
+  .then(function(r){return r.ok?r.json():null})
+  .then(function(d){
+    var evs=(d&&d.eventos)||[];
+    renderEventosArea(evs.filter(function(e){return e.area==="valuation"}));
+  }).catch(function(){});
 
 /* ---------------- Override JSON ---------------- */
 fetch("../datos/valuation.json",{cache:"no-store"})
