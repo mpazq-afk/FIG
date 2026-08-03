@@ -102,41 +102,16 @@ footer a:hover{color:var(--gold)}
 .no-js .reveal{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}}
 </style>
-<script>
-  if (window.location.pathname.endsWith('/index.html')) {
-    const cleanPath = window.location.pathname.replace(/\/index\.html$/, '/') + window.location.search + window.location.hash;
-    window.history.replaceState(null, '', cleanPath);
-  }
-</script>
-
-<script>
-  // Prevenir que el # aparezca en la URL al hacer clic en enlaces internos
-  document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
-      anchor.addEventListener('click', function (e) {
-        var targetId = this.getAttribute('href');
-        if (targetId === '#') return;
-        var targetElement = document.querySelector(targetId);
-        if (targetElement) {
-          e.preventDefault();
-          targetElement.scrollIntoView({ behavior: 'smooth' });
-          // Mantiene la URL limpia sin el #
-          window.history.pushState(null, null, window.location.pathname + window.location.search);
-        }
-      });
-    });
-  });
-</script>
 </head>
 <body>
 
 <nav class="nav">
   <div class="wrap">
-    <a href="../" class="brand" aria-label="FEN Investment Group — Home">
+    <a href="../index.html" class="brand" aria-label="FEN Investment Group — Home">
       <img class="brand-logo" src="../logos/fig-oro.png" alt="FIG">
       <div><div class="brand-name">FEN Investment Group</div><span class="brand-sub">English brief</span></div>
     </a>
-    <a href="../" class="back">Sitio en español →</a>
+    <a href="../index.html" class="back">Sitio en español →</a>
   </div>
 </nav>
 
@@ -146,7 +121,7 @@ footer a:hover{color:var(--gold)}
     <h1 class="reveal d1">Forging <em>Tomorrow's Elite.</em></h1>
     <p class="reveal d2">FEN Investment Group (FIG) is the student-run investment community of the Faculty of Economics and Business at Universidad de Chile. We train the next generation of investors through hands-on portfolio management, industry visits, open education and a flagship portfolio tournament run on Bloomberg terminals.</p>
     <div class="stats reveal d3">
-      <div><b>63</b><span>teams in the 2026 tournament</span></div>
+      <div><b>59</b><span>teams in the 2026 tournament</span></div>
       <div><b>USD 10M</b><span>simulated per portfolio</span></div>
       <div><b>4</b><span>practice areas</span></div>
       <div><b>2025</b><span>founded</span></div>
@@ -179,7 +154,7 @@ footer a:hover{color:var(--gold)}
       <div class="spec"><span>Final</span><b>November 9, 2026 · expert jury</b></div>
     </div>
     <div class="ctas reveal d3">
-      <a href="../torneo/" class="btn btn--gold">Live ranking <span class="arr">→</span></a>
+      <a href="../torneo/index.html" class="btn btn--gold">Live ranking <span class="arr">→</span></a>
       <a href="https://www.linkedin.com/company/fen-investment-group" target="_blank" rel="noopener" class="btn btn--ghost">LinkedIn</a>
       <a href="https://www.instagram.com/fen.investment.group/" target="_blank" rel="noopener" class="btn btn--ghost">Instagram</a>
     </div>
@@ -191,7 +166,7 @@ footer a:hover{color:var(--gold)}
   <div class="wrap">
     <span>© 2026 FEN Investment Group · Universidad de Chile</span>
     <span>Made by <a href="https://www.linkedin.com/in/francisco-ignacio-andr%C3%A9s-valenzuela-lecaros-128a69396/" target="_blank" rel="noopener">Francisco Valenzuela</a> and <a href="https://www.linkedin.com/in/mpazq" target="_blank" rel="noopener">Manuel Paz</a></span>
-    <a href="../">← Full site (Spanish)</a>
+    <a href="../index.html">← Full site (Spanish)</a>
   </div>
 </footer>
 
