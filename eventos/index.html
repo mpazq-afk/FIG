@@ -136,6 +136,10 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .ax.tl-past::before{background:var(--gold-deep)}
 .ax.tl-ev::before{border-radius:2px}
 .ax.tl-rec::before{border-style:dashed}
+/* eventos de mercado (datos/mercado.json): azul, para distinguirlos de la vida del club */
+.ax.tl-mkt::before{border-color:#7BA7DE}
+.ax.tl-mkt.tl-past::before{background:#7BA7DE;border-color:#7BA7DE}
+.ax.tl-mkt .ax-d{color:#7BA7DE}
 .ax.tl-next::before{background:var(--gold);border-color:var(--gold);box-shadow:0 0 0 4px rgba(212,175,55,.22)}
 @media (prefers-reduced-motion:no-preference){.ax.tl-next::before{animation:tlpulse 2.4s ease-in-out infinite}}
 @keyframes tlpulse{0%,100%{box-shadow:0 0 0 4px rgba(212,175,55,.22)}50%{box-shadow:0 0 0 8px rgba(212,175,55,.1)}}
@@ -145,6 +149,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .ax-pop.show{opacity:1;transform:translateY(0)}
 .ax-pop b{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-family:var(--f-mono);font-weight:600;font-size:.62rem;letter-spacing:.08em;color:var(--ivory);margin-bottom:6px}
 .ax-pop .tag{font-family:var(--f-mono);font-size:.5rem;font-weight:500;letter-spacing:.16em;color:var(--gold-light);border:1px solid rgba(212,175,55,.4);border-radius:100px;padding:1px 8px}
+.ax-pop .tag--mkt{color:#7BA7DE;border-color:rgba(123,167,222,.5)}
 .ax-pop p{font-size:.8rem;color:rgba(247,244,236,.72);line-height:1.55;margin:0}
 .ax-pop .ax-go{display:block;margin-top:10px;font-family:var(--f-mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
 
@@ -631,10 +636,10 @@ function initFigTimeline(sel,opts){
   function mostrarPop(el,it){
     if(!pop)return;
     var html="<b>"+esc(it.textoFecha||fmtFechaTl(it.iso));
-    if(it.tag)html+=' <span class="tag">'+esc(it.tag)+"</span>";
+    if(it.tag)html+=' <span class="tag'+(it.tagCls?" "+it.tagCls:"")+'">'+esc(it.tag)+"</span>";
     html+="</b>";
     html+="<p>"+esc(it.titulo||"")+(it.resumen?" — "+esc(it.resumen):"")+"</p>";
-    html+='<span class="ax-go">'+(it.destino&&it.destino.evento?"Ver evento →":"Ir al torneo →")+"</span>";
+    html+='<span class="ax-go">'+(it.destino&&it.destino.url?"Ver fuente oficial ↗":(it.destino&&it.destino.evento?"Ver evento →":"Ir al torneo →"))+"</span>";
     pop.innerHTML=html;
     var r=el.getBoundingClientRect();
     var pw=240,vw=window.innerWidth;
@@ -654,6 +659,7 @@ function initFigTimeline(sel,opts){
     var t=document.createElement("span");t.className="ax-t";t.textContent=it.titulo||"";
     el.appendChild(d);el.appendChild(t);
     function ir(){
+      if(it.destino&&it.destino.url){window.open(it.destino.url,"_blank","noopener");return;}
       if(it.destino&&it.destino.evento){
         if(opts.onEvento)opts.onEvento(it.destino.evento);
       }else{location.href=torneoHref;}
@@ -668,10 +674,12 @@ function initFigTimeline(sel,opts){
   }
   Promise.all([
     fetch("../datos/linea_tiempo.json",{cache:"no-store"}).then(function(r){return r.ok?r.json():null}).catch(function(){return null}),
-    fetch("../datos/eventos.json",{cache:"no-store"}).then(function(r){return r.ok?r.json():null}).catch(function(){return null})
+    fetch("../datos/eventos.json",{cache:"no-store"}).then(function(r){return r.ok?r.json():null}).catch(function(){return null}),
+    fetch("../datos/mercado.json",{cache:"no-store"}).then(function(r){return r.ok?r.json():null}).catch(function(){return null})
   ]).then(function(res){
     var hitos=(res[0]&&res[0].hitos)||[];
     var eventos=(res[1]&&res[1].eventos)||[];
+    var mercado=(res[2]&&res[2].eventos)||[];
     if(opts.onHitos)opts.onHitos(hitos);
     var items=[];
     var minTs=Infinity;
@@ -685,6 +693,11 @@ function initFigTimeline(sel,opts){
       if(!e||!e.fecha||e.id==="torneo-portafolio-2026")return;
       var iso=e.fecha+"T12:00:00-03:00";
       items.push({ts:Date.parse(iso),iso:iso,titulo:e.titulo,resumen:(e.resumen||"")+(e.lugar?" — "+e.lugar:""),tag:String(e.tipo||"evento").toUpperCase(),cls:"tl-ev",destino:{evento:e.id}});
+    });
+    mercado.forEach(function(m){
+      if(!m||!m.cuando)return;
+      var t=Date.parse(m.cuando); if(isNaN(t))return;
+      items.push({ts:t,iso:m.cuando,titulo:m.titulo,resumen:(m.resumen||"")+(m.fuente?" — "+m.fuente:""),tag:"MERCADO",tagCls:"tag--mkt",cls:"tl-mkt",destino:{url:m.url||""}});
     });
     items.sort(function(a,b){return a.ts-b.ts});
     tl.innerHTML="";
