@@ -2512,6 +2512,12 @@ function initFigTimeline(sel,opts){
     window.addEventListener("resize",colocarHoy);
     var scroller=axisEl&&axisEl.closest(".axis-scroll");
     if(scroller)scroller.addEventListener("scroll",function(){colocarHoy();ocultarPop();},{passive:true});
+    /* por defecto, el eje arranca centrado en el punto HOY en vez del extremo izquierdo */
+    if(scroller&&nowEl){
+      var centrar=function(){scroller.scrollLeft=Math.max(0,nowEl.offsetLeft-scroller.clientWidth/2)};
+      centrar();
+      setTimeout(centrar,60);
+    }
     if(opts.onDone)opts.onDone(items);
   });
 }
