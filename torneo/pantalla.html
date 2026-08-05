@@ -1,0 +1,709 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1920">
+<title>Torneo Portafolio 2026 — Pantalla</title>
+<meta name="description" content="Resultados semanales del Torneo Portafolio 2026 de FEN Investment Group, en formato pantalla para las TV de la facultad.">
+
+<!--
+  PANTALLA DEL TORNEO — para las TV de la facultad (1920x1080).
+
+  Se alimenta sola de datos/torneo.json: cada semana que se regenera el
+  ranking, esta pantalla muestra el corte nuevo sin tocar una línea de
+  código. Corre en bucle infinito, así que basta con dejarla abierta en
+  pantalla completa (F11).
+
+  La animación es DETERMINÍSTICA: todo lo que se mueve es función de un
+  único reloj `t` (ver seek()), sin transiciones ni animaciones CSS. Eso
+  permite grabarla fotograma a fotograma (30 o 60 fps) sin saltos, además
+  de que en la TV nunca se desincroniza.
+
+  Ganchos para grabar (los usa scripts/grabar_pantalla.py):
+    window.__ready   -> true cuando ya cargaron datos y logos
+    window.__total   -> duración del ciclo en ms
+    window.__manual()-> congela el reloj propio
+    window.__seek(ms)-> dibuja ese instante exacto
+
+  Logo de la FEN: se usa logos/fen.png. Como el archivo oficial trae el
+  texto casi negro sobre fondo transparente, va montado sobre una placa
+  clara (.fen-plate) — así se lee sobre el navy sin alterar la marca. Si
+  el archivo no existiera, cae solo a un recuadro con el nombre.
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="../logos/fig-oro.png">
+
+<style>
+:root{
+  --navy:#0A1128; --navy-2:#101A3D; --gold:#D4AF37; --gold-l:#E8CC72;
+  --gold-d:#A8862A; --ivory:#F9F6EF; --dim:rgba(249,246,239,.60);
+  --up:#7CE0B0;
+  --f-disp:"Playfair Display",Georgia,serif;
+  --f-body:"Inter",-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono","SF Mono",monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1920px;height:1080px;overflow:hidden;background:var(--navy)}
+body{font-family:var(--f-body);color:var(--ivory);position:relative;
+  -webkit-font-smoothing:antialiased}
+
+/* ---------------- fondo ---------------- */
+#bg{position:absolute;inset:0;overflow:hidden}
+#glow{position:absolute;width:1700px;height:1700px;left:50%;top:50%;
+  margin:-850px 0 0 -850px;
+  background:radial-gradient(circle,rgba(212,175,55,.15),transparent 62%)}
+#dust{position:absolute;inset:0}
+#dust i{position:absolute;width:5px;height:5px;border-radius:50%;
+  background:var(--gold);opacity:.30}
+#vig{position:absolute;inset:0;
+  background:radial-gradient(ellipse 70% 62% at 50% 50%,transparent 40%,rgba(5,8,20,.86))}
+
+/* ---------------- escenas ---------------- */
+.sc{position:absolute;inset:0;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;opacity:0;visibility:hidden;
+  will-change:opacity,transform}
+
+/* intro */
+#s1 .lock{display:flex;align-items:center}
+#s1 .logo{width:252px;height:252px;object-fit:contain;
+  filter:drop-shadow(0 20px 52px rgba(0,0,0,.6))}
+#s1 .mask{overflow:hidden;white-space:nowrap;width:0}
+#s1 .mask h1{font-family:var(--f-disp);font-size:84px;font-weight:600;
+  padding-left:44px;letter-spacing:.4px}
+#s1 .sub{margin-top:40px;text-align:center}
+#s1 .sub .ln{height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  margin:0 auto 22px;width:0}
+#s1 .sub span{font-family:var(--f-mono);font-size:27px;letter-spacing:.44em;
+  color:var(--gold);text-transform:uppercase;display:inline-block}
+
+/* colaboradores */
+#s2 .kick,#s3 .kick,#s4 .kick,#s7 .kick{font-family:var(--f-mono);font-size:22px;
+  letter-spacing:.42em;color:var(--gold);text-transform:uppercase}
+#s2 .kick{margin-bottom:70px}
+#s2 .row{display:flex;align-items:center;gap:64px}
+#s2 .slot{width:390px;height:120px;display:flex;align-items:center;justify-content:center}
+#s2 .slot img{max-width:100%;max-height:96px;object-fit:contain}
+/* El logo oficial de la FEN viene con el texto casi negro sobre fondo
+   transparente: sobre el navy no se leería. Se monta sobre una placa clara,
+   que es la forma de usarlo sin alterar los colores de la marca. */
+.fen-plate{background:var(--ivory);border-radius:9px;padding:15px 26px;
+  display:flex;align-items:center;justify-content:center}
+.fen-plate img{max-height:68px;max-width:100%;object-fit:contain;display:block}
+#s7 .foot .fen-plate{padding:10px 18px}
+#s7 .foot .fen-plate img{max-height:44px}
+.fen-ph{border:1px dashed rgba(212,175,55,.5);border-radius:7px;
+  padding:16px 40px;text-align:center}
+.fen-ph b{font-family:var(--f-disp);font-size:42px;color:var(--gold);
+  letter-spacing:1.5px;display:block;line-height:1}
+.fen-ph small{font-family:var(--f-mono);font-size:11px;letter-spacing:.22em;
+  color:var(--dim);display:block;margin-top:7px}
+
+/* título */
+#s3 h2{font-family:var(--f-disp);font-size:132px;font-weight:600;line-height:1.02;
+  text-align:center;margin:30px 0 40px}
+#s3 h2 em{font-style:italic;color:var(--gold)}
+#s3 .meta{display:flex;gap:0}
+#s3 .meta .m{padding:0 58px;text-align:center;position:relative}
+#s3 .meta .m+.m::before{content:"";position:absolute;left:0;top:8px;bottom:8px;
+  width:1px;background:rgba(212,175,55,.3)}
+#s3 .meta b{display:block;font-family:var(--f-mono);font-size:46px;color:var(--gold);
+  line-height:1}
+#s3 .meta span{font-family:var(--f-mono);font-size:14px;letter-spacing:.26em;
+  color:var(--dim);display:block;margin-top:12px}
+
+/* explicación de gráfico y métricas */
+#s4 .kick{margin-bottom:40px}
+.ex-grid{display:flex;gap:44px;align-items:stretch;padding:0 110px}
+.ex-card{flex:1;border:1px solid var(--line);border-radius:14px;padding:34px 38px;
+  background:linear-gradient(165deg,rgba(212,175,55,.06),rgba(10,17,40,.4))}
+.ex-t{font-family:var(--f-disp);font-size:40px;font-weight:600;margin-bottom:22px}
+.ex-svg{width:100%;height:auto;display:block}
+.ex-area{opacity:0}
+.ex-lin{fill:none;stroke:var(--gold);stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+.ex-prom{fill:none;stroke:rgba(249,246,239,.45);stroke-width:3;stroke-dasharray:9 9;stroke-linecap:round}
+.ex-pt{fill:var(--navy);stroke:var(--gold);stroke-width:3.5}
+.ex-leg{margin-top:16px;display:flex;flex-direction:column;gap:9px}
+.ex-leg span{display:flex;align-items:center;gap:12px;font-size:19px;color:var(--dim)}
+.ex-leg i{flex:none;width:34px;height:0;border-top:4px solid var(--gold);border-radius:3px}
+.ex-leg i.lp{border-top:3px dashed rgba(249,246,239,.5)}
+.ex-p{margin-top:18px;font-size:20px;line-height:1.45;color:var(--ivory)}
+.ex-m{margin-bottom:20px}
+.ex-m b{display:block;font-family:var(--f-mono);font-size:20px;letter-spacing:.14em;
+  color:var(--gold);text-transform:uppercase;margin-bottom:6px}
+.ex-m span{font-size:19.5px;line-height:1.45;color:var(--dim)}
+.ex-m em{font-style:italic;color:var(--ivory)}
+
+/* podio */
+.pod{flex-direction:row;justify-content:center;align-items:center;gap:84px;padding:0 120px}
+.pod .num{font-family:var(--f-disp);font-weight:700;font-size:360px;line-height:.8;
+  color:transparent;-webkit-text-stroke:2.5px var(--gold);flex:0 0 auto}
+.pod.win .num{color:var(--gold);-webkit-text-stroke:0}
+.pod .info{width:1050px}
+.pod .tag{font-family:var(--f-mono);font-size:20px;letter-spacing:.42em;
+  color:var(--gold);text-transform:uppercase}
+.pod h3{font-family:var(--f-disp);font-size:98px;font-weight:600;line-height:1.02;
+  margin:16px 0 20px}
+.pod .rule{height:1px;background:linear-gradient(90deg,var(--gold),rgba(212,175,55,0));
+  width:0;margin-bottom:28px}
+.pod .stats{display:flex;gap:64px;margin-bottom:26px}
+.pod .stat b{display:block;font-family:var(--f-mono);font-size:58px;line-height:1}
+.pod .stat.up b{color:var(--up)}
+.pod .stat span{font-family:var(--f-mono);font-size:13px;letter-spacing:.24em;
+  color:var(--dim);display:block;margin-top:11px}
+.pod .mem{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:28px}
+.pod .mem i{font-style:normal;font-size:23px;padding:11px 24px;border-radius:100px;
+  border:1px solid rgba(212,175,55,.34);background:rgba(212,175,55,.07)}
+.pod .chart{position:relative}
+
+/* cierre: podio de barras */
+#s7 .podio{display:flex;align-items:flex-end;gap:40px;margin:48px 0 44px;height:430px}
+#s7 .bar{width:286px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end}
+#s7 .bar .cap{text-align:center;margin-bottom:20px}
+#s7 .bar .cap .nm{font-family:var(--f-disp);font-size:33px;line-height:1.12}
+#s7 .bar .cap .pt{font-family:var(--f-mono);font-size:20px;color:var(--dim);margin-top:8px}
+#s7 .bar .col{width:100%;border-radius:8px 8px 0 0;position:relative;
+  background:linear-gradient(180deg,rgba(212,175,55,.42),rgba(212,175,55,.06));
+  border:1px solid rgba(212,175,55,.42);border-bottom:0}
+#s7 .bar.g1 .col{background:linear-gradient(180deg,var(--gold),rgba(212,175,55,.14));
+  border-color:var(--gold)}
+#s7 .bar .col .p{position:absolute;left:0;right:0;top:22px;text-align:center;
+  font-family:var(--f-disp);font-size:82px;font-weight:700;color:var(--navy);line-height:1}
+#s7 .bar:not(.g1) .col .p{color:var(--gold)}
+#s7 .foot{display:flex;align-items:center;gap:26px}
+#s7 .foot .slot{width:220px;height:80px;display:flex;align-items:center;justify-content:center}
+#s7 .foot .slot img{max-width:100%;max-height:60px;object-fit:contain}
+#s7 .foot .slot img.fig{max-height:84px}
+#s7 .foot .fen-ph{padding:11px 26px}
+#s7 .foot .fen-ph b{font-size:29px}
+#s7 .foot .fen-ph small{font-size:9px;margin-top:5px}
+#s7 .web{font-family:var(--f-mono);font-size:24px;letter-spacing:.26em;
+  color:var(--gold);margin-top:40px}
+#s7 .cred{font-family:var(--f-mono);font-size:13px;letter-spacing:.14em;
+  color:rgba(249,246,239,.34);margin-top:18px}
+
+#cargando{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-family:var(--f-mono);font-size:20px;letter-spacing:.3em;color:var(--dim)}
+</style>
+</head>
+<body>
+
+<div id="bg">
+  <div id="glow"></div>
+  <div id="dust"></div>
+  <div id="vig"></div>
+</div>
+
+<div id="cargando">CARGANDO RANKING…</div>
+
+<section class="sc" id="s1">
+  <div class="lock">
+    <img class="logo" src="../logos/fig-oro.png" alt="">
+    <div class="mask"><h1>FEN Investment Group</h1></div>
+  </div>
+  <div class="sub"><div class="ln"></div><span>Área de Portafolio</span></div>
+</section>
+
+<section class="sc" id="s2">
+  <div class="kick">En alianza con</div>
+  <div class="row" id="colabs"></div>
+</section>
+
+<section class="sc" id="s3">
+  <div class="kick">Resultados de la semana</div>
+  <h2>Torneo <em>Portafolio</em> 2026</h2>
+  <div class="meta" id="meta"></div>
+</section>
+
+<section class="sc" id="s4">
+  <div class="kick">Cómo leer los resultados</div>
+  <div class="ex-grid">
+    <div class="ex-card" id="exG">
+      <div class="ex-t">El gráfico</div>
+      <svg class="ex-svg" viewBox="0 0 560 210">
+        <defs><linearGradient id="exgr" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#D4AF37" stop-opacity=".40"/>
+          <stop offset="100%" stop-color="#D4AF37" stop-opacity="0"/></linearGradient></defs>
+        <path class="ex-area" d="M20,150 L130,120 L240,128 L350,86 L460,62 L540,54 L540,180 L20,180 Z" fill="url(#exgr)"/>
+        <polyline class="ex-prom" points="20,164 130,158 240,166 350,150 460,146 540,142"/>
+        <polyline class="ex-lin" points="20,150 130,120 240,128 350,86 460,62 540,54"/>
+        <circle class="ex-pt" cx="130" cy="120" r="6"/><circle class="ex-pt" cx="350" cy="86" r="6"/>
+        <circle class="ex-pt" cx="540" cy="54" r="6"/>
+      </svg>
+      <div class="ex-leg">
+        <span><i class="lg"></i>Retorno acumulado del equipo, semana a semana</span>
+        <span><i class="lp"></i>Promedio de los 59 equipos del torneo</span>
+      </div>
+      <p class="ex-p">Si la línea dorada va por encima de la punteada, el equipo le está ganando al promedio del torneo.</p>
+    </div>
+
+    <div class="ex-card" id="exM">
+      <div class="ex-t">Las métricas</div>
+      <div class="ex-m"><b>Puntos / 100</b><span>Nota final que ordena el ranking. Suma cinco métricas: Information Ratio (30), retorno en exceso (25), Sharpe (15), VaR 95% (15) y máximo drawdown (15).</span></div>
+      <div class="ex-m"><b>Retorno vs ACWI</b><span>Cuánto rinde el equipo por sobre el índice mundial MSCI ACWI, anualizado. Es el <em>benchmark</em>: ganarle es el objetivo.</span></div>
+      <div class="ex-m"><b>Ratio de Sharpe</b><span>Cuánta rentabilidad se obtiene por cada unidad de riesgo asumido. Más alto es mejor: rendir bien sin arriesgar de más.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sc pod" id="p0"></section>
+<section class="sc pod" id="p1"></section>
+<section class="sc pod win" id="p2"></section>
+
+<section class="sc" id="s7">
+  <div class="kick" id="cKick"></div>
+  <div class="podio" id="cPodio"></div>
+  <div class="foot" id="cFoot"></div>
+  <div class="web">feninvestmentgroup.com</div>
+  <div class="cred">Creado por Francisco Valenzuela y Manuel Paz</div>
+</section>
+
+<script>
+/* ================= utilidades de tiempo =================
+   Todo el movimiento es función de `t`. Nada de CSS animations:
+   así se puede grabar fotograma a fotograma sin perder cuadros. */
+var cl  = function(x){return x<0?0:x>1?1:x};
+var eo  = function(p){return 1-Math.pow(1-p,3)};              /* easeOutCubic */
+var eio = function(p){return p<.5?4*p*p*p:1-Math.pow(-2*p+2,3)/2};
+var eb  = function(p){var c=1.70158+1;return 1+c*Math.pow(p-1,3)+1.70158*Math.pow(p-1,2)};
+var sg  = function(t,ini,dur){return cl((t-ini)/dur)};
+var lp  = function(a,b,p){return a+(b-a)*p};
+var $   = function(s,r){return (r||document).querySelector(s)};
+
+/* ---- línea de tiempo (ms) ---- */
+var SC = {
+  s1:[0,4900], s2:[4900,8600], s3:[8600,12100], s4:[12100,17900],
+  p0:[17900,24200], p1:[24200,30500], p2:[30500,37000], s7:[37000,42300]
+};
+var TOTAL = 42300, FADE = 560;
+window.__total = TOTAL;
+
+function alpha(t,r){
+  return Math.min(sg(t,r[0],FADE), 1-sg(t,r[1]-FADE,FADE));
+}
+
+/* ================= datos ================= */
+var D=null, PROM=null, SEM=[], EQ=[];
+
+function normaliza(n){
+  var MIN={de:1,del:1,la:1,las:1,los:1,y:1,e:1};
+  return String(n||"").trim().split(/\s+/).map(function(p,i){
+    var b=p.toLowerCase();
+    if(i>0&&MIN[b]) return b;
+    if(p===p.toUpperCase()&&p.length<=3) return p;   /* siglas: JAV */
+    return b.charAt(0).toUpperCase()+b.slice(1);
+  }).join(" ");
+}
+
+fetch("../datos/torneo.json",{cache:"no-store"})
+  .then(function(r){return r.json()})
+  .then(function(d){ D=d; preparar(); construir(); arrancar(); })
+  .catch(function(){ $("#cargando").textContent="NO SE PUDO CARGAR datos/torneo.json"; });
+
+function preparar(){
+  EQ = D.equipos.slice().sort(function(a,b){return a.posicion-b.posicion}).slice(0,3)
+    .map(function(e){
+      var vistos={}, mem=[];
+      (e.miembros||[]).forEach(function(m){            /* el Excel trae repetidos */
+        var n=normaliza(m.nombre); if(!n) return;
+        if(!vistos[n.toLowerCase()]){vistos[n.toLowerCase()]=1;mem.push(n)}
+      });
+      return {
+        pos:e.posicion, nombre:e.nombre, puntos:e.puntos,
+        ret:(e.retRel||0)*100, mem:mem,
+        sharpe:(e.metricas||{}).sharpe,
+        serie:(e.historial||[]).map(function(h){return {s:h.semana,v:h.ret}})
+                               .filter(function(h){return h.v!=null})
+      };
+    });
+
+  /* promedio real del torneo, semana a semana (los 59 equipos) */
+  var set={};
+  D.equipos.forEach(function(e){(e.historial||[]).forEach(function(h){
+    if(h.ret==null)return; (set[h.semana]=set[h.semana]||[]).push(h.ret);})});
+  SEM = Object.keys(set).map(Number).sort(function(a,b){return a-b});
+  PROM = SEM.map(function(s){
+    var v=set[s]; return v.reduce(function(a,b){return a+b},0)/v.length;
+  });
+}
+
+/* ================= gráfico ================= */
+/* Área con degradado + línea con brillo + puntos por semana + la línea
+   punteada del promedio del torneo, para que se lea la trayectoria y no
+   solo el número final. */
+var CW=760, CH=286, PL=14, PR=118, PT=34, PB=44;
+
+function grafico(eq,i){
+  var mios=eq.serie.map(function(p){return p.v});
+  if(mios.length<2) return "";
+  var todos=mios.concat(PROM);
+  var lo=Math.min.apply(null,todos), hi=Math.max.apply(null,todos);
+  var pad=(hi-lo)*0.22||0.01; lo-=pad; hi+=pad;
+  var X=function(k,n){return PL+k*(CW-PL-PR)/(n-1)};
+  var Y=function(v){return CH-PB-(v-lo)/(hi-lo)*(CH-PT-PB)};
+
+  var pl=mios.map(function(v,k){return X(k,mios.length)+","+Y(v)}).join(" ");
+  var pp=PROM.map(function(v,k){return X(k,PROM.length)+","+Y(v)}).join(" ");
+  var area="M"+X(0,mios.length)+","+(CH-PB)+" L"+
+    mios.map(function(v,k){return X(k,mios.length)+","+Y(v)}).join(" L")+
+    " L"+X(mios.length-1,mios.length)+","+(CH-PB)+" Z";
+
+  var rej="";
+  for(var g=0;g<3;g++){
+    var y=PT+g*(CH-PT-PB)/2;
+    rej+='<line class="rej" x1="'+PL+'" y1="'+y+'" x2="'+(CW-PR+22)+'" y2="'+y+'"/>';
+  }
+  var pts=mios.map(function(v,k){
+    return '<circle class="pt" data-k="'+k+'" cx="'+X(k,mios.length)+'" cy="'+Y(v)+'" r="7"/>';
+  }).join("");
+
+  var ult=mios[mios.length-1], ux=X(mios.length-1,mios.length), uy=Y(ult);
+  return ''+
+  '<svg class="g" viewBox="0 0 '+CW+' '+CH+'" width="'+CW+'" height="'+CH+'">'+
+   '<defs>'+
+    '<linearGradient id="gr'+i+'" x1="0" y1="0" x2="0" y2="1">'+
+      '<stop offset="0%" stop-color="#D4AF37" stop-opacity=".46"/>'+
+      '<stop offset="100%" stop-color="#D4AF37" stop-opacity="0"/></linearGradient>'+
+    '<filter id="gl'+i+'" x="-30%" y="-60%" width="160%" height="260%">'+
+      '<feGaussianBlur stdDeviation="7" result="b"/>'+
+      '<feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>'+
+   '</defs>'+
+   rej+
+   '<path class="area" d="'+area+'" fill="url(#gr'+i+')"/>'+
+   '<polyline class="prom" points="'+pp+'"/>'+
+   '<polyline class="linea" points="'+pl+'" filter="url(#gl'+i+')"/>'+
+   pts+
+   '<circle class="halo" cx="'+ux+'" cy="'+uy+'" r="7"/>'+
+   '<text class="val" x="'+(ux+26)+'" y="'+(uy+9)+'">'+(ult>=0?"+":"")+(ult*100).toFixed(2)+'%</text>'+
+   '<text class="ejx" x="'+PL+'" y="'+(CH-14)+'">SEMANA '+SEM[0]+'</text>'+
+   '<text class="ejx" x="'+(CW-PR+22)+'" y="'+(CH-14)+'" text-anchor="end">SEMANA '+SEM[SEM.length-1]+'</text>'+
+   '<g class="leg">'+
+     '<line x1="'+PL+'" y1="16" x2="'+(PL+30)+'" y2="16" class="linea"/>'+
+     '<text x="'+(PL+40)+'" y="21">EQUIPO</text>'+
+     '<line x1="'+(PL+150)+'" y1="16" x2="'+(PL+180)+'" y2="16" class="prom"/>'+
+     '<text x="'+(PL+190)+'" y="21">PROMEDIO DEL TORNEO</text>'+
+   '</g>'+
+  '</svg>';
+}
+
+/* estilos del gráfico (van acá para quedar junto a su dibujo) */
+var css=document.createElement("style");
+css.textContent=
+".pod .g .rej{stroke:rgba(249,246,239,.10);stroke-width:1}"+
+".pod .g .area{opacity:0}"+
+".pod .g .linea{fill:none;stroke:#D4AF37;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}"+
+".pod .g .prom{fill:none;stroke:rgba(249,246,239,.42);stroke-width:2.5;"+
+  "stroke-dasharray:9 9;stroke-linecap:round}"+
+".pod .g .pt{fill:#0A1128;stroke:#D4AF37;stroke-width:3.5}"+
+".pod .g .halo{fill:none;stroke:#D4AF37;stroke-width:2.5;opacity:0}"+
+".pod .g .val{font-family:var(--f-mono);font-size:26px;fill:#D4AF37;font-weight:600}"+
+".pod .g .ejx{font-family:var(--f-mono);font-size:14px;letter-spacing:.2em;"+
+  "fill:rgba(249,246,239,.44)}"+
+".pod .g .leg text{font-family:var(--f-mono);font-size:13px;letter-spacing:.18em;"+
+  "fill:rgba(249,246,239,.5)}";
+document.head.appendChild(css);
+
+/* ================= construcción del DOM ================= */
+var ORD=["Tercer lugar","Segundo lugar","Primer lugar"], NUM=["03","02","01"];
+var SLOTS=[];   /* referencias por escena de podio */
+
+function logoFEN(){
+  return '<div class="fen-ph"><b>FEN</b><small>Economía y Negocios</small></div>';
+}
+
+function construir(){
+  $("#cargando").style.display="none";
+
+  /* colaboradores: FEN (o su marcador), Itaú y BlackRock */
+  $("#colabs").innerHTML =
+    '<div class="slot" id="slotFen">'+logoFEN()+'</div>'+
+    '<div class="slot"><img src="../logos/itau.png" alt="Itaú"></div>'+
+    '<div class="slot"><img src="../logos/blackrock-blanco.png" alt="BlackRock"></div>';
+
+  $("#meta").innerHTML =
+    '<div class="m"><b>'+D.semana+'</b><span>Semana</span></div>'+
+    '<div class="m"><b>'+D.equipos.length+'</b><span>Equipos</span></div>'+
+    '<div class="m"><b>'+String(D.corte||"").split("·").slice(0,2).join("·").trim()+
+      '</b><span>Corte</span></div>';
+
+  /* podios: del 3º al 1º, para cerrar en el campeón */
+  [EQ[2],EQ[1],EQ[0]].forEach(function(e,i){
+    var el=document.getElementById("p"+i);
+    el.innerHTML=
+      '<div class="num">'+NUM[i]+'</div>'+
+      '<div class="info">'+
+        '<div class="tag">'+ORD[i]+'</div>'+
+        '<h3>'+e.nombre+'</h3>'+
+        '<div class="rule"></div>'+
+        '<div class="stats">'+
+          '<div class="stat"><b class="c" data-fin="'+e.puntos+'" data-dec="2">0.00</b>'+
+            '<span>Puntos / 100</span></div>'+
+          '<div class="stat up"><b class="c" data-fin="'+e.ret+'" data-dec="1" data-sig="1">0.0%</b>'+
+            '<span>Retorno vs ACWI</span></div>'+
+          '<div class="stat"><b>'+(e.sharpe!=null?e.sharpe:"—")+'</b>'+
+            '<span>Ratio de Sharpe</span></div>'+
+        '</div>'+
+        '<div class="mem">'+e.mem.map(function(m){return "<i>"+m+"</i>"}).join("")+'</div>'+
+        '<div class="chart">'+grafico(e,i)+'</div>'+
+      '</div>';
+    SLOTS.push({
+      el:el, num:$(".num",el), info:$(".info",el), rule:$(".rule",el),
+      mem:[].slice.call(el.querySelectorAll(".mem i")),
+      cont:[].slice.call(el.querySelectorAll("b.c")),
+      chart:$(".chart",el),
+      area:$(".area",el), linea:$(".linea",el), prom:$(".prom",el),
+      pts:[].slice.call(el.querySelectorAll(".pt")),
+      halo:$(".halo",el), val:$(".val",el)
+    });
+    /* largo real de las líneas para poder "dibujarlas" */
+    [$(".linea",el),$(".prom",el)].forEach(function(p){
+      if(p) p.__len=p.getTotalLength?p.getTotalLength():1200;
+    });
+  });
+
+  /* cierre: podio de barras (2º · 1º · 3º, como un podio real).
+     La altura va por PUESTO, no por puntaje: los tres primeros suelen tener
+     puntajes parecidos (94/86/81) y las barras salían casi iguales, que es
+     justo lo que un podio no debe comunicar. El puntaje real va escrito
+     arriba de cada barra. */
+  var ALTO={1:360,2:268,3:206};
+  $("#cKick").textContent="Top 3 · Semana "+D.semana;
+  $("#cPodio").innerHTML=[EQ[1],EQ[0],EQ[2]].map(function(e){
+    var h=ALTO[e.pos]||200;
+    return '<div class="bar g'+e.pos+'" data-h="'+h+'">'+
+      '<div class="cap"><div class="nm">'+e.nombre+'</div>'+
+        '<div class="pt">'+e.puntos.toFixed(2)+' pts · '+(e.ret>=0?"+":"")+e.ret.toFixed(1)+'%</div></div>'+
+      '<div class="col" style="height:0"><div class="p">'+e.pos+'</div></div></div>';
+  }).join("");
+  $("#cFoot").innerHTML=
+    '<div class="slot"><img class="fig" src="../logos/fig-oro.png" alt="FIG"></div>'+
+    '<div class="slot" id="slotFen2">'+logoFEN()+'</div>'+
+    '<div class="slot"><img src="../logos/itau.png" alt="Itaú"></div>'+
+    '<div class="slot"><img src="../logos/blackrock-blanco.png" alt="BlackRock"></div>';
+
+  /* logo oficial de la FEN: si existe se usa solo, si no queda el respaldo */
+  var fen=new Image();
+  fen.onload=function(){
+    var t='<div class="fen-plate"><img src="../logos/fen.png" alt="FEN · Universidad de Chile"></div>';
+    var a=$("#slotFen"), b=$("#slotFen2");
+    if(a) a.innerHTML=t; if(b) b.innerHTML=t;
+  };
+  fen.src="../logos/fen.png";
+
+  /* polvo dorado del fondo */
+  var dust=$("#dust"), h="";
+  for(var i=0;i<26;i++) h+='<i></i>';
+  dust.innerHTML=h;
+  DUST=[].slice.call(dust.children).map(function(el,i){
+    return {el:el, x:(i*137)%1920, y:(i*271)%1080, sp:.4+((i*53)%100)/240, am:20+(i%7)*14};
+  });
+}
+var DUST=[];
+
+/* ================= dibujo de un instante ================= */
+function seek(t){
+  /* --- fondo --- */
+  $("#glow").style.opacity=(0.72+0.28*Math.sin(t/2600)).toFixed(3);
+  DUST.forEach(function(d){
+    var yy=d.y-((t/1000)*d.sp*30)%1180;
+    if(yy<-20) yy+=1180;
+    d.el.style.transform="translate("+(d.x+Math.sin(t/1800+d.x)*d.am).toFixed(1)+"px,"+yy.toFixed(1)+"px)";
+  });
+
+  /* --- visibilidad de cada escena, con leve deriva de cámara --- */
+  Object.keys(SC).forEach(function(k){
+    var el=document.getElementById(k), r=SC[k], a=alpha(t,r);
+    el.style.opacity=a;
+    el.style.visibility=a>0.002?"visible":"hidden";
+    var q=cl((t-r[0])/(r[1]-r[0]));
+    el.style.transform="scale("+(1.028-0.028*eio(q)).toFixed(4)+")";
+  });
+
+  intro(t); colab(t); titulo(t); explica(t);
+  [0,1,2].forEach(function(i){podio(t,i)}); cierre(t);
+}
+
+function intro(t){
+  var r=SC.s1[0];
+  var a=eo(sg(t,r+180,950));
+  var lg=$("#s1 .logo");
+  lg.style.opacity=a;
+  lg.style.transform="scale("+lp(.62,1,eb(sg(t,r+180,1050))).toFixed(3)+") rotate("+lp(-11,0,a).toFixed(2)+"deg)";
+  /* el logo se corre y el nombre se revela con máscara */
+  var m=eo(sg(t,r+1050,1000));
+  $("#s1 .mask").style.width=(m*1076).toFixed(1)+"px";
+  $("#s1 .lock").style.transform="translate("+lp(160,0,m).toFixed(1)+"px,"+lp(46,-34,eio(sg(t,r+2150,850))).toFixed(1)+"px)";
+  /* sube y aparece el área */
+  var s=eo(sg(t,r+2300,780));
+  var sub=$("#s1 .sub");
+  sub.style.opacity=s;
+  sub.style.transform="translateY("+lp(34,0,s).toFixed(1)+"px)";
+  $("#s1 .sub .ln").style.width=(eo(sg(t,r+2450,800))*340).toFixed(1)+"px";
+  $("#s1 .sub span").style.letterSpacing=lp(.62,.44,eo(sg(t,r+2450,950))).toFixed(3)+"em";
+}
+
+function colab(t){
+  var r=SC.s2[0];
+  var k=eo(sg(t,r+120,560));
+  var kick=$("#s2 .kick");
+  kick.style.opacity=k; kick.style.transform="translateY("+lp(-16,0,k).toFixed(1)+"px)";
+  [].slice.call(document.querySelectorAll("#s2 .slot")).forEach(function(s,i){
+    var p=eo(sg(t,r+300+i*230,680));
+    s.style.opacity=p;
+    s.style.transform="translateY("+lp(34,0,p).toFixed(1)+"px) scale("+lp(.92,1,p).toFixed(3)+")";
+  });
+}
+
+function titulo(t){
+  var r=SC.s3[0];
+  var k=eo(sg(t,r+110,540));
+  $("#s3 .kick").style.opacity=k;
+  var h=eo(sg(t,r+240,820));
+  var h2=$("#s3 h2");
+  h2.style.opacity=h; h2.style.transform="translateY("+lp(38,0,h).toFixed(1)+"px)";
+  var m=eo(sg(t,r+560,760));
+  var mt=$("#meta");
+  mt.style.opacity=m; mt.style.transform="translateY("+lp(26,0,m).toFixed(1)+"px)";
+}
+
+/* Explica qué significan el gráfico y las métricas, antes de mostrar los
+   podios — para que quien pasa frente a la TV entienda lo que está viendo. */
+function explica(t){
+  var r=SC.s4[0];
+  $("#s4 .kick").style.opacity=eo(sg(t,r+100,520));
+  [["#exG",300],["#exM",480]].forEach(function(par){
+    var el=$(par[0]), p=eo(sg(t,r+par[1],760));
+    el.style.opacity=p;
+    el.style.transform="translateY("+lp(30,0,p).toFixed(1)+"px)";
+  });
+  /* las dos líneas se dibujan, igual que en los podios */
+  var lin=$(".ex-lin"), prom=$(".ex-prom");
+  if(lin&&lin.__len==null){lin.__len=lin.getTotalLength?lin.getTotalLength():620;
+                           prom.__len=prom.getTotalLength?prom.getTotalLength():600;}
+  if(lin){
+    prom.style.strokeDasharray="9 9";
+    prom.style.opacity=eo(sg(t,r+700,700));
+    lin.style.strokeDasharray=lin.__len;
+    lin.style.strokeDashoffset=(lin.__len*(1-eo(sg(t,r+850,1250)))).toFixed(1);
+    $(".ex-area").style.opacity=eo(sg(t,r+1500,700));
+    [].slice.call(document.querySelectorAll(".ex-pt")).forEach(function(pt,k){
+      var p=eo(sg(t,r+1150+k*180,380));
+      pt.style.opacity=p; pt.setAttribute("r",(6*lp(.3,1,p)).toFixed(2));
+    });
+  }
+  $(".ex-leg").style.opacity=eo(sg(t,r+1700,650));
+  $(".ex-p").style.opacity=eo(sg(t,r+2050,650));
+  [].slice.call(document.querySelectorAll(".ex-m")).forEach(function(m,k){
+    var p=eo(sg(t,r+900+k*420,700));
+    m.style.opacity=p;
+    m.style.transform="translateX("+lp(24,0,p).toFixed(1)+"px)";
+  });
+}
+
+function podio(t,i){
+  var S=SLOTS[i]; if(!S) return;
+  var r=SC["p"+i][0];
+
+  var n=eo(sg(t,r+100,850));
+  S.num.style.opacity=n;
+  S.num.style.transform="translateX("+lp(-84,0,n).toFixed(1)+"px) scale("+lp(.84,1,n).toFixed(3)+")";
+  if(i===2){ /* el campeón respira un poco */
+    var b=1+0.012*Math.sin((t-r)/620);
+    S.num.style.transform+=" scale("+b.toFixed(4)+")";
+    S.num.style.textShadow="0 0 "+(58+18*Math.sin((t-r)/620)).toFixed(0)+"px rgba(212,175,55,.55)";
+  }
+
+  var f=eo(sg(t,r+240,780));
+  S.info.style.opacity=f;
+  S.info.style.transform="translateX("+lp(52,0,f).toFixed(1)+"px)";
+  S.rule.style.width=(eo(sg(t,r+500,780))*660).toFixed(1)+"px";
+
+  S.mem.forEach(function(m,k){
+    var p=eo(sg(t,r+820+k*140,520));
+    m.style.opacity=p;
+    m.style.transform="translateY("+lp(14,0,p).toFixed(1)+"px)";
+  });
+
+  /* gráfico: promedio primero, después el equipo, después los puntos */
+  if(S.linea){
+    var g=eo(sg(t,r+1050,520));
+    S.el.querySelector(".g").style.opacity=g;
+    var dp=eo(sg(t,r+1120,950)), dl=eo(sg(t,r+1300,1450));
+    S.prom.style.strokeDasharray="9 9";
+    S.prom.style.opacity=dp;
+    S.linea.style.strokeDasharray=S.linea.__len;
+    S.linea.style.strokeDashoffset=(S.linea.__len*(1-dl)).toFixed(1);
+    S.area.style.opacity=eo(sg(t,r+1900,700));
+    S.pts.forEach(function(pt,k){
+      var p=eo(sg(t,r+1560+k*95,360));
+      pt.style.opacity=p;
+      pt.setAttribute("r",(7*lp(.3,1,p)).toFixed(2));
+    });
+    var hv=sg(t,r+2350,1500);
+    S.halo.style.opacity=(0.75*(1-hv)).toFixed(3);
+    S.halo.setAttribute("r",(7+26*hv).toFixed(1));
+    S.val.style.opacity=eo(sg(t,r+2250,600));
+  }
+
+  /* contadores */
+  S.cont.forEach(function(b){
+    var fin=parseFloat(b.dataset.fin), dec=+b.dataset.dec, sig=b.dataset.sig==="1";
+    var v=fin*eo(sg(t,r+560,1400));
+    b.textContent=(sig&&v>=0?"+":"")+v.toFixed(dec)+(sig?"%":"");
+  });
+}
+
+function cierre(t){
+  var r=SC.s7[0];
+  var k=eo(sg(t,r+100,540));
+  $("#cKick").style.opacity=k;
+  [].slice.call(document.querySelectorAll("#s7 .bar")).forEach(function(bar,i){
+    var p=eo(sg(t,r+280+i*180,880));
+    var col=$(".col",bar), cap=$(".cap",bar);
+    col.style.height=(bar.dataset.h*p).toFixed(1)+"px";
+    cap.style.opacity=eo(sg(t,r+520+i*180,600));
+    var np=$(".p",col);
+    if(np) np.style.opacity=eo(sg(t,r+680+i*180,520));
+  });
+  var f=eo(sg(t,r+1400,700));
+  var ft=$("#s7 .foot");
+  ft.style.opacity=f; ft.style.transform="translateY("+lp(20,0,f).toFixed(1)+"px)";
+  $("#s7 .web").style.opacity=eo(sg(t,r+1700,650));
+  $("#s7 .cred").style.opacity=eo(sg(t,r+1900,650))*0.9;
+}
+
+/* ================= reloj ================= */
+var manual=false, t0=null;
+window.__manual=function(){manual=true};
+window.__seek=function(ms){seek(ms)};
+
+function arrancar(){
+  window.__ready=true;
+  requestAnimationFrame(function bucle(now){
+    if(t0===null) t0=now;
+    if(!manual) seek((now-t0)%TOTAL);
+    requestAnimationFrame(bucle);
+  });
+}
+</script>
+
+<script>
+/* Métricas anónimas (sin cookies): misma convención que el resto del sitio,
+   con tipo:"visita" al endpoint compartido. Inerte si no está configurado. */
+(function(){
+try{
+fetch("../datos/club.json",{cache:"force-cache"})
+.then(function(r){return r.ok?r.json():null})
+.then(function(d){
+  var u=d&&d.config&&d.config.figEndpoint;if(!u)return;
+  var b=JSON.stringify({tipo:"visita",pagina:location.pathname,fecha:new Date().toISOString(),origen:(document.referrer.split("/")[2]||"")});
+  if(navigator.sendBeacon){navigator.sendBeacon(u,b);}
+  else{fetch(u,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:b}).catch(function(){});}
+}).catch(function(){});
+}catch(e){}
+})();
+</script>
+</body>
+</html>
