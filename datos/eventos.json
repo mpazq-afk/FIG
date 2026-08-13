@@ -27,6 +27,9 @@
      "participantes":[],"carpeta":"charla-colegios-lab-2025"},
     {"id":"lanzamiento-club-2025","titulo":"Lanzamiento de FEN Investment Group","fecha":"2025-09-08","fechaTexto":"PRIMAVERA · 2025","tipo":"comunidad","lugar":"FEN · Universidad de Chile",
      "resumen":"Presentación oficial de FEN Investment Group ante la comunidad de la FEN. Lanzamiento de la iniciativa con participación de fundadores, socios estratégicos y potenciales miembros.",
-     "participantes":[],"carpeta":"lanzamiento-club-2025"}
+     "participantes":[],"carpeta":"lanzamiento-club-2025"},
+    {"id":"charla-roberto-bonifaz-2026","titulo":"Charla con Roberto Bonifaz","fecha":"2026-08-11","fechaTexto":"11 · AGO · 2026","tipo":"charla","lugar":"FEN · Universidad de Chile",
+     "resumen":"",
+     "participantes":[],"carpeta":"charla-roberto-bonifaz-2026"}
   ]
 }
