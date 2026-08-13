@@ -62,8 +62,11 @@ main{padding:clamp(7.5rem,13vh,9.5rem) 0 5rem;min-height:100vh;
   background:radial-gradient(1100px 520px at 85% -10%,rgba(212,175,55,.1),transparent 60%),var(--navy)}
 .screen{display:none}
 .screen.on{display:block}
-h1{font-family:var(--f-disp);font-weight:600;font-size:clamp(1.9rem,4.4vw,3rem);line-height:1.1;margin:16px 0 12px}
-h1 em{font-style:italic;color:var(--gold)}
+/* h2 comparte el estilo de h1: el título del modo estudio es una pantalla
+   alterna, no el título del documento, así que va como h2 para no dejar dos
+   h1 en la misma página (auditoría 2026-08-08). */
+h1,h2{font-family:var(--f-disp);font-weight:600;font-size:clamp(1.9rem,4.4vw,3rem);line-height:1.1;margin:16px 0 12px}
+h1 em,h2 em{font-style:italic;color:var(--gold)}
 .lead{color:rgba(247,244,236,.75);max-width:60ch;font-size:.98rem}
 
 /* home */
@@ -231,7 +234,7 @@ footer a:hover{color:var(--gold)}
     <!-- ============ SELECTOR ESTUDIO ============ -->
     <section class="screen" id="scrPick">
       <div class="kicker">Modo estudio</div>
-      <h1 id="pickTitle">Elige un tema</h1>
+      <h2 id="pickTitle">Elige un tema</h2>
       <p class="lead">Sin reloj y con la explicación al instante después de cada respuesta.</p>
       <div class="picks" id="pickList"></div>
       <div style="margin-top:30px"><button class="btn btn--ghost" id="btnPickBack">← Volver</button></div>
