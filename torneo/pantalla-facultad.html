@@ -1,0 +1,633 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1920">
+<title>Torneo Portafolio 2026 — Video semanal para la facultad</title>
+<meta name="description" content="Video semanal del Top 5 del Torneo Portafolio 2026 de FEN Investment Group, para enviar a las pantallas de la facultad.">
+
+<!--
+  VIDEO SEMANAL PARA LA FACULTAD (1920x1080, fondo claro).
+
+  Recrea la propuesta de diseño que se aprobó (Propuesta_Video_FIG.mp4:
+  fondo blanco, azul #0052FF, tarjeta por equipo con integrantes y mini
+  gráfico), pero como página que SE ALIMENTA SOLA de datos/torneo.json —
+  la propuesta original era un video grabado una sola vez con datos de la
+  semana 11; esta versión se recalcula cada semana sin tocar código, igual
+  que torneo/pantalla.html (la pantalla navy/oro que ya usa el Bloomberg
+  Lab). Mismo motor, paleta distinta.
+
+  La animación es DETERMINÍSTICA: todo es función de un único reloj `t`
+  (ver seek()), sin transiciones CSS — así se graba fotograma a fotograma
+  a 60 fps sin perder cuadros (ver scratchpad/grabar_pantalla_facultad.py).
+
+  Ganchos para grabar:
+    window.__ready   -> true cuando ya cargaron datos y logos
+    window.__total   -> duración del ciclo en ms
+    window.__manual()-> congela el reloj propio
+    window.__seek(ms)-> dibuja ese instante exacto
+
+  Nota honesta (2026-08-11): la propuesta original rotulaba el retorno de
+  cada equipo "RETORNO VS ACWI", pero datos/torneo.json no trae el
+  benchmark ACWI cargado todavía (acwi:[] — ver CLAUDE.md). Mostrar una
+  comparación contra un benchmark vacío sería inventar un dato.
+
+  Dos retornos distintos, ojo con no confundirlos (2026-08-15):
+    · `retRel`  -> retorno RELATIVO (exceso). Es el del recuadro de arriba
+                   de la tarjeta. El resto del sitio lo rotula "RET. RELATIVO"
+                   (ver torneo/index.html), así que acá dice lo mismo: hasta
+                   hoy decía "Retorno acumulado", que es otra cifra.
+    · `historial[].ret` -> retorno ACUMULADO desde el inicio del torneo. Es el
+                   que dibuja el gráfico, contra el promedio de todos los equipos vigentes.
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="../logos/fig-oro.png">
+
+<style>
+:root{
+  --blue:#0052FF; --blue-d:#0041CC; --navy:#04182D; --ink:#0A1128;
+  --dim:rgba(10,17,40,.52); --line:rgba(10,17,40,.10);
+  --up:#12A177; --down:#D9553E; --card:#FFFFFF; --avg:#8A93A6;
+  --f-disp:"Playfair Display",Georgia,serif;
+  --f-body:"Inter",-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono","SF Mono",monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+/* El LIENZO lo fija el formato elegido (?formato=... o ?w=&h=), y el
+   ESCENARIO sigue midiendo siempre 1920x1080: se escala y se centra dentro
+   del lienzo. Así la composición no se rediseña por formato — se mantiene
+   exactamente la que ya está verificada — y las bandas que sobran las
+   pintamos nosotros en vez de dejarlas al reproductor, que las pone negras
+   (2026-08-20, observación de la Escuela). */
+html,body{overflow:hidden}
+body{font-family:var(--f-body);color:var(--ink);position:relative;
+  -webkit-font-smoothing:antialiased;background:#fff}
+#stage{position:absolute;left:50%;top:50%;width:1920px;height:1080px;
+  overflow:hidden;background:#fff;transform-origin:center center}
+
+/* selector de formato (no se graba) */
+#pick{position:fixed;top:16px;right:16px;z-index:99;background:rgba(255,255,255,.97);
+  border:1px solid var(--line);border-radius:12px;padding:14px 16px;
+  box-shadow:0 10px 30px rgba(10,17,40,.14);font-family:var(--f-body);max-width:280px}
+#pick b{display:block;font-size:13px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--dim);margin-bottom:10px}
+#pick .ops{display:flex;flex-wrap:wrap;gap:6px}
+#pick a{font-family:var(--f-mono);font-size:12px;text-decoration:none;color:var(--ink);
+  border:1px solid var(--line);border-radius:7px;padding:6px 9px;background:#fff}
+#pick a:hover{border-color:var(--blue);color:var(--blue)}
+#pick a.on{background:var(--blue);border-color:var(--blue);color:#fff}
+#pick .nota{margin-top:10px;font-size:11px;line-height:1.45;color:var(--dim)}
+
+/* fondo: blanco con un glow celeste muy tenue, como la propuesta */
+#bg{position:absolute;inset:0;background:
+  radial-gradient(1100px 700px at 50% 38%,rgba(0,82,255,.06),transparent 68%),
+  linear-gradient(180deg,#FBFCFF,#FFFFFF 60%)}
+
+.sc{position:absolute;inset:0;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;opacity:0;visibility:hidden;
+  will-change:opacity,transform}
+
+/* ---------------- s1: intro ---------------- */
+#s1 .lock{display:flex;align-items:center;gap:30px}
+#s1 .logo{width:150px;height:150px;object-fit:contain}
+#s1 .mask{overflow:hidden;white-space:nowrap;width:0}
+#s1 .mask h1{font-family:var(--f-disp);font-weight:600;font-size:96px;color:var(--ink)}
+#s1 .sub{margin-top:36px}
+#s1 .sub span{font-family:var(--f-mono);font-size:26px;letter-spacing:.5em;
+  color:var(--blue);text-transform:uppercase}
+/* 27px → 38px (2026-08-20, pedido de Francisco: "agranda un poco lo de
+   organización estudiantil"). Es la frase que la Escuela pidió sumar. */
+#s1 .org{margin-top:32px;opacity:0}
+#s1 .org span{font-family:var(--f-body);font-size:38px;color:var(--dim)}
+
+/* ---------------- s2: colaboradores ---------------- */
+#s2 .kick{font-family:var(--f-mono);font-size:26px;letter-spacing:.42em;
+  color:var(--dim);text-transform:uppercase;margin-bottom:64px}
+/* Logos de colaboradores al máximo que permite el lienzo (2026-08-15, segunda
+   subida a pedido de Francisco). Esta escena es a pantalla completa, así que
+   tiene margen de sobra: a 196px la fila mide 1482px de 1920, con 219px de
+   aire a cada lado. Ojo: la fila de logos DENTRO de cada tarjeta (más abajo)
+   NO puede crecer igual — ahí el techo lo pone el pie de página. */
+#s2 .row{display:flex;align-items:center;gap:76px;background:var(--card);
+  border:1px solid var(--line);border-radius:22px;padding:34px 56px;
+  box-shadow:0 30px 70px rgba(10,17,40,.08)}
+#s2 .slot{height:196px;display:flex;align-items:center}
+#s2 .slot img{max-height:100%;max-width:610px;object-fit:contain}
+
+/* ---------------- s3: resultados de la semana ---------------- */
+/* Reproduce la lámina de la propuesta original. Los rótulos de cada dato van
+   deliberadamente más grandes que en aquella maqueta (ahí eran ~15px a escala
+   1920 y no se leían): "la info de abajo que sea un poquito más grande para
+   que se pueda leer desde lejos" (2026-08-20). */
+#s3 .kick{font-family:var(--f-mono);font-size:26px;letter-spacing:.42em;
+  color:var(--blue);text-transform:uppercase;margin-bottom:26px}
+#s3 .tit{font-family:var(--f-disp);font-weight:600;font-size:118px;color:var(--ink);line-height:1.05}
+#s3 .tit em{font-style:italic;color:var(--blue)}
+#s3 .stats{display:flex;align-items:flex-start;gap:96px;margin-top:34px;opacity:0}
+#s3 .stats .it{display:flex;flex-direction:column;align-items:center;gap:8px}
+#s3 .stats .vl{font-family:var(--f-mono);font-weight:600;font-size:60px;color:var(--blue);line-height:1}
+#s3 .stats .lb{font-family:var(--f-mono);font-size:22px;letter-spacing:.22em;
+  color:var(--dim);text-transform:uppercase}
+
+/* ---------------- encabezado persistente (desde la lista en adelante) --- */
+/* El encabezado sube de 118px a 86px para hacerle sitio al nombre del torneo
+   a 132px (2026-08-16, pedido de Francisco). Arriba sobraba aire, así que
+   subirlo no aprieta nada; sin esto el título toca la tarjeta de abajo. */
+#head{position:absolute;top:86px;left:0;right:0;display:flex;flex-direction:column;
+  align-items:center;opacity:0;visibility:hidden}
+#head .lock{display:flex;align-items:center;gap:22px}
+/* Nombre del torneo: 56px → 84px (2026-08-15) → 132px (2026-08-16), las dos
+   veces a pedido de Francisco. El tope NO es el ancho (a 132px el bloque mide
+   1443px de 1920) sino el alto: a 132px con el encabezado en su sitio original
+   el título tocaba la tarjeta, por eso #head subió a 86px. Con eso quedan 27px
+   de aire sobre la tarjeta más alta del top 5 (la de 3 integrantes). */
+#head .logo{width:142px;height:142px;object-fit:contain}
+#head h2{font-family:var(--f-disp);font-weight:600;font-size:132px;color:var(--ink)}
+#head h2 em{font-style:italic;color:var(--blue)}
+#head .kick{margin-top:12px;font-family:var(--f-mono);font-size:19px;
+  letter-spacing:.42em;color:var(--dim);text-transform:uppercase}
+
+/* ---------------- lista top 5 ---------------- */
+#listPanel{position:absolute;top:322px;left:50%;width:1180px;margin-left:-590px;
+  opacity:0;visibility:hidden}
+#listPanel .row{display:flex;align-items:center;gap:34px;background:var(--card);
+  border:1px solid var(--line);border-radius:16px;padding:26px 40px;margin-bottom:16px;
+  box-shadow:0 14px 30px rgba(10,17,40,.05);
+  opacity:0;transform:translateY(22px)}
+#listPanel .pos{font-family:var(--f-disp);font-weight:700;font-size:34px;color:var(--blue);width:52px}
+#listPanel .nm{font-family:var(--f-body);font-weight:600;font-size:30px;flex:1}
+#listPanel .st{text-align:right}
+#listPanel .pt{font-family:var(--f-mono);font-weight:600;font-size:28px}
+#listPanel .rt{font-family:var(--f-mono);font-size:18px;margin-top:3px}
+#listPanel .rt.up{color:var(--up)} #listPanel .rt.down{color:var(--down)}
+
+/* ---------------- tarjeta de equipo ---------------- */
+#cardPanel{position:absolute;top:300px;left:50%;width:1540px;margin-left:-770px;
+  background:var(--card);border:1px solid var(--line);border-radius:26px;
+  padding:48px 64px;box-shadow:0 40px 90px rgba(10,17,40,.10);
+  opacity:0;visibility:hidden}
+/* Los logos YA NO van dentro de la tarjeta (2026-08-20, observación de la
+   Escuela: "en las diapositivas finales de resultados los logos aparecen
+   arriba; sugiero moverlos abajo"). Ahora viven en la franja #brand del pie,
+   que se ve en TODAS las láminas. Efecto secundario bueno: la tarjeta pierde
+   ~118px de alto, así que la más alta del top 5 (un equipo de 3 integrantes,
+   hoy CLB) deja de rozar el pie. */
+#cardPanel .top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:46px}
+#cardPanel .who .pos{font-family:var(--f-disp);font-weight:700;font-size:52px;color:var(--blue)}
+#cardPanel .who .nm{font-family:var(--f-disp);font-weight:700;font-size:52px;color:var(--ink);margin-left:14px}
+#cardPanel .who .sub{margin-top:10px;font-family:var(--f-mono);font-size:25px;color:var(--dim)}
+#cardPanel .stats{display:flex;gap:20px}
+#cardPanel .stat{background:#F4F7FF;border:1px solid var(--line);border-radius:14px;
+  padding:16px 26px;text-align:right;min-width:190px}
+#cardPanel .stat .lb{font-family:var(--f-mono);font-size:18px;letter-spacing:.14em;
+  color:var(--dim);text-transform:uppercase}
+#cardPanel .stat .vl{font-family:var(--f-mono);font-weight:600;font-size:30px;margin-top:6px}
+#cardPanel .stat .vl.up{color:var(--up)} #cardPanel .stat .vl.down{color:var(--down)}
+#cardPanel .body{display:flex;gap:28px;align-items:stretch}
+#cardPanel .mem{flex:1.15;display:flex;flex-wrap:wrap;gap:18px;align-content:flex-start}
+#cardPanel .mem .chip{background:#F8F9FD;border:1px solid var(--line);border-radius:14px;
+  padding:20px 22px;display:flex;align-items:center;gap:16px;flex:1 1 46%;min-width:280px}
+#cardPanel .mem .av{width:56px;height:56px;border-radius:50%;background:var(--blue);
+  color:#fff;font-family:var(--f-mono);font-weight:600;font-size:20px;
+  display:flex;align-items:center;justify-content:center;flex:none}
+#cardPanel .mem .role{font-family:var(--f-mono);font-size:16px;letter-spacing:.14em;
+  color:var(--dim);text-transform:uppercase}
+#cardPanel .mem .nm2{font-family:var(--f-body);font-weight:600;font-size:24px;margin-top:2px}
+#cardPanel .chart{flex:1;background:#F8F9FD;border:1px solid var(--line);border-radius:14px;
+  padding:22px 26px;display:flex;flex-direction:column}
+#cardPanel .chart .hd{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+#cardPanel .chart .hd b{font-family:var(--f-mono);font-size:18px;letter-spacing:.1em;
+  color:var(--dim);text-transform:uppercase;font-weight:500}
+#cardPanel .chart .badge{font-family:var(--f-mono);font-weight:600;font-size:17px;
+  padding:4px 12px;border-radius:100px}
+#cardPanel .chart .badge.up{color:var(--up);background:rgba(18,161,119,.10)}
+#cardPanel .chart .badge.down{color:var(--down);background:rgba(217,85,62,.10)}
+/* Leyenda: sin ella las dos líneas no se distinguen (2026-08-15, pedido de
+   Francisco: "que se entienda qué línea es cuál"). */
+#cardPanel .chart .lg{display:flex;gap:26px;flex-wrap:wrap;margin:2px 0 4px;
+  font-family:var(--f-mono);font-size:19px;color:var(--dim)}
+#cardPanel .chart .lg i{display:inline-block;width:28px;vertical-align:middle;margin-right:9px}
+#cardPanel .chart .lg .team i{height:4px;border-radius:2px;background:var(--up)}
+#cardPanel .chart .lg .avg i{height:0;border-top:3px dashed var(--avg)}
+#cardPanel .chart .lg b{color:var(--ink);font-weight:600;margin-left:5px}
+#cardPanel .chart svg{flex:1;width:100%;height:100%}
+
+/* PIE DE MARCA (2026-08-20).
+   Historial de este bloque, para no dar vueltas en círculo:
+     · Al principio era el toro + el @, y aparecía recién desde la lista.
+     · La Escuela pidió sumarle los tres logos de los colaboradores y que se
+       viera en todas las láminas.
+     · Francisco pidió sacar esos tres logos del pie (2026-08-20). Los
+       colaboradores NO desaparecen del video: conservan su lámina propia a
+       pantalla completa ("En alianza con", s2), que es donde se lucen.
+   Queda el toro + el @, ahora sí visibles en TODAS las láminas — eso último
+   se mantuvo porque era una mejora aparte, no parte de lo que se sacó. */
+#brand{position:absolute;bottom:56px;left:0;right:0;display:flex;
+  justify-content:center;align-items:center;gap:18px;opacity:0;visibility:hidden}
+#brand img{height:46px;object-fit:contain}
+#brand span{font-family:var(--f-mono);font-size:22px;letter-spacing:.16em;color:var(--dim)}
+</style>
+</head>
+<body>
+
+<div id="stage">
+<div id="bg"></div>
+
+<div class="sc" id="s1">
+  <div class="lock">
+    <img class="logo" src="../logos/fig-navy.png" alt="">
+    <div class="mask"><h1>FEN Investment Group</h1></div>
+  </div>
+  <div class="sub"><span>Torneo Portafolio 2026</span></div>
+  <!-- Pedido de la Escuela (2026-08-20): decir al inicio qué es FIG. Se nombra
+       la Facultad pero NO "Universidad de Chile", que Francisco pidió sacar del
+       texto visible el 2026-07-24 (ver CLAUDE.md). Así se cumplen las dos. -->
+  <div class="org"><span>Organización estudiantil de la Facultad de Economía y Negocios</span></div>
+</div>
+
+<div class="sc" id="s2">
+  <div class="kick">En alianza con</div>
+  <div class="row">
+    <div class="slot"><img src="../logos/fen-escudo.png" alt="Facultad de Economía y Negocios, Universidad de Chile"></div>
+    <div class="slot"><img src="../logos/itau.png" alt="Itaú"></div>
+    <div class="slot"><img src="../logos/blackrock.png" alt="BlackRock"></div>
+  </div>
+</div>
+
+<div class="sc" id="s3">
+  <div class="kick">Resultados de la semana</div>
+  <h2 class="tit">Torneo <em>Portafolio</em> 2026</h2>
+  <div class="stats" id="s3Stats"></div>
+</div>
+
+<div id="head">
+  <div class="lock">
+    <img class="logo" src="../logos/fig-navy.png" alt="">
+    <h2>Torneo <em>Portafolio</em> 2026</h2>
+  </div>
+  <div class="kick" id="headKick">Ranking Top 5</div>
+</div>
+
+<div id="listPanel"></div>
+<div id="cardPanel"></div>
+
+<div id="brand">
+  <img src="../logos/fig-navy.png" alt="FEN Investment Group">
+  <span>@fen.investment.group</span>
+</div>
+
+</div><!-- /#stage -->
+
+<!-- Selector de formato. Vive FUERA de #stage para no escalarse, y se oculta
+     solo al grabar (window.__manual()) para no salir en el video. -->
+<div id="pick">
+  <b>Formato del video</b>
+  <div class="ops" id="pickOps"></div>
+  <div class="nota">El diseño es apaisado: en formatos verticales se ve más chico y con bandas.</div>
+</div>
+
+<script>
+/* ================= utilidades de tiempo (mismo patrón que pantalla.html) === */
+var cl  = function(x){return x<0?0:x>1?1:x};
+var eo  = function(p){return 1-Math.pow(1-p,3)};
+var sg  = function(t,ini,dur){return cl((t-ini)/dur)};
+var lp  = function(a,b,p){return a+(b-a)*p};
+var $   = function(s,r){return (r||document).querySelector(s)};
+
+/* ---------- formato del lienzo ----------------------------------------
+   ?formato=16x9|16x10|4x3|1x1|4x5|9x16   ó   ?w=1080&h=1350 para uno libre
+   ?banda=blanco|azul|navy  -> color de las bandas cuando el formato no es 16:9
+   El grabador lee window.__w / window.__h para abrir el navegador del tamaño
+   correcto, así el MP4 sale ya en la proporción de la pantalla de destino y
+   no queda letterbox negro del reproductor. */
+var FORMATOS={"16x9":[1920,1080],"16x10":[1920,1200],"4x3":[1440,1080],
+              "1x1":[1080,1080],"4x5":[1080,1350],"9x16":[1080,1920]};
+var BANDAS={blanco:"#FFFFFF",azul:"#0052FF",navy:"#04182D"};
+var Q=new URLSearchParams(location.search);
+var FMT=Q.get("formato")||"16x9";
+var LW,LH;
+if(Q.get("w")&&Q.get("h")){ LW=parseInt(Q.get("w"),10); LH=parseInt(Q.get("h"),10); FMT=""; }
+else { var _d=FORMATOS[FMT]||FORMATOS["16x9"]; LW=_d[0]; LH=_d[1]; }
+var BANDA=BANDAS[Q.get("banda")]||BANDAS.blanco;
+window.__w=LW; window.__h=LH;
+
+(function aplicarFormato(){
+  document.documentElement.style.width=LW+"px";
+  document.documentElement.style.height=LH+"px";
+  document.body.style.width=LW+"px";
+  document.body.style.height=LH+"px";
+  document.body.style.background=BANDA;
+  var esc=Math.min(LW/1920,LH/1080);
+  var st=document.getElementById("stage");
+  st.style.transform="translate(-50%,-50%) scale("+esc+")";
+  var vp=document.querySelector('meta[name=viewport]');
+  if(vp) vp.setAttribute("content","width="+LW);
+  /* botones del selector */
+  var ops=document.getElementById("pickOps");
+  if(ops){
+    ops.innerHTML=Object.keys(FORMATOS).map(function(k){
+      var d=FORMATOS[k];
+      return '<a href="?formato='+k+(Q.get("banda")?"&banda="+Q.get("banda"):"")+'"'
+        +(k===FMT?' class="on"':'')+'>'+k.replace("x",":")+' · '+d[0]+'×'+d[1]+'</a>';
+    }).join("");
+  }
+})();
+function alpha(t,r,fade){
+  fade=fade||FADE;
+  return Math.min(sg(t,r[0],fade), 1-sg(t,r[1]-fade,fade));
+}
+
+/* ---- línea de tiempo (ms) ---- */
+var S1=[0,4000], S2=[4000,8200];
+/* S3: lámina "Resultados de la semana" con los datos del corte. Estaba en la
+   propuesta original (Propuesta_Video_FIG.mp4, ~frame 335) y se había perdido
+   al reconstruir el video; el equipo la pidió de vuelta (2026-08-20). */
+var S3=[8200,12400];
+var HEAD_IN=12400, HEAD_FADE=520;
+var LIST_FIRST=[13100,15500];             /* la lista sola, antes del primer equipo */
+var N_CARDS=5, CARD_DUR=5400, CARD_START=15500;
+var CARD_RANGES=[];
+for(var i=0;i<N_CARDS;i++)CARD_RANGES.push([CARD_START+i*CARD_DUR,CARD_START+(i+1)*CARD_DUR]);
+var LIST_LAST=[CARD_RANGES[N_CARDS-1][1], CARD_RANGES[N_CARDS-1][1]+3000];
+var TOTAL=LIST_LAST[1]+1200, FADE=560;
+window.__total=TOTAL;
+
+/* ================= datos ================= */
+var D=null, EQ=[], PROM={};
+function normaliza(n){
+  var MIN={de:1,del:1,la:1,las:1,los:1,y:1,e:1};
+  return String(n||"").trim().split(/\s+/).map(function(p,i){
+    var b=p.toLowerCase();
+    if(i>0&&MIN[b]) return b;
+    if(p===p.toUpperCase()&&p.length<=3) return p;
+    return b.charAt(0).toUpperCase()+b.slice(1);
+  }).join(" ");
+}
+function iniciales(n){
+  var p=n.trim().split(/\s+/);
+  return ((p[0]||"")[0]||"")+((p[1]||"")[0]||"");
+}
+function pct(v,d){
+  if(v==null)return "—";
+  return (v>=0?"+":"")+(v*100).toFixed(d==null?2:d)+"%";
+}
+
+fetch("../datos/torneo.json",{cache:"no-store"})
+  .then(function(r){return r.json()})
+  .then(function(d){ D=d; preparar(); construirLista(); arrancar(); })
+  .catch(function(){ document.title="ERROR — no se pudo cargar torneo.json"; });
+
+/* Promedio ACUMULADO del torneo, semana a semana, sobre TODOS los equipos
+   (no solo el Top 5): es la línea de referencia contra la que se lee cada
+   equipo. Se calcula acá, en vivo, desde el mismo torneo.json — igual que el
+   promedio de pantalla.html — así no hay ningún dato que mantener a mano. */
+function promediosTorneo(){
+  var acc={},out={};
+  (D.equipos||[]).forEach(function(t){
+    (t.historial||[]).forEach(function(h){
+      if(h.ret==null)return;
+      (acc[h.semana]=acc[h.semana]||[]).push(h.ret);
+    });
+  });
+  Object.keys(acc).forEach(function(s){
+    var v=acc[s];
+    out[s]=v.reduce(function(a,b){return a+b},0)/v.length;
+  });
+  return out;
+}
+
+/* Participantes: se cuentan personas ÚNICAS de todos los equipos, no la suma
+   de los integrantes de cada uno — el Excel de inscripciones repite a alguna
+   persona y hay nombres con distinta capitalización. Ojo: si un equipo viene
+   sin integrantes cargados en torneo.json, sus miembros no entran en la
+   cuenta (hoy pasa con "Equipo rocket"). */
+function contarParticipantes(){
+  var vistos={},n=0;
+  (D.equipos||[]).forEach(function(t){
+    (t.miembros||[]).forEach(function(m){
+      var k=normaliza(m.nombre).toLowerCase();
+      if(!k||vistos[k])return;
+      vistos[k]=1; n++;
+    });
+  });
+  return n;
+}
+
+function preparar(){
+  PROM = promediosTorneo();
+  EQ = D.equipos.slice().sort(function(a,b){return a.posicion-b.posicion}).slice(0,N_CARDS)
+    .map(function(e){
+      var vistos={}, mem=[];
+      (e.miembros||[]).forEach(function(m){
+        var n=normaliza(m.nombre); if(!n) return;
+        var k=n.toLowerCase(); if(vistos[k])return; vistos[k]=1;
+        mem.push(n);
+      });
+      var serie=(e.historial||[]).map(function(h){return {s:h.semana,v:h.ret}})
+                                  .filter(function(h){return h.v!=null});
+      var ultimaVar=null;
+      if(serie.length>=2) ultimaVar=serie[serie.length-1].v-serie[serie.length-2].v;
+      return {
+        pos:e.posicion, nombre:e.nombre, puntos:e.puntos, ret:e.retRel,
+        mem:mem, serie:serie, ultimaVar:ultimaVar
+      };
+    });
+  $("#headKick").textContent="Ranking Top "+N_CARDS+" · Semana "+(D.semana||"—");
+
+  /* Datos de la lámina s3. El corte viene como "14 · AGO · 2026": se recorta
+     el año para que quepa como dato suelto, igual que en la propuesta. */
+  var corte=String(D.corte||"—").split("·").slice(0,2).join(" · ").trim();
+  var stats=[
+    {vl:D.semana||"—",        lb:"Semana"},
+    {vl:(D.equipos||[]).length,lb:"Equipos"},
+    {vl:contarParticipantes(), lb:"Participantes"},
+    {vl:corte,                 lb:"Corte"}
+  ];
+  $("#s3Stats").innerHTML=stats.map(function(s){
+    return '<div class="it"><div class="vl">'+esc(String(s.vl))+'</div>'
+      +'<div class="lb">'+esc(s.lb)+'</div></div>';
+  }).join("");
+}
+
+/* ---------------- lista ---------------- */
+function construirLista(){
+  $("#listPanel").innerHTML = EQ.map(function(t){
+    var up=t.ret>=0;
+    return '<div class="row" data-pos="'+t.pos+'">'
+      +'<div class="pos">'+t.pos+'</div>'
+      +'<div class="nm">'+esc(t.nombre)+'</div>'
+      +'<div class="st"><div class="pt">'+t.puntos.toFixed(2)+'</div>'
+      +'<div class="rt '+(up?"up":"down")+'">'+pct(t.ret,2)+'</div></div>'
+      +'</div>';
+  }).join("");
+}
+
+/* ---------------- tarjeta de un equipo ---------------- */
+/* Gráfico del equipo CONTRA el promedio acumulado del torneo (2026-08-15,
+   variante B elegida por Francisco). Dos líneas: la del equipo (verde, sólida)
+   y la del promedio de todos los equipos vigentes (gris, punteada), con la banda entre
+   ambas teñida de verde cuando el equipo va por sobre el promedio y de rojo
+   cuando va por debajo. El eje se escala con AMBAS series para que ninguna
+   quede cortada. La leyenda que identifica cada línea va en el HTML de la
+   tarjeta (ver pintarTarjeta), no acá. */
+function chartSVG(t){
+  var S=t.serie; if(S.length<2) return "";
+  var P=S.map(function(x){return {s:x.s, v:PROM[x.s]}})
+         .filter(function(x){return x.v!=null});
+  var hayProm = P.length===S.length;
+  var vals=S.map(function(x){return x.v});
+  if(hayProm) vals=vals.concat(P.map(function(x){return x.v}));
+  var lo=Math.min.apply(null,vals), hi=Math.max.apply(null,vals);
+  var pad=(hi-lo)*0.22||0.01; lo-=pad; hi+=pad;
+  var W=520,H=190,PL=6,PR=6,PT=10,PB=26;
+  var X=function(k){return PL+k*(W-PL-PR)/(S.length-1)};
+  var Y=function(v){return H-PB-(v-lo)/(hi-lo)*(H-PT-PB)};
+  var pl=S.map(function(x,k){return X(k)+","+Y(x.v)}).join(" ");
+  var ult=S[S.length-1],ux=X(S.length-1),uy=Y(ult.v);
+  var o='<svg viewBox="0 0 '+W+' '+H+'">';
+
+  if(hayProm){
+    /* banda entre las dos series: verde si el equipo cierra por sobre el
+       promedio, roja si cierra por debajo */
+    var arriba = ult.v >= P[P.length-1].v;
+    var band="M"+S.map(function(x,k){return X(k)+","+Y(x.v)}).join(" L")
+      +" L"+P.slice().reverse().map(function(x,k){return X(P.length-1-k)+","+Y(x.v)}).join(" L")+" Z";
+    o+='<path d="'+band+'" fill="'+(arriba?"#12A177":"#D9553E")+'" fill-opacity=".13"/>';
+  }else{
+    /* sin promedio disponible: se mantiene el área bajo la curva de antes */
+    var area="M"+X(0)+","+(H-PB)+" L"+S.map(function(x,k){return X(k)+","+Y(x.v)}).join(" L")
+      +" L"+X(S.length-1)+","+(H-PB)+" Z";
+    o+='<defs><linearGradient id="cg" x1="0" y1="0" x2="0" y2="1">'
+      +'<stop offset="0%" stop-color="#12A177" stop-opacity=".24"/>'
+      +'<stop offset="100%" stop-color="#12A177" stop-opacity="0"/></linearGradient></defs>'
+      +'<path d="'+area+'" fill="url(#cg)"/>';
+  }
+
+  o+='<text x="'+PL+'" y="'+(H-6)+'" font-family="IBM Plex Mono,monospace" font-size="16" fill="rgba(10,17,40,.45)">S'+S[0].s+'</text>'
+    +'<text x="'+(W-PR)+'" y="'+(H-6)+'" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="16" fill="rgba(10,17,40,.45)">S'+S[S.length-1].s+'</text>';
+
+  if(hayProm){
+    var pp=P.map(function(x,k){return X(k)+","+Y(x.v)}).join(" ");
+    o+='<polyline points="'+pp+'" fill="none" stroke="#8A93A6" stroke-width="2.4" stroke-dasharray="7 6" stroke-linecap="round"/>'
+      +'<circle cx="'+X(P.length-1)+'" cy="'+Y(P[P.length-1].v)+'" r="4.2" fill="#8A93A6"/>';
+  }
+  o+='<polyline points="'+pl+'" fill="none" stroke="#12A177" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>'
+    +'<circle cx="'+ux+'" cy="'+uy+'" r="5.5" fill="#12A177"/>'
+    +'</svg>';
+  return o;
+}
+function esc(s){return String(s||"").replace(/[&<>"']/g,function(c){
+  return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];
+})}
+/* Leyenda del gráfico: nombra cada línea y le pone su valor al cierre, para
+   que no haya que adivinar cuál es cuál. Si por alguna razón no hay promedio
+   para esas semanas, solo se rotula la línea del equipo. */
+function leyenda(t){
+  var S=t.serie; if(!S||S.length<2) return "";
+  var ultProm=PROM[S[S.length-1].s];
+  var o='<div class="lg"><span class="team"><i></i>Este equipo<b>'+pct(S[S.length-1].v,2)+'</b></span>';
+  if(ultProm!=null)
+    o+='<span class="avg"><i></i>Promedio del torneo<b>'+pct(ultProm,2)+'</b></span>';
+  return o+'</div>';
+}
+function pintarTarjeta(t){
+  var up=t.ret>=0, vup=t.ultimaVar==null?true:t.ultimaVar>=0;
+  var memHtml=t.mem.map(function(n,i){
+    return '<div class="chip"><div class="av">'+esc(iniciales(n))+'</div><div>'
+      +'<div class="role">'+(i===0?"Líder":"Integrante")+'</div>'
+      +'<div class="nm2">'+esc(n)+'</div></div></div>';
+  }).join("");
+  var badge=t.ultimaVar==null?"":
+    '<span class="badge '+(vup?"up":"down")+'">'+pct(t.ultimaVar,2)+' esta semana</span>';
+  /* Sin fila de logos: migraron a la franja #brand del pie (2026-08-20). */
+  $("#cardPanel").innerHTML =
+    '<div class="top">'
+      +'<div class="who"><div><span class="pos">#'+t.pos+'</span><span class="nm">'+esc(t.nombre)+'</span></div>'
+      +'<div class="sub">Semana '+(D.semana||"—")+' · '+t.mem.length+' integrante'+(t.mem.length===1?"":"s")+'</div></div>'
+      +'<div class="stats">'
+        +'<div class="stat"><div class="lb">Puntaje</div><div class="vl">'+t.puntos.toFixed(2)+'</div></div>'
+        +'<div class="stat"><div class="lb">Retorno relativo</div><div class="vl '+(up?"up":"down")+'">'+pct(t.ret,2)+'</div></div>'
+      +'</div>'
+    +'</div>'
+    +'<div class="body">'
+      +'<div class="mem">'+memHtml+'</div>'
+      +'<div class="chart"><div class="hd"><b>Retorno acumulado</b>'+badge+'</div>'
+        +leyenda(t)+chartSVG(t)+'</div>'
+    +'</div>';
+}
+
+/* ================= dibujo de un instante ================= */
+var cardPintado=-1;
+function seek(t){
+  /* s1 / s2 */
+  var a1=alpha(t,S1), a2=alpha(t,S2), a3=alpha(t,S3);
+  $("#s1").style.opacity=a1; $("#s1").style.visibility=a1>.002?"visible":"hidden";
+  $("#s2").style.opacity=a2; $("#s2").style.visibility=a2>.002?"visible":"hidden";
+  $("#s3").style.opacity=a3; $("#s3").style.visibility=a3>.002?"visible":"hidden";
+  /* los datos entran después del título, no junto con él */
+  var p3=eo(sg(t,S3[0]+700,800));
+  $("#s3 .stats").style.opacity=p3;
+  $("#s3 .stats").style.transform="translateY("+lp(16,0,p3)+"px)";
+  var p1=eo(sg(t,S1[0]+300,900));
+  $("#s1 .mask").style.width=(p1*1010)+"px";
+  $("#s1 .logo").style.transform="scale("+lp(.5,1,eo(sg(t,S1[0],700))).toFixed(3)+")";
+  $("#s1 .sub").style.opacity=eo(sg(t,S1[0]+1300,700));
+  var p2=eo(sg(t,S2[0]+300,700));
+  $("#s2 .row").style.opacity=p2; $("#s2 .row").style.transform="translateY("+lp(18,0,p2)+"px)";
+
+  $("#s1 .org").style.opacity=eo(sg(t,S1[0]+1900,700));
+
+  /* encabezado: visible desde HEAD_IN hasta el final */
+  var aHead=Math.min(sg(t,HEAD_IN,HEAD_FADE),1-sg(t,TOTAL-HEAD_FADE,HEAD_FADE));
+  $("#head").style.opacity=aHead; $("#head").style.visibility=aHead>.002?"visible":"hidden";
+
+  /* franja de marca: en TODAS las láminas, desde la intro hasta el cierre
+     (2026-08-20, pedido de la Escuela), no solo desde la lista como antes */
+  var aBrand=Math.min(sg(t,600,700),1-sg(t,TOTAL-HEAD_FADE,HEAD_FADE));
+  $("#brand").style.opacity=aBrand*.95; $("#brand").style.visibility=aBrand>.002?"visible":"hidden";
+
+  /* lista: visible en su primer tramo solo, y en el tramo final solo */
+  var aList=Math.max(alpha(t,LIST_FIRST,420), alpha(t,LIST_LAST,420));
+  var lp_=$("#listPanel");
+  lp_.style.opacity=aList; lp_.style.visibility=aList>.002?"visible":"hidden";
+  var rows=lp_.querySelectorAll(".row");
+  for(var i=0;i<rows.length;i++){
+    var rr=eo(sg(t,LIST_FIRST[0]+260+i*150,520));
+    rows[i].style.opacity=rr; rows[i].style.transform="translateY("+lp(22,0,rr)+"px)";
+  }
+
+  /* tarjetas: una a la vez */
+  var idx=-1, aCard=0;
+  for(var k=0;k<CARD_RANGES.length;k++){
+    var a=alpha(t,CARD_RANGES[k],420);
+    if(a>aCard){aCard=a;idx=k;}
+  }
+  var cp=$("#cardPanel");
+  if(idx>=0&&idx!==cardPintado){ pintarTarjeta(EQ[idx]); cardPintado=idx; }
+  if(idx<0)cardPintado=-1;
+  cp.style.opacity=aCard; cp.style.visibility=aCard>.002?"visible":"hidden";
+  cp.style.transform="translateY("+lp(16,0,aCard)+"px)";
+}
+
+/* ================= reloj ================= */
+var manual=false, t0=null;
+window.__manual=function(){
+  manual=true;
+  var pk=document.getElementById("pick"); if(pk) pk.style.display="none";
+};
+window.__seek=function(ms){seek(ms)};
+
+function arrancar(){
+  window.__ready=true;
+  requestAnimationFrame(function bucle(now){
+    if(t0===null) t0=now;
+    if(!manual) seek((now-t0)%TOTAL);
+    requestAnimationFrame(bucle);
+  });
+}
+</script>
+</body>
+</html>
