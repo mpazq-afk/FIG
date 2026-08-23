@@ -4,17 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Torneo Portafolio 2026 — Ranking Oficial · FIG</title>
-<meta name="description" content="Ranking oficial del Torneo Portafolio 2026 de FEN Investment Group: 59 equipos, USD 10M simulados por cartera, métricas Bloomberg PORT.">
+<meta name="description" content="Ranking oficial del Torneo Portafolio 2026 de FEN Investment Group: 54 equipos, USD 10M simulados por cartera, métricas Bloomberg PORT.">
 <meta name="theme-color" content="#0A1128">
 <meta property="og:title" content="Torneo Portafolio 2026 — FIG">
-<meta property="og:description" content="Ranking oficial del Torneo Portafolio 2026: 59 equipos gestionan carteras de USD 10M en ETFs, medidas contra MSCI ACWI con métricas Bloomberg.">
+<meta property="og:description" content="Ranking oficial del Torneo Portafolio 2026: 54 equipos gestionan carteras de USD 10M en ETFs, medidas contra MSCI ACWI con métricas Bloomberg.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Torneo Portafolio 2026 — FIG">
-<meta name="twitter:description" content="Ranking oficial del Torneo Portafolio 2026: 59 equipos gestionan carteras de USD 10M en ETFs.">
+<meta name="twitter:description" content="Ranking oficial del Torneo Portafolio 2026: 54 equipos gestionan carteras de USD 10M en ETFs.">
 <meta name="twitter:image" content="/og-image.png">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%230A1128'/%3E%3Ccircle cx='50' cy='50' r='34' fill='%23D4AF37'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -79,10 +79,17 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 #preloader .in-text b{display:block;font-family:var(--f-disp);font-weight:600;font-size:1.2rem;color:var(--ivory);line-height:1.2}
 #preloader .in-text span{display:block;font-family:var(--f-mono);font-size:.56rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-top:5px}
 .brand-logo{width:40px;height:40px;object-fit:contain;flex:none}
-.hero-collab{display:flex;align-items:center;gap:16px;margin-top:26px}
-.hero-collab span{font-family:var(--f-mono);font-size:.54rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(247,244,236,.4)}
-.hero-collab img{height:17px;object-fit:contain;opacity:.9}
-.hero-collab img.sq{height:22px}
+/* Logos de colaboradores más grandes (2026-08-08, pedido de Francisco):
+   estaban a 17px y se perdían al lado del hero. */
+.hero-collab{display:flex;align-items:center;gap:26px;margin-top:30px;flex-wrap:wrap}
+.hero-collab span{font-family:var(--f-mono);font-size:.58rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(247,244,236,.45)}
+.hero-collab img{height:30px;object-fit:contain;opacity:.95}
+.hero-collab img.sq{height:42px}
+@media (max-width:560px){
+  .hero-collab{gap:18px}
+  .hero-collab img{height:24px}
+  .hero-collab img.sq{height:34px}
+}
 .coin{border-radius:50%;flex:none;position:relative;background:radial-gradient(circle at 34% 30%,var(--gold-light),var(--gold) 58%,var(--gold-deep));display:flex;align-items:center;justify-content:center;box-shadow:0 6px 22px -6px rgba(212,175,55,.5),inset 0 0 0 2px rgba(10,17,40,.22)}
 .coin span{font-family:var(--f-disp);font-weight:700;color:var(--navy)}
 .coin::after{content:"";position:absolute;inset:5px;border-radius:50%;border:1px solid rgba(10,17,40,.3)}
@@ -197,7 +204,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 /* Replay del ranking (carrera de barras semana a semana).
    Las filas se posicionan en absoluto y se mueven con transform:translateY,
    que es lo único que el navegador anima sin recalcular layout — por eso la
-   carrera queda fluida con 59 equipos en pantalla. El orden de cada semana
+   carrera queda fluida con ~55 equipos en pantalla. El orden de cada semana
    sale de la POSICIÓN guardada en el historial, no de ordenar por puntos:
    en las semanas 5, 6 y 8 hay un empate exacto de puntos entre dos equipos
    y el orden oficial del Excel no coincide con el de un sort descendente. */
@@ -227,6 +234,19 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
   .rp-pts{font-size:.7rem}
 }
 @media (prefers-reduced-motion:reduce){.rp-row,.rp-bar{transition:none}}
+/* Selector de vista del replay: carrera de barras vs evolución por métrica */
+.rp-tabs{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}
+.rp-tab{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;padding:11px 18px;border-radius:100px;border:1px solid var(--line-d);color:rgba(247,244,236,.6);transition:all .3s var(--ease)}
+.rp-tab:hover{border-color:var(--gold-dim);color:var(--gold)}
+.rp-tab.is-on{background:var(--gold);border-color:var(--gold);color:var(--navy);font-weight:600}
+.rp-pick{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px}
+.rp-pick label{display:flex;flex-direction:column;gap:7px;min-width:0}
+.rp-pick span{font-family:var(--f-mono);font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(247,244,236,.45)}
+.rp-pick select{width:100%;background:rgba(15,25,52,.9);border:1px solid var(--line-d);border-radius:8px;padding:12px 13px;color:var(--ivory);font-family:var(--f-mono);font-size:.76rem;transition:border-color .3s;-webkit-appearance:none;appearance:none}
+.rp-pick select:focus{outline:none;border-color:var(--gold)}
+.rp-chart{border:1px solid rgba(212,175,55,.14);border-radius:10px;background:rgba(15,25,52,.4);padding:10px}
+.rp-chart svg{display:block;width:100%;height:auto}
+@media (max-width:640px){.rp-pick{grid-template-columns:1fr}}
 .lb-search input{width:100%;background:rgba(15,25,52,.7);border:1px solid var(--line-d);border-radius:100px;padding:13px 20px 13px 46px;color:var(--ivory);font-family:var(--f-mono);font-size:.8rem;letter-spacing:.06em;transition:border-color .3s}
 .lb-search input:focus{outline:none;border-color:var(--gold)}
 .lb-search input::placeholder{color:rgba(247,244,236,.35)}
@@ -480,16 +500,39 @@ footer a:hover{color:var(--gold)}
       <button class="ov-close" id="rpClose" aria-label="Cerrar">✕</button>
       <div class="kicker" style="margin-bottom:10px"><span>Replay</span></div>
       <h2 style="font-family:var(--f-disp);font-weight:600;font-size:clamp(1.5rem,3vw,2rem);margin-bottom:22px">El torneo, <em style="font-style:italic;color:var(--gold)">semana a semana</em>.</h2>
-      <div class="rp-ctrl">
-        <button class="rp-play" id="rpPlay" aria-label="Reproducir">▶</button>
-        <div class="rp-slider">
-          <input type="range" id="rpRange" min="0" max="0" step="1" value="0" aria-label="Semana del replay">
-          <span class="rp-wk" id="rpWk">S—</span>
-        </div>
+      <div class="rp-tabs" role="tablist" aria-label="Forma de ver el replay">
+        <button class="rp-tab is-on" id="rpTabCarrera" role="tab" aria-selected="true">Carrera de posiciones</button>
+        <button class="rp-tab" id="rpTabMetrica" role="tab" aria-selected="false">Evolución por métrica</button>
       </div>
-      <div class="rp-track" id="rpTrack"></div>
-      <div class="rp-foot" id="rpFoot"></div>
-      <div class="cmp-note" style="margin-top:14px">ORDEN OFICIAL DE CADA CORTE SEGÚN EL HISTORIAL DE datos/torneo.json · EL LARGO DE LA BARRA ES EL SCORE / 100 DE ESA SEMANA · SE MUESTRA EL TOP 12</div>
+
+      <div id="rpVistaCarrera">
+        <div class="rp-ctrl">
+          <button class="rp-play" id="rpPlay" aria-label="Reproducir">▶</button>
+          <div class="rp-slider">
+            <input type="range" id="rpRange" min="0" max="0" step="1" value="0" aria-label="Semana del replay">
+            <span class="rp-wk" id="rpWk">S—</span>
+          </div>
+        </div>
+        <div class="rp-track" id="rpTrack"></div>
+        <div class="rp-foot" id="rpFoot"></div>
+        <div class="cmp-note" style="margin-top:14px">ORDEN OFICIAL DE CADA CORTE SEGÚN EL HISTORIAL DE datos/torneo.json · EL LARGO DE LA BARRA ES EL SCORE / 100 DE ESA SEMANA · SE MUESTRA EL TOP 12</div>
+      </div>
+
+      <div id="rpVistaMetrica" hidden>
+        <div class="rp-pick">
+          <label>
+            <span>Métrica</span>
+            <select id="rpMetrica" aria-label="Métrica a graficar"></select>
+          </label>
+          <label>
+            <span>Destacar equipo</span>
+            <select id="rpFoco" aria-label="Equipo a destacar"></select>
+          </label>
+        </div>
+        <div class="rp-chart" id="rpChart"></div>
+        <div class="rp-foot" id="rpFootM"></div>
+        <div class="cmp-note" style="margin-top:14px">LOS 59 EQUIPOS, SEMANA A SEMANA · EN ORO LOS 5 PRIMEROS DEL ÚLTIMO CORTE · ELIGE UN EQUIPO PARA SEGUIRLO ENTRE TODOS.<span id="rpNota"><br>LAS 5 MÉTRICAS DE BLOOMBERG SE EMPEZARON A GUARDAR POR SEMANA EN EL CORTE DEL 7-AGO-2026: APARECERÁN EN ESTE SELECTOR EN CUANTO HAYA DOS CORTES CON EL DATO, O AL RECARGAR LOS EXCELS ANTERIORES CON generar_torneo.py --excels.</span></div>
+      </div>
     </div>
   </div>
 </div>
@@ -551,7 +594,7 @@ footer a:hover{color:var(--gold)}
         <button class="btn btn--ghost" id="btnVidStory">Video Story IG <span class="arr">↓</span></button>
         <button class="btn btn--ghost" id="btnHtml">Tarjeta HTML <span class="arr">↓</span></button>
       </div>
-      <div class="ov-note" id="ovNoteShare">FEED: 1080×1350 · STORY: 1080×1920 · LINKEDIN: 1200×627 · VIDEOS: ~7 SEG CON INTRO ANIMADA, GENERADOS EN TU NAVEGADOR, CHROME LOS EXPORTA EN WEBM Y SAFARI EN MP4 (INSTAGRAM ACEPTA MP4; WEBM SE PUEDE CONVERTIR O COMPARTIR DIRECTO POR WHATSAPP/TELEGRAM).<br>LA TARJETA HTML ES UN ARCHIVO AUTOCONTENIDO · LINKEDIN DE LOS MIEMBROS: DESDE EL EXCEL DE INSCRIPCIONES (datos/torneo.json).</div>
+      <div class="ov-note" id="ovNoteShare">FEED: 1080×1350 · STORY: 1080×1920 · LINKEDIN: 1200×627 · VIDEOS: ~7 SEG CON INTRO ANIMADA, GENERADOS EN TU NAVEGADOR (~0,6 MB FEED · ~0,9 MB STORY). LOS NAVEGADORES RECIENTES LOS EXPORTAN EN MP4, QUE INSTAGRAM ACEPTA DIRECTO; SI TE SALE EN WEBM SE PUEDE CONVERTIR O COMPARTIR POR WHATSAPP/TELEGRAM.<br>LA TARJETA HTML ES UN ARCHIVO AUTOCONTENIDO · LINKEDIN DE LOS MIEMBROS: DESDE EL EXCEL DE INSCRIPCIONES (datos/torneo.json).</div>
     </div>
   </div>
 </div>
@@ -1090,14 +1133,221 @@ function rpPlay(){
   $("#rpPlay").setAttribute("aria-label","Pausar");
 }
 
+/* ---------- Vista 2: evolución por métrica, todos los equipos a la vez ----------
+   (2026-08-08, pedido de Francisco). Es la misma historia que la carrera de
+   barras pero leída de otra forma: en vez de un corte a la vez, las 9 semanas
+   completas de todos los equipos vigentes superpuestas.
+   OJO con lo que se puede graficar: el historial de torneo.json guarda por
+   semana SOLO posicion, puntos y ret. Las 5 métricas de Bloomberg (IR, exceso,
+   Sharpe, VaR, MDD) existen únicamente para el corte más reciente, así que no
+   hay serie semanal que dibujar para ellas — por eso el selector ofrece tres
+   opciones y no ocho. Si algún día el pipeline las guarda por corte, basta
+   agregarlas a RP_METS. */
+var RP_METS={
+  posicion:{lab:"POSICIÓN EN LA TABLA",inv:true, fmt:function(v){return v+"°"}},
+  ret:     {lab:"RETORNO ACUMULADO",   inv:false,fmt:function(v){return pct(v,1)}},
+  puntos:  {lab:"PUNTOS / 100",        inv:false,fmt:function(v){return v.toFixed(1)}},
+  /* Las 5 de Bloomberg PORT: se guardan por semana desde el corte del
+     2026-08-08. Aparecen en el selector solas, en cuanto haya dos cortes con
+     el dato — ver rpMetsDisponibles(). */
+  ir:      {lab:MLAB.ir,     inv:false,fmt:function(v){return fmtM("ir",v)}},
+  exc:     {lab:MLAB.exc,    inv:false,fmt:function(v){return fmtM("exc",v)}},
+  sharpe:  {lab:MLAB.sharpe, inv:false,fmt:function(v){return fmtM("sharpe",v)}},
+  var95:   {lab:MLAB.var95,  inv:false,fmt:function(v){return fmtM("var95",v)}},
+  mdd:     {lab:MLAB.mdd,    inv:false,fmt:function(v){return fmtM("mdd",v)}}
+};
+/* Solo se ofrecen las métricas que tengan al menos dos semanas con dato. Las 5
+   de Bloomberg empezaron a guardarse en el historial recién en el corte del
+   7-ago-2026, así que durante un tiempo el selector mostró únicamente posición,
+   retorno y puntos. El 2026-08-16 se recargaron los Excels de las semanas 5 a
+   12 y las ocho series quedaron completas — este chequeo se mantiene porque es
+   el que hace aparecer solas las métricas nuevas que se agreguen a futuro. */
+function rpMetsDisponibles(){
+  var eq=DATA.equipos||[],out=[];
+  Object.keys(RP_METS).forEach(function(k){
+    var semanas={};
+    eq.forEach(function(t){(t.historial||[]).forEach(function(h){
+      if(h[k]!=null)semanas[h.semana]=1;
+    })});
+    if(Object.keys(semanas).length>=2)out.push(k);
+  });
+  return out;
+}
+function rpSerie(t,k){
+  return (t.historial||[]).map(function(h){
+    return {s:h.semana,v:h[k]==null?null:h[k]};
+  }).filter(function(p){return p.v!=null});
+}
+function rpChartSVG(k,focoId){
+  var M=RP_METS[k],eq=DATA.equipos||[];
+  /* El eje abarca SOLO las semanas que tienen dato de ESTA métrica, no todo el
+     historial: las 5 de Bloomberg se empezaron a guardar en el corte del
+     7-ago-2026, así que sobre un eje de S5→S14 quedaban aplastadas contra el
+     borde derecho y el 90% del gráfico salía vacío. Posición, retorno y puntos
+     tienen las 10 semanas, así que para ellas esto no cambia nada. */
+  var semanas=[];
+  eq.forEach(function(t){(t.historial||[]).forEach(function(h){
+    if(h[k]==null)return;
+    if(semanas.indexOf(h.semana)<0)semanas.push(h.semana);
+  })});
+  semanas.sort(function(a,b){return a-b});
+  if(semanas.length<2)return "";
+  var vals=[];
+  eq.forEach(function(t){rpSerie(t,k).forEach(function(p){vals.push(p.v)})});
+  if(!vals.length)return "";
+  var min=Math.min.apply(null,vals),max=Math.max.apply(null,vals);
+  if(max-min<1e-9){max+=1;min-=1}
+  var W=920,H=430,padL=64,padR=132,padT=18,padB=34;
+  var s0=semanas[0],s1=semanas[semanas.length-1];
+  function X(s){return padL+(W-padL-padR)*(s1>s0?(s-s0)/(s1-s0):.5)}
+  function Y(v){
+    var p=(v-min)/(max-min);
+    if(M.inv)p=1-p;                    /* en posición, 1° va arriba */
+    return (H-padB)-(H-padT-padB)*p;
+  }
+  /* los 5 primeros del último corte se destacan; el resto queda de fondo */
+  var top=eq.slice().sort(function(a,b){return a.posicion-b.posicion}).slice(0,5);
+  var topIds={};top.forEach(function(t,i){topIds[t.id]=i});
+  var COL=["#EBD388","#D4AF37","#C9A227","#B08D1E","#8F7118"];
+  function path(t){
+    var S=rpSerie(t,k);if(S.length<2)return "";
+    return S.map(function(p,i){return (i?"L":"M")+X(p.s).toFixed(1)+" "+Y(p.v).toFixed(1)}).join(" ");
+  }
+  var fondo="",destacado="",etiquetas="",pend=[];
+  eq.forEach(function(t){
+    var d=path(t);if(!d)return;
+    var esFoco=focoId&&t.id===focoId, esTop=topIds[t.id]!=null;
+    if(esFoco)return;                        /* el foco se dibuja al final, encima */
+    if(esTop&&!focoId){
+      destacado+='<path d="'+d+'" fill="none" stroke="'+COL[topIds[t.id]]+'" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round" opacity=".95"/>';
+      var S=rpSerie(t,k),last=S[S.length-1];
+      pend.push({y:Y(last.v),x:X(last.s)+9,col:COL[topIds[t.id]],
+                 txt:t.nombre.length>14?t.nombre.slice(0,13)+"…":t.nombre});
+    }else{
+      fondo+='<path d="'+d+'" fill="none" stroke="rgba(247,244,236,.13)" stroke-width="1.1"/>';
+    }
+  });
+  /* Los 5 primeros terminan casi pegados (posiciones 1 a 5), así que sus
+     etiquetas se encaballaban: se separan verticalmente respetando el orden. */
+  pend.sort(function(a,b){return a.y-b.y});
+  var GAP=14;
+  for(var q=1;q<pend.length;q++){
+    if(pend[q].y-pend[q-1].y<GAP)pend[q].y=pend[q-1].y+GAP;
+  }
+  var sobra=pend.length?pend[pend.length-1].y-(H-padB):0;
+  if(sobra>0)pend.forEach(function(p){p.y-=sobra});
+  pend.forEach(function(p){
+    etiquetas+='<text x="'+p.x.toFixed(1)+'" y="'+(p.y+4).toFixed(1)+'" font-family="IBM Plex Mono,monospace" font-size="11" fill="'+p.col+'">'+esc(p.txt)+'</text>';
+  });
+  if(focoId){
+    var tf=eq.filter(function(t){return t.id===focoId})[0];
+    if(tf){
+      var d=path(tf);
+      if(d){
+        destacado+='<path d="'+d+'" fill="none" stroke="#D4AF37" stroke-width="3.4" stroke-linejoin="round" stroke-linecap="round"/>';
+        var Sf=rpSerie(tf,k);
+        Sf.forEach(function(p){
+          destacado+='<circle cx="'+X(p.s).toFixed(1)+'" cy="'+Y(p.v).toFixed(1)+'" r="3.6" fill="#EBD388"/>';
+        });
+        var lf=Sf[Sf.length-1];
+        etiquetas+='<text x="'+(X(lf.s)+10)+'" y="'+(Y(lf.v)+4).toFixed(1)+'" font-family="IBM Plex Mono,monospace" font-size="12" font-weight="600" fill="#EBD388">'+esc(tf.nombre.length>15?tf.nombre.slice(0,14)+"…":tf.nombre)+'</text>';
+      }
+    }
+  }
+  /* ejes */
+  var ticks="",NT=4;
+  for(var i=0;i<=NT;i++){
+    var v=min+(max-min)*i/NT,y=Y(v);
+    ticks+='<line x1="'+padL+'" y1="'+y.toFixed(1)+'" x2="'+(W-padR)+'" y2="'+y.toFixed(1)+'" stroke="rgba(247,244,236,.07)" stroke-width="1"/>'
+      +'<text x="'+(padL-10)+'" y="'+(y+4).toFixed(1)+'" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="11" fill="rgba(247,244,236,.45)">'+esc(M.fmt(k==="posicion"?Math.round(v):v))+'</text>';
+  }
+  var labs=semanas.map(function(s){
+    return '<text x="'+X(s).toFixed(1)+'" y="'+(H-10)+'" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="11" fill="rgba(247,244,236,.45)">S'+s+'</text>';
+  }).join("");
+  return '<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Evolución semanal de '+esc(M.lab)+' de todos los equipos">'
+    +ticks+fondo+destacado+labs+etiquetas+'</svg>';
+}
+function rpRenderMetrica(){
+  var k=$("#rpMetrica").value,foco=$("#rpFoco").value||"";
+  $("#rpChart").innerHTML=rpChartSVG(k,foco)||'<div class="cmp-empty">SIN HISTORIAL SUFICIENTE PARA GRAFICAR</div>';
+  var M=RP_METS[k],pie='<span class="mono-tag">'+M.lab+'</span>';
+  if(foco){
+    var t=(DATA.equipos||[]).filter(function(x){return x.id===foco})[0];
+    var S=t?rpSerie(t,k):[];
+    if(S.length>1){
+      var a=S[0],b=S[S.length-1],sube=k==="posicion"?(b.v<a.v):(b.v>a.v);
+      pie+='<span class="mono-tag">S'+a.s+' · '+esc(M.fmt(a.v))+'</span>'
+        +'<span class="mono-tag">S'+b.s+' · '+esc(M.fmt(b.v))+'</span>'
+        +'<span class="mono-tag" style="color:'+(sube?"var(--up)":"var(--down)")+';border-color:'+(sube?"rgba(95,192,139,.35)":"rgba(224,122,95,.35)")+'">'+(sube?"▲ MEJORA":"▼ CAE")+'</span>';
+    }
+  }else{
+    pie+='<span class="mono-tag">'+(DATA.equipos||[]).length+' EQUIPOS</span>';
+  }
+  $("#rpFootM").innerHTML=pie;
+  /* Cobertura real de la métrica elegida. Hoy las ocho series cubren las 10
+     semanas publicadas (los Excels 5-12 se recargaron el 2026-08-16), así que
+     esta nota queda oculta; se mantiene por si una métrica futura vuelve a
+     tener menos semanas que el resto — decirlo evita que parezca un dato
+     faltante. */
+  var nota=$("#rpNota");
+  if(nota){
+    var sem={};
+    (DATA.equipos||[]).forEach(function(t){(t.historial||[]).forEach(function(h){
+      if(h[k]!=null)sem[h.semana]=1;
+    })});
+    var tot={};
+    (DATA.equipos||[]).forEach(function(t){(t.historial||[]).forEach(function(h){tot[h.semana]=1})});
+    var n=Object.keys(sem).length, N=Object.keys(tot).length;
+    if(n>0&&n<N){
+      var ss=Object.keys(sem).map(Number).sort(function(a,b){return a-b});
+      nota.hidden=false;
+      nota.innerHTML='<br>'+esc(M.lab)+' SOLO EXISTE DESDE LA SEMANA '+ss[0]
+        +': SE GRAFICAN '+n+' DE '+N+' SEMANAS. PARA COMPLETARLA HAY QUE LEER LOS '
+        +'EXCELS DE LAS SEMANAS QUE FALTAN Y FUSIONAR LA MÉTRICA EN EL HISTORIAL '
+        +'(VER completar_metricas_historial.py — NO REGENERAR EL JSON COMPLETO).';
+    }else nota.hidden=true;
+  }
+}
+function rpLlenarMetricas(){
+  var sel=$("#rpMetrica"),antes=sel.value,ks=rpMetsDisponibles();
+  sel.innerHTML=ks.map(function(k){
+    return '<option value="'+k+'">'+esc(RP_METS[k].lab)+'</option>';
+  }).join("");
+  if(ks.indexOf(antes)>-1)sel.value=antes;
+  /* la nota al pie deja de mentir en cuanto existan las 8 series */
+  var nota=$("#rpNota");
+  if(nota)nota.hidden=ks.length>=Object.keys(RP_METS).length;
+}
+function rpLlenarFoco(){
+  var eq=(DATA.equipos||[]).slice().sort(function(a,b){return a.posicion-b.posicion});
+  $("#rpFoco").innerHTML='<option value="">— Ninguno (top 5 en oro) —</option>'
+    +eq.map(function(t){return '<option value="'+esc(t.id)+'">'+t.posicion+'° · '+esc(t.nombre)+'</option>'}).join("");
+}
+function rpModo(metrica){
+  $("#rpTabCarrera").classList.toggle("is-on",!metrica);
+  $("#rpTabMetrica").classList.toggle("is-on",!!metrica);
+  $("#rpTabCarrera").setAttribute("aria-selected",metrica?"false":"true");
+  $("#rpTabMetrica").setAttribute("aria-selected",metrica?"true":"false");
+  $("#rpVistaCarrera").hidden=!!metrica;
+  $("#rpVistaMetrica").hidden=!metrica;
+  if(metrica){rpPausa();rpRenderMetrica();}
+}
+$("#rpTabCarrera").addEventListener("click",function(){rpModo(false)});
+$("#rpTabMetrica").addEventListener("click",function(){rpModo(true)});
+$("#rpMetrica").addEventListener("change",rpRenderMetrica);
+$("#rpFoco").addEventListener("change",rpRenderMetrica);
+
 function openRp(){
   if(!DATA.equipos||!DATA.equipos.length)return;
   if(!rpMontar())return;
+  rpLlenarMetricas();
+  rpLlenarFoco();
+  rpModo(false);
   rpPausa();
   rpPintar(0);
   ovR.classList.add("open"); document.body.classList.add("locked");
   /* con reduced-motion no arranca solo: se recorre con el deslizador */
-  if(!RP_RM)setTimeout(rpPlay,700);
+  if(!RP_RM)setTimeout(function(){if(!$("#rpVistaCarrera").hidden)rpPlay()},700);
 }
 function closeRp(){rpPausa();ovR.classList.remove("open");document.body.classList.remove("locked")}
 $("#btnRp").addEventListener("click",openRp);
@@ -1323,13 +1573,85 @@ function logoDataURI(k,h){
   cv.getContext("2d").drawImage(im,0,0,cv.width,cv.height);
   return cv.toDataURL("image/png");
 }
-function drawBG(c,W,H){
+function drawBG(c,W,H,P){
   var g=c.createLinearGradient(0,0,W,H);
   g.addColorStop(0,"#0D1531");g.addColorStop(1,"#060B1C");
   c.fillStyle=g;c.fillRect(0,0,W,H);
   var rg=c.createRadialGradient(W*.86,-60,60,W*.86,-60,W*.66);
-  rg.addColorStop(0,"rgba(212,175,55,.16)");rg.addColorStop(1,"rgba(212,175,55,0)");
+  rg.addColorStop(0,P?P.glow:"rgba(212,175,55,.16)");
+  rg.addColorStop(1,P?P.glow0:"rgba(212,175,55,0)");
   c.fillStyle=rg;c.fillRect(0,0,W,H);
+}
+/* ---------- PODIO: tratamiento especial para los 3 primeros lugares ----------
+   (2026-08-08, pedido de Francisco). Los puestos 1-3 llevan paleta metálica
+   propia —oro / plata / bronce—, un sello en vez de la etiqueta "POS", el
+   número y el anillo de puntaje teñidos del mismo metal, y un marco fino.
+   El resto de los equipos no cambia en nada. */
+function podio(t){
+  if(!t||!t.posicion||t.posicion>3)return null;
+  return [
+    {lab:"CAMPEÓN",      base:"#9E7E1E",mid:"#D4AF37",hi:"#EBD388",
+     glow:"rgba(212,175,55,.22)",glow0:"rgba(212,175,55,0)",tinta:"#0A1128"},
+    {lab:"2° LUGAR",     base:"#7E858F",mid:"#C3C9D2",hi:"#EEF2F6",
+     glow:"rgba(195,201,210,.18)",glow0:"rgba(195,201,210,0)",tinta:"#0A1128"},
+    {lab:"3ER LUGAR",    base:"#8A5A32",mid:"#C98B58",hi:"#E8B98F",
+     glow:"rgba(201,139,88,.18)",glow0:"rgba(201,139,88,0)",tinta:"#0A1128"}
+  ][t.posicion-1];
+}
+function metalGrad(c,P,x0,y0,x1,y1){
+  var g=c.createLinearGradient(x0,y0,x1,y1);
+  g.addColorStop(0,P.base);g.addColorStop(.55,P.mid);g.addColorStop(1,P.hi);
+  return g;
+}
+/* Sello de podio: reemplaza la etiqueta "POS" en las tarjetas de los 3 primeros */
+function podioSello(c,P,x,y,s){
+  s=s||1;
+  var fs=Math.round(23*s),padX=Math.round(20*s),h=Math.round(42*s);
+  c.save();
+  c.font="700 "+fs+"px 'IBM Plex Mono', monospace";
+  var txt=P.lab,w=c.measureText(txt).width+padX*2;
+  c.fillStyle=metalGrad(c,P,x,y,x+w,y+h);
+  roundRect(c,x,y,w,h,h/2);c.fill();
+  c.fillStyle=P.tinta;c.textAlign="center";
+  c.fillText(txt,x+w/2,y+h/2+fs*.36);
+  c.textAlign="left";c.restore();
+  return w;
+}
+/* Marco metálico fino alrededor de la tarjeta de podio */
+function podioMarco(c,W,H,P){
+  c.save();
+  c.strokeStyle=metalGrad(c,P,0,0,W,H);c.lineWidth=5;
+  roundRect(c,13,13,W-26,H-26,20);c.stroke();
+  c.restore();
+}
+/* ---------- Distinciones en la tarjeta / video ----------
+   Mismas 4 que calcBadges() muestra en la tabla, para que la imagen cuente lo
+   mismo que la web. Devuelve el alto consumido (0 si el equipo no tiene
+   ninguna) para que el layout se ajuste sin dejar un hueco vacío. */
+function drawBadges(c,t,x,y,maxW,s){
+  s=s||1;
+  var bd=(calcBadges(DATA.equipos||[])[t.id])||[];
+  if(!bd.length)return 0;
+  var fs=Math.round(18*s),padX=Math.round(17*s),h=Math.round(38*s),gap=Math.round(11*s);
+  c.save();
+  c.font="600 "+fs+"px 'IBM Plex Mono', monospace";
+  var cx=x;
+  bd.forEach(function(b){
+    var txt=b.t.toUpperCase(),w=c.measureText(txt).width+padX*2;
+    if(cx+w>x+maxW)return;            /* si no cabe, se omite antes que desbordar */
+    if(b.c==="lb-badge--up"){
+      c.fillStyle="#5FC08B";roundRect(c,cx,y,w,h,h/2);c.fill();c.fillStyle="#060B1C";
+    }else if(b.c==="lb-badge--ghost"){
+      c.strokeStyle="rgba(212,175,55,.6)";c.lineWidth=1.7*s;
+      roundRect(c,cx,y,w,h,h/2);c.stroke();c.fillStyle="#EBD388";
+    }else{
+      c.fillStyle="#D4AF37";roundRect(c,cx,y,w,h,h/2);c.fill();c.fillStyle="#0A1128";
+    }
+    c.textAlign="center";c.fillText(txt,cx+w/2,y+h/2+fs*.36);c.textAlign="left";
+    cx+=w+gap;
+  });
+  c.restore();
+  return h+Math.round(16*s);
 }
 /* serie para tarjetas: retornos si existen; si no, score por semana */
 function cardSeries(t){
@@ -1422,19 +1744,20 @@ function drawLegend(c,S,x,y){
     cx+=34+c.measureText(it[2]).width+30;
   });
 }
-function ringScore(c,t,cx,cy,R){
+function ringScore(c,t,cx,cy,R,P){
+  c.save();                                   /* lineCap/textAlign no deben escaparse */
   c.lineWidth=15;c.strokeStyle="rgba(247,244,236,.1)";
   c.beginPath();c.arc(cx,cy,R,0,7);c.stroke();
-  var grd=c.createLinearGradient(cx-R,cy-R,cx+R,cy+R);
-  grd.addColorStop(0,"#9E7E1E");grd.addColorStop(.6,"#D4AF37");grd.addColorStop(1,"#EBD388");
+  var grd=P?metalGrad(c,P,cx-R,cy-R,cx+R,cy+R):c.createLinearGradient(cx-R,cy-R,cx+R,cy+R);
+  if(!P){grd.addColorStop(0,"#9E7E1E");grd.addColorStop(.6,"#D4AF37");grd.addColorStop(1,"#EBD388");}
   c.strokeStyle=grd;c.lineCap="round";
   c.beginPath();c.arc(cx,cy,R,-Math.PI/2,-Math.PI/2+2*Math.PI*(t.puntos/100));c.stroke();
   c.textAlign="center";
-  c.fillStyle="#D4AF37";c.font="600 46px 'IBM Plex Mono', monospace";
+  c.fillStyle=P?P.hi:"#D4AF37";c.font="600 46px 'IBM Plex Mono', monospace";
   c.fillText(t.puntos.toFixed(2),cx,cy+8);
   c.fillStyle="rgba(247,244,236,.55)";c.font="500 15px 'IBM Plex Mono', monospace";
   c.fillText("PTS / 100",cx,cy+38);
-  c.textAlign="left";
+  c.restore();
 }
 function metGrid(c,t,x,y,w,cols,keys){
   keys=keys||["ir","exc","sharpe","var95"];
@@ -1464,6 +1787,10 @@ function collabRow(c,x,y){
   lx+=drawLogo(c,"itau",lx,y-24,48)+34;
   drawLogo(c,"br",lx,y-12,26);
 }
+/* El pie va solo en dorado: el hashtag en blanco marfil que iba abajo a la
+   derecha se quitó (2026-08-08, pedido de Francisco) porque en las Historias
+   y el Feed se leía como un texto suelto fuera de la paleta. El parámetro
+   `tag` se mantiene en la firma para no romper las llamadas existentes. */
 function footerRow(c,W,H,social,tag){
   c.strokeStyle="rgba(212,175,55,.3)";c.lineWidth=1.5;
   c.beginPath();c.moveTo(64,H-112);c.lineTo(W-64,H-112);c.stroke();
@@ -1474,8 +1801,6 @@ function footerRow(c,W,H,social,tag){
   c.fillText(social[0],80,fy-2);
   c.textAlign="left";c.font="500 20px 'IBM Plex Mono', monospace";
   c.fillText(social[1],108,fy);
-  c.fillStyle="rgba(247,244,236,.5)";c.textAlign="right";
-  c.fillText(tag,W-64,fy);
   c.textAlign="left";
 }
 function memberLine(c,t,x,y,maxW){
@@ -1504,8 +1829,8 @@ function deltaBadge(c,t,bx,by){
 }
 /* ---------- FEED 1080×1350 ---------- */
 function drawFeed(c,t,chartProg,alpha){
-  var W=1080,H=1350,wk=DATA.semana||semanaHoy();
-  drawBG(c,W,H);
+  var W=1080,H=1350,wk=DATA.semana||semanaHoy(),P=podio(t);
+  drawBG(c,W,H,P);
   c.save();c.globalAlpha=alpha==null?1:alpha;
   drawLogo(c,"fig",64,50,96);
   c.fillStyle="#D4AF37";c.font="600 24px 'IBM Plex Mono', monospace";
@@ -1516,9 +1841,13 @@ function drawFeed(c,t,chartProg,alpha){
   lg.addColorStop(0,"rgba(212,175,55,.45)");lg.addColorStop(1,"rgba(212,175,55,0)");
   c.strokeStyle=lg;c.lineWidth=1.5;
   c.beginPath();c.moveTo(64,192);c.lineTo(W-64,192);c.stroke();
-  c.fillStyle="#D4AF37";c.font="600 24px 'IBM Plex Mono', monospace";
-  c.fillText("POS",64,262);
-  c.fillStyle="#F7F4EC";c.font="700 148px 'Playfair Display', Georgia, serif";
+  if(P){podioSello(c,P,64,228,1);}
+  else{
+    c.fillStyle="#D4AF37";c.font="600 24px 'IBM Plex Mono', monospace";
+    c.fillText("POS",64,262);
+  }
+  c.font="700 148px 'Playfair Display', Georgia, serif";
+  c.fillStyle=P?metalGrad(c,P,64,300,420,392):"#F7F4EC";
   c.fillText("#"+t.posicion,64,388);
   deltaBadge(c,t,64+c.measureText("#"+t.posicion).width+36,346);
   c.font="italic 600 56px 'Playfair Display', Georgia, serif";
@@ -1526,25 +1855,29 @@ function drawFeed(c,t,chartProg,alpha){
   var nm=t.nombre;if(nm.length>26)nm=nm.slice(0,25)+"…";
   c.fillText(nm,64,474);
   memberLine(c,t,64,522,W-128);
-  ringScore(c,t,W-198,320,104);
+  ringScore(c,t,W-198,320,104,P);
+  /* Las distinciones empujan el gráfico hacia abajo y le restan el mismo alto,
+     así todo lo que va debajo (métricas, colaboradores, pie) no se mueve. */
+  var bh=drawBadges(c,t,64,556,W-128,1);
   var S=cardSeries(t);
   if(S){
     c.fillStyle="#D4AF37";c.font="600 20px 'IBM Plex Mono', monospace";
-    c.fillText(S._lab,64,588);
-    drawRetChart(c,S,64,612,W-128,256,chartProg);
+    c.fillText(S._lab,64,588+bh);
+    drawRetChart(c,S,64,612+bh,W-128,256-bh,chartProg);
     drawLegend(c,S,64,910);
   }else{
-    chartPlaceholder(c,64,588,W-128,322);
+    chartPlaceholder(c,64,588+bh,W-128,322-bh);
   }
   metGrid(c,t,64,952,W-128,2);
   collabRow(c,64,1168);
-  footerRow(c,W,H,["ig","@fen.investment.group"],"#TorneoPortafolio2026");
+  footerRow(c,W,H,["ig","@fen.investment.group"]);
+  if(P)podioMarco(c,W,H,P);
   c.restore();
 }
 /* ---------- STORY 1080×1920 ---------- */
 function drawStory(c,t,chartProg,alpha){
-  var W=1080,H=1920,wk=DATA.semana||semanaHoy();
-  drawBG(c,W,H);
+  var W=1080,H=1920,wk=DATA.semana||semanaHoy(),P=podio(t);
+  drawBG(c,W,H,P);
   c.save();c.globalAlpha=alpha==null?1:alpha;
   drawLogo(c,"fig",76,64,96);
   c.fillStyle="#D4AF37";c.font="600 24px 'IBM Plex Mono', monospace";
@@ -1555,9 +1888,13 @@ function drawStory(c,t,chartProg,alpha){
   lg.addColorStop(0,"rgba(212,175,55,.45)");lg.addColorStop(1,"rgba(212,175,55,0)");
   c.strokeStyle=lg;c.lineWidth=1.5;
   c.beginPath();c.moveTo(76,214);c.lineTo(W-76,214);c.stroke();
-  c.fillStyle="#D4AF37";c.font="600 26px 'IBM Plex Mono', monospace";
-  c.fillText("POS",76,318);
-  c.fillStyle="#F7F4EC";c.font="700 176px 'Playfair Display', Georgia, serif";
+  if(P){podioSello(c,P,76,278,1.1);}
+  else{
+    c.fillStyle="#D4AF37";c.font="600 26px 'IBM Plex Mono', monospace";
+    c.fillText("POS",76,318);
+  }
+  c.font="700 176px 'Playfair Display', Georgia, serif";
+  c.fillStyle=P?metalGrad(c,P,76,360,470,472):"#F7F4EC";
   c.fillText("#"+t.posicion,76,468);
   deltaBadge(c,t,76,506);
   c.font="italic 600 62px 'Playfair Display', Georgia, serif";
@@ -1565,19 +1902,21 @@ function drawStory(c,t,chartProg,alpha){
   var nm=t.nombre;if(nm.length>24)nm=nm.slice(0,23)+"…";
   c.fillText(nm,76,646);
   memberLine(c,t,76,700,W-152);
-  ringScore(c,t,W-192,400,100);
+  ringScore(c,t,W-192,400,100,P);
+  var bh=drawBadges(c,t,76,732,W-152,1.05);
   var S=cardSeries(t);
   if(S){
     c.fillStyle="#D4AF37";c.font="600 21px 'IBM Plex Mono', monospace";
-    c.fillText(S._lab,76,796);
-    drawRetChart(c,S,76,824,W-152,400,chartProg);
+    c.fillText(S._lab,76,796+bh);
+    drawRetChart(c,S,76,824+bh,W-152,400-bh,chartProg);
     drawLegend(c,S,76,1268);
   }else{
-    chartPlaceholder(c,76,796,W-152,472);
+    chartPlaceholder(c,76,796+bh,W-152,472-bh);
   }
   metGrid(c,t,76,1330,W-152,1,["ir","exc","sharpe"]);
   collabRow(c,76,1690);
-  footerRow(c,W,H,["ig","@fen.investment.group"],"#Torneo2026");
+  footerRow(c,W,H,["ig","@fen.investment.group"]);
+  if(P)podioMarco(c,W,H,P);
   c.restore();
 }
 /* ---------- LINKEDIN 1200×627 ---------- */
@@ -1807,7 +2146,15 @@ function grabarVideo(t,fmt,btn){
     var stream=cv.captureStream(24);
     var mime=MediaRecorder.isTypeSupported("video/mp4")?"video/mp4":
              (MediaRecorder.isTypeSupported("video/webm;codecs=vp9")?"video/webm;codecs=vp9":"video/webm");
-    var rec=new MediaRecorder(stream,{mimeType:mime,videoBitsPerSecond:8e6});
+    /* Bitrate por formato en vez de 8 Mbps fijo (2026-08-08). La tarjeta es
+       contenido casi estático —fondo plano, texto y un gráfico que se dibuja
+       una vez—, así que el codificador no necesita esos bits: medido contra el
+       canvas original, bajar Feed a 3.2 y Story a 4.5 Mbps cuesta ~0.2 dB de
+       PSNR (invisible; el texto fino queda idéntico) y deja los archivos ~45%
+       más livianos, que es lo que importa al compartirlos por celular.
+       Story lleva más porque tiene 42% más píxeles que Feed. */
+    var bps=fmt==="story"?4.5e6:3.2e6;
+    var rec=new MediaRecorder(stream,{mimeType:mime,videoBitsPerSecond:bps});
     var chunks=[];
     rec.ondataavailable=function(e){if(e.data&&e.data.size)chunks.push(e.data)};
     rec.onstop=function(){

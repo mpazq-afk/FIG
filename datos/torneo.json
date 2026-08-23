@@ -1,7 +1,48 @@
 {
   "semana": 15,
   "corte": "21 · AGO · 2026",
-  "acwi": [],
+  "acwi": [
+    {
+      "semana": 5,
+      "ret": 0.007
+    },
+    {
+      "semana": 6,
+      "ret": 0.0152
+    },
+    {
+      "semana": 7,
+      "ret": -0.0071
+    },
+    {
+      "semana": 8,
+      "ret": 0.005
+    },
+    {
+      "semana": 9,
+      "ret": 0.0148
+    },
+    {
+      "semana": 10,
+      "ret": -0.0024
+    },
+    {
+      "semana": 11,
+      "ret": -0.007
+    },
+    {
+      "semana": 12,
+      "ret": 0.0068
+    },
+    {
+      "semana": 13,
+      "ret": 0.039
+    },
+    {
+      "semana": 14,
+      "ret": 0.0445
+    }
+  ],
   "equipos": [
     {
       "id": "beta-capital",

@@ -389,8 +389,8 @@ def procesar_multiples(rutas, ruta_inscripciones):
         rets_semana = retornos.get(fecha_iso, {})
         for eq in equipos_semana:
             hist = historial_por_id.setdefault(eq["id"], [])
-            ret = rets_semana.get(eq["id"], eq.pop("_ret", None))
-            hist.append({"semana": semana, "puntos": eq["puntos"], "posicion": eq["posicion"], "ret": ret})
+            ret = rets_semana.get(eq["id"], eq.get("_ret"))
+            hist.append(punto_historial(eq, semana, ret))
 
     equipos_final = []
     for eq in ultimos_equipos:
@@ -404,6 +404,22 @@ def procesar_multiples(rutas, ruta_inscripciones):
 
     semana_actual = semana_de_fecha(ultima_fecha)
     return {"semana": semana_actual, "corte": corte_legible(ultima_fecha), "acwi": [], "equipos": equipos_final}
+
+
+def punto_historial(eq, semana, ret):
+    """Una entrada del historial semanal.
+
+    Además de posición/puntos/retorno guarda las 5 métricas de Bloomberg PORT
+    del corte (2026-08-08, pedido de Francisco). Antes solo vivían en
+    `eq["metricas"]`, o sea únicamente para la semana más reciente, así que la
+    página no podía graficar su evolución. Los Excels semanales siempre las
+    trajeron en su hoja `Tabla`: solo faltaba persistirlas.
+    Se omiten las que vengan nulas para no inflar el JSON con basura."""
+    punto = {"semana": semana, "puntos": eq["puntos"], "posicion": eq["posicion"], "ret": ret}
+    for k, v in (eq.get("metricas") or {}).items():
+        if v is not None:
+            punto[k] = v
+    return punto
 
 
 def cargar_anterior():
@@ -425,8 +441,7 @@ def integrar_historial(equipos, anterior, semana):
         prev = previos.get(eq["id"])
         hist = list(prev.get("historial", [])) if prev else []
         hist = [h for h in hist if h.get("semana") != semana]  # re-ejecución de la misma semana
-        hist.append({"semana": semana, "puntos": eq["puntos"], "posicion": eq["posicion"],
-                     "ret": eq.pop("_ret", None)})
+        hist.append(punto_historial(eq, semana, eq.pop("_ret", None)))
         hist.sort(key=lambda h: h["semana"])
         eq["historial"] = hist
         if prev and len(hist) >= 2:
