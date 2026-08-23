@@ -3,7 +3,7 @@
   "config": {
     "urls": {
       "torneo": "torneo/index.html",
-      "bases": "https://mpazq-afk.github.io/torneoportafolio2026/documentos/Bases_finales_torneo_portafolio_2026.pdf",
+      "bases": "documentos/Bases_finales_torneo_portafolio_2026.pdf",
       "instagram": "https://www.instagram.com/fen.investment.group/",
       "linkedin": "https://www.linkedin.com/company/fen-investment-group",
       "postula": "postula/index.html",
