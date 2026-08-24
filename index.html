@@ -276,25 +276,25 @@ body.on-light .rail-node .rn-lab{color:#A8871C;text-shadow:none}
 .nav__links a:hover::after,.nav__links a.active::after{transform:scaleX(1)}
 .nav .btn{padding:11px 22px;font-size:.82rem}
 
-/* Menú "Jugar": desplegable con los dos juegos del club */
-.nav__play{position:relative}
-.nav__play>a{cursor:pointer}
-.nav__play-menu{
+/* Menús desplegables del nav (Áreas, Comunidad, Actividades, Jugar) */
+.nav__drop{position:relative}
+.nav__drop>a{cursor:pointer}
+.nav__drop-menu{
   position:absolute;top:calc(100% + 10px);left:50%;transform:translate(-50%,6px);
   min-width:210px;background:rgba(10,17,40,.97);border:1px solid rgba(212,175,55,.35);
   padding:8px;display:flex;flex-direction:column;gap:2px;
   opacity:0;visibility:hidden;transition:opacity .25s,transform .3s var(--ease),visibility .25s;
   box-shadow:0 24px 50px -18px rgba(0,0,0,.7);z-index:50;
 }
-.nav__play:hover .nav__play-menu,.nav__play:focus-within .nav__play-menu{
+.nav__drop:hover .nav__drop-menu,.nav__drop:focus-within .nav__drop-menu{
   opacity:1;visibility:visible;transform:translate(-50%,0);
 }
-.nav__play-menu a{
-  display:block;padding:11px 14px;font-size:.82rem;color:rgba(247,244,236,.85);
+.nav__drop-menu a{
+  display:block;padding:11px 14px;font-size:.82rem;color:rgba(247,244,236,.85);white-space:nowrap;
 }
-.nav__play-menu a::after{display:none}
-.nav__play-menu a:hover{background:rgba(212,175,55,.12);color:var(--gold)}
-.nav__play-menu small{
+.nav__drop-menu a::after{display:none}
+.nav__drop-menu a:hover{background:rgba(212,175,55,.12);color:var(--gold)}
+.nav__drop-menu small{
   display:block;font-family:var(--f-mono);font-size:.6rem;letter-spacing:.14em;
   text-transform:uppercase;color:rgba(247,244,236,.42);margin-top:2px;
 }
@@ -981,16 +981,25 @@ body.has-ticker{padding-bottom:38px}
     </a>
     <ul class="nav__links">
       <li><a href="#nosotros">Nosotros</a></li>
-      <li><a href="eventos/index.html">Eventos</a></li>
-      <li><a href="#areas">Áreas</a></li>
-      <li><a href="valuation/index.html">Valuation</a></li>
       <li><a href="#torneo">Torneo</a></li>
-      <li><a href="#historia">Historia</a></li>
+      <li class="nav__drop">
+        <a href="#areas" aria-haspopup="true">Áreas ▾</a>
+        <div class="nav__drop-menu">
+          <a href="valuation/index.html">Valuation</a>
+        </div>
+      </li>
       <li><a href="#equipo">Equipo</a></li>
       <!-- FIW_TEMP_OCULTO <li><a href="fiw/index.html">FIG Woman</a></li> -->
-      <li class="nav__play">
+      <li class="nav__drop">
+        <a href="eventos/index.html" aria-haspopup="true">Actividades ▾</a>
+        <div class="nav__drop-menu">
+          <a href="eventos/index.html">Eventos</a>
+          <a href="#historia">Historia</a>
+        </div>
+      </li>
+      <li class="nav__drop">
         <a href="juego/index.html" aria-haspopup="true">Jugar ▾</a>
-        <div class="nav__play-menu">
+        <div class="nav__drop-menu">
           <a href="juego/index.html">El Rally del Toro<small>Runner · vende a tiempo</small></a>
           <a href="desafio/index.html">Desafío FIG<small>Trivia de finanzas · 300 preguntas</small></a>
         </div>
@@ -1005,13 +1014,13 @@ body.has-ticker{padding-bottom:38px}
 
 <div class="m-menu" id="mmenu">
   <a href="#nosotros">Nosotros</a>
-  <a href="eventos/index.html">Eventos</a>
+  <a href="#torneo">Torneo 2026</a>
   <a href="#areas">Áreas</a>
   <a href="valuation/index.html">Valuation</a>
-  <a href="#torneo">Torneo 2026</a>
-  <a href="#historia">Historia</a>
   <a href="#equipo">Equipo</a>
   <!-- FIW_TEMP_OCULTO <a href="fiw/index.html">FIG Woman</a> -->
+  <a href="eventos/index.html">Eventos</a>
+  <a href="#historia">Historia</a>
   <a href="juego/index.html">El Rally del Toro</a>
   <a href="desafio/index.html">Desafío FIG</a>
   <span class="mono-tag">Forjando la Élite del Mañana</span>

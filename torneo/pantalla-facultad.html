@@ -27,10 +27,21 @@
     window.__manual()-> congela el reloj propio
     window.__seek(ms)-> dibuja ese instante exacto
 
-  Nota honesta (2026-08-11): la propuesta original rotulaba el retorno de
-  cada equipo "RETORNO VS ACWI", pero datos/torneo.json no trae el
-  benchmark ACWI cargado todavía (acwi:[] — ver CLAUDE.md). Mostrar una
-  comparación contra un benchmark vacío sería inventar un dato.
+  Nota honesta (2026-08-11, ya no aplica): la propuesta original rotulaba el
+  retorno de cada equipo "RETORNO VS ACWI", pero datos/torneo.json no traía
+  el benchmark ACWI cargado todavía. Mostrar una comparación contra un
+  benchmark vacío habría sido inventar un dato, así que se mostró solo el
+  promedio del torneo mientras tanto.
+
+  ACWI real agregado (2026-08-23): el benchmark ya se captura desde Bloomberg
+  (ver CLAUDE.md del repo torneo-bloomberg-oficial, "Benchmark ACWI") y llega
+  en `datos/torneo.json.acwi`. La tarjeta de cada equipo ahora dibuja TRES
+  líneas: equipo (verde), promedio del torneo (gris punteado) y MSCI ACWI
+  (azul punteado) — a pedido de Francisco, ambas comparaciones a la vez, no
+  una en vez de la otra. Si el corte más reciente aún no tiene el valor de
+  ACWI capturado (el pipeline de Bloomberg lo agrega por separado, puede
+  demorar un corte), esa línea simplemente no llega hasta la última semana:
+  ver `hayAcwi` en chartSVG().
 
   Dos retornos distintos, ojo con no confundirlos (2026-08-15):
     · `retRel`  -> retorno RELATIVO (exceso). Es el del recuadro de arriba
@@ -50,7 +61,7 @@
 :root{
   --blue:#0052FF; --blue-d:#0041CC; --navy:#04182D; --ink:#0A1128;
   --dim:rgba(10,17,40,.52); --line:rgba(10,17,40,.10);
-  --up:#12A177; --down:#D9553E; --card:#FFFFFF; --avg:#8A93A6;
+  --up:#12A177; --down:#D9553E; --card:#FFFFFF; --avg:#8A93A6; --acwi:#3C6DA8;
   --f-disp:"Playfair Display",Georgia,serif;
   --f-body:"Inter",-apple-system,"Segoe UI",sans-serif;
   --f-mono:"IBM Plex Mono","SF Mono",monospace;
@@ -91,17 +102,22 @@ body{font-family:var(--f-body);color:var(--ink);position:relative;
   will-change:opacity,transform}
 
 /* ---------------- s1: intro ---------------- */
-#s1 .lock{display:flex;align-items:center;gap:30px}
-#s1 .logo{width:150px;height:150px;object-fit:contain}
+/* Intro agrandada (2026-08-23, pedido del equipo): logo 150→190px, título
+   96→124px, kicker 26→32px, línea de organización 38→46px. El ancho de la
+   máscara que revela el título YA NO es un número fijo en px (dependía del
+   font-size anterior) — se mide el h1 real en JS (ver MASK_W más abajo) para
+   que un cambio de tamaño no vuelva a dejar el texto cortado a la mitad. */
+#s1 .lock{display:flex;align-items:center;gap:34px}
+#s1 .logo{width:190px;height:190px;object-fit:contain}
 #s1 .mask{overflow:hidden;white-space:nowrap;width:0}
-#s1 .mask h1{font-family:var(--f-disp);font-weight:600;font-size:96px;color:var(--ink)}
-#s1 .sub{margin-top:36px}
-#s1 .sub span{font-family:var(--f-mono);font-size:26px;letter-spacing:.5em;
+#s1 .mask h1{font-family:var(--f-disp);font-weight:600;font-size:124px;color:var(--ink)}
+#s1 .sub{margin-top:40px}
+#s1 .sub span{font-family:var(--f-mono);font-size:32px;letter-spacing:.5em;
   color:var(--blue);text-transform:uppercase}
-/* 27px → 38px (2026-08-20, pedido de Francisco: "agranda un poco lo de
-   organización estudiantil"). Es la frase que la Escuela pidió sumar. */
-#s1 .org{margin-top:32px;opacity:0}
-#s1 .org span{font-family:var(--f-body);font-size:38px;color:var(--dim)}
+/* 27px → 38px (2026-08-20) → 46px (2026-08-23). Es la frase que la Escuela
+   pidió sumar; el equipo pidió agrandar toda la intro en el mismo pedido. */
+#s1 .org{margin-top:34px;opacity:0}
+#s1 .org span{font-family:var(--f-body);font-size:46px;color:var(--dim)}
 
 /* ---------------- s2: colaboradores ---------------- */
 #s2 .kick{font-family:var(--f-mono);font-size:26px;letter-spacing:.42em;
@@ -187,15 +203,19 @@ body{font-family:var(--f-body);color:var(--ink);position:relative;
 #cardPanel .stat .vl{font-family:var(--f-mono);font-weight:600;font-size:30px;margin-top:6px}
 #cardPanel .stat .vl.up{color:var(--up)} #cardPanel .stat .vl.down{color:var(--down)}
 #cardPanel .body{display:flex;gap:28px;align-items:stretch}
+/* Nombres de integrantes agrandados (2026-08-23, pedido del equipo tras ver
+   el video proyectado en la Facultad: "agrandar el nombre de los miembros").
+   nm2 24px→32px, role 16px→20px, avatar 56px→68px; min-width sube para que
+   el texto más grande no quede apretado dentro del chip. */
 #cardPanel .mem{flex:1.15;display:flex;flex-wrap:wrap;gap:18px;align-content:flex-start}
-#cardPanel .mem .chip{background:#F8F9FD;border:1px solid var(--line);border-radius:14px;
-  padding:20px 22px;display:flex;align-items:center;gap:16px;flex:1 1 46%;min-width:280px}
-#cardPanel .mem .av{width:56px;height:56px;border-radius:50%;background:var(--blue);
-  color:#fff;font-family:var(--f-mono);font-weight:600;font-size:20px;
+#cardPanel .mem .chip{background:#F8F9FD;border:1px solid var(--line);border-radius:16px;
+  padding:22px 24px;display:flex;align-items:center;gap:18px;flex:1 1 46%;min-width:320px}
+#cardPanel .mem .av{width:68px;height:68px;border-radius:50%;background:var(--blue);
+  color:#fff;font-family:var(--f-mono);font-weight:600;font-size:25px;
   display:flex;align-items:center;justify-content:center;flex:none}
-#cardPanel .mem .role{font-family:var(--f-mono);font-size:16px;letter-spacing:.14em;
+#cardPanel .mem .role{font-family:var(--f-mono);font-size:20px;letter-spacing:.14em;
   color:var(--dim);text-transform:uppercase}
-#cardPanel .mem .nm2{font-family:var(--f-body);font-weight:600;font-size:24px;margin-top:2px}
+#cardPanel .mem .nm2{font-family:var(--f-body);font-weight:600;font-size:32px;margin-top:4px}
 #cardPanel .chart{flex:1;background:#F8F9FD;border:1px solid var(--line);border-radius:14px;
   padding:22px 26px;display:flex;flex-direction:column}
 #cardPanel .chart .hd{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
@@ -212,6 +232,7 @@ body{font-family:var(--f-body);color:var(--ink);position:relative;
 #cardPanel .chart .lg i{display:inline-block;width:28px;vertical-align:middle;margin-right:9px}
 #cardPanel .chart .lg .team i{height:4px;border-radius:2px;background:var(--up)}
 #cardPanel .chart .lg .avg i{height:0;border-top:3px dashed var(--avg)}
+#cardPanel .chart .lg .ac i{height:0;border-top:3px dotted var(--acwi)}
 #cardPanel .chart .lg b{color:var(--ink);font-weight:600;margin-left:5px}
 #cardPanel .chart svg{flex:1;width:100%;height:100%}
 
@@ -340,6 +361,20 @@ function alpha(t,r,fade){
   return Math.min(sg(t,r[0],fade), 1-sg(t,r[1]-fade,fade));
 }
 
+/* Ancho real del título "FEN Investment Group" a su font-size actual (antes
+   era un número fijo en px, calculado a mano para 96px — se rompía cada vez
+   que el font-size cambiaba, como pasó al agrandarlo a 124px). Se mide contra
+   el DOM apenas el layout está listo; si document.fonts no existe (navegador
+   viejo) usa el scrollWidth inmediato como respaldo, que en casi todos los
+   casos ya alcanza a tener la fuente correcta cargada por el <link> síncrono. */
+var MASK_W = 0;
+function medirMascara(){
+  var h1=document.querySelector("#s1 .mask h1");
+  if(h1) MASK_W = h1.scrollWidth + 4; /* +4px de holgura, evita recortar el último trazo */
+}
+medirMascara();
+if(document.fonts&&document.fonts.ready) document.fonts.ready.then(medirMascara);
+
 /* ---- línea de tiempo (ms) ---- */
 var S1=[0,4000], S2=[4000,8200];
 /* S3: lámina "Resultados de la semana" con los datos del corte. Estaba en la
@@ -356,7 +391,7 @@ var TOTAL=LIST_LAST[1]+1200, FADE=560;
 window.__total=TOTAL;
 
 /* ================= datos ================= */
-var D=null, EQ=[], PROM={};
+var D=null, EQ=[], PROM={}, ACWI_MAP={};
 function normaliza(n){
   var MIN={de:1,del:1,la:1,las:1,los:1,y:1,e:1};
   return String(n||"").trim().split(/\s+/).map(function(p,i){
@@ -399,6 +434,16 @@ function promediosTorneo(){
   return out;
 }
 
+/* benchmark real MSCI ACWI, semana a semana — puede llegar con menos semanas
+   que el historial del equipo si el corte más reciente aún no tiene el valor
+   capturado desde Bloomberg (ver generar_torneo.py --acwi en el repo del
+   pipeline). En ese caso la línea simplemente termina un corte antes. */
+function acwiMap(){
+  var m={};
+  (D.acwi||[]).forEach(function(a){ if(a.ret!=null) m[a.semana]=a.ret; });
+  return m;
+}
+
 /* Participantes: se cuentan personas ÚNICAS de todos los equipos, no la suma
    de los integrantes de cada uno — el Excel de inscripciones repite a alguna
    persona y hay nombres con distinta capitalización. Ojo: si un equipo viene
@@ -418,6 +463,7 @@ function contarParticipantes(){
 
 function preparar(){
   PROM = promediosTorneo();
+  ACWI_MAP = acwiMap();
   EQ = D.equipos.slice().sort(function(a,b){return a.posicion-b.posicion}).slice(0,N_CARDS)
     .map(function(e){
       var vistos={}, mem=[];
@@ -478,8 +524,12 @@ function chartSVG(t){
   var P=S.map(function(x){return {s:x.s, v:PROM[x.s]}})
          .filter(function(x){return x.v!=null});
   var hayProm = P.length===S.length;
+  var A=S.map(function(x){return {s:x.s, v:ACWI_MAP[x.s]}})
+         .filter(function(x){return x.v!=null});
+  var hayAcwi = A.length===S.length;
   var vals=S.map(function(x){return x.v});
   if(hayProm) vals=vals.concat(P.map(function(x){return x.v}));
+  if(hayAcwi) vals=vals.concat(A.map(function(x){return x.v}));
   var lo=Math.min.apply(null,vals), hi=Math.max.apply(null,vals);
   var pad=(hi-lo)*0.22||0.01; lo-=pad; hi+=pad;
   var W=520,H=190,PL=6,PR=6,PT=10,PB=26;
@@ -514,6 +564,11 @@ function chartSVG(t){
     o+='<polyline points="'+pp+'" fill="none" stroke="#8A93A6" stroke-width="2.4" stroke-dasharray="7 6" stroke-linecap="round"/>'
       +'<circle cx="'+X(P.length-1)+'" cy="'+Y(P[P.length-1].v)+'" r="4.2" fill="#8A93A6"/>';
   }
+  if(hayAcwi){
+    var pa=A.map(function(x,k){return X(k)+","+Y(x.v)}).join(" ");
+    o+='<polyline points="'+pa+'" fill="none" stroke="#3C6DA8" stroke-width="2.4" stroke-dasharray="2 4" stroke-linecap="round"/>'
+      +'<circle cx="'+X(A.length-1)+'" cy="'+Y(A[A.length-1].v)+'" r="4.2" fill="#3C6DA8"/>';
+  }
   o+='<polyline points="'+pl+'" fill="none" stroke="#12A177" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>'
     +'<circle cx="'+ux+'" cy="'+uy+'" r="5.5" fill="#12A177"/>'
     +'</svg>';
@@ -528,9 +583,12 @@ function esc(s){return String(s||"").replace(/[&<>"']/g,function(c){
 function leyenda(t){
   var S=t.serie; if(!S||S.length<2) return "";
   var ultProm=PROM[S[S.length-1].s];
+  var ultAcwi=ACWI_MAP[S[S.length-1].s];
   var o='<div class="lg"><span class="team"><i></i>Este equipo<b>'+pct(S[S.length-1].v,2)+'</b></span>';
   if(ultProm!=null)
     o+='<span class="avg"><i></i>Promedio del torneo<b>'+pct(ultProm,2)+'</b></span>';
+  if(ultAcwi!=null)
+    o+='<span class="ac"><i></i>MSCI ACWI<b>'+pct(ultAcwi,2)+'</b></span>';
   return o+'</div>';
 }
 function pintarTarjeta(t){
@@ -572,7 +630,7 @@ function seek(t){
   $("#s3 .stats").style.opacity=p3;
   $("#s3 .stats").style.transform="translateY("+lp(16,0,p3)+"px)";
   var p1=eo(sg(t,S1[0]+300,900));
-  $("#s1 .mask").style.width=(p1*1010)+"px";
+  $("#s1 .mask").style.width=(p1*MASK_W)+"px";
   $("#s1 .logo").style.transform="scale("+lp(.5,1,eo(sg(t,S1[0],700))).toFixed(3)+")";
   $("#s1 .sub").style.opacity=eo(sg(t,S1[0]+1300,700));
   var p2=eo(sg(t,S2[0]+300,700));

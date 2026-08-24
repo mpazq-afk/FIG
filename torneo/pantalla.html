@@ -285,7 +285,7 @@ function alpha(t,r){
 }
 
 /* ================= datos ================= */
-var D=null, PROM=null, SEM=[], EQ=[];
+var D=null, PROM=null, SEM=[], EQ=[], ACWI_MAP={};
 
 function normaliza(n){
   var MIN={de:1,del:1,la:1,las:1,los:1,y:1,e:1};
@@ -327,6 +327,12 @@ function preparar(){
   PROM = SEM.map(function(s){
     var v=set[s]; return v.reduce(function(a,b){return a+b},0)/v.length;
   });
+
+  /* benchmark real MSCI ACWI, semana a semana (lo publica generar_torneo.py /
+     completar_acwi_historial.py) — puede llegar con menos semanas que SEM si
+     el corte más reciente aún no tiene el valor capturado desde Bloomberg */
+  ACWI_MAP={};
+  (D.acwi||[]).forEach(function(a){ if(a.ret!=null) ACWI_MAP[a.semana]=a.ret; });
 }
 
 /* ================= gráfico ================= */
@@ -338,7 +344,11 @@ var CW=760, CH=286, PL=14, PR=118, PT=34, PB=44;
 function grafico(eq,i){
   var mios=eq.serie.map(function(p){return p.v});
   if(mios.length<2) return "";
-  var todos=mios.concat(PROM);
+  /* ACWI: solo las semanas con dato real capturado desde Bloomberg — si el
+     corte más reciente aún no lo tiene, la línea simplemente termina antes */
+  var acwi=SEM.map(function(s){return ACWI_MAP[s]}).filter(function(v){return v!=null});
+  var hayAcwi=acwi.length>=2;
+  var todos=mios.concat(PROM).concat(hayAcwi?acwi:[]);
   var lo=Math.min.apply(null,todos), hi=Math.max.apply(null,todos);
   var pad=(hi-lo)*0.22||0.01; lo-=pad; hi+=pad;
   var X=function(k,n){return PL+k*(CW-PL-PR)/(n-1)};
@@ -346,6 +356,7 @@ function grafico(eq,i){
 
   var pl=mios.map(function(v,k){return X(k,mios.length)+","+Y(v)}).join(" ");
   var pp=PROM.map(function(v,k){return X(k,PROM.length)+","+Y(v)}).join(" ");
+  var pa=hayAcwi?acwi.map(function(v,k){return X(k,acwi.length)+","+Y(v)}).join(" "):"";
   var area="M"+X(0,mios.length)+","+(CH-PB)+" L"+
     mios.map(function(v,k){return X(k,mios.length)+","+Y(v)}).join(" L")+
     " L"+X(mios.length-1,mios.length)+","+(CH-PB)+" Z";
@@ -373,6 +384,7 @@ function grafico(eq,i){
    rej+
    '<path class="area" d="'+area+'" fill="url(#gr'+i+')"/>'+
    '<polyline class="prom" points="'+pp+'"/>'+
+   (hayAcwi?'<polyline class="acwi" points="'+pa+'"/>':'')+
    '<polyline class="linea" points="'+pl+'" filter="url(#gl'+i+')"/>'+
    pts+
    '<circle class="halo" cx="'+ux+'" cy="'+uy+'" r="7"/>'+
@@ -384,6 +396,10 @@ function grafico(eq,i){
      '<text x="'+(PL+40)+'" y="21">EQUIPO</text>'+
      '<line x1="'+(PL+150)+'" y1="16" x2="'+(PL+180)+'" y2="16" class="prom"/>'+
      '<text x="'+(PL+190)+'" y="21">PROMEDIO DEL TORNEO</text>'+
+     (hayAcwi?(
+       '<line x1="436" y1="16" x2="466" y2="16" class="acwi"/>'+
+       '<text x="476" y="21">MSCI ACWI</text>'
+     ):'')+
    '</g>'+
   '</svg>';
 }
@@ -396,6 +412,8 @@ css.textContent=
 ".pod .g .linea{fill:none;stroke:#D4AF37;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}"+
 ".pod .g .prom{fill:none;stroke:rgba(249,246,239,.42);stroke-width:2.5;"+
   "stroke-dasharray:9 9;stroke-linecap:round}"+
+".pod .g .acwi{fill:none;stroke:#7BA7DE;stroke-width:2.5;"+
+  "stroke-dasharray:3 5;stroke-linecap:round}"+
 ".pod .g .pt{fill:#0A1128;stroke:#D4AF37;stroke-width:3.5}"+
 ".pod .g .halo{fill:none;stroke:#D4AF37;stroke-width:2.5;opacity:0}"+
 ".pod .g .val{font-family:var(--f-mono);font-size:26px;fill:#D4AF37;font-weight:600}"+
