@@ -1,0 +1,752 @@
+{
+  "_nota": "Equipos eliminados del corte oficial (Bases de Evaluacion, pipeline de Agustin) que Francisco decidio mantener EN ESPERA en el ranking publico de fig-web, hasta nuevo aviso (2026-08-23). Sus 5 metricas crudas (metricas) quedan FIJAS en el ultimo dato real que se les tomo (semana 14, 14-ago-2026) -- no vuelven a operar. Su PUNTAJE, en cambio, se recalcula cada corte via incorporar_congelados.py, porque el motor de scoring es percentil continuo sobre el MIN/MAX de todos los equipos activos: si el resto del campo se mueve, su puntaje puede subir o bajar aunque su dato no cambie.",
+  "equipos": [
+    {
+      "id": "fencashticos",
+      "nombre": "Fencashticos",
+      "miembros": [
+        {
+          "nombre": "Francisco Antonio Freire Sabaj",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Carlos Ignacio Piaggio Stack",
+          "linkedin": "https://www.linkedin.com/in/carlos-piaggio-stack-84319027b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+        }
+      ],
+      "metricas": {
+        "ir": -0.56,
+        "exc": -0.10460000000000001,
+        "sharpe": 0.78,
+        "var95": -0.016,
+        "mdd": -0.076
+      },
+      "retRel": -0.10460000000000001,
+      "congelado_desde_semana": 14,
+      "congelado_desde_corte": "14 · AGO · 2026",
+      "referencia_semana14": {
+        "posicion": 44,
+        "puntos": 22.93,
+        "puntosDetalle": {
+          "ir": 0,
+          "exc": 0,
+          "sharpe": 5.00994,
+          "var95": 8.577844,
+          "mdd": 9.339775
+        }
+      },
+      "historial_previo": [
+        {
+          "semana": 5,
+          "puntos": 60.74,
+          "posicion": 18,
+          "ret": 0.0426,
+          "ir": 3.9,
+          "exc": 0.2993,
+          "sharpe": 2.25,
+          "var95": -0.0115,
+          "mdd": -0.050300000000000004
+        },
+        {
+          "semana": 6,
+          "puntos": 61.01,
+          "posicion": 18,
+          "ret": 0.0635,
+          "ir": 3.92,
+          "exc": 0.3086,
+          "sharpe": 2.76,
+          "var95": -0.0118,
+          "mdd": -0.050300000000000004
+        },
+        {
+          "semana": 7,
+          "puntos": 54.11,
+          "posicion": 26,
+          "ret": 0.0323,
+          "ir": 2.63,
+          "exc": 0.1925,
+          "sharpe": 1.22,
+          "var95": -0.0191,
+          "mdd": -0.050300000000000004
+        },
+        {
+          "semana": 8,
+          "puntos": 47.7,
+          "posicion": 29,
+          "ret": 0.0273,
+          "ir": 1.18,
+          "exc": 0.0646,
+          "sharpe": 0.95,
+          "var95": -0.0191,
+          "mdd": -0.050300000000000004
+        },
+        {
+          "semana": 9,
+          "puntos": 53.22,
+          "posicion": 28,
+          "ret": 0.0365,
+          "ir": 1.04,
+          "exc": 0.0564,
+          "sharpe": 1.14,
+          "var95": -0.0171,
+          "mdd": -0.050300000000000004
+        },
+        {
+          "semana": 10,
+          "puntos": 38.96,
+          "posicion": 30,
+          "ret": 0.0072,
+          "ir": 0.31,
+          "exc": -0.014199999999999999,
+          "sharpe": 0.28,
+          "var95": -0.0174,
+          "mdd": -0.0545
+        },
+        {
+          "semana": 11,
+          "puntos": 41.6,
+          "posicion": 25,
+          "ret": 0.0134,
+          "ir": 0.81,
+          "exc": -0.0286,
+          "sharpe": 0.42,
+          "var95": -0.0171,
+          "mdd": -0.055099999999999996
+        },
+        {
+          "semana": 12,
+          "puntos": 25.31,
+          "posicion": 41,
+          "ret": 0.0216,
+          "ir": -0.71,
+          "exc": -0.1175,
+          "sharpe": 0.55,
+          "var95": -0.0166,
+          "mdd": -0.076
+        },
+        {
+          "semana": 13,
+          "puntos": 22.97,
+          "posicion": 39,
+          "ret": 0.0243,
+          "ir": -0.78,
+          "exc": -0.1069,
+          "sharpe": 0.6,
+          "var95": -0.0165,
+          "mdd": -0.076
+        },
+        {
+          "semana": 14,
+          "puntos": 22.93,
+          "posicion": 44,
+          "ret": 0.0346,
+          "ir": -0.56,
+          "exc": -0.10460000000000001,
+          "sharpe": 0.78,
+          "var95": -0.016,
+          "mdd": -0.076
+        }
+      ]
+    },
+    {
+      "id": "free-riders",
+      "nombre": "Free Riders",
+      "miembros": [
+        {
+          "nombre": "Lucas Daniel Valenzuela Pavez",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Martin Amaru Farias Gaete",
+          "linkedin": ""
+        }
+      ],
+      "metricas": {
+        "ir": 0.15,
+        "exc": -0.10210000000000001,
+        "sharpe": 0.62,
+        "var95": -0.0349,
+        "mdd": -0.192
+      },
+      "retRel": -0.10210000000000001,
+      "congelado_desde_semana": 14,
+      "congelado_desde_corte": "14 · AGO · 2026",
+      "referencia_semana14": {
+        "posicion": 45,
+        "puntos": 21.87,
+        "puntosDetalle": {
+          "ir": 17.25,
+          "exc": 0,
+          "sharpe": 4.532803,
+          "var95": 0.08982,
+          "mdd": 0
+        }
+      },
+      "historial_previo": [
+        {
+          "semana": 5,
+          "puntos": 52.6,
+          "posicion": 33,
+          "ret": 0.0684,
+          "ir": 2.85,
+          "exc": 0.6019,
+          "sharpe": 2.11,
+          "var95": -0.022799999999999997,
+          "mdd": -0.092
+        },
+        {
+          "semana": 6,
+          "puntos": 63.58,
+          "posicion": 15,
+          "ret": 0.1318,
+          "ir": 3.89,
+          "exc": 0.9133,
+          "sharpe": 3.11,
+          "var95": -0.0229,
+          "mdd": -0.092
+        },
+        {
+          "semana": 7,
+          "puntos": 47.86,
+          "posicion": 34,
+          "ret": 0.0699,
+          "ir": 2.11,
+          "exc": 0.49579999999999996,
+          "sharpe": 1.46,
+          "var95": -0.04019999999999999,
+          "mdd": -0.092
+        },
+        {
+          "semana": 8,
+          "puntos": 36.35,
+          "posicion": 39,
+          "ret": 0.0416,
+          "ir": 0.94,
+          "exc": 0.1805,
+          "sharpe": 0.86,
+          "var95": -0.0404,
+          "mdd": -0.092
+        },
+        {
+          "semana": 9,
+          "puntos": 43.53,
+          "posicion": 36,
+          "ret": 0.0532,
+          "ir": 0.9,
+          "exc": 0.1711,
+          "sharpe": 0.97,
+          "var95": -0.0368,
+          "mdd": -0.0943
+        },
+        {
+          "semana": 10,
+          "puntos": 1.66,
+          "posicion": 58,
+          "ret": -0.0159,
+          "ir": -0.14,
+          "exc": -0.1084,
+          "sharpe": -0.03,
+          "var95": -0.0381,
+          "mdd": -0.1378
+        },
+        {
+          "semana": 11,
+          "puntos": 17.72,
+          "posicion": 45,
+          "ret": -0.0139,
+          "ir": 0.0,
+          "exc": -0.16699999999999998,
+          "sharpe": 0.01,
+          "var95": -0.038,
+          "mdd": -0.1378
+        },
+        {
+          "semana": 12,
+          "puntos": 6.18,
+          "posicion": 58,
+          "ret": 0.0182,
+          "ir": -0.09,
+          "exc": -0.1557,
+          "sharpe": 0.38,
+          "var95": -0.037599999999999995,
+          "mdd": -0.192
+        },
+        {
+          "semana": 13,
+          "puntos": 4.33,
+          "posicion": 58,
+          "ret": 0.0171,
+          "ir": -0.17,
+          "exc": -0.1655,
+          "sharpe": 0.36,
+          "var95": -0.0368,
+          "mdd": -0.192
+        },
+        {
+          "semana": 14,
+          "puntos": 21.87,
+          "posicion": 45,
+          "ret": 0.0451,
+          "ir": 0.15,
+          "exc": -0.10210000000000001,
+          "sharpe": 0.62,
+          "var95": -0.0349,
+          "mdd": -0.192
+        }
+      ]
+    },
+    {
+      "id": "market-moggers",
+      "nombre": "Market Moggers",
+      "miembros": [
+        {
+          "nombre": "Álvaro Pacheco Correa",
+          "linkedin": "https://www.linkedin.com/in/%C3%A1lvaro-pacheco-correa-b418a13a9/"
+        },
+        {
+          "nombre": "Renato Urrutia Gandolfo",
+          "linkedin": "https://www.linkedin.com/in/renato-urrutia-gandolfo-36a3322a3/"
+        },
+        {
+          "nombre": "Alberto Muñoz Molina",
+          "linkedin": "https://www.linkedin.com/in/alberto-josé-muñoz-molina-62b32831b?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
+        }
+      ],
+      "metricas": {
+        "ir": 1.24,
+        "exc": 0.0426,
+        "sharpe": 2.33,
+        "var95": -0.009899999999999999,
+        "mdd": -0.0388
+      },
+      "retRel": 0.0426,
+      "congelado_desde_semana": 14,
+      "congelado_desde_corte": "14 · AGO · 2026",
+      "referencia_semana14": {
+        "posicion": 6,
+        "puntos": 75.77,
+        "puntosDetalle": {
+          "ir": 23.538462,
+          "exc": 18.951147,
+          "sharpe": 9.632207,
+          "var95": 11.317365,
+          "mdd": 12.334944
+        }
+      },
+      "historial_previo": [
+        {
+          "semana": 5,
+          "puntos": 58.83,
+          "posicion": 22,
+          "ret": 0.0343,
+          "ir": 3.64,
+          "exc": 0.1761,
+          "sharpe": 2.78,
+          "var95": -0.0118,
+          "mdd": -0.0388
+        },
+        {
+          "semana": 6,
+          "puntos": 54.07,
+          "posicion": 29,
+          "ret": 0.0426,
+          "ir": 2.4,
+          "exc": 0.12140000000000001,
+          "sharpe": 2.9,
+          "var95": -0.010700000000000001,
+          "mdd": -0.0388
+        },
+        {
+          "semana": 7,
+          "puntos": 55.27,
+          "posicion": 24,
+          "ret": 0.0237,
+          "ir": 2.5,
+          "exc": 0.0925,
+          "sharpe": 1.44,
+          "var95": -0.0126,
+          "mdd": -0.0388
+        },
+        {
+          "semana": 8,
+          "puntos": 62.08,
+          "posicion": 11,
+          "ret": 0.0399,
+          "ir": 2.67,
+          "exc": 0.12390000000000001,
+          "sharpe": 2.14,
+          "var95": -0.0126,
+          "mdd": -0.0388
+        },
+        {
+          "semana": 9,
+          "puntos": 68.67,
+          "posicion": 8,
+          "ret": 0.0487,
+          "ir": 2.32,
+          "exc": 0.1166,
+          "sharpe": 2.38,
+          "var95": -0.011899999999999999,
+          "mdd": -0.0388
+        },
+        {
+          "semana": 10,
+          "puntos": 72.41,
+          "posicion": 5,
+          "ret": 0.0356,
+          "ir": 2.52,
+          "exc": 0.10640000000000001,
+          "sharpe": 1.62,
+          "var95": -0.0106,
+          "mdd": -0.0388
+        },
+        {
+          "semana": 11,
+          "puntos": 73.72,
+          "posicion": 8,
+          "ret": 0.0319,
+          "ir": 2.44,
+          "exc": 0.044500000000000005,
+          "sharpe": 1.35,
+          "var95": -0.010700000000000001,
+          "mdd": -0.0388
+        },
+        {
+          "semana": 12,
+          "puntos": 79.31,
+          "posicion": 3,
+          "ret": 0.0658,
+          "ir": 1.61,
+          "exc": 0.066,
+          "sharpe": 2.28,
+          "var95": -0.01,
+          "mdd": -0.0388
+        },
+        {
+          "semana": 13,
+          "puntos": 76.06,
+          "posicion": 4,
+          "ret": 0.0693,
+          "ir": 1.48,
+          "exc": 0.0754,
+          "sharpe": 2.35,
+          "var95": -0.01,
+          "mdd": -0.0388
+        },
+        {
+          "semana": 14,
+          "puntos": 75.77,
+          "posicion": 6,
+          "ret": 0.0719,
+          "ir": 1.24,
+          "exc": 0.0426,
+          "sharpe": 2.33,
+          "var95": -0.009899999999999999,
+          "mdd": -0.0388
+        }
+      ]
+    },
+    {
+      "id": "mosqueteros",
+      "nombre": "Mosqueteros",
+      "miembros": [
+        {
+          "nombre": "Jorge Mery",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Clemente Hurtado",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Borja Bizzarri Edwars",
+          "linkedin": ""
+        }
+      ],
+      "metricas": {
+        "ir": -1.34,
+        "exc": 0.0078000000000000005,
+        "sharpe": 0.95,
+        "var95": -0.0043,
+        "mdd": -0.0242
+      },
+      "retRel": 0.0078000000000000005,
+      "congelado_desde_semana": 14,
+      "congelado_desde_corte": "14 · AGO · 2026",
+      "referencia_semana14": {
+        "posicion": 20,
+        "puntos": 50.37,
+        "puntosDetalle": {
+          "ir": 0,
+          "exc": 17.515267,
+          "sharpe": 5.516899,
+          "var95": 13.832335,
+          "mdd": 13.510467
+        }
+      },
+      "historial_previo": [
+        {
+          "semana": 5,
+          "puntos": 39.26,
+          "posicion": 48,
+          "ret": 0.0054,
+          "ir": -0.15,
+          "exc": 0.0454,
+          "sharpe": 1.09,
+          "var95": -0.0040999999999999995,
+          "mdd": -0.0183
+        },
+        {
+          "semana": 6,
+          "puntos": 40.0,
+          "posicion": 48,
+          "ret": 0.0121,
+          "ir": -0.69,
+          "exc": 0.0718,
+          "sharpe": 1.88,
+          "var95": -0.0044,
+          "mdd": -0.0183
+        },
+        {
+          "semana": 7,
+          "puntos": 45.85,
+          "posicion": 37,
+          "ret": 0.0015,
+          "ir": 0.1,
+          "exc": 0.0146,
+          "sharpe": 0.23,
+          "var95": -0.0055000000000000005,
+          "mdd": -0.0183
+        },
+        {
+          "semana": 8,
+          "puntos": 39.9,
+          "posicion": 38,
+          "ret": 0.0044,
+          "ir": -0.43,
+          "exc": 0.0173,
+          "sharpe": 0.53,
+          "var95": -0.004699999999999999,
+          "mdd": -0.0183
+        },
+        {
+          "semana": 9,
+          "puntos": 45.45,
+          "posicion": 35,
+          "ret": 0.0094,
+          "ir": -0.64,
+          "exc": 0.0334,
+          "sharpe": 1.0,
+          "var95": -0.0044,
+          "mdd": -0.0183
+        },
+        {
+          "semana": 10,
+          "puntos": 46.15,
+          "posicion": 27,
+          "ret": 0.0012,
+          "ir": -0.17,
+          "exc": 0.0044,
+          "sharpe": 0.14,
+          "var95": -0.0044,
+          "mdd": -0.0183
+        },
+        {
+          "semana": 11,
+          "puntos": 28.89,
+          "posicion": 35,
+          "ret": -0.0012,
+          "ir": -0.07,
+          "exc": -0.015600000000000001,
+          "sharpe": -0.08,
+          "var95": -0.0044,
+          "mdd": -0.0183
+        },
+        {
+          "semana": 12,
+          "puntos": 52.15,
+          "posicion": 17,
+          "ret": 0.0114,
+          "ir": -1.14,
+          "exc": 0.0105,
+          "sharpe": 0.86,
+          "var95": -0.0043,
+          "mdd": -0.0242
+        },
+        {
+          "semana": 13,
+          "puntos": 49.36,
+          "posicion": 19,
+          "ret": 0.0124,
+          "ir": -1.24,
+          "exc": 0.0137,
+          "sharpe": 0.91,
+          "var95": -0.0043,
+          "mdd": -0.0242
+        },
+        {
+          "semana": 14,
+          "puntos": 50.37,
+          "posicion": 20,
+          "ret": 0.0135,
+          "ir": -1.34,
+          "exc": 0.0078000000000000005,
+          "sharpe": 0.95,
+          "var95": -0.0043,
+          "mdd": -0.0242
+        }
+      ]
+    },
+    {
+      "id": "pink-capital",
+      "nombre": "Pink Capital",
+      "miembros": [
+        {
+          "nombre": "Daniela Andrea Flores Albornoz",
+          "linkedin": "https://www.linkedin.com/in/daniela-flores-412a8a309?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
+        },
+        {
+          "nombre": "Valentina Samai Aguirre Berroeta",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Maureen Sayen Salazar Rosales",
+          "linkedin": ""
+        }
+      ],
+      "metricas": {
+        "ir": 0.28,
+        "exc": -0.1027,
+        "sharpe": 1.69,
+        "var95": -0.0097,
+        "mdd": -0.0401
+      },
+      "retRel": -0.1027,
+      "congelado_desde_semana": 14,
+      "congelado_desde_corte": "14 · AGO · 2026",
+      "referencia_semana14": {
+        "posicion": 21,
+        "puntos": 49.36,
+        "puntosDetalle": {
+          "ir": 18.0,
+          "exc": 0,
+          "sharpe": 7.723658,
+          "var95": 11.407186,
+          "mdd": 12.230274
+        }
+      },
+      "historial_previo": [
+        {
+          "semana": 5,
+          "puntos": 48.23,
+          "posicion": 39,
+          "ret": 0.0186,
+          "ir": 1.65,
+          "exc": 0.0981,
+          "sharpe": 1.5,
+          "var95": -0.0106,
+          "mdd": -0.0401
+        },
+        {
+          "semana": 6,
+          "puntos": 41.59,
+          "posicion": 45,
+          "ret": 0.0235,
+          "ir": 0.26,
+          "exc": 0.0003,
+          "sharpe": 1.61,
+          "var95": -0.0098,
+          "mdd": -0.0401
+        },
+        {
+          "semana": 7,
+          "puntos": 34.77,
+          "posicion": 50,
+          "ret": -0.0009,
+          "ir": 0.02,
+          "exc": -0.013999999999999999,
+          "sharpe": 0.02,
+          "var95": -0.013300000000000001,
+          "mdd": -0.0401
+        },
+        {
+          "semana": 8,
+          "puntos": 45.5,
+          "posicion": 31,
+          "ret": 0.0133,
+          "ir": 0.23,
+          "exc": 0.0009,
+          "sharpe": 0.73,
+          "var95": -0.0118,
+          "mdd": -0.0401
+        },
+        {
+          "semana": 9,
+          "puntos": 41.17,
+          "posicion": 37,
+          "ret": 0.0228,
+          "ir": 0.16,
+          "exc": -0.002,
+          "sharpe": 1.09,
+          "var95": -0.010700000000000001,
+          "mdd": -0.0401
+        },
+        {
+          "semana": 10,
+          "puntos": 58.99,
+          "posicion": 18,
+          "ret": 0.013,
+          "ir": 0.79,
+          "exc": 0.0365,
+          "sharpe": 0.6,
+          "var95": -0.0098,
+          "mdd": -0.0401
+        },
+        {
+          "semana": 11,
+          "puntos": 46.38,
+          "posicion": 20,
+          "ret": 0.0102,
+          "ir": 0.89,
+          "exc": -0.09820000000000001,
+          "sharpe": 0.45,
+          "var95": -0.011000000000000001,
+          "mdd": -0.0401
+        },
+        {
+          "semana": 12,
+          "puntos": 51.45,
+          "posicion": 19,
+          "ret": 0.0474,
+          "ir": 0.46,
+          "exc": -0.08800000000000001,
+          "sharpe": 1.55,
+          "var95": -0.0108,
+          "mdd": -0.0401
+        },
+        {
+          "semana": 13,
+          "puntos": 49.43,
+          "posicion": 18,
+          "ret": 0.0524,
+          "ir": 0.46,
+          "exc": -0.0679,
+          "sharpe": 1.67,
+          "var95": -0.0105,
+          "mdd": -0.0401
+        },
+        {
+          "semana": 14,
+          "puntos": 49.36,
+          "posicion": 21,
+          "ret": 0.0554,
+          "ir": 0.28,
+          "exc": -0.1027,
+          "sharpe": 1.69,
+          "var95": -0.0097,
+          "mdd": -0.0401
+        }
+      ]
+    }
+  ]
+}
