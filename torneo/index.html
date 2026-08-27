@@ -382,6 +382,32 @@ body.locked{overflow:hidden}
 .met-sec .btn--ghost{border-color:rgba(16,24,40,.28);color:var(--ink)}
 .met-sec .btn--ghost:hover{border-color:#9E7E1E;color:#9E7E1E}
 
+/* Creadores del torneo — vuelve al fondo oscuro después de la Metodología
+   (que es la única sección clara de la página), así el cierre de créditos
+   se lee como un bloque aparte y engancha con el footer navy. */
+.cre-sec{background:
+  radial-gradient(900px 420px at 14% -12%,rgba(212,175,55,.09),transparent 62%),var(--navy);
+  padding:clamp(4.5rem,8vw,7rem) 0}
+.cre-sec .lead{color:rgba(247,244,236,.6);max-width:60ch;font-size:1.02rem;margin-top:18px}
+.cre-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:clamp(2.2rem,4vw,3rem)}
+.cre{display:flex;gap:16px;align-items:flex-start;border:1px solid var(--line-d);border-radius:12px;
+  background:linear-gradient(170deg,var(--navy-panel),rgba(10,17,40,.9));padding:22px 20px;
+  transition:transform .4s var(--ease),border-color .4s,box-shadow .4s}
+.cre:hover{transform:translateY(-4px);border-color:rgba(212,175,55,.45);box-shadow:0 22px 44px -22px rgba(0,0,0,.72)}
+/* la foto y el monograma miden lo mismo: si la foto no carga, la tarjeta no salta */
+.cre-av{width:64px;height:64px;border-radius:50%;flex:none}
+img.cre-av{object-fit:cover;border:1px solid rgba(212,175,55,.5)}
+span.cre-av{display:flex;align-items:center;justify-content:center;
+  background:radial-gradient(circle at 32% 28%,var(--gold-light),var(--gold) 60%,var(--gold-deep));
+  color:var(--navy);font-family:var(--f-disp);font-weight:600;font-size:1.02rem;letter-spacing:.02em}
+.cre-b{min-width:0}
+.cre-name{font-family:var(--f-disp);font-weight:600;font-size:1.02rem;color:var(--ivory);line-height:1.25}
+.cre-rol{font-family:var(--f-mono);font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-top:6px}
+.cre-ap{font-size:.85rem;color:rgba(247,244,236,.58);line-height:1.62;margin-top:11px}
+.cre-in{display:inline-flex;align-items:center;gap:7px;font-family:var(--f-mono);font-size:.56rem;letter-spacing:.16em;
+  text-transform:uppercase;color:rgba(247,244,236,.42);margin-top:13px;transition:color .3s}
+.cre-in:hover,.cre-in:focus-visible{color:var(--gold)}
+
 footer{background:var(--navy-deep);padding:34px 0;border-top:1px solid var(--line-d)}
 footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:var(--f-mono);font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(247,244,236,.45)}
 footer a{color:rgba(247,244,236,.65);transition:color .3s}
@@ -405,12 +431,14 @@ footer a:hover{color:var(--gold)}
   .met-cols{grid-template-columns:1fr;grid-template-rows:none}
   .met-card--cal{grid-row:auto}
   .met-specs{grid-template-columns:repeat(2,auto);gap:16px 36px}
+  .cre-grid{grid-template-columns:repeat(2,1fr)}
   .mt-row{grid-template-columns:1fr 80px;grid-template-areas:"lab val" "bar bar" "pts pts"}
   .mt-lab{grid-area:lab}.mt-val{grid-area:val}.mt-barwrap{grid-area:bar}.mt-pts{grid-area:pts;text-align:left}
 }
 @media (max-width:560px){
   .count-box{min-width:64px;padding:12px 14px}
   .met-grid{grid-template-columns:1fr 1fr}
+  .cre-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -429,6 +457,7 @@ footer a:hover{color:var(--gold)}
       <li><a href="../index.html">Inicio FIG</a></li>
       <li><a href="#ranking" class="active">Ranking</a></li>
       <li><a href="#metodologia">Metodología</a></li>
+      <li><a href="#creadores">Creadores</a></li>
       <li><a href="../eventos/index.html">Eventos</a></li>
     </ul>
     <button class="nav__burger" id="burger" aria-label="Abrir menú" aria-expanded="false"><i></i><i></i><i></i></button>
@@ -438,6 +467,7 @@ footer a:hover{color:var(--gold)}
   <a href="../index.html">Inicio FIG</a>
   <a href="#ranking">Ranking</a>
   <a href="#metodologia">Metodología</a>
+  <a href="#creadores">Creadores</a>
   <a href="../eventos/index.html">Eventos</a>
 </div>
 
@@ -650,6 +680,21 @@ footer a:hover{color:var(--gold)}
       <a href="../documentos/Bases_finales_torneo_portafolio_2026.pdf" target="_blank" rel="noopener" class="btn btn--navy">Bases de evaluación (PDF) <span class="arr">→</span></a>
       <a href="../index.html#torneo" class="btn btn--ghost">Sobre el torneo</a>
     </div>
+  </div>
+</section>
+
+<!-- Quiénes crearon el torneo. Las tarjetas las arma initCreadores() leyendo
+     ../datos/club.json: la LISTA sale de torneo.creadores y el cargo, el
+     LinkedIn y la foto de personas.directiva, calzando por nombre. Nada de
+     esto va escrito acá — si alguien cambia de cargo, la sección lo sigue.
+     Si el archivo no carga, la sección se queda oculta en vez de mostrarse a
+     medias (queda [hidden] hasta que haya al menos un creador dibujado). -->
+<section class="cre-sec" id="creadores" hidden>
+  <div class="wrap">
+    <div class="kicker reveal"><span class="scr" data-text="Quiénes lo hicieron">Quiénes lo hicieron</span></div>
+    <h2 class="h-sec reveal d1">Los <em>creadores</em> del torneo.</h2>
+    <p class="lead reveal d2">El Torneo Portafolio 2026 lo diseñó y lo levanta cada semana el equipo del área Portafolio de FEN Investment Group, junto a la presidencia del club.</p>
+    <div class="cre-grid reveal d3" id="creGrid"></div>
   </div>
 </section>
 
@@ -2262,6 +2307,82 @@ fetch("../datos/torneo.json",{cache:"no-store"})
   .then(function(d){
     if(d&&d.equipos&&d.equipos.length){d.demo=false;DATA=d;renderAll();openFromHash();}
   }).catch(function(){});
+
+/* ---------------- Creadores del torneo ----------------
+   La sección #creadores no lleva ni un nombre escrito en el HTML. La LISTA
+   sale de torneo.creadores de ../datos/club.json (explícita: haber creado el
+   torneo es un hecho histórico, no el cargo que alguien tenga hoy), y el
+   cargo/LinkedIn salen de personas.directiva calzando por nombre — así un
+   cambio de cargo en club.json se refleja acá solo, sin tocar esta página.
+   La foto se busca igual que en index.html; si no existe el archivo, queda
+   el monograma dorado de iniciales, que mide exactamente lo mismo. */
+function creSlug(n){
+  var s=String(n||"").toLowerCase();
+  s=s.replace(/[áàä]/g,"a").replace(/[éèë]/g,"e").replace(/[íìï]/g,"i")
+     .replace(/[óòö]/g,"o").replace(/[úùü]/g,"u").replace(/ñ/g,"n");
+  return s.replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"");
+}
+function creIniciales(n){
+  return String(n||"").trim().split(/\s+/).slice(0,2)
+    .map(function(w){return w.charAt(0).toUpperCase()}).join("");
+}
+/* Prueba ../fotos/directiva/<slug>.(jpg|jpeg|png|webp) → cb(url) o cb(null). */
+function creFoto(sl,cb){
+  var exts=["jpg","jpeg","png","webp"],k=0;
+  (function next(){
+    if(k>=exts.length){cb(null);return}
+    var url="../fotos/directiva/"+sl+"."+exts[k++];
+    var im=new Image();
+    im.onload=function(){cb(url)};
+    im.onerror=next;
+    im.src=url;
+  })();
+}
+function initCreadores(){
+  fetch("../datos/club.json",{cache:"force-cache"})
+    .then(function(r){return r.ok?r.json():null})
+    .then(function(d){
+      var lista=(d&&d.torneo&&d.torneo.creadores)||[];
+      if(!lista.length)return;
+      var dire={};
+      ((d.personas&&d.personas.directiva)||[]).forEach(function(p){dire[p.nombre]=p});
+      var grid=$("#creGrid"),n=0;
+      lista.forEach(function(c){
+        var p=dire[c.nombre];
+        if(!p)return;              /* sin ficha en directiva no se inventa el cargo */
+        n++;
+        var card=document.createElement("div");
+        card.className="cre";
+        var mono=document.createElement("span");
+        mono.className="cre-av";
+        mono.setAttribute("aria-hidden","true");   /* el nombre va al lado, no se lee dos veces */
+        mono.textContent=creIniciales(c.nombre);
+        var body=document.createElement("div");
+        body.className="cre-b";
+        body.innerHTML='<div class="cre-name">'+esc(c.nombre)+'</div>'+
+          '<div class="cre-rol">'+esc(p.rol||"")+'</div>'+
+          '<p class="cre-ap">'+esc(c.aporte||"")+'</p>'+
+          /* El rótulo visible va corto, pero el aria-label lleva el nombre
+             completo: hay tres creadores que se llaman Benjamín y seis enlaces
+             que dijeran solo "LinkedIn" serían indistinguibles al navegar por
+             la lista de enlaces con un lector de pantalla. */
+          (p.linkedin?'<a class="cre-in" href="'+esc(p.linkedin)+'" target="_blank" rel="noopener"'+
+            ' aria-label="LinkedIn de '+esc(c.nombre)+'">LinkedIn <span aria-hidden="true">↗</span></a>':'');
+        card.appendChild(mono);card.appendChild(body);
+        grid.appendChild(card);
+        creFoto(creSlug(c.nombre),function(url){
+          if(!url||!mono.parentNode)return;
+          var img=new Image();
+          img.className="cre-av";img.alt="";img.src=url;
+          mono.parentNode.replaceChild(img,mono);
+        });
+      });
+      /* La sección arranca [hidden]: solo aparece si de verdad se dibujó
+         alguien, así un club.json roto no deja un título con la grilla vacía. */
+      if(n){$("#creadores").hidden=false;observeReveals($("#creadores"));}
+    }).catch(function(){});
+}
+initCreadores();
 
 /* ---------------- Infraestructura compartida ---------------- */
 var revIO=null;
