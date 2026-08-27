@@ -622,6 +622,22 @@ body.on-light .rail-node .rn-lab{color:#A8871C;text-shadow:none}
 }
 .p-card:hover .avatar{box-shadow:0 0 0 3px var(--paper), 0 0 0 4.5px var(--gold)}
 .p-card--lead .avatar{background:radial-gradient(circle at 32% 28%,var(--gold-light),var(--gold) 60%,var(--gold-deep));color:var(--navy)}
+/* Jerarquía de la directiva, en tres niveles que se distinguen a simple vista:
+   1) Presidencia (`destacado:true` en club.json → .p-card--lead): filete
+      dorado ARRIBA + avatar dorado, que ya existía.
+   2) Quien DIRIGE un área (`liderArea` en club.json → .p-card--area): filete
+      dorado al COSTADO + chip "Dirige el área". Hoy son Francisco (Portafolio),
+      Delia (FIG Woman) y Samuel (Valuation); Trading va sin marcar a propósito,
+      todavía no está confirmado quién lo dirige.
+   3) El resto de la directiva: la tarjeta normal de siempre.
+   El :hover se redefine en los dos porque la regla base de .p-card reemplaza
+   el box-shadow completo y se comería el filete. */
+.p-card--lead{border-color:rgba(168,135,28,.5);box-shadow:inset 0 3px 0 0 var(--gold)}
+.p-card--lead:hover{box-shadow:inset 0 3px 0 0 var(--gold),0 24px 46px -24px rgba(16,24,40,.25)}
+.p-card--area{border-color:rgba(168,135,28,.34);box-shadow:inset 3px 0 0 0 var(--gold)}
+.p-card--area:hover{box-shadow:inset 3px 0 0 0 var(--gold),0 24px 46px -24px rgba(16,24,40,.25)}
+.p-tag{display:inline-block;font-family:var(--f-mono);font-size:.5rem;font-weight:500;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--navy);background:var(--gold);border-radius:100px;padding:2px 9px;margin-top:7px}
 /* miniatura con foto real (cofundadores) o logo real (empresas de la industria) —
    se prueba en fotos/directiva/<slug>.* y logos/industria/<slug>.*; si no existe,
    se queda el monograma de siempre, sin inventar nada */
@@ -1382,10 +1398,10 @@ body.has-ticker{padding-bottom:38px}
         <div><div class="p-name">Manuel Paz</div><div class="p-role">Directivo · Portafolio</div></div>
         <p class="p-extra">Comunicaciones, difusión y creador de la web original.</p>
       </div>
-      <div class="p-card reveal d3" data-group="directiva">
+      <div class="p-card reveal d3 p-card--area" data-group="directiva">
         <div class="avatar">FV</div>
-        <div><div class="p-name">Francisco Valenzuela</div><div class="p-role">Director · Portafolio</div></div>
-        <p class="p-extra">Plataforma web y co-creador del Torneo Portafolio 2026.</p>
+        <div><div class="p-name">Francisco Valenzuela</div><div class="p-role">Director · Portafolio</div><div class="p-tag">Dirige el área</div></div>
+        <p class="p-extra">Infraestructura digital y plataforma web.</p>
       </div>
       <div class="p-card reveal" data-group="directiva">
         <div class="avatar">AA</div>
@@ -1422,9 +1438,9 @@ body.has-ticker{padding-bottom:38px}
         <div><div class="p-name">David González Cañon</div><div class="p-role">Fundador</div></div>
         <p class="p-extra">Co-fundador.</p>
       </div>
-      <div class="p-card reveal d3" data-group="directiva">
+      <div class="p-card reveal d3 p-card--area" data-group="directiva">
         <div class="avatar">DA</div>
-        <div><div class="p-name">Delia Avilán</div><div class="p-role">Fundadora · FEN Investment Woman</div></div>
+        <div><div class="p-name">Delia Avilán</div><div class="p-role">Fundadora · FEN Investment Woman</div><div class="p-tag">Dirige el área</div></div>
         <p class="p-extra">Co-fundadora.</p>
       </div>
       <div class="p-card reveal" data-group="industria">
@@ -1606,7 +1622,7 @@ var CLUB_DATA = {
       {iniciales:"BS",nombre:"Benjamín Sáez Molina",rol:"Presidente",detalle:"Co-fundador de FEN Investment Group.",destacado:true,linkedin:"https://www.linkedin.com/in/benjamin-saez-molina/",perfil:{bio:"Presidente y co-fundador de FEN Investment Group. Lidera la dirección estratégica del club, desde donde se articulan el Torneo Portafolio y las alianzas con la industria. Realizó su práctica profesional en Wealth Management en Itaú.",hitos:["Presidente de FEN Investment Group","Co-fundador de FIG","Práctica en Wealth Management · Itaú"]}},
       {iniciales:"JG",nombre:"Jhosep García",rol:"Vicepresidente",detalle:"Co-fundador · Área Valuation.",destacado:true,linkedin:"https://linkedin.com/in/jhosep-garcia",perfil:{bio:"Vicepresidente y co-fundador de FEN Investment Group. Lidera el área Valuation, donde los miembros analizan y valorizan compañías reales aplicando las metodologías que se usan en la industria financiera.",hitos:["Vicepresidente de FEN Investment Group","Co-fundador · Área Valuation"]}},
       {iniciales:"MP",nombre:"Manuel Paz",rol:"Directivo · Portafolio",detalle:"Comunicaciones, difusión y creador de la web original.",perfil:{bio:"Director del área Portafolio y responsable de comunicaciones y difusión del club. Creador de la web original de FIG, la primera presencia digital del grupo.",hitos:["Directivo · Portafolio","Comunicaciones y difusión de FIG","Creador de la web original del club"]}},
-      {iniciales:"FV",nombre:"Francisco Valenzuela",rol:"Director · Portafolio",detalle:"Plataforma web y co-creador del Torneo Portafolio 2026.",linkedin:"https://www.linkedin.com/in/francisco-ignacio-andr%C3%A9s-valenzuela-lecaros-128a69396/",perfil:{bio:"Director del área Portafolio, responsable de la plataforma web del club y co-creador del Torneo Portafolio 2026, la competencia insignia de FIG con 54 equipos y USD 10M simulados por cartera. Realizó su práctica profesional en el área de Riesgo de LarraínVial.",hitos:["Director · Portafolio","Co-creador del Torneo Portafolio 2026","Plataforma web de FIG","Práctica en Riesgo · LarraínVial"]}},
+      {iniciales:"FV",nombre:"Francisco Valenzuela",rol:"Director · Portafolio",liderArea:"PRT",detalle:"Infraestructura digital y plataforma web.",linkedin:"https://www.linkedin.com/in/francisco-ignacio-andr%C3%A9s-valenzuela-lecaros-128a69396/",perfil:{bio:"Director del área Portafolio, responsable de la infraestructura digital y la plataforma web del club, donde se publica el ranking del Torneo Portafolio 2026, la competencia insignia de FIG con 54 equipos y USD 10M simulados por cartera. Realizó su práctica profesional en el área de Riesgo de LarraínVial.",hitos:["Director · Portafolio","Infraestructura digital y plataforma web de FIG","Práctica en Riesgo · LarraínVial"]}},
       {iniciales:"AA",nombre:"Agustín Arriagada",rol:"Directivo · Portafolio",detalle:"Co-fundador.",perfil:{bio:"Co-fundador de FEN Investment Group y directivo del área Portafolio, donde se gestionan las carteras simuladas y la metodología de inversión del club.",hitos:["Directivo · Portafolio","Co-fundador de FIG"]}},
       {iniciales:"BD",nombre:"Benjamín Disi",rol:"Directivo · Portafolio",detalle:"Magíster en Finanzas (en curso) · Tutor de Finanzas II y monitor del Lab. Bloomberg Itaú.",linkedin:"https://www.linkedin.com/in/benjam%C3%ADn-disi-hernandez-12b570297",perfil:{bio:"Co-fundador y directivo del área Portafolio. Titulado de Ingeniería Comercial y estudiante del Magíster en Finanzas de la Universidad de Chile. Tutor de Finanzas II y monitor del Laboratorio Bloomberg Itaú de la FEN, lideró el diseño de reglas, criterios de evaluación y metodología de construcción de portafolios del primer torneo de inversión de la facultad.",hitos:["Directivo · Portafolio","Magíster en Finanzas (en curso) · U. de Chile","Tutor de Finanzas II y monitor del Lab. Bloomberg Itaú · FEN","Diseño metodológico del Torneo Portafolio 2026","Top 10 · Torneo de trading Banco Itaú"]}},
       {iniciales:"BS",nombre:"Benjamín Solís",rol:"Directivo · Portafolio",detalle:"Co-fundador.",perfil:{bio:"Co-fundador de FEN Investment Group y directivo del área Portafolio.",hitos:["Directivo · Portafolio","Co-fundador de FIG"]}},
@@ -1614,7 +1630,7 @@ var CLUB_DATA = {
       {iniciales:"JL",nombre:"Juan José Limari",rol:"Director · Trading",detalle:"Co-fundador.",perfil:{bio:"Co-fundador de FEN Investment Group y director del área Trading, donde se estudian estrategias de mercado y ejecución.",hitos:["Director · Trading","Co-fundador de FIG"]}},
       {iniciales:"JD",nombre:"Juan Pablo Díaz Cerda",rol:"Director · Trading",detalle:"Co-fundador.",perfil:{bio:"Co-fundador de FEN Investment Group y director del área Trading.",hitos:["Director · Trading","Co-fundador de FIG"]}},
       {iniciales:"DG",nombre:"David González Cañon",rol:"Fundador",detalle:"Práctica en HSBC · ex Banco BICE · Coordinador Lab. Bloomberg FEN.",linkedin:"https://www.linkedin.com/in/davidgonzalezca%C3%B1on/",perfil:{bio:"Co-fundador de FEN Investment Group. Realizó su práctica en HSBC apoyando a banqueros de Instituciones Financieras, Sector Público y Grandes Corporativos, y antes se desempeñó como Analista de Riesgo Financiero Junior en Banco BICE. En la FEN ha sido coordinador del Laboratorio Bloomberg y ayudante de cursos.",hitos:["Fundador de FIG","Práctica · HSBC, Large Corporates & Institutional Banking","Analista de Riesgo Financiero Junior · Banco BICE","Coordinador del Laboratorio Bloomberg · FEN"]}},
-      {iniciales:"DA",nombre:"Delia Avilán",rol:"Fundadora · FEN Investment Woman",detalle:"Co-fundadora.",perfil:{bio:"Co-fundadora de FEN Investment Group y fundadora de FEN Investment Woman, el área que impulsa la participación de mujeres en el mundo de las inversiones dentro de la FEN.",hitos:["Fundadora · FEN Investment Woman","Co-fundadora de FIG"]}}
+      {iniciales:"DA",nombre:"Delia Avilán",rol:"Fundadora · FEN Investment Woman",liderArea:"FIW",detalle:"Co-fundadora.",perfil:{bio:"Co-fundadora de FEN Investment Group y fundadora de FEN Investment Woman, el área que impulsa la participación de mujeres en el mundo de las inversiones dentro de la FEN.",hitos:["Fundadora · FEN Investment Woman","Co-fundadora de FIG"]}}
     ],
     industria:[
       {iniciales:"BS",nombre:"Benjamín Sáez Molina",rol:"Itaú · Wealth Management",detalle:"Práctica en Wealth Management en Itaú.",linkedin:"https://www.linkedin.com/in/benjamin-saez-molina/"},
@@ -1766,7 +1782,7 @@ function renderPeople(p){
     (p[grp]||[]).forEach(function(x,i){
       var exp=!x.mas;
       var conFoto=grp==="directiva"&&exp;
-      html+='<div class="p-card reveal '+D[i%4]+(x.destacado?" p-card--lead":"")+(x.mas?" p-card--more":"")+(exp?" p-card--exp":"")+'" data-group="'+grp+'"'
+      html+='<div class="p-card reveal '+D[i%4]+(x.destacado?" p-card--lead":"")+(x.liderArea?" p-card--area":"")+(x.mas?" p-card--more":"")+(exp?" p-card--exp":"")+'" data-group="'+grp+'"'
           + (exp?' data-idx="'+n+'" role="button" tabindex="0" aria-label="Ver perfil de '+esc(x.nombre)+'"':"")+'>'
           + '<div class="avatar"'+(conFoto?' data-slug="'+esc(slug(x.nombre))+'"':'')+'>'
           + '<span class="thumb-mono">'+esc(x.iniciales||"·")+'</span>'
@@ -1774,6 +1790,7 @@ function renderPeople(p){
           + '</div>'
           + '<div><div class="p-name">'+esc(x.nombre)+'</div>'
           + (x.rol?'<div class="p-role">'+esc(x.rol)+'</div>':"")
+          + (x.liderArea?'<div class="p-tag">Dirige el área</div>':"")
           + '</div>'
           + (x.detalle?'<p class="p-extra">'+esc(x.detalle)+'</p>':"")
           + (x.linkedin?'<a class="p-linkedin" href="'+esc(x.linkedin)+'" target="_blank" rel="noopener">LinkedIn ↗</a>':"")

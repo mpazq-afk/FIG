@@ -407,6 +407,16 @@ span.cre-av{display:flex;align-items:center;justify-content:center;
 .cre-in{display:inline-flex;align-items:center;gap:7px;font-family:var(--f-mono);font-size:.56rem;letter-spacing:.16em;
   text-transform:uppercase;color:rgba(247,244,236,.42);margin-top:13px;transition:color .3s}
 .cre-in:hover,.cre-in:focus-visible{color:var(--gold)}
+/* Dos marcos distintos, para que no se lean todos como el mismo cargo:
+   presidencia = filete dorado ARRIBA, quien dirige el área = filete al COSTADO
+   (mismo criterio que §Nosotros de index.html). El :hover se redefine porque
+   la regla base de .cre pisa el box-shadow completo. */
+.cre--lead{border-color:rgba(212,175,55,.5);box-shadow:inset 0 3px 0 0 var(--gold)}
+.cre--lead:hover{box-shadow:inset 0 3px 0 0 var(--gold),0 22px 44px -22px rgba(0,0,0,.72)}
+.cre--area{border-color:rgba(212,175,55,.38);box-shadow:inset 3px 0 0 0 var(--gold)}
+.cre--area:hover{box-shadow:inset 3px 0 0 0 var(--gold),0 22px 44px -22px rgba(0,0,0,.72)}
+.cre-tag{display:inline-block;font-family:var(--f-mono);font-size:.5rem;font-weight:500;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--navy);background:var(--gold);border-radius:100px;padding:2px 9px;margin-top:8px}
 
 footer{background:var(--navy-deep);padding:34px 0;border-top:1px solid var(--line-d)}
 footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:var(--f-mono);font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(247,244,236,.45)}
@@ -2352,7 +2362,9 @@ function initCreadores(){
         if(!p)return;              /* sin ficha en directiva no se inventa el cargo */
         n++;
         var card=document.createElement("div");
-        card.className="cre";
+        /* destacado = presidencia; liderArea = quien dirige esa área. Los dos
+           salen de club.json, no de una lista escrita acá. */
+        card.className="cre"+(p.destacado?" cre--lead":"")+(p.liderArea?" cre--area":"");
         var mono=document.createElement("span");
         mono.className="cre-av";
         mono.setAttribute("aria-hidden","true");   /* el nombre va al lado, no se lee dos veces */
@@ -2361,7 +2373,9 @@ function initCreadores(){
         body.className="cre-b";
         body.innerHTML='<div class="cre-name">'+esc(c.nombre)+'</div>'+
           '<div class="cre-rol">'+esc(p.rol||"")+'</div>'+
-          '<p class="cre-ap">'+esc(c.aporte||"")+'</p>'+
+          (p.liderArea?'<div class="cre-tag">Dirige el área</div>':"")+
+          /* `aporte` es opcional: si no lo trae, no se dibuja el <p> vacío */
+          (c.aporte?'<p class="cre-ap">'+esc(c.aporte)+'</p>':"")+
           /* El rótulo visible va corto, pero el aria-label lleva el nombre
              completo: hay tres creadores que se llaman Benjamín y seis enlaces
              que dijeran solo "LinkedIn" serían indistinguibles al navegar por
