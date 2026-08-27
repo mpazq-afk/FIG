@@ -27,3 +27,20 @@ Registro semanal de `incorporar_congelados.py`: si algun equipo eliminado que Fr
 
 ---
 
+## Cierre -- 2026-08-26
+
+La directiva de FIG decidio **eliminar en definitiva** a los 5 equipos que
+estuvieron en espera desde el 2026-08-23 (Fencashticos, Free Riders, Market
+Moggers, Mosqueteros, Pink Capital). Ya no aparecen en el ranking publico: el
+torneo vuelve a **54 equipos**, el puntaje de esos 54 se recalcula con el pool
+limpio (se restauro `datos/torneo.json` al estado previo a la reincorporacion) y
+las menciones de "59 equipos" / "USD 590M" del sitio volvieron a "54 equipos" /
+"USD 540M".
+
+`datos/equipos_congelados.json` queda **vacio** e `incorporar_congelados.py`
+**dormido** en el repo: si en el futuro se decide congelar a otro equipo
+eliminado, se repuebla el JSON con sus ultimas metricas reales y se corre el
+script despues de `generar_torneo.py`. Este registro se retoma solo si eso pasa.
+
+---
+

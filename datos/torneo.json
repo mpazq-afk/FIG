@@ -48,7 +48,7 @@
       "id": "beta-capital",
       "nombre": "Beta capital",
       "posicion": 1,
-      "puntos": 93.36,
+      "puntos": 93.26,
       "retRel": 0.1891,
       "delta": 0,
       "metricas": {
@@ -63,7 +63,7 @@
         "exc": 24.17398,
         "sharpe": 15.0,
         "var95": 12.009063,
-        "mdd": 13.265993
+        "mdd": 13.169431
       },
       "miembros": [
         {
@@ -188,7 +188,7 @@
         },
         {
           "semana": 15,
-          "puntos": 93.36,
+          "puntos": 93.26,
           "posicion": 1,
           "ret": 0.1115,
           "ir": 2.35,
@@ -203,7 +203,7 @@
       "id": "aconcagua-capital",
       "nombre": "Aconcagua Capital",
       "posicion": 2,
-      "puntos": 86.62,
+      "puntos": 86.54,
       "retRel": 0.1361,
       "delta": 0,
       "metricas": {
@@ -218,7 +218,7 @@
         "exc": 21.893822,
         "sharpe": 14.541985,
         "var95": 11.238671,
-        "mdd": 13.585859
+        "mdd": 13.507109
       },
       "miembros": [
         {
@@ -343,7 +343,7 @@
         },
         {
           "semana": 15,
-          "puntos": 86.62,
+          "puntos": 86.54,
           "posicion": 2,
           "ret": 0.0884,
           "ir": 1.73,
@@ -358,7 +358,7 @@
       "id": "alpha-makers",
       "nombre": "Alpha makers",
       "posicion": 3,
-      "puntos": 86.15,
+      "puntos": 85.93,
       "retRel": 0.20829999999999999,
       "delta": 1,
       "metricas": {
@@ -373,7 +373,7 @@
         "exc": 25.0,
         "sharpe": 12.022901,
         "var95": 8.066465,
-        "mdd": 11.060606
+        "mdd": 10.841232
       },
       "miembros": [
         {
@@ -498,7 +498,7 @@
         },
         {
           "semana": 15,
-          "puntos": 86.15,
+          "puntos": 85.93,
           "posicion": 3,
           "ret": 0.132,
           "ir": 2.54,
@@ -513,7 +513,7 @@
       "id": "bjp-capitals",
       "nombre": "B&JP Capitals",
       "posicion": 4,
-      "puntos": 80.97,
+      "puntos": 80.8,
       "retRel": 0.1139,
       "delta": 4,
       "metricas": {
@@ -528,7 +528,7 @@
         "exc": 20.938737,
         "sharpe": 11.48855,
         "var95": 9.833837,
-        "mdd": 11.860269
+        "mdd": 11.685427
       },
       "miembros": [
         {
@@ -657,7 +657,7 @@
         },
         {
           "semana": 15,
-          "puntos": 80.97,
+          "puntos": 80.8,
           "posicion": 4,
           "ret": 0.0976,
           "ir": 1.99,
@@ -672,7 +672,7 @@
       "id": "clb",
       "nombre": "CLB",
       "posicion": 5,
-      "puntos": 78.22,
+      "puntos": 78.1,
       "retRel": 0.049100000000000005,
       "delta": -2,
       "metricas": {
@@ -687,7 +687,7 @@
         "exc": 18.150921,
         "sharpe": 10.954198,
         "var95": 10.649547,
-        "mdd": 12.929293
+        "mdd": 12.813981
       },
       "miembros": [
         {
@@ -816,7 +816,7 @@
         },
         {
           "semana": 15,
-          "puntos": 78.22,
+          "puntos": 78.1,
           "posicion": 5,
           "ret": 0.0761,
           "ir": 1.76,
@@ -831,7 +831,7 @@
       "id": "jav-capital",
       "nombre": "JAV Capital",
       "posicion": 6,
-      "puntos": 77.94,
+      "puntos": 77.91,
       "retRel": 0.0369,
       "delta": 1,
       "metricas": {
@@ -846,7 +846,7 @@
         "exc": 17.626054,
         "sharpe": 12.40458,
         "var95": 12.280967,
-        "mdd": 14.612795
+        "mdd": 14.591232
       },
       "miembros": [
         {
@@ -975,7 +975,7 @@
         },
         {
           "semana": 15,
-          "puntos": 77.94,
+          "puntos": 77.91,
           "posicion": 6,
           "ret": 0.065,
           "ir": 0.97,
@@ -987,163 +987,157 @@
       ]
     },
     {
-      "id": "market-moggers",
-      "nombre": "Market Moggers",
+      "id": "luky-capital",
+      "nombre": "Luky Capital",
       "posicion": 7,
-      "puntos": 77.42,
-      "retRel": 0.0426,
-      "delta": -1,
+      "puntos": 75.66,
+      "retRel": 0.04650000000000001,
+      "delta": 21,
       "metricas": {
-        "ir": 1.24,
-        "exc": 0.0426,
-        "sharpe": 2.33,
-        "var95": -0.009899999999999999,
-        "mdd": -0.0388
+        "ir": 0.26,
+        "exc": 0.04650000000000001,
+        "sharpe": 2.44,
+        "var95": -0.0064,
+        "mdd": -0.018600000000000002
       },
       "puntosDetalle": {
-        "ir": 22.557252,
-        "exc": 17.871279,
-        "sharpe": 12.671756,
-        "var95": 11.41994,
-        "mdd": 12.895623
+        "ir": 16.946565,
+        "exc": 18.039064,
+        "sharpe": 13.091603,
+        "var95": 13.006042,
+        "mdd": 14.57346
       },
       "miembros": [
         {
-          "nombre": "Álvaro Pacheco Correa",
-          "linkedin": "https://www.linkedin.com/in/%C3%A1lvaro-pacheco-correa-b418a13a9/"
+          "nombre": "Andres Llaña",
+          "linkedin": ""
         },
         {
-          "nombre": "Renato Urrutia Gandolfo",
-          "linkedin": "https://www.linkedin.com/in/renato-urrutia-gandolfo-36a3322a3/"
-        },
-        {
-          "nombre": "Alberto Muñoz Molina",
-          "linkedin": "https://www.linkedin.com/in/alberto-josé-muñoz-molina-62b32831b?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
+          "nombre": "Barbara Johnson",
+          "linkedin": ""
         }
       ],
-      "congelado": true,
-      "congelado_desde_semana": 14,
       "historial": [
         {
           "semana": 5,
-          "puntos": 58.83,
-          "posicion": 22,
-          "ret": 0.0343,
-          "ir": 3.64,
-          "exc": 0.1761,
-          "sharpe": 2.78,
-          "var95": -0.0118,
-          "mdd": -0.0388
+          "puntos": 58.58,
+          "posicion": 23,
+          "ret": 0.0276,
+          "ir": 1.72,
+          "exc": 0.1261,
+          "sharpe": 3.38,
+          "var95": -0.0060999999999999995,
+          "mdd": -0.018600000000000002
         },
         {
           "semana": 6,
-          "puntos": 54.07,
-          "posicion": 29,
-          "ret": 0.0426,
-          "ir": 2.4,
-          "exc": 0.12140000000000001,
-          "sharpe": 2.9,
-          "var95": -0.010700000000000001,
-          "mdd": -0.0388
+          "puntos": 32.36,
+          "posicion": 52,
+          "ret": 0.016,
+          "ir": -0.4,
+          "exc": -0.10369999999999999,
+          "sharpe": 1.64,
+          "var95": -0.0091,
+          "mdd": -0.018600000000000002
         },
         {
           "semana": 7,
-          "puntos": 55.27,
-          "posicion": 24,
-          "ret": 0.0237,
-          "ir": 2.5,
-          "exc": 0.0925,
-          "sharpe": 1.44,
-          "var95": -0.0126,
-          "mdd": -0.0388
+          "puntos": 57.62,
+          "posicion": 21,
+          "ret": 0.0233,
+          "ir": 1.36,
+          "exc": 0.10980000000000001,
+          "sharpe": 2.16,
+          "var95": -0.0079,
+          "mdd": -0.018600000000000002
         },
         {
           "semana": 8,
-          "puntos": 62.08,
-          "posicion": 11,
-          "ret": 0.0399,
-          "ir": 2.67,
-          "exc": 0.12390000000000001,
-          "sharpe": 2.14,
-          "var95": -0.0126,
-          "mdd": -0.0388
+          "puntos": 56.96,
+          "posicion": 20,
+          "ret": 0.0264,
+          "ir": 0.73,
+          "exc": 0.0463,
+          "sharpe": 2.18,
+          "var95": -0.0066,
+          "mdd": -0.018600000000000002
         },
         {
           "semana": 9,
-          "puntos": 68.67,
-          "posicion": 8,
-          "ret": 0.0487,
-          "ir": 2.32,
-          "exc": 0.1166,
-          "sharpe": 2.38,
-          "var95": -0.011899999999999999,
-          "mdd": -0.0388
+          "puntos": 58.64,
+          "posicion": 21,
+          "ret": 0.029,
+          "ir": 0.33,
+          "exc": 0.0089,
+          "sharpe": 2.14,
+          "var95": -0.0069,
+          "mdd": -0.018600000000000002
         },
         {
           "semana": 10,
-          "puntos": 72.41,
-          "posicion": 5,
-          "ret": 0.0356,
-          "ir": 2.52,
-          "exc": 0.10640000000000001,
-          "sharpe": 1.62,
-          "var95": -0.0106,
-          "mdd": -0.0388
+          "puntos": 69.29,
+          "posicion": 9,
+          "ret": 0.0282,
+          "ir": 0.99,
+          "exc": 0.0877,
+          "sharpe": 1.94,
+          "var95": -0.0067,
+          "mdd": -0.018600000000000002
         },
         {
           "semana": 11,
-          "puntos": 73.72,
-          "posicion": 8,
-          "ret": 0.0319,
-          "ir": 2.44,
-          "exc": 0.044500000000000005,
-          "sharpe": 1.35,
-          "var95": -0.010700000000000001,
-          "mdd": -0.0388
+          "puntos": 76.59,
+          "posicion": 5,
+          "ret": 0.0316,
+          "ir": 1.22,
+          "exc": 0.11800000000000001,
+          "sharpe": 1.97,
+          "var95": -0.0064,
+          "mdd": -0.018600000000000002
         },
         {
           "semana": 12,
-          "puntos": 79.31,
-          "posicion": 3,
-          "ret": 0.0658,
-          "ir": 1.61,
-          "exc": 0.066,
-          "sharpe": 2.28,
-          "var95": -0.01,
-          "mdd": -0.0388
+          "puntos": 71.16,
+          "posicion": 9,
+          "ret": 0.0423,
+          "ir": 0.01,
+          "exc": 0.0148,
+          "sharpe": 2.27,
+          "var95": -0.006999999999999999,
+          "mdd": -0.018600000000000002
         },
         {
           "semana": 13,
-          "puntos": 76.06,
-          "posicion": 4,
-          "ret": 0.0693,
-          "ir": 1.48,
-          "exc": 0.0754,
-          "sharpe": 2.35,
-          "var95": -0.01,
-          "mdd": -0.0388
+          "puntos": 53.1,
+          "posicion": 16,
+          "ret": 0.0444,
+          "ir": -0.08,
+          "exc": 0.0204,
+          "sharpe": 2.32,
+          "var95": -0.0069,
+          "mdd": -0.018600000000000002
         },
         {
           "semana": 14,
-          "puntos": 75.77,
-          "posicion": 6,
-          "ret": 0.0719,
-          "ir": 1.24,
-          "exc": 0.0426,
-          "sharpe": 2.33,
-          "var95": -0.009899999999999999,
-          "mdd": -0.0388
+          "puntos": 37.0,
+          "posicion": 28,
+          "ret": 0.0513,
+          "ir": -0.03,
+          "exc": -0.0003,
+          "sharpe": 2.55,
+          "var95": -0.0067,
+          "mdd": -0.018600000000000002
         },
         {
           "semana": 15,
-          "puntos": 77.42,
+          "puntos": 75.66,
           "posicion": 7,
-          "ret": 0.0426,
-          "ir": 1.24,
-          "exc": 0.0426,
-          "sharpe": 2.33,
-          "var95": -0.009899999999999999,
-          "mdd": -0.0388
+          "ret": 0.0521,
+          "ir": 0.26,
+          "exc": 0.04650000000000001,
+          "sharpe": 2.44,
+          "var95": -0.0064,
+          "mdd": -0.018600000000000002
         }
       ]
     },
@@ -1151,7 +1145,7 @@
       "id": "edp",
       "nombre": "EDP",
       "posicion": 8,
-      "puntos": 75.73,
+      "puntos": 75.45,
       "retRel": 0.1832,
       "delta": 3,
       "metricas": {
@@ -1166,7 +1160,7 @@
         "exc": 23.920151,
         "sharpe": 9.541985,
         "var95": 8.429003,
-        "mdd": 9.96633
+        "mdd": 9.686019
       },
       "miembros": [
         {
@@ -1295,7 +1289,7 @@
         },
         {
           "semana": 15,
-          "puntos": 75.73,
+          "puntos": 75.45,
           "posicion": 8,
           "ret": 0.0944,
           "ir": 1.47,
@@ -1307,167 +1301,12 @@
       ]
     },
     {
-      "id": "luky-capital",
-      "nombre": "Luky Capital",
-      "posicion": 9,
-      "puntos": 75.68,
-      "retRel": 0.04650000000000001,
-      "delta": 19,
-      "metricas": {
-        "ir": 0.26,
-        "exc": 0.04650000000000001,
-        "sharpe": 2.44,
-        "var95": -0.0064,
-        "mdd": -0.018600000000000002
-      },
-      "puntosDetalle": {
-        "ir": 16.946565,
-        "exc": 18.039064,
-        "sharpe": 13.091603,
-        "var95": 13.006042,
-        "mdd": 14.59596
-      },
-      "miembros": [
-        {
-          "nombre": "Andres Llaña",
-          "linkedin": ""
-        },
-        {
-          "nombre": "Barbara Johnson",
-          "linkedin": ""
-        }
-      ],
-      "historial": [
-        {
-          "semana": 5,
-          "puntos": 58.58,
-          "posicion": 23,
-          "ret": 0.0276,
-          "ir": 1.72,
-          "exc": 0.1261,
-          "sharpe": 3.38,
-          "var95": -0.0060999999999999995,
-          "mdd": -0.018600000000000002
-        },
-        {
-          "semana": 6,
-          "puntos": 32.36,
-          "posicion": 52,
-          "ret": 0.016,
-          "ir": -0.4,
-          "exc": -0.10369999999999999,
-          "sharpe": 1.64,
-          "var95": -0.0091,
-          "mdd": -0.018600000000000002
-        },
-        {
-          "semana": 7,
-          "puntos": 57.62,
-          "posicion": 21,
-          "ret": 0.0233,
-          "ir": 1.36,
-          "exc": 0.10980000000000001,
-          "sharpe": 2.16,
-          "var95": -0.0079,
-          "mdd": -0.018600000000000002
-        },
-        {
-          "semana": 8,
-          "puntos": 56.96,
-          "posicion": 20,
-          "ret": 0.0264,
-          "ir": 0.73,
-          "exc": 0.0463,
-          "sharpe": 2.18,
-          "var95": -0.0066,
-          "mdd": -0.018600000000000002
-        },
-        {
-          "semana": 9,
-          "puntos": 58.64,
-          "posicion": 21,
-          "ret": 0.029,
-          "ir": 0.33,
-          "exc": 0.0089,
-          "sharpe": 2.14,
-          "var95": -0.0069,
-          "mdd": -0.018600000000000002
-        },
-        {
-          "semana": 10,
-          "puntos": 69.29,
-          "posicion": 9,
-          "ret": 0.0282,
-          "ir": 0.99,
-          "exc": 0.0877,
-          "sharpe": 1.94,
-          "var95": -0.0067,
-          "mdd": -0.018600000000000002
-        },
-        {
-          "semana": 11,
-          "puntos": 76.59,
-          "posicion": 5,
-          "ret": 0.0316,
-          "ir": 1.22,
-          "exc": 0.11800000000000001,
-          "sharpe": 1.97,
-          "var95": -0.0064,
-          "mdd": -0.018600000000000002
-        },
-        {
-          "semana": 12,
-          "puntos": 71.16,
-          "posicion": 9,
-          "ret": 0.0423,
-          "ir": 0.01,
-          "exc": 0.0148,
-          "sharpe": 2.27,
-          "var95": -0.006999999999999999,
-          "mdd": -0.018600000000000002
-        },
-        {
-          "semana": 13,
-          "puntos": 53.1,
-          "posicion": 16,
-          "ret": 0.0444,
-          "ir": -0.08,
-          "exc": 0.0204,
-          "sharpe": 2.32,
-          "var95": -0.0069,
-          "mdd": -0.018600000000000002
-        },
-        {
-          "semana": 14,
-          "puntos": 37.0,
-          "posicion": 28,
-          "ret": 0.0513,
-          "ir": -0.03,
-          "exc": -0.0003,
-          "sharpe": 2.55,
-          "var95": -0.0067,
-          "mdd": -0.018600000000000002
-        },
-        {
-          "semana": 15,
-          "puntos": 75.68,
-          "posicion": 9,
-          "ret": 0.0521,
-          "ir": 0.26,
-          "exc": 0.04650000000000001,
-          "sharpe": 2.44,
-          "var95": -0.0064,
-          "mdd": -0.018600000000000002
-        }
-      ]
-    },
-    {
       "id": "riskisamurai",
       "nombre": "RiskiSamurai",
-      "posicion": 10,
-      "puntos": 75.19,
+      "posicion": 9,
+      "puntos": 74.95,
       "retRel": 0.0836,
-      "delta": -5,
+      "delta": -4,
       "metricas": {
         "ir": 1.52,
         "exc": 0.0836,
@@ -1480,7 +1319,7 @@
         "exc": 19.635175,
         "sharpe": 11.374046,
         "var95": 9.335347,
-        "mdd": 10.681818
+        "mdd": 10.441351
       },
       "miembros": [
         {
@@ -1609,8 +1448,8 @@
         },
         {
           "semana": 15,
-          "puntos": 75.19,
-          "posicion": 10,
+          "puntos": 74.95,
+          "posicion": 9,
           "ret": 0.0974,
           "ir": 1.52,
           "exc": 0.0836,
@@ -1623,10 +1462,10 @@
     {
       "id": "los-default",
       "nombre": "Los Default",
-      "posicion": 11,
-      "puntos": 74.52,
+      "posicion": 10,
+      "puntos": 74.26,
       "retRel": 0.0736,
-      "delta": 26,
+      "delta": 27,
       "metricas": {
         "ir": 0.96,
         "exc": 0.0736,
@@ -1639,7 +1478,7 @@
         "exc": 19.204956,
         "sharpe": 11.984733,
         "var95": 12.145015,
-        "mdd": 10.23569
+        "mdd": 9.970379
       },
       "miembros": [
         {
@@ -1768,8 +1607,8 @@
         },
         {
           "semana": 15,
-          "puntos": 74.52,
-          "posicion": 11,
+          "puntos": 74.26,
+          "posicion": 10,
           "ret": 0.0754,
           "ir": 0.96,
           "exc": 0.0736,
@@ -1782,10 +1621,10 @@
     {
       "id": "dcf-supremacy",
       "nombre": "DCF Supremacy",
-      "posicion": 12,
-      "puntos": 73.59,
+      "posicion": 11,
+      "puntos": 73.49,
       "retRel": 0.0435,
-      "delta": -3,
+      "delta": -2,
       "metricas": {
         "ir": 0.33,
         "exc": 0.0435,
@@ -1798,7 +1637,7 @@
         "exc": 17.909998,
         "sharpe": 11.870229,
         "var95": 13.277946,
-        "mdd": 13.181818
+        "mdd": 13.080569
       },
       "miembros": [
         {
@@ -1923,8 +1762,8 @@
         },
         {
           "semana": 15,
-          "puntos": 73.59,
-          "posicion": 12,
+          "puntos": 73.49,
+          "posicion": 11,
           "ret": 0.0534,
           "ir": 0.33,
           "exc": 0.0435,
@@ -1937,10 +1776,10 @@
     {
       "id": "optimo-investment",
       "nombre": "Optimo Investment",
-      "posicion": 13,
-      "puntos": 70.29,
+      "posicion": 12,
+      "puntos": 69.9,
       "retRel": 0.1439,
-      "delta": -3,
+      "delta": -2,
       "metricas": {
         "ir": 1.66,
         "exc": 0.1439,
@@ -1953,7 +1792,7 @@
         "exc": 22.229393,
         "sharpe": 9.465649,
         "var95": 5.800604,
-        "mdd": 7.8367
+        "mdd": 7.437796
       },
       "miembros": [
         {
@@ -2078,8 +1917,8 @@
         },
         {
           "semana": 15,
-          "puntos": 70.29,
-          "posicion": 13,
+          "puntos": 69.9,
+          "posicion": 12,
           "ret": 0.1045,
           "ir": 1.66,
           "exc": 0.1439,
@@ -2092,10 +1931,10 @@
     {
       "id": "i-c",
       "nombre": "I.C",
-      "posicion": 14,
-      "puntos": 67.92,
+      "posicion": 13,
+      "puntos": 67.8,
       "retRel": 0.0068000000000000005,
-      "delta": 5,
+      "delta": 6,
       "metricas": {
         "ir": 0.63,
         "exc": 0.0068000000000000005,
@@ -2108,7 +1947,7 @@
         "exc": 16.331096,
         "sharpe": 8.931298,
         "var95": 10.694864,
-        "mdd": 12.895623
+        "mdd": 12.778436
       },
       "miembros": [
         {
@@ -2233,8 +2072,8 @@
         },
         {
           "semana": 15,
-          "puntos": 67.92,
-          "posicion": 14,
+          "puntos": 67.8,
+          "posicion": 13,
           "ret": 0.0489,
           "ir": 0.63,
           "exc": 0.0068000000000000005,
@@ -2247,10 +2086,10 @@
     {
       "id": "dfs-capital",
       "nombre": "DFS CAPITAL",
-      "posicion": 15,
-      "puntos": 64.09,
+      "posicion": 14,
+      "puntos": 63.87,
       "retRel": 0.0146,
-      "delta": 9,
+      "delta": 10,
       "metricas": {
         "ir": 0.68,
         "exc": 0.0146,
@@ -2263,7 +2102,7 @@
         "exc": 16.666667,
         "sharpe": 8.167939,
         "var95": 8.882175,
-        "mdd": 11.026936
+        "mdd": 10.805687
       },
       "miembros": [
         {
@@ -2392,8 +2231,8 @@
         },
         {
           "semana": 15,
-          "puntos": 64.09,
-          "posicion": 15,
+          "puntos": 63.87,
+          "posicion": 14,
           "ret": 0.0555,
           "ir": 0.68,
           "exc": 0.0146,
@@ -2406,10 +2245,10 @@
     {
       "id": "black-swan-capital",
       "nombre": "Black Swan Capital",
-      "posicion": 16,
+      "posicion": 15,
       "puntos": 60.32,
       "retRel": -0.0037,
-      "delta": -3,
+      "delta": -2,
       "metricas": {
         "ir": 0.03,
         "exc": -0.0037,
@@ -2419,7 +2258,7 @@
       },
       "puntosDetalle": {
         "ir": 15.629771,
-        "exc": 0.0,
+        "exc": 0,
         "sharpe": 14.694656,
         "var95": 15.0,
         "mdd": 15.0
@@ -2548,7 +2387,7 @@
         {
           "semana": 15,
           "puntos": 60.32,
-          "posicion": 16,
+          "posicion": 15,
           "ret": 0.0445,
           "ir": 0.03,
           "exc": -0.0037,
@@ -2561,10 +2400,10 @@
     {
       "id": "athena",
       "nombre": "Athena",
-      "posicion": 17,
-      "puntos": 54.86,
+      "posicion": 16,
+      "puntos": 54.81,
       "retRel": 0.0334,
-      "delta": -2,
+      "delta": -1,
       "metricas": {
         "ir": -0.28,
         "exc": 0.0334,
@@ -2573,11 +2412,11 @@
         "mdd": -0.0233
       },
       "puntosDetalle": {
-        "ir": 0.0,
+        "ir": 0,
         "exc": 17.475478,
         "sharpe": 10.267176,
         "var95": 12.915408,
-        "mdd": 14.200337
+        "mdd": 14.155806
       },
       "miembros": [
         {
@@ -2706,8 +2545,8 @@
         },
         {
           "semana": 15,
-          "puntos": 54.86,
-          "posicion": 17,
+          "puntos": 54.81,
+          "posicion": 16,
           "ret": 0.0355,
           "ir": -0.28,
           "exc": 0.0334,
@@ -2720,10 +2559,10 @@
     {
       "id": "bull-market-boys",
       "nombre": "Bull Market Boys",
-      "posicion": 18,
-      "puntos": 52.29,
+      "posicion": 17,
+      "puntos": 52.16,
       "retRel": -0.0233,
-      "delta": 4,
+      "delta": 5,
       "metricas": {
         "ir": 0.26,
         "exc": -0.0233,
@@ -2733,10 +2572,10 @@
       },
       "puntosDetalle": {
         "ir": 16.946565,
-        "exc": 0.0,
+        "exc": 0,
         "sharpe": 9.732824,
         "var95": 12.915408,
-        "mdd": 12.693603
+        "mdd": 12.565166
       },
       "miembros": [
         {
@@ -2861,8 +2700,8 @@
         },
         {
           "semana": 15,
-          "puntos": 52.29,
-          "posicion": 18,
+          "puntos": 52.16,
+          "posicion": 17,
           "ret": 0.048,
           "ir": 0.26,
           "exc": -0.0233,
@@ -2873,334 +2712,12 @@
       ]
     },
     {
-      "id": "mosqueteros",
-      "nombre": "Mosqueteros",
-      "posicion": 19,
-      "puntos": 51.86,
-      "retRel": 0.0078000000000000005,
-      "delta": 1,
-      "metricas": {
-        "ir": -1.34,
-        "exc": 0.0078000000000000005,
-        "sharpe": 0.95,
-        "var95": -0.0043,
-        "mdd": -0.0242
-      },
-      "puntosDetalle": {
-        "ir": 0.0,
-        "exc": 16.374118,
-        "sharpe": 7.40458,
-        "var95": 13.957704,
-        "mdd": 14.124579
-      },
-      "miembros": [
-        {
-          "nombre": "Jorge Mery",
-          "linkedin": ""
-        },
-        {
-          "nombre": "Clemente Hurtado",
-          "linkedin": ""
-        },
-        {
-          "nombre": "Borja Bizzarri Edwars",
-          "linkedin": ""
-        }
-      ],
-      "congelado": true,
-      "congelado_desde_semana": 14,
-      "historial": [
-        {
-          "semana": 5,
-          "puntos": 39.26,
-          "posicion": 48,
-          "ret": 0.0054,
-          "ir": -0.15,
-          "exc": 0.0454,
-          "sharpe": 1.09,
-          "var95": -0.0040999999999999995,
-          "mdd": -0.0183
-        },
-        {
-          "semana": 6,
-          "puntos": 40.0,
-          "posicion": 48,
-          "ret": 0.0121,
-          "ir": -0.69,
-          "exc": 0.0718,
-          "sharpe": 1.88,
-          "var95": -0.0044,
-          "mdd": -0.0183
-        },
-        {
-          "semana": 7,
-          "puntos": 45.85,
-          "posicion": 37,
-          "ret": 0.0015,
-          "ir": 0.1,
-          "exc": 0.0146,
-          "sharpe": 0.23,
-          "var95": -0.0055000000000000005,
-          "mdd": -0.0183
-        },
-        {
-          "semana": 8,
-          "puntos": 39.9,
-          "posicion": 38,
-          "ret": 0.0044,
-          "ir": -0.43,
-          "exc": 0.0173,
-          "sharpe": 0.53,
-          "var95": -0.004699999999999999,
-          "mdd": -0.0183
-        },
-        {
-          "semana": 9,
-          "puntos": 45.45,
-          "posicion": 35,
-          "ret": 0.0094,
-          "ir": -0.64,
-          "exc": 0.0334,
-          "sharpe": 1.0,
-          "var95": -0.0044,
-          "mdd": -0.0183
-        },
-        {
-          "semana": 10,
-          "puntos": 46.15,
-          "posicion": 27,
-          "ret": 0.0012,
-          "ir": -0.17,
-          "exc": 0.0044,
-          "sharpe": 0.14,
-          "var95": -0.0044,
-          "mdd": -0.0183
-        },
-        {
-          "semana": 11,
-          "puntos": 28.89,
-          "posicion": 35,
-          "ret": -0.0012,
-          "ir": -0.07,
-          "exc": -0.015600000000000001,
-          "sharpe": -0.08,
-          "var95": -0.0044,
-          "mdd": -0.0183
-        },
-        {
-          "semana": 12,
-          "puntos": 52.15,
-          "posicion": 17,
-          "ret": 0.0114,
-          "ir": -1.14,
-          "exc": 0.0105,
-          "sharpe": 0.86,
-          "var95": -0.0043,
-          "mdd": -0.0242
-        },
-        {
-          "semana": 13,
-          "puntos": 49.36,
-          "posicion": 19,
-          "ret": 0.0124,
-          "ir": -1.24,
-          "exc": 0.0137,
-          "sharpe": 0.91,
-          "var95": -0.0043,
-          "mdd": -0.0242
-        },
-        {
-          "semana": 14,
-          "puntos": 50.37,
-          "posicion": 20,
-          "ret": 0.0135,
-          "ir": -1.34,
-          "exc": 0.0078000000000000005,
-          "sharpe": 0.95,
-          "var95": -0.0043,
-          "mdd": -0.0242
-        },
-        {
-          "semana": 15,
-          "puntos": 51.86,
-          "posicion": 19,
-          "ret": 0.0078000000000000005,
-          "ir": -1.34,
-          "exc": 0.0078000000000000005,
-          "sharpe": 0.95,
-          "var95": -0.0043,
-          "mdd": -0.0242
-        }
-      ]
-    },
-    {
-      "id": "pink-capital",
-      "nombre": "Pink Capital",
-      "posicion": 20,
-      "puntos": 51.59,
-      "retRel": -0.1027,
-      "delta": 1,
-      "metricas": {
-        "ir": 0.28,
-        "exc": -0.1027,
-        "sharpe": 1.69,
-        "var95": -0.0097,
-        "mdd": -0.0401
-      },
-      "puntosDetalle": {
-        "ir": 17.061069,
-        "exc": 0.0,
-        "sharpe": 10.229008,
-        "var95": 11.510574,
-        "mdd": 12.786195
-      },
-      "miembros": [
-        {
-          "nombre": "Daniela Andrea Flores Albornoz",
-          "linkedin": "https://www.linkedin.com/in/daniela-flores-412a8a309?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
-        },
-        {
-          "nombre": "Valentina Samai Aguirre Berroeta",
-          "linkedin": ""
-        },
-        {
-          "nombre": "Maureen Sayen Salazar Rosales",
-          "linkedin": ""
-        }
-      ],
-      "congelado": true,
-      "congelado_desde_semana": 14,
-      "historial": [
-        {
-          "semana": 5,
-          "puntos": 48.23,
-          "posicion": 39,
-          "ret": 0.0186,
-          "ir": 1.65,
-          "exc": 0.0981,
-          "sharpe": 1.5,
-          "var95": -0.0106,
-          "mdd": -0.0401
-        },
-        {
-          "semana": 6,
-          "puntos": 41.59,
-          "posicion": 45,
-          "ret": 0.0235,
-          "ir": 0.26,
-          "exc": 0.0003,
-          "sharpe": 1.61,
-          "var95": -0.0098,
-          "mdd": -0.0401
-        },
-        {
-          "semana": 7,
-          "puntos": 34.77,
-          "posicion": 50,
-          "ret": -0.0009,
-          "ir": 0.02,
-          "exc": -0.013999999999999999,
-          "sharpe": 0.02,
-          "var95": -0.013300000000000001,
-          "mdd": -0.0401
-        },
-        {
-          "semana": 8,
-          "puntos": 45.5,
-          "posicion": 31,
-          "ret": 0.0133,
-          "ir": 0.23,
-          "exc": 0.0009,
-          "sharpe": 0.73,
-          "var95": -0.0118,
-          "mdd": -0.0401
-        },
-        {
-          "semana": 9,
-          "puntos": 41.17,
-          "posicion": 37,
-          "ret": 0.0228,
-          "ir": 0.16,
-          "exc": -0.002,
-          "sharpe": 1.09,
-          "var95": -0.010700000000000001,
-          "mdd": -0.0401
-        },
-        {
-          "semana": 10,
-          "puntos": 58.99,
-          "posicion": 18,
-          "ret": 0.013,
-          "ir": 0.79,
-          "exc": 0.0365,
-          "sharpe": 0.6,
-          "var95": -0.0098,
-          "mdd": -0.0401
-        },
-        {
-          "semana": 11,
-          "puntos": 46.38,
-          "posicion": 20,
-          "ret": 0.0102,
-          "ir": 0.89,
-          "exc": -0.09820000000000001,
-          "sharpe": 0.45,
-          "var95": -0.011000000000000001,
-          "mdd": -0.0401
-        },
-        {
-          "semana": 12,
-          "puntos": 51.45,
-          "posicion": 19,
-          "ret": 0.0474,
-          "ir": 0.46,
-          "exc": -0.08800000000000001,
-          "sharpe": 1.55,
-          "var95": -0.0108,
-          "mdd": -0.0401
-        },
-        {
-          "semana": 13,
-          "puntos": 49.43,
-          "posicion": 18,
-          "ret": 0.0524,
-          "ir": 0.46,
-          "exc": -0.0679,
-          "sharpe": 1.67,
-          "var95": -0.0105,
-          "mdd": -0.0401
-        },
-        {
-          "semana": 14,
-          "puntos": 49.36,
-          "posicion": 21,
-          "ret": 0.0554,
-          "ir": 0.28,
-          "exc": -0.1027,
-          "sharpe": 1.69,
-          "var95": -0.0097,
-          "mdd": -0.0401
-        },
-        {
-          "semana": 15,
-          "puntos": 51.59,
-          "posicion": 20,
-          "ret": -0.1027,
-          "ir": 0.28,
-          "exc": -0.1027,
-          "sharpe": 1.69,
-          "var95": -0.0097,
-          "mdd": -0.0401
-        }
-      ]
-    },
-    {
       "id": "terra-capital",
       "nombre": "Terra Capital",
-      "posicion": 21,
-      "puntos": 48.78,
+      "posicion": 18,
+      "puntos": 48.59,
       "retRel": -0.0387,
-      "delta": 18,
+      "delta": 21,
       "metricas": {
         "ir": 0.33,
         "exc": -0.0387,
@@ -3210,10 +2727,10 @@
       },
       "puntosDetalle": {
         "ir": 17.347328,
-        "exc": 0.0,
+        "exc": 0,
         "sharpe": 8.740458,
         "var95": 11.238671,
-        "mdd": 11.456229
+        "mdd": 11.258886
       },
       "miembros": [
         {
@@ -3342,8 +2859,8 @@
         },
         {
           "semana": 15,
-          "puntos": 48.78,
-          "posicion": 21,
+          "puntos": 48.59,
+          "posicion": 18,
           "ret": 0.0485,
           "ir": 0.33,
           "exc": -0.0387,
@@ -3356,10 +2873,10 @@
     {
       "id": "nova-praxis-asset-management",
       "nombre": "Nova Praxis Asset Management",
-      "posicion": 22,
-      "puntos": 48.57,
+      "posicion": 19,
+      "puntos": 48.41,
       "retRel": -0.0336,
-      "delta": -5,
+      "delta": -2,
       "metricas": {
         "ir": 0.72,
         "exc": -0.0336,
@@ -3369,10 +2886,10 @@
       },
       "puntosDetalle": {
         "ir": 19.580153,
-        "exc": 0.0,
+        "exc": 0,
         "sharpe": 8.244275,
         "var95": 8.564955,
-        "mdd": 12.180135
+        "mdd": 12.023104
       },
       "miembros": [
         {
@@ -3501,8 +3018,8 @@
         },
         {
           "semana": 15,
-          "puntos": 48.57,
-          "posicion": 22,
+          "puntos": 48.41,
+          "posicion": 19,
           "ret": 0.0491,
           "ir": 0.72,
           "exc": -0.0336,
@@ -3515,10 +3032,10 @@
     {
       "id": "warren-bufen",
       "nombre": "Warren BuFEN",
-      "posicion": 23,
-      "puntos": 47.79,
+      "posicion": 20,
+      "puntos": 47.11,
       "retRel": 0.038,
-      "delta": -5,
+      "delta": -2,
       "metricas": {
         "ir": 0.48,
         "exc": 0.038,
@@ -3531,7 +3048,7 @@
         "exc": 17.673378,
         "sharpe": 6.717557,
         "var95": 2.401813,
-        "mdd": 2.794613
+        "mdd": 2.114929
       },
       "miembros": [
         {
@@ -3660,8 +3177,8 @@
         },
         {
           "semana": 15,
-          "puntos": 47.79,
-          "posicion": 23,
+          "puntos": 47.11,
+          "posicion": 20,
           "ret": 0.0599,
           "ir": 0.48,
           "exc": 0.038,
@@ -3674,10 +3191,10 @@
     {
       "id": "barber-iker-investment-group",
       "nombre": "Barber Iker Investment Group",
-      "posicion": 24,
-      "puntos": 46.83,
+      "posicion": 21,
+      "puntos": 46.6,
       "retRel": -0.018000000000000002,
-      "delta": -1,
+      "delta": 2,
       "metricas": {
         "ir": 0.63,
         "exc": -0.018000000000000002,
@@ -3687,10 +3204,10 @@
       },
       "puntosDetalle": {
         "ir": 19.064885,
-        "exc": 0.0,
+        "exc": 0,
         "sharpe": 8.091603,
         "var95": 8.882175,
-        "mdd": 10.791246
+        "mdd": 10.556872
       },
       "miembros": [
         {
@@ -3819,8 +3336,8 @@
         },
         {
           "semana": 15,
-          "puntos": 46.83,
-          "posicion": 24,
+          "puntos": 46.6,
+          "posicion": 21,
           "ret": 0.0535,
           "ir": 0.63,
           "exc": -0.018000000000000002,
@@ -3833,10 +3350,10 @@
     {
       "id": "martes-negro",
       "nombre": "Martes negro",
-      "posicion": 25,
-      "puntos": 42.53,
+      "posicion": 22,
+      "puntos": 42.21,
       "retRel": -0.0072,
-      "delta": -13,
+      "delta": -10,
       "metricas": {
         "ir": 0.49,
         "exc": -0.0072,
@@ -3846,10 +3363,10 @@
       },
       "puntosDetalle": {
         "ir": 18.263359,
-        "exc": 0.0,
+        "exc": 0,
         "sharpe": 7.480916,
         "var95": 7.613293,
-        "mdd": 9.175084
+        "mdd": 8.850711
       },
       "miembros": [
         {
@@ -3974,8 +3491,8 @@
         },
         {
           "semana": 15,
-          "puntos": 42.53,
-          "posicion": 25,
+          "puntos": 42.21,
+          "posicion": 22,
           "ret": 0.0537,
           "ir": 0.49,
           "exc": -0.0072,
@@ -3988,10 +3505,10 @@
     {
       "id": "vcl-capital",
       "nombre": "VCL Capital",
-      "posicion": 26,
-      "puntos": 41.13,
+      "posicion": 23,
+      "puntos": 40.87,
       "retRel": -0.0542,
-      "delta": 0,
+      "delta": 3,
       "metricas": {
         "ir": 0.09,
         "exc": -0.0542,
@@ -4001,10 +3518,10 @@
       },
       "puntosDetalle": {
         "ir": 15.973282,
-        "exc": 0.0,
+        "exc": 0,
         "sharpe": 6.984733,
         "var95": 7.794562,
-        "mdd": 10.378788
+        "mdd": 10.121445
       },
       "miembros": [
         {
@@ -4133,8 +3650,8 @@
         },
         {
           "semana": 15,
-          "puntos": 41.13,
-          "posicion": 26,
+          "puntos": 40.87,
+          "posicion": 23,
           "ret": 0.0409,
           "ir": 0.09,
           "exc": -0.0542,
@@ -4147,10 +3664,10 @@
     {
       "id": "bbr-investments",
       "nombre": "BBR Investments",
-      "posicion": 27,
-      "puntos": 40.58,
+      "posicion": 24,
+      "puntos": 40.23,
       "retRel": -0.0424,
-      "delta": 22,
+      "delta": 25,
       "metricas": {
         "ir": 0.41,
         "exc": -0.0424,
@@ -4160,10 +3677,10 @@
       },
       "puntosDetalle": {
         "ir": 17.805344,
-        "exc": 0.0,
+        "exc": 0,
         "sharpe": 7.40458,
         "var95": 6.616314,
-        "mdd": 8.754209
+        "mdd": 8.406398
       },
       "miembros": [
         {
@@ -4292,8 +3809,8 @@
         },
         {
           "semana": 15,
-          "puntos": 40.58,
-          "posicion": 27,
+          "puntos": 40.23,
+          "posicion": 24,
           "ret": 0.0513,
           "ir": 0.41,
           "exc": -0.0424,
@@ -4306,10 +3823,10 @@
     {
       "id": "expertos-en-blackrock",
       "nombre": "Expertos en Blackrock",
-      "posicion": 28,
-      "puntos": 38.18,
+      "posicion": 25,
+      "puntos": 37.79,
       "retRel": -0.0033,
-      "delta": -14,
+      "delta": -11,
       "metricas": {
         "ir": 0.16,
         "exc": -0.0033,
@@ -4319,10 +3836,10 @@
       },
       "puntosDetalle": {
         "ir": 16.374046,
-        "exc": 0.0,
+        "exc": 0,
         "sharpe": 7.137405,
         "var95": 6.52568,
-        "mdd": 8.139731
+        "mdd": 7.757701
       },
       "miembros": [
         {
@@ -4451,8 +3968,8 @@
         },
         {
           "semana": 15,
-          "puntos": 38.18,
-          "posicion": 28,
+          "puntos": 37.79,
+          "posicion": 25,
           "ret": 0.0437,
           "ir": 0.16,
           "exc": -0.0033,
@@ -4465,10 +3982,10 @@
     {
       "id": "inversion-racional",
       "nombre": "Inversión Racional",
-      "posicion": 29,
-      "puntos": 35.99,
+      "posicion": 26,
+      "puntos": 35.94,
       "retRel": -0.0383,
-      "delta": 2,
+      "delta": 5,
       "metricas": {
         "ir": -0.93,
         "exc": -0.0383,
@@ -4477,11 +3994,11 @@
         "mdd": -0.024399999999999998
       },
       "puntosDetalle": {
-        "ir": 0.0,
-        "exc": 0.0,
+        "ir": 0,
+        "exc": 0,
         "sharpe": 7.519084,
         "var95": 14.365559,
-        "mdd": 14.107744
+        "mdd": 14.058057
       },
       "miembros": [
         {
@@ -4606,8 +4123,8 @@
         },
         {
           "semana": 15,
-          "puntos": 35.99,
-          "posicion": 29,
+          "puntos": 35.94,
+          "posicion": 26,
           "ret": 0.0132,
           "ir": -0.93,
           "exc": -0.0383,
@@ -4620,10 +4137,10 @@
     {
       "id": "o-c-g-investment",
       "nombre": "O.C.G. Investment",
-      "posicion": 30,
-      "puntos": 35.01,
+      "posicion": 27,
+      "puntos": 34.54,
       "retRel": -0.0241,
-      "delta": -14,
+      "delta": -11,
       "metricas": {
         "ir": 0.23,
         "exc": -0.0241,
@@ -4633,10 +4150,10 @@
       },
       "puntosDetalle": {
         "ir": 16.774809,
-        "exc": 0.0,
+        "exc": 0,
         "sharpe": 6.450382,
         "var95": 5.21148,
-        "mdd": 6.574074
+        "mdd": 6.104858
       },
       "miembros": [
         {
@@ -4765,8 +4282,8 @@
         },
         {
           "semana": 15,
-          "puntos": 35.01,
-          "posicion": 30,
+          "puntos": 34.54,
+          "posicion": 27,
           "ret": 0.0442,
           "ir": 0.23,
           "exc": -0.0241,
@@ -4779,10 +4296,10 @@
     {
       "id": "portafen",
       "nombre": "Portafen",
-      "posicion": 31,
-      "puntos": 34.77,
+      "posicion": 28,
+      "puntos": 34.33,
       "retRel": -0.003,
-      "delta": -1,
+      "delta": 2,
       "metricas": {
         "ir": 0.01,
         "exc": -0.003,
@@ -4792,10 +4309,10 @@
       },
       "puntosDetalle": {
         "ir": 15.515267,
-        "exc": 0.0,
+        "exc": 0,
         "sharpe": 6.10687,
         "var95": 6.163142,
-        "mdd": 6.986532
+        "mdd": 6.540284
       },
       "miembros": [
         {
@@ -4920,8 +4437,8 @@
         },
         {
           "semana": 15,
-          "puntos": 34.77,
-          "posicion": 31,
+          "puntos": 34.33,
+          "posicion": 28,
           "ret": 0.0355,
           "ir": 0.01,
           "exc": -0.003,
@@ -4934,10 +4451,10 @@
     {
       "id": "sa-partners",
       "nombre": "SA Partners",
-      "posicion": 32,
-      "puntos": 34.1,
+      "posicion": 29,
+      "puntos": 34.09,
       "retRel": -0.0441,
-      "delta": 0,
+      "delta": 3,
       "metricas": {
         "ir": -1.15,
         "exc": -0.0441,
@@ -4946,11 +4463,11 @@
         "mdd": -0.0169
       },
       "puntosDetalle": {
-        "ir": 0.0,
-        "exc": 0.0,
+        "ir": 0,
+        "exc": 0,
         "sharpe": 5.0,
         "var95": 14.365559,
-        "mdd": 14.739057
+        "mdd": 14.724526
       },
       "miembros": [
         {
@@ -5075,8 +4592,8 @@
         },
         {
           "semana": 15,
-          "puntos": 34.1,
-          "posicion": 32,
+          "puntos": 34.09,
+          "posicion": 29,
           "ret": 0.0029,
           "ir": -1.15,
           "exc": -0.0441,
@@ -5089,10 +4606,10 @@
     {
       "id": "dinamico-italiano",
       "nombre": "Dinamico-Italiano",
-      "posicion": 33,
-      "puntos": 32.33,
+      "posicion": 30,
+      "puntos": 32.2,
       "retRel": -0.0475,
-      "delta": 2,
+      "delta": 5,
       "metricas": {
         "ir": -0.13,
         "exc": -0.0475,
@@ -5101,11 +4618,11 @@
         "mdd": -0.041100000000000005
       },
       "puntosDetalle": {
-        "ir": 0.0,
-        "exc": 0.0,
+        "ir": 0,
+        "exc": 0,
         "sharpe": 8.664122,
         "var95": 10.966767,
-        "mdd": 12.70202
+        "mdd": 12.574052
       },
       "miembros": [
         {
@@ -5230,8 +4747,8 @@
         },
         {
           "semana": 15,
-          "puntos": 32.33,
-          "posicion": 33,
+          "puntos": 32.2,
+          "posicion": 30,
           "ret": 0.0392,
           "ir": -0.13,
           "exc": -0.0475,
@@ -5244,10 +4761,10 @@
     {
       "id": "vbp-investments",
       "nombre": "VBP Investments",
-      "posicion": 34,
-      "puntos": 31.83,
+      "posicion": 31,
+      "puntos": 31.72,
       "retRel": -0.1307,
-      "delta": 2,
+      "delta": 5,
       "metricas": {
         "ir": -1.14,
         "exc": -0.1307,
@@ -5256,11 +4773,11 @@
         "mdd": -0.0369
       },
       "puntosDetalle": {
-        "ir": 0.0,
-        "exc": 0.0,
+        "ir": 0,
+        "exc": 0,
         "sharpe": 5.725191,
         "var95": 13.05136,
-        "mdd": 13.055556
+        "mdd": 12.947275
       },
       "miembros": [
         {
@@ -5389,8 +4906,8 @@
         },
         {
           "semana": 15,
-          "puntos": 31.83,
-          "posicion": 34,
+          "puntos": 31.72,
+          "posicion": 31,
           "ret": 0.011,
           "ir": -1.14,
           "exc": -0.1307,
@@ -5403,10 +4920,10 @@
     {
       "id": "vantedge-asset-management",
       "nombre": "Vantedge Asset Management",
-      "posicion": 35,
-      "puntos": 30.31,
+      "posicion": 32,
+      "puntos": 29.77,
       "retRel": -0.050499999999999996,
-      "delta": -1,
+      "delta": 2,
       "metricas": {
         "ir": 0.0,
         "exc": -0.050499999999999996,
@@ -5416,10 +4933,10 @@
       },
       "puntosDetalle": {
         "ir": 15.458015,
-        "exc": 0.0,
+        "exc": 0,
         "sharpe": 5.954198,
         "var95": 3.58006,
-        "mdd": 5.319865
+        "mdd": 4.780806
       },
       "miembros": [
         {
@@ -5548,8 +5065,8 @@
         },
         {
           "semana": 15,
-          "puntos": 30.31,
-          "posicion": 35,
+          "puntos": 29.77,
+          "posicion": 32,
           "ret": 0.0338,
           "ir": 0.0,
           "exc": -0.050499999999999996,
@@ -5562,10 +5079,10 @@
     {
       "id": "equipo-rocket",
       "nombre": "Equipo rocket",
-      "posicion": 36,
-      "puntos": 28.13,
+      "posicion": 33,
+      "puntos": 27.97,
       "retRel": -0.161,
-      "delta": 2,
+      "delta": 5,
       "metricas": {
         "ir": -0.98,
         "exc": -0.161,
@@ -5574,11 +5091,11 @@
         "mdd": -0.046900000000000004
       },
       "puntosDetalle": {
-        "ir": 0.0,
-        "exc": 0.0,
+        "ir": 0,
+        "exc": 0,
         "sharpe": 5.763359,
         "var95": 10.151057,
-        "mdd": 12.213805
+        "mdd": 12.058649
       },
       "miembros": [],
       "historial": [
@@ -5694,8 +5211,8 @@
         },
         {
           "semana": 15,
-          "puntos": 28.13,
-          "posicion": 36,
+          "puntos": 27.97,
+          "posicion": 33,
           "ret": 0.0153,
           "ir": -0.98,
           "exc": -0.161,
@@ -5708,10 +5225,10 @@
     {
       "id": "9-financiero",
       "nombre": "9 financiero",
-      "posicion": 37,
-      "puntos": 27.56,
+      "posicion": 34,
+      "puntos": 27.33,
       "retRel": -0.0504,
-      "delta": 3,
+      "delta": 6,
       "metricas": {
         "ir": -1.15,
         "exc": -0.0504,
@@ -5720,11 +5237,11 @@
         "mdd": -0.0611
       },
       "puntosDetalle": {
-        "ir": 0.0,
-        "exc": 0.0,
+        "ir": 0,
+        "exc": 0,
         "sharpe": 6.068702,
         "var95": 10.468278,
-        "mdd": 11.018519
+        "mdd": 10.796801
       },
       "miembros": [
         {
@@ -5853,8 +5370,8 @@
         },
         {
           "semana": 15,
-          "puntos": 27.56,
-          "posicion": 37,
+          "puntos": 27.33,
+          "posicion": 34,
           "ret": 0.021,
           "ir": -1.15,
           "exc": -0.0504,
@@ -5867,10 +5384,10 @@
     {
       "id": "ccq",
       "nombre": "CCQ",
-      "posicion": 38,
-      "puntos": 26.78,
+      "posicion": 35,
+      "puntos": 26.52,
       "retRel": -0.1011,
-      "delta": 4,
+      "delta": 7,
       "metricas": {
         "ir": -1.31,
         "exc": -0.1011,
@@ -5879,11 +5396,11 @@
         "mdd": -0.0675
       },
       "puntosDetalle": {
-        "ir": 0.0,
-        "exc": 0.0,
+        "ir": 0,
+        "exc": 0,
         "sharpe": 5.419847,
         "var95": 10.876133,
-        "mdd": 10.479798
+        "mdd": 10.228081
       },
       "miembros": [
         {
@@ -6012,8 +5529,8 @@
         },
         {
           "semana": 15,
-          "puntos": 26.78,
-          "posicion": 38,
+          "puntos": 26.52,
+          "posicion": 35,
           "ret": 0.0139,
           "ir": -1.31,
           "exc": -0.1011,
@@ -6026,10 +5543,10 @@
     {
       "id": "black-bulls",
       "nombre": "Black Bulls",
-      "posicion": 39,
-      "puntos": 26.25,
+      "posicion": 36,
+      "puntos": 25.98,
       "retRel": -0.10279999999999999,
-      "delta": 4,
+      "delta": 7,
       "metricas": {
         "ir": -1.66,
         "exc": -0.10279999999999999,
@@ -6038,11 +5555,11 @@
         "mdd": -0.0711
       },
       "puntosDetalle": {
-        "ir": 0.0,
-        "exc": 0.0,
+        "ir": 0,
+        "exc": 0,
         "sharpe": 4.923664,
         "var95": 11.148036,
-        "mdd": 10.176768
+        "mdd": 9.908175
       },
       "miembros": [
         {
@@ -6167,8 +5684,8 @@
         },
         {
           "semana": 15,
-          "puntos": 26.25,
-          "posicion": 39,
+          "puntos": 25.98,
+          "posicion": 36,
           "ret": 0.0097,
           "ir": -1.66,
           "exc": -0.10279999999999999,
@@ -6181,10 +5698,10 @@
     {
       "id": "coclea-corp",
       "nombre": "Coclea Corp",
-      "posicion": 40,
-      "puntos": 25.36,
+      "posicion": 37,
+      "puntos": 25.15,
       "retRel": -0.0828,
-      "delta": -15,
+      "delta": -12,
       "metricas": {
         "ir": -0.18,
         "exc": -0.0828,
@@ -6193,11 +5710,11 @@
         "mdd": -0.058499999999999996
       },
       "puntosDetalle": {
-        "ir": 0.0,
-        "exc": 0.0,
+        "ir": 0,
+        "exc": 0,
         "sharpe": 6.870229,
         "var95": 7.250755,
-        "mdd": 11.237374
+        "mdd": 11.027844
       },
       "miembros": [
         {
@@ -6322,8 +5839,8 @@
         },
         {
           "semana": 15,
-          "puntos": 25.36,
-          "posicion": 40,
+          "puntos": 25.15,
+          "posicion": 37,
           "ret": 0.0352,
           "ir": -0.18,
           "exc": -0.0828,
@@ -6334,169 +5851,12 @@
       ]
     },
     {
-      "id": "fencashticos",
-      "nombre": "Fencashticos",
-      "posicion": 41,
-      "puntos": 25.18,
-      "retRel": -0.10460000000000001,
-      "delta": 3,
-      "metricas": {
-        "ir": -0.56,
-        "exc": -0.10460000000000001,
-        "sharpe": 0.78,
-        "var95": -0.016,
-        "mdd": -0.076
-      },
-      "puntosDetalle": {
-        "ir": 0.0,
-        "exc": 0.0,
-        "sharpe": 6.755725,
-        "var95": 8.655589,
-        "mdd": 9.76431
-      },
-      "miembros": [
-        {
-          "nombre": "Francisco Antonio Freire Sabaj",
-          "linkedin": ""
-        },
-        {
-          "nombre": "Carlos Ignacio Piaggio Stack",
-          "linkedin": "https://www.linkedin.com/in/carlos-piaggio-stack-84319027b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-        }
-      ],
-      "congelado": true,
-      "congelado_desde_semana": 14,
-      "historial": [
-        {
-          "semana": 5,
-          "puntos": 60.74,
-          "posicion": 18,
-          "ret": 0.0426,
-          "ir": 3.9,
-          "exc": 0.2993,
-          "sharpe": 2.25,
-          "var95": -0.0115,
-          "mdd": -0.050300000000000004
-        },
-        {
-          "semana": 6,
-          "puntos": 61.01,
-          "posicion": 18,
-          "ret": 0.0635,
-          "ir": 3.92,
-          "exc": 0.3086,
-          "sharpe": 2.76,
-          "var95": -0.0118,
-          "mdd": -0.050300000000000004
-        },
-        {
-          "semana": 7,
-          "puntos": 54.11,
-          "posicion": 26,
-          "ret": 0.0323,
-          "ir": 2.63,
-          "exc": 0.1925,
-          "sharpe": 1.22,
-          "var95": -0.0191,
-          "mdd": -0.050300000000000004
-        },
-        {
-          "semana": 8,
-          "puntos": 47.7,
-          "posicion": 29,
-          "ret": 0.0273,
-          "ir": 1.18,
-          "exc": 0.0646,
-          "sharpe": 0.95,
-          "var95": -0.0191,
-          "mdd": -0.050300000000000004
-        },
-        {
-          "semana": 9,
-          "puntos": 53.22,
-          "posicion": 28,
-          "ret": 0.0365,
-          "ir": 1.04,
-          "exc": 0.0564,
-          "sharpe": 1.14,
-          "var95": -0.0171,
-          "mdd": -0.050300000000000004
-        },
-        {
-          "semana": 10,
-          "puntos": 38.96,
-          "posicion": 30,
-          "ret": 0.0072,
-          "ir": 0.31,
-          "exc": -0.014199999999999999,
-          "sharpe": 0.28,
-          "var95": -0.0174,
-          "mdd": -0.0545
-        },
-        {
-          "semana": 11,
-          "puntos": 41.6,
-          "posicion": 25,
-          "ret": 0.0134,
-          "ir": 0.81,
-          "exc": -0.0286,
-          "sharpe": 0.42,
-          "var95": -0.0171,
-          "mdd": -0.055099999999999996
-        },
-        {
-          "semana": 12,
-          "puntos": 25.31,
-          "posicion": 41,
-          "ret": 0.0216,
-          "ir": -0.71,
-          "exc": -0.1175,
-          "sharpe": 0.55,
-          "var95": -0.0166,
-          "mdd": -0.076
-        },
-        {
-          "semana": 13,
-          "puntos": 22.97,
-          "posicion": 39,
-          "ret": 0.0243,
-          "ir": -0.78,
-          "exc": -0.1069,
-          "sharpe": 0.6,
-          "var95": -0.0165,
-          "mdd": -0.076
-        },
-        {
-          "semana": 14,
-          "puntos": 22.93,
-          "posicion": 44,
-          "ret": 0.0346,
-          "ir": -0.56,
-          "exc": -0.10460000000000001,
-          "sharpe": 0.78,
-          "var95": -0.016,
-          "mdd": -0.076
-        },
-        {
-          "semana": 15,
-          "puntos": 25.18,
-          "posicion": 41,
-          "ret": -0.10460000000000001,
-          "ir": -0.56,
-          "exc": -0.10460000000000001,
-          "sharpe": 0.78,
-          "var95": -0.016,
-          "mdd": -0.076
-        }
-      ]
-    },
-    {
       "id": "malaga-capital-partners",
       "nombre": "Malaga Capital Partners",
-      "posicion": 42,
-      "puntos": 23.59,
+      "posicion": 38,
+      "puntos": 23.27,
       "retRel": -0.0455,
-      "delta": -15,
+      "delta": -11,
       "metricas": {
         "ir": -0.14,
         "exc": -0.0455,
@@ -6505,11 +5865,11 @@
         "mdd": -0.08199999999999999
       },
       "puntosDetalle": {
-        "ir": 0.0,
-        "exc": 0.0,
+        "ir": 0,
+        "exc": 0,
         "sharpe": 6.48855,
         "var95": 7.839879,
-        "mdd": 9.259259
+        "mdd": 8.939573
       },
       "miembros": [
         {
@@ -6634,8 +5994,8 @@
         },
         {
           "semana": 15,
-          "puntos": 23.59,
-          "posicion": 42,
+          "puntos": 23.27,
+          "posicion": 38,
           "ret": 0.0345,
           "ir": -0.14,
           "exc": -0.0455,
@@ -6646,169 +6006,12 @@
       ]
     },
     {
-      "id": "free-riders",
-      "nombre": "Free Riders",
-      "posicion": 43,
-      "puntos": 22.55,
-      "retRel": -0.10210000000000001,
-      "delta": 2,
-      "metricas": {
-        "ir": 0.15,
-        "exc": -0.10210000000000001,
-        "sharpe": 0.62,
-        "var95": -0.0349,
-        "mdd": -0.192
-      },
-      "puntosDetalle": {
-        "ir": 16.316794,
-        "exc": 0.0,
-        "sharpe": 6.145038,
-        "var95": 0.090634,
-        "mdd": 0.0
-      },
-      "miembros": [
-        {
-          "nombre": "Lucas Daniel Valenzuela Pavez",
-          "linkedin": ""
-        },
-        {
-          "nombre": "Martin Amaru Farias Gaete",
-          "linkedin": ""
-        }
-      ],
-      "congelado": true,
-      "congelado_desde_semana": 14,
-      "historial": [
-        {
-          "semana": 5,
-          "puntos": 52.6,
-          "posicion": 33,
-          "ret": 0.0684,
-          "ir": 2.85,
-          "exc": 0.6019,
-          "sharpe": 2.11,
-          "var95": -0.022799999999999997,
-          "mdd": -0.092
-        },
-        {
-          "semana": 6,
-          "puntos": 63.58,
-          "posicion": 15,
-          "ret": 0.1318,
-          "ir": 3.89,
-          "exc": 0.9133,
-          "sharpe": 3.11,
-          "var95": -0.0229,
-          "mdd": -0.092
-        },
-        {
-          "semana": 7,
-          "puntos": 47.86,
-          "posicion": 34,
-          "ret": 0.0699,
-          "ir": 2.11,
-          "exc": 0.49579999999999996,
-          "sharpe": 1.46,
-          "var95": -0.04019999999999999,
-          "mdd": -0.092
-        },
-        {
-          "semana": 8,
-          "puntos": 36.35,
-          "posicion": 39,
-          "ret": 0.0416,
-          "ir": 0.94,
-          "exc": 0.1805,
-          "sharpe": 0.86,
-          "var95": -0.0404,
-          "mdd": -0.092
-        },
-        {
-          "semana": 9,
-          "puntos": 43.53,
-          "posicion": 36,
-          "ret": 0.0532,
-          "ir": 0.9,
-          "exc": 0.1711,
-          "sharpe": 0.97,
-          "var95": -0.0368,
-          "mdd": -0.0943
-        },
-        {
-          "semana": 10,
-          "puntos": 1.66,
-          "posicion": 58,
-          "ret": -0.0159,
-          "ir": -0.14,
-          "exc": -0.1084,
-          "sharpe": -0.03,
-          "var95": -0.0381,
-          "mdd": -0.1378
-        },
-        {
-          "semana": 11,
-          "puntos": 17.72,
-          "posicion": 45,
-          "ret": -0.0139,
-          "ir": 0.0,
-          "exc": -0.16699999999999998,
-          "sharpe": 0.01,
-          "var95": -0.038,
-          "mdd": -0.1378
-        },
-        {
-          "semana": 12,
-          "puntos": 6.18,
-          "posicion": 58,
-          "ret": 0.0182,
-          "ir": -0.09,
-          "exc": -0.1557,
-          "sharpe": 0.38,
-          "var95": -0.037599999999999995,
-          "mdd": -0.192
-        },
-        {
-          "semana": 13,
-          "puntos": 4.33,
-          "posicion": 58,
-          "ret": 0.0171,
-          "ir": -0.17,
-          "exc": -0.1655,
-          "sharpe": 0.36,
-          "var95": -0.0368,
-          "mdd": -0.192
-        },
-        {
-          "semana": 14,
-          "puntos": 21.87,
-          "posicion": 45,
-          "ret": 0.0451,
-          "ir": 0.15,
-          "exc": -0.10210000000000001,
-          "sharpe": 0.62,
-          "var95": -0.0349,
-          "mdd": -0.192
-        },
-        {
-          "semana": 15,
-          "puntos": 22.55,
-          "posicion": 43,
-          "ret": -0.10210000000000001,
-          "ir": 0.15,
-          "exc": -0.10210000000000001,
-          "sharpe": 0.62,
-          "var95": -0.0349,
-          "mdd": -0.192
-        }
-      ]
-    },
-    {
       "id": "vnm-capital-partners",
       "nombre": "VNM Capital Partners",
-      "posicion": 44,
-      "puntos": 22.46,
+      "posicion": 39,
+      "puntos": 22.27,
       "retRel": -0.1348,
-      "delta": -3,
+      "delta": 2,
       "metricas": {
         "ir": -1.66,
         "exc": -0.1348,
@@ -6817,11 +6020,11 @@
         "mdd": -0.053899999999999997
       },
       "puntosDetalle": {
-        "ir": 0.0,
-        "exc": 0.0,
-        "sharpe": 0.0,
+        "ir": 0,
+        "exc": 0,
+        "sharpe": 0,
         "var95": 10.830816,
-        "mdd": 11.624579
+        "mdd": 11.436611
       },
       "miembros": [
         {
@@ -6950,8 +6153,8 @@
         },
         {
           "semana": 15,
-          "puntos": 22.46,
-          "posicion": 44,
+          "puntos": 22.27,
+          "posicion": 39,
           "ret": -0.0028,
           "ir": -1.66,
           "exc": -0.1348,
@@ -6964,10 +6167,10 @@
     {
       "id": "pgat",
       "nombre": "PGAt",
-      "posicion": 45,
-      "puntos": 22.44,
+      "posicion": 40,
+      "puntos": 22.05,
       "retRel": -0.10039999999999999,
-      "delta": 2,
+      "delta": 7,
       "metricas": {
         "ir": -0.2,
         "exc": -0.10039999999999999,
@@ -6976,11 +6179,11 @@
         "mdd": -0.0958
       },
       "puntosDetalle": {
-        "ir": 0.0,
-        "exc": 0.0,
+        "ir": 0,
+        "exc": 0,
         "sharpe": 6.183206,
         "var95": 8.1571,
-        "mdd": 8.097643
+        "mdd": 7.71327
       },
       "miembros": [
         {
@@ -7109,8 +6312,8 @@
         },
         {
           "semana": 15,
-          "puntos": 22.44,
-          "posicion": 45,
+          "puntos": 22.05,
+          "posicion": 40,
           "ret": 0.0314,
           "ir": -0.2,
           "exc": -0.10039999999999999,
@@ -7123,10 +6326,10 @@
     {
       "id": "emax-wealth",
       "nombre": "Emax Wealth",
-      "posicion": 46,
-      "puntos": 19.5,
+      "posicion": 41,
+      "puntos": 19.08,
       "retRel": -0.0907,
-      "delta": -17,
+      "delta": -12,
       "metricas": {
         "ir": -0.14,
         "exc": -0.0907,
@@ -7135,11 +6338,11 @@
         "mdd": -0.1045
       },
       "puntosDetalle": {
-        "ir": 0.0,
-        "exc": 0.0,
+        "ir": 0,
+        "exc": 0,
         "sharpe": 5.839695,
         "var95": 6.299094,
-        "mdd": 7.36532
+        "mdd": 6.940166
       },
       "miembros": [
         {
@@ -7264,8 +6467,8 @@
         },
         {
           "semana": 15,
-          "puntos": 19.5,
-          "posicion": 46,
+          "puntos": 19.08,
+          "posicion": 41,
           "ret": 0.0297,
           "ir": -0.14,
           "exc": -0.0907,
@@ -7278,10 +6481,10 @@
     {
       "id": "seriosfc",
       "nombre": "SeriosFc",
-      "posicion": 47,
-      "puntos": 18.13,
+      "posicion": 42,
+      "puntos": 17.69,
       "retRel": -0.11470000000000001,
-      "delta": 3,
+      "delta": 8,
       "metricas": {
         "ir": -0.62,
         "exc": -0.11470000000000001,
@@ -7290,11 +6493,11 @@
         "mdd": -0.10769999999999999
       },
       "puntosDetalle": {
-        "ir": 0.0,
-        "exc": 0.0,
+        "ir": 0,
+        "exc": 0,
         "sharpe": 4.961832,
         "var95": 6.072508,
-        "mdd": 7.09596
+        "mdd": 6.655806
       },
       "miembros": [
         {
@@ -7419,8 +6622,8 @@
         },
         {
           "semana": 15,
-          "puntos": 18.13,
-          "posicion": 47,
+          "puntos": 17.69,
+          "posicion": 42,
           "ret": 0.0133,
           "ir": -0.62,
           "exc": -0.11470000000000001,
@@ -7433,10 +6636,10 @@
     {
       "id": "indarra-investments",
       "nombre": "Indarra Investments",
-      "posicion": 48,
-      "puntos": 17.9,
+      "posicion": 43,
+      "puntos": 17.58,
       "retRel": -0.11720000000000001,
-      "delta": 0,
+      "delta": 5,
       "metricas": {
         "ir": -1.76,
         "exc": -0.11720000000000001,
@@ -7445,11 +6648,11 @@
         "mdd": -0.08220000000000001
       },
       "puntosDetalle": {
-        "ir": 0.0,
-        "exc": 0.0,
-        "sharpe": 0.0,
+        "ir": 0,
+        "exc": 0,
+        "sharpe": 0,
         "var95": 8.655589,
-        "mdd": 9.242424
+        "mdd": 8.921801
       },
       "miembros": [
         {
@@ -7578,8 +6781,8 @@
         },
         {
           "semana": 15,
-          "puntos": 17.9,
-          "posicion": 48,
+          "puntos": 17.58,
+          "posicion": 43,
           "ret": -0.0057,
           "ir": -1.76,
           "exc": -0.11720000000000001,
@@ -7592,10 +6795,10 @@
     {
       "id": "diagonal-capital",
       "nombre": "Diagonal Capital",
-      "posicion": 49,
-      "puntos": 17.26,
+      "posicion": 44,
+      "puntos": 16.95,
       "retRel": -0.2327,
-      "delta": 2,
+      "delta": 7,
       "metricas": {
         "ir": -2.25,
         "exc": -0.2327,
@@ -7604,11 +6807,11 @@
         "mdd": -0.0796
       },
       "puntosDetalle": {
-        "ir": 0.0,
-        "exc": 0.0,
-        "sharpe": 0.0,
+        "ir": 0,
+        "exc": 0,
+        "sharpe": 0,
         "var95": 7.794562,
-        "mdd": 9.461279
+        "mdd": 9.152844
       },
       "miembros": [
         {
@@ -7737,8 +6940,8 @@
         },
         {
           "semana": 15,
-          "puntos": 17.26,
-          "posicion": 49,
+          "puntos": 16.95,
+          "posicion": 44,
           "ret": -0.0152,
           "ir": -2.25,
           "exc": -0.2327,
@@ -7751,10 +6954,10 @@
     {
       "id": "cimientos-financieros",
       "nombre": "Cimientos financieros",
-      "posicion": 50,
-      "puntos": 16.43,
+      "posicion": 45,
+      "puntos": 15.94,
       "retRel": -0.1754,
-      "delta": 4,
+      "delta": 9,
       "metricas": {
         "ir": -0.54,
         "exc": -0.1754,
@@ -7763,11 +6966,11 @@
         "mdd": -0.11900000000000001
       },
       "puntosDetalle": {
-        "ir": 0.0,
-        "exc": 0.0,
+        "ir": 0,
+        "exc": 0,
         "sharpe": 5.076336,
         "var95": 5.21148,
-        "mdd": 6.144781
+        "mdd": 5.651659
       },
       "miembros": [
         {
@@ -7896,8 +7099,8 @@
         },
         {
           "semana": 15,
-          "puntos": 16.43,
-          "posicion": 50,
+          "puntos": 15.94,
+          "posicion": 45,
           "ret": 0.0152,
           "ir": -0.54,
           "exc": -0.1754,
@@ -7910,10 +7113,10 @@
     {
       "id": "alpha-partners",
       "nombre": "Alpha Partners",
-      "posicion": 51,
-      "puntos": 16.36,
+      "posicion": 46,
+      "puntos": 15.88,
       "retRel": -0.22519999999999998,
-      "delta": 2,
+      "delta": 7,
       "metricas": {
         "ir": -0.9,
         "exc": -0.22519999999999998,
@@ -7922,11 +7125,11 @@
         "mdd": -0.1173
       },
       "puntosDetalle": {
-        "ir": 0.0,
-        "exc": 0.0,
+        "ir": 0,
+        "exc": 0,
         "sharpe": 4.274809,
         "var95": 5.800604,
-        "mdd": 6.287879
+        "mdd": 5.802725
       },
       "miembros": [
         {
@@ -8051,8 +7254,8 @@
         },
         {
           "semana": 15,
-          "puntos": 16.36,
-          "posicion": 51,
+          "puntos": 15.88,
+          "posicion": 46,
           "ret": 0.0016,
           "ir": -0.9,
           "exc": -0.22519999999999998,
@@ -8065,10 +7268,10 @@
     {
       "id": "orb-asset-management",
       "nombre": "ORB Asset Management",
-      "posicion": 52,
-      "puntos": 16.21,
+      "posicion": 47,
+      "puntos": 15.7,
       "retRel": -0.0301,
-      "delta": -19,
+      "delta": -14,
       "metricas": {
         "ir": -0.12,
         "exc": -0.0301,
@@ -8077,11 +7280,11 @@
         "mdd": -0.1222
       },
       "puntosDetalle": {
-        "ir": 0.0,
-        "exc": 0.0,
+        "ir": 0,
+        "exc": 0,
         "sharpe": 5.572519,
         "var95": 4.758308,
-        "mdd": 5.875421
+        "mdd": 5.367299
       },
       "miembros": [
         {
@@ -8210,8 +7413,8 @@
         },
         {
           "semana": 15,
-          "puntos": 16.21,
-          "posicion": 52,
+          "puntos": 15.7,
+          "posicion": 47,
           "ret": 0.0269,
           "ir": -0.12,
           "exc": -0.0301,
@@ -8224,10 +7427,10 @@
     {
       "id": "los-estadisticos-inconscientes",
       "nombre": "Los Estadísticos Inconscientes",
-      "posicion": 53,
-      "puntos": 14.35,
+      "posicion": 48,
+      "puntos": 13.76,
       "retRel": -0.0643,
-      "delta": 2,
+      "delta": 7,
       "metricas": {
         "ir": -0.1,
         "exc": -0.0643,
@@ -8236,11 +7439,11 @@
         "mdd": -0.1409
       },
       "puntosDetalle": {
-        "ir": 0.0,
-        "exc": 0.0,
+        "ir": 0,
+        "exc": 0,
         "sharpe": 5.610687,
         "var95": 4.441088,
-        "mdd": 4.301347
+        "mdd": 3.705569
       },
       "miembros": [
         {
@@ -8369,8 +7572,8 @@
         },
         {
           "semana": 15,
-          "puntos": 14.35,
-          "posicion": 53,
+          "puntos": 13.76,
+          "posicion": 48,
           "ret": 0.0278,
           "ir": -0.1,
           "exc": -0.0643,
@@ -8383,10 +7586,10 @@
     {
       "id": "default-capital",
       "nombre": "Default Capital",
-      "posicion": 54,
-      "puntos": 12.96,
+      "posicion": 49,
+      "puntos": 12.53,
       "retRel": -0.1918,
-      "delta": -2,
+      "delta": 3,
       "metricas": {
         "ir": -1.33,
         "exc": -0.1918,
@@ -8395,11 +7598,11 @@
         "mdd": -0.10529999999999999
       },
       "puntosDetalle": {
-        "ir": 0.0,
-        "exc": 0.0,
-        "sharpe": 0.0,
+        "ir": 0,
+        "exc": 0,
+        "sharpe": 0,
         "var95": 5.664653,
-        "mdd": 7.29798
+        "mdd": 6.869076
       },
       "miembros": [
         {
@@ -8528,8 +7731,8 @@
         },
         {
           "semana": 15,
-          "puntos": 12.96,
-          "posicion": 54,
+          "puntos": 12.53,
+          "posicion": 49,
           "ret": -0.0099,
           "ir": -1.33,
           "exc": -0.1918,
@@ -8542,10 +7745,10 @@
     {
       "id": "mvf-capital",
       "nombre": "MVF Capital",
-      "posicion": 55,
-      "puntos": 10.59,
+      "posicion": 50,
+      "puntos": 10.06,
       "retRel": -0.19690000000000002,
-      "delta": 1,
+      "delta": 6,
       "metricas": {
         "ir": -1.1,
         "exc": -0.19690000000000002,
@@ -8554,11 +7757,11 @@
         "mdd": -0.1265
       },
       "puntosDetalle": {
-        "ir": 0.0,
-        "exc": 0.0,
-        "sharpe": 0.0,
+        "ir": 0,
+        "exc": 0,
+        "sharpe": 0,
         "var95": 5.075529,
-        "mdd": 5.513468
+        "mdd": 4.98519
       },
       "miembros": [
         {
@@ -8687,8 +7890,8 @@
         },
         {
           "semana": 15,
-          "puntos": 10.59,
-          "posicion": 55,
+          "puntos": 10.06,
+          "posicion": 50,
           "ret": -0.0238,
           "ir": -1.1,
           "exc": -0.19690000000000002,
@@ -8701,10 +7904,10 @@
     {
       "id": "jose",
       "nombre": "Jose",
-      "posicion": 56,
-      "puntos": 10.16,
+      "posicion": 51,
+      "puntos": 9.55,
       "retRel": -0.3728,
-      "delta": 1,
+      "delta": 6,
       "metricas": {
         "ir": -2.7,
         "exc": -0.3728,
@@ -8713,11 +7916,11 @@
         "mdd": -0.14400000000000002
       },
       "puntosDetalle": {
-        "ir": 0.0,
-        "exc": 0.0,
-        "sharpe": 0.0,
+        "ir": 0,
+        "exc": 0,
+        "sharpe": 0,
         "var95": 6.117825,
-        "mdd": 4.040404
+        "mdd": 3.430095
       },
       "miembros": [
         {
@@ -8842,8 +8045,8 @@
         },
         {
           "semana": 15,
-          "puntos": 10.16,
-          "posicion": 56,
+          "puntos": 9.55,
+          "posicion": 51,
           "ret": -0.0658,
           "ir": -2.7,
           "exc": -0.3728,
@@ -8856,10 +8059,10 @@
     {
       "id": "sharpe-fox",
       "nombre": "Sharpe Fox",
-      "posicion": 57,
-      "puntos": 9.64,
+      "posicion": 52,
+      "puntos": 8.98,
       "retRel": -0.105,
-      "delta": 1,
+      "delta": 6,
       "metricas": {
         "ir": -1.85,
         "exc": -0.105,
@@ -8868,11 +8071,11 @@
         "mdd": -0.15289999999999998
       },
       "puntosDetalle": {
-        "ir": 0.0,
-        "exc": 0.0,
-        "sharpe": 0.0,
+        "ir": 0,
+        "exc": 0,
+        "sharpe": 0,
         "var95": 6.344411,
-        "mdd": 3.291246
+        "mdd": 2.639218
       },
       "miembros": [
         {
@@ -8997,8 +8200,8 @@
         },
         {
           "semana": 15,
-          "puntos": 9.64,
-          "posicion": 57,
+          "puntos": 8.98,
+          "posicion": 52,
           "ret": -0.0839,
           "ir": -1.85,
           "exc": -0.105,
@@ -9011,10 +8214,10 @@
     {
       "id": "fat-fingers",
       "nombre": "Fat fingers",
-      "posicion": 58,
-      "puntos": 5.6,
+      "posicion": 53,
+      "puntos": 4.81,
       "retRel": -0.17739999999999997,
-      "delta": -12,
+      "delta": -7,
       "metricas": {
         "ir": -0.19,
         "exc": -0.17739999999999997,
@@ -9023,11 +8226,11 @@
         "mdd": -0.1826
       },
       "puntosDetalle": {
-        "ir": 0.0,
-        "exc": 0.0,
+        "ir": 0,
+        "exc": 0,
         "sharpe": 4.80916,
-        "var95": 0.0,
-        "mdd": 0.791246
+        "var95": 0,
+        "mdd": 0
       },
       "miembros": [
         {
@@ -9156,8 +8359,8 @@
         },
         {
           "semana": 15,
-          "puntos": 5.6,
-          "posicion": 58,
+          "puntos": 4.81,
+          "posicion": 53,
           "ret": 0.0097,
           "ir": -0.19,
           "exc": -0.17739999999999997,
@@ -9170,10 +8373,10 @@
     {
       "id": "rs-investment-group",
       "nombre": "R&S Investment Group",
-      "posicion": 59,
-      "puntos": 2.35,
+      "posicion": 54,
+      "puntos": 1.58,
       "retRel": -0.2514,
-      "delta": 0,
+      "delta": 5,
       "metricas": {
         "ir": -0.87,
         "exc": -0.2514,
@@ -9182,11 +8385,11 @@
         "mdd": -0.1765
       },
       "puntosDetalle": {
-        "ir": 0.0,
-        "exc": 0.0,
-        "sharpe": 0.0,
+        "ir": 0,
+        "exc": 0,
+        "sharpe": 0,
         "var95": 1.042296,
-        "mdd": 1.304714
+        "mdd": 0.542062
       },
       "miembros": [
         {
@@ -9311,8 +8514,8 @@
         },
         {
           "semana": 15,
-          "puntos": 2.35,
-          "posicion": 59,
+          "puntos": 1.58,
+          "posicion": 54,
           "ret": -0.018,
           "ir": -0.87,
           "exc": -0.2514,

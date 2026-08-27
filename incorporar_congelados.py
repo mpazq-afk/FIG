@@ -126,6 +126,13 @@ def main():
     torneo = json.loads(RUTA_TORNEO.read_text(encoding="utf-8"))
     congelados_data = json.loads(RUTA_CONGELADOS.read_text(encoding="utf-8"))
 
+    if not congelados_data.get("equipos"):
+        print("datos/equipos_congelados.json esta vacio -- no hay equipos en espera. "
+              "torneo.json queda tal cual lo dejo generar_torneo.py, sin tocar.\n"
+              "(Los 5 equipos que estuvieron en espera 23-ago -> 26-ago fueron "
+              "eliminados en definitiva por la directiva. Ver el _nota del JSON.)")
+        return
+
     equipos_reales = torneo["equipos"]
     equipos_congelados = congelados_data["equipos"]
     semana = torneo["semana"]
