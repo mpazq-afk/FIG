@@ -697,11 +697,60 @@ var manual=false, t0=null;
 window.__manual=function(){manual=true};
 window.__seek=function(ms){seek(ms)};
 
+/* ================= recarga automatica =================
+   Esta pagina vive en una TV de la facultad y corre en bucle sin nadie delante:
+   el viernes que se publica el corte nuevo no hay quien la recargue, asi que
+   hasta ahora seguia mostrando el corte anterior hasta que alguien se acordaba.
+
+   Cada REFRESCO_MS vuelve a pedir torneo.json. Si el corte cambio, los datos
+   quedan ESPERANDO y el cambio se aplica recien cuando el ciclo de animacion da
+   la vuelta: cambiar a mitad de una transicion se ve como una falla delante de
+   la gente, y el ciclo entero dura 42 segundos, o sea que nunca espera mucho.
+
+   Si la red se cae no se toca absolutamente nada: la pantalla sigue con el
+   ultimo corte bueno, que siempre es mejor que quedarse en blanco. Lo mismo si
+   el archivo llega a medio publicar (sin equipos): se descarta y se reintenta
+   en la siguiente vuelta del reloj.
+
+   Mientras se graba (window.__manual()) el refresco queda apagado: el guion de
+   grabacion necesita que los datos no se muevan debajo. */
+var REFRESCO_MS = 5*60*1000;
+var PENDIENTE = null;
+
+function mismoCorte(a,b){
+  return !!a && !!b && a.corte===b.corte && a.semana===b.semana &&
+         (a.equipos||[]).length===(b.equipos||[]).length;
+}
+function revisarCorte(){
+  if(manual) return;
+  fetch("../datos/torneo.json",{cache:"no-store"})
+    .then(function(r){return r.ok?r.json():null})
+    .then(function(d){
+      if(!d||!d.equipos||!d.equipos.length) return;   /* archivo a medio publicar */
+      if(mismoCorte(d,D)) return;                     /* nada nuevo: no se toca la pantalla */
+      PENDIENTE=d;
+    })
+    .catch(function(){});                             /* sin red: se queda con lo que tiene */
+}
+
 function arrancar(){
   window.__ready=true;
+  setInterval(revisarCorte,REFRESCO_MS);
+  var prev=0;
   requestAnimationFrame(function bucle(now){
     if(t0===null) t0=now;
-    if(!manual) seek((now-t0)%TOTAL);
+    if(!manual){
+      var t=(now-t0)%TOTAL;
+      /* t<prev == el reloj acaba de dar la vuelta: el unico momento en que se
+         puede cambiar el corte sin cortar nada por la mitad */
+      if(t<prev && PENDIENTE){
+        D=PENDIENTE; PENDIENTE=null;
+        preparar(); construir();
+        t0=now; t=0;
+      }
+      prev=t;
+      seek(t);
+    }
     requestAnimationFrame(bucle);
   });
 }

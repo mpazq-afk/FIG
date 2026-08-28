@@ -277,6 +277,37 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .lb-empty{padding:44px 22px;text-align:center;color:rgba(247,244,236,.5);font-family:var(--f-mono);font-size:.75rem;letter-spacing:.1em}
 .lb-note{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(247,244,236,.4);margin-top:16px;line-height:1.9}
 
+/* Encabezados que ordenan la tabla. El control es un <button> de verdad, no un
+   span con onclick: asi lo alcanza el tabulador y el lector de pantalla lo
+   anuncia como boton. El estado lo lleva aria-sort en el role="columnheader";
+   la flecha es puro adorno y va aria-hidden para no leerlo dos veces.
+   La columna POS es la oficial y es el orden por defecto; ordenar por otra
+   columna NO renumera a nadie, cada fila sigue mostrando su puesto real. */
+.lb-cols>span{display:flex;align-items:center;min-width:0}
+.lb-cols>span.lb-r{justify-content:flex-end}
+.lb-sort{display:inline-flex;align-items:center;gap:6px;font:inherit;letter-spacing:inherit;text-transform:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;transition:color .3s}
+.lb-sort:hover{color:var(--gold)}
+.lb-sort:focus-visible{outline:2px solid var(--gold);outline-offset:4px;border-radius:3px;color:var(--gold)}
+.lb-sort i{font-style:normal;font-size:.72em;opacity:0;transition:opacity .3s}
+.lb-sort.is-on,.lb-sort.is-on i{color:var(--gold);opacity:1}
+/* La fila dejo de ser un <button> para poder ser role="row": el foco de teclado
+   ahora vive en el nombre del equipo, que ademas es un enlace real al deep link
+   (#id) — el mismo que ya usaba openFromHash. */
+.lb-row{cursor:pointer}
+a.lb-name{color:inherit;text-decoration:none}
+a.lb-name:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:3px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* Hitos de trayectoria: se derivan del historial que torneo.json YA trae, no
+   piden ningun dato nuevo. Solo se dibujan los que tienen sentido (la remontada
+   aparece si de verdad gano puestos desde su peor semana). */
+.tm-hitos{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:18px}
+.tm-hito{display:flex;flex-direction:column;gap:4px;border:1px solid var(--line-d);border-radius:10px;padding:11px 15px;background:rgba(15,25,52,.55)}
+.tm-hito b{font-family:var(--f-mono);font-weight:600;font-size:.95rem;color:var(--gold);line-height:1}
+.tm-hito span{font-family:var(--f-mono);font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(247,244,236,.45)}
+.tm-hito--up b{color:var(--up)}
+.tm-cargando{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(247,244,236,.32);padding:24px 0}
+
 /* Overlay de equipo */
 #tmOverlay,#cmpOverlay,#rpOverlay{position:fixed;inset:0;z-index:1500;opacity:0;visibility:hidden;transition:opacity .5s var(--ease),visibility .5s}
 #tmOverlay.open,#cmpOverlay.open,#rpOverlay.open{opacity:1;visibility:visible}
@@ -524,9 +555,20 @@ footer a:hover{color:var(--gold)}
         <button class="btn--cmp" id="btnCmp">⇄ Comparar equipos</button>
       </div>
     </div>
-    <div class="lb reveal d1">
-      <div class="lb-cols"><span>POS</span><span>EQUIPO</span><span style="text-align:right">SCORE / 100</span><span style="text-align:right">RET. RELATIVO</span><span></span></div>
-      <div id="lbBody"></div>
+    <!-- La tabla se dibuja con div+grid (el diseno depende de grid-template-columns,
+         que un <table> real no da), asi que los roles ARIA van explicitos: sin
+         ellos un lector de pantalla anuncia 54 filas como texto suelto, sin
+         columnas ni encabezados. Con role="table"/"row"/"cell" se navega igual
+         que una tabla nativa. -->
+    <div class="lb reveal d1" role="table" aria-label="Ranking acumulado del Torneo Portafolio 2026">
+      <div class="lb-cols" role="row">
+        <span role="columnheader" aria-sort="ascending" id="lbHPos"><button type="button" class="lb-sort is-on" data-ord="posicion">POS <i aria-hidden="true">&#9650;</i></button></span>
+        <span role="columnheader">EQUIPO</span>
+        <span role="columnheader" class="lb-r" aria-sort="none" id="lbHPts"><button type="button" class="lb-sort" data-ord="puntos">SCORE / 100 <i aria-hidden="true">&#9650;</i></button></span>
+        <span role="columnheader" class="lb-r" aria-sort="none" id="lbHRel"><button type="button" class="lb-sort" data-ord="retRel">RET. RELATIVO <i aria-hidden="true">&#9650;</i></button></span>
+        <span role="columnheader"><span class="sr-only">Ver ficha</span></span>
+      </div>
+      <div id="lbBody" role="rowgroup"></div>
     </div>
     <div class="lb-note">SCORING: PERCENTIL CONTINUO SOBRE 5 MÉTRICAS BLOOMBERG PORT · REGLAS DE PISO: IR, EXCESO O SHARPE NEGATIVOS → 0 PTS EN ESA MÉTRICA · RANKING INFORMATIVO, EL OFICIAL ES EL DEL CIERRE 02 · NOV · 2026</div>
   </div>
@@ -622,6 +664,7 @@ footer a:hover{color:var(--gold)}
       <div class="mt-grid" id="tmMetrics"></div>
       <button class="btn--cmp" id="btnCmpFrom" style="margin-top:18px">⇄ Comparar con otro equipo</button>
       <div class="ov-h4">Trayectoria</div>
+      <div class="tm-hitos" id="tmHitos"></div>
       <div id="tmSpark"></div>
       <div class="ov-h4">El equipo</div>
       <div class="members" id="tmMembers"></div>
@@ -896,12 +939,14 @@ function renderAll(){
   }).join("");
   observeReveals(p);
   $$(".pd",p).forEach(function(b){b.addEventListener("click",function(){openTeam(b.getAttribute("data-tm"))})});
-  renderLb(eq,"");
-  $("#lbSearch").oninput=function(){renderLb(eq,this.value.trim().toLowerCase())};
-  /* el replay necesita al menos dos cortes publicados; con uno solo no hay carrera */
+  LB_EQ=eq; LB_Q=""; lbPintar();
+  $("#lbSearch").oninput=function(){LB_Q=this.value.trim().toLowerCase();lbPintar()};
+  /* el replay necesita al menos dos cortes publicados; con uno solo no hay carrera.
+     Cuando la tabla viene del derivado todavia no hay historial en memoria, asi
+     que se mira semanasPublicadas, que ese archivo trae justamente para esto. */
   var semanas=[];
   eq.forEach(function(t){(t.historial||[]).forEach(function(h){if(semanas.indexOf(h.semana)<0)semanas.push(h.semana)})});
-  $("#btnRp").hidden=semanas.length<2;
+  $("#btnRp").hidden=(semanas.length||DATA.semanasPublicadas||0)<2;
 }
 /* ---------------- Distinciones automáticas ----------------
    Se derivan de las métricas que torneo.json ya trae por equipo — no tocan el
@@ -929,6 +974,29 @@ function calcBadges(eq){
   return out;
 }
 
+/* ---------------- Orden de la tabla ----------------
+   POS es el orden oficial y el de entrada. Las otras dos columnas arrancan de
+   mayor a menor, que es como se miran (el mejor score y el mejor retorno
+   relativo arriba); volver a pulsar invierte. Ordenar NO renumera a nadie: la
+   columna POS sigue mostrando el puesto oficial de cada equipo, porque el
+   ranking del torneo es uno solo y no depende de como mire la tabla el visitante. */
+var LB_EQ=[],LB_Q="",LB_ORD="posicion",LB_DIR=1;
+var LB_DIR0={posicion:1,puntos:-1,retRel:-1};
+function lbPintar(){renderLb(LB_EQ,LB_Q)}
+function lbOrdenar(k){
+  if(LB_ORD===k)LB_DIR=-LB_DIR; else {LB_ORD=k;LB_DIR=LB_DIR0[k]||1}
+  $$(".lb-sort").forEach(function(b){
+    var on=b.getAttribute("data-ord")===LB_ORD;
+    b.classList.toggle("is-on",on);
+    b.querySelector("i").innerHTML=(on&&LB_DIR<0)?"▼":"▲";
+    b.parentNode.setAttribute("aria-sort",on?(LB_DIR>0?"ascending":"descending"):"none");
+  });
+  lbPintar();
+}
+$$(".lb-sort").forEach(function(b){
+  b.addEventListener("click",function(){lbOrdenar(b.getAttribute("data-ord"))});
+});
+
 function renderLb(eq,q){
   var body=$("#lbBody");
   var badges=calcBadges(eq);
@@ -936,6 +1004,12 @@ function renderLb(eq,q){
     ||(t.miembros||[]).some(function(m){return (m.nombre||"").toLowerCase().indexOf(q)>-1})}):eq;
   if(!list.length){body.innerHTML='<div class="lb-empty">SIN RESULTADOS PARA "'+esc(q.toUpperCase())+'"</div>';return;}
   var max=Math.max.apply(null,eq.map(function(t){return t.puntos}))||100;
+  /* el desempate por posicion deja el orden estable cuando dos equipos empatan */
+  list=list.slice().sort(function(a,b){
+    var x=a[LB_ORD],y=b[LB_ORD];
+    if(x==null)x=0; if(y==null)y=0;
+    return (x-y)*LB_DIR || (a.posicion-b.posicion);
+  });
   body.innerHTML=list.map(function(t){
     var d=t.delta,dl=d>0?'<span class="lb-delta up">▲'+d+'</span>':d<0?'<span class="lb-delta down">▼'+(-d)+'</span>':'';
     var mem=(t.miembros&&t.miembros.length)?t.miembros.length+" integrantes":"";
@@ -943,15 +1017,27 @@ function renderLb(eq,q){
     var bdHtml=bd.length?'<span class="lb-badges">'+bd.map(function(b){
       return '<span class="lb-badge '+b.c+'">'+esc(b.t)+'</span>';
     }).join("")+'</span>':"";
-    return '<button class="lb-row'+(t.posicion<=3?" top3":"")+'" data-tm="'+esc(t.id)+'">'
-      +'<span class="lb-pos">'+t.posicion+' '+dl+'</span>'
-      +'<span><span class="lb-name">'+esc(t.nombre)+'</span>'+(mem?'<span class="lb-mem">'+esc(mem)+'</span>':"")+bdHtml+'</span>'
-      +'<span><div class="lb-pts">'+t.puntos.toFixed(2)+'</div><div class="lb-barwrap"><div class="lb-bar" data-w="'+(t.puntos/max*100)+'"></div></div></span>'
-      +'<span class="lb-rel '+(t.retRel>=0?"up":"down")+'">'+esc(pct(t.retRel))+'</span>'
-      +'<span class="lb-go">VER →</span>'
-      +'</button>';
+    /* El nombre es un <a> al deep link del equipo: le da al teclado un destino
+       real, al lector de pantalla un nombre accesible corto ("Beta capital"
+       en vez de la fila entera leida de corrido) y al visitante un link que
+       puede copiar con boton derecho. El clic lo sigue atendiendo el JS. */
+    return '<div class="lb-row'+(t.posicion<=3?" top3":"")+'" role="row" data-tm="'+esc(t.id)+'">'
+      +'<span class="lb-pos" role="cell">'+t.posicion+' '+dl+'</span>'
+      +'<span role="cell"><a class="lb-name" href="#'+esc(t.id)+'">'+esc(t.nombre)+'</a>'+(mem?'<span class="lb-mem">'+esc(mem)+'</span>':"")+bdHtml+'</span>'
+      +'<span role="cell"><div class="lb-pts">'+t.puntos.toFixed(2)+'</div><div class="lb-barwrap"><div class="lb-bar" data-w="'+(t.puntos/max*100)+'"></div></div></span>'
+      +'<span class="lb-rel '+(t.retRel>=0?"up":"down")+'" role="cell">'+esc(pct(t.retRel))+'</span>'
+      +'<span class="lb-go" role="cell">VER →</span>'
+      +'</div>';
   }).join("");
-  $$(".lb-row",body).forEach(function(r){r.addEventListener("click",function(){openTeam(r.getAttribute("data-tm"))})});
+  $$(".lb-row",body).forEach(function(r){
+    r.addEventListener("click",function(e){
+      /* si el clic fue sobre el enlace del nombre, lo atendemos igual pero sin
+         dejar que el navegador salte al ancla: openTeam ya fija el hash */
+      var el=e.target;
+      while(el&&el!==r){ if(el.tagName==="A"){e.preventDefault();break} el=el.parentNode }
+      openTeam(r.getAttribute("data-tm"));
+    });
+  });
   requestAnimationFrame(function(){$$(".lb-bar",body).forEach(function(b){b.style.width=b.getAttribute("data-w")+"%"})});
 }
 
@@ -1394,15 +1480,18 @@ $("#rpFoco").addEventListener("change",rpRenderMetrica);
 
 function openRp(){
   if(!DATA.equipos||!DATA.equipos.length)return;
-  if(!rpMontar())return;
-  rpLlenarMetricas();
-  rpLlenarFoco();
-  rpModo(false);
-  rpPausa();
-  rpPintar(0);
-  ovR.classList.add("open"); document.body.classList.add("locked");
-  /* con reduced-motion no arranca solo: se recorre con el deslizador */
-  if(!RP_RM)setTimeout(function(){if(!$("#rpVistaCarrera").hidden)rpPlay()},700);
+  /* el replay ES el historial: sin el no hay nada que montar */
+  conHistorial(function(){
+    if(!rpMontar())return;
+    rpLlenarMetricas();
+    rpLlenarFoco();
+    rpModo(false);
+    rpPausa();
+    rpPintar(0);
+    ovR.classList.add("open"); document.body.classList.add("locked");
+    /* con reduced-motion no arranca solo: se recorre con el deslizador */
+    if(!RP_RM)setTimeout(function(){if(!$("#rpVistaCarrera").hidden)rpPlay()},700);
+  });
 }
 function closeRp(){rpPausa();ovR.classList.remove("open");document.body.classList.remove("locked")}
 $("#btnRp").addEventListener("click",openRp);
@@ -1530,6 +1619,9 @@ function openCmp(idA,idB){
   }
   renderCmp();
   ovC.classList.add("open"); document.body.classList.add("locked");
+  /* la tabla de metricas no necesita historial y ya esta en pantalla; la curva
+     comparada si, asi que se repinta sola cuando el historial llegue */
+  conHistorial(function(){if(ovC.classList.contains("open"))renderCmp()});
 }
 function closeCmp(){ovC.classList.remove("open");document.body.classList.remove("locked")}
 $("#cmpClose").addEventListener("click",closeCmp);
@@ -1546,6 +1638,42 @@ $("#btnCmpFrom").addEventListener("click",function(){
   openCmp(id,otro&&otro.id);
 });
 document.addEventListener("keydown",function(e){if(e.key==="Escape"&&ovC.classList.contains("open"))closeCmp()});
+
+/* ---------------- Hitos de trayectoria ----------------
+   Lecturas del propio recorrido del equipo, derivadas del historial que
+   torneo.json YA guarda semana a semana. No tocan el scoring oficial ni piden
+   ningun dato nuevo al pipeline.
+   Ojo con el sentido de "mejor": en posiciones el mejor es el MENOR (1° le gana
+   a 12°), al reves que en puntos. */
+function renderHitos(t){
+  var caja=$("#tmHitos"); if(!caja)return;
+  var h=(t.historial||[]).filter(function(x){return x.posicion!=null})
+        .slice().sort(function(a,b){return a.semana-b.semana});
+  if(h.length<2){caja.innerHTML="";return}
+  var mejor=h[0],peor=h[0],mejorPts=null;
+  h.forEach(function(x){
+    if(x.posicion<mejor.posicion)mejor=x;
+    if(x.posicion>peor.posicion)peor=x;
+    if(x.puntos!=null&&(mejorPts==null||x.puntos>mejorPts.puntos))mejorPts=x;
+  });
+  var out=[];
+  function poner(lab,val,cls){
+    out.push('<div class="tm-hito'+(cls||"")+'"><b>'+esc(val)+'</b><span>'+esc(lab)+'</span></div>');
+  }
+  poner("Mejor puesto",mejor.posicion+"° · S"+mejor.semana);
+  poner("Peor puesto",peor.posicion+"° · S"+peor.semana);
+  if(mejorPts)poner("Mejor score",mejorPts.puntos.toFixed(2)+" · S"+mejorPts.semana);
+  /* Remontada: lo que recupero desde su peor semana hasta el puesto de hoy.
+     Solo se muestra si de verdad gano puestos. */
+  var gan=peor.posicion-t.posicion;
+  if(gan>0)poner("Desde su peor semana","+"+gan+(gan===1?" puesto":" puestos")," tm-hito--up");
+  /* Racha: semanas seguidas, contando hacia atras desde la ultima, en las que
+     no cedio posiciones (mantener el puesto cuenta; perderlo corta la racha). */
+  var racha=0;
+  for(var i=h.length-1;i>0;i--){ if(h[i].posicion<=h[i-1].posicion)racha++; else break }
+  if(racha>=2)poner("Racha sin ceder puestos",racha+" semanas");
+  caja.innerHTML=out.join("");
+}
 
 /* ---------------- Overlay de equipo ---------------- */
 var ovT=$("#tmOverlay"),currentTeam=null;
@@ -1567,7 +1695,22 @@ function openTeam(id){
       +'<div class="mt-barwrap"><div class="mt-bar" data-w="'+(pd/PESOS[k]*100)+'"></div></div>'
       +'<span class="mt-pts">'+pd.toFixed(2)+' / '+PESOS[k]+'</span></div>';
   }).join("");
-  renderSpark(t);
+  /* La trayectoria y los hitos salen del historial, que con la carga en dos
+     partes puede no estar todavia en memoria. La ficha abre igual y esos dos
+     bloques se rellenan en cuanto llega, sin trabar nada. */
+  if(tieneHistorial(t)){renderHitos(t);renderSpark(t)}
+  else{
+    $("#tmHitos").innerHTML="";
+    $("#tmSpark").innerHTML='<div class="tm-cargando">Cargando trayectoria…</div>';
+    conHistorial(function(){
+      if(currentTeam!==t)return;                     /* ya abrio otra ficha */
+      if(!tieneHistorial(t)){
+        $("#tmSpark").innerHTML='<div class="tm-cargando">Trayectoria no disponible</div>';
+        return;
+      }
+      renderHitos(t);renderSpark(t);
+    });
+  }
   var mem=$("#tmMembers");
   if(t.miembros&&t.miembros.length){
     mem.innerHTML=t.miembros.map(function(m){
@@ -2169,6 +2312,9 @@ function compartirStoryIOS(blob,filename,fallback){
 /* ---------- Descargas ---------- */
 function descargarPng(t,fmt){
   if(!t)return;
+  /* la tarjeta dibuja la trayectoria desde t.historial: si todavia no llego,
+     saldria con el cartel de "trayectoria disponible desde la semana N" */
+  conHistorial(function(){
   loadLogos().then(function(){return document.fonts.ready}).then(function(){
     var W=fmt==="li"?1200:1080,H=fmt==="li"?627:(fmt==="story"?1920:1350);
     var cv=document.createElement("canvas");cv.width=W;cv.height=H;
@@ -2185,6 +2331,7 @@ function descargarPng(t,fmt){
       }
     },"image/png");
   });
+  });
 }
 function grabarVideo(t,fmt,btn){
   if(!t)return;
@@ -2193,6 +2340,7 @@ function grabarVideo(t,fmt,btn){
     return;
   }
   var old=btn.innerHTML;btn.disabled=true;btn.textContent="GRABANDO… 0%";
+  conHistorial(function(){                       /* mismo motivo que en descargarPng */
   loadLogos().then(function(){return document.fonts.ready}).then(function(){
     var W=1080,H=fmt==="story"?1920:1350;
     var cv=document.createElement("canvas");cv.width=W;cv.height=H;
@@ -2234,10 +2382,12 @@ function grabarVideo(t,fmt,btn){
       else rec.stop();
     })(T0);
   });
+  });
 }
 /* ---------- Tarjeta HTML autocontenida ---------- */
 function descargarHtml(t){
   if(!t)return;
+  conHistorial(function(){                       /* la tarjeta HTML tambien dibuja la curva */
   loadLogos().then(function(){
     var wk=DATA.semana||semanaHoy();
     var S=seriesRet(t);
@@ -2288,6 +2438,7 @@ function descargarHtml(t){
     a.download="FIG_"+t.id+"_semana"+wk+".html";
     a.click();setTimeout(function(){URL.revokeObjectURL(a.href)},4000);
   });
+  });
 }
 /* ---------- Botones ---------- */
 $("#btnPng").addEventListener("click",function(){descargarPng(currentTeam,"feed")});
@@ -2309,13 +2460,75 @@ if(navigator.canShare&&navigator.share){
 }
 loadLogos();
 /* hook para herramientas externas (overlay OBS, pruebas) */
-window.__figCards={drawFeed:drawFeed,drawStory:drawStory,drawLi:drawLi,drawIntro:drawIntro,loadLogos:loadLogos,data:function(){return DATA}};
+window.__figCards={drawFeed:drawFeed,drawStory:drawStory,drawLi:drawLi,drawIntro:drawIntro,loadLogos:loadLogos,
+  data:function(){return DATA},
+  /* generar_og_equipos.js lo llama antes de dibujar: sin historial las tarjetas
+     salen con el cartel de "trayectoria disponible desde la semana N" */
+  conHistorial:function(){return new Promise(function(res){conHistorial(res)})}};
 
-/* ---------------- Override JSON del pipeline ---------------- */
-fetch("../datos/torneo.json",{cache:"no-store"})
+/* ---------------- Override JSON del pipeline ----------------
+   La tabla se pinta con datos/torneo-tabla.json: el mismo torneo.json SIN el
+   historial semana a semana. Medido sobre el corte de la semana 15, el archivo
+   completo pesa 27,7 KB comprimido y el historial es el 75% de eso; la version
+   de tabla queda en ~7 KB. El historial solo hace falta al abrir una ficha, el
+   comparador o el replay, asi que se pide aparte, cuando de verdad se usa.
+
+   torneo-tabla.json es un archivo DERIVADO (lo escribe generar_tabla.py), y un
+   derivado se puede quedar atras. Dos salvavidas, en este orden:
+     1. si no existe, se carga torneo.json completo y la pagina funciona igual
+        que siempre — el camino viejo sigue entero;
+     2. si existe pero su corte/semana/numero de equipos no calza con el
+        completo, al llegar el completo se repinta TODO con el. O sea: quedarse
+        atras se corrige solo y nunca queda un dato viejo en pantalla.
+   verificar_sitio.py ademas falla si el derivado no calza, para atajarlo antes
+   de publicar y no depender del salvavidas 2. */
+var HIST="no";          /* no | cargando | si */
+var HIST_CB=[];
+function tieneHistorial(t){return !!(t&&t.historial&&t.historial.length)}
+function usarDatos(d){d.demo=false;DATA=d;renderAll();openFromHash()}
+function fusionarHistorial(full){
+  if(full.corte!==DATA.corte||full.semana!==DATA.semana||full.equipos.length!==DATA.equipos.length){
+    usarDatos(full);return;                 /* el derivado estaba viejo: manda el completo */
+  }
+  var porId={};
+  full.equipos.forEach(function(e){porId[e.id]=e});
+  DATA.equipos.forEach(function(t){var f=porId[t.id]; if(f&&f.historial)t.historial=f.historial});
+  if(full.acwi&&!DATA.acwi)DATA.acwi=full.acwi;
+}
+function conHistorial(cb){
+  /* en modo demo el historial ya viene escrito en la pagina: no hay que ir a buscarlo */
+  if(HIST==="si"||DATA.demo){if(cb)cb();return}
+  if(cb)HIST_CB.push(cb);
+  if(HIST==="cargando")return;
+  HIST="cargando";
+  function avisar(){var cbs=HIST_CB;HIST_CB=[];cbs.forEach(function(f){f()})}
+  fetch("../datos/torneo.json",{cache:"no-store"})
+    .then(function(r){return r.ok?r.json():null})
+    .then(function(d){
+      if(d&&d.equipos&&d.equipos.length)fusionarHistorial(d);
+      HIST="si";avisar();
+    })
+    .catch(function(){HIST="no";avisar()});  /* un corte de red no lo deja mudo para siempre */
+}
+fetch("../datos/torneo-tabla.json",{cache:"no-store"})
   .then(function(r){return r.ok?r.json():null})
   .then(function(d){
-    if(d&&d.equipos&&d.equipos.length){d.demo=false;DATA=d;renderAll();openFromHash();}
+    if(d&&d.equipos&&d.equipos.length){
+      usarDatos(d);
+      /* Con el ranking ya en pantalla, el historial se trae de fondo para que
+         abrir una ficha sea instantaneo. Salvo que el visitante haya pedido
+         ahorro de datos o venga con una conexion mala: ahi se espera a que lo
+         pida de verdad, que es justo el caso en que ahorrar los 20 KB importa. */
+      var c=navigator.connection||{};
+      if(!(c.saveData||/(^|-)2g$/.test(c.effectiveType||""))){
+        (window.requestIdleCallback||function(f){setTimeout(f,1500)})(function(){conHistorial(null)});
+      }
+      return null;
+    }
+    /* sin derivado: el camino de siempre, con el archivo completo */
+    return fetch("../datos/torneo.json",{cache:"no-store"})
+      .then(function(r){return r.ok?r.json():null})
+      .then(function(f){if(f&&f.equipos&&f.equipos.length){HIST="si";usarDatos(f)}});
   }).catch(function(){});
 
 /* ---------------- Creadores del torneo ----------------
@@ -2460,6 +2673,14 @@ function openFromHash(){
   var h=location.hash.slice(1);
   if(h&&DATA.equipos.some(function(e){return e.id===h}))openTeam(h);
 }
+/* openTeam y closeTeam usan replaceState, que NO dispara hashchange: aca solo
+   entran los cambios de hash que hace el visitante (boton atras, pegar un link
+   con #equipo, o el enlace del nombre en la tabla si el JS no lo atajo). */
+window.addEventListener("hashchange",function(){
+  var h=location.hash.slice(1);
+  if(h&&DATA.equipos.some(function(e){return e.id===h}))openTeam(h);
+  else if(ovT.classList.contains("open"))closeTeam();
+});
 
 /* ---------------- Arranque ---------------- */
 renderAll();

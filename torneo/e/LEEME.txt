@@ -1,0 +1,14 @@
+Esta carpeta la escribe generar_paginas_equipo.py -- NO editar a mano.
+
+Es una pagina por equipo del torneo, cuyo unico trabajo es que el link de ese
+equipo tenga vista previa propia al compartirlo (LinkedIn, WhatsApp, Slack).
+Cada una redirige al ranking real, torneo/index.html#<id>.
+
+Se reescriben enteras con cada corte, porque los puestos van en el texto. Si un
+equipo sale del torneo, su pagina se borra sola en la siguiente corrida.
+
+Para regenerarlas:
+    python generar_paginas_equipo.py
+
+El link que se comparte es:
+    https://feninvestmentgroup.com/torneo/e/<id>.html

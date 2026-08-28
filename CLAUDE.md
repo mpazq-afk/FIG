@@ -28,28 +28,51 @@ página. Si algo cambia seguido, va en un `.json` bajo `datos/`.
 ├── fiw/index.html           ← página de FEN Investment Woman (paleta propia, editable)
 ├── valuation/index.html     ← página del área Valuation (paleta estándar; responsables + sección de Torneo del área que se activa con datos/valuation.json)
 ├── torneo/index.html        ← ranking oficial del Torneo Portafolio 2026 (con trayectoria por equipo)
+├── torneo/pantalla.html      ← PANTALLA para las TV de la facultad (1920x1080, bucle, se alimenta sola de torneo.json)
+├── miembros/index.html      ← LA MESA: directiva, organigrama por desk, buscador "Terminal FIG" y ficha por persona (se alimenta de datos/miembros.json)
 ├── postula/index.html       ← formulario de postulación al club
 ├── juego/index.html          ← "El Rally del Toro": juego de espera (runner con el toro; vender = asegurar puntaje)
 ├── desafio/index.html        ← "Desafío FIG": trivia de finanzas (banco en datos/preguntas/, validar con validar_preguntas.py)
 ├── en/index.html              ← one-pager en INGLÉS para partners internacionales (única página en inglés del sitio)
 ├── generar_torneo.py        ← Excel ranking_ordenado → datos/torneo.json (mantiene historial semanal)
+├── completar_metricas_historial.py ← INJERTO QUIRÚRGICO: rellena métricas faltantes en semanas ya publicadas del historial, SIN regenerar el JSON (usar esto, nunca `--excels`, para no borrar los integrantes)
+├── grabar_pantalla_facultad_1_capturar.js ← Paso 1/2 para grabar torneo/pantalla-facultad.html: Chrome headless por CDP crudo (sin Playwright, sin instalar nada), captura fotograma a fotograma a frames/*.png. Necesita un server local corriendo antes (ver su cabecera). Detalle completo más abajo, sección "Pixelación al proyectar"
+├── grabar_pantalla_facultad_2_codificar.py ← Paso 2/2: arma el MP4 final desde frames/*.png con PyAV, uno por uno (nunca todos en memoria)
+├── incorporar_congelados.py ← **DORMIDO desde el 2026-08-26** (la directiva eliminó en definitiva a los 5 equipos; ver el final de la fila de `torneo/index.html`). Hace no-op si `datos/equipos_congelados.json` está vacío. Cuando tenía equipos: los reinsertaba en `torneo.json` recalculando el puntaje de TODOS vía percentil continuo (réplica de `scoring.py` del repo torneo-bloomberg-oficial), a correr SIEMPRE después de `generar_torneo.py`. Se deja en el repo por si se decide congelar a otro equipo eliminado en el futuro
+├── generar_miembros.py      ← club.json (directiva) + Excel del Drive → datos/miembros.json; cruza solo los resultados de torneo y las actividades
+├── PLANILLA_MIEMBROS_FIG.md  ← qué columnas debe tener la planilla de miembros del Drive y qué NUNCA se publica (léelo antes de tocar la sección de Miembros)
+├── generar_tabla.py         ← datos/torneo.json → datos/torneo-tabla.json (el mismo sin `historial`, 27,7→7,1 KB comprimido). Lo pide primero torneo/index.html para pintar la tabla; el historial se trae aparte
+├── generar_paginas_equipo.py ← datos/torneo.json → torneo/e/<id>.html, una micro-página por equipo SOLO para que el link tenga vista previa propia al compartirlo (redirige al ranking real)
+├── generar_og_equipos.js     ← Node + Chrome por CDP crudo: og/equipo-<id>.jpg (1200x627), la imagen de esa vista previa. Reusa `drawLi`, la MISMA tarjeta de LinkedIn que ya ofrece la página. Opcional, ver la nota de PESO en su cabecera
+├── verificar_sitio.py        ← CHEQUEO ANTES DE PUBLICAR: JSON que parsean, derivados al día (torneo-tabla, torneo/e/, og/), menciones de "N equipos" escritas a mano vs el JSON, y creadores que calcen con la directiva. `--arreglar` regenera los derivados
 ├── generar_ics.py           ← datos/eventos.json → eventos/fig.ics (calendario iCal; correr tras editar eventos)
 ├── optimizar_fotos.py       ← comprime fotos/ automáticamente (máx 2000px, JPG 78%) — correr tras agregar fotos
 ├── validar_preguntas.py     ← barrera de calidad del banco de preguntas del Desafío FIG
 ├── HOJA_DE_RUTA_FIG.md      ← LISTA MAESTRA: backlog priorizado + protocolo de continuidad
 ├── MAPA_CONTENIDO_FIG.html  ← guía visual para Francisco: dónde subir fotos y editar texto de cada página (abrir con doble clic)
-├── logos/                   ← logos oficiales bajados del Drive (FIG oro/blanco/navy, Itaú, BlackRock)
+├── GUIA_DRIVE_FIG.html       ← guía para el equipo: estructura de la carpeta del Drive, dónde van las fotos, pasos para crear un evento (abrir con doble clic)
+├── GUIA_DRIVE_FIG.jpg         ← infografía resumen de la guía anterior (para compartir rápido, ej. WhatsApp)
+├── logos/                   ← logos oficiales bajados del Drive (FIG oro/blanco/navy, FEN, Itaú, BlackRock)
 │   └── industria/            ← logos de empresas para "FIG en la industria" (ver LEEME.txt de la carpeta)
+├── og/                      ← GENERADAS por generar_og_equipos.js: una imagen de vista previa por equipo. No editar a mano
+├── torneo/e/                ← GENERADAS por generar_paginas_equipo.py: una micro-página por equipo. No editar a mano (tiene su LEEME.txt)
 ├── datos/
-│   ├── club.json             ← personas, eventos resumen, historia, URLs del sitio principal
+│   ├── torneo-tabla.json     ← DERIVADO de torneo.json por generar_tabla.py (sin `historial`). No editar a mano; si queda viejo la página lo detecta y se corrige sola, y verificar_sitio.py falla
+│   ├── club.json             ← personas, eventos resumen, historia, URLs del sitio principal. Desde el 2026-08-27 trae también `torneo.creadores`: la lista EXPLÍCITA de quiénes crearon el Torneo Portafolio 2026, que alimenta la sección `#creadores` de `torneo/index.html` (solo nombre + aporte; el cargo, el LinkedIn y la foto se resuelven en vivo contra `personas.directiva`)
 │   ├── cv_procesados.json    ← manifiesto anti-relectura de CV del Drive (fileId+modifiedTime, evita reprocesar los que no cambiaron)
-│   ├── eventos.json           ← lista completa de eventos (bitácora)
+│   ├── eventos.json           ← lista completa de eventos (bitácora); campo opcional `area` conecta un evento con la sección "Actividades" de su área (hoy solo valuation)
+│   ├── mercado.json            ← calendario de mercado (RPM/IPoM del Banco Central + FOMC de la Fed); fechas oficiales, se actualizan a mano una vez por semestre — se muestran en la misma línea de tiempo que los hitos del torneo y los eventos del club
+│   ├── linea_tiempo.json       ← hitos estructurales del Torneo (rebalanceos, cierres, final); se combina con eventos.json en la línea de tiempo de index.html y eventos/index.html — editable desde el Drive (`Linea_Tiempo_Hitos_Torneo` en `00_MAESTRO`)
 │   ├── fiw.json                ← textos y equipo de FEN Investment Woman
 │   ├── valuation.json           ← textos, responsables y datos del Torneo de Valuation (pegar formUrl del Forms para activar inscripciones)
+│   ├── miembros.json             ← GENERADO por generar_miembros.py (no editar a mano): personas del club con ticker, área, nivel del organigrama y sus resultados de torneo cruzados
+│   ├── miembros.demo.json         ← SOLO DEMOSTRACIÓN (`?demo=1`): mezcla personas reales con cargos SUPUESTOS y personas que NO EXISTEN (`demo:true`), para ver el organigrama lleno. Nunca usar como fuente; se borra cuando la base real esté cargada
+│   ├── equipos_congelados.json   ← **VACÍO desde el 2026-08-26** (`{"equipos": []}`): los 5 equipos que estuvieron "en espera" 23→26-ago fueron eliminados en definitiva. Antes traía sus 5 métricas crudas FIJAS (semana 14) + `historial_previo` (semanas 5-14); ese contenido está en git (commit `c7c4f98` y el estado previo a la eliminación). Repoblarlo solo si se congela a otro equipo (ver `incorporar_congelados.py`)
 │   └── torneo.json.ejemplo      ← ESQUEMA del ranking (ver "Pendiente" abajo — aún no existe torneo.json real)
 ├── fotos/
 │   ├── eventos/<carpeta-evento>/  ← 1.jpg, 2.jpg, 3.jpg… por evento (numeradas, sin saltos)
 │   ├── directiva/                  ← retratos de cofundadores: <nombre-slug>.jpg (ver LEEME.txt de la carpeta)
+│   ├── miembros/                    ← retratos del resto del club: <id>.jpg (ver LEEME.txt). La página busca acá primero y en directiva/ después, así que a un directivo NO se le copia la foto dos veces
 │   ├── fiw/                        ← 1.jpg, 2.jpg, 3.jpg… de la comunidad FIW
 │   └── valuation/                   ← 1.jpg, 2.jpg, 3.jpg… para la tira de fondo del hero (aún vacía)
 ├── LEEME_PAGINAS.md          ← documentación de cómo se conectan las páginas nuevas
@@ -60,8 +83,9 @@ página. Si algo cambia seguido, va en un `.json` bajo `datos/`.
 ```
 
 Todas las páginas comparten: navy `#0A1128` + oro `#D4AF37`, tipografías
-Playfair Display + Inter + IBM Plex Mono, cursor crosshair personalizado,
-reveals on-scroll, y respeto total a `prefers-reduced-motion`. La página
+Playfair Display + Inter + IBM Plex Mono, reveals on-scroll, y respeto
+total a `prefers-reduced-motion` (el cursor circular personalizado que
+seguía al mouse se eliminó el 2026-08-02, pedido de Francisco). La página
 `fiw/index.html` es la única con paleta propia (oro rosa, variables `--acc*`
 al inicio de su `<style>`) — no tocar esos 4 valores sin pedirlo
 explícitamente a Francisco, son la identidad visual de esa área.
@@ -70,19 +94,28 @@ explícitamente a Francisco, son la identidad visual de esa área.
 
 | Pieza | Estado | Detalle |
 |---|---|---|
-| `index.html` | ✅ Producción | Sitio principal completo. Orden de secciones (2026-07-19, pedido de Francisco): inicio → nosotros → **eventos** → áreas → torneo → historia → equipo. Nav con ese mismo orden + enlace **FIG Woman** + menú **"Jugar ▾"** (desplegable hover/focus con El Rally del Toro y el Desafío FIG; en móvil van como enlaces directos). Fondos claros SIN cuadrícula gris (se eliminó el patrón de líneas de 72px, solo queda el glow radial dorado). Ticker bursátil al pie con el top 5 del torneo — aparece solo cuando exista `datos/torneo.json` real (hoy oculto). Footer enlaza `en/index.html`. **Nav actualizado (2026-07-24, pedido de Francisco)**: se agregó un enlace directo **Valuation** (nav desktop y menú móvil) y "Eventos" ahora lleva a la página completa `eventos/index.html` en vez de anclar a `#eventos` de esta misma página. **Expediente de cofundadores**: clic en cualquier tarjeta de §Nosotros abre un overlay con ficha completa (bio + trayectoria desde `perfil` en `club.json`, foto grande si existe en `fotos/directiva/<slug>.jpg` — ver `fotos/directiva/LEEME.txt` —, monograma dorado si no), flechas ←/→ para recorrer el grupo, ✕/Esc para cerrar, navegable por teclado. **Miniaturas con foto real** en la grilla de §Nosotros (mismo `probeFoto()`, ahora en alcance global). **"FIG en la industria"** agrupada por empresa (no por persona): logo real si existe `logos/industria/<slug>.*` (ver `logos/industria/LEEME.txt`) o chip de iniciales si no, tooltip al hover/foco con quiénes de FIG han pasado por esa empresa enlazados a su LinkedIn. **Tira de fotos reales de eventos en movimiento** detrás del hero y de §Historia (`.photo-marquee`, detectadas solas desde `datos/eventos.json` + `fotos/eventos/`, opacidad baja para no tapar el texto, respeta reduced-motion) — no está en §Áreas porque esa sección ya tiene sus propias fotos y se veía recargado. **"Universidad de Chile" quitado del texto visible (2026-07-24, pedido de Francisco)**: se borraron las 4 apariciones visibles (subtítulo de marca en el nav, kicker del hero, párrafo de marca del footer y línea del footer inferior); quedan intactas las menciones en `<meta>` (no se muestran en la página) y la del bio de Benjamín Disi (dato personal de su propio magíster, no de marca). **Logos de "FIG en la industria" completados (2026-07-24)**: subidos por el equipo al Drive y bajados a `logos/industria/` — ahora hay logo real para Itaú (reemplazado, más nítido), CODELCO, MoonValley Capital, LarraínVial, HSBC, BCI Seguros y Next Consultores (7 de 8 empresas); CMF (Victoria Espinoza) sigue sin logo subido, muestra el chip de iniciales de respaldo. Se descartó un archivo `ASAS.png` subido en la misma carpeta del Drive porque no corresponde a ninguna empresa de `personas.industria` — pendiente preguntarle a Francisco a qué corresponde |
-| `eventos/index.html` | ✅ Producción | 9 eventos reales con resúmenes completos en `datos/eventos.json`; filtros por tipo Y año; botón de calendario `fig.ics` (regenerar con `generar_ics.py`); modo proyección `?pantalla=1` (fotos fullscreen para TVs, enlazado en el footer) |
+| `index.html` | ✅ Producción | Sitio principal completo. Orden de secciones (2026-07-19, pedido de Francisco): inicio → nosotros → **eventos** → áreas → torneo → historia → equipo. Nav con ese mismo orden + enlace **FIG Woman** + menú **"Jugar ▾"** (desplegable hover/focus con El Rally del Toro y el Desafío FIG; en móvil van como enlaces directos). Fondos claros SIN cuadrícula gris (se eliminó el patrón de líneas de 72px, solo queda el glow radial dorado). Ticker bursátil al pie con el top 5 del torneo — aparece solo cuando exista `datos/torneo.json` real (hoy oculto). Footer enlaza `en/index.html`. **Nav actualizado (2026-07-24, pedido de Francisco)**: se agregó un enlace directo **Valuation** (nav desktop y menú móvil) y "Eventos" ahora lleva a la página completa `eventos/index.html` en vez de anclar a `#eventos` de esta misma página. **Expediente de cofundadores**: clic en cualquier tarjeta de §Nosotros abre un overlay con ficha completa (bio + trayectoria desde `perfil` en `club.json`, foto grande si existe en `fotos/directiva/<slug>.jpg` — ver `fotos/directiva/LEEME.txt` —, monograma dorado si no), flechas ←/→ para recorrer el grupo, ✕/Esc para cerrar, navegable por teclado. **Miniaturas con foto real** en la grilla de §Nosotros (mismo `probeFoto()`, ahora en alcance global). **"FIG en la industria"** agrupada por empresa (no por persona): logo real si existe `logos/industria/<slug>.*` (ver `logos/industria/LEEME.txt`) o chip de iniciales si no, tooltip al hover/foco con quiénes de FIG han pasado por esa empresa enlazados a su LinkedIn. **Tira de fotos reales de eventos en movimiento** detrás del hero y de §Historia (`.photo-marquee`, detectadas solas desde `datos/eventos.json` + `fotos/eventos/`, opacidad baja para no tapar el texto, respeta reduced-motion) — no está en §Áreas porque esa sección ya tiene sus propias fotos y se veía recargado. **"Universidad de Chile" quitado del texto visible (2026-07-24, pedido de Francisco)**: se borraron las 4 apariciones visibles (subtítulo de marca en el nav, kicker del hero, párrafo de marca del footer y línea del footer inferior); quedan intactas las menciones en `<meta>` (no se muestran en la página) y la del bio de Benjamín Disi (dato personal de su propio magíster, no de marca). **Logos de "FIG en la industria" completados (2026-07-24)**: subidos por el equipo al Drive y bajados a `logos/industria/` — ahora hay logo real para Itaú (reemplazado, más nítido), CODELCO, MoonValley Capital, LarraínVial, HSBC, BCI Seguros y Next Consultores (7 de 8 empresas); CMF (Victoria Espinoza) sigue sin logo subido, muestra el chip de iniciales de respaldo. Se descartó un archivo `ASAS.png` subido en la misma carpeta del Drive porque no corresponde a ninguna empresa de `personas.industria` — pendiente preguntarle a Francisco a qué corresponde. **Correcciones menores (2026-08-02, pedido de Francisco)**: el contador de equipos del torneo en el hero y las menciones de "63 equipos"/"USD 630M simulados en total" quedaban desactualizadas frente al dato real (59 equipos, `datos/torneo.json`) — corregido en `index.html`, `datos/club.json`, `eventos/index.html`, `datos/eventos.json`, `torneo/index.html` y `en/index.html`. Se eliminó el círculo dorado que seguía al mouse (`#cursorDot`/`#cursorRing`, CSS+JS) en las 5 páginas que lo tenían (`index.html`, `eventos/index.html`, `fiw/index.html`, `torneo/index.html`, `valuation/index.html`) — pedido explícito de Francisco, sin reemplazo. El rol de David González Cañón se corrigió de "Director · Valuation" a "Fundador · Valuation" (solo tiene el cargo de fundador, no de director) en `datos/club.json` y en el fallback JS + la ficha estática de §Nosotros de `index.html`. No se agregó FIG Woman a esa actualización (petición explícita). **2026-08-03, pedido de Francisco**: (1) enlace a FIG Woman **deshabilitado de nuevo** — se restauró el comentario `FIW_TEMP_OCULTO` en los 4 archivos que lo tenían reactivado (`index.html`, `postula/index.html`, `eventos/index.html`, `404.html`); (2) el rol de David González Cañón pasó de "Fundador · Valuation" a solo **"Fundador"** (sin distintivo de área) en `datos/club.json` y en `index.html`; (3) el antiguo "Eje de hitos" del torneo (`.axis-wrap`) se **reconstruyó** manteniendo el formato horizontal con scroll y el marcador "HOY" que avanza solo con el tiempo (interpolado entre los dos puntos vecinos según su fecha real, igual que el original), pero ahora integra también las actividades del club: combina los hitos estructurales de `datos/linea_tiempo.json` (nuevo archivo, editable desde el Drive — ver `Linea_Tiempo_Hitos_Torneo` en `00_MAESTRO`) con `datos/eventos.json`, ordenados cronológicamente. Cada punto (`.ax`) se agranda al pasar el cursor (o tocar) y muestra una tarjeta flotante con su resumen (`#axPop`, `position:fixed` para no recortarse con el scroll del eje); clic navega directo (un hito de torneo va a `torneo/index.html#metodologia`, una actividad va a `eventos/index.html#<id>`). El marcador "HOY" en cambio es `position:absolute` dentro del propio eje (no `fixed`) para que se recorte junto con el scroll horizontal en vez de "flotar" fuera de la tarjeta — bug real detectado y corregido con Playwright antes de mergear. Misma línea de tiempo (versión completa) agregada también en `eventos/index.html`, donde el clic sobre una actividad abre su ficha localmente (reusa `openEvento()`) en vez de recargar la página. **2026-08-05, pedido de Francisco**: el eje ahora arranca con scroll horizontal centrado en el punto HOY por defecto (antes arrancaba en el extremo izquierdo, con el marcador fuera de vista si había muchos hitos pasados) — mismo cambio en las dos páginas. **Calendario de mercado en la línea de tiempo + enlace de bases arreglado (2026-08-05)**: la línea de tiempo ahora combina TRES fuentes (`datos/linea_tiempo.json` + `datos/eventos.json` + el nuevo `datos/mercado.json`); los eventos de mercado se distinguen en **azul** (`#3C6DA8` sobre fondo claro, `#7BA7DE` sobre oscuro — mismo azul que ya usa el benchmark ACWI en `torneo/index.html`), llevan el tag `MERCADO` y al hacer clic abren la **fuente oficial** en otra pestaña (bcentral.cl / federalreserve.gov) en vez de navegar dentro del sitio. Además se arregló el botón **"Descargar las bases"** de §Torneo, que apuntaba a `#` desde siempre: `CONFIG.urls.bases` y `config.urls.bases` de `club.json` ahora tienen el PDF real que ya se usaba en `torneo/index.html`. **Sigue pendiente `contacto`** (aún en `#`, falta que Francisco defina correo o formulario). **Conteo de directores corregido (2026-08-05, pedido de Francisco: "no somos 18")**: el número real es **15** (mismo total que `datos/club.json`, que ya lo tenía correcto en su historia); se corrigieron 6 menciones desactualizadas de "18" en `index.html` (hero__meta, stat contador `data-target`, párrafo de §Nosotros, tarjeta "Capítulo II" de §Historia — tanto la estática como el fallback JS `CLUB_DATA`). De paso se eliminó el tile "+N Directiva completa" (`p-card--more`) del final de la grilla de §Nosotros en las 3 copias (`datos/club.json`, HTML estático, fallback JS): con los 15 perfiles reales ya cargados de punta a punta, ese chip decía "Los 18 perfiles se cargan... al conectar el pipeline", una promesa de "más gente por venir" que ya no es cierta — se sacó en vez de solo corregirle el número, para no dejar un dato igual de falso con otra cifra |
+| `eventos/index.html` | ✅ Producción | 9 eventos reales con resúmenes completos en `datos/eventos.json`; filtros por tipo Y año; botón de calendario `fig.ics` (regenerar con `generar_ics.py`); modo proyección `?pantalla=1` (fotos fullscreen para TVs, enlazado en el footer). **2026-08-03, pedido de Francisco**: nueva sección "El torneo y la vida del club" (línea de tiempo completa, entre el hero y los filtros — ver detalle en la fila de `index.html`, mismo dato y motor). Nuevo filtro **Pasados / Próximos** (junto a los de tipo y año) que compara la fecha de cada evento contra hoy — el Torneo Portafolio 2026 (`live:true`) siempre cae en "Próximos" mientras esté en curso, sin importar su fecha de inicio. Las tarjetas ahora muestran un chip **PRÓXIMO** cuando corresponde |
 | `en/index.html` | ✅ Producción | One-pager en inglés para partners (BlackRock, bancos): áreas + torneo con solo datos verificados. Única página del sitio con texto en inglés — es su propósito |
-| `fiw/index.html` | ⚠️ Placeholder + **enlaces ocultos temporalmente** | Estructura y datos completos (ahora con 3 co-fundadoras: Delia Avilán, Gabriela Domínguez y Victoria Espinoza), pero **colores de marca aún no confirmados** por el equipo FIW — usa un oro rosa provisional. Sin fotos en `fotos/fiw/` todavía. **2026-07-24, pedido de Francisco**: se ocultaron (comentario `<!-- FIW_TEMP_OCULTO -->`, NO se borró nada) todos los botones/enlaces que llevan a esta página — nav desktop y móvil de `index.html`, la tarjeta del desk 04 en §Áreas, el footer de `index.html`, y los nav de `404.html`, `postula/index.html` y `eventos/index.html` — porque el área se publica recién en una etapa posterior al lanzamiento de mañana. La página en sí sigue intacta y accesible por URL directa; para reactivarla, buscar `FIW_TEMP_OCULTO` en esos 5 archivos y descomentar |
-| `valuation/index.html` | ✅ Producción | Página del área Valuation (2026-07-21, pedido de Francisco). Paleta estándar navy+oro (no propia). Secciones: hero → qué es Valuation → cómo trabajamos (3 pilares research/valorización/tesis) → **Torneo del área** → responsables → CTA. Los 3 **responsables** (Jhosep García, Benjamín Sáez Molina, Samuel Rodríguez Arnolds) salen de `datos/valuation.json` con foto real detectada sola desde `fotos/directiva/<slug>.jpg`, rol y LinkedIn. **Torneo activado (2026-07-24)**: "Valuation Challenge 2026" con Itaú (Corporate & Investment Banking) y BDO (Deal Advisory) como partners — `torneo.formUrl` ya tiene el Google Form real, así que el botón "Inscríbete →" está activo; datos reales de formato (caso de M&A + defensa ante comité), equipos (2-3 personas desde 2° año), fechas de inscripción (18-26 jul) y competencia (3-31 ago), y premios (1°: práctica Itaú + premio tecnológico, 2°: práctica BDO). Falta `torneo.basesUrl` (aparece "Ver las bases" solo cuando se llene). Enlazada desde el desk "VAL · Valuation" de §Áreas en `index.html` y ahora también desde el nav principal (2026-07-24). **Logo corregido (2026-07-24)**: preloader y nav usaban por error `fig-blanco.png` (el logo blanco de FIW); como esta página usa la paleta estándar navy+oro, se cambió a `fig-oro.png` como en el resto del sitio. **Tira de fotos en movimiento en el hero** (2026-07-22, pedido de Francisco: "igual que se ve en la página principal") — mismo `.photo-marquee` que el index, pero leyendo de `fotos/valuation/1.jpg, 2.jpg…` (numeradas, sin saltos, ver `fotos/valuation/LEEME.txt`) en vez de las carpetas de eventos; mientras la carpeta esté vacía el hero se ve igual que antes, sin errores |
-| `torneo/index.html` | ✅ Datos reales cargados, con historial completo de 7 semanas | `datos/torneo.json` con 59 equipos reales. La página salió del modo DEMO sola. Overlay con gráfico de 3 líneas (retorno equipo/promedio/ACWI — el ACWI queda vacío por ahora, no hay benchmark en ningún Excel visto todavía). Tarjetas: Feed PNG, **Story PNG**, LinkedIn PNG, HTML y **videos animados** Feed/Story con intro (logo→nombre→colaboradores→ficha). En celular, los botones de tarjetas **comparten directo con el panel nativo del sistema** (`navigator.share`, Instagram queda a un toque) en vez de forzar una descarga; en iPhone la tarjeta Story además intenta abrir Instagram directo en el compositor de Historias (truco de portapapeles + `instagram-stories://`, con fallback automático). Grabación de video a 24fps con progreso visible en el botón. Logos de colaboradores en hero y tarjetas. La línea temporal de §Metodología integra las actividades del club desde `datos/eventos.json` (tags por tipo + descripción al hover, tarea #16 ✅). **Historial completo reconstruido (2026-07-24)**: Francisco compartió los 7 Excels semanales oficiales (`Excel_Oficial_FIG_PORT_2026_2026-06-12.xlsx` hasta `...2026-07-24.xlsx`, uno por corte); `generar_torneo.py` ganó un modo nuevo `--excels a.xlsx,b.xlsx,...` (ver P0-2 y la sección del script abajo) que lee la fecha de cada nombre de archivo, saca posición/puntos/métricas de cada semana desde su propio `ranking_ordenado`/`Tabla`/`puntos`, y el retorno since-inception de cada semana desde la hoja `Retornos por corte` del corte más reciente (ya trae la serie completa). El número de semana real (5 a 11, no 1 a 7) se calcula con la misma fórmula que usa `torneo/index.html` (`semanaHoy()`, desde el inicio real del torneo el 11 de mayo) — de paso corrigió una semana mal etiquetada como "1" que en realidad era la semana 6. Con las 7 semanas reales, el gráfico de 3 líneas y los indicadores de cambio de posición (▲▼) ahora muestran datos reales en vez del placeholder/guión que se agregó horas antes para el caso de una sola semana (`chartPlaceholder()` sigue en el código, solo que ya no se activa — vuelve a activarse solo si algún día se publica una semana sin historial previo) |
+| `fiw/index.html` | ⚠️ Placeholder, **enlaces deshabilitados de nuevo** | Estructura y datos completos (3 co-fundadoras: Delia Avilán, Gabriela Domínguez y Victoria Espinoza), pero **colores de marca aún no confirmados** por el equipo FIW — usa un oro rosa provisional. Sin fotos en `fotos/fiw/` todavía. La página en sí sigue intacta y accesible por URL directa. **2026-08-03, pedido de Francisco**: se deshabilitaron de nuevo los 9 enlaces (nav desktop/móvil + desk 04 de §Áreas + footer de `index.html`, nav de `postula/index.html`, nav desktop/móvil de `eventos/index.html`, nav desktop/móvil de `404.html`) envolviéndolos otra vez en el comentario `FIW_TEMP_OCULTO` en los 4 archivos — mismo mecanismo que la vez anterior (2026-07-27), solo que en sentido inverso. Pendiente: colores de marca (P0-3), fotos reales, y que Francisco confirme cuándo volver a reactivarlos |
+| `valuation/index.html` | ✅ Producción | Página del área Valuation (2026-07-21, pedido de Francisco). Paleta estándar navy+oro (no propia). Secciones: hero → qué es Valuation → cómo trabajamos (3 pilares research/valorización/tesis) → **Torneo del área** → responsables → CTA. Los 3 **responsables** (Jhosep García, Benjamín Sáez Molina, Samuel Rodríguez Arnolds) salen de `datos/valuation.json` con foto real detectada sola desde `fotos/directiva/<slug>.jpg`, rol y LinkedIn. **Torneo activado (2026-07-24)**: "Valuation Challenge 2026" con Itaú (Corporate & Investment Banking) y BDO (Deal Advisory) como partners — `torneo.formUrl` ya tiene el Google Form real, así que el botón "Inscríbete →" está activo; datos reales de formato (caso de M&A + defensa ante comité), equipos (2-3 personas desde 2° año), fechas de inscripción (18-26 jul) y competencia (3-31 ago), y premios (1°: práctica Itaú + premio tecnológico, 2°: práctica BDO). Falta `torneo.basesUrl` (aparece "Ver las bases" solo cuando se llene). Enlazada desde el desk "VAL · Valuation" de §Áreas en `index.html` y ahora también desde el nav principal (2026-07-24). **Logo corregido (2026-07-24)**: preloader y nav usaban por error `fig-blanco.png` (el logo blanco de FIW); como esta página usa la paleta estándar navy+oro, se cambió a `fig-oro.png` como en el resto del sitio. **Tira de fotos en movimiento en el hero** (2026-07-22, pedido de Francisco: "igual que se ve en la página principal") — mismo `.photo-marquee` que el index, pero leyendo de `fotos/valuation/1.jpg, 2.jpg…` (numeradas, sin saltos, ver `fotos/valuation/LEEME.txt`) en vez de las carpetas de eventos; mientras la carpeta esté vacía el hero se ve igual que antes, sin errores. **Sección "Actividades" (2026-08-03, pedido de Francisco)**: nueva sección entre Torneo y Responsables con eventos ya realizados por el área, mismo estilo de tarjeta que `eventos/index.html` (foto, fecha, tipo, resumen, participantes) — reutiliza `datos/eventos.json` filtrando por el campo nuevo y opcional `area:"valuation"`, así que un evento etiquetado así aparece EN AMBAS páginas (esta y la bitácora general), nunca solo en una. La tarjeta enlaza a `eventos/index.html#<id>` para reusar el overlay de detalle ya existente en vez de duplicarlo. La sección y el enlace de nav "Actividades" quedan `hidden` y solo aparecen cuando exista al menos un evento con esa etiqueta — hoy ninguno de los 9 eventos existentes es de Valuation, así que queda oculta hasta el próximo evento real del área. **2026-08-03**: las tarjetas de esta sección ahora muestran un chip **PRÓXIMO** cuando la fecha del evento es futura (mismo criterio que en `eventos/index.html`) |
+| `torneo/index.html` | ✅ Datos reales · historial de 9 semanas (5 a 13) · **badges automáticos + comparador + replay (2026-08-05)** | `datos/torneo.json` con 59 equipos reales. La página salió del modo DEMO sola. **Corte semanal al 07-ago-2026 (semana 13) cargado el 2026-08-07** — Manuel subió el Excel a la misma carpeta del Drive sin fecha en el nombre; la semana se calculó con `semanaHoy()`. El conector de Drive de esta sesión no pudo bajar el binario del Excel sin corromperlo, así que se reconstruyó un `.xlsx` equivalente con `openpyxl` desde el texto plano de `read_file_content` (mismas 4 hojas que el script espera). Movimiento destacado: Los Default subió 11 puestos. **Corte anterior al 31-jul-2026 (semana 12) cargado el 2026-08-05** — el Excel lo sube el equipo de Portafolio a una carpeta NUEVA del Drive: `02_Areas/PORTAFOLIO/Tablas semanales torneo/` (antes los cortes llegaban sueltos por chat). Ahí están los 8 Excels semanales del torneo, uno por corte, con el mismo formato de siempre. Para actualizar: bajar el Excel más reciente y correr `python3 generar_torneo.py --excel <archivo> --semana N --corte "DD · MMM · 2026"` — **sin `--inscripciones`**, porque el script conserva los integrantes del `torneo.json` anterior y así no se reintroduce el bug de integrantes duplicados que se corrigió a mano en 4 equipos (ver más abajo). Overlay con gráfico de 3 líneas (retorno equipo/promedio/ACWI — el ACWI queda vacío por ahora, no hay benchmark en ningún Excel visto todavía). Tarjetas: Feed PNG, **Story PNG**, LinkedIn PNG, HTML y **videos animados** Feed/Story con intro (logo→nombre→colaboradores→ficha). En celular, los botones de tarjetas **comparten directo con el panel nativo del sistema** (`navigator.share`, Instagram queda a un toque) en vez de forzar una descarga; en iPhone la tarjeta Story además intenta abrir Instagram directo en el compositor de Historias (truco de portapapeles + `instagram-stories://`, con fallback automático). Grabación de video a 24fps con progreso visible en el botón. Logos de colaboradores en hero y tarjetas. La línea temporal de §Metodología integra las actividades del club desde `datos/eventos.json` (tags por tipo + descripción al hover, tarea #16 ✅). **Historial completo reconstruido (2026-07-24)**: Francisco compartió los 7 Excels semanales oficiales (`Excel_Oficial_FIG_PORT_2026_2026-06-12.xlsx` hasta `...2026-07-24.xlsx`, uno por corte); `generar_torneo.py` ganó un modo nuevo `--excels a.xlsx,b.xlsx,...` (ver P0-2 y la sección del script abajo) que lee la fecha de cada nombre de archivo, saca posición/puntos/métricas de cada semana desde su propio `ranking_ordenado`/`Tabla`/`puntos`, y el retorno since-inception de cada semana desde la hoja `Retornos por corte` del corte más reciente (ya trae la serie completa). El número de semana real (5 a 11, no 1 a 7) se calcula con la misma fórmula que usa `torneo/index.html` (`semanaHoy()`, desde el inicio real del torneo el 11 de mayo) — de paso corrigió una semana mal etiquetada como "1" que en realidad era la semana 6. Con las 7 semanas reales, el gráfico de 3 líneas y los indicadores de cambio de posición (▲▼) ahora muestran datos reales en vez del placeholder/guión que se agregó horas antes para el caso de una sola semana (`chartPlaceholder()` sigue en el código, solo que ya no se activa — vuelve a activarse solo si algún día se publica una semana sin historial previo). **Distinciones automáticas (2026-08-05, tarea #18 del backlog)**: `calcBadges()` deriva 4 badges de las métricas que `torneo.json` YA trae, sin tocar el scoring oficial ni pedir datos nuevos — "Cazador de alfa" (mayor IR), "Mejor Sharpe", "Gestor de riesgo" (menor drawdown) y "Remontada +N" (mayor `delta` positivo). Se calculan sobre la lista COMPLETA de equipos, no sobre la filtrada por el buscador, así que no cambian al buscar. Guarda importante: un IR o un Sharpe negativos NO se premian aunque sean el mejor de la tabla (sería premiar al menos malo) — en ese caso el badge simplemente no aparece. `mdd` y `var95` son negativos, así que el mejor es el MÁXIMO (el más cercano a cero), no el mínimo. **Comparador de equipos (2026-08-05, tarea #21 del backlog)**: botón "⇄ Comparar equipos" junto al buscador y "⇄ Comparar con otro equipo" dentro de la ficha de cada equipo (abre el comparador ya con ese equipo cargado). Overlay `#cmpOverlay` con dos `<select>` de los 59 equipos: muestra posición, puntos, retorno relativo y las 5 métricas —cada una con su valor Y los puntos que aportó— marcando con ▲ dorado al equipo que gana esa fila, más un gráfico con las dos trayectorias superpuestas (oro vs azul). Es una vista nueva sobre datos que YA están en `torneo.json`, no toca el scoring. Dato clave de la implementación: en las 5 métricas de Bloomberg PORT el valor MÁS ALTO siempre gana, incluso en `var95` y `mdd` (vienen negativos, el más cercano a cero es el que menos perdió) — la única fila invertida es POSICIÓN, donde 1° gana. Verificado contra el `puntosDetalle` oficial: en VaR y drawdown el comparador marca al mismo equipo al que el torneo le da más puntos. **Replay del ranking (2026-08-05, tarea #24 del backlog)**: botón "▶ Replay del ranking" junto al buscador → overlay `#rpOverlay` con una carrera de barras que recorre las semanas publicadas (hoy 5→12), animando el top 12 con `transform:translateY` (las filas se reordenan deslizándose, las que entran o salen del top aparecen desde el borde). Play/pausa + deslizador de semana; en cada corte el pie muestra el líder y el equipo que más subió respecto de la semana anterior (ej. CLB +21 en la semana 12). Con `prefers-reduced-motion` no arranca solo y se recorre a mano. Dato clave: el orden de cada semana sale de la **`posicion` guardada** en el historial, NO de ordenar por `puntos` — en las semanas 5, 6 y 8 hay un empate exacto de puntos entre dos equipos (Vantedge/Terra, Bull Market Boys/Indarra, SeriosFc/Fat fingers) y el desempate del Excel no coincide con un orden descendente; las 59 posiciones siguen siendo únicas, así que es un artefacto de desempate y no un dato corrupto. El botón se oculta solo si algún día hay menos de dos cortes publicados. **Vista "Evolución por métrica" (2026-08-08, pedido de Francisco)**: el replay ahora tiene dos pestañas — la carrera de barras de siempre y un gráfico de líneas con los 59 equipos superpuestos, semana a semana, para una métrica elegida. Los 5 primeros del último corte van en tonos de oro con su nombre al final de la línea (las etiquetas se separan solas para no encaballarse), el resto queda de fondo tenue, y un `<select>` permite destacar cualquier equipo entre todos. **Las 8 métricas ya se pueden graficar (2026-08-15)**: `generar_torneo.py` ahora persiste las 5 métricas de Bloomberg (IR, exceso, Sharpe, VaR, MDD) en cada punto del `historial`, no solo en `t.metricas` del corte vigente (función `punto_historial()`). El selector se llena solo con `rpMetsDisponibles()`, que ofrece únicamente las métricas con al menos dos semanas de dato, así que no hay que tocar código cuando aparezcan más cortes. El eje X del gráfico se ajusta solo a las semanas que tienen dato de la métrica elegida —si no, quedaban aplastadas contra el borde derecho de un eje S5→S14— y una nota al pie dice cuántas de cuántas semanas se están graficando. **Las 8 series ya cubren las 10 semanas (2026-08-16)**: las 5 de Bloomberg solo existían en S13-S14, así que se recargaron los Excels de las semanas 5 a 12 y se fusionaron 2360 métricas al historial (59 equipos × 8 semanas × 5) con `completar_metricas_historial.py` — ver la fila de ese script más abajo. La nota al pie quedó oculta sola y el selector ofrece las 8 métricas sin que se tocara la lógica. **Ojo, trampa real:** NO se usó `generar_torneo.py --excels` para esto, aunque el comentario anterior lo recomendaba. Ese modo regenera el JSON completo y `procesar_multiples()` hace `eq["miembros"] = insc.get(eq["id"], [])`: sin `--inscripciones` deja a los 59 equipos SIN integrantes, y con `--inscripciones` los reescribe desde el Excel pisando las correcciones a mano de 4 equipos. Además recalcularía `acwi`, `delta`, `retRel` y las posiciones, que ya estaban correctos. Para rellenar una métrica en semanas ya publicadas, usar siempre el script quirúrgico | **Tarjetas y videos (2026-08-08, pedido de Francisco)**: (1) se quitó el hashtag en blanco marfil del pie de Feed y Story —era el único texto fuera de la paleta y se leía suelto—; `footerRow()` conserva el parámetro `tag` en la firma para no romper llamadas. (2) Las 4 distinciones de `calcBadges()` ahora se dibujan también en la tarjeta y el video (`drawBadges()`), con los mismos 3 estilos que en la web; la función devuelve el alto que ocupa y el gráfico se encoge lo mismo, así métricas, colaboradores y pie no se mueven cuando un equipo tiene badges. (3) **Podio**: los puestos 1-3 llevan tratamiento propio —paleta metálica oro/plata/bronce (`podio()`), sello "CAMPEÓN / 2° LUGAR / 3ER LUGAR" en vez de la etiqueta "POS", número y anillo de puntaje teñidos del metal, glow del fondo del mismo tono y un marco fino (`podioMarco()`)—; del 4° en adelante nada cambia. (4) **Peso de los videos**: `videoBitsPerSecond` pasó de 8 Mbps fijo a 3.2 (Feed) y 4.5 (Story). Medido contra el canvas original: bajar el bitrate cuesta ~0.2 dB de PSNR y el texto fino queda idéntico, porque la tarjeta es contenido casi estático; los archivos quedan ~45% más livianos (Feed 1.19→0.64 MB, Story 1.50→0.90 MB) | **Corte al 21-ago-2026 (semana 15) cargado el 2026-08-21** — Francisco pasó los datos en dos formatos (un JSON con el ranking ya calculado y el Excel oficial); se compararon cruzados antes de aplicar nada, coincidían exactamente. Se usó el Excel con `generar_torneo.py --excel ... --semana 15 --corte "21 · AGO · 2026"` (sin `--inscripciones`), como siempre. **5 equipos eliminados esta semana** (Fencashticos, Free Riders, Market Moggers, Mosqueteros, Pink Capital) — el torneo queda en **54 equipos**. Ojo: `generar_torneo.py` arma `equipos[]` desde cero a partir del Excel del corte actual, así que un equipo ausente del Excel desaparece de `torneo.json` POR COMPLETO, incluido su historial de semanas pasadas (S5-S14) — no queda ni rastro en el replay ni en "Evolución por métrica", aunque compitieron esas semanas legítimamente. Se le preguntó a Francisco antes de aplicarlo (con `AskUserQuestion`) y confirmó aceptar este comportamiento tal cual — no se agregó ningún flag `eliminado:true` para preservarles el historial. El dato no se pierde para siempre: sigue disponible en el historial de git de antes de ese commit. De paso se corrigieron 7 menciones hardcodeadas de "59 equipos"/"USD 590M" a "54 equipos"/"USD 540M" en el resto del sitio (`index.html`, `eventos/index.html`, `torneo/pantalla.html`, `datos/club.json`, `datos/eventos.json`, `datos/miembros.json`) — mismo patrón que la corrección 63→59 del 2026-08-02. Se dejó intacto a propósito el párrafo histórico de "Capítulo IV" en `club.json` (describe en pasado el lanzamiento del torneo con los números de ese momento) y `datos/miembros.demo.json` (fuera de uso como fuente). **Revertido el 2026-08-23** — ver la entrada siguiente: Francisco decidió mantener a los 5 en espera en el ranking público, así que las 7 menciones de "54 equipos"/"USD 540M" volvieron a "59 equipos"/"USD 590M" en todo el sitio (`index.html`, `eventos/index.html`, `torneo/pantalla.html`, `torneo/index.html` (meta tags), `datos/club.json`, `datos/eventos.json`, `datos/miembros.json`) y de paso se corrigió `en/index.html`, que tenía "Sixty-three" sin actualizar desde la corrección 63→59 del 2026-08-02 (nunca se había tocado en ninguna de las dos correcciones anteriores).
+
+**Reincorporación como "en espera" (2026-08-23, decisión de Francisco)**: en vez de la eliminación total de arriba, Francisco pidió mantener a los 5 equipos en el ranking público con sus datos Bloomberg congelados (no vuelven a operar) pero el PUNTAJE recalculado cada corte — porque el motor de scoring oficial (`scoring.py` del repo torneo-bloomberg-oficial) puntúa por percentil continuo sobre el MIN/MAX de todos los equipos activos, así que su puntaje puede moverse aunque su dato no cambie, según cómo se mueva el resto del campo. Se creó `datos/equipos_congelados.json` (los 5, con sus 5 métricas crudas fijas en el último corte real que jugaron — semana 14 — y su `historial_previo` semanas 5-14 completo, rescatado del commit `c7c4f98`, el último antes de la eliminación, porque ya traía las 5 métricas por semana backfileadas) y el script `incorporar_congelados.py` (ver su fila en la tabla de archivos), que se corre SIEMPRE después de `generar_torneo.py` — nunca antes, porque necesita el snapshot fresco de los 54 equipos activos de ese corte para recalcular el pool completo de 59. Marca a los 5 con `"congelado": true` en `torneo.json` (campo nuevo, no rompe nada que ya lea el JSON). Primera corrida (semana 15): Free Riders quedó sosteniendo el mínimo de MDD de los 59 (-19.2%, el peor de todos), lo que movió el puntaje de 50 de los 54 equipos reales en +0.05 a +0.79 puntos — nada dramático, pero es exactamente el tipo de "ruido" que hay que vigilar corte a corte (queda registrado en `ALERTAS_CONGELADOS.md`). **Pendiente de decisión de Francisco**: si además de los datos hace falta una marca visual en la UI (badge "en espera" en las tarjetas/comparador/replay) para que los visitantes no confundan a estos 5 con equipos activos normales — hoy no hay ningún indicador visual, solo el campo en el JSON.
+
+**Eliminación definitiva (2026-08-26, decisión de la directiva de FIG)**: Francisco lo habló con el resto de la directiva y acordaron **eliminar en definitiva** a los 5. Se deshizo la reincorporación: `datos/torneo.json` se restauró al estado del commit `b2b382b` (54 equipos, semana 15, con el ACWI ya backfilleado — el commit justo anterior a `9ab21d4`), así que el puntaje/posición/delta de los 54 vuelve a calcularse sobre el pool limpio de 54, y su historial de replay/métricas ya no incluye a los congelados. Las menciones de "59 equipos"/"USD 590M" volvieron a "54"/"USD 540M" en `index.html`, `en/index.html`, `eventos/index.html`, `torneo/index.html` (meta tags + hero + nota del replay), `torneo/pantalla.html`, `datos/club.json`, `datos/eventos.json`, `datos/miembros.json` (se dejó igual el párrafo histórico de "Capítulo IV" en `club.json`, que describe el lanzamiento en pasado, y `datos/miembros.demo.json`, fuera de uso). `datos/equipos_congelados.json` quedó **vacío** (`{"equipos": []}`) e `incorporar_congelados.py` **dormido** con un guard que hace no-op si el JSON está vacío — la maquinaria sigue en el repo por si se decide congelar a otro equipo en el futuro (repoblar el JSON + correr el script tras `generar_torneo.py`). Registro de cierre en `ALERTAS_CONGELADOS.md`.
+| `torneo/pantalla.html` | ✅ Producción | **Pantalla para las TV de la facultad** (2026-07-27, pedido de Francisco). 1920×1080, corre en bucle infinito: basta abrirla en pantalla completa (F11) en la TV. Se alimenta sola de `datos/torneo.json`, así que **cada semana que se regenera el ranking la pantalla muestra el corte nuevo sin tocar código**. Secuencia: logo FIG → nombre del club → Área de Portafolio → colaboradores → título del torneo → 3er lugar → 2do → 1ro (uno por uno, cerrando en el campeón) → podio de barras + logos. Cada equipo muestra un **gráfico de área** con su trayectoria real semana a semana (degradado, línea con brillo, punto por semana) contra la **línea punteada del promedio de los 59 equipos**, calculado en vivo desde el mismo JSON. La animación es **determinística**: todo es función de un único reloj (`seek(t)`), sin animaciones CSS — por eso se puede grabar fotograma a fotograma a 60 fps sin cuadros perdidos (`scratchpad/grabar_pantalla.py` congela el reloj con `window.__manual()` y pide cada instante con `window.__seek(ms)`, mandando las capturas por tubería a ffmpeg). En el podio de cierre la **altura de las barras va por puesto, no por puntaje**: los tres primeros suelen tener puntajes muy parecidos (94/86/81) y las barras salían casi iguales, que es justo lo que un podio no debe comunicar — el puntaje real va escrito sobre cada barra. Los integrantes se muestran sin repetidos y con el calce normalizado (el Excel de inscripciones trae a una persona dos veces y nombres en minúscula). **Logo de la FEN ya incorporado (2026-07-28)**: Francisco lo subió al Drive y se bajó a `logos/fen.png`; como el archivo oficial trae el texto casi negro sobre fondo transparente (invisible sobre el navy), va montado sobre una placa clara (`.fen-plate`) para que se lea sin alterar los colores de la marca. **Escena nueva "Cómo leer los resultados" (2026-07-28)**: antes de los podios explica qué significan el gráfico (línea dorada = retorno acumulado del equipo, punteada = promedio de los 59) y las tres métricas en pantalla (Puntos/100 con el desglose real 30/25/15/15/15, Retorno vs ACWI y Ratio de Sharpe). **Duración recortada** de 57s a 42s a pedido de Francisco. **Fondo simplificado (2026-07-28, pedido de Francisco)**: se eliminaron la cuadrícula dorada tenue y la línea de mercado del borde inferior; queda solo el glow radial, el polvo dorado y la viñeta. Se graba a **30 fps** mientras se revisa; el grabador sube a 60 cambiando una constante |
+| `torneo/pantalla-facultad.html` | ✅ Producción (2026-08-11, pedido de Francisco) | **Video semanal para mandar a la facultad**, distinto de `pantalla.html` (esa es para dejar abierta en vivo en la TV; esta es un `.mp4` que se genera y se envía). Recrea el diseño de una propuesta que se había hecho en una sesión anterior y nunca se implementó (`Propuesta_Video_FIG.mp4`, fondo blanco + azul `#0052FF`, una tarjeta por equipo con integrantes y mini gráfico) — mismo motor determinístico que `pantalla.html` (`seek(t)` único, ganchos `window.__ready/__total/__manual()/__seek(ms)`), así que **se alimenta sola de `datos/torneo.json`** en vez de ser un video fijo. Secuencia: intro (logo + "FEN Investment Group") → "En alianza con" (FEN UChile + Itaú + BlackRock) → Ranking Top 5 → una tarjeta por equipo (logos, posición, puntaje, integrantes con iniciales, mini gráfico de evolución del retorno) → Ranking Top 5 de cierre. Los 3 logos y el ícono del toro navy (`logos/fig-navy.png`) ya existían en el repo, no hubo que pedir nada nuevo. **Cambio deliberado frente a la propuesta original**: esa maqueta rotulaba el retorno "RETORNO VS ACWI", pero `datos/torneo.json` no trae el benchmark ACWI cargado (`acwi:[]`) — mostrar una comparación contra un dato vacío sería inventarlo, así que acá dice "RETORNO ACUMULADO" hasta que exista ese dato real. **Gráfico contra el promedio del torneo (2026-08-15, pedido de Francisco)**: cada tarjeta ahora dibuja DOS líneas — el retorno acumulado del equipo (verde, sólida) y el promedio acumulado de los 59 equipos (gris, punteada), con la banda entre ambas teñida de verde o rojo según el equipo cierre por sobre o bajo el promedio. El promedio se calcula en vivo desde el mismo `torneo.json` (`promediosTorneo()`), no hay dato que mantener a mano. Lleva una leyenda que nombra cada línea con su valor, porque sin ella no se distinguían. Se evaluaron 3 variantes y Francisco eligió esta; la descartada (barras de variación semanal) quedó documentada como tarea 26 del backlog por si se usa después. **Bug de rótulo corregido en el mismo cambio**: el recuadro de la tarjeta mostraba `retRel` bajo la etiqueta "Retorno acumulado", pero `retRel` es el retorno RELATIVO (exceso) — son dos cifras distintas (ej. Beta capital: +18.92% relativo vs +11.90% acumulado) y quedaban las dos en la misma tarjeta con el mismo nombre. Ahora dice "Retorno relativo", igual que el resto del sitio (`torneo/index.html` ya usaba "RET. RELATIVO"). **Logos más grandes, en dos pasadas (2026-08-15)**: primero de 74px a 112px en la escena "En alianza con" y de 48px a 68px en cada tarjeta; después Francisco pidió agrandarlos más y se llegó al tamaño actual — **196px** en la escena de auspiciadores (a pantalla completa, la fila mide 1482px de 1920, con 219px de aire por lado), **132px** el nombre del torneo —subió en dos pasos, 56→84 el 15-ago y 84→132 el 16-ago— con el toro a 142px; ojo que a 132px el tope no es el ancho (el bloque mide 1443px de 1920) sino el alto: hubo que subir `#head` de 118px a 86px para que el título no tocara la tarjeta, y con eso quedan 27px de aire sobre la tarjeta más alta del top 5, y solo **84px** la fila de logos DENTRO de cada tarjeta. Esa asimetría es deliberada: el alto de la fila de la tarjeta empuja todo su contenido hacia abajo, y la tarjeta más alta del top 5 (un equipo de 3 integrantes, hoy CLB) se mete bajo el pie de página — medido, a 100px ya lo invade y a 115px el `@fen.investment.group` se dibuja encima de la tarjeta blanca. Para agrandarlos más habría que subir `#cardPanel` o bajarle el padding, no basta con el número. Antes de grabar se compararon 4 tamaños (actual/+25/+50/+75) con capturas reales. **Observaciones de la Escuela (2026-08-20)**: tras el visto bueno de Decanato, la Escuela pidió cambios. Aplicados: (1) los logos salieron de la cabecera de cada tarjeta de equipo y pasaron a una franja de marca al pie **visible en TODAS las láminas** — pero **el 2026-08-20 Francisco pidió sacar del pie los tres logos de los colaboradores**, así que hoy ahí solo van el toro y el `@fen.investment.group`; los colaboradores conservan su lámina propia a pantalla completa ("En alianza con"), que es donde se lucen. Se mantuvo que el pie se vea en todas las láminas, porque eso era una mejora aparte, incluidas intro y cierre — antes el pie aparecía recién desde la lista y solo llevaba el toro; de paso la tarjeta perdió ~118px de alto y la más alta del top 5 dejó de rozar el pie (pasó de −21px a +57px de holgura); (2) la intro dice ahora **"Organización estudiantil de la Facultad de Economía y Negocios"** — se nombra la Facultad pero NO "Universidad de Chile", que Francisco pidió sacar del texto visible el 2026-07-24, así se cumplen las dos instrucciones. (3) el logo de la FEN pasó a la **versión con escudo**: Francisco mandó el archivo oficial y quedó como `logos/fen-escudo.png` (500×288, con transparencia), usado SOLO en este video — `logos/fen.png` sigue intacto para `torneo/pantalla.html`, que no se tocó por no venir pedido. En la franja del pie cada logo lleva su propio alto (FEN 78px, Itaú 62px, BlackRock 42px, toro 56px): el del escudo es más cuadrado (ratio 1.74 vs 2.09 del anterior) y su texto ocupa solo la mitad inferior, así que a la misma altura que los otros quedaba ilegible — se equilibran ópticamente, no por número. (4) la frase de organización estudiantil subió de 27px a 38px. **No aplica**: la Escuela pidió cambiar por azul "las franjas negras de arriba y abajo", pero se verificó decodificando el MP4 que el archivo es blanco de borde a borde (RGB 249-255) en todos los fotogramas — esas franjas son el letterbox del reproductor, no algo que el video traiga. **Formato de lienzo elegible (2026-08-20, pedido de Francisco)**: la página acepta `?formato=16x9|16x10|4x3|1x1|4x5|9x16` (o `?w=&h=` libre) y `?banda=blanco|azul|navy`. El **escenario sigue midiendo siempre 1920×1080** y se escala/centra dentro del lienzo elegido (`#stage` con `transform: scale()`), así la composición no se rediseña por formato — es la misma ya verificada — y las bandas sobrantes **las pintamos nosotros** en vez de dejárselas al reproductor, que las pone negras. Eso resuelve la observación de la Escuela sobre "las franjas negras": no estaban en el archivo (es letterbox), pero ahora se puede exportar en la proporción exacta de la pantalla de destino, o con banda azul si sobra espacio. La página trae un **selector visible** arriba a la derecha que se oculta solo al grabar (`window.__manual()`), y expone `window.__w`/`window.__h` para que el grabador abra el navegador del tamaño correcto: `python3 grabar_pantalla_facultad.py [formato] [banda]`. Ojo: el diseño es apaisado, así que en 9x16/4x5/1x1 el contenido queda chico y con bandas grandes — para vertical de verdad habría que rediseñar la composición, no solo cambiar el lienzo. Se graba con `scratchpad/grabar_pantalla_facultad.py` a **60 fps, 1920×1080, H.264 CRF 16** vía PyAV (el `ffmpeg` de este entorno no trae decoder/encoder H.264, solo VP8/VP9 — PyAV trae su propio build completo) |
 | Enlaces cruzados | ✅ Conectados | `index.html` ya enlaza a `eventos/`, `fiw/`, `torneo/` y `postula/` (CTAs, footer, `CONFIG.urls` y `datos/club.json`) |
-| `generar_torneo.py` | ✅ Probado con el Excel real | Lee `ranking_ordenado` (+ `Tabla`/`puntos` como respaldo para métricas más completas que trae el Excel oficial) + Excel de inscripciones → escribe `datos/torneo.json`, conserva el `historial` semanal y calcula `delta`. Ya soporta el formato ancho real del Excel de inscripciones (columnas Líder/Int2/Int3 Nombre+LinkedIn) además del formato largo original. Solo copia `nombre` + `linkedin` de cada integrante (nunca correo/carrera/ingreso, regla dura de PII). Modo `--demo` disponible. **Modo nuevo `--excels a.xlsx,b.xlsx,...` (2026-07-24)**: reconstruye el `historial` completo de una sola pasada a partir de varios cortes semanales del Excel oficial — saca la fecha de cada nombre de archivo, el snapshot semana a semana de cada `ranking_ordenado` propio, y el retorno since-inception de la hoja `Retornos por corte` del corte más reciente (esa hoja ya trae la serie completa hasta esa fecha, no hace falta pegar los `ret` uno por uno). Calcula el número de semana real con la misma fórmula que usa la página (desde el inicio del torneo el 11 de mayo), así que no requiere pasarle `--semana`/`--corte` a mano. Uso: `python3 generar_torneo.py --excels sem1.xlsx,sem2.xlsx,... --inscripciones insc.xlsx` |
+| `generar_torneo.py` | ✅ Probado con el Excel real | Lee `ranking_ordenado` (+ `Tabla`/`puntos` como respaldo para métricas más completas que trae el Excel oficial) + Excel de inscripciones → escribe `datos/torneo.json`, conserva el `historial` semanal y calcula `delta`. Ya soporta el formato ancho real del Excel de inscripciones (columnas Líder/Int2/Int3 Nombre+LinkedIn) además del formato largo original. Solo copia `nombre` + `linkedin` de cada integrante (nunca correo/carrera/ingreso, regla dura de PII). Modo `--demo` disponible. **Modo nuevo `--excels a.xlsx,b.xlsx,...` (2026-07-24)**: reconstruye el `historial` completo de una sola pasada a partir de varios cortes semanales del Excel oficial — saca la fecha de cada nombre de archivo, el snapshot semana a semana de cada `ranking_ordenado` propio, y el retorno since-inception de la hoja `Retornos por corte` del corte más reciente (esa hoja ya trae la serie completa hasta esa fecha, no hace falta pegar los `ret` uno por uno). Calcula el número de semana real con la misma fórmula que usa la página (desde el inicio del torneo el 11 de mayo), así que no requiere pasarle `--semana`/`--corte` a mano. Uso: `python3 generar_torneo.py --excels sem1.xlsx,sem2.xlsx,... --inscripciones insc.xlsx`. **Advertencia sobre `--excels` (2026-08-16):** `procesar_multiples()` asigna `eq["miembros"] = insc.get(eq["id"], [])` sin conservar lo anterior — a diferencia de `integrar_historial()`, que sí lo hace. O sea que este modo BORRA los integrantes si no se le pasa `--inscripciones`, y los reescribe desde el Excel si se le pasa. Úsalo solo para reconstruir el historial desde cero; para completar un dato puntual usa `completar_metricas_historial.py` |
+| `miembros/index.html` | ✅ Verificado en navegador (2026-08-16) | **"La mesa"**: UNA sola experiencia, no tres pestañas. La primera versión tenía conmutador de vistas MESA/ESTRUCTURA/DIRECTORIO y Francisco la rechazó con razón: demasiados controles antes del contenido, y la "mesa" eran cuatro rectángulos con burbujas, un diagrama genérico que podía ser de cualquier cosa. **Rediseño completo (2026-08-16)**: una mesa REDONDA con un asiento por directivo, agrupados en arcos por desk. Toda la geometría se calcula en JS desde el número real de personas —los arcos se reparten los 360° en proporción a cuánta gente tiene cada desk— así que la mesa se reordena sola cuando el club crezca; no hay una sola coordenada escrita a mano. Los radios están **encadenados a propósito** (`R_SILLA` → nombre → rótulo → `R_ARCO`): si se toca uno hay que recalcular el otro, porque el bug que hubo fue justamente que los nombres se metían dentro del anillo. Las etiquetas de los desks siguen la curva con `textPath`, invirtiendo el sentido del camino en la mitad inferior para que no salgan de cabeza. La presidencia y los cofundadores van DENTRO del disco central: no pertenecen a un desk, presiden el conjunto. **Entrar a un desk**: el arco elegido se abre hasta los 360° mientras su radio exterior crece fuera del lienzo — deja de ser un arco y se vuelve el fondo, o sea literalmente devora la pantalla— y recién ahí aparece la estructura del área. **Dentro del área**, un organigrama de tres estratos (líder → dirección → segunda línea) dibujado con un RIEL, no con curvas de un nodo a varios: como todos los nodos miden 170px con 18px de gap, la horizontal va de 85px a 85px de cada borde y toca exacto el centro del primero y del último. Por eso no se cruza nunca ninguna línea, que era el otro reclamo. **El corte deliberado**: los miembros sin cargo no se dibujan ni se sientan a la mesa — cada desk cierra con "+N miembros" que salta al buscador filtrado. Con 200 personas cualquier organigrama completo vuelve a ser ilegible. **El buscador es el único control de la página**: no hay pestañas ni filtros, escribir es la única acción y los resultados aparecen abajo. Entiende nombres, tickers (`BSM`), desks (`PRT`), generaciones y `ALUMNI`; `/` lo enfoca, ↑↓ recorre, Enter abre; ignora tildes. Al filtrar, los asientos que no calzan se atenúan en vez de desaparecer. **Ficha** con deep link propio (`miembros/#BSM`), bio, hitos, torneo con la curva real del equipo, actividades, "Su aporte" y la tarjeta descargable. **Fotos**: se detectan solas (`fotos/miembros/<id>` y luego `fotos/directiva/<id>`), con caché por persona porque cada sondeo prueba hasta 8 rutas en serie; cuando hay retrato el ticker se oculta, porque encima de una cara no se lee ni él ni ella. **Verificado en navegador**: se manejó Chrome headless por CDP (sin instalar nada: el Chrome de la máquina + el WebSocket nativo de Node 24) para ver la página, entrar a cada desk, abrir una ficha por deep link y generar la tarjeta interceptando el canvas. |
+| `generar_miembros.py` + `datos/miembros.json` | ✅ Fase 1 de la sección de Miembros (2026-08-16) | Genera `datos/miembros.json` fundiendo cuatro fuentes sin duplicar ninguna: la **directiva** sale de `datos/club.json` (sigue siendo su única fuente de verdad, acá solo se lee), el **resto del club** de un Excel del Drive que todavía no existe (columnas en `PLANILLA_MIEMBROS_FIG.md`), los **resultados de torneo** cruzados contra `datos/torneo.json` y las **actividades** contra `participantes` de `datos/eventos.json`. Hoy corre con los 15 de la directiva como semilla, así que la página se puede construir y probar antes de que exista la base consolidada. **Ticker de 3 letras por persona** (`Benjamín Sáez Molina → BSM`), único y garantizado por el script: es la clave del buscador y el ancla de la URL de cada ficha (`miembros/#BSM`) — las `iniciales` de 2 letras de `club.json` YA colisionan (Benjamín Sáez Molina y Benjamín Solís son ambos "BS"). **El calce con el torneo no puede ser literal**: el Excel de inscripciones trae el nombre civil completo y `club.json` la forma corta, así que hay un tercer intento por subconjunto de tokens que exige que TODOS los tokens del nombre corto estén en el largo Y que el primer nombre coincida — con eso Jhosep García calza con "Jhosep Gabriel García Suarez" y Juan José Limari con "Juan José Limarí Campos" (4 de 15 calzan), mientras que "Manuel Paz" NO calza con "Victoria Paz Tapia Rivera" ni "Francisco Valenzuela" con "Lucas Daniel Valenzuela Pavez". Si el subconjunto calza con más de un equipo no se asigna nada y se avisa: un dato ambiguo es peor que uno ausente. **Privacidad**: solo se leen las columnas de `ALIAS_MIEMBROS`, así que si la planilla del Drive trae RUT/correo/teléfono nunca llegan al JSON; y cada persona controla qué se publica con la columna `muestra` — lo no autorizado no se escribe al archivo, porque el JSON también es público. **Decisión de Francisco (2026-08-16): no se alojan PDFs de CV**, la ficha del miembro ES su CV público (un CV real trae RUT y teléfono). **Campo `liderArea` en `club.json` (2026-08-16)**: quién dirige un desk NO se puede adivinar por jerarquía/orden alfabético — eso fue justo lo que eligió mal a Agustín Arriagada como líder de Portafolio en vez de a Francisco Valenzuela, el director real del área. Se agregó `liderArea` (opcional) a la entrada de cada persona en `club.json → personas.directiva`; `desde_club_json()` lo traduce a `lidera` solo si calza con la propia `area` de la persona. Hoy solo Francisco lo tiene (`"liderArea":"PRT"`, confirmado por él mismo el 2026-08-16). Trading, Valuation y FIG Woman siguen con el líder AUTO-ELEGIDO por `marcar_lideres()` (Juan José Limari, Samuel Rodríguez Arnolds, Delia Avilán) — no se tocaron porque nadie ha confirmado quién los dirige de verdad; ver P0.5 y la pregunta 6 de la sección 6 sobre Valuation, que sigue sin resolverse por la misma razón. Modos útiles: `--auditar` (cómo calzó cada uno), `--candidatos` (los 145 inscritos del torneo que aún no tienen ficha) y `--csv-candidatos RUTA` (los exporta como CSV con los encabezados de la planilla ya puestos, para abrirlo en Sheets — **guardarlo fuera del repo**, son personas que aún no autorizaron nada). Pendiente que depende del club: `participantes` está vacío en los 10 eventos de `eventos.json`, así que ninguna ficha muestra actividades todavía aunque el cruce ya funciona |
+| `completar_metricas_historial.py` | ✅ Probado (2026-08-16) | Rellena métricas que falten en semanas YA publicadas del historial de `datos/torneo.json`, leyéndolas de los Excels semanales. Es un injerto quirúrgico: solo AGREGA claves de métrica ausentes, jamás pisa un valor existente ni crea/borra semanas, equipos o campos — y si detecta que cambió cualquier otra cosa, aborta sin escribir. Trae un chequeo de integridad que compara posición y puntos guardados contra el Excel y reporta discrepancias sin corregirlas. Idempotente: correrlo dos veces sobre los mismos Excels agrega 0. Uso: `python3 completar_metricas_historial.py --excels a.xlsx,b.xlsx,...` (dry-run) y luego `--aplicar`. Existe porque `generar_torneo.py --excels` regenera el JSON completo y en el camino borra los integrantes (ver fila de arriba) |
 | `postula/index.html` | ✅ Endpoint conectado (sin verificar en vivo) | Formulario de postulación completo; envía (con `tipo:"postulacion"`) a `config.figEndpoint` (el Apps Script COMPARTIDO del sitio) de `datos/club.json` — la URL ya está pegada (2026-07-18), pero nadie ha confirmado aún que una postulación real llegue a la planilla (este entorno no puede alcanzar `script.google.com`); Francisco debe probarlo una vez |
 | `desafio/index.html` | ✅ Funcional (banco real) | Trivia: modo desafío (secuencial, puntaje decae, malas descuentan, revisión con explicaciones, áreas fuerte/débil, ranking local) y modo estudio (por tema o ramo, sin reloj). Banco en `datos/preguntas/` — **348 preguntas reales en 12 temas y 5 ramos** (ahora incluye `finanzas-ii` y `apf`) extraídas del material de finanzas del Drive (P1.5 Q2, lotes 1-31; validar siempre con `validar_preguntas.py`). **Auditoría de calidad completa (2026-07-23)**: las 348 preguntas fueron revisadas por precisión técnica/coherencia (no solo esquema JSON) — se corrigió 1 error numérico real, 1 bug de metadata (`ramo` mal etiquetado), 2 reclasificaciones de tema y ~35 mejoras de estilo/distractores; nadie encontró alternativas "correctas" objetivamente erróneas, así que el contenido de fondo ya era sólido. **Dificultad subida (2026-07-20)**: `armarDesafio()` prioriza preguntas de dificultad 2-3 (solo cae a dificultad 1 si el tema no tiene suficientes), el puntaje decae más rápido (20s→14s) y la penalización por respuesta mala subió de 25 a 32 pts; la fase de lectura también se acortó un poco. Idea pendiente de Francisco: selector de dificultad (1/2/3) en el juego — el campo `dificultad` ya existe en todas las preguntas |
 | `juego/index.html` | ✅ Funcional | "El Rally del Toro": runner canvas con un **toro dorado dibujado a mano** (silueta embistiendo inspirada en el logo, galope de 4 patas, cola y cuernos animados — ya no se usa la imagen del logo en el canvas); velas rojas, **vela gigante (flash crash)**, burbujas y **pozo del SII** (un vacío en el suelo con las letras "SII" — hay que saltarlo; si caes, overlay "Te fuiste en cana" con la moraleja de integridad, raro ~5.5%) como obstáculos; VENDER asegura el puntaje y ofrece **descargar una tarjeta PNG 1080×1350** del resultado (monto, % ganancia, el toro, cita del club) — filosofía "saber cuándo salir". **Dificultad rebalanceada (2026-07-22, pedido de Francisco: "al llegar a 3x ya no es posible avanzar")**: la velocidad ahora tiene MESETA (`speed=6+min(elapsed,34000)/10000`, techo ~9.4) y el ritmo de spawn un piso de 640ms — lo único que sigue subiendo es el `mult` de recompensa, así el juego siempre es jugable y la tensión es "cuánto aguantas". **Evento "posición en corto"**: cada ~18s (luego cada 16-24s) el mundo se da vuelta con un aviso previo (banner) — el toro corre por el TECHO (gravedad invertida, `mode="short"`) y hay que **CUBRIR (saltar ↓)** las alzas verdes que cuelgan del techo, con un botón distinto; a los ~6.5s vuelve a normal. Controles: SALTAR (Espacio/↑) en largo, CUBRIR (↓/K) en corto; en móvil el tap del lienzo hace la acción del modo; dos botones en pantalla muestran cuál está activo. **Panel lateral "Tu rendimiento"** (`.side`): curva de equity de la corrida en vivo + línea punteada del siguiente en la tabla con "faltan USD X para pasar a [nombre]" y "Vas #N en vivo" (se calcula contra `RANK`, el ranking local o global). Ranking: lee `config.figEndpoint` de `datos/club.json` (el Apps Script COMPARTIDO del sitio) y muestra "Ranking global"; si el endpoint está vacío o el fetch falla, cae automático a localStorage por navegador. **Endpoint ya conectado (2026-07-18)**, pendiente de que Francisco confirme que una corrida real llega a la pestaña `Ranking` de la planilla. Nota: hay un espejo de estado (`window.__rallyState`) que solo se activa con el flag de prueba `window.__rallyFast` — inerte en producción |
 | Fotos de eventos | ⚠️ Parcial | 7 de 9 eventos con fotos curadas y comprimidas (ver `HOJA_DE_RUTA_FIG.md` tarea #5). Faltan `torneo-portafolio-2026` y `charla-analisis-tecnico-2025` (sin carpeta en el Drive) y más variedad en `lanzamiento-club-2025` (fotos Samsung de 7-9 MB, por encima del límite del conector de Drive) |
-| Fotos de la directiva | ✅ Completa (15/15) | `fotos/directiva/` tiene foto real de las 15 personas de `personas.directiva` (Francisco subió las 4 que faltaban — Agustín Arriagada, Juan José Limari, Delia Avilán y Gabriela Domínguez — el 2026-07-24, y Victoria Espinoza llegó con foto real desde el inicio). Fotos de baja resolución (ej. Agustín, ~96×96 desde LinkedIn) se reescalaron con Lanczos + realce de nitidez, mismo tratamiento que se le dio a Manuel Paz. Notas: Samuel Rodríguez Arnolds se sumó a `personas.directiva` el 2026-07-18 (co-encargado de Valuation junto a Jhosep, confirmado por Francisco); Delia Avilán, Gabriela Domínguez y Victoria Espinoza son co-fundadoras de FEN Investment Woman (confirmado por Francisco el 2026-07-24, tras detectar que los 3 CV se autodescribían con el mismo rol) |
+| Fotos de la directiva | ✅ Completa (15/15) | `fotos/directiva/` tiene foto real de las 15 personas de `personas.directiva` (Francisco subió las 4 que faltaban — Agustín Arriagada, Juan José Limari, Delia Avilán y Gabriela Domínguez — el 2026-07-24, y Victoria Espinoza llegó con foto real desde el inicio). Fotos de baja resolución (ej. Agustín, ~96×96 desde LinkedIn) se reescalaron con Lanczos + realce de nitidez, mismo tratamiento que se le dio a Manuel Paz. Notas: Samuel Rodríguez Arnolds se sumó a `personas.directiva` el 2026-07-18 (co-encargado de Valuation junto a Jhosep, confirmado por Francisco); Delia Avilán, Gabriela Domínguez y Victoria Espinoza son co-fundadoras de FEN Investment Woman (confirmado por Francisco el 2026-07-24, tras detectar que los 3 CV se autodescribían con el mismo rol). **Foto de Francisco Valenzuela actualizada (2026-08-05)**: subió una foto profesional nueva a la carpeta `CV/Fotos` del Drive ("Foto FV") — se recortó a cuadrado 800×800 centrado en el rostro (mismo formato que el resto del equipo; la anterior era 704×1058, único caso no cuadrado) y se reemplazó `fotos/directiva/francisco-valenzuela.jpg` |
 | Fotos de Valuation | ⚠️ Vacía (2026-07-22) | `fotos/valuation/` creada con `LEEME.txt`, lista para recibir fotos numeradas (tira de fondo del hero). Carpeta paralela en Drive (`06_Valuation/Fotos`, con su propio LEEME) para que el equipo del área las suba primero — pasan al repo cuando Francisco pida la revisión |
 
 ## Lo que YA existe fuera de esta carpeta (contexto crítico, no reinventar)
@@ -138,7 +171,13 @@ Resumen de bloqueadores:
    `HOJA_DE_RUTA_FIG.md` P0-2 para el detalle técnico de qué cambió en el
    script).
 3. **Colores oficiales de FIW** con Delia → variables `--acc*` (P0-3).
-4. **URLs de `bases` y `contacto`** en `CONFIG.urls` / `club.json` (P0-4).
+4. ✅ **URL de `bases`** resuelta (2026-08-23) — el link apuntaba a
+   `https://mpazq-afk.github.io/torneoportafolio2026/documentos/...pdf`, que
+   daba 404 (esa ruta nunca existió en el repo de deploy). Francisco subió el
+   PDF real a Drive (`02_Areas/PORTAFOLIO/Bases_finales_torneo_portafolio_2026.pdf`);
+   se copió a `documentos/` en este repo y se apuntaron `CONFIG.urls.bases`
+   (`index.html`), `config.urls.bases` (`datos/club.json`) y el botón directo
+   de `torneo/index.html` al archivo local. `contacto` sigue pendiente (P0-4).
 5. **Fotos reales** en `fotos/eventos/*` y `fotos/fiw/` (P0-5, solo Francisco).
 
 ## Reglas duras (no romper)
@@ -184,3 +223,417 @@ Resumen de bloqueadores:
   existe para otro dato (todos siguen la misma forma: leer Excel → validar
   → volcar JSON con el esquema documentado en el propio archivo o en su
   `.ejemplo`).
+
+## Cambios del 2026-08-23 (segunda tanda, tras la reincorporación de los 5)
+
+**Bug real corregido**: el botón "Torneo 2026" del nav de `eventos/index.html`
+(escritorio y móvil) apuntaba a `https://feninvestmentgroup.com/torneoportafolio2026/`
+— un sitio externo viejo que da 404 (verificado con curl). Era el único link
+del sitio con este problema; se cambió a `../torneo/index.html` en ambos
+repos. Reportado por Francisco: Inicio → Torneo → Eventos → intentar volver
+a Torneo desde ahí daba 404.
+
+**Nav de `index.html` reordenado** (pedido de Francisco: "hay demasiadas
+cosas"): de 11 ítems planos a 6 — Nosotros, Torneo, **Áreas ▾** (Valuation),
+**Comunidad ▾** (Miembros, FIG Woman), **Actividades ▾** (Eventos, Historia),
+Jugar ▾ (sin cambios, ya era desplegable). La clase CSS `.nav__play` se
+renombró a `.nav__drop` (genérica, la reusan los 4 desplegables). **Ojo con
+un bug que casi se introduce**: los triggers de "Áreas ▾" y "Comunidad ▾" no
+deben repetir el mismo `href="#areas"`/`#equipo"` que ya usa su propio
+submenú — el JS de "link activo del nav" (`.nav__links a`, busca por
+`getAttribute("href").slice(1)`) arma un mapa por id de sección, y dos `<a>`
+con el mismo hash se pisan entre sí, dejando el trigger visible SIN el
+resaltado dorado cuando esa sección está en pantalla. Por eso el submenú de
+Áreas solo tiene "Valuation" y el de Comunidad solo "Miembros"/"FIG Woman"
+— el trigger mismo ya cubre la sección ancla, no hace falta repetirla adentro.
+**En el repo de Manuel se adaptó distinto**: como ahí no existe Miembros y
+FIG Woman sigue oculta (`FIW_TEMP_OCULTO`), "Comunidad ▾" habría quedado
+como un desplegable vacío — se dejó "Equipo" como ítem suelto en su lugar,
+sin agrupar.
+
+**ACWI real agregado a `torneo/pantalla.html` y `torneo/pantalla-facultad.html`**
+(pedido explícito de Francisco: "quiero que aparezcan las dos" — ACWI Y
+promedio del torneo, no una en vez de la otra). Hasta ahora ambas pantallas
+solo comparaban cada equipo contra el promedio de los 59, aunque el
+benchmark real ya se captura desde Bloomberg desde el 2026-08-21
+(`datos/torneo.json.acwi`, ver el otro repo). Ahora dibujan una tercera
+línea (azul `#3C6DA8` sobre fondo claro en pantalla-facultad, `#7BA7DE` sobre
+fondo oscuro en pantalla — mismos tokens que usa el resto del sitio para
+ACWI). Si el corte más reciente todavía no tiene el valor de ACWI capturado
+(le puede faltar un corte, el pipeline de Bloomberg lo agrega aparte), la
+línea de ACWI simplemente no llega hasta la última semana — no se inventa
+el dato ni se rompe el gráfico.
+
+**`torneo/pantalla-facultad.html` agrandado** (Francisco lo proyectó con el
+equipo y acordaron que se veía chico/pixelado): nombres de integrantes
+24px→32px, rol 16px→20px, avatar 56px→68px; intro (escena 1) con logo
+150px→190px, título "FEN Investment Group" 96px→124px, kicker y línea de
+organización también más grandes. **Detalle técnico importante**: el ancho
+de la máscara que revela el título letra por letra era un número fijo en
+px (`1010`, calculado a mano para el font-size viejo) — con el font-size
+nuevo el texto real es más ancho que esos 1010px, así que se habría cortado
+a la mitad. Se cambió a medir el `scrollWidth` real del `<h1>` en vivo
+(`MASK_W`, ver `medirMascara()`), con `document.fonts.ready` para esperar
+a que Playfair Display esté cargada antes de medir — así un futuro cambio
+de tamaño no vuelve a romperlo.
+
+**Pixelación al proyectar — script de grabación reconstruido (2026-08-23),
+AÚN NO SE HA CORRIDO**. El script viejo (`scratchpad/grabar_pantalla_facultad.py`)
+vivía en el scratchpad efímero de una sesión anterior de Claude Code y se
+perdió al cerrarla — por eso este nuevo queda **en la raíz del repo, no en
+un scratchpad**, para que no vuelva a pasar.
+
+Hardware de la máquina de Francisco (verificado 2026-08-23, relevante para
+cualquier ajuste futuro): Intel Pentium Gold 7505, 2 núcleos/4 hilos, **solo
+3.8 GB de RAM** (con frecuencia menos de 1 GB libre), GPU integrada. Con eso
+en mente, el diseño evita Playwright/Puppeteer (bajan ~300MB de Chromium
+aparte) y evita acumular fotogramas en memoria.
+
+Son DOS scripts nuevos en la raíz del repo:
+- `grabar_pantalla_facultad_1_capturar.js` (Node, **sin instalar nada**:
+  usa el Chrome/Edge ya instalado + el `fetch`/`WebSocket` nativos de Node
+  24, manejando el navegador por CDP crudo — mismo patrón que se usó para
+  verificar `miembros/index.html`). Necesita un server local corriendo
+  primero (`python -m http.server 8000` desde la raíz del repo, porque la
+  página hace `fetch()` a `../datos/torneo.json` y eso lo bloquea `file://`).
+  Congela el reloj de la página (`window.__manual()`), espera
+  `document.fonts.ready` (importante: sin esto los primeros fotogramas
+  podrían capturarse con el título del intro sin revelar del todo — ver
+  `medirMascara()` en `pantalla-facultad.html`) y recorre `window.__seek(ms)`
+  fotograma a fotograma, escribiendo cada uno a `frames/frame_NNNNN.png` y
+  descartándolo de memoria antes del siguiente. Por defecto 30fps (no 60:
+  la mitad de fotogramas, mismo resultado visual en un video sin movimiento
+  rápido, la mitad de riesgo para 3.8GB de RAM).
+- `grabar_pantalla_facultad_2_codificar.py` (Python + `av`/PyAV, instalado
+  el 2026-08-23 con permiso de Francisco — Pillow ya estaba de
+  `optimizar_fotos.py`). Lee los `.png` de `frames/` uno por uno y los
+  codifica directo al MP4 final (nunca los tiene todos en memoria a la
+  vez), CRF configurable (18 por defecto, buena calidad/peso razonable para
+  subir a Drive — más bajo = más calidad y más peso, ver el docstring del
+  script).
+
+Uso completo:
+```
+python -m http.server 8000                              # terminal 1, dejarla corriendo
+node grabar_pantalla_facultad_1_capturar.js              # terminal 2
+python grabar_pantalla_facultad_2_codificar.py           # terminal 2, después
+```
+Estimado en esa máquina (NO cronometrado todavía, es una proyección): unos
+15-20 minutos a 30fps, archivo final entre 20 y 50 MB. **Antes de correrlo
+de verdad, avisarle a Francisco** — accedió a que se armara el script pero
+pidió no correrlo todavía en la sesión donde se escribió.
+
+## Cambios del 2026-08-27: cargos del área Portafolio + sección de creadores
+
+**Un solo Director de Portafolio.** Cinco personas figuraban como
+"Director · Portafolio" en `datos/club.json`. Francisco aclaró que **el
+director del área es él**; Manuel Paz, Agustín Arriagada, Benjamín Disi y
+Benjamín Solís pasaron a **"Directivo · Portafolio"** (él eligió ese rótulo
+sobre "Administrador"). El cambio tocó, por persona y solo dentro de su
+propia ficha, el campo `rol`, la primera entrada de `hitos` y la bio (que
+decía "y director del área Portafolio" → "y **directivo** del área
+Portafolio"): `datos/club.json`, el HTML estático y el literal JS `CLUB_DATA`
+de `index.html`, y `datos/miembros.json` (`rol`, `rolCompleto`, `hitos`).
+La bio de Francisco es la única que conserva "director del área Portafolio",
+y `liderArea:"PRT"` sigue siendo suyo y de nadie más. **Los 3 "Director ·
+Trading" NO se tocaron** — no venía pedido, pero es el mismo patrón por si
+algún día se aclara quién dirige esa área (ver P0.5).
+
+**Benjamín Sáez no cofundó el área de Portafolio.** Decía "Co-fundador ·
+Área Portafolio" en el `detalle` y en `hitos`, y su bio decía "Lidera el
+área Portafolio y la dirección estratégica del club" — las dos cosas
+chocaban con que el director del área sea Francisco. Francisco lo corrigió:
+**él cofundó el CLUB, como el resto de la directiva, y es el presidente
+actual**. Quedó `detalle: "Co-fundador de FEN Investment Group."`, el hito
+como "Co-fundador de FIG" y la bio como "Lidera la dirección estratégica
+del club".
+
+**Sección nueva `#creadores` en `torneo/index.html`** (pedido de Francisco:
+"que se vean los creadores del torneo"). Va después de §Metodología, antes
+del footer, con enlace propio en el nav (desktop y móvil). Vuelve al fondo
+navy — Metodología es la única sección clara de la página — así el cierre
+de créditos se lee como bloque aparte y engancha con el footer.
+
+Detalle importante de dónde vive el dato: **la LISTA de creadores es
+explícita**, en `datos/club.json` → `torneo.creadores` (nombre + `aporte`).
+No se deriva de quién tiene hoy un rol de Portafolio, a propósito: haber
+creado el torneo 2026 es un hecho histórico, no un cargo vigente — si el
+año que viene entra alguien nuevo al área, no pasa a ser creador. En cambio
+el **cargo, el LinkedIn y la foto NO se repiten** ahí: `initCreadores()` los
+resuelve en vivo contra `personas.directiva` calzando por nombre, así que un
+cambio de cargo se refleja solo. Si alguien de la lista no tiene ficha en
+`directiva`, esa tarjeta se omite en vez de inventarle el cargo; y la
+sección arranca con el atributo `hidden`, que solo se saca si de verdad se
+dibujó al menos una tarjeta (un `club.json` roto no deja un título con la
+grilla vacía). Las fotos se sondean como en el resto del sitio
+(`../fotos/directiva/<slug>.<ext>`), con monograma dorado de respaldo del
+mismo tamaño para que la tarjeta no salte si falta el archivo.
+
+Son 6: Benjamín Sáez (presidencia y alianzas), Francisco (co-creador y
+plataforma web), Benjamín Disi (reglas y metodología), Benjamín Solís
+(arquitectura), Agustín Arriagada (capacitación en Bloomberg) y Manuel Paz
+(comunicaciones). Cada `aporte` sale de la bio o los hitos que esa persona
+ya tenía en `club.json` — no se inventó mérito nuevo.
+
+**Verificado en navegador** (Chrome headless por CDP crudo, mismo patrón que
+`miembros/index.html`): las 6 tarjetas renderizan con foto real y cargo
+correcto, sin errores de consola, en los dos repos; y la grilla corta bien
+3 → 2 → 1 columnas sin desborde horizontal. **Dos trampas que costaron
+tiempo y conviene no repetir** al verificar cualquier sección de este sitio:
+(1) el `clip` de `Page.captureScreenshot` va en coordenadas del **documento**,
+no del viewport — hay que sumarle `scrollY` al `getBoundingClientRect()`;
+(2) hay que **scrollear la sección a la vista y esperar >0.9s** antes de
+capturar, porque los `.reveal` recién reciben la clase `in` cuando el
+IntersectionObserver los ve entrar en pantalla — si no, se captura un
+rectángulo navy vacío y parece que la sección está rota cuando no lo está.
+
+## Segunda tanda del 2026-08-27: jerarquía visual y correcciones de crédito
+
+**Tres niveles de marco en §Nosotros** (pedido de Francisco: "que quede claro
+que yo lidero el área"), en `index.html` de los dos repos:
+
+| Nivel | Quién | Marca visual |
+|---|---|---|
+| Presidencia | `destacado:true` en `club.json` | Filete dorado **arriba** + avatar dorado (ya existía) |
+| Dirige un área | `liderArea` en `club.json` | Filete dorado **al costado** + chip "Dirige el área" |
+| Resto | — | Tarjeta normal |
+
+`liderArea` ahora está **declarado explícito** para los tres líderes
+confirmados: Francisco (`PRT`), **Delia Avilán (`FIW`)** y **Samuel Rodríguez
+Arnolds (`VAL`)** — antes solo Francisco lo tenía y los otros dos quedaban
+bien únicamente porque `marcar_lideres()` de `generar_miembros.py` los
+auto-elegía, o sea por suerte. **Trading va sin `liderArea` a propósito**:
+Francisco todavía no tiene claro quién lo dirige, así que ninguna tarjeta de
+Trading lleva marco. Ojo que `datos/miembros.json` **sí** trae
+`lidera:"TRD"` en Juan José Limari, auto-elegido y sin confirmar — es previo
+a este cambio y quedó tal cual; si se regenera ese archivo, revisarlo.
+
+Detalle de CSS que hay que respetar si se tocan estos marcos: `.p-card:hover`
+reemplaza el `box-shadow` **completo**, así que `.p-card--lead:hover` y
+`.p-card--area:hover` tienen que repetir el filete además de la sombra, o el
+filete desaparece al pasar el cursor. Mismo patrón en `.cre--lead`/`.cre--area`
+de `torneo/index.html`.
+
+**Otro desfase que conviene tener presente**: el respaldo embebido de
+`index.html` (el literal JS `CLUB_DATA` + las tarjetas estáticas) tiene **12
+personas** y `club.json` tiene **15** — faltan ahí Samuel Rodríguez Arnolds,
+Gabriela Domínguez y Victoria Espinoza. No se nota en vivo porque `club.json`
+pisa el respaldo al cargar, pero significa que **a Samuel no se le pudo poner
+la marca en el respaldo** (no existe en él). Es previo a esta sesión.
+
+**Sección de creadores, segunda pasada.** Orden pedido por Francisco: Sáez,
+Francisco, Agustín, Manuel, Disi, Solís (antes iban en orden narrativo).
+Aportes nuevos: Agustín pasó de "capacitación en Bloomberg" a
+"**infraestructura digital y datos de Bloomberg**"; Francisco de "co-creador"
+a "**infraestructura digital y la plataforma web**"; Manuel a "**comunicación
+y coordinación**"; y a Solís se le quitó lo de la arquitectura, quedando
+**sin línea de aporte** (decisión explícita de Francisco: prefirió dejarlo en
+blanco antes que inventarle otro mérito). Por eso `aporte` es **opcional** en
+`torneo.creadores` — si falta, no se dibuja el `<p>`.
+
+**Las dos correcciones se propagaron a todo el sitio**, no solo a la sección
+de creadores, porque son correcciones de hecho y dejarlas en otras páginas
+sería publicar algo que ya sabemos que está mal:
+- **Solís no diseñó la arquitectura del torneo** — fuera de su `detalle`, su
+  bio y sus hitos, en `club.json` y `miembros.json`.
+- **Francisco no es "co-creador"** — *todos* los del área lo son, así que
+  destacarlo solo a él engañaba. Su crédito quedó como infraestructura
+  digital y plataforma web, en `detalle`, bio y hitos.
+
+Queda un rastro a propósito en `datos/miembros.demo.json`, que está fuera de
+uso como fuente.
+
+**Inconsistencia conocida que Francisco decidió NO tocar por ahora**: la bio
+de Jhosep García (Vicepresidente) sigue diciendo que **él** lidera el área
+Valuation, aunque el líder confirmado es Samuel, que es quien lleva el marco.
+Preguntar antes de cambiarla.
+
+## Tercera tanda del 2026-08-27: mejoras al torneo (6 de 7 ideas propuestas)
+
+Tras arreglar la sección de creadores (ver la tanda anterior), Francisco pidió
+una lista de mejoras para la página del torneo y luego pidió implementarlas
+**todas menos una**. La que quedó fuera a propósito es el **aviso de dato
+viejo** (un chip que avisara si el pipeline no corrió un viernes): decisión
+explícita suya, no está pendiente.
+
+Antes de proponer nada se verificó qué ya existía; varias ideas se descartaron
+ahí mismo por estar hechas (el desglose de puntos por métrica con barras ya
+estaba en la ficha, los deep links por equipo ya funcionaban con `replaceState`).
+
+### 1. Vista previa propia por equipo al compartir el link
+
+El deep link `torneo/index.html#beta-capital` ya existía, pero las etiquetas
+Open Graph son las de la página completa: los 54 equipos mostraban la misma
+tarjeta genérica en LinkedIn/WhatsApp. Con 145 inscritos, ese era el canal de
+difusión más grande del torneo desaprovechado.
+
+GitHub Pages no puede armar las etiquetas al vuelo, así que se generan de
+antemano: `generar_paginas_equipo.py` escribe **una micro-página por equipo** en
+`torneo/e/<id>.html` cuyo único trabajo es llevar las etiquetas correctas
+(`<title>`, `og:title`, `og:description` con puesto/puntaje/retorno/semana,
+`og:image`) y **redirigir al ranking real**. Detalles que importan:
+
+- **`location.replace()`, no `href`**: si no, la intermedia queda en el
+  historial y el botón "atrás" rebota y devuelve al ranking, dejando al
+  visitante atrapado. Verificado: `history.length` queda en 2, no en 3.
+- **`noindex,follow` + `canonical` al ranking**: son 54 páginas casi idénticas y
+  no deben competir con el ranking en Google. Los rastreadores de redes sociales
+  ignoran `noindex` y leen las `og` igual, que es justo lo que sirve.
+- **URLs absolutas** en `og:image`/`og:url`: los rastreadores de LinkedIn y
+  WhatsApp no resuelven rutas relativas. El dominio sale de `config.sitio` de
+  `club.json` si está lleno (hoy está **vacío**) y si no cae a
+  `https://feninvestmentgroup.com`, el del CNAME del repo de deploy.
+- **Se reescriben enteras cada corte** (el puesto va en el texto) y las de
+  equipos que salieron del torneo se borran solas, para no dejar links vivos
+  mintiendo.
+
+La **imagen** la genera aparte `generar_og_equipos.js` (Node + Chrome por CDP
+crudo, mismo patrón que `grabar_pantalla_facultad_1_capturar.js`). No dibuja
+nada nuevo: llama a `drawLi` por el gancho `window.__figCards`, o sea usa **la
+misma tarjeta de LinkedIn** que la página ya ofrece en "Comparte tu resultado"
+— que además mide 1200x627, exactamente la medida de una vista previa. Si se
+rediseña una, cambia la otra.
+
+**Es un paso opcional y separado a propósito, por peso**: son 54 JPG de ~57 KB
+(3,1 MB por corte) que se reescriben cada semana, y git guarda cada versión.
+Sin imágenes las micro-páginas funcionan igual y caen a `/og-image.png`,
+conservando lo que de verdad diferencia una vista previa de otra, que es el
+título ("Beta capital · 1° de 54").
+
+### 2. `torneo/pantalla.html` ahora se recarga sola
+
+La pantalla de las TV corre en bucle sin nadie delante: el viernes que se
+publica el corte nuevo no había quien la recargara y seguía mostrando el
+anterior hasta que alguien se acordaba. **Verificado que no tenía ni un
+`setInterval` ni un `location.reload`.**
+
+Ahora cada 5 minutos vuelve a pedir `torneo.json`. Tres decisiones de diseño:
+
+- **El cambio queda EN ESPERA hasta que el ciclo de animación da la vuelta**
+  (`t < prev` en el bucle de `arrancar()`). Cambiar a mitad de una transición se
+  ve como una falla delante de la gente; el ciclo dura 42 s, nunca espera mucho.
+- **Si la red se cae no se toca nada**: se queda con el último corte bueno. Lo
+  mismo si el archivo llega a medio publicar (sin equipos): se descarta.
+- **Apagado mientras se graba** (`window.__manual()`): el guion de grabación
+  necesita que los datos no se muevan debajo.
+
+`pantalla-facultad.html` **no** se tocó: esa no es una pantalla en vivo, es la
+fuente del video semanal, y un refresco ahí solo podría arruinar una grabación.
+
+### 3. Carga en dos partes de `torneo.json`
+
+Medido sobre el corte de la semana 15: el archivo completo pesa **27,7 KB
+comprimido** y el `historial` semanal es el **75%** de eso — pero solo hace
+falta al abrir una ficha, el comparador o el replay. `generar_tabla.py` deriva
+`datos/torneo-tabla.json` (el mismo sin historial, **7,1 KB comprimido**), que
+es lo que la página pide primero.
+
+El historial se trae después: **de fondo con `requestIdleCallback`** para que
+abrir una ficha sea instantáneo, **salvo** que el visitante tenga `saveData` o
+venga en 2G, donde se espera a que lo pida de verdad — que es justo el caso en
+que ahorrar esos 20 KB importa.
+
+Como `torneo-tabla.json` es un **archivo derivado**, tiene dos salvavidas:
+
+1. si no existe, se carga `torneo.json` completo y todo funciona como siempre
+   (el camino viejo sigue entero);
+2. si existe pero su `corte`/`semana`/nº de equipos no calza con el completo,
+   al llegar el completo **se repinta todo con él**. Quedarse atrás se corrige
+   solo y nunca queda un dato viejo en pantalla.
+
+Los dos casos se probaron de verdad en Chrome headless (borrando el derivado, y
+ensuciándolo con otro corte y 10 equipos falsos: se auto-corrigió a los 54
+reales con el score correcto).
+
+**Regresión que esto causó y hay que tener presente**: las tarjetas y videos
+(`descargarPng`, `grabarVideo`, `descargarHtml`) dibujan la trayectoria desde
+`t.historial`. Con la carga en dos partes salían con el cartel *"trayectoria
+disponible desde la semana N"* si el historial aún no había llegado. **Lo
+detectó el propio generador de imágenes OG**, que produjo una primera tanda de
+tarjetas sin curva. Las tres funciones quedaron envueltas en `conHistorial()`.
+Si mañana se agrega otra cosa que lea `historial`, envolverla igual.
+
+### 4. La tabla se puede ordenar por columna
+
+Click en **SCORE / 100** o **RET. RELATIVO** reordena; volver a pulsar invierte.
+POS es el orden oficial y el de entrada. Los encabezados son `<button>` de
+verdad (los alcanza el tabulador) y el estado va en `aria-sort` del
+`role="columnheader"`; la flecha es un `<i>` `aria-hidden`, puro adorno.
+
+**Ordenar NO renumera a nadie**: la columna POS sigue mostrando el puesto
+oficial de cada equipo, porque el ranking del torneo es uno solo y no depende de
+cómo mire la tabla el visitante. Verificado: ordenando por retorno relativo las
+tres primeras filas muestran POS 3, 1 y 8.
+
+### 5. La tabla ya se anuncia como tabla
+
+Eran 54 filas de `div`s con grid: un lector de pantalla las leía como texto
+suelto, sin columnas ni encabezados. **No se pasó a `<table>` real a propósito**
+— el diseño depende de `grid-template-columns` (incluido el colapso a 3 columnas
+en móvil), y poner `display:grid` sobre elementos de tabla les **borra** los
+roles ARIA implícitos en los navegadores, que es la trampa clásica. Se pusieron
+los roles explícitos (`table` / `row` / `columnheader` / `cell`), que dan el
+mismo resultado sin tocar una línea de layout.
+
+De paso la fila dejó de ser un `<button>` gigante y el nombre del equipo pasó a
+ser un **`<a href="#id">` real**: le da al teclado un destino, al lector de
+pantalla un nombre corto ("Beta capital" en vez de la fila entera leída de
+corrido) y al visitante un link que puede copiar con botón derecho. El clic lo
+sigue atendiendo el JS.
+
+También se agregó un **`hashchange`**, que antes no existía: pegar un link con
+`#equipo` ya abierta la página, o el botón atrás, ahora funcionan. Ojo:
+`openTeam`/`closeTeam` usan `replaceState`, que **no** dispara `hashchange`, así
+que no hay bucle — por ahí solo entran los cambios que hace el visitante.
+
+### 6. Hitos de trayectoria en la ficha
+
+Bloque nuevo `#tmHitos` sobre el gráfico, derivado del `historial` que
+`torneo.json` ya guarda — no pide ningún dato nuevo al pipeline: mejor puesto,
+peor puesto, mejor score, "desde su peor semana +N puestos" (solo si de verdad
+ganó) y "racha sin ceder puestos" (solo desde 2 semanas). Ojo con el sentido de
+"mejor": en posiciones el mejor es el **menor**, al revés que en puntos.
+
+### La rutina semanal quedó así
+
+```
+python generar_torneo.py --excel <Excel del corte> --semana N --corte "..."
+python generar_tabla.py               # derivado que pinta la tabla
+node generar_og_equipos.js            # OPCIONAL: las imágenes (ver su peso)
+python generar_paginas_equipo.py      # micro-páginas por equipo
+python verificar_sitio.py             # chequeo final
+```
+
+`verificar_sitio.py --arreglar` regenera los derivados por su cuenta (nunca toca
+datos ni HTML escrito por una persona).
+
+### Lo que encontró el verificador en su primera corrida
+
+Compara las menciones escritas a mano de "N equipos" contra `datos/torneo.json`
+y sacó 4. Tres son correctas como están (la bio de Agustín dice "capacitó a más
+de 65 equipos", que es acumulado y no el conteo del torneo — está en `club.json`
+y `miembros.json` —, y un comentario de código que dice "~55 equipos"). La
+cuarta es real y **sigue en vivo**:
+
+> `datos/club.json` → `historia[]` → **"Capítulo IV · 2026"** dice **"59 equipos
+> y más de 150 estudiantes"**, cuando el torneo quedó en 54.
+
+Esto es lo que Francisco venía pidiendo que se le recordara. **Trampa que costó
+una afirmación equivocada en esta misma sesión**: en `index.html` el bloque
+estático y el literal JS `CLUB_DATA` **ya dicen 54**, así que mirando solo ahí
+parece corregido — pero `club.json` los pisa en runtime y es el que se ve.
+Confirmado con `curl` contra `feninvestmentgroup.com/datos/club.json`. Para
+verificar un texto de este sitio, mirar el JSON que lo alimenta, nunca el
+fallback. **No se cambió**: el número correcto para un párrafo que describe el
+lanzamiento en pasado es una decisión de Francisco, no nuestra.
+
+### Verificación
+
+Todo en Chrome headless por CDP crudo (Chrome de la máquina + WebSocket nativo
+de Node, sin instalar nada), **sin un solo error de consola** en ninguna
+corrida: 54 filas desde el derivado, roles ARIA, orden por las dos columnas con
+`aria-sort`, POS que no se renumera, ficha con los 5 hitos y la curva, replay
+con sus 54 filas, comparador con curva, deep link directo al cargar, navegación
+por hash, botón atrás, foco de teclado en el nombre, micro-página que redirige
+al equipo correcto sin ensuciar el historial, los dos salvavidas del derivado, y
+la recarga de la pantalla con corte nuevo + caída de red.
