@@ -706,3 +706,153 @@ líneas del nav (allá no existe Miembros y FIG Woman sigue oculta, así que
 entero al espejo.** Lo que se hizo fue portar solo el bloque del gráfico (desde
 el comentario `Gráfico del hero + crosshair` hasta el `Conmutador de desks`) y
 verificar después que el nav del espejo siguiera con "Equipo".
+
+## Quinta tanda del 2026-08-28: nueve mejoras mas (todas menos CI)
+
+Francisco pidio otra ronda de ideas y luego implementarlas **todas menos una**:
+quedo fuera montar GitHub Actions, por decision suya. Las herramientas de
+chequeo existen igual y se corren a mano.
+
+### En el hero de `index.html`
+
+**Cifras de cierre visibles sin interactuar.** El crosshair es `pointermove`:
+en el telefono, donde entra la mayoria, **no existia**, y quien llegaba veia dos
+lineas y ningun numero. Ahora arriba del lienzo va la fila `#ccCifras` con el
+cierre de cada serie y la diferencia en puntos, rellenada por `pintarCifras()`
+desde los mismos datos. Compara los **ultimos puntos de cada serie aunque sean
+de semanas distintas** (el ACWI suele venir un corte atras) y lo dice: "TOP 5 ·
+S15" contra "ACWI · S14". Esconder la semana buena del torneo para forzar un
+empate de fechas seria peor.
+
+**Crosshair con el dedo.** `pointermove` cubre mouse, lapiz y dedo, pero en
+tactil el navegador solo lo emite si no interpreta el gesto como scroll — y
+sobre un lienzo ancho casi siempre lo interpreta asi. Con
+`touch-action: pan-y` el gesto horizontal pasa a ser nuestro y el scroll
+vertical de la pagina sigue funcionando. Se agregaron `pointerdown`/`pointerup`/
+`pointercancel` para que el toque pinte y el levantar el dedo limpie.
+
+### En `torneo/index.html`
+
+**La tabla se pliega a 10 filas.** 54 filas de golpe hacian del podio un detalle.
+`LB_PLIEGUE=10` y un boton "Ver los 54 equipos". Dos reglas: con el **buscador
+activo no se pliega** (esconderle a alguien su equipo del puesto 30 detras de un
+boton seria absurdo) y una vez abierta **se queda abierta** — ordenar no la
+vuelve a plegar.
+
+**El rival mas cercano en la ficha** (`#tmRival`, `renderRival()`). "A 0.61
+puntos de Aconcagua Capital (2°) · 5.13 de ventaja sobre B&JP Capitals (4°)".
+Sale entero de la tabla que ya esta en memoria, asi que se pinta apenas abre la
+ficha, sin esperar el historial. Dos casos borde resueltos: al **lider** se le
+dice "Lidera por X sobre el 2°" y se le omite la segunda mitad, que le repetia
+el mismo equipo; al **ultimo** se le omite la parte de abajo.
+
+### Tipografias autoalojadas (`descargar_fuentes.py` + `usar_fuentes_locales.py`)
+
+Las 14 paginas pedian 3 familias y 12 variantes a `fonts.googleapis.com` en cada
+carga. Eso bloqueaba la primera pintada tras resolver DNS+TLS de dos dominios
+nuevos, y le mandaba la IP de cada visitante a Google en un sitio que no pone ni
+una cookie. Ahora viven en `fuentes/` (12 `.woff2`, 373 KB en el repo) y se
+sirven del mismo origen.
+
+Detalles que importan:
+- **Solo los subconjuntos `latin` y `latin-ext`.** Google sirve ademas cirilico,
+  griego y vietnamita: con `unicode-range` no costarian nada en carga, pero eran
+  63 archivos y 543 KB versionados para siempre en un sitio escrito en espanol.
+- **Las tres familias son OFL**, redistribuibles. Queda `fuentes/LICENCIAS.txt`.
+- **Una pagina cargada baja ~179 KB de fuentes** (solo las variantes que usa) y
+  **cero pedidos a Google** — verificado en el navegador.
+- **NO se toco** el `<link>` a Google que va dentro de la tarjeta HTML que
+  genera `descargarHtml()` en `torneo/index.html`: ese archivo se abre suelto en
+  el computador de quien lo baja, donde `../fuentes/` no existe. Se distingue
+  sola porque usa otra URL (menos pesos), y `usar_fuentes_locales.py` reemplaza
+  solo la URL exacta del sitio.
+
+### `verificar_paginas.js` — el chequeo que faltaba
+
+`verificar_sitio.py` revisa los DATOS; nada revisaba las PAGINAS. Este abre las
+15 en Chrome por CDP crudo y falla si alguna tira un error de consola o pide un
+archivo que no existe. El bug de la seccion de creadores lo habria cazado el
+mismo dia en vez de que lo encontrara Francisco probando.
+
+**Trampa que hay que respetar: este sitio hace 404 a proposito.** Las fotos y
+los logos se detectan SONDEANDO (`<slug>.jpg`, `.jpeg`, `.png`, `.webp` hasta
+que uno carga; `1.jpg`, `2.jpg`... hasta que falla). Esos 404 son el mecanismo
+funcionando, y van en `RUTAS_SONDEADAS`. Si se marcaran como error el chequeo
+daria rojo siempre y se volveria ruido que nadie mira.
+
+Encontro dos cosas en su primera corrida: `GUIA_DRIVE_FIG.html` era la unica
+pagina sin `<link rel="icon">`, asi que el navegador pedia `/favicon.ico` y se
+llevaba un 404 (corregido), y el peso real de cada pagina.
+
+El presupuesto de peso mide **solo lo critico** — documento, CSS, JS, fuentes,
+JSON — y deja fuera las imagenes: `index.html` y `eventos/index.html` pasan los
+2 MB por las tiras de fotos, y meterlas haria que el aviso saltara siempre. Los
+numeros locales son un TECHO: `python -m http.server` no comprime y GitHub Pages
+si. Hay ademas un chequeo de tamano de fuente en `verificar_sitio.py`
+(`TECHO_HTML_KB`), que corre sin navegador.
+
+### `generar_sitemap.py` — sitemap.xml y robots.txt
+
+No existia ninguno de los dos. El sitemap lleva **10 URLs**: las paginas reales.
+Quedan fuera a proposito las 54 `torneo/e/*.html` (son redirecciones con
+`noindex`; meterlas seria pedirle a Google lo contrario de lo que dicen sus
+propias etiquetas), las dos pantallas (`pantalla.html` corre en bucle en un TV,
+`pantalla-facultad.html` es la fuente del video), las guias internas y el 404.
+La fecha de cada URL sale del `git log`, no del mtime, que en un clon reciente
+es la fecha del clon.
+
+Ojo: un `--` dentro de un comentario XML lo vuelve mal formado. El primer
+sitemap generado no parseaba por eso.
+
+### `sincronizar_espejo.py` — la pieza que faltaba hace tiempo
+
+El espejo se copiaba a mano, y **ya habia divergido sin que nadie lo notara**:
+las fotos de eventos de produccion eran las de julio, anteriores a la
+renormalizacion del 23-ago. El script hace explicito lo que vivia en la cabeza
+de alguien — que se copia, que no, y que difiere a proposito — y nunca borra
+nada del espejo.
+
+Lo que **no** viaja (con el motivo escrito al lado, en `NO_SE_COPIAN`): la
+carpeta `miembros/` y sus datos, que todavia no se publican; las herramientas de
+datos y de video; las guias internas.
+
+Lo que **difiere a proposito y nunca se pisa** (`DIFIEREN`): `index.html`, cuyo
+nav en el espejo no tiene Miembros ni FIG Woman. Para portar un cambio hay que
+llevar solo el bloque tocado, como se hizo con el grafico del hero y con el
+`<link>` de las fuentes.
+
+Dos cosas que aparecieron al escribirlo y conviene no olvidar:
+- **`MAPA_CONTENIDO_FIG.html` del espejo tiene dos scripts propios** que limpian
+  la URL (le sacan `/index.html` y el `#`). Copiar la version de aca se los
+  borraria: quedo en `NO_SE_COPIAN`.
+- **`datos/club.json` difiere en 400 lineas pero solo por formato.** Comparados
+  como datos, la unica diferencia real es `config.sitio: ""`, que aca existe
+  vacio. **Se dejo vacio a proposito**: el propio comentario de
+  `miembros/index.html` explica que con `config.sitio` vacio se usa el origen
+  del navegador, que es lo correcto cuando la pagina ya esta publicada donde
+  corresponde. Llenarlo haria que un server local generara links de produccion.
+  Los scripts que necesitan el dominio absoluto caen a
+  `https://feninvestmentgroup.com` por su cuenta.
+
+### La rutina semanal, actualizada
+
+```
+python generar_torneo.py --excel <Excel del corte> --semana N --corte "..."
+python generar_tabla.py
+node generar_og_equipos.js            # OPCIONAL: las imagenes de vista previa
+python generar_paginas_equipo.py
+python generar_sitemap.py
+python verificar_sitio.py             # datos y derivados
+python -m http.server 8000            # en otra terminal
+node verificar_paginas.js             # las paginas en un navegador de verdad
+python sincronizar_espejo.py --aplicar
+```
+
+### Verificacion
+
+Las **15 paginas de `fig-web` y las 13 del espejo** cargan sin un solo error de
+consola ni archivo faltante, con las fuentes locales y cero pedidos a Google.
+Probado ademas a mano en headless: cifras del hero, pliegue de la tabla (que el
+buscador no lo active y que ordenar no lo revierta), linea del rival en el
+lider, en un equipo del medio y en el ultimo, y que el nav propio del espejo
+siguiera intacto despues de portarle el cambio de fuentes.

@@ -17,9 +17,11 @@
 <meta name="twitter:description" content="La página que buscas no existe.">
 <meta name="twitter:image" content="/og-image.png">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%230A1128'/%3E%3Ccircle cx='50' cy='50' r='34' fill='%23D4AF37'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- Tipografias autoalojadas: antes esto eran dos preconnect y una
+     hoja de estilos de fonts.googleapis.com, que bloqueaba la primera
+     pintada y le mandaba la IP de cada visitante a Google. Las genera
+     descargar_fuentes.py; no editar fuentes/ a mano. -->
+<link href="fuentes/fig.css" rel="stylesheet">
 <style>
 /* ============================================================================
    FIG · 404 — Página no encontrada
@@ -110,7 +112,7 @@ footer a:hover{color:var(--gold)}
       <li><a href="index.html">Inicio</a></li>
       <li><a href="eventos/index.html">Eventos</a></li>
       <li><a href="torneo/index.html">Torneo 2026</a></li>
-      <!-- FIW_TEMP_OCULTO <li><a href="fiw/index.html">FIW</a></li> -->
+      <li><a href="fiw/index.html">FIW</a></li>
     </ul>
   </div>
 </nav>
@@ -133,7 +135,7 @@ footer a:hover{color:var(--gold)}
         <a href="index.html">← Inicio</a>
         <a href="eventos/index.html">Eventos</a>
         <a href="torneo/index.html">Torneo</a>
-        <!-- FIW_TEMP_OCULTO <a href="fiw/index.html">FIW</a> -->
+        <a href="fiw/index.html">FIW</a>
         <a href="postula/index.html">Postula</a>
         <a href="desafio/index.html">Desafío</a>
       </div>

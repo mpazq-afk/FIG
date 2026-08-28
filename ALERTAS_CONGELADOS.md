@@ -33,9 +33,9 @@ La directiva de FIG decidio **eliminar en definitiva** a los 5 equipos que
 estuvieron en espera desde el 2026-08-23 (Fencashticos, Free Riders, Market
 Moggers, Mosqueteros, Pink Capital). Ya no aparecen en el ranking publico: el
 torneo vuelve a **54 equipos**, el puntaje de esos 54 se recalcula con el pool
-limpio (se restauro `datos/torneo.json` al estado previo a la reincorporacion) y
-las menciones de "59 equipos" / "USD 590M" del sitio volvieron a "54 equipos" /
-"USD 540M".
+limpio (se restauro `datos/torneo.json` al estado del commit `b2b382b`, previo a
+la reincorporacion) y las menciones de "59 equipos" / "USD 590M" del sitio
+volvieron a "54 equipos" / "USD 540M".
 
 `datos/equipos_congelados.json` queda **vacio** e `incorporar_congelados.py`
 **dormido** en el repo: si en el futuro se decide congelar a otro equipo

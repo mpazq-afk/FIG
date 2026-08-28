@@ -1,0 +1,8 @@
+Tipografias de este sitio -- todas libres, redistribuibles.
+
+  Playfair Display  SIL Open Font License 1.1  https://fonts.google.com/specimen/Playfair+Display
+  Inter             SIL Open Font License 1.1  https://fonts.google.com/specimen/Inter
+  IBM Plex Mono     SIL Open Font License 1.1  https://fonts.google.com/specimen/IBM+Plex+Mono
+
+Los .woff2 y fig.css de esta carpeta los genera descargar_fuentes.py desde
+Google Fonts. No editarlos a mano: se reescriben enteros.

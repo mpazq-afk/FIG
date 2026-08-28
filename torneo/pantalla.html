@@ -31,9 +31,11 @@
   el archivo no existiera, cae solo a un recuadro con el nombre.
 -->
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- Tipografias autoalojadas: antes esto eran dos preconnect y una
+     hoja de estilos de fonts.googleapis.com, que bloqueaba la primera
+     pintada y le mandaba la IP de cada visitante a Google. Las genera
+     descargar_fuentes.py; no editar fuentes/ a mano. -->
+<link href="../fuentes/fig.css" rel="stylesheet">
 <link rel="icon" href="../logos/fig-oro.png">
 
 <style>

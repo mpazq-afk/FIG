@@ -1,0 +1,12 @@
+# Generado por generar_sitemap.py -- no editar a mano.
+
+User-agent: *
+Allow: /
+
+# Las paginas por equipo son redirecciones al ranking, con vista previa propia
+# para compartir. Ya llevan noindex; esto se lo dice tambien a los rastreadores
+# que no leen la etiqueta. Los de redes sociales (LinkedIn, WhatsApp) ignoran
+# robots.txt a proposito y siguen leyendo las og, que es lo que queremos.
+Disallow: /torneo/e/
+
+Sitemap: https://feninvestmentgroup.com/sitemap.xml

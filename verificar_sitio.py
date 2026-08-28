@@ -201,6 +201,45 @@ def revisar_conteo_equipos(torneo: dict) -> None:
         bien(f"todas las menciones escritas a mano dicen {n} equipos")
 
 
+# Techo del HTML de una pagina, en KB de FUENTE (sin comprimir). Todo va inline
+# en este sitio -- CSS, JS y datos de respaldo dentro del mismo archivo --, asi
+# que el .html es casi todo el peso critico. Es un aviso, no un error: la idea
+# es enterarse cuando una pagina crece, no prohibir que crezca.
+# Medicion complementaria y mas fiel en verificar_paginas.js, que mide lo que de
+# verdad se transfiere en un navegador; esta corre sin Chrome.
+TECHO_HTML_KB = 200
+
+
+def revisar_peso_html() -> None:
+    grandes = []
+    for ruta in sorted(RAIZ.rglob("*.html")):
+        if ".git" in ruta.parts or (RAIZ / "torneo" / "e") in ruta.parents:
+            continue
+        kb = ruta.stat().st_size / 1024
+        if kb > TECHO_HTML_KB:
+            grandes.append((kb, rel(ruta)))
+    if grandes:
+        aviso(f"paginas por sobre {TECHO_HTML_KB} KB de fuente:")
+        for kb, r in sorted(grandes, reverse=True):
+            aviso(f"    {r}  {kb:.0f} KB")
+    else:
+        bien(f"ninguna pagina pasa los {TECHO_HTML_KB} KB de fuente")
+
+
+def revisar_derivados_seo() -> None:
+    """sitemap.xml y robots.txt existen y el sitemap no lista las micro-paginas."""
+    sm, rb = RAIZ / "sitemap.xml", RAIZ / "robots.txt"
+    if not sm.exists() or not rb.exists():
+        aviso("faltan sitemap.xml y/o robots.txt -- generalos con generar_sitemap.py")
+        return
+    texto = sm.read_text(encoding="utf-8")
+    if "/torneo/e/" in texto:
+        error("sitemap.xml lista las micro-paginas de equipo, que van con noindex "
+              "-- corre generar_sitemap.py")
+        return
+    bien(f"sitemap.xml ({texto.count('<url>')} URLs) y robots.txt al dia")
+
+
 def revisar_creadores() -> None:
     """Cada nombre de torneo.creadores tiene ficha en personas.directiva."""
     ruta = DATOS / "club.json"
@@ -227,7 +266,7 @@ def revisar_creadores() -> None:
 # --------------------------------------------------------------------------
 def arreglar() -> None:
     """Regenera SOLO los archivos derivados. Nunca toca datos ni HTML a mano."""
-    for script in ("generar_tabla.py", "generar_paginas_equipo.py"):
+    for script in ("generar_tabla.py", "generar_paginas_equipo.py", "generar_sitemap.py"):
         ruta = RAIZ / script
         if not ruta.exists():
             continue
@@ -249,6 +288,8 @@ def main() -> int:
     revisar_imagenes_og(torneo)
     revisar_conteo_equipos(torneo)
     revisar_creadores()
+    revisar_derivados_seo()
+    revisar_peso_html()
 
     if args.arreglar and (ERRORES or AVISOS):
         arreglar()
@@ -260,6 +301,8 @@ def main() -> int:
         revisar_imagenes_og(torneo)
         revisar_conteo_equipos(torneo)
         revisar_creadores()
+        revisar_derivados_seo()
+        revisar_peso_html()
 
     print()
     for b in BIEN:

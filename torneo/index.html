@@ -17,9 +17,11 @@
 <meta name="twitter:description" content="Ranking oficial del Torneo Portafolio 2026: 54 equipos gestionan carteras de USD 10M en ETFs.">
 <meta name="twitter:image" content="/og-image.png">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%230A1128'/%3E%3Ccircle cx='50' cy='50' r='34' fill='%23D4AF37'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- Tipografias autoalojadas: antes esto eran dos preconnect y una
+     hoja de estilos de fonts.googleapis.com, que bloqueaba la primera
+     pintada y le mandaba la IP de cada visitante a Google. Las genera
+     descargar_fuentes.py; no editar fuentes/ a mano. -->
+<link href="../fuentes/fig.css" rel="stylesheet">
 <style>
 /* ============================================================================
    FIG · TORNEO PORTAFOLIO 2026 — Ranking oficial
@@ -275,6 +277,18 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .lb-go{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);text-align:right;opacity:0;transform:translateX(-6px);transition:opacity .3s,transform .3s var(--ease)}
 .lb-row:hover .lb-go{opacity:1;transform:none}
 .lb-empty{padding:44px 22px;text-align:center;color:rgba(247,244,236,.5);font-family:var(--f-mono);font-size:.75rem;letter-spacing:.1em}
+/* Pliegue de la tabla: 54 filas de golpe hacen del podio un detalle y del
+   primer scroll un tramite. Se muestran 10 y el resto se abre a peticion. */
+.lb-mas{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:16px 22px;
+  font-family:var(--f-mono);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);
+  border-top:1px solid rgba(212,175,55,.14);background:rgba(212,175,55,.04);transition:background .3s}
+.lb-mas:hover{background:rgba(212,175,55,.1)}
+.lb-mas:focus-visible{outline:2px solid var(--gold);outline-offset:-3px}
+/* El rival mas cercano: el dato que hace volver el viernes siguiente. Sale
+   entero de la tabla que ya esta en pantalla, no pide nada al pipeline. */
+.tm-rival{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.06em;color:rgba(247,244,236,.62);
+  margin-top:12px;line-height:1.7}
+.tm-rival b{color:var(--gold);font-weight:600}
 .lb-note{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(247,244,236,.4);margin-top:16px;line-height:1.9}
 
 /* Encabezados que ordenan la tabla. El control es un <button> de verdad, no un
@@ -658,6 +672,7 @@ footer a:hover{color:var(--gold)}
           <div class="tm-badges" id="tmBadges"></div>
           <h2 id="tmName"></h2>
           <div class="tm-badges" id="tmSub"></div>
+          <div class="tm-rival" id="tmRival"></div>
         </div>
       </div>
       <div class="ov-h4">Métricas Bloomberg PORT</div>
@@ -981,6 +996,10 @@ function calcBadges(eq){
    columna POS sigue mostrando el puesto oficial de cada equipo, porque el
    ranking del torneo es uno solo y no depende de como mire la tabla el visitante. */
 var LB_EQ=[],LB_Q="",LB_ORD="posicion",LB_DIR=1;
+/* Cuantas filas se ven antes de abrir la tabla entera. Una vez abierta se
+   queda abierta: ordenar no la vuelve a plegar, seria pelearle al visitante
+   que ya dijo que las queria todas. */
+var LB_PLIEGUE=10, LB_TODOS=false;
 var LB_DIR0={posicion:1,puntos:-1,retRel:-1};
 function lbPintar(){renderLb(LB_EQ,LB_Q)}
 function lbOrdenar(k){
@@ -1010,6 +1029,11 @@ function renderLb(eq,q){
     if(x==null)x=0; if(y==null)y=0;
     return (x-y)*LB_DIR || (a.posicion-b.posicion);
   });
+  /* Con el buscador activo NO se pliega: si alguien busca su equipo y va en el
+     puesto 30, esconderselo detras de un boton seria absurdo. */
+  var plegar=(!q && !LB_TODOS && list.length>LB_PLIEGUE);
+  var ocultas=plegar?(list.length-LB_PLIEGUE):0;
+  if(plegar)list=list.slice(0,LB_PLIEGUE);
   body.innerHTML=list.map(function(t){
     var d=t.delta,dl=d>0?'<span class="lb-delta up">▲'+d+'</span>':d<0?'<span class="lb-delta down">▼'+(-d)+'</span>':'';
     var mem=(t.miembros&&t.miembros.length)?t.miembros.length+" integrantes":"";
@@ -1029,6 +1053,13 @@ function renderLb(eq,q){
       +'<span class="lb-go" role="cell">VER →</span>'
       +'</div>';
   }).join("");
+  if(ocultas){
+    var mas=document.createElement("button");
+    mas.type="button";mas.className="lb-mas";
+    mas.textContent="Ver los "+eq.length+" equipos ↓";
+    mas.addEventListener("click",function(){LB_TODOS=true;lbPintar()});
+    body.appendChild(mas);
+  }
   $$(".lb-row",body).forEach(function(r){
     r.addEventListener("click",function(e){
       /* si el clic fue sobre el enlace del nombre, lo atendemos igual pero sin
@@ -1639,6 +1670,40 @@ $("#btnCmpFrom").addEventListener("click",function(){
 });
 document.addEventListener("keydown",function(e){if(e.key==="Escape"&&ovC.classList.contains("open"))closeCmp()});
 
+/* ---------------- El rival mas cercano ----------------
+   Sale entero de la tabla que ya esta en pantalla: no pide nada al pipeline ni
+   al historial, asi que se puede pintar apenas abre la ficha.
+   Es el dato que hace volver el viernes siguiente -- "estoy a 1,2 puntos del
+   que va arriba" mueve mas que un puesto suelto. */
+function renderRival(t){
+  var caja=$("#tmRival"); if(!caja)return;
+  caja.innerHTML="";
+  var eq=DATA.equipos.slice().sort(function(a,b){return a.posicion-b.posicion});
+  var i=-1;
+  eq.forEach(function(x,k){if(x.id===t.id)i=k});
+  if(i<0)return;
+  function dist(o){return Math.abs(t.puntos-o.puntos).toFixed(2)}
+  var partes=[];
+  if(i>0){
+    var arriba=eq[i-1];
+    partes.push("A <b>"+dist(arriba)+" puntos</b> de "+esc(arriba.nombre)
+      +" ("+arriba.posicion+"°)");
+  }else if(eq[1]){
+    /* al lider no le sirve "a cuanto esta del de arriba": no hay */
+    partes.push("Lidera por <b>"+dist(eq[1])+" puntos</b> sobre "+esc(eq[1].nombre)
+      +" ("+eq[1].posicion+"°)");
+  }
+  /* al lider la segunda mitad le repetiria el mismo equipo: el de abajo Y el
+     que le sigue son el mismo, y quedaba "lidera por 6.72 sobre X - 6.72 de
+     ventaja sobre X" */
+  if(i>0 && i<eq.length-1){
+    var abajo=eq[i+1];
+    partes.push("<b>"+dist(abajo)+"</b> de ventaja sobre "+esc(abajo.nombre)
+      +" ("+abajo.posicion+"°)");
+  }
+  caja.innerHTML=partes.join(" · ");
+}
+
 /* ---------------- Hitos de trayectoria ----------------
    Lecturas del propio recorrido del equipo, derivadas del historial que
    torneo.json YA guarda semana a semana. No tocan el scoring oficial ni piden
@@ -1695,6 +1760,7 @@ function openTeam(id){
       +'<div class="mt-barwrap"><div class="mt-bar" data-w="'+(pd/PESOS[k]*100)+'"></div></div>'
       +'<span class="mt-pts">'+pd.toFixed(2)+' / '+PESOS[k]+'</span></div>';
   }).join("");
+  renderRival(t);
   /* La trayectoria y los hitos salen del historial, que con la carga en dos
      partes puede no estar todavia en memoria. La ficha abre igual y esos dos
      bloques se rellenan en cuanto llega, sin trabar nada. */
