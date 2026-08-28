@@ -2349,7 +2349,15 @@ function creFoto(sl,cb){
   })();
 }
 function initCreadores(){
-  fetch("../datos/club.json",{cache:"force-cache"})
+  /* no-cache, NO force-cache: force-cache reusa la copia guardada aunque
+     esté vencida y solo va a la red si no hay ninguna, así que a quien ya
+     había entrado antes la sección le quedaba oculta para siempre — su
+     club.json en caché todavía no traía torneo.creadores. Con no-cache
+     revalida contra el servidor (304 de ~300 bytes si no cambió), que es
+     casi lo mismo de barato y siempre trae el dato correcto. El fetch de
+     métricas del final de la página puede seguir en force-cache: solo lee
+     config.figEndpoint y reaprovecha esta misma entrada ya revalidada. */
+  fetch("../datos/club.json",{cache:"no-cache"})
     .then(function(r){return r.ok?r.json():null})
     .then(function(d){
       var lista=(d&&d.torneo&&d.torneo.creadores)||[];
