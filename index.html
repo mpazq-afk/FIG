@@ -380,6 +380,17 @@ body.on-light .rail-node .rn-lab{color:#A8871C;text-shadow:none}
 .cc-legend i{display:inline-block;width:16px;height:2px;margin-right:7px;vertical-align:middle;border-radius:2px}
 .cc-legend .l-fig i{background:var(--gold)}
 .cc-legend .l-bmk i{background:rgba(247,244,236,.4)}
+/* Cifras de cierre. El crosshair da el detalle, pero es pointermove: en el
+   telefono -- donde entra la mayoria -- no existe, y quien llega ve dos lineas
+   bonitas y ningun numero. Esta fila dice el resultado sin tocar nada. */
+.cc-cifras{display:flex;align-items:baseline;gap:clamp(14px,3vw,26px);flex-wrap:wrap;margin:2px 0 12px}
+.cc-cifra{display:flex;flex-direction:column;gap:2px}
+.cc-cifra b{font-family:var(--f-mono);font-weight:600;font-size:clamp(1.35rem,3.4vw,1.75rem);line-height:1;color:var(--gold)}
+.cc-cifra.is-bmk b{font-size:clamp(1rem,2.4vw,1.2rem);color:rgba(247,244,236,.62)}
+.cc-cifra span{font-family:var(--f-mono);font-size:.54rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(247,244,236,.42)}
+.cc-delta{font-family:var(--f-mono);font-weight:600;font-size:.72rem;letter-spacing:.06em;border-radius:100px;padding:4px 11px;align-self:center}
+.cc-delta.up{color:#5FC08B;background:rgba(95,192,139,.12);border:1px solid rgba(95,192,139,.32)}
+.cc-delta.down{color:#D96A6A;background:rgba(217,106,106,.12);border:1px solid rgba(217,106,106,.32)}
 #heroChart{width:100%;height:clamp(230px,30vw,320px);display:block;cursor:crosshair;touch-action:pan-y}
 .cc-foot{
   display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;
@@ -1082,6 +1093,10 @@ body.has-ticker{padding-bottom:38px}
             <span class="l-bmk"><i></i>ACWI</span>
           </div>
         </div>
+        <!-- La rellena setDatos() desde datos/torneo.json; queda oculta mientras
+             el grafico muestre la curva ilustrativa, para no poner cifras a una
+             linea que es solo decorativa. -->
+        <div class="cc-cifras" id="ccCifras" hidden></div>
         <canvas id="heroChart" aria-label="Retorno acumulado since-inception: promedio del torneo FIG versus benchmark ACWI, con crosshair interactivo" role="img"></canvas>
         <div class="cc-foot">
           <span class="cc-chip"><span class="live-dot" aria-hidden="true"></span>Ranking cada <b>viernes</b></span>
@@ -2394,10 +2409,32 @@ var chart=(function(){
       +" versus benchmark ACWI, con crosshair interactivo");
   }
 
+  /* Cifras de cierre, para quien no puede o no quiere usar el crosshair.
+     Se comparan los dos ULTIMOS puntos de cada serie, que pueden ser de semanas
+     distintas: el ACWI suele venir un corte atras, y decirlo es mas honesto que
+     esconder la semana buena del torneo para forzar un empate de fechas. */
+  function pintarCifras(){
+    var caja=$("#ccCifras"); if(!caja)return;
+    var fUlt=FIG[N-1], bUlt=BMK[BMK_TOP];
+    if(fUlt==null||bUlt==null){caja.hidden=true;return}
+    var fSem=WEEKS?WEEKS[N-1]:null, bSem=WEEKS?WEEKS[BMK_TOP]:null;
+    var dif=(fUlt-bUlt);   /* los dos estan en base 100, la resta ya son puntos */
+    function pct(v){return (v-100>=0?"+":"")+(v-100).toFixed(1).replace(".",",")+"%"}
+    caja.innerHTML=
+      '<div class="cc-cifra"><b>'+pct(fUlt)+'</b><span>'+esc(ETIQ_FIG)
+        +(fSem?" · S"+fSem:"")+'</span></div>'
+      +'<div class="cc-cifra is-bmk"><b>'+pct(bUlt)+'</b><span>ACWI'
+        +(bSem?" · S"+bSem:"")+'</span></div>'
+      +'<span class="cc-delta '+(dif>=0?"up":"down")+'">'
+        +(dif>=0?"+":"")+dif.toFixed(1).replace(".",",")+' pts vs ACWI</span>';
+    caja.hidden=false;
+  }
+
   function setDatos(d){
     FIG=d.fig;BMK=d.bmk;N=d.fig.length;WEEKS=d.weeks;
     BMK_TOP=(d.bmkTop==null?d.bmk.length-1:d.bmkTop);
     rotularHero();
+    pintarCifras();
     if(done)frame(1); /* animación ya terminada: redibuja quieto con el dato real */
     /* si play() sigue corriendo, el próximo tick de su loop ya lee FIG/BMK/N
        actualizados — ambos son variables de closure, no una copia */
@@ -2504,11 +2541,25 @@ var chart=(function(){
       if(p<1)requestAnimationFrame(an);else done=true;
     })(performance.now());
   }
+  /* pointermove cubre mouse, lapiz y dedo, PERO en tactil el navegador solo lo
+     emite si no interpreta el gesto como scroll -- y sobre un lienzo ancho casi
+     siempre lo interpreta asi, o sea que en el telefono el crosshair no existia.
+     touch-action:none sobre el eje X le dice que el gesto horizontal es nuestro
+     y deja el scroll vertical de la pagina intacto. */
+  cv.style.touchAction="pan-y";
   cv.addEventListener("pointermove",function(e){
     if(!done)return;
     var r=cv.getBoundingClientRect();
     frame(1,e.clientX-r.left);
   });
+  cv.addEventListener("pointerdown",function(e){
+    if(!done)return;
+    var r=cv.getBoundingClientRect();
+    frame(1,e.clientX-r.left);
+  });
+  /* al levantar el dedo se limpia; con mouse eso lo hace pointerleave */
+  cv.addEventListener("pointerup",function(){if(done)frame(1)});
+  cv.addEventListener("pointercancel",function(){if(done)frame(1)});
   cv.addEventListener("pointerleave",function(){if(done)frame(1)});
   return {play:play,redraw:function(){if(done)frame(1)}};
 })();
