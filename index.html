@@ -2304,9 +2304,31 @@ var ridgesStatic=false;
    Mientras datos/torneo.json no responda (o no traiga ACWI todavía — ver
    completar_acwi_historial.py), se degrada a una curva ILUSTRATIVA en vez de
    dejar el hero vacío; el aria-label y WEEK_LABEL avisan cuál es cuál. */
+/* QUE CARTERA VA EN EL GRAFICO DEL HERO
+   0  = promedio de TODOS los equipos del torneo
+   N  = promedio del top N del corte vigente
+
+   Francisco pidio el 2026-08-27 mostrar el conjunto solo si le esta rentando
+   mas que el ACWI, y si no el top 5. Los numeros del corte de la semana 15:
+   el promedio de los 54 le gana al ACWI en 9 de las 10 semanas comparables,
+   pero la ventaja se fue cerrando hasta +0,04 puntos en la S14 -- un empate--
+   y en la S15 el promedio cae a +3,56% contra el ultimo ACWI conocido de
+   +4,45%. O sea que ya no le esta rentando mas. El top 5 en cambio va arriba
+   las 10 semanas y cierra en +10,11%.
+
+   Para volver al conjunto completo basta poner 0 aca: el titulo, la leyenda y
+   el aria-label se escriben SOLOS desde este numero (ver rotularHero), asi que
+   no hay forma de que el rotulo diga una cosa y la linea muestre otra. */
+var HERO_TOP=5;
+
 var chart=(function(){
   var cv=$("#heroChart"); if(!cv)return null;
-  var N=48,FIG=[],BMK=[],WEEKS=null;
+  /* BMK_TOP = último índice con dato de ACWI. Puede ser menor que N-1: ver
+     datosReales(). */
+  var N=48,FIG=[],BMK=[],WEEKS=null,BMK_TOP=47;
+  /* nombre corto de la serie dorada: lo fija rotularHero() para que el rotulo
+     del extremo de la linea diga lo mismo que la leyenda y el titulo */
+  var ETIQ_FIG="FIG";
 
   function datosIlustrativos(){
     var n=48,fig=[],bmk=[];
@@ -2318,38 +2340,68 @@ var chart=(function(){
     return {fig:fig,bmk:bmk,weeks:null};
   }
 
-  /* Semanas donde HAY dato de equipo Y de ACWI a la vez — una línea sin la
-     otra no sirve para comparar, así que se recorta a la intersección. */
+  /* El eje son las semanas con dato de EQUIPOS; el ACWI se dibuja donde lo hay
+     y se corta donde se acaba. Antes se recortaba todo a la intersección de las
+     dos series y eso dejaba la portada una semana atrás del torneo: el ACWI lo
+     captura el pipeline de Bloomberg aparte y suele llegar un corte después, así
+     que el último corte publicado no aparecía. Mismo criterio que ya usan
+     torneo/pantalla.html y pantalla-facultad.html: la línea del benchmark
+     simplemente no llega hasta el final, no se inventa el dato ni se esconde la
+     semana. */
   function datosReales(d){
     if(!d||!d.equipos||!d.equipos.length||!d.acwi||d.acwi.length<2)return null;
     var am={};d.acwi.forEach(function(a){if(a.ret!=null)am[a.semana]=a.ret});
-    var semanas=Object.keys(am).map(Number).sort(function(a,b){return a-b});
-    if(semanas.length<2)return null;
-    var fig=[],bmk=[],weeks=[];
-    semanas.forEach(function(w){
-      var vals=[];
-      d.equipos.forEach(function(e){
-        (e.historial||[]).forEach(function(x){if(x.semana===w&&x.ret!=null)vals.push(x.ret)});
+    var conEq={};
+    /* HERO_TOP recorta la cartera al top N del corte VIGENTE, no al top N de
+       cada semana: la linea es la trayectoria de los que hoy van primeros, que
+       es lo que se esta afirmando. Un top N recalculado semana a semana seria
+       otra cosa (una cartera que rota) y quedaria siempre arriba por
+       construccion, que es justo lo que no queremos afirmar. */
+    d.equipos.forEach(function(e){
+      if(HERO_TOP>0&&!(e.posicion<=HERO_TOP))return;
+      (e.historial||[]).forEach(function(x){
+        if(x.ret!=null)(conEq[x.semana]=conEq[x.semana]||[]).push(x.ret);
       });
-      if(!vals.length)return; /* semana sin ningún equipo con dato: se omite, no se inventa */
+    });
+    var semanas=Object.keys(conEq).map(Number).sort(function(a,b){return a-b});
+    if(semanas.length<2)return null;
+    var fig=[],bmk=[],weeks=[],bmkTop=-1;
+    semanas.forEach(function(w){
+      var vals=conEq[w];
       var avg=vals.reduce(function(a,b){return a+b},0)/vals.length;
       weeks.push(w);
       fig.push(100*(1+avg));
-      bmk.push(100*(1+am[w]));
+      if(am[w]!=null){bmk.push(100*(1+am[w]));bmkTop=bmk.length-1}
+      else bmk.push(null);      /* semana sin ACWI capturado: hueco, no cero */
     });
-    return weeks.length>=2?{fig:fig,bmk:bmk,weeks:weeks}:null;
+    /* con un solo punto de benchmark no hay comparación que mostrar */
+    return (weeks.length>=2&&bmkTop>=1)?{fig:fig,bmk:bmk,weeks:weeks,bmkTop:bmkTop}:null;
+  }
+
+  /* El rotulo se deriva de HERO_TOP, nunca se escribe a mano: si manana se
+     cambia el numero, el titulo y la leyenda cambian con el. */
+  function rotularHero(){
+    var quien=HERO_TOP>0?("TOP "+HERO_TOP+" FIG"):"PORTAFOLIO FIG";
+    var corto=HERO_TOP>0?("TOP "+HERO_TOP):"FIG";
+    ETIQ_FIG=corto;
+    var t=$(".cc-title"); if(t)t.innerHTML="<b>"+quien+"</b> · vs iShares MSCI ACWI";
+    var l=$(".l-fig"); if(l)l.innerHTML="<i></i>"+corto;
+    cv.setAttribute("aria-label","Retorno acumulado since-inception: "
+      +(HERO_TOP>0?("promedio de los "+HERO_TOP+" primeros del torneo FIG")
+                  :"promedio de todos los equipos del torneo FIG")
+      +" versus benchmark ACWI, con crosshair interactivo");
   }
 
   function setDatos(d){
     FIG=d.fig;BMK=d.bmk;N=d.fig.length;WEEKS=d.weeks;
-    cv.setAttribute("aria-label","Retorno acumulado since-inception: promedio "
-      +"del torneo FIG versus benchmark ACWI, con crosshair interactivo");
+    BMK_TOP=(d.bmkTop==null?d.bmk.length-1:d.bmkTop);
+    rotularHero();
     if(done)frame(1); /* animación ya terminada: redibuja quieto con el dato real */
     /* si play() sigue corriendo, el próximo tick de su loop ya lee FIG/BMK/N
        actualizados — ambos son variables de closure, no una copia */
   }
 
-  var ilustr=datosIlustrativos();FIG=ilustr.fig;BMK=ilustr.bmk;N=FIG.length;
+  var ilustr=datosIlustrativos();FIG=ilustr.fig;BMK=ilustr.bmk;N=FIG.length;BMK_TOP=N-1;
   fetch("datos/torneo.json",{cache:"no-store"})
     .then(function(r){return r.ok?r.json():null})
     .then(function(d){var real=datosReales(d);if(real)setDatos(real);})
@@ -2363,24 +2415,27 @@ var chart=(function(){
     var c=cv.getContext("2d"); c.setTransform(d,0,0,d,0,0);
     c.clearRect(0,0,W,H);
     var pl=10,pr=52,pt=14,pb=12;
-    var all=FIG.concat(BMK);
+    var all=FIG.concat(BMK).filter(function(v){return v!=null});
     var mn=Math.min.apply(null,all)-2, mx=Math.max.apply(null,all)+2;
     function X(i){return pl+(i/(N-1))*(W-pl-pr)}
     function Y(v){return pt+(1-(v-mn)/(mx-mn))*(H-pt-pb)}
     c.strokeStyle="rgba(247,244,236,.07)";c.lineWidth=1;
     for(var g=0;g<=4;g++){var gy=pt+(g/4)*(H-pt-pb);c.beginPath();c.moveTo(pl,gy);c.lineTo(W-pr+34,gy);c.stroke();}
     var last=1+(N-2)*p, li=Math.floor(last), lf=last-li;
-    function seg(arr){
+    /* `tope` es el ultimo indice con dato de esa serie: el ACWI puede terminar
+       antes que la linea de FIG (ver datosReales), y ahi la linea se corta. */
+    function seg(arr,tope){
+      var top=(tope==null?N-1:tope), lim=Math.min(li,top);
       c.beginPath();c.moveTo(X(0),Y(arr[0]));
-      for(var k=1;k<=li;k++)c.lineTo(X(k),Y(arr[k]));
-      if(li<N-1){
-        var vx=X(li)+(X(li+1)-X(li))*lf, vy=Y(arr[li])+(Y(arr[li+1])-Y(arr[li]))*lf;
+      for(var k=1;k<=lim;k++)c.lineTo(X(k),Y(arr[k]));
+      if(lim<top){
+        var vx=X(lim)+(X(lim+1)-X(lim))*lf, vy=Y(arr[lim])+(Y(arr[lim+1])-Y(arr[lim]))*lf;
         c.lineTo(vx,vy);return{x:vx,y:vy};
       }
-      return{x:X(N-1),y:Y(arr[N-1])};
+      return{x:X(top),y:Y(arr[top])};
     }
     c.save();c.setLineDash([5,6]);c.strokeStyle="rgba(247,244,236,.42)";c.lineWidth=1.5;
-    var bE=seg(BMK);c.stroke();c.restore();
+    var bE=seg(BMK,BMK_TOP);c.stroke();c.restore();
     var fE=seg(FIG);
     c.save();c.lineTo(fE.x,H-pb);c.lineTo(X(0),H-pb);c.closePath();
     var gr=c.createLinearGradient(0,pt,0,H-pb);
@@ -2391,24 +2446,45 @@ var chart=(function(){
     if(li<N-1)c.lineTo(fE.x,fE.y);
     c.strokeStyle="#D4AF37";c.lineWidth=2.4;c.lineJoin="round";c.lineCap="round";c.stroke();
     c.font="600 9px 'IBM Plex Mono', monospace";
+    /* Los dos rotulos iban clavados a la misma X con la Y de su propia linea, y
+       cuando las dos series terminan casi juntas -- que es justo lo que pasa
+       cuando el torneo empata con el benchmark, el momento mas interesante del
+       grafico -- quedaban uno encima del otro y se leia como un borron. Si
+       quedan mas cerca que el alto de una linea se separan a la fuerza, la
+       mitad cada uno, sin despegarse de su serie. */
+    var lfy=fE.y, lby=bE.y, MIN_SEP=11;
+    if(Math.abs(lfy-lby)<MIN_SEP){
+      var mitad=(MIN_SEP-Math.abs(lfy-lby))/2;
+      if(lfy<=lby){lfy-=mitad;lby+=mitad}else{lfy+=mitad;lby-=mitad}
+      lfy=clamp(lfy,pt+6,H-pb-2); lby=clamp(lby,pt+6,H-pb-2);
+    }
     c.fillStyle="rgba(247,244,236,.5)";
     c.beginPath();c.arc(bE.x,bE.y,2.6,0,6.2832);c.fill();
-    if(p>=1)c.fillText("ACWI",W-pr+10,bE.y+3);
+    /* cada rotulo sigue el final de SU linea: el del ACWI ya no queda colgado
+       en el margen derecho cuando su serie termina antes */
+    if(p>=1)c.fillText("ACWI",bE.x+9,lby+3);
     c.fillStyle="#D4AF37";
     c.beginPath();c.arc(fE.x,fE.y,3.4,0,6.2832);c.fill();
-    if(p>=1)c.fillText("FIG",W-pr+10,fE.y+3);
+    if(p>=1)c.fillText(ETIQ_FIG,fE.x+9,lfy+3);
     if(p>=1){c.strokeStyle="rgba(212,175,55,.35)";c.lineWidth=1;c.beginPath();c.arc(fE.x,fE.y,7,0,6.2832);c.stroke();}
     /* crosshair estilo terminal */
     if(p>=1&&cx!=null){
       var idx=clamp(Math.round(((cx-pl)/(W-pl-pr))*(N-1)),0,N-1);
-      var chx=X(idx), fy=Y(FIG[idx]), by=Y(BMK[idx]);
+      var hayB=BMK[idx]!=null;
+      var chx=X(idx), cfy=Y(FIG[idx]);
       c.strokeStyle="rgba(212,175,55,.3)";c.lineWidth=1;
       c.beginPath();c.moveTo(chx,pt);c.lineTo(chx,H-pb);c.stroke();
-      c.fillStyle="#D4AF37";c.beginPath();c.arc(chx,fy,3.2,0,6.2832);c.fill();
-      c.fillStyle="rgba(247,244,236,.75)";c.beginPath();c.arc(chx,by,2.6,0,6.2832);c.fill();
-      var dv=(FIG[idx]-BMK[idx]);
+      c.fillStyle="#D4AF37";c.beginPath();c.arc(chx,cfy,3.2,0,6.2832);c.fill();
+      if(hayB){
+        c.fillStyle="rgba(247,244,236,.75)";
+        c.beginPath();c.arc(chx,Y(BMK[idx]),2.6,0,6.2832);c.fill();
+      }
       var l1="S"+(WEEKS?WEEKS[idx]:idx+1)+" · BASE 100";
-      var l2="FIG "+FIG[idx].toFixed(1)+"   ACWI "+BMK[idx].toFixed(1)+"   \u0394 "+(dv>=0?"+":"")+dv.toFixed(1);
+      /* sin ACWI de esa semana se dice "s/d": no se muestra un delta inventado */
+      var l2=hayB
+        ? ETIQ_FIG+" "+FIG[idx].toFixed(1)+"   ACWI "+BMK[idx].toFixed(1)+"   \u0394 "+
+          ((FIG[idx]-BMK[idx])>=0?"+":"")+(FIG[idx]-BMK[idx]).toFixed(1)
+        : ETIQ_FIG+" "+FIG[idx].toFixed(1)+"   ACWI s/d";
       c.fillStyle="rgba(6,11,28,.85)";
       c.fillRect(8,8,Math.max(c.measureText(l2).width,c.measureText(l1).width)+20,38);
       c.strokeStyle="rgba(212,175,55,.3)";c.strokeRect(8.5,8.5,Math.max(c.measureText(l2).width,c.measureText(l1).width)+19,37);

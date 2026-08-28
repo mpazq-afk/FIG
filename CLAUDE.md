@@ -637,3 +637,72 @@ con sus 54 filas, comparador con curva, deep link directo al cargar, navegación
 por hash, botón atrás, foco de teclado en el nombre, micro-página que redirige
 al equipo correcto sin ensuciar el historial, los dos salvavidas del derivado, y
 la recarga de la pantalla con corte nuevo + caída de red.
+
+## Cuarta tanda del 2026-08-27: el gráfico del hero de `index.html`
+
+Francisco lo miró y dijo que "no debería verse así", con la sospecha de que el
+conjunto del torneo le estaba rentando más que el ACWI. Tenía razón en que algo
+estaba mal, pero por dos motivos distintos del que él pensaba.
+
+**Los números reales del corte de la semana 15** (promedio del campo `ret` del
+historial, que ya viene acumulado since-inception, contra `acwi[].ret`, que está
+en las mismas unidades):
+
+| | S5 | S10 | S13 | S14 | S15 |
+|---|---|---|---|---|---|
+| ACWI | +0,70% | −0,24% | +3,90% | +4,45% | s/d |
+| Promedio de los 54 | +3,19% | +0,28% | +3,39% | +4,49% | +3,56% |
+| Promedio del top 5 | +5,40% | +4,69% | +9,23% | +10,15% | +10,11% |
+
+O sea: el promedio del torneo **le gana al ACWI en 9 de las 10 semanas
+comparables**, pero la ventaja se fue cerrando hasta **+0,04 puntos** en la S14
+—un empate— y en la S15 cae a +3,56% contra el último ACWI conocido de +4,45%.
+La intuición de Francisco valía para casi todo el torneo, pero ya no para el
+cierre.
+
+### Dos defectos reales que sí había
+
+**1. Los rótulos del extremo se encimaban.** Iban los dos clavados en la misma
+X (`W-pr+10`) con la Y de su propia línea. Cuando las dos series terminan casi
+juntas —que es exactamente lo que pasa cuando el torneo empata con el
+benchmark, o sea el momento más interesante del gráfico— "FIG" y "ACWI"
+quedaban uno encima del otro y se leía como un borrón. Ahora cada rótulo sigue
+el final de SU línea (`fE.x+9` / `bE.x+9`) y, si quedan más cerca que el alto de
+una línea, se separan a la fuerza la mitad cada uno.
+
+**2. La portada iba una semana atrasada.** `datosReales()` recortaba las dos
+series a la **intersección** de semanas con dato. Como el ACWI lo captura el
+pipeline de Bloomberg aparte y suele llegar un corte después, el último corte
+publicado no aparecía nunca en la portada: el hero mostraba hasta la S14 con el
+torneo ya en la S15. Ahora el eje son las semanas con dato de EQUIPOS y la línea
+del ACWI se corta donde se acaba su dato (`BMK_TOP`), que es el mismo criterio
+que ya usaban `torneo/pantalla.html` y `pantalla-facultad.html`. El crosshair
+dice "ACWI s/d" en esa semana en vez de mostrar un delta inventado.
+
+### `HERO_TOP`: qué cartera va en el gráfico
+
+Francisco dio una regla: mostrar el conjunto si le está rentando más al ACWI, y
+si no, el top 5. Con los números de arriba la condición no se cumple, así que
+quedó en **top 5**.
+
+La constante `HERO_TOP` (arriba del IIFE del gráfico en `index.html`) manda:
+`0` = promedio de todos los equipos, `N` = promedio del top N. **El título, la
+leyenda, el rótulo del extremo de la línea, el crosshair y el `aria-label` se
+escriben SOLOS desde ese número** (`rotularHero()` + `ETIQ_FIG`), así que no hay
+forma de que el rótulo diga una cosa y la línea muestre otra. Para volver al
+conjunto completo basta poner `0`.
+
+Detalle que importa: el top N se recorta por la **posición del corte vigente**,
+no se recalcula semana a semana. Un top N recalculado en cada semana sería otra
+cosa —una cartera que rota— y quedaría siempre arriba **por construcción**, que
+es justo lo que no queremos afirmar. Así, la línea es la trayectoria real de los
+que hoy van primeros.
+
+### Ojo al tocar `index.html`
+
+El `index.html` del espejo **no es idéntico** al de este repo: difiere en 17
+líneas del nav (allá no existe Miembros y FIG Woman sigue oculta, así que
+"Comunidad ▾" se dejó como "Equipo" suelto). **No se puede copiar el archivo
+entero al espejo.** Lo que se hizo fue portar solo el bloque del gráfico (desde
+el comentario `Gráfico del hero + crosshair` hasta el `Conmutador de desks`) y
+verificar después que el nav del espejo siguiera con "Equipo".
