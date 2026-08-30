@@ -4,10 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Postula a FIG — FEN Investment Group</title>
-<meta name="description" content="Postula a FEN Investment Group: la comunidad de inversiones de la FEN, Universidad de Chile. Portafolio, Trading, Valuation y FEN Investment Woman.">
+<meta name="description" content="Postula a FEN Investment Group: la comunidad de inversiones de la FEN, Universidad de Chile. Portafolio, Trading y Valuation.">
 <meta name="theme-color" content="#0A1128">
+<link rel="canonical" href="https://feninvestmentgroup.com/postula/">
+<meta property="og:url" content="https://feninvestmentgroup.com/postula/">
 <meta property="og:title" content="Postula a FEN Investment Group">
-<meta property="og:description" content="Únete a la comunidad de inversiones de la FEN. Postula a Portafolio, Trading, Valuation o FEN Investment Woman.">
+<meta property="og:description" content="Únete a la comunidad de inversiones de la FEN. Postula a Portafolio, Trading o Valuation.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -31,6 +33,10 @@
    página muestra el formulario en modo vista previa con envío deshabilitado.
    ============================================================================ */
 :root{
+  /* Sin esto Chrome dibuja las barras de scroll y los controles nativos en
+     gris claro sobre el navy, y pinta el lienzo en blanco antes de la primera
+     pintada: en un sitio 100% oscuro se ve como un destello o una barra blanca. */
+  color-scheme:dark;
   --navy-deep:#060B1C; --navy:#0A1128; --navy-panel:#0F1934;
   --gold:#D4AF37; --gold-light:#EBD388; --gold-deep:#9E7E1E;
   --gold-dim:rgba(212,175,55,.32); --gold-faint:rgba(212,175,55,.11);
@@ -42,7 +48,15 @@
   --wrap:860px; --ease:cubic-bezier(.22,.61,.21,1);
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+/* El `display:none` que trae el atributo `hidden` viene de la hoja del
+   navegador, asi que CUALQUIER regla propia que fije `display` se lo come sin
+   avisar. Paso de verdad: `.demo-bar{display:flex}` dejaba el aviso de
+   "Demostracion" a la vista sobre los datos reales. Esto lo blinda. */
+[hidden]{display:none!important}
+/* El hueco de la barra queda reservado siempre: varias paginas bloquean el
+   scroll del body al abrir un panel u overlay, y sin esto la pagina entera se
+   corre 15px al costado cuando la barra desaparece y vuelve. */
+html{scroll-behavior:smooth;scrollbar-gutter:stable}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.001s!important;transition-duration:.001s!important}}
 body{background:var(--navy);color:var(--ivory);font-family:var(--f-body);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 ::selection{background:var(--gold);color:var(--navy)}
@@ -111,6 +125,10 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .done p{color:rgba(247,244,236,.75);max-width:46ch;margin:0 auto 26px}
 
 footer{background:var(--navy-deep);padding:34px 0;border-top:1px solid var(--line-d);margin-top:auto}
+/* Mismo criterio que en el resto del sitio: el credito del pie tenia 14px de
+   alto tocable, bajo los 24px que pide WCAG 2.2. El margen negativo compensa
+   el padding, asi que el pie se dibuja igual. */
+footer .wrap a{display:inline-block;padding:6px 0;margin:-6px 0}
 footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:var(--f-mono);font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(247,244,236,.45);max-width:1180px}
 footer a{color:rgba(247,244,236,.65);transition:color .3s}
 footer a:hover{color:var(--gold)}
@@ -135,7 +153,6 @@ footer a:hover{color:var(--gold)}
       <li><a href="../index.html">Inicio</a></li>
       <li><a href="../eventos/index.html">Eventos</a></li>
       <li><a href="../torneo/index.html">Torneo 2026</a></li>
-      <li><a href="../fiw/index.html">FIW</a></li>
     </ul>
   </div>
 </nav>
@@ -179,7 +196,6 @@ footer a:hover{color:var(--gold)}
               <option>Portafolio</option>
               <option>Trading</option>
               <option>Valuation</option>
-              <option>FEN Investment Woman</option>
               <option>Aún no lo sé, quiero conocerlas todas</option>
             </select>
           </div>
@@ -221,6 +237,35 @@ footer a:hover{color:var(--gold)}
 (function(){
 "use strict";
 document.documentElement.classList.remove("no-js");
+
+/* ---------------- Un solo pedido por archivo de datos ----------------
+   Varias piezas de la pagina necesitan el MISMO JSON -- los enlaces del pie y
+   el beacon de metricas piden club.json; la linea de tiempo y la tira de fotos
+   piden eventos.json -- y cada una abria su propia peticion. Con `no-cache` la
+   segunda vuelve 304 sin cuerpo, asi que casi no pesa, pero igual paga la ida y
+   vuelta entera: en un telefono en 4G la latencia es lo caro, no los bytes.
+
+   Se memoiza la PROMESA, no el dato, asi dos llamados que salen a la vez
+   comparten la misma peticion en vez de encadenarse.
+
+   Lo que se guarda es el TEXTO y cada consumidor parsea su propia copia: si se
+   compartiera el objeto ya parseado, un bloque que le agregue o le pise un
+   campo se lo estaria cambiando al otro sin que nadie lo note. Volver a parsear
+   23 KB cuesta una fraccion de milisegundo; ese bug no.
+
+   Nunca rechaza: si el archivo no esta o no parsea, entrega null, que es lo
+   que todos los consumidores ya sabian manejar. */
+window.figJSON=function(url){
+  var c=window.__figJSONcache||(window.__figJSONcache={});
+  if(!c[url])c[url]=fetch(url,{cache:"no-cache"})
+    .then(function(r){return r.ok?r.text():null})
+    .catch(function(){return null});
+  return c[url].then(function(t){
+    if(!t)return null;
+    try{return JSON.parse(t)}catch(e){return null}
+  });
+};
+
 function $(s,r){return (r||document).querySelector(s)}
 function $$(s,r){return [].slice.call((r||document).querySelectorAll(s))}
 
@@ -238,8 +283,7 @@ function $$(s,r){return [].slice.call((r||document).querySelectorAll(s))}
    lleva un campo "tipo" para que el script sepa en qué pestaña de la
    planilla escribir. Ver el código completo en HOJA_DE_RUTA_FIG.md. */
 var ENDPOINT="";
-fetch("../datos/club.json",{cache:"no-store"})
-  .then(function(r){return r.ok?r.json():null})
+figJSON("../datos/club.json")
   .then(function(d){
     if(d&&d.config&&d.config.figEndpoint)ENDPOINT=d.config.figEndpoint;
     refreshState();
@@ -297,8 +341,7 @@ if(!RM&&"IntersectionObserver" in window){
    completo en HOJA_DE_RUTA_FIG.md). Registra página, fecha y origen. */
 (function(){
 try{
-fetch("../datos/club.json",{cache:"force-cache"})
-.then(function(r){return r.ok?r.json():null})
+figJSON("../datos/club.json")
 .then(function(d){
   var u=d&&d.config&&d.config.figEndpoint;if(!u)return;
   var b=JSON.stringify({tipo:"visita",pagina:location.pathname,fecha:new Date().toISOString(),origen:(document.referrer.split("/")[2]||"")});

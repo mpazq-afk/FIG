@@ -61,6 +61,10 @@
 
 <style>
 :root{
+  /* Sin esto Chrome dibuja las barras de scroll y los controles nativos en
+     gris claro sobre el navy, y pinta el lienzo en blanco antes de la primera
+     pintada: en un sitio 100% oscuro se ve como un destello o una barra blanca. */
+  color-scheme:dark;
   --blue:#0052FF; --blue-d:#0041CC; --navy:#04182D; --ink:#0A1128;
   --dim:rgba(10,17,40,.52); --line:rgba(10,17,40,.10);
   --up:#12A177; --down:#D9553E; --card:#FFFFFF; --avg:#8A93A6; --acwi:#3C6DA8;
@@ -69,6 +73,11 @@
   --f-mono:"IBM Plex Mono","SF Mono",monospace;
 }
 *{margin:0;padding:0;box-sizing:border-box}
+/* El `display:none` que trae el atributo `hidden` viene de la hoja del
+   navegador, asi que CUALQUIER regla propia que fije `display` se lo come sin
+   avisar. Paso de verdad: `.demo-bar{display:flex}` dejaba el aviso de
+   "Demostracion" a la vista sobre los datos reales. Esto lo blinda. */
+[hidden]{display:none!important}
 /* El LIENZO lo fija el formato elegido (?formato=... o ?w=&h=), y el
    ESCENARIO sigue midiendo siempre 1920x1080: se escala y se centra dentro
    del lienzo. Así la composición no se rediseña por formato — se mantiene
@@ -412,7 +421,7 @@ function pct(v,d){
   return (v>=0?"+":"")+(v*100).toFixed(d==null?2:d)+"%";
 }
 
-fetch("../datos/torneo.json",{cache:"no-store"})
+fetch("../datos/torneo.json",{cache:"no-cache"})
   .then(function(r){return r.json()})
   .then(function(d){ D=d; preparar(); construirLista(); arrancar(); })
   .catch(function(){ document.title="ERROR — no se pudo cargar torneo.json"; });

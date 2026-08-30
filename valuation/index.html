@@ -6,6 +6,8 @@
 <title>Valuation — FIG</title>
 <meta name="description" content="Valuation: el área de FEN Investment Group dedicada al research fundamental y la valorización de compañías. Universidad de Chile.">
 <meta name="theme-color" content="#0A1128">
+<link rel="canonical" href="https://feninvestmentgroup.com/valuation/">
+<meta property="og:url" content="https://feninvestmentgroup.com/valuation/">
 <meta property="og:title" content="Valuation — FIG">
 <meta property="og:description" content="El área de FIG dedicada al research fundamental: entender un negocio, valorizarlo y defender una tesis de inversión. Universidad de Chile.">
 <meta property="og:type" content="website">
@@ -32,6 +34,10 @@
    Fotos de responsables: ../fotos/directiva/<slug>.jpg (se detectan solas).
    ============================================================================ */
 :root{
+  /* Sin esto Chrome dibuja las barras de scroll y los controles nativos en
+     gris claro sobre el navy, y pinta el lienzo en blanco antes de la primera
+     pintada: en un sitio 100% oscuro se ve como un destello o una barra blanca. */
+  color-scheme:dark;
   --navy-deep:#060B1C; --navy:#0A1128; --navy-panel:#101731;
   --acc:#D4AF37;          /* oro principal   */
   --acc-light:#EBD388;    /* oro claro       */
@@ -47,7 +53,15 @@
   --wrap:1180px; --ease:cubic-bezier(.22,.61,.21,1);
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+/* El `display:none` que trae el atributo `hidden` viene de la hoja del
+   navegador, asi que CUALQUIER regla propia que fije `display` se lo come sin
+   avisar. Paso de verdad: `.demo-bar{display:flex}` dejaba el aviso de
+   "Demostracion" a la vista sobre los datos reales. Esto lo blinda. */
+[hidden]{display:none!important}
+/* El hueco de la barra queda reservado siempre: varias paginas bloquean el
+   scroll del body al abrir un panel u overlay, y sin esto la pagina entera se
+   corre 15px al costado cuando la barra desaparece y vuelve. */
+html{scroll-behavior:smooth;scrollbar-gutter:stable}
 section[id]{scroll-margin-top:80px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.001s!important;transition-duration:.001s!important}}
 body{background:var(--navy);color:var(--ivory);font-family:var(--f-body);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
@@ -146,6 +160,22 @@ body.hero-in .hero h1 .ln>span{transform:none}
 .hero__sub{max-width:50ch;font-size:1.08rem;color:rgba(249,246,239,.8);margin-bottom:36px}
 .hero__cta{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:40px}
 .hero__meta{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(249,246,239,.6);display:flex;gap:22px;flex-wrap:wrap}
+/* En un teléfono estas cifras no caben en una línea y `flex-wrap` las partía
+   dejando la última sola y desalineada, como si sobrara. En vertical se
+   reparten en columnas iguales, cada cifra sobre su rótulo, separadas por un
+   filete finito para que se lean como un grupo. `auto-fit` reparte las que
+   haya, sean dos o tres. */
+@media (max-width:640px){
+  .hero__meta{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(0,1fr));gap:0;
+    font-size:.58rem;letter-spacing:.1em;text-align:center;
+    border-top:1px solid rgba(247,244,236,.1);border-bottom:1px solid rgba(247,244,236,.1);
+    padding:14px 0;
+  }
+  .hero__meta span{padding:0 4px;line-height:1.5}
+  .hero__meta span+span{border-left:1px solid rgba(247,244,236,.1)}
+  .hero__meta b{display:block;font-size:1.24rem;letter-spacing:.02em;margin-bottom:3px}
+}
 .hero__meta b{color:var(--acc);font-weight:600}
 
 /* Marquee de palabras */
@@ -251,6 +281,10 @@ section{padding:clamp(5rem,9vw,8rem) 0;position:relative}
 
 /* Footer */
 footer{background:var(--navy-deep);padding:34px 0;border-top:1px solid var(--line-d)}
+/* Mismo criterio que en el resto del sitio: el credito del pie tenia 14px de
+   alto tocable, bajo los 24px que pide WCAG 2.2. El margen negativo compensa
+   el padding, asi que el pie se dibuja igual. */
+footer .wrap a{display:inline-block;padding:6px 0;margin:-6px 0}
 footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:var(--f-mono);font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(249,246,239,.45)}
 footer a{color:rgba(249,246,239,.65);transition:color .3s}
 footer a:hover{color:var(--acc)}
@@ -357,7 +391,7 @@ html:not(.no-js) body:not(.hero-in) .hero .reveal{opacity:0;transform:translateY
         </div>
       </div>
       <div class="about-side reveal d2">
-        <div class="side-card"><span class="mono-tag">Origen</span><h3>Una de las 4 áreas</h3><p>Área fundadora de FIG, junto a Portafolio, Trading y FEN Investment Woman.</p></div>
+        <div class="side-card"><span class="mono-tag">Origen</span><h3>Una de las 4 áreas</h3><p>Área fundadora de FIG, junto a Portafolio y Trading.</p></div>
         <div class="side-card"><span class="mono-tag">Metodología</span><h3>Research fundamental</h3><p>Estados financieros, modelos DCF, múltiplos comparables y tesis de inversión.</p></div>
         <div class="side-card"><span class="mono-tag">Responsables</span><h3>Jhosep y Samuel</h3><p>Encabezan el área junto a Benjamín Sáez, presidente de FIG.</p></div>
       </div>
@@ -612,9 +646,9 @@ function renderEventosArea(lista){
         +     (e.live?'<span class="ev-live"><span class="live-dot"></span>EN CURSO</span>':(!e.live&&Date.parse((e.fecha||"")+"T23:59:59-03:00")>Date.now()?'<span class="ev-type ev-proximo">PRÓXIMO</span>':""))
         +   '</div>'
         +   '<h3>'+esc(e.titulo)+'</h3>'
-        +   '<p class="ev-res">'+esc((e.resumen||"").trim()||"Resumen por completar.")+'</p>'
+        +   (function(t){return t?'<p class="ev-res">'+esc(t)+'</p>':""})(String(e.resumen||"").trim())
         +   '<div class="ev-foot">'
-        +     '<span class="ev-part">'+(e.participantes&&e.participantes.length?e.participantes.length+" participantes":"participantes por confirmar")+'</span>'
+        +     '<span class="ev-part">'+(e.participantes&&e.participantes.length?e.participantes.length+" participantes":"")+'</span>'
         +     '<span class="ev-link">Ver evento <span class="arr">→</span></span>'
         +   '</div>'
         + '</div></a>';
@@ -641,7 +675,7 @@ function addActividadesNavLink(){
     t2.parentElement.insertBefore(a,t2);
   }
 }
-fetch("../datos/eventos.json",{cache:"no-store"})
+fetch("../datos/eventos.json",{cache:"no-cache"})
   .then(function(r){return r.ok?r.json():null})
   .then(function(d){
     var evs=(d&&d.eventos)||[];
@@ -649,7 +683,7 @@ fetch("../datos/eventos.json",{cache:"no-store"})
   }).catch(function(){});
 
 /* ---------------- Override JSON ---------------- */
-fetch("../datos/valuation.json",{cache:"no-store"})
+fetch("../datos/valuation.json",{cache:"no-cache"})
   .then(function(r){return r.ok?r.json():null})
   .then(function(d){if(d){for(var k in d){DATA[k]=d[k];}renderData();}})
   .catch(function(){});
@@ -774,7 +808,7 @@ bindGlow(document);
    datos/club.json. Registra página, fecha y origen. */
 (function(){
 try{
-fetch("../datos/club.json",{cache:"force-cache"})
+fetch("../datos/club.json",{cache:"no-cache"})
 .then(function(r){return r.ok?r.json():null})
 .then(function(d){
   var u=d&&d.config&&d.config.figEndpoint;if(!u)return;

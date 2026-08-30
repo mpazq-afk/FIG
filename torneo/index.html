@@ -6,6 +6,8 @@
 <title>Torneo Portafolio 2026 — Ranking Oficial · FIG</title>
 <meta name="description" content="Ranking oficial del Torneo Portafolio 2026 de FEN Investment Group: 54 equipos, USD 10M simulados por cartera, métricas Bloomberg PORT.">
 <meta name="theme-color" content="#0A1128">
+<link rel="canonical" href="https://feninvestmentgroup.com/torneo/">
+<meta property="og:url" content="https://feninvestmentgroup.com/torneo/">
 <meta property="og:title" content="Torneo Portafolio 2026 — FIG">
 <meta property="og:description" content="Ranking oficial del Torneo Portafolio 2026: 54 equipos gestionan carteras de USD 10M en ETFs, medidas contra MSCI ACWI con métricas Bloomberg.">
 <meta property="og:type" content="website">
@@ -32,6 +34,10 @@
    y tarjetas descargables (HTML + PNG 1080×1350 para Instagram/LinkedIn).
    ============================================================================ */
 :root{
+  /* Sin esto Chrome dibuja las barras de scroll y los controles nativos en
+     gris claro sobre el navy, y pinta el lienzo en blanco antes de la primera
+     pintada: en un sitio 100% oscuro se ve como un destello o una barra blanca. */
+  color-scheme:dark;
   --navy-deep:#060B1C; --navy:#0A1128; --navy-panel:#0F1934; --navy-soft:#152350;
   --gold:#D4AF37; --gold-light:#EBD388; --gold-deep:#9E7E1E;
   --gold-dim:rgba(212,175,55,.32); --gold-faint:rgba(212,175,55,.11);
@@ -45,7 +51,15 @@
   --wrap:1180px; --ease:cubic-bezier(.22,.61,.21,1);
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+/* El `display:none` que trae el atributo `hidden` viene de la hoja del
+   navegador, asi que CUALQUIER regla propia que fije `display` se lo come sin
+   avisar. Paso de verdad: `.demo-bar{display:flex}` dejaba el aviso de
+   "Demostracion" a la vista sobre los datos reales. Esto lo blinda. */
+[hidden]{display:none!important}
+/* El hueco de la barra queda reservado siempre: varias paginas bloquean el
+   scroll del body al abrir un panel u overlay, y sin esto la pagina entera se
+   corre 15px al costado cuando la barra desaparece y vuelve. */
+html{scroll-behavior:smooth;scrollbar-gutter:stable}
 section[id]{scroll-margin-top:80px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.001s!important;transition-duration:.001s!important}}
 body{background:var(--navy);color:var(--ivory);font-family:var(--f-body);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
@@ -128,6 +142,31 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .hero h1 em{font-style:italic;color:var(--gold)}
 .hero p{max-width:54ch;color:rgba(247,244,236,.78);font-size:1.05rem}
 .hero__chips{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+/* En un teléfono los tres chips no caben lado a lado y quedaban apilados en
+   tres filas de anchos distintos — tres cápsulas sueltas que se leían como
+   tres botones desalineados en vez de como la ficha del corte que son. Bajo
+   los 640px pierden la cápsula y pasan a ser una sola línea de datos separada
+   por puntos: cabe siempre, se lee de corrido y deja de competir con el
+   titular. El punto verde de "en vivo" se queda, que es el único de los tres
+   que dice algo por sí solo. */
+@media (max-width:640px){
+  .hero__chips{display:block;margin-top:20px;line-height:2}
+  .hero__chips .chip-live{
+    /* `nowrap` para que el separador nunca quede colgando al principio de una
+       línea, separado del dato al que pertenece */
+    display:inline-block;border:none;border-radius:0;padding:0;white-space:nowrap;
+    font-size:.6rem;letter-spacing:.14em;color:rgba(247,244,236,.72);
+  }
+  /* Barra, no punto: la fecha del corte ya viene con puntos adentro
+     ("21 · AGO · 2026") y un separador igual se confundía con ellos.
+     Va al FINAL del dato anterior (`::after`), no al principio del siguiente:
+     como los tres no caben en una línea, un separador de entrada dejaba la
+     segunda línea empezando con una barra suelta. */
+  .hero__chips .chip-live:not(:last-child)::after{
+    content:"│";margin:0 6px 0 8px;color:var(--gold);opacity:.35;font-weight:400;
+  }
+  .hero__chips .live-dot{display:inline-block;margin-right:7px;vertical-align:middle}
+}
 .chip-live{display:inline-flex;align-items:center;gap:9px;font-family:var(--f-mono);font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;border:1px solid var(--gold-dim);border-radius:100px;padding:8px 16px;color:var(--ivory)}
 .chip-live b{color:var(--gold)}
 .live-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--up);animation:pulse 1.9s ease-out infinite}
@@ -464,6 +503,10 @@ span.cre-av{display:flex;align-items:center;justify-content:center;
   text-transform:uppercase;color:var(--navy);background:var(--gold);border-radius:100px;padding:2px 9px;margin-top:8px}
 
 footer{background:var(--navy-deep);padding:34px 0;border-top:1px solid var(--line-d)}
+/* Mismo criterio que en el resto del sitio: el credito del pie tenia 14px de
+   alto tocable, bajo los 24px que pide WCAG 2.2. El margen negativo compensa
+   el padding, asi que el pie se dibuja igual. */
+footer .wrap a{display:inline-block;padding:6px 0;margin:-6px 0}
 footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:var(--f-mono);font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(247,244,236,.45)}
 footer a{color:rgba(247,244,236,.65);transition:color .3s}
 footer a:hover{color:var(--gold)}
@@ -778,6 +821,35 @@ footer a:hover{color:var(--gold)}
 (function(){
 "use strict";
 document.documentElement.classList.remove("no-js");
+
+/* ---------------- Un solo pedido por archivo de datos ----------------
+   Varias piezas de la pagina necesitan el MISMO JSON -- los enlaces del pie y
+   el beacon de metricas piden club.json; la linea de tiempo y la tira de fotos
+   piden eventos.json -- y cada una abria su propia peticion. Con `no-cache` la
+   segunda vuelve 304 sin cuerpo, asi que casi no pesa, pero igual paga la ida y
+   vuelta entera: en un telefono en 4G la latencia es lo caro, no los bytes.
+
+   Se memoiza la PROMESA, no el dato, asi dos llamados que salen a la vez
+   comparten la misma peticion en vez de encadenarse.
+
+   Lo que se guarda es el TEXTO y cada consumidor parsea su propia copia: si se
+   compartiera el objeto ya parseado, un bloque que le agregue o le pise un
+   campo se lo estaria cambiando al otro sin que nadie lo note. Volver a parsear
+   23 KB cuesta una fraccion de milisegundo; ese bug no.
+
+   Nunca rechaza: si el archivo no esta o no parsea, entrega null, que es lo
+   que todos los consumidores ya sabian manejar. */
+window.figJSON=function(url){
+  var c=window.__figJSONcache||(window.__figJSONcache={});
+  if(!c[url])c[url]=fetch(url,{cache:"no-cache"})
+    .then(function(r){return r.ok?r.text():null})
+    .catch(function(){return null});
+  return c[url].then(function(t){
+    if(!t)return null;
+    try{return JSON.parse(t)}catch(e){return null}
+  });
+};
+
 var RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
 var FINE=matchMedia("(hover: hover) and (pointer: fine)").matches;
 function $(s,r){return (r||document).querySelector(s)}
@@ -925,8 +997,7 @@ function cargarEventosTl(){
     initMetTl();
   }
   if(window.__eventosFIG&&window.__eventosFIG.eventos){integrar(window.__eventosFIG.eventos);return;}
-  fetch("../datos/eventos.json",{cache:"no-store"})
-    .then(function(r){return r.ok?r.json():null})
+  figJSON("../datos/eventos.json")
     .then(function(d){integrar(d&&d.eventos?d.eventos:[])})
     .catch(function(){initMetTl()});
 }
@@ -2568,7 +2639,7 @@ function conHistorial(cb){
   if(HIST==="cargando")return;
   HIST="cargando";
   function avisar(){var cbs=HIST_CB;HIST_CB=[];cbs.forEach(function(f){f()})}
-  fetch("../datos/torneo.json",{cache:"no-store"})
+  fetch("../datos/torneo.json",{cache:"no-cache"})
     .then(function(r){return r.ok?r.json():null})
     .then(function(d){
       if(d&&d.equipos&&d.equipos.length)fusionarHistorial(d);
@@ -2576,7 +2647,7 @@ function conHistorial(cb){
     })
     .catch(function(){HIST="no";avisar()});  /* un corte de red no lo deja mudo para siempre */
 }
-fetch("../datos/torneo-tabla.json",{cache:"no-store"})
+fetch("../datos/torneo-tabla.json",{cache:"no-cache"})
   .then(function(r){return r.ok?r.json():null})
   .then(function(d){
     if(d&&d.equipos&&d.equipos.length){
@@ -2592,7 +2663,7 @@ fetch("../datos/torneo-tabla.json",{cache:"no-store"})
       return null;
     }
     /* sin derivado: el camino de siempre, con el archivo completo */
-    return fetch("../datos/torneo.json",{cache:"no-store"})
+    return fetch("../datos/torneo.json",{cache:"no-cache"})
       .then(function(r){return r.ok?r.json():null})
       .then(function(f){if(f&&f.equipos&&f.equipos.length){HIST="si";usarDatos(f)}});
   }).catch(function(){});
@@ -2615,9 +2686,11 @@ function creIniciales(n){
   return String(n||"").trim().split(/\s+/).slice(0,2)
     .map(function(w){return w.charAt(0).toUpperCase()}).join("");
 }
-/* Prueba ../fotos/directiva/<slug>.(jpg|jpeg|png|webp) → cb(url) o cb(null). */
+/* Prueba ../fotos/directiva/<slug>.(webp|jpg|jpeg|png) → cb(url) o cb(null).
+   El WEBP primero: es el derivado de 800px que escribe generar_imagenes_web.py
+   y pesa la mitad que el JPG original a la misma vista. */
 function creFoto(sl,cb){
-  var exts=["jpg","jpeg","png","webp"],k=0;
+  var exts=["webp","jpg","jpeg","png"],k=0;
   (function next(){
     if(k>=exts.length){cb(null);return}
     var url="../fotos/directiva/"+sl+"."+exts[k++];
@@ -2636,8 +2709,7 @@ function initCreadores(){
      casi lo mismo de barato y siempre trae el dato correcto. El fetch de
      métricas del final de la página puede seguir en force-cache: solo lee
      config.figEndpoint y reaprovecha esta misma entrada ya revalidada. */
-  fetch("../datos/club.json",{cache:"no-cache"})
-    .then(function(r){return r.ok?r.json():null})
+  figJSON("../datos/club.json")
     .then(function(d){
       var lista=(d&&d.torneo&&d.torneo.creadores)||[];
       if(!lista.length)return;
@@ -2775,8 +2847,7 @@ observeReveals(document);
    completo en HOJA_DE_RUTA_FIG.md). Registra página, fecha y origen. */
 (function(){
 try{
-fetch("../datos/club.json",{cache:"force-cache"})
-.then(function(r){return r.ok?r.json():null})
+figJSON("../datos/club.json")
 .then(function(d){
   var u=d&&d.config&&d.config.figEndpoint;if(!u)return;
   var b=JSON.stringify({tipo:"visita",pagina:location.pathname,fecha:new Date().toISOString(),origen:(document.referrer.split("/")[2]||"")});

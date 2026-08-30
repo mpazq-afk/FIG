@@ -6,6 +6,18 @@
 <title>Desafío FIG — Trivia de finanzas</title>
 <meta name="description" content="El Desafío FIG: preguntas de finanzas, economía e historia de los mercados. Responde contra el reloj, descubre tus áreas fuertes y débiles, o entra al modo estudio.">
 <meta name="theme-color" content="#0A1128">
+<link rel="canonical" href="https://feninvestmentgroup.com/desafio/">
+<meta property="og:url" content="https://feninvestmentgroup.com/desafio/">
+<meta property="og:title" content="Desafío FIG — Trivia de finanzas">
+<meta property="og:description" content="Preguntas de finanzas, economía e historia de los mercados. Responde contra el reloj o entra al modo estudio.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://feninvestmentgroup.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Desafío FIG — Trivia de finanzas">
+<meta name="twitter:description" content="Preguntas de finanzas, economía e historia de los mercados. Responde contra el reloj o entra al modo estudio.">
+<meta name="twitter:image" content="https://feninvestmentgroup.com/og-image.png">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%230A1128'/%3E%3Ccircle cx='50' cy='50' r='34' fill='%23D4AF37'/%3E%3C/svg%3E">
 <!-- Tipografias autoalojadas: antes esto eran dos preconnect y una
      hoja de estilos de fonts.googleapis.com, que bloqueaba la primera
@@ -24,6 +36,10 @@
    Modo ESTUDIO: eliges tema o ramo, sin reloj, feedback inmediato.
    ============================================================================ */
 :root{
+  /* Sin esto Chrome dibuja las barras de scroll y los controles nativos en
+     gris claro sobre el navy, y pinta el lienzo en blanco antes de la primera
+     pintada: en un sitio 100% oscuro se ve como un destello o una barra blanca. */
+  color-scheme:dark;
   --navy-deep:#060B1C; --navy:#0A1128; --navy-panel:#0F1934;
   --gold:#D4AF37; --gold-light:#EBD388; --gold-deep:#9E7E1E;
   --gold-dim:rgba(212,175,55,.32); --gold-faint:rgba(212,175,55,.11);
@@ -35,7 +51,15 @@
   --wrap:880px; --ease:cubic-bezier(.22,.61,.21,1);
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+/* El `display:none` que trae el atributo `hidden` viene de la hoja del
+   navegador, asi que CUALQUIER regla propia que fije `display` se lo come sin
+   avisar. Paso de verdad: `.demo-bar{display:flex}` dejaba el aviso de
+   "Demostracion" a la vista sobre los datos reales. Esto lo blinda. */
+[hidden]{display:none!important}
+/* El hueco de la barra queda reservado siempre: varias paginas bloquean el
+   scroll del body al abrir un panel u overlay, y sin esto la pagina entera se
+   corre 15px al costado cuando la barra desaparece y vuelve. */
+html{scroll-behavior:smooth;scrollbar-gutter:stable}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.001s!important;transition-duration:.001s!important}}
 body{background:var(--navy);color:var(--ivory);font-family:var(--f-body);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 ::selection{background:var(--gold);color:var(--navy)}
@@ -152,6 +176,10 @@ h1 em,h2 em{font-style:italic;color:var(--gold)}
 .rank-empty{padding:30px 20px;text-align:center;font-family:var(--f-mono);font-size:.7rem;letter-spacing:.1em;color:rgba(247,244,236,.5)}
 
 footer{background:var(--navy-deep);padding:30px 0;border-top:1px solid var(--line-d)}
+/* Mismo criterio que en el resto del sitio: el credito del pie tenia 14px de
+   alto tocable, bajo los 24px que pide WCAG 2.2. El margen negativo compensa
+   el padding, asi que el pie se dibuja igual. */
+footer .wrap a{display:inline-block;padding:6px 0;margin:-6px 0}
 footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:var(--f-mono);font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(247,244,236,.45);max-width:1180px}
 footer a{color:rgba(247,244,236,.65)}
 footer a:hover{color:var(--gold)}
@@ -657,7 +685,7 @@ renderRank();
    completo en HOJA_DE_RUTA_FIG.md). Registra página, fecha y origen. */
 (function(){
 try{
-fetch("../datos/club.json",{cache:"force-cache"})
+fetch("../datos/club.json",{cache:"no-cache"})
 .then(function(r){return r.ok?r.json():null})
 .then(function(d){
   var u=d&&d.config&&d.config.figEndpoint;if(!u)return;

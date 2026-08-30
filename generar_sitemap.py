@@ -53,6 +53,7 @@ EXCLUIDAS = {
 PRIORIDAD = {
     "index.html": "1.0",
     "torneo/index.html": "0.9",
+    "informe/index.html": "0.8",
     "eventos/index.html": "0.8",
     "miembros/index.html": "0.8",
     "postula/index.html": "0.8",

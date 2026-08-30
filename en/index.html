@@ -4,10 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FEN Investment Group — English Brief</title>
-<meta name="description" content="FEN Investment Group (FIG): the student-run investment community of the Faculty of Economics and Business, Universidad de Chile. Portfolio, Trading, Valuation and FEN Investment Woman.">
+<meta name="description" content="FEN Investment Group (FIG): the student-run investment community of the Faculty of Economics and Business, Universidad de Chile. Portfolio, Trading and Valuation.">
 <meta name="theme-color" content="#0A1128">
+<link rel="canonical" href="https://feninvestmentgroup.com/en/">
+<meta property="og:url" content="https://feninvestmentgroup.com/en/">
+<link rel="alternate" hreflang="es" href="https://feninvestmentgroup.com/">
+<link rel="alternate" hreflang="en" href="https://feninvestmentgroup.com/en/">
+<link rel="alternate" hreflang="x-default" href="https://feninvestmentgroup.com/">
 <meta property="og:title" content="FEN Investment Group — English Brief">
-<meta property="og:description" content="The student-run investment community of Universidad de Chile. Forging Tomorrow's Elite.">
+<meta property="og:description" content="The student-run investment community of Universidad de Chile. Forging Tomorrow's Leaders.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -31,6 +36,10 @@
    inglés — es su propósito. El resto del sitio permanece en español.
    ============================================================================ */
 :root{
+  /* Sin esto Chrome dibuja las barras de scroll y los controles nativos en
+     gris claro sobre el navy, y pinta el lienzo en blanco antes de la primera
+     pintada: en un sitio 100% oscuro se ve como un destello o una barra blanca. */
+  color-scheme:dark;
   --navy-deep:#060B1C; --navy:#0A1128; --navy-panel:#0F1934;
   --gold:#D4AF37; --gold-light:#EBD388; --gold-deep:#9E7E1E;
   --gold-dim:rgba(212,175,55,.32); --gold-faint:rgba(212,175,55,.11);
@@ -42,7 +51,15 @@
   --wrap:960px; --ease:cubic-bezier(.22,.61,.21,1);
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+/* El `display:none` que trae el atributo `hidden` viene de la hoja del
+   navegador, asi que CUALQUIER regla propia que fije `display` se lo come sin
+   avisar. Paso de verdad: `.demo-bar{display:flex}` dejaba el aviso de
+   "Demostracion" a la vista sobre los datos reales. Esto lo blinda. */
+[hidden]{display:none!important}
+/* El hueco de la barra queda reservado siempre: varias paginas bloquean el
+   scroll del body al abrir un panel u overlay, y sin esto la pagina entera se
+   corre 15px al costado cuando la barra desaparece y vuelve. */
+html{scroll-behavior:smooth;scrollbar-gutter:stable}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.001s!important;transition-duration:.001s!important}}
 body{background:var(--navy);color:var(--ivory);font-family:var(--f-body);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 ::selection{background:var(--gold);color:var(--navy)}
@@ -120,7 +137,7 @@ footer a:hover{color:var(--gold)}
 <header class="hero">
   <div class="wrap">
     <div class="kicker reveal">Universidad de Chile · FEN</div>
-    <h1 class="reveal d1">Forging <em>Tomorrow's Elite.</em></h1>
+    <h1 class="reveal d1">Forging <em>Tomorrow's Leaders.</em></h1>
     <p class="reveal d2">FEN Investment Group (FIG) is the student-run investment community of the Faculty of Economics and Business at Universidad de Chile. We train the next generation of investors through hands-on portfolio management, industry visits, open education and a flagship portfolio tournament run on Bloomberg terminals.</p>
     <div class="stats reveal d3">
       <div><b>54</b><span>teams in the 2026 tournament</span></div>
@@ -134,12 +151,11 @@ footer a:hover{color:var(--gold)}
 <section class="sec">
   <div class="wrap">
     <div class="kicker reveal">What we do</div>
-    <h2 class="reveal d1">Four areas, <em>one community.</em></h2>
+    <h2 class="reveal d1">Our areas of <em>practice.</em></h2>
     <div class="grid reveal d2">
       <div class="card"><span class="tag">Area 01</span><h3>Portfolio</h3><p>Asset allocation and portfolio construction, the discipline behind our flagship tournament.</p></div>
       <div class="card"><span class="tag">Area 02</span><h3>Trading</h3><p>Markets in the short run: technical analysis, execution and risk discipline.</p></div>
       <div class="card"><span class="tag">Area 03</span><h3>Valuation</h3><p>Fundamental analysis and company valuation, from first principles to full models.</p></div>
-      <div class="card"><span class="tag">Area 04</span><h3>FEN Investment Woman</h3><p>Our community driving women's participation in finance and investing.</p></div>
     </div>
   </div>
 </section>
@@ -161,6 +177,30 @@ footer a:hover{color:var(--gold)}
       <a href="https://www.instagram.com/fen.investment.group/" target="_blank" rel="noopener" class="btn btn--ghost">Instagram</a>
     </div>
     <p class="note">Partnering or visiting? Reach out through LinkedIn, the board answers in English and Spanish.<br>Full site (Spanish): tournament methodology, events log, team and application form.</p>
+  </div>
+</section>
+
+<!-- Estado real del torneo. Las cifras salen del corte publicado y del registro
+     de operaciones (ver INFORME_ETF_TORNEO.md); actualizarlas al cambiar de
+     corte, o quedan desfasadas respecto del ranking en español. -->
+<section class="sec">
+  <div class="wrap">
+    <div class="kicker reveal">Where it stands</div>
+    <h2 class="reveal d1">Six months in, <em>by the numbers.</em></h2>
+    <p class="reveal d2">As of the week 15 cut (August 21, 2026), 136 students across 54 teams have been running these portfolios since May 11. The record of their trades shows what a cohort of finance students actually does when handed a Bloomberg terminal and an ETF universe.</p>
+    <div class="stats reveal d3">
+      <div><b>136</b><span>students competing</span></div>
+      <div><b>812</b><span>trades executed</span></div>
+      <div><b>199</b><span>distinct ETFs used</span></div>
+      <div><b>14</b><span>exchanges, in 7 currencies</span></div>
+    </div>
+    <div class="spec-row reveal d3">
+      <div class="spec"><span>Most held ETF</span><b>SOXX · 65% of teams</b></div>
+      <div class="spec"><span>Leading sector</span><b>Semiconductors · 67% of teams</b></div>
+      <div class="spec"><span>Thematic tilt</span><b>Artificial intelligence · 28%</b></div>
+      <div class="spec"><span>Widest spread</span><b>58 points between first and last</b></div>
+    </div>
+    <p class="note">Trade-level figures cover May 11 to August 5, 2026, the period captured so far; the ranking itself runs to the latest weekly cut. Portfolios are simulated. Nothing here is investment advice.</p>
   </div>
 </section>
 
@@ -196,7 +236,7 @@ if(!RM&&"IntersectionObserver" in window){
    completo en HOJA_DE_RUTA_FIG.md). Registra página, fecha y origen. */
 (function(){
 try{
-fetch("../datos/club.json",{cache:"force-cache"})
+fetch("../datos/club.json",{cache:"no-cache"})
 .then(function(r){return r.ok?r.json():null})
 .then(function(d){
   var u=d&&d.config&&d.config.figEndpoint;if(!u)return;

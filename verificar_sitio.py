@@ -4,7 +4,8 @@ verificar_sitio.py -- Chequeo rapido antes de publicar.
 Por que existe
 --------------
 Este sitio tiene datos que viven en mas de un lugar a la vez: archivos derivados
-que hay que regenerar (datos/torneo-tabla.json, torneo/e/*.html, og/*.jpg) y
+que hay que regenerar (datos/torneo-tabla.json, datos/torneo-portada.json,
+torneo/e/*.html, og/*.jpg) y
 numeros escritos a mano en el HTML que tienen que calzar con el JSON (las meta
 etiquetas dicen "54 equipos"). Cada vez que uno de esos se quedo atras hubo que
 descubrirlo mirando la pagina: la correccion 63 -> 59 -> 54 se hizo tres veces, a
@@ -106,6 +107,52 @@ def revisar_tabla_derivada() -> bool:
               "-- corre generar_tabla.py")
         return False
     bien("datos/torneo-tabla.json al dia")
+    return True
+
+
+def revisar_portada_derivada() -> bool:
+    """datos/torneo-portada.json esta al dia Y le alcanza a HERO_TOP.
+
+    La portada dibuja el promedio del "TOP N" con lo que trae este derivado. Si
+    alguien sube HERO_TOP en index.html por encima de los equipos que el
+    derivado guarda, el grafico promedia MENOS equipos de los que dice el
+    rotulo -- y se ve perfecto, que es lo peligroso. Aca se comparan los dos
+    numeros; la pagina ademas se cae sola al archivo completo si detecta el
+    desajuste en vivo (ver TOP_MIN en index.html), asi que esto avisa de un
+    derroche, no de un dato falso.
+    """
+    fuente = DATOS / "torneo.json"
+    derivado = DATOS / "torneo-portada.json"
+    if not fuente.exists():
+        return True
+    if not derivado.exists():
+        aviso("falta datos/torneo-portada.json -- la portada baja el archivo "
+              "completo (funciona, pero son 200 KB de mas en cada visita). "
+              "Generalo con generar_tabla.py")
+        return False
+    try:
+        d = json.loads(derivado.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        error("datos/torneo-portada.json no parsea")
+        return False
+
+    if d.get("_fuenteSha1") != hashlib.sha1(fuente.read_bytes()).hexdigest():
+        error("datos/torneo-portada.json quedo ATRAS respecto de datos/torneo.json "
+              "-- corre generar_tabla.py")
+        return False
+
+    top = d.get("topPortada") or len(d.get("equipos", []))
+    indice = RAIZ / "index.html"
+    if indice.exists():
+        m = re.search(r"var HERO_TOP=(\d+)", indice.read_text(encoding="utf-8"))
+        if m and int(m.group(1)) > top:
+            error(f"index.html pide un TOP {m.group(1)} pero datos/torneo-portada.json "
+                  f"solo trae {top} equipos -- subi TOP_PORTADA en generar_tabla.py "
+                  "y volve a correrlo (mientras tanto la portada se cae al "
+                  "archivo completo, 200 KB de mas por visita)")
+            return False
+
+    bien(f"datos/torneo-portada.json al dia (top {top})")
     return True
 
 
@@ -226,6 +273,86 @@ def revisar_peso_html() -> None:
         bien(f"ninguna pagina pasa los {TECHO_HTML_KB} KB de fuente")
 
 
+# Las 10 paginas publicas y la URL canonica que le toca a cada una. Tiene que
+# calzar con generar_sitemap.py: son las mismas 10 que van al sitemap.
+SITIO_CANONICO = "https://feninvestmentgroup.com"
+CANONICAS = {
+    "index.html": "/", "en/index.html": "/en/", "eventos/index.html": "/eventos/",
+    "fiw/index.html": "/fiw/", "torneo/index.html": "/torneo/",
+    "miembros/index.html": "/miembros/", "valuation/index.html": "/valuation/",
+    "postula/index.html": "/postula/", "desafio/index.html": "/desafio/",
+    "juego/index.html": "/juego/",
+}
+
+
+def revisar_canonicas() -> None:
+    """Cada pagina publica declara SU canonical, y solo una.
+
+    El sitio se sirve desde dos dominios (produccion y el espejo de GitHub
+    Pages). Sin canonical los dos son, para un buscador, dos copias del mismo
+    contenido compitiendo entre si -- y el que gane puede ser el equivocado.
+    """
+    malas = []
+    ausentes = []
+    for arch, ruta in CANONICAS.items():
+        f = RAIZ / arch
+        if not f.exists():
+            # No es un error: este script corre TAMBIEN en el espejo, que a
+            # proposito publica menos paginas que el repo de trabajo (hoy le
+            # faltan miembros/ e informe/). Una pagina que no se publica no
+            # puede tener mal su canonical. Se informa para que nadie confunda
+            # "no publicada" con "me olvide de revisarla".
+            ausentes.append(arch)
+            continue
+        texto = f.read_text(encoding="utf-8")
+        esperado = f'<link rel="canonical" href="{SITIO_CANONICO}{ruta}">'
+        n = texto.count('rel="canonical"')
+        if n == 0:
+            malas.append(f"{arch}: sin canonical")
+        elif n > 1:
+            malas.append(f"{arch}: {n} canonical (debe haber uno solo)")
+        elif esperado not in texto:
+            malas.append(f"{arch}: el canonical no apunta a {SITIO_CANONICO}{ruta}")
+    if ausentes:
+        aviso("no se publican en este repo, sin canonical que revisar: "
+              + ", ".join(ausentes))
+    if malas:
+        for m in malas:
+            error(f"canonical -- {m}")
+        return
+    bien(f"las {len(CANONICAS) - len(ausentes)} paginas publicas declaran su canonical")
+
+
+def revisar_datos_estructurados() -> None:
+    """Las redes del JSON-LD de index.html calzan con datos/club.json.
+
+    El bloque JSON-LD esta escrito a mano en el <head> (es dato estable), asi
+    que puede quedar desfasado sin que se note: no se ve en pantalla, solo lo
+    lee un buscador. Esto es lo unico que evita esa deriva silenciosa.
+    """
+    f = RAIZ / "index.html"
+    texto = f.read_text(encoding="utf-8")
+    m = re.search(r'<script type="application/ld\+json">\s*(\{.*?\})\s*</script>',
+                  texto, re.S)
+    if not m:
+        aviso("index.html no trae JSON-LD -- el sitio no se describe a los buscadores")
+        return
+    try:
+        ld = json.loads(m.group(1))
+    except Exception:
+        error("el JSON-LD de index.html no parsea")
+        return
+    club = json.loads((DATOS / "club.json").read_text(encoding="utf-8"))
+    urls = (club.get("config") or {}).get("urls") or {}
+    same = set(ld.get("sameAs") or [])
+    faltan = [u for u in (urls.get("linkedin"), urls.get("instagram")) if u and u not in same]
+    if faltan:
+        error("el JSON-LD de index.html no calza con config.urls de club.json: "
+              + ", ".join(faltan))
+        return
+    bien("el JSON-LD de index.html calza con datos/club.json")
+
+
 def revisar_derivados_seo() -> None:
     """sitemap.xml y robots.txt existen y el sitemap no lista las micro-paginas."""
     sm, rb = RAIZ / "sitemap.xml", RAIZ / "robots.txt"
@@ -284,11 +411,14 @@ def main() -> int:
 
     torneo = revisar_json()
     revisar_tabla_derivada()
+    revisar_portada_derivada()
     revisar_paginas_equipo(torneo)
     revisar_imagenes_og(torneo)
     revisar_conteo_equipos(torneo)
     revisar_creadores()
     revisar_derivados_seo()
+    revisar_canonicas()
+    revisar_datos_estructurados()
     revisar_peso_html()
 
     if args.arreglar and (ERRORES or AVISOS):
@@ -297,11 +427,14 @@ def main() -> int:
         print("\n--- de nuevo, ya regenerado ---")
         torneo = revisar_json()
         revisar_tabla_derivada()
+        revisar_portada_derivada()
         revisar_paginas_equipo(torneo)
         revisar_imagenes_og(torneo)
         revisar_conteo_equipos(torneo)
         revisar_creadores()
         revisar_derivados_seo()
+        revisar_canonicas()
+        revisar_datos_estructurados()
         revisar_peso_html()
 
     print()

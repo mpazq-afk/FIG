@@ -4,8 +4,34 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FEN Investment Group — Forjando la Élite del Mañana</title>
-<meta name="description" content="FEN Investment Group (FIG): la comunidad de inversiones de la Facultad de Economía y Negocios, Universidad de Chile. Portafolio, Trading, Valuation y FEN Investment Woman.">
+<meta name="description" content="FEN Investment Group (FIG): la comunidad de inversiones de la Facultad de Economía y Negocios, Universidad de Chile. Portafolio, Trading y Valuation, entre otras.">
 <meta name="theme-color" content="#0A1128">
+<link rel="canonical" href="https://feninvestmentgroup.com/">
+<!-- Datos estructurados. Lo unico que va escrito aca son datos ESTABLES (nombre,
+     logo, casa de estudios, redes); nada de rankings ni personas, que cambian.
+     Las dos URLs de redes tienen que calzar con `config.urls` de datos/club.json:
+     verificar_sitio.py lo comprueba y falla si alguien cambia una y no la otra. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "FEN Investment Group",
+  "alternateName": "FIG",
+  "url": "https://feninvestmentgroup.com/",
+  "logo": "https://feninvestmentgroup.com/logos/fig-oro.png",
+  "image": "https://feninvestmentgroup.com/og-image.png",
+  "description": "Comunidad de inversiones de la Facultad de Economia y Negocios. Portafolio, Trading y Valuation, entre otras.",
+  "foundingDate": "2025",
+  "sameAs": [
+    "https://www.linkedin.com/company/fen-investment-group",
+    "https://www.instagram.com/fen.investment.group/"
+  ]
+}
+</script>
+<meta property="og:url" content="https://feninvestmentgroup.com/">
+<link rel="alternate" hreflang="es" href="https://feninvestmentgroup.com/">
+<link rel="alternate" hreflang="en" href="https://feninvestmentgroup.com/en/">
+<link rel="alternate" hreflang="x-default" href="https://feninvestmentgroup.com/">
 <meta property="og:title" content="FEN Investment Group">
 <meta property="og:description" content="Forjando la Élite del Mañana. La comunidad de inversiones de la FEN, Universidad de Chile.">
 <meta property="og:type" content="website">
@@ -34,6 +60,10 @@
    ============================================================================ */
 
 :root{
+  /* Sin esto Chrome dibuja las barras de scroll y los controles nativos en
+     gris claro sobre el navy, y pinta el lienzo en blanco antes de la primera
+     pintada: en un sitio 100% oscuro se ve como un destello o una barra blanca. */
+  color-scheme:dark;
   --navy-deep:#060B1C;
   --navy:#0A1128;
   --navy-panel:#0F1934;
@@ -60,7 +90,15 @@
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+/* El `display:none` que trae el atributo `hidden` viene de la hoja del
+   navegador, asi que CUALQUIER regla propia que fije `display` se lo come sin
+   avisar. Paso de verdad: `.demo-bar{display:flex}` dejaba el aviso de
+   "Demostracion" a la vista sobre los datos reales. Esto lo blinda. */
+[hidden]{display:none!important}
+/* El hueco de la barra queda reservado siempre: varias paginas bloquean el
+   scroll del body al abrir un panel u overlay, y sin esto la pagina entera se
+   corre 15px al costado cuando la barra desaparece y vuelve. */
+html{scroll-behavior:smooth;scrollbar-gutter:stable}
 section[id],header[id]{scroll-margin-top:80px}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -353,6 +391,22 @@ body.on-light .rail-node .rn-lab{color:#A8871C;text-shadow:none}
   color:rgba(247,244,236,.55);display:flex;gap:22px;flex-wrap:wrap;
 }
 .hero__meta b{color:var(--gold);font-weight:600}
+/* En un teléfono las tres cifras no caben en una línea y `flex-wrap` las
+   partía 2 + 1: quedaba "4 ÁREAS" sola abajo, desalineada con las de arriba y
+   pareciendo un sobrante. En vertical se reparten en tres columnas iguales,
+   cada cifra sobre su rótulo — la misma fila de estadísticas, ahora legible
+   como tal, y separadas por un filete finito para que se lean como un grupo. */
+@media (max-width:640px){
+  .hero__meta{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(0,1fr));gap:0;
+    font-size:.58rem;letter-spacing:.1em;text-align:center;
+    border-top:1px solid rgba(247,244,236,.1);border-bottom:1px solid rgba(247,244,236,.1);
+    padding:14px 0;
+  }
+  .hero__meta span{padding:0 4px;line-height:1.5}
+  .hero__meta span+span{border-left:1px solid rgba(247,244,236,.1)}
+  .hero__meta b{display:block;font-size:1.24rem;letter-spacing:.02em;margin-bottom:3px}
+}
 
 /* Panel derecho: terminal FIG */
 .hero__panel{position:relative;perspective:1200px}
@@ -900,8 +954,17 @@ footer{background:var(--navy-deep);padding:clamp(4rem,8vw,6rem) 0 0;border-top:1
 .f-col h4{font-family:var(--f-mono);font-size:.65rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
 .f-col ul{list-style:none;display:flex;flex-direction:column;gap:12px}
 .f-col a{font-size:.9rem;color:rgba(247,244,236,.68);transition:color .3s}
+/* El area tocable crecia solo hasta el alto del texto: 17px, muy por debajo
+   de los 24px que pide WCAG 2.2 para un objetivo tactil. El padding la lleva
+   a 27px y el margen negativo lo compensa exacto, asi que el footer se ve
+   identico pixel a pixel — lo unico que cambia es donde se puede tocar. */
+.f-col a{display:inline-block;padding:5px 0;margin:-5px 0}
 .f-col a:hover{color:var(--gold)}
 .f-bottom{
+/* Mismo criterio que en .f-col a: el credito y el aviso de demostracion
+   tenian 14 y 22px de alto tocable. El padding los sube sobre los 24px que
+   pide WCAG 2.2 y el margen negativo deja el dibujo intacto. */
+.f-bottom a{display:inline-block;padding:6px 0;margin:-6px 0}
   margin-top:clamp(3rem,6vw,4.5rem);border-top:1px solid rgba(212,175,55,.12);
   padding:26px 0;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
   font-family:var(--f-mono);font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(247,244,236,.45);
@@ -931,12 +994,27 @@ html:not(.no-js) body:not(.hero-in) .hero .reveal{opacity:0;transform:translateY
 #ticker .tk-item b{color:var(--gold);font-weight:600}
 #ticker .tk-item .up{color:var(--up)}
 #ticker .tk-item .down{color:var(--down)}
-#ticker a.tk-item{transition:color .3s}
+#ticker a.tk-item{transition:color .3s;align-self:stretch}  /* alto completo de la cinta: tocable de verdad */
 #ticker a.tk-item:hover{color:var(--gold)}
 #ticker .tk-close{flex:none;display:flex;align-items:center;padding:0 14px;color:rgba(247,244,236,.5);font-size:.85rem;transition:color .3s}
 #ticker .tk-close:hover{color:var(--gold)}
 body.has-ticker{padding-bottom:38px}
 .no-js #ticker{display:none!important}
+/* En un teléfono la etiqueta "TORNEO · SEMANA 15" se comía 150 de los 390px
+   de ancho y de la cinta solo alcanzaba a leerse un pedazo de nombre sin
+   principio ni fin. Ahí la etiqueta se abrevia a "S15" —el contexto ya lo da
+   estar en el sitio del club— y los ítems se juntan, así que en la misma
+   pasada alcanzan a leerse dos equipos completos en vez de medio. */
+#ticker .tk-tag-corta{display:none}
+@media (max-width:640px){
+  /* gap:0 — los dos rótulos son hijos del mismo flex y el gap de 8px metía un
+     espacio en medio de "S15" */
+  #ticker .tk-tag{padding:0 10px;letter-spacing:.12em;gap:0}
+  #ticker .tk-tag-larga{display:none}
+  #ticker .tk-tag-corta{display:inline}
+  #ticker .tk-item{padding:0 13px;font-size:.63rem;letter-spacing:.04em}
+  #ticker .tk-close{padding:0 10px}
+}
 
 .no-js #preloader{display:none}
 @media (prefers-reduced-motion:reduce){
@@ -1018,7 +1096,6 @@ body.has-ticker{padding-bottom:38px}
         </div>
       </li>
       <li><a href="#equipo">Equipo</a></li>
-      <!-- FIW_TEMP_OCULTO <li><a href="fiw/index.html">FIG Woman</a></li> -->
       <li class="nav__drop">
         <a href="eventos/index.html" aria-haspopup="true">Actividades ▾</a>
         <div class="nav__drop-menu">
@@ -1047,7 +1124,6 @@ body.has-ticker{padding-bottom:38px}
   <a href="#areas">Áreas</a>
   <a href="valuation/index.html">Valuation</a>
   <a href="#equipo">Equipo</a>
-  <!-- FIW_TEMP_OCULTO <a href="fiw/index.html">FIG Woman</a> -->
   <a href="eventos/index.html">Eventos</a>
   <a href="#historia">Historia</a>
   <a href="juego/index.html">El Rally del Toro</a>
@@ -1223,9 +1299,6 @@ body.has-ticker{padding-bottom:38px}
            href="valuation/index.html" aria-label="Valuation — ir a la página del área">
           <span class="di-code">VAL</span><span class="di-name">Valuation</span><span class="di-arrow">→</span>
         </a>
-        <button class="desk-item" role="tab" aria-selected="false" data-desk="3">
-          <span class="di-code">FIW</span><span class="di-name">FEN Investment Woman</span><span class="di-arrow">→</span>
-        </button>
       </div>
       <div class="desk-panel glowable" id="deskPanel">
         <div class="dp-view active" data-view="0" role="tabpanel">
@@ -1260,18 +1333,6 @@ body.has-ticker{padding-bottom:38px}
             <span class="mono-tag">Research fundamental</span>
           </div>
           <a href="valuation/index.html" class="a-link">Conocer el área <span class="arr">→</span></a>
-          <div class="dp-bar"><i></i></div>
-        </div>
-        <div class="dp-view" data-view="3" role="tabpanel">
-          <span class="dp-num" aria-hidden="true">04</span>
-          <span class="mono-tag">FIW · Comunidad</span>
-          <h3>Más mujeres en las finanzas</h3>
-          <p>La comunidad que impulsa la participación femenina en las finanzas y la inversión, abriendo espacio, referentes y oportunidades dentro de la industria.</p>
-          <div class="dp-meta">
-            <span class="mono-tag">Fundadora · Delia Avilán</span>
-            <span class="mono-tag">Comunidad abierta</span>
-          </div>
-          <!-- FIW_TEMP_OCULTO <a href="fiw/index.html" class="a-link">Conocer el área <span class="arr">→</span></a> -->
           <div class="dp-bar"><i></i></div>
         </div>
       </div>
@@ -1362,7 +1423,7 @@ body.has-ticker{padding-bottom:38px}
         <div class="tl-card">
           <div class="tl-chap">Capítulo II · Estructura</div>
           <h3>15 directores, 4 desks</h3>
-          <p>La directiva fundadora organiza el club en cuatro áreas: Portafolio, Trading, Valuation y FEN Investment Woman.</p>
+          <p>La directiva fundadora organiza el club en cuatro áreas: Portafolio, Trading y Valuation, entre otras.</p>
         </div>
       </div>
       <div class="tl-item reveal">
@@ -1573,7 +1634,6 @@ body.has-ticker{padding-bottom:38px}
           <li><a href="#areas">Portafolio</a></li>
           <li><a href="#areas">Trading</a></li>
           <li><a href="#areas">Valuation</a></li>
-          <!-- FIW_TEMP_OCULTO <li><a href="fiw/index.html">FEN Investment Woman</a></li> -->
         </ul>
       </div>
       <div class="f-col">
@@ -1614,6 +1674,35 @@ body.has-ticker{padding-bottom:38px}
    ============================================================================ */
 
 document.documentElement.classList.remove("no-js");
+
+/* ---------------- Un solo pedido por archivo de datos ----------------
+   Varias piezas de la pagina necesitan el MISMO JSON -- los enlaces del pie y
+   el beacon de metricas piden club.json; la linea de tiempo y la tira de fotos
+   piden eventos.json -- y cada una abria su propia peticion. Con `no-cache` la
+   segunda vuelve 304 sin cuerpo, asi que casi no pesa, pero igual paga la ida y
+   vuelta entera: en un telefono en 4G la latencia es lo caro, no los bytes.
+
+   Se memoiza la PROMESA, no el dato, asi dos llamados que salen a la vez
+   comparten la misma peticion en vez de encadenarse.
+
+   Lo que se guarda es el TEXTO y cada consumidor parsea su propia copia: si se
+   compartiera el objeto ya parseado, un bloque que le agregue o le pise un
+   campo se lo estaria cambiando al otro sin que nadie lo note. Volver a parsear
+   23 KB cuesta una fraccion de milisegundo; ese bug no.
+
+   Nunca rechaza: si el archivo no esta o no parsea, entrega null, que es lo
+   que todos los consumidores ya sabian manejar. */
+window.figJSON=function(url){
+  var c=window.__figJSONcache||(window.__figJSONcache={});
+  if(!c[url])c[url]=fetch(url,{cache:"no-cache"})
+    .then(function(r){return r.ok?r.text():null})
+    .catch(function(){return null});
+  return c[url].then(function(t){
+    if(!t)return null;
+    try{return JSON.parse(t)}catch(e){return null}
+  });
+};
+
 
 var RM   = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 var FINE = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
@@ -1668,7 +1757,7 @@ var CLUB_DATA = {
   ],
   historia:[
     {capitulo:"Capítulo I · Fundación",titulo:"Nace FEN Investment Group",texto:"Un grupo de estudiantes decide que los mercados se aprenden gestionándolos, no mirándolos. Nace FIG."},
-    {capitulo:"Capítulo II · Estructura",titulo:"15 directores, 4 desks",texto:"La directiva fundadora organiza el club en cuatro áreas: Portafolio, Trading, Valuation y FEN Investment Woman."},
+    {capitulo:"Capítulo II · Estructura",titulo:"15 directores, 4 desks",texto:"La directiva fundadora organiza el club en cuatro áreas: Portafolio, Trading y Valuation, entre otras."},
     {capitulo:"Capítulo III · Comunidad",titulo:"Más de 250 miembros",texto:"La comunidad FIG crece con estudiantes de toda la facultad, unidos por el interés en las inversiones y los mercados."},
     {capitulo:"Capítulo IV · 2026",titulo:"Torneo Portafolio 2026",texto:"54 equipos gestionan USD 10M simulados en Bloomberg durante seis meses. El mayor desafío organizado por FIG hasta hoy."}
   ]
@@ -1692,7 +1781,7 @@ var D=["","d1","d2","d3"];
 
 /* slug de nombre/empresa + detección automática de fotos y logos (sin
    inventar nada: si el archivo no existe, se cae al monograma de siempre).
-   Compartido entre las miniaturas de la grilla y el Expediente. */
+   slug() lo comparten la grilla y el Expediente; el sondeo ya no. */
 function slug(n){
   var s=String(n||"").toLowerCase();
   s=s.replace(/[áàä]/g,"a").replace(/[éèë]/g,"e").replace(/[íìï]/g,"i")
@@ -1700,29 +1789,26 @@ function slug(n){
   return s.replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"");
 }
 var fotoCache={};
-/* Busca fotos/directiva/<slug>.(jpg|jpeg|png|webp) */
+/* Busca fotos/directiva/<slug>.(webp|jpg|jpeg|png) — el retrato GRANDE, que es
+   el que pide el Expediente. El WEBP va primero porque es el derivado que
+   genera generar_imagenes_web.py; el original queda detrás para una foto
+   subida después de la última corrida.
+
+   Acá sondear sí corresponde: el Expediente necesita saber la URL ANTES de
+   armar la ficha, y solo corre cuando alguien abre una tarjeta. Las
+   miniaturas de la grilla ya no pasan por acá — bajaban las 15 fotos al
+   cargar la página; ver montarMiniatura() más abajo.
+
+   (probeLogo() vivía acá al lado y hacía lo mismo con logos/industria/. Se
+   fue con las miniaturas: era su único consumidor.) */
 function probeFoto(sl,cb){
   if(fotoCache.hasOwnProperty(sl)){cb(fotoCache[sl]);return}
-  var exts=["jpg","jpeg","png","webp"],k=0;
+  var rutas=[sl+".webp",sl+".jpg",sl+".jpeg",sl+".png"],k=0;
   (function next(){
-    if(k>=exts.length){fotoCache[sl]=null;cb(null);return}
-    var url="fotos/directiva/"+sl+"."+exts[k++];
+    if(k>=rutas.length){fotoCache[sl]=null;cb(null);return}
+    var url="fotos/directiva/"+rutas[k++];
     var im=new Image();
     im.onload=function(){fotoCache[sl]=url;cb(url)};
-    im.onerror=next;
-    im.src=url;
-  })();
-}
-var logoCache={};
-/* Busca logos/industria/<slug>.(png|svg|jpg|jpeg|webp) */
-function probeLogo(sl,cb){
-  if(logoCache.hasOwnProperty(sl)){cb(logoCache[sl]);return}
-  var exts=["png","svg","jpg","jpeg","webp"],k=0;
-  (function next(){
-    if(k>=exts.length){logoCache[sl]=null;cb(null);return}
-    var url="logos/industria/"+sl+"."+exts[k++];
-    var im=new Image();
-    im.onload=function(){logoCache[sl]=url;cb(url)};
     im.onerror=next;
     im.src=url;
   })();
@@ -1769,24 +1855,58 @@ function renderIndustria(list){
   });
   return html;
 }
-/* Prueba fotos/logos reales para las miniaturas ya insertadas en el DOM;
-   si no existen, se quedan con el monograma (sin romper nada) */
+/* ---------------- Miniaturas de la grilla de personas ----------------
+   Antes esto sondeaba con probeFoto/probeLogo: un `new Image()` por tarjeta
+   que iba probando extensiones y, al acertar, copiaba la URL al <img> de la
+   tarjeta. Funcionaba, pero el sondeo BAJA el archivo — para eso existe — así
+   que las 15 fotos de la directiva y los 6 logos de industria se descargaban
+   completos apenas cargaba la página, aunque §Nosotros esté bien abajo y
+   mucha visita no llegue nunca. Poner `loading="lazy"` en el <img> no cambiaba
+   nada: cuando el navegador llegaba a decidir si lo aplazaba, el sondeo ya lo
+   había bajado.
+
+   Ahora la cadena de candidatos se la come el <img> mismo, encadenada en su
+   `onerror`. El navegador aplaza de verdad los que están fuera de pantalla, y
+   el monograma de abajo sigue siendo el respaldo: si ningún candidato carga,
+   la clase `ok` nunca se pone y no se ve un roto. Mismo resultado visual, sin
+   bajar nada hasta que hace falta.
+
+   El orden de candidatos es el mismo de probeFoto: el WEBP derivado primero
+   (lo genera generar_imagenes_web.py), el original detrás para una foto
+   subida después de la última corrida. */
+function montarMiniatura(img,rutas,alCargar){
+  var k=0;
+  img.loading="lazy";
+  img.decoding="async";
+  img.onload=function(){img.onerror=null;img.classList.add("ok");if(alCargar)alCargar()};
+  img.onerror=function(){
+    if(k<rutas.length){img.src=rutas[k++];return}
+    img.onerror=null;img.removeAttribute("src");   /* se queda el monograma */
+  };
+  img.src=rutas[k++];
+}
 function cargarMiniaturas(g){
   $$(".avatar[data-slug]",g).forEach(function(av){
-    probeFoto(av.getAttribute("data-slug"),function(url){
-      if(!url)return;
-      var img=$(".thumb-img",av);
-      img.src=url;img.classList.add("ok");
-      av.classList.add("has-photo");
-    });
+    var sl=av.getAttribute("data-slug"), img=$(".thumb-img",av);
+    if(!img)return;
+    /* mini/ primero: se dibujan a menos de 100px y ahí sobra la de 240px
+       (~8 KB) frente al retrato de 800px */
+    montarMiniatura(img,["fotos/directiva/mini/"+sl+".webp",
+                         "fotos/directiva/"+sl+".webp",
+                         "fotos/directiva/"+sl+".jpg",
+                         "fotos/directiva/"+sl+".jpeg",
+                         "fotos/directiva/"+sl+".png"],
+                    function(){av.classList.add("has-photo")});
   });
   $$(".ind-logo[data-slug]",g).forEach(function(lg){
-    probeLogo(lg.getAttribute("data-slug"),function(url){
-      if(!url)return;
-      var img=$(".thumb-img",lg);
-      img.src=url;img.classList.add("ok");
-      lg.classList.add("has-photo");
-    });
+    var sl=lg.getAttribute("data-slug"), img=$(".thumb-img",lg);
+    if(!img)return;
+    montarMiniatura(img,["logos/industria/"+sl+".png",
+                         "logos/industria/"+sl+".svg",
+                         "logos/industria/"+sl+".jpg",
+                         "logos/industria/"+sl+".jpeg",
+                         "logos/industria/"+sl+".webp"],
+                    function(){lg.classList.add("has-photo")});
   });
 }
 function renderPeople(p){
@@ -1853,8 +1973,7 @@ function renderHistoria(hs){
 }
 
 /* Override en producción: coloca datos/club.json junto a index.html */
-fetch("datos/club.json",{cache:"no-store"})
-  .then(function(r){return r.ok?r.json():null})
+figJSON("datos/club.json")
   .then(function(d){
     if(!d) return;
     if(d.config&&d.config.urls){for(var k in d.config.urls){CONFIG.urls[k]=d.config.urls[k];}}
@@ -1868,12 +1987,52 @@ fetch("datos/club.json",{cache:"no-store"})
    Solo aparece si existe datos/torneo.json real (el mismo que consume
    torneo/index.html). Muestra el top 5 con puntos, retorno vs ACWI y delta
    de posición. Cerrable (se recuerda por sesión). Nada hardcodeado. */
+/* ---------------- Un solo torneo.json para toda la portada ----------------
+   Dos bloques independientes lo necesitan: el ticker del pie y el gráfico del
+   hero. Cada uno hacía su propio `fetch`, así que la portada bajaba 205 KB DOS
+   VECES — 410 KB, más de la mitad del peso de la página en un teléfono, por el
+   mismo archivo. Esto lo pide una vez y les entrega la misma promesa.
+
+   `no-cache` en vez de `no-store`: los dos revalidan siempre contra el
+   servidor (nunca se muestra un corte viejo), pero si el archivo no cambió la
+   respuesta es un 304 sin cuerpo en vez del JSON entero. `no-store` prohibía
+   guardarlo, así que ni volver atrás en el navegador lo reusaba.
+
+   Y lo que pide es el DERIVADO, no el archivo completo: la portada no muestra
+   el ranking, así que de los 54 equipos con sus métricas, su detalle de
+   puntaje, sus integrantes y sus nueve cifras por semana usaba el top 5 y dos
+   campos. `datos/torneo-portada.json` trae exactamente eso — 4 KB en vez de
+   205 — y lo escribe generar_tabla.py junto con el otro derivado.
+
+   Si el derivado no está (todavía no se corrió el script) o quedó CORTO para
+   lo que el hero quiere promediar, se cae solo al archivo completo: vale más
+   bajar 205 KB que dibujar un "TOP 5" hecho con menos de cinco equipos. Ese
+   mínimo es TOP_MIN y tiene que seguir a HERO_TOP (declarado más abajo, en el
+   bloque del gráfico); verificar_sitio.py falla si alguien los desalinea. */
+window.figTorneoJSON=(function(){
+  var TOP_MIN=5;                 /* == HERO_TOP; lo vigila verificar_sitio.py */
+  var pendiente=null;
+  function pedir(u){
+    return fetch(u,{cache:"no-cache"})
+      .then(function(r){return r.ok?r.json():null})
+      .catch(function(){return null});
+  }
+  function completo(){return pedir("datos/torneo.json")}
+  return function(){
+    if(!pendiente)pendiente=pedir("datos/torneo-portada.json")
+      .then(function(d){
+        var sirve=d&&d.equipos&&d.equipos.length>=TOP_MIN&&(d.topPortada||0)>=TOP_MIN;
+        return sirve?d:completo();
+      });
+    return pendiente;
+  };
+})();
+
 (function(){
   var t=$("#ticker");if(!t)return;
   try{if(sessionStorage.getItem("figTickerOff"))return;}catch(e){}
   function pct(v){return (v>0?"+":"")+(v*100).toFixed(1)+"%"}
-  fetch("datos/torneo.json",{cache:"no-store"})
-    .then(function(r){return r.ok?r.json():null})
+  window.figTorneoJSON()
     .then(function(d){
       if(!d||!d.equipos||!d.equipos.length)return;
       var eq=d.equipos.slice().sort(function(a,b){return a.posicion-b.posicion}).slice(0,5);
@@ -1886,7 +2045,9 @@ fetch("datos/club.json",{cache:"no-store"})
       }).join("")
       +'<a class="tk-item" data-link="torneo" href="torneo/index.html">VER RANKING COMPLETO →</a>';
       $(".tk-move",t).innerHTML=html+html; /* duplicado para el loop continuo */
-      $(".tk-tag",t).textContent="TORNEO · SEMANA "+(d.semana||"—");
+      /* dos rótulos, uno visible por ancho de pantalla — ver el CSS de #ticker */
+      $(".tk-tag",t).innerHTML='<span class="tk-tag-larga">TORNEO · SEMANA </span>'
+        +'<span class="tk-tag-corta">S</span>'+esc(String(d.semana||"—"));
       t.classList.add("on");
       document.body.classList.add("has-ticker");
       $(".tk-close",t).addEventListener("click",function(){
@@ -1923,8 +2084,9 @@ $$(".pill").forEach(function(pl){
   var pv=$("#perfilView"); if(!pv) return;
   var GK={directiva:"Directiva fundadora · FIG",industria:"FIG en la industria",fama:"Muro de la Fama"};
   var list=[],idx=0,grp="directiva",lastFocus=null;
-  /* slug()/probeFoto() ahora son globales (compartidas con las miniaturas
-     de la grilla) — ver definición más arriba, junto a renderPeople */
+  /* slug()/probeFoto() son globales — ver definición más arriba, junto a
+     renderPeople. probeFoto() quedó como uso exclusivo de acá: la grilla pasó
+     a montarMiniatura(), que no sondea. */
   function pad(n){return (n<10?"0":"")+n}
 
   function fill(){
@@ -2336,7 +2498,10 @@ var ridgesStatic=false;
    Para volver al conjunto completo basta poner 0 aca: el titulo, la leyenda y
    el aria-label se escriben SOLOS desde este numero (ver rotularHero), asi que
    no hay forma de que el rotulo diga una cosa y la linea muestre otra. */
-var HERO_TOP=5;
+var HERO_TOP=5;   /* si sube, mirar TOP_MIN y TOP_PORTADA: el derivado
+                     de la portada tiene que traer al menos esta cantidad
+                     de equipos o el promedio sale de menos de los que
+                     dice el rótulo. verificar_sitio.py lo revisa. */
 
 var chart=(function(){
   var cv=$("#heroChart"); if(!cv)return null;
@@ -2441,8 +2606,7 @@ var chart=(function(){
   }
 
   var ilustr=datosIlustrativos();FIG=ilustr.fig;BMK=ilustr.bmk;N=FIG.length;BMK_TOP=N-1;
-  fetch("datos/torneo.json",{cache:"no-store"})
-    .then(function(r){return r.ok?r.json():null})
+  window.figTorneoJSON()                       /* ver la nota del ticker: uno solo para los dos */
     .then(function(d){var real=datosReales(d);if(real)setDatos(real);})
     .catch(function(){});
 
@@ -2663,9 +2827,9 @@ function initFigTimeline(sel,opts){
     return el;
   }
   Promise.all([
-    fetch("datos/linea_tiempo.json",{cache:"no-store"}).then(function(r){return r.ok?r.json():null}).catch(function(){return null}),
-    fetch("datos/eventos.json",{cache:"no-store"}).then(function(r){return r.ok?r.json():null}).catch(function(){return null}),
-    fetch("datos/mercado.json",{cache:"no-store"}).then(function(r){return r.ok?r.json():null}).catch(function(){return null})
+    fetch("datos/linea_tiempo.json",{cache:"no-cache"}).then(function(r){return r.ok?r.json():null}).catch(function(){return null}),
+    figJSON("datos/eventos.json").catch(function(){return null}),
+    fetch("datos/mercado.json",{cache:"no-cache"}).then(function(r){return r.ok?r.json():null}).catch(function(){return null})
   ]).then(function(res){
     var hitos=(res[0]&&res[0].hitos)||[];
     var eventos=(res[1]&&res[1].eventos)||[];
@@ -2804,11 +2968,16 @@ applyLinks();
    nuevo con fotos, aparece solo. Puramente decorativo. */
 (function(){
   var hosts=$$(".photo-marquee"); if(!hosts.length)return;
+  /* Se pide la MINIATURA primero (fotos/eventos/<ev>/mini/1.webp, ~30 KB).
+     Esta tira se dibuja al 13% de opacidad, en escala de grises y a 170px de
+     alto: el original de 300 KB era detalle que literalmente no se ve. El
+     sondeo de siempre queda detrás, así que una carpeta sin miniatura
+     generada se sigue viendo igual. */
   function probePortada(carpeta,cb){
-    var exts=["jpg","jpeg","png","webp"],k=0;
+    var rutas=["mini/1.webp","1.webp","1.jpg","1.jpeg","1.png"],k=0;
     (function next(){
-      if(k>=exts.length){cb(null);return}
-      var url="fotos/eventos/"+carpeta+"/1."+exts[k++];
+      if(k>=rutas.length){cb(null);return}
+      var url="fotos/eventos/"+carpeta+"/"+rutas[k++];
       var im=new Image();
       im.onload=function(){cb(url)};
       im.onerror=next;
@@ -2817,20 +2986,35 @@ applyLinks();
   }
   function montar(urls){
     if(!urls.length)return;
-    var imgs=urls.map(function(u){return '<img src="'+esc(u)+'" alt="" loading="lazy">'}).join("");
+    var imgs=urls.map(function(u){return '<img src="'+esc(u)+'" alt="" loading="lazy" decoding="async">'}).join("");
     hosts.forEach(function(h){h.innerHTML='<div class="pm-track">'+imgs+imgs+'</div>'});
   }
-  fetch("datos/eventos.json",{cache:"no-store"}).then(function(r){return r.ok?r.json():null}).then(function(d){
-    var carpetas=((d&&d.eventos)||[]).map(function(e){return e.carpeta}).filter(Boolean);
-    if(!carpetas.length)return;
-    var found=[],pend=carpetas.length;
-    carpetas.forEach(function(c){
-      probePortada(c,function(url){
-        if(url)found.push(url);
-        if(--pend===0)montar(found);
+  /* Cuándo arranca todo esto. La tira es adorno: ocho miniaturas detrás del
+     hero, al 13% de opacidad y en escala de grises. Desde que pesan 30 KB en
+     vez de 300 alcanzan a llegar en un teléfono — que es lo que queríamos —,
+     pero llegaban compitiendo con las fuentes y el JSON del torneo por el
+     ancho de banda de la PRIMERA pintada, que es lo que el visitante sí está
+     esperando. Así que espera a que el navegador esté desocupado.
+
+     Y con ahorro de datos pedido, o en 2G, no arranca: 240 KB de decoración es
+     justo lo que no corresponde gastar ahí, y el hero se ve navy liso, que es
+     como se veía igual antes de que las miniaturas existieran. Mismo criterio
+     que usa torneo/index.html para el historial. */
+  var con=navigator.connection||{};
+  if(con.saveData||/(^|-)2g$/.test(con.effectiveType||""))return;
+  (window.requestIdleCallback||function(f){setTimeout(f,1200)})(function(){
+    figJSON("datos/eventos.json").then(function(d){
+      var carpetas=((d&&d.eventos)||[]).map(function(e){return e.carpeta}).filter(Boolean);
+      if(!carpetas.length)return;
+      var found=[],pend=carpetas.length;
+      carpetas.forEach(function(c){
+        probePortada(c,function(url){
+          if(url)found.push(url);
+          if(--pend===0)montar(found);
+        });
       });
-    });
-  }).catch(function(){});
+    }).catch(function(){});
+  });
 })();
 
 })();
@@ -2843,8 +3027,7 @@ applyLinks();
    completo en HOJA_DE_RUTA_FIG.md). Registra página, fecha y origen. */
 (function(){
 try{
-fetch("datos/club.json",{cache:"force-cache"})
-.then(function(r){return r.ok?r.json():null})
+figJSON("datos/club.json")
 .then(function(d){
   var u=d&&d.config&&d.config.figEndpoint;if(!u)return;
   var b=JSON.stringify({tipo:"visita",pagina:location.pathname,fecha:new Date().toISOString(),origen:(document.referrer.split("/")[2]||"")});

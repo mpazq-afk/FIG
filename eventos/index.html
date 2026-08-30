@@ -6,6 +6,8 @@
 <title>Eventos — FEN Investment Group</title>
 <meta name="description" content="Bitácora de actividades de FEN Investment Group: torneos, visitas, charlas y comunidad.">
 <meta name="theme-color" content="#0A1128">
+<link rel="canonical" href="https://feninvestmentgroup.com/eventos/">
+<meta property="og:url" content="https://feninvestmentgroup.com/eventos/">
 <meta property="og:title" content="Eventos — FEN Investment Group">
 <meta property="og:description" content="Bitácora de actividades de FEN Investment Group: torneos, visitas, charlas y comunidad.">
 <meta property="og:type" content="website">
@@ -30,6 +32,10 @@
    Fotos: ../fotos/eventos/<carpeta>/1.jpg, 2.jpg, 3.jpg… (se detectan solas)
    ============================================================================ */
 :root{
+  /* Sin esto Chrome dibuja las barras de scroll y los controles nativos en
+     gris claro sobre el navy, y pinta el lienzo en blanco antes de la primera
+     pintada: en un sitio 100% oscuro se ve como un destello o una barra blanca. */
+  color-scheme:dark;
   --navy-deep:#060B1C; --navy:#0A1128; --navy-panel:#0F1934;
   --gold:#D4AF37; --gold-light:#EBD388; --gold-deep:#9E7E1E;
   --gold-dim:rgba(212,175,55,.32); --gold-faint:rgba(212,175,55,.11);
@@ -41,7 +47,15 @@
   --wrap:1180px; --ease:cubic-bezier(.22,.61,.21,1);
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+/* El `display:none` que trae el atributo `hidden` viene de la hoja del
+   navegador, asi que CUALQUIER regla propia que fije `display` se lo come sin
+   avisar. Paso de verdad: `.demo-bar{display:flex}` dejaba el aviso de
+   "Demostracion" a la vista sobre los datos reales. Esto lo blinda. */
+[hidden]{display:none!important}
+/* El hueco de la barra queda reservado siempre: varias paginas bloquean el
+   scroll del body al abrir un panel u overlay, y sin esto la pagina entera se
+   corre 15px al costado cuando la barra desaparece y vuelve. */
+html{scroll-behavior:smooth;scrollbar-gutter:stable}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.001s!important;transition-duration:.001s!important}}
 body{background:var(--navy);color:var(--ivory);font-family:var(--f-body);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 ::selection{background:var(--gold);color:var(--navy)}
@@ -113,6 +127,22 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .hero h1 em{font-style:italic;color:var(--gold)}
 .hero p{max-width:52ch;color:rgba(247,244,236,.78);font-size:1.06rem}
 .hero__meta{margin-top:30px;font-family:var(--f-mono);font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(247,244,236,.55);display:flex;gap:22px;flex-wrap:wrap}
+/* En un teléfono estas cifras no caben en una línea y `flex-wrap` las partía
+   dejando la última sola y desalineada, como si sobrara. En vertical se
+   reparten en columnas iguales, cada cifra sobre su rótulo, separadas por un
+   filete finito para que se lean como un grupo. `auto-fit` reparte las que
+   haya, sean dos o tres. */
+@media (max-width:640px){
+  .hero__meta{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(0,1fr));gap:0;
+    font-size:.58rem;letter-spacing:.1em;text-align:center;
+    border-top:1px solid rgba(247,244,236,.1);border-bottom:1px solid rgba(247,244,236,.1);
+    padding:14px 0;
+  }
+  .hero__meta span{padding:0 4px;line-height:1.5}
+  .hero__meta span+span{border-left:1px solid rgba(247,244,236,.1)}
+  .hero__meta b{display:block;font-size:1.24rem;letter-spacing:.02em;margin-bottom:3px}
+}
 .hero__meta b{color:var(--gold);font-weight:600}
 
 /* Línea de tiempo horizontal: hitos del torneo + actividades FIG */
@@ -157,7 +187,14 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 
 /* Filtros */
 .filters{padding:clamp(1.5rem,3vw,2.5rem) 0 clamp(1rem,2vw,1.5rem);position:relative;z-index:3}
-.pill-row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:10px}
+.pill-row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:10px;align-items:center}
+/* Las tres filas empezaban con una pildora dorada identica: dos "Todos" y un
+   "Todos los años" apilados se leian como un error, no como tres filtros
+   distintos. El rotulo dice de que es cada fila; ocupa el ancho del mas largo
+   para que las pildoras arranquen alineadas. */
+.pill-lbl{font-family:var(--f-mono);font-size:.58rem;letter-spacing:.22em;
+  text-transform:uppercase;color:rgba(247,244,236,.38);min-width:66px}
+@media(max-width:640px){.pill-lbl{min-width:100%;margin-bottom:-4px}}
 .pill{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;padding:11px 22px;border:1px solid rgba(247,244,236,.22);border-radius:100px;color:rgba(247,244,236,.66);transition:all .35s var(--ease)}
 .pill:hover{border-color:var(--gold);color:var(--gold)}
 .pill.active{background:var(--gold);border-color:var(--gold);color:var(--navy)}
@@ -250,6 +287,10 @@ body.locked{overflow:hidden}
 .cta-band h2 em{font-style:italic}
 .cta-band p{max-width:52ch;margin:0 auto 30px;color:rgba(10,17,40,.78)}
 footer{background:var(--navy-deep);padding:34px 0;border-top:1px solid var(--line-d)}
+/* Mismo criterio que en el resto del sitio: el credito del pie tenia 14px de
+   alto tocable, bajo los 24px que pide WCAG 2.2. El margen negativo compensa
+   el padding, asi que el pie se dibuja igual. */
+footer .wrap a{display:inline-block;padding:6px 0;margin:-6px 0}
 footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:var(--f-mono);font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(247,244,236,.45)}
 footer a{color:rgba(247,244,236,.65);transition:color .3s}
 footer a:hover{color:var(--gold)}
@@ -285,7 +326,6 @@ footer a:hover{color:var(--gold)}
     <ul class="nav__links">
       <li><a href="../index.html">Inicio</a></li>
       <li><a href="#" class="active">Eventos</a></li>
-      <li><a href="../fiw/index.html">FEN Investment Woman</a></li>
     </ul>
     <a href="../torneo/index.html" class="btn btn--gold btn--nav">Torneo 2026</a>
     <button class="nav__burger" id="burger" aria-label="Abrir menú" aria-expanded="false"><i></i><i></i><i></i></button>
@@ -294,7 +334,6 @@ footer a:hover{color:var(--gold)}
 <div class="m-menu" id="mmenu">
   <a href="../index.html">Inicio</a>
   <a href="#" >Eventos</a>
-  <a href="../fiw/index.html">FEN Investment Woman</a>
   <a href="../torneo/index.html">Torneo 2026</a>
 </div>
 
@@ -337,6 +376,7 @@ footer a:hover{color:var(--gold)}
 <div class="filters">
   <div class="wrap">
     <div class="pill-row reveal" id="filterRow">
+      <span class="pill-lbl" aria-hidden="true">Tipo</span>
       <button class="pill active" data-f="todos">Todos</button>
       <button class="pill" data-f="torneo">Torneos</button>
       <button class="pill" data-f="visita">Visitas</button>
@@ -344,6 +384,7 @@ footer a:hover{color:var(--gold)}
       <button class="pill" data-f="comunidad">Comunidad</button>
     </div>
     <div class="pill-row reveal" id="whenRow">
+      <span class="pill-lbl" aria-hidden="true">Cuándo</span>
       <button class="pill active" data-w="todos">Todos</button>
       <button class="pill" data-w="pasados">Pasados</button>
       <button class="pill" data-w="proximos">Próximos</button>
@@ -400,6 +441,35 @@ footer a:hover{color:var(--gold)}
 (function(){
 "use strict";
 document.documentElement.classList.remove("no-js");
+
+/* ---------------- Un solo pedido por archivo de datos ----------------
+   Varias piezas de la pagina necesitan el MISMO JSON -- los enlaces del pie y
+   el beacon de metricas piden club.json; la linea de tiempo y la tira de fotos
+   piden eventos.json -- y cada una abria su propia peticion. Con `no-cache` la
+   segunda vuelve 304 sin cuerpo, asi que casi no pesa, pero igual paga la ida y
+   vuelta entera: en un telefono en 4G la latencia es lo caro, no los bytes.
+
+   Se memoiza la PROMESA, no el dato, asi dos llamados que salen a la vez
+   comparten la misma peticion en vez de encadenarse.
+
+   Lo que se guarda es el TEXTO y cada consumidor parsea su propia copia: si se
+   compartiera el objeto ya parseado, un bloque que le agregue o le pise un
+   campo se lo estaria cambiando al otro sin que nadie lo note. Volver a parsear
+   23 KB cuesta una fraccion de milisegundo; ese bug no.
+
+   Nunca rechaza: si el archivo no esta o no parsea, entrega null, que es lo
+   que todos los consumidores ya sabian manejar. */
+window.figJSON=function(url){
+  var c=window.__figJSONcache||(window.__figJSONcache={});
+  if(!c[url])c[url]=fetch(url,{cache:"no-cache"})
+    .then(function(r){return r.ok?r.text():null})
+    .catch(function(){return null});
+  return c[url].then(function(t){
+    if(!t)return null;
+    try{return JSON.parse(t)}catch(e){return null}
+  });
+};
+
 var RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
 var FINE=matchMedia("(hover: hover) and (pointer: fine)").matches;
 function $(s,r){return (r||document).querySelector(s)}
@@ -446,8 +516,28 @@ var DATA={eventos:[
 var FOTOS_BASE="../fotos/eventos/";
 var fotosCache={};
 
+/* ---------------- Manifiesto de fotos (../datos/fotos.json) ----------------
+   Lo escribe generar_imagenes_web.py y dice, por carpeta, cuántas fotos hay y
+   cuánto mide cada una. Es un ATAJO, no un requisito: si no llegó todavía —o
+   la carpeta es nueva y aún no se regeneró— se cae al sondeo de siempre.
+   Con él nos ahorramos un 404 por carpeta y, sobre todo, podemos declarar
+   width/height antes de bajar la foto, así el texto no salta.
+
+   Las rutas que devuelve apuntan al WEBP derivado; el `.jpg` original queda
+   de respaldo en el `onerror` de cada <img> (navegador viejo o foto subida
+   después de la última corrida del script). */
+var FOTO_MAN=null;
+function fotoWebp(carpeta,n,mini){return FOTOS_BASE+carpeta+(mini?"/mini/":"/")+n+".webp"}
+function fotoJpg(carpeta,n){return FOTOS_BASE+carpeta+"/"+n+".jpg"}
+/* respaldo al original: se pone en el onerror y se desarma solo para no ciclar */
+var CAE_A_JPG='onerror="this.onerror=null;this.src=this.src.replace(\'/mini/\',\'/\').replace(/\\.webp$/,\'.jpg\')"';
+
 /* Detección automática de fotos: prueba n.jpg → n.webp → n.png hasta fallar */
 function probeFotos(carpeta,max,cb){
+  if(FOTO_MAN&&FOTO_MAN.eventos&&FOTO_MAN.eventos[carpeta]){
+    var del=FOTO_MAN.eventos[carpeta].map(function(f){return fotoWebp(carpeta,f.i,false)});
+    fotosCache[carpeta]=del;cb(del);return;
+  }
   if(fotosCache[carpeta]){cb(fotosCache[carpeta]);return;}
   var found=[],n=1,exts=["jpg","webp","png","jpeg","JPG"];
   function tryN(){
@@ -478,6 +568,13 @@ function renderGrid(){
   });
   if(!list.length){g.innerHTML='<div class="ev-empty">Aún no hay eventos en esta categoría, pronto habrá novedades.</div>';return;}
   var html="";
+/* Un resumen que falta se omite; no se anuncia. La charla con Roberto Bonifaz
+   mostraba "Resumen por completar." en vivo, que es una nota para nosotros
+   puesta delante del visitante. La tarjeta se lee perfecto sin el parrafo. */
+function resumenCorto(e){
+  var t=String(e.resumen||"").replace(/\[Resumen por completar\]/,"").trim();
+  return t?'<p class="ev-res">'+esc(t)+'</p>':"";
+}
   list.forEach(function(e,i){
     var yr=(e.fecha||"").slice(0,4);
     html+='<button class="ev-card reveal '+(i%2?"d1":"")+(e.destacado?" destacado":"")+'" data-ev="'+esc(e.id)+'">'
@@ -491,27 +588,38 @@ function renderGrid(){
         +     (e.live?'<span class="ev-live"><span class="live-dot"></span>EN CURSO</span>':(!esPasado(e)?'<span class="ev-type ev-proximo">PRÓXIMO</span>':""))
         +   '</div>'
         +   '<h3>'+esc(e.titulo)+'</h3>'
-        +   '<p class="ev-res">'+esc((e.resumen||"").replace(/\[Resumen por completar\]/,"").trim()||"Resumen por completar.")+'</p>'
+        +   resumenCorto(e)
         +   '<div class="ev-foot">'
-        +     '<span class="ev-part">'+(e.participantes&&e.participantes.length?e.participantes.length+" participantes":"participantes por confirmar")+'</span>'
+        /* El hueco va vacio, no rotulado. `participantes` esta sin cargar en los
+           10 eventos, asi que "participantes por confirmar" salia identico en
+           las 10 tarjetas: una nota interna repetida diez veces, no un dato.
+           `.ev-foot` es space-between, asi que el span vacio mantiene el enlace
+           pegado a la derecha. */
+        +     '<span class="ev-part">'+(e.participantes&&e.participantes.length?e.participantes.length+" participantes":"")+'</span>'
         +     '<span class="ev-link">Ver evento <span class="arr">→</span></span>'
         +   '</div>'
         + '</div></button>';
   });
   g.innerHTML=html;
   observeReveals(g);
-  /* fondos con la primera foto de cada carpeta */
+  /* Fondos con la primera foto de cada carpeta.
+     Va la MINIATURA (720px, ~30 KB), no el original: esto pinta un rectángulo
+     de 400px de ancho, tapado por `.ev-veil` y con `saturate(.9)`. Pedir el
+     JPG completo costaba 250-330 KB por tarjeta — con diez eventos, casi 2 MB
+     que nadie llega a ver. Si la miniatura no existe (carpeta nueva, script
+     sin correr) se cae al original y se ve igual, solo que más pesado. */
   $$(".ev-bg",g).forEach(function(bg){
     var c=bg.getAttribute("data-carpeta");
     if(!c)return;
-    var img=new Image();
-    img.onload=function(){bg.style.backgroundImage="url('"+img.src+"')";};
-    img.src=FOTOS_BASE+c+"/1.jpg";
-    img.onerror=function(){
-      var i2=new Image();
-      i2.onload=function(){bg.style.backgroundImage="url('"+i2.src+"')";};
-      i2.src=FOTOS_BASE+c+"/1.webp";
-    };
+    function poner(url){bg.style.backgroundImage="url('"+url+"')"}
+    function intentar(urls,i){
+      if(i>=urls.length)return;
+      var im=new Image();
+      im.onload=function(){poner(urls[i])};
+      im.onerror=function(){intentar(urls,i+1)};
+      im.src=urls[i];
+    }
+    intentar([fotoWebp(c,1,true),fotoWebp(c,1,false),fotoJpg(c,1)],0);
   });
   $$(".ev-card",g).forEach(function(card){
     card.addEventListener("click",function(){openEvento(card.getAttribute("data-ev"))});
@@ -544,7 +652,8 @@ function buildYearRow(){
   });
   if(list.length<2){row.innerHTML="";currentYear="todos";return;}
   list.sort().reverse();
-  var html='<button class="pill active" data-y="todos">Todos los años</button>';
+  var html='<span class="pill-lbl" aria-hidden="true">Año</span>'
+         + '<button class="pill active" data-y="todos">Todos</button>';
   list.forEach(function(y){html+='<button class="pill" data-y="'+esc(y)+'">'+esc(y)+'</button>';});
   row.innerHTML=html;
   $$(".pill",row).forEach(function(p){
@@ -564,12 +673,14 @@ function openEvento(id){
   $("#ovTop").innerHTML='<span class="ev-date">'+esc(e.fechaTexto||e.fecha)+'</span><span class="ev-type">'+esc(TIPOS[e.tipo]||e.tipo)+'</span>'+(e.live?'<span class="ev-live"><span class="live-dot"></span>EN CURSO</span>':"");
   $("#ovTitle").textContent=e.titulo;
   $("#ovLugar").textContent=e.lugar||"";
-  $("#ovRes").textContent=e.resumen||"Resumen por completar.";
+  var res=String(e.resumen||"").replace(/\[Resumen por completar\]/,"").trim();
+  $("#ovRes").textContent=res;
+  $("#ovRes").hidden=!res;
   var parts=$("#ovParts");
   if(e.participantes&&e.participantes.length){
     parts.innerHTML=e.participantes.map(function(p){return '<span class="chip">'+esc(p)+'</span>'}).join("");
   }else{
-    parts.innerHTML='<span class="chip chip--empty">Por confirmar · se cargan desde el Excel</span>';
+    parts.innerHTML='<span class="chip chip--empty">Por confirmar</span>';
   }
   var gal=$("#ovGal"),note=$("#ovNote");
   gal.innerHTML="";note.textContent="Buscando fotos del evento…";
@@ -585,7 +696,14 @@ function openEvento(id){
       return;
     }
     note.textContent=fotos.length+" foto"+(fotos.length>1?"s":"")+" · carpeta fotos/eventos/"+(e.carpeta||e.id)+"/";
-    gal.innerHTML=fotos.map(function(f,i){return '<img src="'+esc(f)+'" alt="Foto '+(i+1)+' — '+esc(e.titulo)+'" loading="lazy">'}).join("");
+    var dims=(FOTO_MAN&&FOTO_MAN.eventos&&FOTO_MAN.eventos[e.carpeta||e.id])||[];
+    gal.innerHTML=fotos.map(function(f,i){
+      var d=dims[i]||null;
+      return '<img src="'+esc(f)+'" alt="Foto '+(i+1)+' — '+esc(e.titulo)+'"'
+           + ' loading="lazy" decoding="async"'
+           + (d?' width="'+d.w+'" height="'+d.h+'"':"")   /* sin esto la galería salta al cargar */
+           + ' '+CAE_A_JPG+'>';
+    }).join("");
     startSlideshow();
   });
   ov.classList.add("open");
@@ -675,9 +793,9 @@ function initFigTimeline(sel,opts){
     return el;
   }
   Promise.all([
-    fetch("../datos/linea_tiempo.json",{cache:"no-store"}).then(function(r){return r.ok?r.json():null}).catch(function(){return null}),
-    fetch("../datos/eventos.json",{cache:"no-store"}).then(function(r){return r.ok?r.json():null}).catch(function(){return null}),
-    fetch("../datos/mercado.json",{cache:"no-store"}).then(function(r){return r.ok?r.json():null}).catch(function(){return null})
+    fetch("../datos/linea_tiempo.json",{cache:"no-cache"}).then(function(r){return r.ok?r.json():null}).catch(function(){return null}),
+    figJSON("../datos/eventos.json").catch(function(){return null}),
+    fetch("../datos/mercado.json",{cache:"no-cache"}).then(function(r){return r.ok?r.json():null}).catch(function(){return null})
   ]).then(function(res){
     var hitos=(res[0]&&res[0].hitos)||[];
     var eventos=(res[1]&&res[1].eventos)||[];
@@ -746,13 +864,53 @@ function initFigTimeline(sel,opts){
   });
 }
 
-/* ---------------- Override desde JSON ---------------- */
-fetch("../datos/eventos.json",{cache:"no-store"})
-  .then(function(r){return r.ok?r.json():null})
-  .then(function(d){
-    if(d&&d.eventos&&d.eventos.length){DATA=d;buildYearRow();renderGrid();openFromHash();}
-    if(window.__armaPantalla)window.__armaPantalla();
-  }).catch(function(){if(window.__armaPantalla)window.__armaPantalla();});
+/* ---------------- Override desde JSON ----------------
+   Los dos archivos se piden a la vez y se espera a los dos antes de repintar:
+   si el manifiesto llegara después de la grilla, los fondos ya se habrían
+   pedido sondeando y el ahorro de la miniatura se perdería en la primera
+   carga, que es justo la que importa. `no-cache` (no `no-store`) para que el
+   navegador pueda revalidar con un 304 vacío en vez de rebajar el archivo
+   entero cada visita — la frescura es la misma, el peso no. */
+/* ---------------- Datos estructurados de la bitacora ----------------
+   Se ARMAN desde `eventos.json`, no se escriben a mano: un bloque JSON-LD
+   copiado en el HTML quedaria viejo al siguiente evento, y publicar una fecha
+   equivocada en un resultado de Google es peor que no publicar nada.
+   Solo entran eventos con resumen y lugar cargados — el resto no tiene con que
+   armar una ficha honesta. */
+function datosEstructurados(){
+  var items=(DATA.eventos||[]).filter(function(e){
+    return e.fecha && e.titulo && String(e.resumen||"").trim() && e.lugar;
+  }).map(function(e){
+    return {
+      "@context":"https://schema.org","@type":"Event",
+      "name":e.titulo,
+      "startDate":e.fecha,
+      "eventStatus":"https://schema.org/EventScheduled",
+      "eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode",
+      "description":String(e.resumen).trim(),
+      "location":{"@type":"Place","name":e.lugar},
+      "organizer":{"@type":"Organization","name":"FEN Investment Group",
+                   "url":"https://feninvestmentgroup.com/"},
+      "url":"https://feninvestmentgroup.com/eventos/#"+e.id
+    };
+  });
+  if(!items.length)return;
+  var el=document.createElement("script");
+  el.type="application/ld+json";
+  el.textContent=JSON.stringify(items);
+  document.head.appendChild(el);
+}
+
+Promise.all([
+  figJSON("../datos/eventos.json").catch(function(){return null}),
+  fetch("../datos/fotos.json",{cache:"no-cache"}).then(function(r){return r.ok?r.json():null}).catch(function(){return null})
+]).then(function(res){
+  var d=res[0];
+  if(res[1])FOTO_MAN=res[1];
+  if(d&&d.eventos&&d.eventos.length){DATA=d;buildYearRow();renderGrid();openFromHash();datosEstructurados();}
+  else if(res[1]){renderGrid();}          /* el manifiesto solo cambia las fotos: repintar igual */
+  if(window.__armaPantalla)window.__armaPantalla();
+}).catch(function(){if(window.__armaPantalla)window.__armaPantalla();});
 
 /* ---------------- Modo proyección (?pantalla=1) ----------------
    Fotos de todos los eventos a pantalla completa con título y fecha,
@@ -904,8 +1062,7 @@ initFigTimeline("#figTl",{onEvento:openEvento,onHitos:function(hitos){
    completo en HOJA_DE_RUTA_FIG.md). Registra página, fecha y origen. */
 (function(){
 try{
-fetch("../datos/club.json",{cache:"force-cache"})
-.then(function(r){return r.ok?r.json():null})
+figJSON("../datos/club.json")
 .then(function(d){
   var u=d&&d.config&&d.config.figEndpoint;if(!u)return;
   var b=JSON.stringify({tipo:"visita",pagina:location.pathname,fecha:new Date().toISOString(),origen:(document.referrer.split("/")[2]||"")});

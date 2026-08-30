@@ -31,6 +31,11 @@
  *        --port=8000    puerto del server local
  *        --espera=4500  ms a esperar por pagina antes de revisar
  *        --peso=300     limite de peso CRITICO por pagina en KB (avisa, no falla)
+ *        --solo=index.html  revisa solo las paginas cuya ruta EMPIECE con eso
+ *                       (--solo=torneo/ para las del torneo).
+ *                       Sirve para medir UNA pagina con el log del server
+ *                       limpio: sin esto las 15 se mezclan en el mismo log y no
+ *                       se puede saber quien pidio que.
  *
  * El limite se mide sobre el peso CRITICO -- documento, CSS, JS, fuentes y JSON
  * --, no sobre el total. Las fotos quedan fuera a proposito: index.html y
@@ -89,7 +94,10 @@ function paginas(raiz) {
       }
     }
   })(raiz);
-  return lista.sort();
+  const orden = lista.sort();
+  // prefijo, no "contiene": --solo=index.html tiene que ser la portada y no
+  // las otras nueve paginas que tambien terminan en index.html
+  return ARGS.solo ? orden.filter((p) => p.startsWith(ARGS.solo)) : orden;
 }
 
 async function main() {

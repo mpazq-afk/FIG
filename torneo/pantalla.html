@@ -40,6 +40,10 @@
 
 <style>
 :root{
+  /* Sin esto Chrome dibuja las barras de scroll y los controles nativos en
+     gris claro sobre el navy, y pinta el lienzo en blanco antes de la primera
+     pintada: en un sitio 100% oscuro se ve como un destello o una barra blanca. */
+  color-scheme:dark;
   --navy:#0A1128; --navy-2:#101A3D; --gold:#D4AF37; --gold-l:#E8CC72;
   --gold-d:#A8862A; --ivory:#F9F6EF; --dim:rgba(249,246,239,.60);
   --up:#7CE0B0;
@@ -48,6 +52,11 @@
   --f-mono:"IBM Plex Mono","SF Mono",monospace;
 }
 *{margin:0;padding:0;box-sizing:border-box}
+/* El `display:none` que trae el atributo `hidden` viene de la hoja del
+   navegador, asi que CUALQUIER regla propia que fije `display` se lo come sin
+   avisar. Paso de verdad: `.demo-bar{display:flex}` dejaba el aviso de
+   "Demostracion" a la vista sobre los datos reales. Esto lo blinda. */
+[hidden]{display:none!important}
 html,body{width:1920px;height:1080px;overflow:hidden;background:var(--navy)}
 body{font-family:var(--f-body);color:var(--ivory);position:relative;
   -webkit-font-smoothing:antialiased}
@@ -299,7 +308,7 @@ function normaliza(n){
   }).join(" ");
 }
 
-fetch("../datos/torneo.json",{cache:"no-store"})
+fetch("../datos/torneo.json",{cache:"no-cache"})
   .then(function(r){return r.json()})
   .then(function(d){ D=d; preparar(); construir(); arrancar(); })
   .catch(function(){ $("#cargando").textContent="NO SE PUDO CARGAR datos/torneo.json"; });
@@ -725,7 +734,7 @@ function mismoCorte(a,b){
 }
 function revisarCorte(){
   if(manual) return;
-  fetch("../datos/torneo.json",{cache:"no-store"})
+  fetch("../datos/torneo.json",{cache:"no-cache"})
     .then(function(r){return r.ok?r.json():null})
     .then(function(d){
       if(!d||!d.equipos||!d.equipos.length) return;   /* archivo a medio publicar */
@@ -763,7 +772,7 @@ function arrancar(){
    con tipo:"visita" al endpoint compartido. Inerte si no está configurado. */
 (function(){
 try{
-fetch("../datos/club.json",{cache:"force-cache"})
+fetch("../datos/club.json",{cache:"no-cache"})
 .then(function(r){return r.ok?r.json():null})
 .then(function(d){
   var u=d&&d.config&&d.config.figEndpoint;if(!u)return;

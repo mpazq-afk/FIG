@@ -27,6 +27,10 @@
    FIG · 404 — Página no encontrada
    ============================================================================ */
 :root{
+  /* Sin esto Chrome dibuja las barras de scroll y los controles nativos en
+     gris claro sobre el navy, y pinta el lienzo en blanco antes de la primera
+     pintada: en un sitio 100% oscuro se ve como un destello o una barra blanca. */
+  color-scheme:dark;
   --navy-deep:#060B1C; --navy:#0A1128; --navy-panel:#0F1934;
   --gold:#D4AF37; --gold-light:#EBD388; --gold-deep:#9E7E1E;
   --gold-dim:rgba(212,175,55,.32); --gold-faint:rgba(212,175,55,.11);
@@ -38,7 +42,15 @@
   --wrap:860px; --ease:cubic-bezier(.22,.61,.21,1);
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+/* El `display:none` que trae el atributo `hidden` viene de la hoja del
+   navegador, asi que CUALQUIER regla propia que fije `display` se lo come sin
+   avisar. Paso de verdad: `.demo-bar{display:flex}` dejaba el aviso de
+   "Demostracion" a la vista sobre los datos reales. Esto lo blinda. */
+[hidden]{display:none!important}
+/* El hueco de la barra queda reservado siempre: varias paginas bloquean el
+   scroll del body al abrir un panel u overlay, y sin esto la pagina entera se
+   corre 15px al costado cuando la barra desaparece y vuelve. */
+html{scroll-behavior:smooth;scrollbar-gutter:stable}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.001s!important;transition-duration:.001s!important}}
 body{background:var(--navy);color:var(--ivory);font-family:var(--f-body);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;display:flex;flex-direction:column;min-height:100vh}
 ::selection{background:var(--gold);color:var(--navy)}
@@ -112,7 +124,6 @@ footer a:hover{color:var(--gold)}
       <li><a href="index.html">Inicio</a></li>
       <li><a href="eventos/index.html">Eventos</a></li>
       <li><a href="torneo/index.html">Torneo 2026</a></li>
-      <li><a href="fiw/index.html">FIW</a></li>
     </ul>
   </div>
 </nav>
@@ -135,7 +146,6 @@ footer a:hover{color:var(--gold)}
         <a href="index.html">← Inicio</a>
         <a href="eventos/index.html">Eventos</a>
         <a href="torneo/index.html">Torneo</a>
-        <a href="fiw/index.html">FIW</a>
         <a href="postula/index.html">Postula</a>
         <a href="desafio/index.html">Desafío</a>
       </div>
