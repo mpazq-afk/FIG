@@ -1,0 +1,84 @@
+{
+  "_como_editar": "Textos en INGLES para en/index.html. Los HECHOS (nombres, fechas, LinkedIn, ranking, cifras) NO van aca: la pagina los lee de club.json, eventos.json y torneo-portada.json, asi que se actualizan solos. Aca va solo lo que hay que traducir. Al crear un evento nuevo en eventos.json, agregarle su entrada en `eventos` con la misma clave (el id); si falta, la pagina en ingles simplemente no lo muestra en vez de mostrarlo en espanol.",
+
+  "tipos": {
+    "torneo": "Tournament",
+    "charla": "Talk",
+    "visita": "Industry visit",
+    "comunidad": "Community"
+  },
+
+  "roles": {
+    "Presidente": "President",
+    "Vicepresidente": "Vice President",
+    "Director": "Director",
+    "Directora": "Director",
+    "Directivo": "Board member",
+    "Directiva": "Board member",
+    "Fundador": "Founder",
+    "Fundadora": "Founder",
+    "Co-fundador": "Co-founder",
+    "Co-fundadora": "Co-founder",
+    "Cofundador": "Co-founder",
+    "Cofundadora": "Co-founder"
+  },
+
+  "areas": {
+    "Portafolio": "Portfolio",
+    "Trading": "Trading",
+    "Valuation": "Valuation",
+    "FEN Investment Woman": "FEN Investment Woman"
+  },
+
+  "eventos": {
+    "torneo-portafolio-2026": {
+      "titulo": "Portfolio Tournament 2026",
+      "lugar": "Bloomberg Lab, FEN",
+      "resumen": "54 teams run simulated USD 10 million portfolios in iShares/BlackRock ETFs, measured against the MSCI ACWI on Bloomberg metrics. Rankings publish every Friday, and the final is judged on November 9."
+    },
+    "charla-roberto-bonifaz-2026": {
+      "titulo": "A conversation with Roberto Bonifaz",
+      "lugar": "FEN, Universidad de Chile"
+    },
+    "clase-edv-2026": {
+      "titulo": "EDV class for secondary schools",
+      "lugar": "FEN, Universidad de Chile",
+      "resumen": "Financial education for secondary-school students: an introduction to investing, market analysis and portfolio construction, with hands-on exercises in the Bloomberg Lab."
+    },
+    "visita-santander-2026": {
+      "titulo": "Visit to Santander",
+      "lugar": "Banco Santander Chile",
+      "resumen": "Corporate visit to Banco Santander Chile, with a session on money market fund management, treasury operations and the investment team's own experience."
+    },
+    "visita-moneda-2026": {
+      "titulo": "Visit to Moneda Patria",
+      "lugar": "Moneda Patria Investments",
+      "resumen": "Institutional visit to Moneda Patria Investments, one of Latin America's most significant asset managers. A first-hand look at how a fund manager works and how investment decisions actually get made."
+    },
+    "fiw-mayo-2026": {
+      "titulo": "FEN Investment Woman gathering",
+      "lugar": "FEN, Universidad de Chile",
+      "resumen": "A gathering of FEN Investment Woman, the initiative driving women's participation in investing and financial markets: a network for collaboration, mentoring and professional development."
+    },
+    "charla-analisis-tecnico-2025": {
+      "titulo": "Technical analysis masterclass",
+      "lugar": "FEN, Universidad de Chile",
+      "resumen": "A masterclass on technical market analysis: reading charts, identifying patterns and trends, managing risk and trading in the short run."
+    },
+    "torneo-primavera-2025": {
+      "titulo": "Tournament, Spring 2025",
+      "lugar": "FEN, Universidad de Chile",
+      "resumen": "The first edition of the FIG Portfolio Tournament: a full competition with simulated portfolio management, team presentations and an awards ceremony."
+    },
+    "charla-colegios-lab-2025": {
+      "titulo": "Schools in the lab",
+      "lugar": "Bloomberg Lab, FEN",
+      "resumen": "An introduction to financial markets for secondary-school students, held in the Bloomberg Lab with hands-on demonstrations of real investment tools."
+    },
+    "lanzamiento-club-2025": {
+      "titulo": "FEN Investment Group launch",
+      "lugar": "FEN, Universidad de Chile",
+      "resumen": "The official launch of FEN Investment Group to the faculty community, with the founders, strategic partners and prospective members."
+    }
+  }
+}

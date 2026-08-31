@@ -678,24 +678,30 @@ function openEvento(id){
   $("#ovRes").hidden=!res;
   var parts=$("#ovParts");
   if(e.participantes&&e.participantes.length){
+    parts.hidden=false;
     parts.innerHTML=e.participantes.map(function(p){return '<span class="chip">'+esc(p)+'</span>'}).join("");
   }else{
-    parts.innerHTML='<span class="chip chip--empty">Por confirmar</span>';
+    /* Sin participantes cargados no se anuncia nada: "Por confirmar" es una
+       nota interna, y salia identica en los 10 eventos. */
+    parts.innerHTML="";
+    parts.hidden=true;
   }
   var gal=$("#ovGal"),note=$("#ovNote");
-  gal.innerHTML="";note.textContent="Buscando fotos del evento…";
+  gal.innerHTML="";note.textContent="";note.hidden=true;
   bg1.className="ov-bg";bg2.className="ov-bg2";
   bg1.style.backgroundImage="";bg2.style.backgroundImage="";
   clearInterval(slideT);slideFotos=[];slideI=0;useBg1=true;
   probeFotos(e.carpeta||e.id,40,function(fotos){
     slideFotos=fotos;
     if(!fotos.length){
-      note.textContent="Aún no hay fotos de este evento. Sube imágenes a fotos/eventos/"+(e.carpeta||e.id)+"/ nombradas 1.jpg, 2.jpg, 3.jpg… y aparecerán aquí automáticamente.";
+      note.textContent="";note.hidden=true;
       bg1.style.backgroundImage="linear-gradient(140deg,#0F1934,#060B1C)";
       bg1.classList.add("show");
       return;
     }
-    note.textContent=fotos.length+" foto"+(fotos.length>1?"s":"")+" · carpeta fotos/eventos/"+(e.carpeta||e.id)+"/";
+    /* Antes decia "N fotos · carpeta fotos/eventos/<id>/": el conteo lo ve
+       solo, y la ruta del repo no es asunto del visitante. */
+    note.textContent="";note.hidden=true;
     var dims=(FOTO_MAN&&FOTO_MAN.eventos&&FOTO_MAN.eventos[e.carpeta||e.id])||[];
     gal.innerHTML=fotos.map(function(f,i){
       var d=dims[i]||null;
@@ -950,7 +956,7 @@ Promise.all([
           el.classList.add("on");
           document.body.classList.add("locked");
           if(!cola.length){
-            $("#ptTitle").textContent="Aún no hay fotos, sube imágenes a fotos/eventos/ y vuelve a abrir";
+            $("#ptTitle").textContent="";
             imgs[0].style.backgroundImage="linear-gradient(140deg,#0F1934,#060B1C)";
             imgs[0].classList.add("show");
             return;

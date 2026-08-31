@@ -110,6 +110,43 @@ a{color:inherit;text-decoration:none}
 .ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
 .note{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(247,244,236,.4);margin-top:26px;line-height:2}
 
+/* --- Tabla del ranking en vivo --------------------------------------- */
+.lb{margin-top:26px;border:1px solid var(--line-d);border-radius:3px;overflow:hidden}
+.lb-r{display:grid;grid-template-columns:52px 1fr 92px 96px;align-items:center;gap:10px;padding:13px 16px;border-bottom:1px solid var(--line-d)}
+.lb-r:last-child{border-bottom:0}
+.lb-h{background:rgba(255,255,255,.03);font-family:var(--f-mono);font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(247,244,236,.45)}
+.lb-p{font-family:var(--f-mono);font-size:.8rem;color:var(--gold)}
+.lb-n{font-size:.94rem}
+.lb-v{font-family:var(--f-mono);font-size:.82rem;text-align:right;font-variant-numeric:tabular-nums}
+.lb-r:not(.lb-h) .lb-v{color:rgba(247,244,236,.72)}
+@media(max-width:560px){
+  .lb-r{grid-template-columns:38px 1fr 78px;gap:8px;padding:11px 12px}
+  .lb-r > :nth-child(4){display:none}
+}
+
+/* --- Directiva -------------------------------------------------------- */
+.people{display:grid;grid-template-columns:repeat(auto-fill,minmax(178px,1fr));gap:1px;background:var(--line-d);border:1px solid var(--line-d);margin-top:28px}
+.person{background:var(--navy);padding:18px 16px;display:flex;flex-direction:column;gap:11px}
+.person .av{width:54px;height:54px;border-radius:50%;overflow:hidden;background:rgba(212,175,55,.1);
+  display:flex;align-items:center;justify-content:center;flex:none;
+  font-family:var(--f-mono);font-size:.76rem;letter-spacing:.06em;color:var(--gold)}
+.person .av img{width:100%;height:100%;object-fit:cover;display:block}
+.person .pn{font-size:.92rem;line-height:1.3}
+.person .pr{font-family:var(--f-mono);font-size:.58rem;letter-spacing:.13em;text-transform:uppercase;color:rgba(247,244,236,.45);line-height:1.7}
+.person a{color:var(--gold);text-decoration:none;font-family:var(--f-mono);font-size:.58rem;letter-spacing:.13em;text-transform:uppercase;margin-top:auto}
+.person a:hover{text-decoration:underline}
+
+/* --- Bitacora de actividades ------------------------------------------ */
+.evs{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));gap:14px;margin-top:28px}
+.ev{background:var(--navy);border:1px solid var(--line-d);border-radius:3px;padding:20px 18px}
+.ev-top{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:11px;
+  font-family:var(--f-mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase}
+.ev-d{color:var(--gold)}
+.ev-t{color:rgba(247,244,236,.4)}
+.ev h3{font-family:var(--f-disp);font-size:1.06rem;font-weight:500;margin-bottom:8px;line-height:1.3}
+.ev p{font-size:.86rem;color:rgba(247,244,236,.62);line-height:1.65;margin:0}
+.ev .pl{font-family:var(--f-mono);font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(247,244,236,.34);margin-top:11px}
+
 footer{background:var(--navy-deep);padding:32px 0;border-top:1px solid var(--line-d);margin-top:2rem}
 footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:var(--f-mono);font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(247,244,236,.45);max-width:1180px}
 footer a{color:rgba(247,244,236,.65);transition:color .3s}
@@ -184,6 +221,15 @@ footer a:hover{color:var(--gold)}
       <div class="spec"><span>Weekly cut</span><b>Fridays · 4:00 PM EST</b></div>
       <div class="spec"><span>Final</span><b>November 9, 2026 · expert jury</b></div>
     </div>
+    <!-- Ranking en vivo: se llena desde datos/torneo-portada.json, asi que
+         cambia solo con cada corte semanal. Si el archivo no esta, el bloque
+         queda oculto y la pagina sigue funcionando igual. -->
+    <div class="lb reveal d3" id="lbBox" hidden>
+      <div class="lb-r lb-h"><span>Pos</span><span>Team</span><span class="lb-v">Score</span><span class="lb-v">vs ACWI</span></div>
+      <div id="lbRows"></div>
+    </div>
+    <p class="note" id="lbNote" hidden></p>
+
     <div class="ctas reveal d3">
       <a href="../torneo/index.html" class="btn btn--gold">Live ranking <span class="arr">→</span></a>
       <a href="https://www.linkedin.com/company/fen-investment-group" target="_blank" rel="noopener" class="btn btn--ghost">LinkedIn</a>
@@ -228,15 +274,26 @@ footer a:hover{color:var(--gold)}
   </div>
 </section>
 
-<section class="sec">
+<!-- La directiva sale de datos/club.json: nombres, cargos y LinkedIn se
+     actualizan solos. Solo la TRADUCCION del cargo vive en datos/en.json. -->
+<section class="sec" id="board">
+  <div class="wrap">
+    <div class="kicker reveal">Who runs it</div>
+    <h2 class="reveal d1">The founding <em>board.</em></h2>
+    <p class="reveal d2" id="boardSub">The people who built the club and lead each desk.</p>
+    <div class="people reveal d3" id="boardGrid"></div>
+  </div>
+</section>
+
+<!-- Actividades desde datos/eventos.json, con los textos en ingles de
+     datos/en.json. Un evento sin traduccion no se muestra, en vez de
+     mostrarse en espanol en medio de una pagina en ingles. -->
+<section class="sec" id="events">
   <div class="wrap">
     <div class="kicker reveal">The rest of the year</div>
     <h2 class="reveal d1">Between tournaments, <em>we keep going.</em></h2>
-    <div class="grid reveal d2">
-      <div class="card"><span class="tag">Industry visits</span><h3>Inside the desks</h3><p>Members visit asset managers and banks, among them Santander and Moneda Patria, to see how the work is actually done.</p></div>
-      <div class="card"><span class="tag">Talks</span><h3>Practitioners on campus</h3><p>Open sessions with people working in the industry, on technical analysis, markets and career paths.</p></div>
-      <div class="card"><span class="tag">Outreach</span><h3>Schools in the Bloomberg Lab</h3><p>We bring secondary-school students into the faculty's Bloomberg Lab, so a terminal stops being an abstraction.</p></div>
-    </div>
+    <p class="reveal d2">Industry visits, masterclasses and outreach. What the club has actually done, most recent first.</p>
+    <div class="evs reveal d3" id="evGrid"></div>
     <p class="note">Members have gone on to Itaú, LarrainVial, HSBC, CODELCO, BCI Seguros, MoonValley Capital, the CMF and Next Consultores.</p>
   </div>
 </section>
@@ -278,6 +335,7 @@ if(!RM&&"IntersectionObserver" in window){
     es.forEach(function(en){if(en.isIntersecting){en.target.classList.add("in");io.unobserve(en.target);}});
   },{threshold:.1});
   $$(".reveal").forEach(function(el){io.observe(el)});
+  window.__obs=io;
 }else{
   $$(".reveal").forEach(function(el){el.classList.add("in")});
 }
@@ -300,6 +358,148 @@ fetch("../datos/club.json",{cache:"no-cache"})
   else{fetch(u,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:b}).catch(function(){});}
 }).catch(function(){});
 }catch(e){}
+})();
+</script>
+
+<script>
+/* ==========================================================================
+   Contenido en vivo del brief en ingles.
+
+   Los HECHOS salen de los mismos JSON que usa el sitio en espanol -- club.json
+   (directiva), eventos.json (actividades) y torneo-portada.json (ranking) --
+   asi que esta pagina NO se desfasa cuando cambia un corte o entra alguien a
+   la directiva. Lo unico que hay que mantener a mano es la TRADUCCION, y vive
+   en datos/en.json.
+
+   Cada bloque falla en silencio: si un JSON no esta, esa seccion se oculta y
+   el resto de la pagina sigue entera. Es un one-pager para partners; que se
+   caiga por un archivo ausente seria peor que mostrar una seccion menos.
+   ========================================================================== */
+(function(){
+"use strict";
+var $=function(s){return document.querySelector(s)};
+function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){
+  return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+function J(u){return fetch(u,{cache:"no-cache"}).then(function(r){
+  if(!r.ok)throw new Error(u+" "+r.status);return r.json()})}
+function ver(el){ /* un nodo pintado despues del observer no se revela solo */
+  if(!el)return; el.classList.add("in"); if(window.__obs)window.__obs.unobserve(el);
+}
+function slug(n){
+  var s=String(n||"").toLowerCase();
+  s=s.replace(/[áàä]/g,"a").replace(/[éèë]/g,"e").replace(/[íìï]/g,"i")
+     .replace(/[óòö]/g,"o").replace(/[úùü]/g,"u").replace(/ñ/g,"n");
+  return s.replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"");
+}
+function iniciales(n){
+  var p=String(n||"").trim().split(/\s+/);
+  return ((p[0]||"")[0]||"").toUpperCase()+((p[1]||"")[0]||"").toUpperCase();
+}
+
+var EN=null;
+J("../datos/en.json").then(function(d){EN=d;}).catch(function(){EN=null;})
+.then(function(){ bloqueDirectiva(); bloqueEventos(); });
+bloqueRanking();
+
+/* ---------------- Ranking en vivo (torneo-portada.json) ---------------- */
+function bloqueRanking(){
+  J("../datos/torneo-portada.json").catch(function(){return J("../datos/torneo.json")})
+  .then(function(d){
+    var eq=(d&&d.equipos)||[];
+    if(!eq.length)return;
+    var top=eq.slice().sort(function(a,b){return a.posicion-b.posicion}).slice(0,5);
+    $("#lbRows").innerHTML=top.map(function(t){
+      var rr=(t.retRel==null)?"—":((t.retRel>=0?"+":"")+(t.retRel*100).toFixed(2)+"%");
+      return '<div class="lb-r"><span class="lb-p">'+t.posicion+'</span>'
+           + '<span class="lb-n">'+esc(t.nombre)+'</span>'
+           + '<span class="lb-v">'+Number(t.puntos).toFixed(2)+'</span>'
+           + '<span class="lb-v">'+rr+'</span></div>';
+    }).join("");
+    $("#lbBox").hidden=false; ver($("#lbBox"));
+    /* El corte viene como "21 · AGO · 2026": se deja tal cual salvo el mes,
+       que se traduce. Reescribir la fecha entera seria inventar un formato
+       que no calza con el que se publica en el ranking oficial. */
+    var MES={ENE:"Jan",FEB:"Feb",MAR:"Mar",ABR:"Apr",MAY:"May",JUN:"Jun",
+             JUL:"Jul",AGO:"Aug",SEP:"Sep",OCT:"Oct",NOV:"Nov",DIC:"Dec"};
+    var corte=String(d.corte||"").replace(/[A-ZÁÉÍÓÚ]{3}/g,function(m){return MES[m]||m});
+    if(d.semana){
+      var n=$("#lbNote");
+      n.textContent="Top five of "+(d.totalEquipos||54)+" teams · week "+d.semana
+                   +(corte?" · cut of "+corte.replace(/\s*·\s*/g," "):"");
+      n.hidden=false;
+    }
+  }).catch(function(){});
+}
+
+/* ---------------- Directiva (club.json + en.json) ---------------- */
+function bloqueDirectiva(){
+  J("../datos/club.json").then(function(d){
+    var g=(d&&d.personas&&d.personas.directiva)||[];
+    if(!g.length){ $("#board").hidden=true; return; }
+    var R=(EN&&EN.roles)||{}, A=(EN&&EN.areas)||{};
+    function rol(s){
+      /* Los cargos vienen como "Director · Portafolio". Se traduce cada mitad
+         por separado; lo que no este en el mapa se deja como esta, que es
+         preferible a inventarle una traduccion a un cargo nuevo. */
+      return String(s||"").split("·").map(function(x){
+        x=x.trim(); return R[x]||A[x]||x;
+      }).filter(Boolean).join(" · ");
+    }
+    $("#boardGrid").innerHTML=g.map(function(p){
+      var sl=slug(p.nombre);
+      return '<div class="person">'
+        + '<span class="av" data-slug="'+esc(sl)+'">'+esc(iniciales(p.nombre))+'</span>'
+        + '<span class="pn">'+esc(p.nombre)+'</span>'
+        + '<span class="pr">'+esc(rol(p.rol))+'</span>'
+        + (p.linkedin?'<a href="'+esc(p.linkedin)+'" target="_blank" rel="noopener">LinkedIn ↗</a>':'')
+        + '</div>';
+    }).join("");
+    $("#boardSub").textContent="The "+g.length+" directors who built the club and lead each desk.";
+    ver($("#boardGrid"));
+
+    /* Los retratos se sondean, igual que en el resto del sitio: si no hay
+       archivo queda el monograma y no se pide nada mas. Se encadena en el
+       onerror del propio <img> para que loading="lazy" sirva de algo. */
+    [].forEach.call(document.querySelectorAll("#boardGrid .av"),function(av){
+      var sl=av.getAttribute("data-slug"), i=0;
+      var rutas=["../fotos/directiva/mini/"+sl+".webp",
+                 "../fotos/directiva/"+sl+".webp",
+                 "../fotos/directiva/"+sl+".jpg"];
+      var img=new Image();
+      img.loading="lazy"; img.decoding="async"; img.alt="";
+      img.onerror=function(){ if(i<rutas.length)img.src=rutas[i++]; };
+      img.onload=function(){ av.textContent=""; av.appendChild(img); };
+      img.src=rutas[i++];
+    });
+  }).catch(function(){ var s=$("#board"); if(s)s.hidden=true; });
+}
+
+/* ---------------- Actividades (eventos.json + en.json) ---------------- */
+function bloqueEventos(){
+  J("../datos/eventos.json").then(function(d){
+    var ev=(d&&d.eventos)||(Array.isArray(d)?d:[]);
+    var T=(EN&&EN.eventos)||{}, TP=(EN&&EN.tipos)||{};
+    /* Sin traduccion no se muestra: un evento en espanol en medio de una
+       pagina en ingles se lee como un error, no como un dato. */
+    var lista=ev.filter(function(e){return T[e.id]});
+    if(!lista.length){ $("#events").hidden=true; return; }
+    lista.sort(function(a,b){return String(b.fecha||"").localeCompare(String(a.fecha||""))});
+    $("#evGrid").innerHTML=lista.map(function(e){
+      var t=T[e.id]||{};
+      var f=String(e.fecha||"");
+      var fecha=f?new Date(f+"T12:00:00").toLocaleDateString("en-GB",
+                 {day:"numeric",month:"short",year:"numeric"}):"";
+      return '<article class="ev">'
+        + '<div class="ev-top"><span class="ev-d">'+esc(fecha)+'</span>'
+        + '<span class="ev-t">'+esc(TP[e.tipo]||e.tipo||"")+'</span></div>'
+        + '<h3>'+esc(t.titulo||e.titulo)+'</h3>'
+        + (t.resumen?'<p>'+esc(t.resumen)+'</p>':'')
+        + (t.lugar?'<span class="pl">'+esc(t.lugar)+'</span>':'')
+        + '</article>';
+    }).join("");
+    ver($("#evGrid"));
+  }).catch(function(){ var s=$("#events"); if(s)s.hidden=true; });
+}
 })();
 </script>
 </body>
