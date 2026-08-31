@@ -76,13 +76,13 @@
       {
         "iniciales": "MP",
         "nombre": "Manuel Paz",
-        "rol": "Directivo · Portafolio",
+        "rol": "Director · Portafolio y Trading",
         "detalle": "Co-fundador · Comunicaciones, difusión y creador de la web original.",
         "linkedin": "https://www.linkedin.com/in/mpazq",
         "perfil": {
-          "bio": "Co-fundador de FEN Investment Group y directivo del área Portafolio, responsable de comunicaciones y difusión del club. Creador de la web original de FIG, la primera presencia digital del grupo. Fuera del club fundó y escaló una tienda de e-commerce D2C que generó más de $280 millones en ventas, y gestiona activamente un portafolio personal de acciones y criptomonedas.",
+          "bio": "Co-fundador de FEN Investment Group y director de las áreas Portafolio y Trading, responsable de comunicaciones y difusión del club. Creador de la web original de FIG, la primera presencia digital del grupo. Fuera del club fundó y escaló una tienda de e-commerce D2C que generó más de $280 millones en ventas, y gestiona activamente un portafolio personal de acciones y criptomonedas.",
           "hitos": [
-            "Directivo · Portafolio",
+            "Director · Portafolio y Trading",
             "Co-fundador de FIG",
             "Comunicaciones y difusión de FIG",
             "Creador de la web original del club",
@@ -175,13 +175,12 @@
       {
         "iniciales": "JL",
         "nombre": "Juan José Limari",
-        "rol": "Director · Trading",
+        "rol": "Fundador",
         "detalle": "Co-fundador · Itaú, mesa de dinero.",
         "perfil": {
-          "bio": "Co-fundador de FEN Investment Group y director del área Trading. Realizó una práctica extracurricular en la mesa de dinero del Banco Itaú Chile (Liquidez y Funds Transfer Pricing), donde desarrolló un valorizador automático de renta fija (Z-spread) para futuras emisiones de bonos del banco. Ganó el primer lugar del Trading Challenge Itaú-FEN 2025 y es ayudante coordinador del curso Introducción a las Finanzas de la FEN.",
+          "bio": "Co-fundador de FEN Investment Group. Realizó una práctica extracurricular en la mesa de dinero del Banco Itaú Chile (Liquidez y Funds Transfer Pricing), donde desarrolló un valorizador automático de renta fija (Z-spread) para futuras emisiones de bonos del banco. Ganó el primer lugar del Trading Challenge Itaú-FEN 2025 y es ayudante coordinador del curso Introducción a las Finanzas de la FEN.",
           "hitos": [
-            "Director · Trading",
-            "Co-fundador de FIG",
+            "Fundador de FIG",
             "Práctica extracurricular · Mesa de dinero, Banco Itaú Chile",
             "1er lugar · Trading Challenge Itaú-FEN 2025",
             "Ayudante coordinador · Introducción a las Finanzas, FEN"
