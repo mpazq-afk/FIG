@@ -81,7 +81,7 @@ a{color:inherit;text-decoration:none}
 .brand{display:flex;align-items:center;gap:13px}
 .brand-name{font-family:var(--f-disp);font-weight:600;font-size:1.02rem;line-height:1.15}
 .brand-sub{font-family:var(--f-mono);font-size:.55rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);display:block;margin-top:2px}
-.nav a.back{font-size:.84rem;font-weight:500;color:rgba(247,244,236,.82)}
+.nav a.back{font-size:.84rem;font-weight:500;color:rgba(247,244,236,.82);display:inline-block;padding:6px 4px;margin:-6px -4px}
 .nav a.back:hover{color:var(--gold)}
 
 .hero{padding:clamp(8.5rem,15vh,11rem) 0 clamp(2.5rem,5vw,4rem);position:relative;overflow:hidden;
@@ -133,7 +133,11 @@ a{color:inherit;text-decoration:none}
 .person .av img{width:100%;height:100%;object-fit:cover;display:block}
 .person .pn{font-size:.92rem;line-height:1.3}
 .person .pr{font-family:var(--f-mono);font-size:.58rem;letter-spacing:.13em;text-transform:uppercase;color:rgba(247,244,236,.45);line-height:1.7}
-.person a{color:var(--gold);text-decoration:none;font-family:var(--f-mono);font-size:.58rem;letter-spacing:.13em;text-transform:uppercase;margin-top:auto}
+/* WCAG 2.2: medido en telefono, este enlace tenia 15px de alto. El padding
+   agranda la zona tocable y el margen negativo lo compensa exacto, asi que
+   no se mueve nada de lo que se ve. */
+.person a{color:var(--gold);text-decoration:none;font-family:var(--f-mono);font-size:.58rem;letter-spacing:.13em;text-transform:uppercase;margin-top:auto;
+  padding:7px 6px;margin-left:-6px;margin-right:-6px;margin-bottom:-7px}
 .person a:hover{text-decoration:underline}
 
 /* --- Bitacora de actividades ------------------------------------------ */
@@ -149,6 +153,8 @@ a{color:inherit;text-decoration:none}
 
 footer{background:var(--navy-deep);padding:32px 0;border-top:1px solid var(--line-d);margin-top:2rem}
 footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:var(--f-mono);font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(247,244,236,.45);max-width:1180px}
+/* Los creditos y el enlace de vuelta median 13 y 17px de alto en telefono. */
+footer a{display:inline-block;padding:6px 4px;margin:-6px -4px}
 footer a{color:rgba(247,244,236,.65);transition:color .3s}
 footer a:hover{color:var(--gold)}
 

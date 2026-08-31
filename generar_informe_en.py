@@ -437,6 +437,14 @@ def revisar(html: str) -> list:
         if len(resto.strip()) > 3 and SOSPECHA.search(resto):
             problemas.append('texto visible: ' + x[:110])
 
+    # El CSS tambien puede escribir texto en pantalla con `content:`, y hasta
+    # ahora nadie lo revisaba: una regla como `content:"Desliza"` habria llegado
+    # a la version en ingles sin que el chequeo dijera nada.
+    css = ''.join(re.findall(r'<style[^>]*>(.*?)</style>', html, re.S))
+    for lit in re.findall(r'content\s*:\s*"([^"]{3,})"', css):
+        if SOSPECHA.search(EXENTO.sub(' ', lit)):
+            problemas.append('CSS content: ' + lit[:80])
+
     js = ''.join(re.findall(r'<script[^>]*>(.*?)</script>', html, re.S))
     js = re.sub(r'/\*.*?\*/', ' ', js, flags=re.S)
     js = re.sub(r'(?m)^\s*//.*$', ' ', js)
