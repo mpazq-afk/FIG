@@ -81,7 +81,9 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .brand{display:flex;align-items:center;gap:13px}
 .brand-name{font-family:var(--f-disp);font-weight:600;font-size:1.02rem;line-height:1.15}
 .brand-sub{font-family:var(--f-mono);font-size:.55rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);display:block;margin-top:2px}
-.nav a.back{font-size:.84rem;font-weight:500;color:rgba(247,244,236,.82)}
+/* WCAG 2.2: medido a 390px, esta zona tocable no llegaba a 24px de alto.
+   El padding la agranda y el margen negativo lo compensa exacto. */
+.nav a.back{font-size:.84rem;font-weight:500;color:rgba(247,244,236,.82);display:inline-block;padding:6px 4px;margin:-6px -4px}
 .nav a.back:hover{color:var(--gold)}
 
 main{padding:clamp(7.5rem,13vh,9.5rem) 0 5rem;min-height:100vh;
@@ -181,7 +183,7 @@ footer{background:var(--navy-deep);padding:30px 0;border-top:1px solid var(--lin
    el padding, asi que el pie se dibuja igual. */
 footer .wrap a{display:inline-block;padding:6px 0;margin:-6px 0}
 footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:var(--f-mono);font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(247,244,236,.45);max-width:1180px}
-footer a{color:rgba(247,244,236,.65)}
+footer a{display:inline-block;padding:6px 4px;margin:-6px -4px;color:rgba(247,244,236,.65)}
 footer a:hover{color:var(--gold)}
 @media (max-width:680px){.rank-row{grid-template-columns:40px 1fr 90px;padding:12px 14px}.rank-row .ar{display:none}}
 </style>

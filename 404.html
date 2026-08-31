@@ -101,7 +101,9 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 
 footer{background:var(--navy-deep);padding:34px 0;border-top:1px solid var(--line-d);margin-top:auto}
 footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:var(--f-mono);font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(247,244,236,.45);max-width:1180px}
-footer a{color:rgba(247,244,236,.65);transition:color .3s}
+/* WCAG 2.2: medido a 390px, esta zona tocable no llegaba a 24px de alto.
+   El padding la agranda y el margen negativo lo compensa exacto. */
+footer a{display:inline-block;padding:6px 4px;margin:-6px -4px;color:rgba(247,244,236,.65);transition:color .3s}
 footer a:hover{color:var(--gold)}
 
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease)}

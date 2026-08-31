@@ -253,8 +253,18 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .rp-play{width:52px;height:52px;flex:none;border-radius:50%;border:1px solid var(--gold-dim);color:var(--gold);font-size:.95rem;display:flex;align-items:center;justify-content:center;transition:background .3s,border-color .3s}
 .rp-play:hover{background:rgba(212,175,55,.12);border-color:var(--gold)}
 .rp-slider{flex:1;min-width:180px;display:flex;align-items:center;gap:12px}
-.rp-slider input{flex:1;min-width:0;-webkit-appearance:none;appearance:none;height:4px;border-radius:100px;background:rgba(247,244,236,.14);outline:none}
-.rp-slider input::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:var(--gold);cursor:pointer}
+/* La pista se ve de 4px a proposito, pero ANTES ese era tambien el alto
+   tocable: en un telefono agarrar el deslizador del replay era casi
+   imposible (medido: 4px, contra los 24 que pide WCAG 2.2). Ahora el input
+   mide 24px y es transparente, y los 4px de pista se dibujan en el
+   pseudo-elemento del track. Se ve exactamente igual; lo unico que crece es
+   donde se puede tocar. El `margin-top` del pulgar es (4-16)/2 = -6px: si se
+   cambia el alto de la pista o del pulgar, hay que recalcularlo o el pulgar
+   deja de quedar centrado sobre la linea. */
+.rp-slider input{flex:1;min-width:0;-webkit-appearance:none;appearance:none;height:24px;background:transparent;outline:none;cursor:pointer}
+.rp-slider input::-webkit-slider-runnable-track{height:4px;border-radius:100px;background:rgba(247,244,236,.14)}
+.rp-slider input::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:var(--gold);cursor:pointer;margin-top:-6px}
+.rp-slider input::-moz-range-track{height:4px;border-radius:100px;background:rgba(247,244,236,.14)}
 .rp-slider input::-moz-range-thumb{width:16px;height:16px;border:none;border-radius:50%;background:var(--gold);cursor:pointer}
 .rp-wk{font-family:var(--f-mono);font-weight:600;font-size:.78rem;letter-spacing:.14em;color:var(--gold);white-space:nowrap}
 .rp-track{position:relative;overflow:hidden;border:1px solid rgba(212,175,55,.14);border-radius:10px;padding:12px;background:rgba(15,25,52,.4)}
@@ -488,8 +498,11 @@ span.cre-av{display:flex;align-items:center;justify-content:center;
 .cre-name{font-family:var(--f-disp);font-weight:600;font-size:1.02rem;color:var(--ivory);line-height:1.25}
 .cre-rol{font-family:var(--f-mono);font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-top:6px}
 .cre-ap{font-size:.85rem;color:rgba(247,244,236,.58);line-height:1.62;margin-top:11px}
+/* WCAG 2.2: medido a 390px este enlace tenia 15px de alto tocable. Padding
+   que lo agranda y margen negativo que lo compensa exacto. */
 .cre-in{display:inline-flex;align-items:center;gap:7px;font-family:var(--f-mono);font-size:.56rem;letter-spacing:.16em;
-  text-transform:uppercase;color:rgba(247,244,236,.42);margin-top:13px;transition:color .3s}
+  text-transform:uppercase;color:rgba(247,244,236,.42);transition:color .3s;
+  padding:5px 4px;margin:8px -4px -5px -4px}
 .cre-in:hover,.cre-in:focus-visible{color:var(--gold)}
 /* Dos marcos distintos, para que no se lean todos como el mismo cargo:
    presidencia = filete dorado ARRIBA, quien dirige el área = filete al COSTADO

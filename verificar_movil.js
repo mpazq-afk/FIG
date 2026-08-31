@@ -96,9 +96,14 @@ const MEDIR = `(() => {
     }
   }
   const chicos = [];
+  // Falso positivo conocido: los nombres de equipo del ranking miden 23px, pero
+  // el objetivo real es la FILA entera (.lb-row, ~55px, con su propio listener).
+  // Agrandar el <a> seria arreglar algo que no esta roto y descuadrar la tabla.
+  const EXENTOS = ".lb-row a";
   for (const el of document.querySelectorAll("a,button,input,select,summary,[role=button]")) {
     const r = el.getBoundingClientRect();
     if (r.width === 0 || r.height === 0) continue;
+    if (el.matches(EXENTOS)) continue;
     if (r.height < 24) {
       const t = (el.textContent || "").trim().slice(0, 26);
       chicos.push(Math.round(r.height) + "px  " + el.tagName.toLowerCase() + " \\"" + t + "\\"");

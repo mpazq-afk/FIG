@@ -242,7 +242,9 @@ section{padding:clamp(5rem,9vw,8rem) 0;position:relative}
 .p-name{font-family:var(--f-disp);font-weight:600;font-size:1.12rem;line-height:1.25}
 .p-role{font-family:var(--f-mono);font-size:.61rem;letter-spacing:.16em;text-transform:uppercase;color:var(--acc);margin-top:4px}
 .p-extra{font-size:.84rem;color:rgba(249,246,239,.65);line-height:1.55}
-.p-link{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--acc);margin-top:auto;display:inline-flex;align-items:center;gap:6px;transition:gap .3s}
+/* WCAG 2.2: medido a 390px, esta zona tocable no llegaba a 24px de alto.
+   El padding la agranda y el margen negativo lo compensa exacto. */
+.p-link{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--acc);margin-top:auto;display:inline-flex;align-items:center;gap:6px;transition:gap .3s;padding:5px 3px;margin-left:-3px;margin-right:-3px;margin-bottom:-5px}
 .p-link:hover{gap:11px}
 
 /* Eventos del área (mismo estilo de tarjeta que eventos/index.html, filtrado por area:"valuation") */
@@ -286,7 +288,7 @@ footer{background:var(--navy-deep);padding:34px 0;border-top:1px solid var(--lin
    el padding, asi que el pie se dibuja igual. */
 footer .wrap a{display:inline-block;padding:6px 0;margin:-6px 0}
 footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:var(--f-mono);font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(249,246,239,.45)}
-footer a{color:rgba(249,246,239,.65);transition:color .3s}
+footer a{display:inline-block;padding:6px 4px;margin:-6px -4px;color:rgba(249,246,239,.65);transition:color .3s}
 footer a:hover{color:var(--acc)}
 
 /* Reveals + responsive */
