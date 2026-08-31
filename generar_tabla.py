@@ -131,6 +131,12 @@ def derivar_portada(completo: dict, sha1_fuente: str) -> dict:
         "acwi": completo.get("acwi", []),
         "equipos": equipos,
         "topPortada": len(equipos),
+        # Cuantos equipos hay EN TOTAL, no cuantos trae este derivado. Lo pide
+        # en/index.html para escribir "top five of N teams" sin numero a mano:
+        # este repo ya publico "63", "59" y "54" equipos por cifras escritas en
+        # el HTML que quedaron viejas, y esa es exactamente la clase de bug que
+        # la capa de datos existe para evitar.
+        "totalEquipos": len(completo.get("equipos", [])),
         "_derivado": ("generado por generar_tabla.py desde datos/torneo.json "
                       "- no editar a mano"),
         "_fuenteSha1": sha1_fuente,

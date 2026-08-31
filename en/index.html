@@ -424,7 +424,11 @@ function bloqueRanking(){
     var corte=String(d.corte||"").replace(/[A-ZÁÉÍÓÚ]{3}/g,function(m){return MES[m]||m});
     if(d.semana){
       var n=$("#lbNote");
-      n.textContent="Top five of "+(d.totalEquipos||54)+" teams · week "+d.semana
+      /* Sin totalEquipos NO se inventa un numero: se omite la frase. Este
+         repo ya publico "63", "59" y "54" equipos por cifras escritas a mano
+         que quedaron viejas. */
+      n.textContent=(d.totalEquipos?"Top five of "+d.totalEquipos+" teams · ":"Top five · ")
+                   +"week "+d.semana
                    +(corte?" · cut of "+corte.replace(/\s*·\s*/g," "):"");
       n.hidden=false;
     }
