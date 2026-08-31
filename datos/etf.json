@@ -1,0 +1,957 @@
+{
+  "generadoPor": "src/analisis_etf.py",
+  "fuente": "salidas/ledger.csv",
+  "ultimaOperacion": "2026-08-05",
+  "soloEquiposVigentes": true,
+  "montosUsdAprox": true,
+  "totales": {
+    "equipos": 54,
+    "compras": 642,
+    "ventas": 170,
+    "instrumentos": 200,
+    "etf": 199,
+    "bolsas": 14,
+    "divisas": 7,
+    "usdAprox": 614578220
+  },
+  "gestora": [
+    {
+      "nombre": "iShares",
+      "operaciones": 619,
+      "pctOperaciones": 96.4,
+      "equipos": 54,
+      "pctEquipos": 100.0,
+      "usdAprox": 594096550
+    },
+    {
+      "nombre": "Otra gestora",
+      "operaciones": 21,
+      "pctOperaciones": 3.3,
+      "equipos": 12,
+      "pctEquipos": 22.2,
+      "usdAprox": 18491211
+    },
+    {
+      "nombre": "Accion individual",
+      "operaciones": 2,
+      "pctOperaciones": 0.3,
+      "equipos": 2,
+      "pctEquipos": 3.7,
+      "usdAprox": 1990459
+    }
+  ],
+  "clase": [
+    {
+      "nombre": "Renta variable",
+      "operaciones": 564,
+      "pctOperaciones": 87.9,
+      "equipos": 54,
+      "pctEquipos": 100.0,
+      "usdAprox": 543363296
+    },
+    {
+      "nombre": "Renta fija",
+      "operaciones": 43,
+      "pctOperaciones": 6.7,
+      "equipos": 29,
+      "pctEquipos": 53.7,
+      "usdAprox": 40528217
+    },
+    {
+      "nombre": "Commodities",
+      "operaciones": 34,
+      "pctOperaciones": 5.3,
+      "equipos": 27,
+      "pctEquipos": 50.0,
+      "usdAprox": 29286743
+    },
+    {
+      "nombre": "Cripto",
+      "operaciones": 1,
+      "pctOperaciones": 0.2,
+      "equipos": 1,
+      "pctEquipos": 1.9,
+      "usdAprox": 1399964
+    }
+  ],
+  "mercado": [
+    {
+      "nombre": "EE.UU.",
+      "operaciones": 328,
+      "pctOperaciones": 51.1,
+      "equipos": 54,
+      "pctEquipos": 100.0,
+      "usdAprox": 321012146
+    },
+    {
+      "nombre": "Global",
+      "operaciones": 128,
+      "pctOperaciones": 19.9,
+      "equipos": 47,
+      "pctEquipos": 87.0,
+      "usdAprox": 125348606
+    },
+    {
+      "nombre": "Asia-Pacifico",
+      "operaciones": 66,
+      "pctOperaciones": 10.3,
+      "equipos": 35,
+      "pctEquipos": 64.8,
+      "usdAprox": 59073615
+    },
+    {
+      "nombre": "Emergentes",
+      "operaciones": 46,
+      "pctOperaciones": 7.2,
+      "equipos": 35,
+      "pctEquipos": 64.8,
+      "usdAprox": 44166163
+    },
+    {
+      "nombre": "Global desarrollado",
+      "operaciones": 30,
+      "pctOperaciones": 4.7,
+      "equipos": 20,
+      "pctEquipos": 37.0,
+      "usdAprox": 24723747
+    },
+    {
+      "nombre": "Europa",
+      "operaciones": 24,
+      "pctOperaciones": 3.7,
+      "equipos": 14,
+      "pctEquipos": 25.9,
+      "usdAprox": 17976376
+    },
+    {
+      "nombre": "Latinoamerica",
+      "operaciones": 13,
+      "pctOperaciones": 2.0,
+      "equipos": 7,
+      "pctEquipos": 13.0,
+      "usdAprox": 10691729
+    },
+    {
+      "nombre": "Canada",
+      "operaciones": 7,
+      "pctOperaciones": 1.1,
+      "equipos": 4,
+      "pctEquipos": 7.4,
+      "usdAprox": 11585838
+    }
+  ],
+  "sectores": [
+    {
+      "nombre": "semiconductores",
+      "operaciones": 45,
+      "pctOperaciones": 22.1,
+      "equipos": 36,
+      "pctEquipos": 66.7,
+      "usdAprox": 52873829
+    },
+    {
+      "nombre": "tecnologia",
+      "operaciones": 41,
+      "pctOperaciones": 20.1,
+      "equipos": 24,
+      "pctEquipos": 44.4,
+      "usdAprox": 41882252
+    },
+    {
+      "nombre": "salud",
+      "operaciones": 24,
+      "pctOperaciones": 11.8,
+      "equipos": 17,
+      "pctEquipos": 31.5,
+      "usdAprox": 21011187
+    },
+    {
+      "nombre": "financiero",
+      "operaciones": 19,
+      "pctOperaciones": 9.3,
+      "equipos": 15,
+      "pctEquipos": 27.8,
+      "usdAprox": 21354255
+    },
+    {
+      "nombre": "energia",
+      "operaciones": 19,
+      "pctOperaciones": 9.3,
+      "equipos": 14,
+      "pctEquipos": 25.9,
+      "usdAprox": 15101478
+    },
+    {
+      "nombre": "defensa",
+      "operaciones": 17,
+      "pctOperaciones": 8.3,
+      "equipos": 14,
+      "pctEquipos": 25.9,
+      "usdAprox": 15527900
+    },
+    {
+      "nombre": "infraestructura",
+      "operaciones": 12,
+      "pctOperaciones": 5.9,
+      "equipos": 10,
+      "pctEquipos": 18.5,
+      "usdAprox": 11132755
+    },
+    {
+      "nombre": "industrial",
+      "operaciones": 9,
+      "pctOperaciones": 4.4,
+      "equipos": 6,
+      "pctEquipos": 11.1,
+      "usdAprox": 11870173
+    },
+    {
+      "nombre": "materiales",
+      "operaciones": 8,
+      "pctOperaciones": 3.9,
+      "equipos": 7,
+      "pctEquipos": 13.0,
+      "usdAprox": 7729421
+    },
+    {
+      "nombre": "comunicaciones",
+      "operaciones": 3,
+      "pctOperaciones": 1.5,
+      "equipos": 3,
+      "pctEquipos": 5.6,
+      "usdAprox": 3149798
+    },
+    {
+      "nombre": "consumo",
+      "operaciones": 3,
+      "pctOperaciones": 1.5,
+      "equipos": 3,
+      "pctEquipos": 5.6,
+      "usdAprox": 1888296
+    },
+    {
+      "nombre": "utilities",
+      "operaciones": 3,
+      "pctOperaciones": 1.5,
+      "equipos": 2,
+      "pctEquipos": 3.7,
+      "usdAprox": 2499897
+    },
+    {
+      "nombre": "inmobiliario",
+      "operaciones": 1,
+      "pctOperaciones": 0.5,
+      "equipos": 1,
+      "pctEquipos": 1.9,
+      "usdAprox": 1310047
+    }
+  ],
+  "factores": [
+    {
+      "nombre": "calidad",
+      "operaciones": 23,
+      "pctOperaciones": 29.9,
+      "equipos": 16,
+      "pctEquipos": 29.6,
+      "usdAprox": 25863581
+    },
+    {
+      "nombre": "minima volatilidad",
+      "operaciones": 19,
+      "pctOperaciones": 24.7,
+      "equipos": 15,
+      "pctEquipos": 27.8,
+      "usdAprox": 16133773
+    },
+    {
+      "nombre": "momentum",
+      "operaciones": 19,
+      "pctOperaciones": 24.7,
+      "equipos": 15,
+      "pctEquipos": 27.8,
+      "usdAprox": 15246368
+    },
+    {
+      "nombre": "valor",
+      "operaciones": 9,
+      "pctOperaciones": 11.7,
+      "equipos": 7,
+      "pctEquipos": 13.0,
+      "usdAprox": 6145194
+    },
+    {
+      "nombre": "rotacion activa",
+      "operaciones": 4,
+      "pctOperaciones": 5.2,
+      "equipos": 3,
+      "pctEquipos": 5.6,
+      "usdAprox": 4012807
+    },
+    {
+      "nombre": "defensivo",
+      "operaciones": 2,
+      "pctOperaciones": 2.6,
+      "equipos": 2,
+      "pctEquipos": 3.7,
+      "usdAprox": 1138264
+    },
+    {
+      "nombre": "tamano",
+      "operaciones": 1,
+      "pctOperaciones": 1.3,
+      "equipos": 1,
+      "pctEquipos": 1.9,
+      "usdAprox": 1500045
+    }
+  ],
+  "tematicos": [
+    {
+      "nombre": "inteligencia artificial",
+      "operaciones": 20,
+      "pctOperaciones": 42.6,
+      "equipos": 15,
+      "pctEquipos": 27.8,
+      "usdAprox": 21098262
+    },
+    {
+      "nombre": "energia limpia",
+      "operaciones": 13,
+      "pctOperaciones": 27.7,
+      "equipos": 9,
+      "pctEquipos": 16.7,
+      "usdAprox": 10879143
+    },
+    {
+      "nombre": "robotica y automatizacion",
+      "operaciones": 4,
+      "pctOperaciones": 8.5,
+      "equipos": 4,
+      "pctEquipos": 7.4,
+      "usdAprox": 2467563
+    },
+    {
+      "nombre": "tecnologia disruptiva",
+      "operaciones": 2,
+      "pctOperaciones": 4.3,
+      "equipos": 2,
+      "pctEquipos": 3.7,
+      "usdAprox": 3571610
+    },
+    {
+      "nombre": "genomica",
+      "operaciones": 2,
+      "pctOperaciones": 4.3,
+      "equipos": 2,
+      "pctEquipos": 3.7,
+      "usdAprox": 3299966
+    },
+    {
+      "nombre": "baterias y almacenamiento",
+      "operaciones": 2,
+      "pctOperaciones": 4.3,
+      "equipos": 2,
+      "pctEquipos": 3.7,
+      "usdAprox": 1329966
+    },
+    {
+      "nombre": "vehiculo electrico",
+      "operaciones": 1,
+      "pctOperaciones": 2.1,
+      "equipos": 1,
+      "pctEquipos": 1.9,
+      "usdAprox": 999646
+    },
+    {
+      "nombre": "espacio",
+      "operaciones": 1,
+      "pctOperaciones": 2.1,
+      "equipos": 1,
+      "pctEquipos": 1.9,
+      "usdAprox": 499989
+    },
+    {
+      "nombre": "computacion cuantica",
+      "operaciones": 1,
+      "pctOperaciones": 2.1,
+      "equipos": 1,
+      "pctEquipos": 1.9,
+      "usdAprox": 1902756
+    },
+    {
+      "nombre": "mineria de metales",
+      "operaciones": 1,
+      "pctOperaciones": 2.1,
+      "equipos": 1,
+      "pctEquipos": 1.9,
+      "usdAprox": 999937
+    }
+  ],
+  "paises": [
+    {
+      "nombre": "Corea del Sur",
+      "operaciones": 18,
+      "pctOperaciones": 20.9,
+      "equipos": 16,
+      "pctEquipos": 29.6,
+      "usdAprox": 18734971
+    },
+    {
+      "nombre": "Japon",
+      "operaciones": 14,
+      "pctOperaciones": 16.3,
+      "equipos": 12,
+      "pctEquipos": 22.2,
+      "usdAprox": 11842113
+    },
+    {
+      "nombre": "Taiwan",
+      "operaciones": 11,
+      "pctOperaciones": 12.8,
+      "equipos": 7,
+      "pctEquipos": 13.0,
+      "usdAprox": 8480112
+    },
+    {
+      "nombre": "India",
+      "operaciones": 10,
+      "pctOperaciones": 11.6,
+      "equipos": 8,
+      "pctEquipos": 14.8,
+      "usdAprox": 7488122
+    },
+    {
+      "nombre": "Brasil",
+      "operaciones": 8,
+      "pctOperaciones": 9.3,
+      "equipos": 5,
+      "pctEquipos": 9.3,
+      "usdAprox": 4772950
+    },
+    {
+      "nombre": "China",
+      "operaciones": 7,
+      "pctOperaciones": 8.1,
+      "equipos": 6,
+      "pctEquipos": 11.1,
+      "usdAprox": 6612480
+    },
+    {
+      "nombre": "Espana",
+      "operaciones": 3,
+      "pctOperaciones": 3.5,
+      "equipos": 3,
+      "pctEquipos": 5.6,
+      "usdAprox": 2601116
+    },
+    {
+      "nombre": "Chile",
+      "operaciones": 3,
+      "pctOperaciones": 3.5,
+      "equipos": 2,
+      "pctEquipos": 3.7,
+      "usdAprox": 3150246
+    },
+    {
+      "nombre": "Italia",
+      "operaciones": 2,
+      "pctOperaciones": 2.3,
+      "equipos": 2,
+      "pctEquipos": 3.7,
+      "usdAprox": 2072948
+    },
+    {
+      "nombre": "Finlandia",
+      "operaciones": 1,
+      "pctOperaciones": 1.2,
+      "equipos": 1,
+      "pctEquipos": 1.9,
+      "usdAprox": 494490
+    },
+    {
+      "nombre": "Austria",
+      "operaciones": 1,
+      "pctOperaciones": 1.2,
+      "equipos": 1,
+      "pctEquipos": 1.9,
+      "usdAprox": 508479
+    },
+    {
+      "nombre": "Alemania",
+      "operaciones": 1,
+      "pctOperaciones": 1.2,
+      "equipos": 1,
+      "pctEquipos": 1.9,
+      "usdAprox": 1399032
+    },
+    {
+      "nombre": "Polonia",
+      "operaciones": 1,
+      "pctOperaciones": 1.2,
+      "equipos": 1,
+      "pctEquipos": 1.9,
+      "usdAprox": 345738
+    },
+    {
+      "nombre": "Peru",
+      "operaciones": 1,
+      "pctOperaciones": 1.2,
+      "equipos": 1,
+      "pctEquipos": 1.9,
+      "usdAprox": 1783227
+    },
+    {
+      "nombre": "Reino Unido",
+      "operaciones": 1,
+      "pctOperaciones": 1.2,
+      "equipos": 1,
+      "pctEquipos": 1.9,
+      "usdAprox": 664244
+    },
+    {
+      "nombre": "Turquia",
+      "operaciones": 1,
+      "pctOperaciones": 1.2,
+      "equipos": 1,
+      "pctEquipos": 1.9,
+      "usdAprox": 499983
+    },
+    {
+      "nombre": "Tailandia",
+      "operaciones": 1,
+      "pctOperaciones": 1.2,
+      "equipos": 1,
+      "pctEquipos": 1.9,
+      "usdAprox": 500092
+    },
+    {
+      "nombre": "Hong Kong",
+      "operaciones": 1,
+      "pctOperaciones": 1.2,
+      "equipos": 1,
+      "pctEquipos": 1.9,
+      "usdAprox": 499084
+    },
+    {
+      "nombre": "Canada",
+      "operaciones": 1,
+      "pctOperaciones": 1.2,
+      "equipos": 1,
+      "pctEquipos": 1.9,
+      "usdAprox": 1149942
+    }
+  ],
+  "topEtf": [
+    {
+      "ticker": "SOXX",
+      "bloomberg": "SOXX US",
+      "tema": "Sector: semiconductores",
+      "mercado": "EE.UU.",
+      "operaciones": 41,
+      "equipos": 35,
+      "pctEquipos": 64.8,
+      "usdAprox": 48448728
+    },
+    {
+      "ticker": "IAU",
+      "bloomberg": "IAU US",
+      "tema": "Oro",
+      "mercado": "Global",
+      "operaciones": 27,
+      "equipos": 23,
+      "pctEquipos": 42.6,
+      "usdAprox": 23787136
+    },
+    {
+      "ticker": "IVV",
+      "bloomberg": "IVV US",
+      "tema": "Indice amplio",
+      "mercado": "EE.UU.",
+      "operaciones": 22,
+      "equipos": 20,
+      "pctEquipos": 37.0,
+      "usdAprox": 27830563
+    },
+    {
+      "ticker": "IEMG",
+      "bloomberg": "IEMG US",
+      "tema": "Indice amplio",
+      "mercado": "Emergentes",
+      "operaciones": 20,
+      "equipos": 16,
+      "pctEquipos": 29.6,
+      "usdAprox": 21689393
+    },
+    {
+      "ticker": "QUAL",
+      "bloomberg": "QUAL US",
+      "tema": "Factor: calidad",
+      "mercado": "EE.UU.",
+      "operaciones": 19,
+      "equipos": 15,
+      "pctEquipos": 27.8,
+      "usdAprox": 21159348
+    },
+    {
+      "ticker": "EWY",
+      "bloomberg": "EWY US",
+      "tema": "Pais: Corea del Sur",
+      "mercado": "Asia-Pacifico",
+      "operaciones": 17,
+      "equipos": 15,
+      "pctEquipos": 27.8,
+      "usdAprox": 16735318
+    },
+    {
+      "ticker": "ITA",
+      "bloomberg": "ITA US",
+      "tema": "Sector: defensa",
+      "mercado": "EE.UU.",
+      "operaciones": 16,
+      "equipos": 14,
+      "pctEquipos": 25.9,
+      "usdAprox": 14378012
+    },
+    {
+      "ticker": "MTUM",
+      "bloomberg": "MTUM US",
+      "tema": "Factor: momentum",
+      "mercado": "EE.UU.",
+      "operaciones": 16,
+      "equipos": 14,
+      "pctEquipos": 25.9,
+      "usdAprox": 13638661
+    },
+    {
+      "ticker": "USMV",
+      "bloomberg": "USMV US",
+      "tema": "Factor: minima volatilidad",
+      "mercado": "EE.UU.",
+      "operaciones": 15,
+      "equipos": 14,
+      "pctEquipos": 25.9,
+      "usdAprox": 13500986
+    },
+    {
+      "ticker": "IYW",
+      "bloomberg": "IYW US",
+      "tema": "Sector: tecnologia",
+      "mercado": "EE.UU.",
+      "operaciones": 13,
+      "equipos": 12,
+      "pctEquipos": 22.2,
+      "usdAprox": 13726109
+    },
+    {
+      "ticker": "EEM",
+      "bloomberg": "EEM US",
+      "tema": "Indice amplio",
+      "mercado": "Emergentes",
+      "operaciones": 11,
+      "equipos": 11,
+      "pctEquipos": 20.4,
+      "usdAprox": 9332329
+    },
+    {
+      "ticker": "BAI",
+      "bloomberg": "BAI US",
+      "tema": "Tema: inteligencia artificial",
+      "mercado": "Global",
+      "operaciones": 11,
+      "equipos": 10,
+      "pctEquipos": 18.5,
+      "usdAprox": 11703427
+    },
+    {
+      "ticker": "IEFA",
+      "bloomberg": "IEFA US",
+      "tema": "Indice amplio",
+      "mercado": "Global desarrollado",
+      "operaciones": 10,
+      "equipos": 9,
+      "pctEquipos": 16.7,
+      "usdAprox": 11763896
+    },
+    {
+      "ticker": "SGOV",
+      "bloomberg": "SGOV US",
+      "tema": "Tesoro corto plazo",
+      "mercado": "EE.UU.",
+      "operaciones": 10,
+      "equipos": 9,
+      "pctEquipos": 16.7,
+      "usdAprox": 7590184
+    },
+    {
+      "ticker": "IYF",
+      "bloomberg": "IYF US",
+      "tema": "Sector: financiero",
+      "mercado": "EE.UU.",
+      "operaciones": 9,
+      "equipos": 9,
+      "pctEquipos": 16.7,
+      "usdAprox": 8432360
+    },
+    {
+      "ticker": "IXN",
+      "bloomberg": "IXN US",
+      "tema": "Sector: tecnologia",
+      "mercado": "Global",
+      "operaciones": 11,
+      "equipos": 8,
+      "pctEquipos": 14.8,
+      "usdAprox": 11776301
+    },
+    {
+      "ticker": "EWJ",
+      "bloomberg": "EWJ US",
+      "tema": "Pais: Japon",
+      "mercado": "Asia-Pacifico",
+      "operaciones": 8,
+      "equipos": 8,
+      "pctEquipos": 14.8,
+      "usdAprox": 8162828
+    },
+    {
+      "ticker": "EWT",
+      "bloomberg": "EWT US",
+      "tema": "Pais: Taiwan",
+      "mercado": "Asia-Pacifico",
+      "operaciones": 11,
+      "equipos": 7,
+      "pctEquipos": 13.0,
+      "usdAprox": 8480112
+    },
+    {
+      "ticker": "IFRA",
+      "bloomberg": "IFRA US",
+      "tema": "Sector: infraestructura",
+      "mercado": "EE.UU.",
+      "operaciones": 8,
+      "equipos": 7,
+      "pctEquipos": 13.0,
+      "usdAprox": 5769203
+    },
+    {
+      "ticker": "INDA",
+      "bloomberg": "INDA US",
+      "tema": "Pais: India",
+      "mercado": "Asia-Pacifico",
+      "operaciones": 8,
+      "equipos": 7,
+      "pctEquipos": 13.0,
+      "usdAprox": 7069078
+    },
+    {
+      "ticker": "AGG",
+      "bloomberg": "AGG US",
+      "tema": "Agregado",
+      "mercado": "EE.UU.",
+      "operaciones": 7,
+      "equipos": 7,
+      "pctEquipos": 13.0,
+      "usdAprox": 6642547
+    },
+    {
+      "ticker": "ARTY",
+      "bloomberg": "ARTY US",
+      "tema": "Tema: inteligencia artificial",
+      "mercado": "Global",
+      "operaciones": 7,
+      "equipos": 7,
+      "pctEquipos": 13.0,
+      "usdAprox": 8598932
+    },
+    {
+      "ticker": "IYH",
+      "bloomberg": "IYH US",
+      "tema": "Sector: salud",
+      "mercado": "EE.UU.",
+      "operaciones": 7,
+      "equipos": 7,
+      "pctEquipos": 13.0,
+      "usdAprox": 7233732
+    },
+    {
+      "ticker": "ICLN",
+      "bloomberg": "ICLN US",
+      "tema": "Tema: energia limpia",
+      "mercado": "Global",
+      "operaciones": 7,
+      "equipos": 6,
+      "pctEquipos": 11.1,
+      "usdAprox": 5529730
+    },
+    {
+      "ticker": "VLUE",
+      "bloomberg": "VLUE US",
+      "tema": "Factor: valor",
+      "mercado": "EE.UU.",
+      "operaciones": 7,
+      "equipos": 6,
+      "pctEquipos": 11.1,
+      "usdAprox": 5150229
+    }
+  ],
+  "cronologia": [
+    {
+      "mes": "2026-05",
+      "compras": 534,
+      "ventas": 47
+    },
+    {
+      "mes": "2026-06",
+      "compras": 93,
+      "ventas": 89
+    },
+    {
+      "mes": "2026-07",
+      "compras": 14,
+      "ventas": 30
+    },
+    {
+      "mes": "2026-08",
+      "compras": 1,
+      "ventas": 4
+    }
+  ],
+  "fueraDeIshares": [
+    {
+      "ticker": "DRAM",
+      "gestora": "Otra gestora",
+      "equipo": "Alpha Partners",
+      "fecha": "2026-06-16"
+    },
+    {
+      "ticker": "PSI",
+      "gestora": "Otra gestora",
+      "equipo": "Athena",
+      "fecha": "2026-05-19"
+    },
+    {
+      "ticker": "GLD",
+      "gestora": "Otra gestora",
+      "equipo": "Beta capital",
+      "fecha": "2026-05-20"
+    },
+    {
+      "ticker": "XLV",
+      "gestora": "Otra gestora",
+      "equipo": "Beta capital",
+      "fecha": "2026-05-20"
+    },
+    {
+      "ticker": "ARKX",
+      "gestora": "Otra gestora",
+      "equipo": "Black Bulls",
+      "fecha": "2026-05-19"
+    },
+    {
+      "ticker": "AIQ",
+      "gestora": "Otra gestora",
+      "equipo": "Black Bulls",
+      "fecha": "2026-05-21"
+    },
+    {
+      "ticker": "AIQ",
+      "gestora": "Otra gestora",
+      "equipo": "Black Bulls",
+      "fecha": "2026-05-21"
+    },
+    {
+      "ticker": "PPH",
+      "gestora": "Otra gestora",
+      "equipo": "Black Bulls",
+      "fecha": "2026-05-21"
+    },
+    {
+      "ticker": "ROBO",
+      "gestora": "Otra gestora",
+      "equipo": "Black Bulls",
+      "fecha": "2026-05-21"
+    },
+    {
+      "ticker": "GRID",
+      "gestora": "Otra gestora",
+      "equipo": "Black Bulls",
+      "fecha": "2026-05-21"
+    },
+    {
+      "ticker": "IBM",
+      "gestora": "Accion individual",
+      "equipo": "Cimientos financieros",
+      "fecha": "2026-06-17"
+    },
+    {
+      "ticker": "HYDR",
+      "gestora": "Otra gestora",
+      "equipo": "DFS CAPITAL",
+      "fecha": "2026-05-15"
+    },
+    {
+      "ticker": "QANT",
+      "gestora": "Otra gestora",
+      "equipo": "EDP",
+      "fecha": "2026-05-15"
+    },
+    {
+      "ticker": "SEMI",
+      "gestora": "Otra gestora",
+      "equipo": "Indarra Investments",
+      "fecha": "2026-05-14"
+    },
+    {
+      "ticker": "GRID",
+      "gestora": "Otra gestora",
+      "equipo": "Jose",
+      "fecha": "2026-05-20"
+    },
+    {
+      "ticker": "TAN",
+      "gestora": "Otra gestora",
+      "equipo": "Jose",
+      "fecha": "2026-05-20"
+    },
+    {
+      "ticker": "POWR",
+      "gestora": "Otra gestora",
+      "equipo": "Malaga Capital Partners",
+      "fecha": "2026-05-15"
+    },
+    {
+      "ticker": "POWR",
+      "gestora": "Otra gestora",
+      "equipo": "Malaga Capital Partners",
+      "fecha": "2026-05-19"
+    },
+    {
+      "ticker": "SX7PEX",
+      "gestora": "Otra gestora",
+      "equipo": "Optimo Investment",
+      "fecha": "2026-05-20"
+    },
+    {
+      "ticker": "SPCX",
+      "gestora": "Otra gestora",
+      "equipo": "Sharpe Fox",
+      "fecha": "2026-06-16"
+    },
+    {
+      "ticker": "IBM",
+      "gestora": "Accion individual",
+      "equipo": "VNM Capital Partners",
+      "fecha": "2026-05-19"
+    },
+    {
+      "ticker": "CRUD",
+      "gestora": "Otra gestora",
+      "equipo": "VNM Capital Partners",
+      "fecha": "2026-05-20"
+    },
+    {
+      "ticker": "PPA",
+      "gestora": "Otra gestora",
+      "equipo": "VNM Capital Partners",
+      "fecha": "2026-06-18"
+    }
+  ]
+}
