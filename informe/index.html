@@ -1061,11 +1061,10 @@ function gEtf(){
   }),"var(--acc)",null,260);
   svg.appendChild(txt(W/2,H-8,"% DE LOS "+ETF.totales.equipos+" EQUIPOS QUE LO INCORPORÓ A SU CARTERA","ax-txt mid",{"letter-spacing":"0.14em"}));
 
-  var g=ETF.gestora.filter(function(x){return x.nombre==="iShares"})[0];
   $("#capEtf").innerHTML="Sobre "+ent(ETF.totales.compras)+" operaciones de compra de "+ETF.totales.equipos+
     " equipos, hasta el "+ETF.ultimaOperacion+". El más usado es <b>"+ETF.topEtf[0].ticker+
     "</b>, presente en "+ETF.topEtf[0].equipos+" carteras ("+num(ETF.topEtf[0].pctEquipos,0)+
-    "% del torneo)."+(g?" El <b>"+num(g.pctOperaciones,1)+"%</b> de las operaciones se hizo en ETF de iShares.":"");
+    "% del torneo).";
 }
 
 function gIns(){
@@ -1105,9 +1104,7 @@ function gFin(){
 
 function pintarStatsEtf(){
   var t=ETF.totales;
-  var g=ETF.gestora.filter(function(x){return x.nombre==="iShares"})[0];
   var items=[];
-  if(g)items.push({n:num(g.pctOperaciones,1)+"%",l:"En ETF de iShares",s:"de "+ent(t.compras)+" operaciones de compra"});
   items.push({n:ent(t.etf),l:"ETF distintos",s:"usados a lo largo del torneo"});
   items.push({n:t.bolsas,l:"Bolsas",s:"en "+t.divisas+" divisas distintas"});
   var rv=ETF.clase[0];

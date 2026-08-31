@@ -1537,3 +1537,139 @@ el area en ninguna — solo quedan las menciones de las tres cofundadoras y el
 evento de la bitacora, que son las dos exclusiones deliberadas de arriba.
 
 **Nada esta commiteado ni pusheado en ninguno de los tres repos.**
+
+## Continuacion del 2026-08-30: ingles completo, informe publicado y movil
+
+Sigue a la "Decima tanda". Todo pusheado a los dos repos y verificado en vivo.
+
+### El lema: "Élite" -> "Líderes"
+
+"Forjando la **Élite** del Mañana" paso a "Forjando los **Líderes** del
+Mañana", pedido de Francisco: 14 lugares entre `<title>`, og/twitter
+description, el `<h1>` animado del hero, el mono-tag, el brand-sub del pie y la
+tarjeta descargable de `miembros/`. Ojo que el articulo tambien cambia (*la*
+Élite -> *los* Líderes) y en el `<h1>` esas dos palabras viven en `<span>`
+distintos porque el titulo se anima linea por linea.
+
+**Trampa que costo una afirmacion equivocada:** `grep -i` en este shell **no
+hace case-folding de caracteres no ASCII**, asi que buscar `elite\|élite` NO
+encuentra "Élite" con mayuscula acentuada. Se dio por hecho que solo estaba en
+la pagina en ingles. **Para buscar texto con acentos en este repo, usar Python
+en UTF-8, no `grep -i`.**
+
+### `en/index.html`: de one-pager a sitio
+
+Francisco lo reviso dos veces; la segunda dijo, con razon, que era un resumen
+de la portada. Ahora tiene nueve secciones y **tres se alimentan de los mismos
+JSON que el sitio en espanol**, asi que no se desfasan: el ranking en vivo del
+torneo (`torneo-portada.json`), la directiva completa (`club.json`) y la
+bitacora de actividades (`eventos.json`).
+
+Lo unico a mantener a mano es la traduccion, en el archivo nuevo
+**`datos/en.json`**. **Un evento sin traduccion NO se muestra**, en vez de
+aparecer en espanol en medio de una pagina en ingles; al crear un evento hay
+que agregarle su linea ahi.
+
+Detalle que costaria un bug: los nodos pintados DESPUES de que corrio el
+IntersectionObserver no se revelan solos, por eso `ver()` les pone la clase
+`in` a mano.
+
+### `informe/` publicado en el espejo, y su version en ingles
+
+Francisco pidio llevarlo a produccion con version en ingles. **No se
+duplico el archivo**: son ~1.200 lineas con ocho graficos SVG a mano, y dos
+copias es la trampa que este repo ya conoce. `generar_informe_en.py` toma el
+informe en espanol, le aplica una tabla de traduccion y escribe
+`en/informe/index.html`. **Correrlo cada vez que se toque `informe/index.html`.**
+
+**El script falla si queda texto en espanol.** Tres agujeros que esa barrera
+tuvo y que conviene no reabrir:
+
+1. **Plurales.** Buscaba `\bcorte\b` y `\bsemana\b`, y dejo pasar "Cortes
+   publicados" y "semanas 5 a 15" hasta el archivo generado. Toda palabra que
+   se agregue va con su plural.
+2. **La exencion saltaba el texto ENTERO** si contenia una marca exenta: un
+   parrafo completo paso limpio por terminar en "FEN Investment Group". Ahora
+   se quita la marca y se revisa lo que queda.
+3. **El CSS tambien escribe texto** con `content:`, y no se revisaba.
+
+Ademas hay un chequeo que compara los `id=` de las dos versiones y aborta si
+difieren: traducir "Mercado" habia convertido `id="cMercado"` en `id="cMarket"`.
+Funciono de casualidad porque el selector del JS cambio igual, pero el mismo
+accidente sobre una clave de datos rompe la pagina en silencio. Por eso las
+traducciones cortas llevan su contexto (`>Mercado</a>`).
+
+Y si el ancla donde se inyecta `corteEN()` deja de calzar, el script aborta:
+sin esa comprobacion la funcion quedaba sin definir, el `<script>` entero moria
+con un ReferenceError y **los ocho graficos salian vacios sin decir por que**.
+
+Del campo `corte` solo se traduce el MES ("21 · AGO · 2026" -> "21 · Aug ·
+2026"). Las dos versiones se enlazan con un conmutador de idioma en el nav.
+
+### `sincronizar_espejo.py` y `despublicar_fiw.py` son un PAR
+
+Se corren en ese orden, y despues `generar_sitemap.py` DENTRO del espejo. Como
+el segundo reescribe 5 archivos, el primero **siempre** los reportara como "por
+copiar" aunque no haya cambiado nada: no es un error.
+
+### Telefono: `verificar_movil.js` (nuevo)
+
+`verificar_paginas.js` mide en 1400px y no veia lo que falla en un telefono.
+Este mide a 390x844 con emulacion movil real y reporta desborde horizontal del
+documento (con los elementos culpables), objetivos tactiles bajo 24px y texto
+bajo 11px. Recorre la pagina antes de medir, porque los `.reveal` y los
+graficos solo se dibujan al entrar en pantalla.
+
+**Resultado: ninguna pagina se sale del ancho.** Los ocho graficos y la tabla
+estan en contenedores con `overflow-x:auto` (caja 300px, contenido 760px) y se
+arrastran; se les agrego una **sombra de scroll** en CSS puro y sin texto (un
+rotulo habria que traducirlo) para que se note que hay mas contenido.
+
+**Objetivos tactiles: 0 bajo 24px en todo el sitio.** Se subieron `.a-link`,
+`.p-linkedin`, `.p-link`, `.cre-in`, los `footer a` y los `.nav a.back`, con el
+patron de siempre (padding + margen negativo que lo compensa).
+
+**Dos hallazgos que valen la pena:**
+- La regla `.f-bottom a{padding:6px 0;margin:-6px 0}` de la sexta tanda estaba
+  escrita **DENTRO** del bloque `.f-bottom{` — CSS invalido. El navegador la
+  descartaba, y por eso el credito del pie seguia en 13px pese a figurar como
+  arreglado. Estaba igual en `index.html` y `miembros/index.html`.
+- **El deslizador del replay del torneo tenia 4px de alto tocable.** La pista
+  se ve fina a proposito, pero eso era todo lo agarrable. El input pasa a 24px
+  transparente y los 4px se dibujan en `::-webkit-slider-runnable-track` /
+  `::-moz-range-track`. El `margin-top:-6px` del pulgar es (4-16)/2: si se
+  cambian los altos hay que recalcularlo.
+
+**Falso positivo documentado:** los nombres de equipo del ranking miden 23px,
+pero el objetivo real es la fila entera (`.lb-row`, ~55px). El script los exime.
+
+**Trampa de medicion:** `chrome --screenshot --window-size=390,...` SIN
+emulacion movil da una imagen enganosa — mostraba texto cortado en una pagina
+sin ningun desborde. Para mirar el sitio en telefono, capturar por CDP con
+`mobile:true`.
+
+### Notas internas que se le mostraban al visitante (corregido)
+
+En `eventos/index.html`, al abrir un evento se veian cuatro: la instruccion
+"Sube imagenes a `fotos/eventos/<carpeta>/` nombradas 1.jpg…", el conteo con la
+ruta interna del repo, el chip "Por confirmar" de participantes (en los 10
+eventos, porque ninguno tiene lista) y lo mismo en modo proyeccion. Si el dato
+no esta, no se anuncia.
+
+### La rutina semanal, actualizada
+
+```
+python generar_torneo.py --excel <Excel del corte> --semana N --corte "..."
+python generar_tabla.py
+node generar_og_equipos.js            # OPCIONAL
+python generar_paginas_equipo.py
+python generar_informe_en.py --aplicar   # si se toco informe/index.html
+python generar_sitemap.py
+python verificar_sitio.py
+python -m http.server 8000            # en otra terminal
+node verificar_paginas.js
+node verificar_movil.js               # telefono
+python sincronizar_espejo.py --aplicar
+python despublicar_fiw.py --aplicar   # SIEMPRE despues del anterior
+cd ../mpazq-afk.github.io && python generar_sitemap.py
+```

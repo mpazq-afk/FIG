@@ -1075,11 +1075,10 @@ function gEtf(){
   }),"var(--acc)",null,260);
   svg.appendChild(txt(W/2,H-8,"% OF THE "+ETF.totales.equipos+" TEAMS THAT HELD IT","ax-txt mid",{"letter-spacing":"0.14em"}));
 
-  var g=ETF.gestora.filter(function(x){return x.nombre==="iShares"})[0];
   $("#capEtf").innerHTML="Across "+ent(ETF.totales.compras)+" buy trades by "+ETF.totales.equipos+
     " teams, through "+ETF.ultimaOperacion+". The most used is <b>"+ETF.topEtf[0].ticker+
     "</b>, held in "+ETF.topEtf[0].equipos+" portfolios ("+num(ETF.topEtf[0].pctEquipos,0)+
-    "% of the tournament)."+(g?" <b>"+num(g.pctOperaciones,1)+"%</b> of all trades were in iShares ETFs.":"");
+    "% of the tournament).";
 }
 
 function gIns(){
@@ -1119,9 +1118,7 @@ function gFin(){
 
 function pintarStatsEtf(){
   var t=ETF.totales;
-  var g=ETF.gestora.filter(function(x){return x.nombre==="iShares"})[0];
   var items=[];
-  if(g)items.push({n:num(g.pctOperaciones,1)+"%",l:"In iShares ETFs",s:"of "+ent(t.compras)+" buy trades"});
   items.push({n:ent(t.etf),l:"Distinct ETFs",s:"used across the tournament"});
   items.push({n:t.bolsas,l:"Exchanges",s:"in "+t.divisas+" different currencies"});
   var rv=ETF.clase[0];
