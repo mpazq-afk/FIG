@@ -1,6 +1,6 @@
 {
-  "semana": 15,
-  "corte": "21 · AGO · 2026",
+  "semana": 16,
+  "corte": "28 · AGO · 2026",
   "acwi": [
     {
       "semana": 5,
@@ -41,6 +41,14 @@
     {
       "semana": 14,
       "ret": 0.0445
+    },
+    {
+      "semana": 15,
+      "ret": 0.0406
+    },
+    {
+      "semana": 16,
+      "ret": 0.0424
     }
   ],
   "equipos": [
@@ -48,21 +56,21 @@
       "id": "beta-capital",
       "nombre": "Beta capital",
       "posicion": 1,
-      "puntos": 93.26,
-      "retRel": 0.1891,
+      "puntos": 94.46,
+      "retRel": 0.16390000000000002,
       "delta": 0,
       "metricas": {
-        "ir": 2.35,
-        "exc": 0.1891,
-        "sharpe": 2.94,
-        "var95": -0.0086,
+        "ir": 2.22,
+        "exc": 0.16390000000000002,
+        "sharpe": 2.85,
+        "var95": -0.008100000000000001,
         "mdd": -0.0344
       },
       "puntosDetalle": {
-        "ir": 28.912214,
-        "exc": 24.17398,
-        "sharpe": 15.0,
-        "var95": 12.009063,
+        "ir": 29.799555,
+        "exc": 24.567395,
+        "sharpe": 14.771574,
+        "var95": 12.153614,
         "mdd": 13.169431
       },
       "miembros": [
@@ -196,6 +204,17 @@
           "sharpe": 2.94,
           "var95": -0.0086,
           "mdd": -0.0344
+        },
+        {
+          "semana": 16,
+          "puntos": 94.46,
+          "posicion": 1,
+          "ret": 0.1119,
+          "ir": 2.22,
+          "exc": 0.16390000000000002,
+          "sharpe": 2.85,
+          "var95": -0.008100000000000001,
+          "mdd": -0.0344
         }
       ]
     },
@@ -203,21 +222,21 @@
       "id": "aconcagua-capital",
       "nombre": "Aconcagua Capital",
       "posicion": 2,
-      "puntos": 86.54,
-      "retRel": 0.1361,
+      "puntos": 84.98,
+      "retRel": 0.1067,
       "delta": 0,
       "metricas": {
-        "ir": 1.73,
-        "exc": 0.1361,
-        "sharpe": 2.82,
-        "var95": -0.0103,
+        "ir": 1.5,
+        "exc": 0.1067,
+        "sharpe": 2.64,
+        "var95": -0.0102,
         "mdd": -0.030600000000000002
       },
       "puntosDetalle": {
-        "ir": 25.362595,
-        "exc": 21.893822,
-        "sharpe": 14.541985,
-        "var95": 11.238671,
+        "ir": 24.988864,
+        "exc": 21.311475,
+        "sharpe": 13.972081,
+        "var95": 11.204819,
         "mdd": 13.507109
       },
       "miembros": [
@@ -351,6 +370,17 @@
           "sharpe": 2.82,
           "var95": -0.0103,
           "mdd": -0.030600000000000002
+        },
+        {
+          "semana": 16,
+          "puntos": 84.98,
+          "posicion": 2,
+          "ret": 0.0858,
+          "ir": 1.5,
+          "exc": 0.1067,
+          "sharpe": 2.64,
+          "var95": -0.0102,
+          "mdd": -0.030600000000000002
         }
       ]
     },
@@ -358,21 +388,21 @@
       "id": "alpha-makers",
       "nombre": "Alpha makers",
       "posicion": 3,
-      "puntos": 85.93,
-      "retRel": 0.20829999999999999,
-      "delta": 1,
+      "puntos": 84.57,
+      "retRel": 0.17149999999999999,
+      "delta": 0,
       "metricas": {
-        "ir": 2.54,
-        "exc": 0.20829999999999999,
-        "sharpe": 2.16,
-        "var95": -0.0173,
+        "ir": 2.15,
+        "exc": 0.17149999999999999,
+        "sharpe": 1.93,
+        "var95": -0.017,
         "mdd": -0.060599999999999994
       },
       "puntosDetalle": {
-        "ir": 30.0,
+        "ir": 29.331849,
         "exc": 25.0,
-        "sharpe": 12.022901,
-        "var95": 8.066465,
+        "sharpe": 11.269036,
+        "var95": 8.13253,
         "mdd": 10.841232
       },
       "miembros": [
@@ -506,187 +536,39 @@
           "sharpe": 2.16,
           "var95": -0.0173,
           "mdd": -0.060599999999999994
-        }
-      ]
-    },
-    {
-      "id": "bjp-capitals",
-      "nombre": "B&JP Capitals",
-      "posicion": 4,
-      "puntos": 80.8,
-      "retRel": 0.1139,
-      "delta": 4,
-      "metricas": {
-        "ir": 1.99,
-        "exc": 0.1139,
-        "sharpe": 2.02,
-        "var95": -0.0134,
-        "mdd": -0.051100000000000007
-      },
-      "puntosDetalle": {
-        "ir": 26.851145,
-        "exc": 20.938737,
-        "sharpe": 11.48855,
-        "var95": 9.833837,
-        "mdd": 11.685427
-      },
-      "miembros": [
-        {
-          "nombre": "Benjamín Acevedo",
-          "linkedin": "https://cl.linkedin.com/in/benjam%C3%ADn-antonio-acevedo-frugone-14b616325"
         },
         {
-          "nombre": "Juan Tank",
-          "linkedin": ""
-        },
-        {
-          "nombre": "Baltasar Correa Cortés",
-          "linkedin": "https://www.linkedin.com/in/baltasar-correa-cortés-2473bb359?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
-        }
-      ],
-      "historial": [
-        {
-          "semana": 5,
-          "puntos": 74.21,
-          "posicion": 5,
-          "ret": 0.0705,
-          "ir": 5.22,
-          "exc": 0.5881000000000001,
-          "sharpe": 3.42,
-          "var95": -0.0132,
-          "mdd": -0.0506
-        },
-        {
-          "semana": 6,
-          "puntos": 67.08,
-          "posicion": 9,
-          "ret": 0.0821,
-          "ir": 4.22,
-          "exc": 0.48869999999999997,
-          "sharpe": 3.49,
-          "var95": -0.0129,
-          "mdd": -0.0506
-        },
-        {
-          "semana": 7,
-          "puntos": 66.27,
-          "posicion": 9,
-          "ret": 0.0548,
-          "ir": 3.6,
-          "exc": 0.35159999999999997,
-          "sharpe": 2.09,
-          "var95": -0.0155,
-          "mdd": -0.0506
-        },
-        {
-          "semana": 8,
-          "puntos": 65.14,
-          "posicion": 8,
-          "ret": 0.0624,
-          "ir": 2.96,
-          "exc": 0.2943,
-          "sharpe": 2.18,
-          "var95": -0.0139,
-          "mdd": -0.0506
-        },
-        {
-          "semana": 9,
-          "puntos": 65.51,
-          "posicion": 12,
-          "ret": 0.058,
-          "ir": 1.98,
-          "exc": 0.1924,
-          "sharpe": 1.84,
-          "var95": -0.0154,
-          "mdd": -0.0506
-        },
-        {
-          "semana": 10,
-          "puntos": 64.02,
-          "posicion": 14,
-          "ret": 0.0348,
-          "ir": 1.59,
-          "exc": 0.1264,
-          "sharpe": 1.06,
-          "var95": -0.0148,
-          "mdd": -0.0506
-        },
-        {
-          "semana": 11,
-          "puntos": 72.86,
-          "posicion": 9,
-          "ret": 0.0519,
-          "ir": 2.42,
-          "exc": 0.09230000000000001,
-          "sharpe": 1.43,
-          "var95": -0.0143,
-          "mdd": -0.051100000000000007
-        },
-        {
-          "semana": 12,
-          "puntos": 78.34,
-          "posicion": 5,
-          "ret": 0.08539999999999999,
-          "ir": 1.83,
-          "exc": 0.0966,
-          "sharpe": 2.0,
-          "var95": -0.013500000000000002,
-          "mdd": -0.051100000000000007
-        },
-        {
-          "semana": 13,
-          "puntos": 75.61,
-          "posicion": 5,
-          "ret": 0.0907,
-          "ir": 1.8,
-          "exc": 0.1016,
-          "sharpe": 2.07,
-          "var95": -0.013500000000000002,
-          "mdd": -0.051100000000000007
-        },
-        {
-          "semana": 14,
-          "puntos": 73.52,
-          "posicion": 8,
-          "ret": 0.0903,
-          "ir": 1.47,
-          "exc": 0.0432,
-          "sharpe": 1.98,
-          "var95": -0.0134,
-          "mdd": -0.051100000000000007
-        },
-        {
-          "semana": 15,
-          "puntos": 80.8,
-          "posicion": 4,
-          "ret": 0.0976,
-          "ir": 1.99,
-          "exc": 0.1139,
-          "sharpe": 2.02,
-          "var95": -0.0134,
-          "mdd": -0.051100000000000007
+          "semana": 16,
+          "puntos": 84.57,
+          "posicion": 3,
+          "ret": 0.1225,
+          "ir": 2.15,
+          "exc": 0.17149999999999999,
+          "sharpe": 1.93,
+          "var95": -0.017,
+          "mdd": -0.060599999999999994
         }
       ]
     },
     {
       "id": "clb",
       "nombre": "CLB",
-      "posicion": 5,
-      "puntos": 78.1,
-      "retRel": 0.049100000000000005,
-      "delta": -2,
+      "posicion": 4,
+      "puntos": 81.38,
+      "retRel": 0.0351,
+      "delta": 1,
       "metricas": {
-        "ir": 1.76,
-        "exc": 0.049100000000000005,
-        "sharpe": 1.88,
-        "var95": -0.0116,
+        "ir": 2.08,
+        "exc": 0.0351,
+        "sharpe": 2.07,
+        "var95": -0.011399999999999999,
         "mdd": -0.0384
       },
       "puntosDetalle": {
-        "ir": 25.534351,
-        "exc": 18.150921,
-        "sharpe": 10.954198,
-        "var95": 10.649547,
+        "ir": 28.864143,
+        "exc": 17.235883,
+        "sharpe": 11.80203,
+        "var95": 10.662651,
         "mdd": 12.813981
       },
       "miembros": [
@@ -824,660 +706,209 @@
           "sharpe": 1.88,
           "var95": -0.0116,
           "mdd": -0.0384
+        },
+        {
+          "semana": 16,
+          "puntos": 81.38,
+          "posicion": 4,
+          "ret": 0.092,
+          "ir": 2.08,
+          "exc": 0.0351,
+          "sharpe": 2.07,
+          "var95": -0.011399999999999999,
+          "mdd": -0.0384
         }
       ]
     },
     {
-      "id": "jav-capital",
-      "nombre": "JAV Capital",
-      "posicion": 6,
-      "puntos": 77.91,
-      "retRel": 0.0369,
-      "delta": 1,
+      "id": "bjp-capitals",
+      "nombre": "B&JP Capitals",
+      "posicion": 5,
+      "puntos": 75.57,
+      "retRel": 0.0393,
+      "delta": -1,
       "metricas": {
-        "ir": 0.97,
-        "exc": 0.0369,
-        "sharpe": 2.26,
-        "var95": -0.008,
-        "mdd": -0.0184
+        "ir": 1.62,
+        "exc": 0.0393,
+        "sharpe": 1.81,
+        "var95": -0.013300000000000001,
+        "mdd": -0.051100000000000007
       },
       "puntosDetalle": {
-        "ir": 21.01145,
-        "exc": 17.626054,
-        "sharpe": 12.40458,
-        "var95": 12.280967,
-        "mdd": 14.591232
+        "ir": 25.790646,
+        "exc": 17.474954,
+        "sharpe": 10.812183,
+        "var95": 9.804217,
+        "mdd": 11.685427
       },
       "miembros": [
         {
-          "nombre": "Valente Zecchetto Puigrredón",
+          "nombre": "Benjamín Acevedo",
+          "linkedin": "https://cl.linkedin.com/in/benjam%C3%ADn-antonio-acevedo-frugone-14b616325"
+        },
+        {
+          "nombre": "Juan Tank",
           "linkedin": ""
         },
         {
-          "nombre": "José Luis Farías Reyes",
-          "linkedin": ""
-        },
-        {
-          "nombre": "Agustín Gabriel Gomez Rebolledo",
-          "linkedin": ""
+          "nombre": "Baltasar Correa Cortés",
+          "linkedin": "https://www.linkedin.com/in/baltasar-correa-cortés-2473bb359?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
         }
       ],
       "historial": [
         {
           "semana": 5,
-          "puntos": 73.9,
-          "posicion": 6,
-          "ret": 0.0468,
-          "ir": 4.59,
-          "exc": 0.32270000000000004,
-          "sharpe": 4.07,
-          "var95": -0.0076,
-          "mdd": -0.0184
-        },
-        {
-          "semana": 6,
-          "puntos": 64.08,
-          "posicion": 13,
-          "ret": 0.0533,
-          "ir": 2.96,
-          "exc": 0.21530000000000002,
-          "sharpe": 3.86,
-          "var95": -0.0087,
-          "mdd": -0.0184
-        },
-        {
-          "semana": 7,
-          "puntos": 72.93,
-          "posicion": 4,
-          "ret": 0.0447,
-          "ir": 3.91,
-          "exc": 0.2858,
-          "sharpe": 2.72,
-          "var95": -0.011699999999999999,
-          "mdd": -0.0184
-        },
-        {
-          "semana": 8,
-          "puntos": 71.61,
-          "posicion": 4,
-          "ret": 0.0517,
-          "ir": 3.08,
-          "exc": 0.22760000000000002,
-          "sharpe": 2.88,
-          "var95": -0.009899999999999999,
-          "mdd": -0.0184
-        },
-        {
-          "semana": 9,
-          "puntos": 75.13,
-          "posicion": 3,
-          "ret": 0.0537,
-          "ir": 2.25,
-          "exc": 0.1711,
-          "sharpe": 2.73,
-          "var95": -0.009000000000000001,
-          "mdd": -0.0184
-        },
-        {
-          "semana": 10,
-          "puntos": 79.54,
-          "posicion": 4,
-          "ret": 0.0442,
-          "ir": 2.62,
-          "exc": 0.1709,
-          "sharpe": 2.08,
-          "var95": -0.0087,
-          "mdd": -0.0184
-        },
-        {
-          "semana": 11,
-          "puntos": 81.4,
-          "posicion": 3,
-          "ret": 0.0448,
-          "ir": 2.7,
-          "exc": 0.0693,
-          "sharpe": 1.98,
-          "var95": -0.0085,
-          "mdd": -0.0184
-        },
-        {
-          "semana": 12,
-          "puntos": 76.81,
-          "posicion": 7,
-          "ret": 0.0607,
-          "ir": 0.91,
-          "exc": 0.030899999999999997,
-          "sharpe": 2.38,
-          "var95": -0.008100000000000001,
-          "mdd": -0.0184
-        },
-        {
-          "semana": 13,
-          "puntos": 73.95,
-          "posicion": 6,
-          "ret": 0.0649,
-          "ir": 0.86,
-          "exc": 0.0381,
-          "sharpe": 2.49,
-          "var95": -0.008100000000000001,
-          "mdd": -0.0184
-        },
-        {
-          "semana": 14,
-          "puntos": 75.67,
-          "posicion": 7,
-          "ret": 0.0715,
-          "ir": 0.87,
-          "exc": 0.0121,
-          "sharpe": 2.61,
-          "var95": -0.008100000000000001,
-          "mdd": -0.0184
-        },
-        {
-          "semana": 15,
-          "puntos": 77.91,
-          "posicion": 6,
-          "ret": 0.065,
-          "ir": 0.97,
-          "exc": 0.0369,
-          "sharpe": 2.26,
-          "var95": -0.008,
-          "mdd": -0.0184
-        }
-      ]
-    },
-    {
-      "id": "luky-capital",
-      "nombre": "Luky Capital",
-      "posicion": 7,
-      "puntos": 75.66,
-      "retRel": 0.04650000000000001,
-      "delta": 21,
-      "metricas": {
-        "ir": 0.26,
-        "exc": 0.04650000000000001,
-        "sharpe": 2.44,
-        "var95": -0.0064,
-        "mdd": -0.018600000000000002
-      },
-      "puntosDetalle": {
-        "ir": 16.946565,
-        "exc": 18.039064,
-        "sharpe": 13.091603,
-        "var95": 13.006042,
-        "mdd": 14.57346
-      },
-      "miembros": [
-        {
-          "nombre": "Andres Llaña",
-          "linkedin": ""
-        },
-        {
-          "nombre": "Barbara Johnson",
-          "linkedin": ""
-        }
-      ],
-      "historial": [
-        {
-          "semana": 5,
-          "puntos": 58.58,
-          "posicion": 23,
-          "ret": 0.0276,
-          "ir": 1.72,
-          "exc": 0.1261,
-          "sharpe": 3.38,
-          "var95": -0.0060999999999999995,
-          "mdd": -0.018600000000000002
-        },
-        {
-          "semana": 6,
-          "puntos": 32.36,
-          "posicion": 52,
-          "ret": 0.016,
-          "ir": -0.4,
-          "exc": -0.10369999999999999,
-          "sharpe": 1.64,
-          "var95": -0.0091,
-          "mdd": -0.018600000000000002
-        },
-        {
-          "semana": 7,
-          "puntos": 57.62,
-          "posicion": 21,
-          "ret": 0.0233,
-          "ir": 1.36,
-          "exc": 0.10980000000000001,
-          "sharpe": 2.16,
-          "var95": -0.0079,
-          "mdd": -0.018600000000000002
-        },
-        {
-          "semana": 8,
-          "puntos": 56.96,
-          "posicion": 20,
-          "ret": 0.0264,
-          "ir": 0.73,
-          "exc": 0.0463,
-          "sharpe": 2.18,
-          "var95": -0.0066,
-          "mdd": -0.018600000000000002
-        },
-        {
-          "semana": 9,
-          "puntos": 58.64,
-          "posicion": 21,
-          "ret": 0.029,
-          "ir": 0.33,
-          "exc": 0.0089,
-          "sharpe": 2.14,
-          "var95": -0.0069,
-          "mdd": -0.018600000000000002
-        },
-        {
-          "semana": 10,
-          "puntos": 69.29,
-          "posicion": 9,
-          "ret": 0.0282,
-          "ir": 0.99,
-          "exc": 0.0877,
-          "sharpe": 1.94,
-          "var95": -0.0067,
-          "mdd": -0.018600000000000002
-        },
-        {
-          "semana": 11,
-          "puntos": 76.59,
+          "puntos": 74.21,
           "posicion": 5,
-          "ret": 0.0316,
-          "ir": 1.22,
-          "exc": 0.11800000000000001,
-          "sharpe": 1.97,
-          "var95": -0.0064,
-          "mdd": -0.018600000000000002
-        },
-        {
-          "semana": 12,
-          "puntos": 71.16,
-          "posicion": 9,
-          "ret": 0.0423,
-          "ir": 0.01,
-          "exc": 0.0148,
-          "sharpe": 2.27,
-          "var95": -0.006999999999999999,
-          "mdd": -0.018600000000000002
-        },
-        {
-          "semana": 13,
-          "puntos": 53.1,
-          "posicion": 16,
-          "ret": 0.0444,
-          "ir": -0.08,
-          "exc": 0.0204,
-          "sharpe": 2.32,
-          "var95": -0.0069,
-          "mdd": -0.018600000000000002
-        },
-        {
-          "semana": 14,
-          "puntos": 37.0,
-          "posicion": 28,
-          "ret": 0.0513,
-          "ir": -0.03,
-          "exc": -0.0003,
-          "sharpe": 2.55,
-          "var95": -0.0067,
-          "mdd": -0.018600000000000002
-        },
-        {
-          "semana": 15,
-          "puntos": 75.66,
-          "posicion": 7,
-          "ret": 0.0521,
-          "ir": 0.26,
-          "exc": 0.04650000000000001,
-          "sharpe": 2.44,
-          "var95": -0.0064,
-          "mdd": -0.018600000000000002
-        }
-      ]
-    },
-    {
-      "id": "edp",
-      "nombre": "EDP",
-      "posicion": 8,
-      "puntos": 75.45,
-      "retRel": 0.1832,
-      "delta": 3,
-      "metricas": {
-        "ir": 1.47,
-        "exc": 0.1832,
-        "sharpe": 1.51,
-        "var95": -0.0165,
-        "mdd": -0.0736
-      },
-      "puntosDetalle": {
-        "ir": 23.874046,
-        "exc": 23.920151,
-        "sharpe": 9.541985,
-        "var95": 8.429003,
-        "mdd": 9.686019
-      },
-      "miembros": [
-        {
-          "nombre": "Ignacio Aylwin Campos",
-          "linkedin": ""
-        },
-        {
-          "nombre": "Cristian Eduardo Meriño Riquelme",
-          "linkedin": ""
-        },
-        {
-          "nombre": "Richard Orlando Figueroa Villegas",
-          "linkedin": ""
-        }
-      ],
-      "historial": [
-        {
-          "semana": 5,
-          "puntos": 27.01,
-          "posicion": 52,
-          "ret": 0.0071,
-          "ir": 0.21,
-          "exc": 0.049400000000000006,
-          "sharpe": 0.41,
-          "var95": -0.024,
-          "mdd": -0.0736
+          "ret": 0.0705,
+          "ir": 5.22,
+          "exc": 0.5881000000000001,
+          "sharpe": 3.42,
+          "var95": -0.0132,
+          "mdd": -0.0506
         },
         {
           "semana": 6,
-          "puntos": 32.41,
-          "posicion": 51,
-          "ret": 0.0283,
-          "ir": 0.57,
-          "exc": 0.1027,
-          "sharpe": 1.06,
-          "var95": -0.0218,
-          "mdd": -0.0736
+          "puntos": 67.08,
+          "posicion": 9,
+          "ret": 0.0821,
+          "ir": 4.22,
+          "exc": 0.48869999999999997,
+          "sharpe": 3.49,
+          "var95": -0.0129,
+          "mdd": -0.0506
         },
         {
           "semana": 7,
-          "puntos": 42.31,
-          "posicion": 42,
-          "ret": 0.017,
-          "ir": 1.12,
-          "exc": 0.15869999999999998,
-          "sharpe": 0.63,
-          "var95": -0.0196,
-          "mdd": -0.0736
+          "puntos": 66.27,
+          "posicion": 9,
+          "ret": 0.0548,
+          "ir": 3.6,
+          "exc": 0.35159999999999997,
+          "sharpe": 2.09,
+          "var95": -0.0155,
+          "mdd": -0.0506
         },
         {
           "semana": 8,
-          "puntos": 49.95,
-          "posicion": 27,
-          "ret": 0.0382,
-          "ir": 1.48,
-          "exc": 0.2003,
-          "sharpe": 1.16,
-          "var95": -0.0174,
-          "mdd": -0.0736
+          "puntos": 65.14,
+          "posicion": 8,
+          "ret": 0.0624,
+          "ir": 2.96,
+          "exc": 0.2943,
+          "sharpe": 2.18,
+          "var95": -0.0139,
+          "mdd": -0.0506
         },
         {
           "semana": 9,
-          "puntos": 50.07,
-          "posicion": 32,
-          "ret": 0.0343,
-          "ir": 0.72,
-          "exc": 0.1039,
-          "sharpe": 0.97,
-          "var95": -0.0165,
-          "mdd": -0.0736
+          "puntos": 65.51,
+          "posicion": 12,
+          "ret": 0.058,
+          "ir": 1.98,
+          "exc": 0.1924,
+          "sharpe": 1.84,
+          "var95": -0.0154,
+          "mdd": -0.0506
         },
         {
           "semana": 10,
-          "puntos": 16.98,
-          "posicion": 44,
-          "ret": -0.0099,
-          "ir": -0.43,
-          "exc": -0.04650000000000001,
-          "sharpe": -0.12,
-          "var95": -0.018000000000000002,
-          "mdd": -0.0736
+          "puntos": 64.02,
+          "posicion": 14,
+          "ret": 0.0348,
+          "ir": 1.59,
+          "exc": 0.1264,
+          "sharpe": 1.06,
+          "var95": -0.0148,
+          "mdd": -0.0506
         },
         {
           "semana": 11,
-          "puntos": 16.97,
-          "posicion": 47,
-          "ret": -0.0137,
-          "ir": -0.37,
-          "exc": -0.08929999999999999,
-          "sharpe": -0.19,
-          "var95": -0.0174,
-          "mdd": -0.0736
+          "puntos": 72.86,
+          "posicion": 9,
+          "ret": 0.0519,
+          "ir": 2.42,
+          "exc": 0.09230000000000001,
+          "sharpe": 1.43,
+          "var95": -0.0143,
+          "mdd": -0.051100000000000007
         },
         {
           "semana": 12,
-          "puntos": 59.45,
-          "posicion": 14,
-          "ret": 0.044,
-          "ir": 0.25,
-          "exc": 0.0167,
-          "sharpe": 0.9,
-          "var95": -0.0165,
-          "mdd": -0.0736
-        },
-        {
-          "semana": 13,
-          "puntos": 61.28,
-          "posicion": 11,
-          "ret": 0.058,
-          "ir": 0.54,
-          "exc": 0.0669,
-          "sharpe": 1.12,
-          "var95": -0.0165,
-          "mdd": -0.0736
-        },
-        {
-          "semana": 14,
-          "puntos": 65.49,
-          "posicion": 11,
-          "ret": 0.0727,
-          "ir": 0.79,
-          "exc": 0.068,
-          "sharpe": 1.32,
-          "var95": -0.016399999999999998,
-          "mdd": -0.0736
-        },
-        {
-          "semana": 15,
-          "puntos": 75.45,
-          "posicion": 8,
-          "ret": 0.0944,
-          "ir": 1.47,
-          "exc": 0.1832,
-          "sharpe": 1.51,
-          "var95": -0.0165,
-          "mdd": -0.0736
-        }
-      ]
-    },
-    {
-      "id": "riskisamurai",
-      "nombre": "RiskiSamurai",
-      "posicion": 9,
-      "puntos": 74.95,
-      "retRel": 0.0836,
-      "delta": -4,
-      "metricas": {
-        "ir": 1.52,
-        "exc": 0.0836,
-        "sharpe": 1.99,
-        "var95": -0.014499999999999999,
-        "mdd": -0.06509999999999999
-      },
-      "puntosDetalle": {
-        "ir": 24.160305,
-        "exc": 19.635175,
-        "sharpe": 11.374046,
-        "var95": 9.335347,
-        "mdd": 10.441351
-      },
-      "miembros": [
-        {
-          "nombre": "Juan Pablo Díaz Cerda",
-          "linkedin": "https://www.linkedin.com/in/juan-pablo-díaz-cerda-449133310/"
-        },
-        {
-          "nombre": "Valentina Perez Perez",
-          "linkedin": "https://www.linkedin.com/in/valentina-perez-perez-96b87b279"
-        },
-        {
-          "nombre": "Vicente Burgos",
-          "linkedin": "https://www.linkedin.com/in/vicenteburgos?utm_source=share_via&utm_content=profile&utm_medium=member_android"
-        }
-      ],
-      "historial": [
-        {
-          "semana": 5,
-          "puntos": 82.29,
-          "posicion": 3,
-          "ret": 0.0621,
-          "ir": 5.15,
-          "exc": 0.6375,
-          "sharpe": 4.02,
-          "var95": -0.011699999999999999,
-          "mdd": -0.0143
-        },
-        {
-          "semana": 6,
-          "puntos": 72.23,
-          "posicion": 3,
-          "ret": 0.0682,
-          "ir": 3.18,
-          "exc": 0.5642,
-          "sharpe": 4.0,
-          "var95": -0.011200000000000002,
-          "mdd": -0.0143
-        },
-        {
-          "semana": 7,
-          "puntos": 82.46,
-          "posicion": 2,
-          "ret": 0.0682,
-          "ir": 3.98,
-          "exc": 0.4836,
-          "sharpe": 3.68,
-          "var95": -0.010700000000000001,
-          "mdd": -0.0143
-        },
-        {
-          "semana": 8,
-          "puntos": 61.8,
-          "posicion": 12,
-          "ret": 0.0421,
-          "ir": 1.52,
-          "exc": 0.2938,
+          "puntos": 78.34,
+          "posicion": 5,
+          "ret": 0.08539999999999999,
+          "ir": 1.83,
+          "exc": 0.0966,
           "sharpe": 2.0,
           "var95": -0.013500000000000002,
-          "mdd": -0.0273
-        },
-        {
-          "semana": 9,
-          "puntos": 75.8,
-          "posicion": 2,
-          "ret": 0.0634,
-          "ir": 1.87,
-          "exc": 0.32289999999999996,
-          "sharpe": 2.58,
-          "var95": -0.013300000000000001,
-          "mdd": -0.0278
-        },
-        {
-          "semana": 10,
-          "puntos": 69.64,
-          "posicion": 7,
-          "ret": 0.0352,
-          "ir": 1.32,
-          "exc": 0.2391,
-          "sharpe": 1.31,
-          "var95": -0.0138,
-          "mdd": -0.0338
-        },
-        {
-          "semana": 11,
-          "puntos": 66.33,
-          "posicion": 12,
-          "ret": 0.0378,
-          "ir": 1.47,
-          "exc": 0.0124,
-          "sharpe": 1.23,
-          "var95": -0.013999999999999999,
-          "mdd": -0.0338
-        },
-        {
-          "semana": 12,
-          "puntos": 51.26,
-          "posicion": 20,
-          "ret": 0.0706,
-          "ir": 0.97,
-          "exc": -0.0006,
-          "sharpe": 1.7,
-          "var95": -0.0143,
-          "mdd": -0.06509999999999999
+          "mdd": -0.051100000000000007
         },
         {
           "semana": 13,
-          "puntos": 47.69,
-          "posicion": 21,
-          "ret": 0.0707,
-          "ir": 0.8,
-          "exc": -0.0111,
-          "sharpe": 1.66,
-          "var95": -0.0143,
-          "mdd": -0.06509999999999999
+          "puntos": 75.61,
+          "posicion": 5,
+          "ret": 0.0907,
+          "ir": 1.8,
+          "exc": 0.1016,
+          "sharpe": 2.07,
+          "var95": -0.013500000000000002,
+          "mdd": -0.051100000000000007
         },
         {
           "semana": 14,
-          "puntos": 76.45,
-          "posicion": 5,
-          "ret": 0.1119,
-          "ir": 1.72,
-          "exc": 0.086,
-          "sharpe": 2.4,
-          "var95": -0.0143,
-          "mdd": -0.06509999999999999
+          "puntos": 73.52,
+          "posicion": 8,
+          "ret": 0.0903,
+          "ir": 1.47,
+          "exc": 0.0432,
+          "sharpe": 1.98,
+          "var95": -0.0134,
+          "mdd": -0.051100000000000007
         },
         {
           "semana": 15,
-          "puntos": 74.95,
-          "posicion": 9,
-          "ret": 0.0974,
-          "ir": 1.52,
-          "exc": 0.0836,
-          "sharpe": 1.99,
-          "var95": -0.014499999999999999,
-          "mdd": -0.06509999999999999
+          "puntos": 80.8,
+          "posicion": 4,
+          "ret": 0.0976,
+          "ir": 1.99,
+          "exc": 0.1139,
+          "sharpe": 2.02,
+          "var95": -0.0134,
+          "mdd": -0.051100000000000007
+        },
+        {
+          "semana": 16,
+          "puntos": 75.57,
+          "posicion": 5,
+          "ret": 0.091,
+          "ir": 1.62,
+          "exc": 0.0393,
+          "sharpe": 1.81,
+          "var95": -0.013300000000000001,
+          "mdd": -0.051100000000000007
         }
       ]
     },
     {
       "id": "los-default",
       "nombre": "Los Default",
-      "posicion": 10,
-      "puntos": 74.26,
-      "retRel": 0.0736,
-      "delta": 27,
+      "posicion": 6,
+      "puntos": 75.23,
+      "retRel": 0.08560000000000001,
+      "delta": 4,
       "metricas": {
-        "ir": 0.96,
-        "exc": 0.0736,
-        "sharpe": 2.15,
-        "var95": -0.0083,
+        "ir": 0.91,
+        "exc": 0.08560000000000001,
+        "sharpe": 2.12,
+        "var95": -0.008199999999999999,
         "mdd": -0.0704
       },
       "puntosDetalle": {
-        "ir": 20.954198,
-        "exc": 19.204956,
-        "sharpe": 11.984733,
-        "var95": 12.145015,
+        "ir": 21.046771,
+        "exc": 20.110428,
+        "sharpe": 11.992386,
+        "var95": 12.108434,
         "mdd": 9.970379
       },
       "miembros": [
@@ -1615,183 +1046,715 @@
           "sharpe": 2.15,
           "var95": -0.0083,
           "mdd": -0.0704
+        },
+        {
+          "semana": 16,
+          "puntos": 75.23,
+          "posicion": 6,
+          "ret": 0.0768,
+          "ir": 0.91,
+          "exc": 0.08560000000000001,
+          "sharpe": 2.12,
+          "var95": -0.008199999999999999,
+          "mdd": -0.0704
         }
       ]
     },
     {
-      "id": "dcf-supremacy",
-      "nombre": "DCF Supremacy",
-      "posicion": 11,
-      "puntos": 73.49,
-      "retRel": 0.0435,
-      "delta": -2,
+      "id": "riskisamurai",
+      "nombre": "RiskiSamurai",
+      "posicion": 7,
+      "puntos": 75.16,
+      "retRel": 0.07690000000000001,
+      "delta": 2,
       "metricas": {
-        "ir": 0.33,
-        "exc": 0.0435,
-        "sharpe": 2.12,
-        "var95": -0.0058,
-        "mdd": -0.0354
+        "ir": 1.43,
+        "exc": 0.07690000000000001,
+        "sharpe": 1.92,
+        "var95": -0.0143,
+        "mdd": -0.06509999999999999
       },
       "puntosDetalle": {
-        "ir": 17.347328,
-        "exc": 17.909998,
-        "sharpe": 11.870229,
-        "var95": 13.277946,
-        "mdd": 13.080569
+        "ir": 24.521158,
+        "exc": 19.615209,
+        "sharpe": 11.230964,
+        "var95": 9.35241,
+        "mdd": 10.441351
       },
       "miembros": [
         {
-          "nombre": "Jhosep Gabriel García Suarez",
-          "linkedin": "https://www.linkedin.com/in/jhosep-garcia/"
+          "nombre": "Juan Pablo Díaz Cerda",
+          "linkedin": "https://www.linkedin.com/in/juan-pablo-díaz-cerda-449133310/"
         },
         {
-          "nombre": "Samuel Rodriguez Arnolds",
-          "linkedin": "https://www.linkedin.com/in/samuel-rodr%C3%ADguez-arnolds-8b9608241/"
+          "nombre": "Valentina Perez Perez",
+          "linkedin": "https://www.linkedin.com/in/valentina-perez-perez-96b87b279"
+        },
+        {
+          "nombre": "Vicente Burgos",
+          "linkedin": "https://www.linkedin.com/in/vicenteburgos?utm_source=share_via&utm_content=profile&utm_medium=member_android"
         }
       ],
       "historial": [
         {
           "semana": 5,
-          "puntos": 48.11,
-          "posicion": 40,
-          "ret": 0.0171,
-          "ir": 1.13,
-          "exc": 0.14880000000000002,
-          "sharpe": 1.41,
-          "var95": -0.011000000000000001,
-          "mdd": -0.0354
+          "puntos": 82.29,
+          "posicion": 3,
+          "ret": 0.0621,
+          "ir": 5.15,
+          "exc": 0.6375,
+          "sharpe": 4.02,
+          "var95": -0.011699999999999999,
+          "mdd": -0.0143
         },
         {
           "semana": 6,
-          "puntos": 28.42,
-          "posicion": 54,
-          "ret": 0.0151,
-          "ir": -0.55,
-          "exc": -0.0033,
-          "sharpe": 1.1,
-          "var95": -0.01,
-          "mdd": -0.0354
+          "puntos": 72.23,
+          "posicion": 3,
+          "ret": 0.0682,
+          "ir": 3.18,
+          "exc": 0.5642,
+          "sharpe": 4.0,
+          "var95": -0.011200000000000002,
+          "mdd": -0.0143
         },
         {
           "semana": 7,
-          "puntos": 51.1,
-          "posicion": 29,
-          "ret": 0.0145,
-          "ir": 1.04,
-          "exc": 0.12179999999999999,
-          "sharpe": 0.98,
-          "var95": -0.0088,
-          "mdd": -0.0354
+          "puntos": 82.46,
+          "posicion": 2,
+          "ret": 0.0682,
+          "ir": 3.98,
+          "exc": 0.4836,
+          "sharpe": 3.68,
+          "var95": -0.010700000000000001,
+          "mdd": -0.0143
         },
         {
           "semana": 8,
-          "puntos": 58.48,
-          "posicion": 17,
-          "ret": 0.0324,
-          "ir": 1.27,
-          "exc": 0.15839999999999999,
-          "sharpe": 1.93,
-          "var95": -0.0076,
-          "mdd": -0.0354
+          "puntos": 61.8,
+          "posicion": 12,
+          "ret": 0.0421,
+          "ir": 1.52,
+          "exc": 0.2938,
+          "sharpe": 2.0,
+          "var95": -0.013500000000000002,
+          "mdd": -0.0273
         },
         {
           "semana": 9,
-          "puntos": 61.9,
-          "posicion": 14,
-          "ret": 0.0353,
-          "ir": 0.75,
-          "exc": 0.11539999999999999,
-          "sharpe": 1.95,
-          "var95": -0.006999999999999999,
-          "mdd": -0.0354
+          "puntos": 75.8,
+          "posicion": 2,
+          "ret": 0.0634,
+          "ir": 1.87,
+          "exc": 0.32289999999999996,
+          "sharpe": 2.58,
+          "var95": -0.013300000000000001,
+          "mdd": -0.0278
         },
         {
           "semana": 10,
-          "puntos": 68.77,
-          "posicion": 10,
-          "ret": 0.0287,
-          "ir": 1.21,
-          "exc": 0.1365,
-          "sharpe": 1.51,
-          "var95": -0.0067,
-          "mdd": -0.0354
+          "puntos": 69.64,
+          "posicion": 7,
+          "ret": 0.0352,
+          "ir": 1.32,
+          "exc": 0.2391,
+          "sharpe": 1.31,
+          "var95": -0.0138,
+          "mdd": -0.0338
         },
         {
           "semana": 11,
-          "puntos": 76.11,
-          "posicion": 6,
-          "ret": 0.0393,
-          "ir": 1.74,
-          "exc": 0.0949,
-          "sharpe": 1.92,
-          "var95": -0.006500000000000001,
-          "mdd": -0.0354
+          "puntos": 66.33,
+          "posicion": 12,
+          "ret": 0.0378,
+          "ir": 1.47,
+          "exc": 0.0124,
+          "sharpe": 1.23,
+          "var95": -0.013999999999999999,
+          "mdd": -0.0338
         },
         {
           "semana": 12,
-          "puntos": 70.86,
-          "posicion": 10,
-          "ret": 0.0466,
-          "ir": 0.18,
-          "exc": 0.024300000000000002,
-          "sharpe": 2.08,
-          "var95": -0.006,
-          "mdd": -0.0354
+          "puntos": 51.26,
+          "posicion": 20,
+          "ret": 0.0706,
+          "ir": 0.97,
+          "exc": -0.0006,
+          "sharpe": 1.7,
+          "var95": -0.0143,
+          "mdd": -0.06509999999999999
         },
         {
           "semana": 13,
-          "puntos": 67.45,
-          "posicion": 8,
-          "ret": 0.048,
-          "ir": 0.05,
-          "exc": 0.027999999999999997,
-          "sharpe": 2.11,
-          "var95": -0.0059,
-          "mdd": -0.0354
+          "puntos": 47.69,
+          "posicion": 21,
+          "ret": 0.0707,
+          "ir": 0.8,
+          "exc": -0.0111,
+          "sharpe": 1.66,
+          "var95": -0.0143,
+          "mdd": -0.06509999999999999
         },
         {
           "semana": 14,
-          "puntos": 72.36,
-          "posicion": 9,
-          "ret": 0.059,
-          "ir": 0.22,
-          "exc": 0.0403,
-          "sharpe": 2.45,
-          "var95": -0.005600000000000001,
-          "mdd": -0.0354
+          "puntos": 76.45,
+          "posicion": 5,
+          "ret": 0.1119,
+          "ir": 1.72,
+          "exc": 0.086,
+          "sharpe": 2.4,
+          "var95": -0.0143,
+          "mdd": -0.06509999999999999
         },
         {
           "semana": 15,
-          "puntos": 73.49,
+          "puntos": 74.95,
+          "posicion": 9,
+          "ret": 0.0974,
+          "ir": 1.52,
+          "exc": 0.0836,
+          "sharpe": 1.99,
+          "var95": -0.014499999999999999,
+          "mdd": -0.06509999999999999
+        },
+        {
+          "semana": 16,
+          "puntos": 75.16,
+          "posicion": 7,
+          "ret": 0.0979,
+          "ir": 1.43,
+          "exc": 0.07690000000000001,
+          "sharpe": 1.92,
+          "var95": -0.0143,
+          "mdd": -0.06509999999999999
+        }
+      ]
+    },
+    {
+      "id": "jav-capital",
+      "nombre": "JAV Capital",
+      "posicion": 8,
+      "puntos": 74.04,
+      "retRel": 0.006999999999999999,
+      "delta": -2,
+      "metricas": {
+        "ir": 0.72,
+        "exc": 0.006999999999999999,
+        "sharpe": 2.08,
+        "var95": -0.008,
+        "mdd": -0.0184
+      },
+      "puntosDetalle": {
+        "ir": 19.777283,
+        "exc": 15.636384,
+        "sharpe": 11.840102,
+        "var95": 12.198795,
+        "mdd": 14.591232
+      },
+      "miembros": [
+        {
+          "nombre": "Valente Zecchetto Puigrredón",
+          "linkedin": ""
+        },
+        {
+          "nombre": "José Luis Farías Reyes",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Agustín Gabriel Gomez Rebolledo",
+          "linkedin": ""
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 73.9,
+          "posicion": 6,
+          "ret": 0.0468,
+          "ir": 4.59,
+          "exc": 0.32270000000000004,
+          "sharpe": 4.07,
+          "var95": -0.0076,
+          "mdd": -0.0184
+        },
+        {
+          "semana": 6,
+          "puntos": 64.08,
+          "posicion": 13,
+          "ret": 0.0533,
+          "ir": 2.96,
+          "exc": 0.21530000000000002,
+          "sharpe": 3.86,
+          "var95": -0.0087,
+          "mdd": -0.0184
+        },
+        {
+          "semana": 7,
+          "puntos": 72.93,
+          "posicion": 4,
+          "ret": 0.0447,
+          "ir": 3.91,
+          "exc": 0.2858,
+          "sharpe": 2.72,
+          "var95": -0.011699999999999999,
+          "mdd": -0.0184
+        },
+        {
+          "semana": 8,
+          "puntos": 71.61,
+          "posicion": 4,
+          "ret": 0.0517,
+          "ir": 3.08,
+          "exc": 0.22760000000000002,
+          "sharpe": 2.88,
+          "var95": -0.009899999999999999,
+          "mdd": -0.0184
+        },
+        {
+          "semana": 9,
+          "puntos": 75.13,
+          "posicion": 3,
+          "ret": 0.0537,
+          "ir": 2.25,
+          "exc": 0.1711,
+          "sharpe": 2.73,
+          "var95": -0.009000000000000001,
+          "mdd": -0.0184
+        },
+        {
+          "semana": 10,
+          "puntos": 79.54,
+          "posicion": 4,
+          "ret": 0.0442,
+          "ir": 2.62,
+          "exc": 0.1709,
+          "sharpe": 2.08,
+          "var95": -0.0087,
+          "mdd": -0.0184
+        },
+        {
+          "semana": 11,
+          "puntos": 81.4,
+          "posicion": 3,
+          "ret": 0.0448,
+          "ir": 2.7,
+          "exc": 0.0693,
+          "sharpe": 1.98,
+          "var95": -0.0085,
+          "mdd": -0.0184
+        },
+        {
+          "semana": 12,
+          "puntos": 76.81,
+          "posicion": 7,
+          "ret": 0.0607,
+          "ir": 0.91,
+          "exc": 0.030899999999999997,
+          "sharpe": 2.38,
+          "var95": -0.008100000000000001,
+          "mdd": -0.0184
+        },
+        {
+          "semana": 13,
+          "puntos": 73.95,
+          "posicion": 6,
+          "ret": 0.0649,
+          "ir": 0.86,
+          "exc": 0.0381,
+          "sharpe": 2.49,
+          "var95": -0.008100000000000001,
+          "mdd": -0.0184
+        },
+        {
+          "semana": 14,
+          "puntos": 75.67,
+          "posicion": 7,
+          "ret": 0.0715,
+          "ir": 0.87,
+          "exc": 0.0121,
+          "sharpe": 2.61,
+          "var95": -0.008100000000000001,
+          "mdd": -0.0184
+        },
+        {
+          "semana": 15,
+          "puntos": 77.91,
+          "posicion": 6,
+          "ret": 0.065,
+          "ir": 0.97,
+          "exc": 0.0369,
+          "sharpe": 2.26,
+          "var95": -0.008,
+          "mdd": -0.0184
+        },
+        {
+          "semana": 16,
+          "puntos": 74.04,
+          "posicion": 8,
+          "ret": 0.0619,
+          "ir": 0.72,
+          "exc": 0.006999999999999999,
+          "sharpe": 2.08,
+          "var95": -0.008,
+          "mdd": -0.0184
+        }
+      ]
+    },
+    {
+      "id": "edp",
+      "nombre": "EDP",
+      "posicion": 9,
+      "puntos": 72.2,
+      "retRel": 0.1286,
+      "delta": -1,
+      "metricas": {
+        "ir": 1.15,
+        "exc": 0.1286,
+        "sharpe": 1.32,
+        "var95": -0.0165,
+        "mdd": -0.0736
+      },
+      "puntosDetalle": {
+        "ir": 22.650334,
+        "exc": 22.55806,
+        "sharpe": 8.946701,
+        "var95": 8.358434,
+        "mdd": 9.686019
+      },
+      "miembros": [
+        {
+          "nombre": "Ignacio Aylwin Campos",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Cristian Eduardo Meriño Riquelme",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Richard Orlando Figueroa Villegas",
+          "linkedin": ""
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 27.01,
+          "posicion": 52,
+          "ret": 0.0071,
+          "ir": 0.21,
+          "exc": 0.049400000000000006,
+          "sharpe": 0.41,
+          "var95": -0.024,
+          "mdd": -0.0736
+        },
+        {
+          "semana": 6,
+          "puntos": 32.41,
+          "posicion": 51,
+          "ret": 0.0283,
+          "ir": 0.57,
+          "exc": 0.1027,
+          "sharpe": 1.06,
+          "var95": -0.0218,
+          "mdd": -0.0736
+        },
+        {
+          "semana": 7,
+          "puntos": 42.31,
+          "posicion": 42,
+          "ret": 0.017,
+          "ir": 1.12,
+          "exc": 0.15869999999999998,
+          "sharpe": 0.63,
+          "var95": -0.0196,
+          "mdd": -0.0736
+        },
+        {
+          "semana": 8,
+          "puntos": 49.95,
+          "posicion": 27,
+          "ret": 0.0382,
+          "ir": 1.48,
+          "exc": 0.2003,
+          "sharpe": 1.16,
+          "var95": -0.0174,
+          "mdd": -0.0736
+        },
+        {
+          "semana": 9,
+          "puntos": 50.07,
+          "posicion": 32,
+          "ret": 0.0343,
+          "ir": 0.72,
+          "exc": 0.1039,
+          "sharpe": 0.97,
+          "var95": -0.0165,
+          "mdd": -0.0736
+        },
+        {
+          "semana": 10,
+          "puntos": 16.98,
+          "posicion": 44,
+          "ret": -0.0099,
+          "ir": -0.43,
+          "exc": -0.04650000000000001,
+          "sharpe": -0.12,
+          "var95": -0.018000000000000002,
+          "mdd": -0.0736
+        },
+        {
+          "semana": 11,
+          "puntos": 16.97,
+          "posicion": 47,
+          "ret": -0.0137,
+          "ir": -0.37,
+          "exc": -0.08929999999999999,
+          "sharpe": -0.19,
+          "var95": -0.0174,
+          "mdd": -0.0736
+        },
+        {
+          "semana": 12,
+          "puntos": 59.45,
+          "posicion": 14,
+          "ret": 0.044,
+          "ir": 0.25,
+          "exc": 0.0167,
+          "sharpe": 0.9,
+          "var95": -0.0165,
+          "mdd": -0.0736
+        },
+        {
+          "semana": 13,
+          "puntos": 61.28,
           "posicion": 11,
-          "ret": 0.0534,
+          "ret": 0.058,
+          "ir": 0.54,
+          "exc": 0.0669,
+          "sharpe": 1.12,
+          "var95": -0.0165,
+          "mdd": -0.0736
+        },
+        {
+          "semana": 14,
+          "puntos": 65.49,
+          "posicion": 11,
+          "ret": 0.0727,
+          "ir": 0.79,
+          "exc": 0.068,
+          "sharpe": 1.32,
+          "var95": -0.016399999999999998,
+          "mdd": -0.0736
+        },
+        {
+          "semana": 15,
+          "puntos": 75.45,
+          "posicion": 8,
+          "ret": 0.0944,
+          "ir": 1.47,
+          "exc": 0.1832,
+          "sharpe": 1.51,
+          "var95": -0.0165,
+          "mdd": -0.0736
+        },
+        {
+          "semana": 16,
+          "puntos": 72.2,
+          "posicion": 9,
+          "ret": 0.0865,
+          "ir": 1.15,
+          "exc": 0.1286,
+          "sharpe": 1.32,
+          "var95": -0.0165,
+          "mdd": -0.0736
+        }
+      ]
+    },
+    {
+      "id": "luky-capital",
+      "nombre": "Luky Capital",
+      "posicion": 10,
+      "puntos": 72.02,
+      "retRel": 0.0311,
+      "delta": -3,
+      "metricas": {
+        "ir": 0.07,
+        "exc": 0.0311,
+        "sharpe": 2.12,
+        "var95": -0.0062,
+        "mdd": -0.018600000000000002
+      },
+      "puntosDetalle": {
+        "ir": 15.434298,
+        "exc": 17.008197,
+        "sharpe": 11.992386,
+        "var95": 13.012048,
+        "mdd": 14.57346
+      },
+      "miembros": [
+        {
+          "nombre": "Andres Llaña",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Barbara Johnson",
+          "linkedin": ""
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 58.58,
+          "posicion": 23,
+          "ret": 0.0276,
+          "ir": 1.72,
+          "exc": 0.1261,
+          "sharpe": 3.38,
+          "var95": -0.0060999999999999995,
+          "mdd": -0.018600000000000002
+        },
+        {
+          "semana": 6,
+          "puntos": 32.36,
+          "posicion": 52,
+          "ret": 0.016,
+          "ir": -0.4,
+          "exc": -0.10369999999999999,
+          "sharpe": 1.64,
+          "var95": -0.0091,
+          "mdd": -0.018600000000000002
+        },
+        {
+          "semana": 7,
+          "puntos": 57.62,
+          "posicion": 21,
+          "ret": 0.0233,
+          "ir": 1.36,
+          "exc": 0.10980000000000001,
+          "sharpe": 2.16,
+          "var95": -0.0079,
+          "mdd": -0.018600000000000002
+        },
+        {
+          "semana": 8,
+          "puntos": 56.96,
+          "posicion": 20,
+          "ret": 0.0264,
+          "ir": 0.73,
+          "exc": 0.0463,
+          "sharpe": 2.18,
+          "var95": -0.0066,
+          "mdd": -0.018600000000000002
+        },
+        {
+          "semana": 9,
+          "puntos": 58.64,
+          "posicion": 21,
+          "ret": 0.029,
           "ir": 0.33,
-          "exc": 0.0435,
+          "exc": 0.0089,
+          "sharpe": 2.14,
+          "var95": -0.0069,
+          "mdd": -0.018600000000000002
+        },
+        {
+          "semana": 10,
+          "puntos": 69.29,
+          "posicion": 9,
+          "ret": 0.0282,
+          "ir": 0.99,
+          "exc": 0.0877,
+          "sharpe": 1.94,
+          "var95": -0.0067,
+          "mdd": -0.018600000000000002
+        },
+        {
+          "semana": 11,
+          "puntos": 76.59,
+          "posicion": 5,
+          "ret": 0.0316,
+          "ir": 1.22,
+          "exc": 0.11800000000000001,
+          "sharpe": 1.97,
+          "var95": -0.0064,
+          "mdd": -0.018600000000000002
+        },
+        {
+          "semana": 12,
+          "puntos": 71.16,
+          "posicion": 9,
+          "ret": 0.0423,
+          "ir": 0.01,
+          "exc": 0.0148,
+          "sharpe": 2.27,
+          "var95": -0.006999999999999999,
+          "mdd": -0.018600000000000002
+        },
+        {
+          "semana": 13,
+          "puntos": 53.1,
+          "posicion": 16,
+          "ret": 0.0444,
+          "ir": -0.08,
+          "exc": 0.0204,
+          "sharpe": 2.32,
+          "var95": -0.0069,
+          "mdd": -0.018600000000000002
+        },
+        {
+          "semana": 14,
+          "puntos": 37.0,
+          "posicion": 28,
+          "ret": 0.0513,
+          "ir": -0.03,
+          "exc": -0.0003,
+          "sharpe": 2.55,
+          "var95": -0.0067,
+          "mdd": -0.018600000000000002
+        },
+        {
+          "semana": 15,
+          "puntos": 75.66,
+          "posicion": 7,
+          "ret": 0.0521,
+          "ir": 0.26,
+          "exc": 0.04650000000000001,
+          "sharpe": 2.44,
+          "var95": -0.0064,
+          "mdd": -0.018600000000000002
+        },
+        {
+          "semana": 16,
+          "puntos": 72.02,
+          "posicion": 10,
+          "ret": 0.0471,
+          "ir": 0.07,
+          "exc": 0.0311,
           "sharpe": 2.12,
-          "var95": -0.0058,
-          "mdd": -0.0354
+          "var95": -0.0062,
+          "mdd": -0.018600000000000002
         }
       ]
     },
     {
       "id": "optimo-investment",
       "nombre": "Optimo Investment",
-      "posicion": 12,
-      "puntos": 69.9,
-      "retRel": 0.1439,
-      "delta": -2,
+      "posicion": 11,
+      "puntos": 70.63,
+      "retRel": 0.1261,
+      "delta": 1,
       "metricas": {
-        "ir": 1.66,
-        "exc": 0.1439,
-        "sharpe": 1.49,
-        "var95": -0.0223,
+        "ir": 1.57,
+        "exc": 0.1261,
+        "sharpe": 1.44,
+        "var95": -0.0219,
         "mdd": -0.0989
       },
       "puntosDetalle": {
-        "ir": 24.961832,
-        "exc": 22.229393,
-        "sharpe": 9.465649,
-        "var95": 5.800604,
+        "ir": 25.45657,
+        "exc": 22.415756,
+        "sharpe": 9.403553,
+        "var95": 5.918675,
         "mdd": 7.437796
       },
       "miembros": [
@@ -1925,6 +1888,183 @@
           "sharpe": 1.49,
           "var95": -0.0223,
           "mdd": -0.0989
+        },
+        {
+          "semana": 16,
+          "puntos": 70.63,
+          "posicion": 11,
+          "ret": 0.105,
+          "ir": 1.57,
+          "exc": 0.1261,
+          "sharpe": 1.44,
+          "var95": -0.0219,
+          "mdd": -0.0989
+        }
+      ]
+    },
+    {
+      "id": "dcf-supremacy",
+      "nombre": "DCF Supremacy",
+      "posicion": 12,
+      "puntos": 69.06,
+      "retRel": 0.0176,
+      "delta": -1,
+      "metricas": {
+        "ir": 0.09,
+        "exc": 0.0176,
+        "sharpe": 1.83,
+        "var95": -0.005600000000000001,
+        "mdd": -0.0354
+      },
+      "puntosDetalle": {
+        "ir": 15.567929,
+        "exc": 16.239754,
+        "sharpe": 10.888325,
+        "var95": 13.283133,
+        "mdd": 13.080569
+      },
+      "miembros": [
+        {
+          "nombre": "Jhosep Gabriel García Suarez",
+          "linkedin": "https://www.linkedin.com/in/jhosep-garcia/"
+        },
+        {
+          "nombre": "Samuel Rodriguez Arnolds",
+          "linkedin": "https://www.linkedin.com/in/samuel-rodr%C3%ADguez-arnolds-8b9608241/"
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 48.11,
+          "posicion": 40,
+          "ret": 0.0171,
+          "ir": 1.13,
+          "exc": 0.14880000000000002,
+          "sharpe": 1.41,
+          "var95": -0.011000000000000001,
+          "mdd": -0.0354
+        },
+        {
+          "semana": 6,
+          "puntos": 28.42,
+          "posicion": 54,
+          "ret": 0.0151,
+          "ir": -0.55,
+          "exc": -0.0033,
+          "sharpe": 1.1,
+          "var95": -0.01,
+          "mdd": -0.0354
+        },
+        {
+          "semana": 7,
+          "puntos": 51.1,
+          "posicion": 29,
+          "ret": 0.0145,
+          "ir": 1.04,
+          "exc": 0.12179999999999999,
+          "sharpe": 0.98,
+          "var95": -0.0088,
+          "mdd": -0.0354
+        },
+        {
+          "semana": 8,
+          "puntos": 58.48,
+          "posicion": 17,
+          "ret": 0.0324,
+          "ir": 1.27,
+          "exc": 0.15839999999999999,
+          "sharpe": 1.93,
+          "var95": -0.0076,
+          "mdd": -0.0354
+        },
+        {
+          "semana": 9,
+          "puntos": 61.9,
+          "posicion": 14,
+          "ret": 0.0353,
+          "ir": 0.75,
+          "exc": 0.11539999999999999,
+          "sharpe": 1.95,
+          "var95": -0.006999999999999999,
+          "mdd": -0.0354
+        },
+        {
+          "semana": 10,
+          "puntos": 68.77,
+          "posicion": 10,
+          "ret": 0.0287,
+          "ir": 1.21,
+          "exc": 0.1365,
+          "sharpe": 1.51,
+          "var95": -0.0067,
+          "mdd": -0.0354
+        },
+        {
+          "semana": 11,
+          "puntos": 76.11,
+          "posicion": 6,
+          "ret": 0.0393,
+          "ir": 1.74,
+          "exc": 0.0949,
+          "sharpe": 1.92,
+          "var95": -0.006500000000000001,
+          "mdd": -0.0354
+        },
+        {
+          "semana": 12,
+          "puntos": 70.86,
+          "posicion": 10,
+          "ret": 0.0466,
+          "ir": 0.18,
+          "exc": 0.024300000000000002,
+          "sharpe": 2.08,
+          "var95": -0.006,
+          "mdd": -0.0354
+        },
+        {
+          "semana": 13,
+          "puntos": 67.45,
+          "posicion": 8,
+          "ret": 0.048,
+          "ir": 0.05,
+          "exc": 0.027999999999999997,
+          "sharpe": 2.11,
+          "var95": -0.0059,
+          "mdd": -0.0354
+        },
+        {
+          "semana": 14,
+          "puntos": 72.36,
+          "posicion": 9,
+          "ret": 0.059,
+          "ir": 0.22,
+          "exc": 0.0403,
+          "sharpe": 2.45,
+          "var95": -0.005600000000000001,
+          "mdd": -0.0354
+        },
+        {
+          "semana": 15,
+          "puntos": 73.49,
+          "posicion": 11,
+          "ret": 0.0534,
+          "ir": 0.33,
+          "exc": 0.0435,
+          "sharpe": 2.12,
+          "var95": -0.0058,
+          "mdd": -0.0354
+        },
+        {
+          "semana": 16,
+          "puntos": 69.06,
+          "posicion": 12,
+          "ret": 0.0477,
+          "ir": 0.09,
+          "exc": 0.0176,
+          "sharpe": 1.83,
+          "var95": -0.005600000000000001,
+          "mdd": -0.0354
         }
       ]
     },
@@ -1932,21 +2072,21 @@
       "id": "i-c",
       "nombre": "I.C",
       "posicion": 13,
-      "puntos": 67.8,
-      "retRel": 0.0068000000000000005,
-      "delta": 6,
+      "puntos": 67.24,
+      "retRel": 0.0018,
+      "delta": 0,
       "metricas": {
         "ir": 0.63,
-        "exc": 0.0068000000000000005,
-        "sharpe": 1.35,
-        "var95": -0.0115,
+        "exc": 0.0018,
+        "sharpe": 1.36,
+        "var95": -0.011000000000000001,
         "mdd": -0.0388
       },
       "puntosDetalle": {
-        "ir": 19.064885,
-        "exc": 16.331096,
-        "sharpe": 8.931298,
-        "var95": 10.694864,
+        "ir": 19.175947,
+        "exc": 15.340392,
+        "sharpe": 9.098985,
+        "var95": 10.843373,
         "mdd": 12.778436
       },
       "miembros": [
@@ -2080,186 +2220,38 @@
           "sharpe": 1.35,
           "var95": -0.0115,
           "mdd": -0.0388
-        }
-      ]
-    },
-    {
-      "id": "dfs-capital",
-      "nombre": "DFS CAPITAL",
-      "posicion": 14,
-      "puntos": 63.87,
-      "retRel": 0.0146,
-      "delta": 10,
-      "metricas": {
-        "ir": 0.68,
-        "exc": 0.0146,
-        "sharpe": 1.15,
-        "var95": -0.0155,
-        "mdd": -0.061
-      },
-      "puntosDetalle": {
-        "ir": 19.351145,
-        "exc": 16.666667,
-        "sharpe": 8.167939,
-        "var95": 8.882175,
-        "mdd": 10.805687
-      },
-      "miembros": [
-        {
-          "nombre": "Felipe Cifuentes",
-          "linkedin": "https://www.linkedin.com/in/felipe-ignacio-cifuentes-urra-146954229?utm_source=share_via&utm_content=profile&utm_medium=member_android"
         },
         {
-          "nombre": "Diego Adones",
-          "linkedin": "https://www.linkedin.com/in/diego-adones-lópez?utm_source=share_via&utm_content=profile&utm_medium=member_android"
-        },
-        {
-          "nombre": "Sergio Contreras",
-          "linkedin": "https://www.linkedin.com/in/sergio-contreras-cabrera-0463372a5/details/experience/"
-        }
-      ],
-      "historial": [
-        {
-          "semana": 5,
-          "puntos": 56.57,
-          "posicion": 26,
-          "ret": 0.0364,
-          "ir": 3.14,
-          "exc": 0.3039,
-          "sharpe": 2.04,
-          "var95": -0.0146,
-          "mdd": -0.0458
-        },
-        {
-          "semana": 6,
-          "puntos": 56.91,
-          "posicion": 24,
-          "ret": 0.0549,
-          "ir": 3.07,
-          "exc": 0.2867,
-          "sharpe": 2.52,
-          "var95": -0.0132,
-          "mdd": -0.0458
-        },
-        {
-          "semana": 7,
-          "puntos": 61.09,
-          "posicion": 17,
-          "ret": 0.0407,
-          "ir": 3.23,
-          "exc": 0.3029,
-          "sharpe": 1.58,
-          "var95": -0.0196,
-          "mdd": -0.0458
-        },
-        {
-          "semana": 8,
-          "puntos": 53.08,
-          "posicion": 23,
-          "ret": 0.0333,
-          "ir": 1.56,
-          "exc": 0.1432,
-          "sharpe": 1.2,
-          "var95": -0.0167,
-          "mdd": -0.0458
-        },
-        {
-          "semana": 9,
-          "puntos": 57.24,
-          "posicion": 23,
-          "ret": 0.0391,
-          "ir": 1.18,
-          "exc": 0.10490000000000001,
-          "sharpe": 1.26,
-          "var95": -0.0155,
-          "mdd": -0.0458
-        },
-        {
-          "semana": 10,
-          "puntos": 56.46,
-          "posicion": 21,
-          "ret": 0.0151,
-          "ir": 0.75,
-          "exc": 0.0599,
-          "sharpe": 0.51,
-          "var95": -0.0155,
-          "mdd": -0.0458
-        },
-        {
-          "semana": 11,
-          "puntos": 59.98,
-          "posicion": 16,
-          "ret": 0.0179,
-          "ir": 1.08,
-          "exc": 0.013500000000000002,
-          "sharpe": 0.55,
-          "var95": -0.0155,
-          "mdd": -0.0472
-        },
-        {
-          "semana": 12,
-          "puntos": 47.21,
-          "posicion": 22,
-          "ret": 0.0509,
-          "ir": 0.58,
-          "exc": -0.0015,
-          "sharpe": 1.19,
-          "var95": -0.0155,
-          "mdd": -0.061
-        },
-        {
-          "semana": 13,
-          "puntos": 43.6,
-          "posicion": 25,
-          "ret": 0.0513,
-          "ir": 0.36,
-          "exc": -0.0018,
-          "sharpe": 1.17,
-          "var95": -0.0155,
-          "mdd": -0.061
-        },
-        {
-          "semana": 14,
-          "puntos": 46.4,
-          "posicion": 24,
-          "ret": 0.0644,
-          "ir": 0.67,
-          "exc": -0.0031,
-          "sharpe": 1.38,
-          "var95": -0.0155,
-          "mdd": -0.061
-        },
-        {
-          "semana": 15,
-          "puntos": 63.87,
-          "posicion": 14,
-          "ret": 0.0555,
-          "ir": 0.68,
-          "exc": 0.0146,
-          "sharpe": 1.15,
-          "var95": -0.0155,
-          "mdd": -0.061
+          "semana": 16,
+          "puntos": 67.24,
+          "posicion": 13,
+          "ret": 0.0512,
+          "ir": 0.63,
+          "exc": 0.0018,
+          "sharpe": 1.36,
+          "var95": -0.011000000000000001,
+          "mdd": -0.0388
         }
       ]
     },
     {
       "id": "black-swan-capital",
       "nombre": "Black Swan Capital",
-      "posicion": 15,
-      "puntos": 60.32,
-      "retRel": -0.0037,
-      "delta": -2,
+      "posicion": 14,
+      "puntos": 60.37,
+      "retRel": -0.0102,
+      "delta": 1,
       "metricas": {
-        "ir": 0.03,
-        "exc": -0.0037,
-        "sharpe": 2.86,
-        "var95": -0.002,
+        "ir": 0.06,
+        "exc": -0.0102,
+        "sharpe": 2.91,
+        "var95": -0.0018,
         "mdd": -0.0138
       },
       "puntosDetalle": {
-        "ir": 15.629771,
+        "ir": 15.367483,
         "exc": 0,
-        "sharpe": 14.694656,
+        "sharpe": 15.0,
         "var95": 15.0,
         "mdd": 15.0
       },
@@ -2394,28 +2386,39 @@
           "sharpe": 2.86,
           "var95": -0.002,
           "mdd": -0.0138
+        },
+        {
+          "semana": 16,
+          "puntos": 60.37,
+          "posicion": 14,
+          "ret": 0.0474,
+          "ir": 0.06,
+          "exc": -0.0102,
+          "sharpe": 2.91,
+          "var95": -0.0018,
+          "mdd": -0.0138
         }
       ]
     },
     {
       "id": "athena",
       "nombre": "Athena",
-      "posicion": 16,
-      "puntos": 54.81,
-      "retRel": 0.0334,
-      "delta": -1,
+      "posicion": 15,
+      "puntos": 53.02,
+      "retRel": 0.0173,
+      "delta": 1,
       "metricas": {
-        "ir": -0.28,
-        "exc": 0.0334,
-        "sharpe": 1.7,
-        "var95": -0.0066,
+        "ir": -0.44,
+        "exc": 0.0173,
+        "sharpe": 1.5,
+        "var95": -0.0062,
         "mdd": -0.0233
       },
       "puntosDetalle": {
         "ir": 0,
-        "exc": 17.475478,
-        "sharpe": 10.267176,
-        "var95": 12.915408,
+        "exc": 16.222678,
+        "sharpe": 9.63198,
+        "var95": 13.012048,
         "mdd": 14.155806
       },
       "miembros": [
@@ -2553,28 +2556,39 @@
           "sharpe": 1.7,
           "var95": -0.0066,
           "mdd": -0.0233
+        },
+        {
+          "semana": 16,
+          "puntos": 53.02,
+          "posicion": 15,
+          "ret": 0.0329,
+          "ir": -0.44,
+          "exc": 0.0173,
+          "sharpe": 1.5,
+          "var95": -0.0062,
+          "mdd": -0.0233
         }
       ]
     },
     {
       "id": "bull-market-boys",
       "nombre": "Bull Market Boys",
-      "posicion": 17,
-      "puntos": 52.16,
-      "retRel": -0.0233,
-      "delta": 5,
+      "posicion": 16,
+      "puntos": 51.66,
+      "retRel": -0.0349,
+      "delta": 1,
       "metricas": {
-        "ir": 0.26,
-        "exc": -0.0233,
-        "sharpe": 1.56,
-        "var95": -0.0066,
+        "ir": 0.22,
+        "exc": -0.0349,
+        "sharpe": 1.54,
+        "var95": -0.006500000000000001,
         "mdd": -0.0412
       },
       "puntosDetalle": {
-        "ir": 16.946565,
+        "ir": 16.436526,
         "exc": 0,
-        "sharpe": 9.732824,
-        "var95": 12.915408,
+        "sharpe": 9.784264,
+        "var95": 12.876506,
         "mdd": 12.565166
       },
       "miembros": [
@@ -2708,187 +2722,209 @@
           "sharpe": 1.56,
           "var95": -0.0066,
           "mdd": -0.0412
+        },
+        {
+          "semana": 16,
+          "puntos": 51.66,
+          "posicion": 16,
+          "ret": 0.0491,
+          "ir": 0.22,
+          "exc": -0.0349,
+          "sharpe": 1.54,
+          "var95": -0.006500000000000001,
+          "mdd": -0.0412
         }
       ]
     },
     {
-      "id": "terra-capital",
-      "nombre": "Terra Capital",
-      "posicion": 18,
-      "puntos": 48.59,
-      "retRel": -0.0387,
-      "delta": 21,
+      "id": "expertos-en-blackrock",
+      "nombre": "Expertos en Blackrock",
+      "posicion": 17,
+      "puntos": 50.93,
+      "retRel": -0.0447,
+      "delta": 8,
       "metricas": {
-        "ir": 0.33,
-        "exc": -0.0387,
-        "sharpe": 1.3,
-        "var95": -0.0103,
-        "mdd": -0.0559
+        "ir": 2.25,
+        "exc": -0.0447,
+        "sharpe": 2.19,
+        "var95": -0.0347,
+        "mdd": -0.0866
       },
       "puntosDetalle": {
-        "ir": 17.347328,
+        "ir": 30.0,
         "exc": 0,
-        "sharpe": 8.740458,
-        "var95": 11.238671,
-        "mdd": 11.258886
+        "sharpe": 12.258883,
+        "var95": 0.135542,
+        "mdd": 8.530806
       },
       "miembros": [
         {
-          "nombre": "Alonso Ortega",
-          "linkedin": "https://www.linkedin.com/in/alonso-ortega-9610b93b8?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
+          "nombre": "Juan José Esbeile Peña",
+          "linkedin": ""
         },
         {
-          "nombre": "Miguel Montaner",
-          "linkedin": "https://www.linkedin.com/in/miguel-montaner-037277292?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+          "nombre": "Benjamín Roberto Hernández González",
+          "linkedin": ""
         },
         {
-          "nombre": "Lukas Bravo",
+          "nombre": "Cesar Antonio Ahumada Acevedo",
           "linkedin": ""
         }
       ],
       "historial": [
         {
           "semana": 5,
-          "puntos": 65.07,
-          "posicion": 12,
-          "ret": 0.0411,
-          "ir": 4.21,
-          "exc": 0.22089999999999999,
-          "sharpe": 2.96,
-          "var95": -0.008199999999999999,
-          "mdd": -0.0352
+          "puntos": 80.2,
+          "posicion": 4,
+          "ret": 0.0579,
+          "ir": 6.56,
+          "exc": 0.4805,
+          "sharpe": 3.75,
+          "var95": -0.0098,
+          "mdd": -0.037599999999999995
         },
         {
           "semana": 6,
-          "puntos": 50.29,
-          "posicion": 38,
-          "ret": 0.0394,
-          "ir": 1.78,
-          "exc": 0.0507,
-          "sharpe": 2.44,
-          "var95": -0.009899999999999999,
-          "mdd": -0.0352
+          "puntos": 79.26,
+          "posicion": 1,
+          "ret": 0.0818,
+          "ir": 6.24,
+          "exc": 0.5112,
+          "sharpe": 4.31,
+          "var95": -0.0106,
+          "mdd": -0.037599999999999995
         },
         {
           "semana": 7,
-          "puntos": 54.38,
-          "posicion": 25,
-          "ret": 0.0243,
-          "ir": 2.29,
-          "exc": 0.0949,
-          "sharpe": 1.31,
-          "var95": -0.013300000000000001,
-          "mdd": -0.0352
+          "puntos": 78.75,
+          "posicion": 3,
+          "ret": 0.0956,
+          "ir": 3.85,
+          "exc": 0.7138,
+          "sharpe": 2.93,
+          "var95": -0.0235,
+          "mdd": -0.037599999999999995
         },
         {
           "semana": 8,
-          "puntos": 43.35,
-          "posicion": 35,
-          "ret": 0.0194,
-          "ir": 0.68,
-          "exc": -0.0233,
-          "sharpe": 0.97,
-          "var95": -0.011200000000000002,
-          "mdd": -0.0352
+          "puntos": 86.14,
+          "posicion": 1,
+          "ret": 0.184,
+          "ir": 4.56,
+          "exc": 0.8893000000000001,
+          "sharpe": 3.94,
+          "var95": -0.0281,
+          "mdd": -0.0404
         },
         {
           "semana": 9,
-          "puntos": 40.67,
-          "posicion": 38,
-          "ret": 0.0212,
-          "ir": 0.03,
-          "exc": -0.0659,
-          "sharpe": 0.95,
-          "var95": -0.0104,
-          "mdd": -0.0369
+          "puntos": 60.02,
+          "posicion": 19,
+          "ret": 0.1321,
+          "ir": 2.36,
+          "exc": 0.2876,
+          "sharpe": 2.34,
+          "var95": -0.0387,
+          "mdd": -0.0815
         },
         {
           "semana": 10,
-          "puntos": 28.45,
-          "posicion": 36,
-          "ret": 0.0004,
-          "ir": -0.2,
-          "exc": -0.07730000000000001,
-          "sharpe": 0.08,
-          "var95": -0.0124,
-          "mdd": -0.0467
+          "puntos": 64.84,
+          "posicion": 13,
+          "ret": 0.0965,
+          "ir": 1.89,
+          "exc": 0.4146,
+          "sharpe": 1.61,
+          "var95": -0.0364,
+          "mdd": -0.0815
         },
         {
           "semana": 11,
-          "puntos": 40.26,
-          "posicion": 28,
-          "ret": 0.0015,
-          "ir": 0.17,
-          "exc": -0.098,
-          "sharpe": 0.12,
-          "var95": -0.0116,
-          "mdd": -0.0496
+          "puntos": 53.04,
+          "posicion": 18,
+          "ret": 0.0994,
+          "ir": 1.81,
+          "exc": 0.0475,
+          "sharpe": 1.46,
+          "var95": -0.04019999999999999,
+          "mdd": -0.08810000000000001
         },
         {
           "semana": 12,
-          "puntos": 30.98,
-          "posicion": 36,
-          "ret": 0.0308,
-          "ir": -0.5,
-          "exc": -0.1162,
-          "sharpe": 0.97,
-          "var95": -0.0104,
-          "mdd": -0.0559
+          "puntos": 66.13,
+          "posicion": 13,
+          "ret": 0.2212,
+          "ir": 2.54,
+          "exc": 0.0029,
+          "sharpe": 2.44,
+          "var95": -0.039599999999999996,
+          "mdd": -0.08810000000000001
         },
         {
           "semana": 13,
-          "puntos": 28.84,
-          "posicion": 33,
-          "ret": 0.0389,
-          "ir": -0.32,
-          "exc": -0.086,
-          "sharpe": 1.17,
-          "var95": -0.0104,
-          "mdd": -0.0559
+          "puntos": 53.78,
+          "posicion": 14,
+          "ret": 0.0495,
+          "ir": 0.24,
+          "exc": 0.011399999999999999,
+          "sharpe": 1.09,
+          "var95": -0.0207,
+          "mdd": -0.09539999999999998
         },
         {
           "semana": 14,
-          "puntos": 28.0,
-          "posicion": 39,
-          "ret": 0.0371,
-          "ir": -0.65,
-          "exc": -0.1352,
-          "sharpe": 1.08,
-          "var95": -0.0103,
-          "mdd": -0.0559
+          "puntos": 58.08,
+          "posicion": 14,
+          "ret": 0.0642,
+          "ir": 0.54,
+          "exc": 0.013300000000000001,
+          "sharpe": 1.31,
+          "var95": -0.0207,
+          "mdd": -0.09539999999999998
         },
         {
           "semana": 15,
-          "puntos": 48.59,
-          "posicion": 18,
-          "ret": 0.0485,
-          "ir": 0.33,
-          "exc": -0.0387,
-          "sharpe": 1.3,
-          "var95": -0.0103,
-          "mdd": -0.0559
+          "puntos": 37.79,
+          "posicion": 25,
+          "ret": 0.0437,
+          "ir": 0.16,
+          "exc": -0.0033,
+          "sharpe": 0.88,
+          "var95": -0.0207,
+          "mdd": -0.0953
+        },
+        {
+          "semana": 16,
+          "puntos": 50.93,
+          "posicion": 17,
+          "ret": 0.2446,
+          "ir": 2.25,
+          "exc": -0.0447,
+          "sharpe": 2.19,
+          "var95": -0.0347,
+          "mdd": -0.0866
         }
       ]
     },
     {
       "id": "nova-praxis-asset-management",
       "nombre": "Nova Praxis Asset Management",
-      "posicion": 19,
-      "puntos": 48.41,
-      "retRel": -0.0336,
-      "delta": -2,
+      "posicion": 18,
+      "puntos": 48.85,
+      "retRel": -0.0478,
+      "delta": 1,
       "metricas": {
         "ir": 0.72,
-        "exc": -0.0336,
+        "exc": -0.0478,
         "sharpe": 1.17,
-        "var95": -0.016200000000000003,
+        "var95": -0.0158,
         "mdd": -0.0473
       },
       "puntosDetalle": {
-        "ir": 19.580153,
+        "ir": 19.777283,
         "exc": 0,
-        "sharpe": 8.244275,
-        "var95": 8.564955,
+        "sharpe": 8.375635,
+        "var95": 8.674699,
         "mdd": 12.023104
       },
       "miembros": [
@@ -3026,187 +3062,39 @@
           "sharpe": 1.17,
           "var95": -0.016200000000000003,
           "mdd": -0.0473
-        }
-      ]
-    },
-    {
-      "id": "warren-bufen",
-      "nombre": "Warren BuFEN",
-      "posicion": 20,
-      "puntos": 47.11,
-      "retRel": 0.038,
-      "delta": -2,
-      "metricas": {
-        "ir": 0.48,
-        "exc": 0.038,
-        "sharpe": 0.77,
-        "var95": -0.0298,
-        "mdd": -0.1588
-      },
-      "puntosDetalle": {
-        "ir": 18.206107,
-        "exc": 17.673378,
-        "sharpe": 6.717557,
-        "var95": 2.401813,
-        "mdd": 2.114929
-      },
-      "miembros": [
-        {
-          "nombre": "Oscar Javier Mardones Urrutia",
-          "linkedin": "https://www.linkedin.com/in/oscar-javier-mardones-urrutia-b44933334/"
         },
         {
-          "nombre": "Cristóbal Hernan Órdenes Galassi",
-          "linkedin": "https://www.linkedin.com/in/cristobal-ordenes-1b3447181/"
-        },
-        {
-          "nombre": "Victoria Paz Tapia Rivera",
-          "linkedin": ""
-        }
-      ],
-      "historial": [
-        {
-          "semana": 5,
-          "puntos": 61.39,
-          "posicion": 17,
-          "ret": 0.096,
-          "ir": 4.14,
-          "exc": 0.7508,
-          "sharpe": 2.84,
-          "var95": -0.025699999999999997,
-          "mdd": -0.08560000000000001
-        },
-        {
-          "semana": 6,
-          "puntos": 67.54,
-          "posicion": 8,
-          "ret": 0.1521,
-          "ir": 4.73,
-          "exc": 0.9731000000000001,
-          "sharpe": 3.55,
-          "var95": -0.0265,
-          "mdd": -0.08560000000000001
-        },
-        {
-          "semana": 7,
-          "puntos": 57.7,
-          "posicion": 20,
-          "ret": 0.0963,
-          "ir": 3.01,
-          "exc": 0.594,
-          "sharpe": 1.97,
-          "var95": -0.0371,
-          "mdd": -0.08560000000000001
-        },
-        {
-          "semana": 8,
-          "puntos": 49.03,
-          "posicion": 28,
-          "ret": 0.0828,
-          "ir": 1.99,
-          "exc": 0.35840000000000005,
-          "sharpe": 1.55,
-          "var95": -0.0353,
-          "mdd": -0.08560000000000001
-        },
-        {
-          "semana": 9,
-          "puntos": 58.59,
-          "posicion": 22,
-          "ret": 0.0945,
-          "ir": 1.86,
-          "exc": 0.3284,
-          "sharpe": 1.59,
-          "var95": -0.0326,
-          "mdd": -0.08560000000000001
-        },
-        {
-          "semana": 10,
-          "puntos": 40.99,
-          "posicion": 29,
-          "ret": 0.0271,
-          "ir": 0.72,
-          "exc": 0.0434,
-          "sharpe": 0.56,
-          "var95": -0.032799999999999996,
-          "mdd": -0.1157
-        },
-        {
-          "semana": 11,
-          "puntos": 46.16,
-          "posicion": 21,
-          "ret": 0.0328,
-          "ir": 0.87,
-          "exc": 0.0739,
-          "sharpe": 0.6,
-          "var95": -0.0325,
-          "mdd": -0.1175
-        },
-        {
-          "semana": 12,
-          "puntos": 48.56,
-          "posicion": 21,
-          "ret": 0.0597,
-          "ir": 0.54,
-          "exc": 0.049400000000000006,
-          "sharpe": 0.84,
-          "var95": -0.0319,
-          "mdd": -0.1588
-        },
-        {
-          "semana": 13,
-          "puntos": 47.01,
-          "posicion": 22,
-          "ret": 0.0649,
-          "ir": 0.53,
-          "exc": 0.0593,
-          "sharpe": 0.88,
-          "var95": -0.0315,
-          "mdd": -0.1588
-        },
-        {
-          "semana": 14,
-          "puntos": 51.38,
+          "semana": 16,
+          "puntos": 48.85,
           "posicion": 18,
-          "ret": 0.0835,
-          "ir": 0.71,
-          "exc": 0.0793,
-          "sharpe": 1.04,
-          "var95": -0.030699999999999998,
-          "mdd": -0.1588
-        },
-        {
-          "semana": 15,
-          "puntos": 47.11,
-          "posicion": 20,
-          "ret": 0.0599,
-          "ir": 0.48,
-          "exc": 0.038,
-          "sharpe": 0.77,
-          "var95": -0.0298,
-          "mdd": -0.1588
+          "ret": 0.0514,
+          "ir": 0.72,
+          "exc": -0.0478,
+          "sharpe": 1.17,
+          "var95": -0.0158,
+          "mdd": -0.0473
         }
       ]
     },
     {
       "id": "barber-iker-investment-group",
       "nombre": "Barber Iker Investment Group",
-      "posicion": 21,
-      "puntos": 46.6,
-      "retRel": -0.018000000000000002,
+      "posicion": 19,
+      "puntos": 45.48,
+      "retRel": -0.037200000000000004,
       "delta": 2,
       "metricas": {
-        "ir": 0.63,
-        "exc": -0.018000000000000002,
-        "sharpe": 1.13,
-        "var95": -0.0155,
+        "ir": 0.47,
+        "exc": -0.037200000000000004,
+        "sharpe": 1.06,
+        "var95": -0.0154,
         "mdd": -0.0638
       },
       "puntosDetalle": {
-        "ir": 19.064885,
+        "ir": 18.106904,
         "exc": 0,
-        "sharpe": 8.091603,
-        "var95": 8.882175,
+        "sharpe": 7.956853,
+        "var95": 8.855422,
         "mdd": 10.556872
       },
       "miembros": [
@@ -3344,28 +3232,209 @@
           "sharpe": 1.13,
           "var95": -0.0155,
           "mdd": -0.0638
+        },
+        {
+          "semana": 16,
+          "puntos": 45.48,
+          "posicion": 19,
+          "ret": 0.052,
+          "ir": 0.47,
+          "exc": -0.037200000000000004,
+          "sharpe": 1.06,
+          "var95": -0.0154,
+          "mdd": -0.0638
+        }
+      ]
+    },
+    {
+      "id": "dfs-capital",
+      "nombre": "DFS CAPITAL",
+      "posicion": 20,
+      "puntos": 44.48,
+      "retRel": -0.0254,
+      "delta": -6,
+      "metricas": {
+        "ir": 0.33,
+        "exc": -0.0254,
+        "sharpe": 0.99,
+        "var95": -0.0155,
+        "mdd": -0.061
+      },
+      "puntosDetalle": {
+        "ir": 17.171492,
+        "exc": 0,
+        "sharpe": 7.690355,
+        "var95": 8.810241,
+        "mdd": 10.805687
+      },
+      "miembros": [
+        {
+          "nombre": "Felipe Cifuentes",
+          "linkedin": "https://www.linkedin.com/in/felipe-ignacio-cifuentes-urra-146954229?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+        },
+        {
+          "nombre": "Diego Adones",
+          "linkedin": "https://www.linkedin.com/in/diego-adones-lópez?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+        },
+        {
+          "nombre": "Sergio Contreras",
+          "linkedin": "https://www.linkedin.com/in/sergio-contreras-cabrera-0463372a5/details/experience/"
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 56.57,
+          "posicion": 26,
+          "ret": 0.0364,
+          "ir": 3.14,
+          "exc": 0.3039,
+          "sharpe": 2.04,
+          "var95": -0.0146,
+          "mdd": -0.0458
+        },
+        {
+          "semana": 6,
+          "puntos": 56.91,
+          "posicion": 24,
+          "ret": 0.0549,
+          "ir": 3.07,
+          "exc": 0.2867,
+          "sharpe": 2.52,
+          "var95": -0.0132,
+          "mdd": -0.0458
+        },
+        {
+          "semana": 7,
+          "puntos": 61.09,
+          "posicion": 17,
+          "ret": 0.0407,
+          "ir": 3.23,
+          "exc": 0.3029,
+          "sharpe": 1.58,
+          "var95": -0.0196,
+          "mdd": -0.0458
+        },
+        {
+          "semana": 8,
+          "puntos": 53.08,
+          "posicion": 23,
+          "ret": 0.0333,
+          "ir": 1.56,
+          "exc": 0.1432,
+          "sharpe": 1.2,
+          "var95": -0.0167,
+          "mdd": -0.0458
+        },
+        {
+          "semana": 9,
+          "puntos": 57.24,
+          "posicion": 23,
+          "ret": 0.0391,
+          "ir": 1.18,
+          "exc": 0.10490000000000001,
+          "sharpe": 1.26,
+          "var95": -0.0155,
+          "mdd": -0.0458
+        },
+        {
+          "semana": 10,
+          "puntos": 56.46,
+          "posicion": 21,
+          "ret": 0.0151,
+          "ir": 0.75,
+          "exc": 0.0599,
+          "sharpe": 0.51,
+          "var95": -0.0155,
+          "mdd": -0.0458
+        },
+        {
+          "semana": 11,
+          "puntos": 59.98,
+          "posicion": 16,
+          "ret": 0.0179,
+          "ir": 1.08,
+          "exc": 0.013500000000000002,
+          "sharpe": 0.55,
+          "var95": -0.0155,
+          "mdd": -0.0472
+        },
+        {
+          "semana": 12,
+          "puntos": 47.21,
+          "posicion": 22,
+          "ret": 0.0509,
+          "ir": 0.58,
+          "exc": -0.0015,
+          "sharpe": 1.19,
+          "var95": -0.0155,
+          "mdd": -0.061
+        },
+        {
+          "semana": 13,
+          "puntos": 43.6,
+          "posicion": 25,
+          "ret": 0.0513,
+          "ir": 0.36,
+          "exc": -0.0018,
+          "sharpe": 1.17,
+          "var95": -0.0155,
+          "mdd": -0.061
+        },
+        {
+          "semana": 14,
+          "puntos": 46.4,
+          "posicion": 24,
+          "ret": 0.0644,
+          "ir": 0.67,
+          "exc": -0.0031,
+          "sharpe": 1.38,
+          "var95": -0.0155,
+          "mdd": -0.061
+        },
+        {
+          "semana": 15,
+          "puntos": 63.87,
+          "posicion": 14,
+          "ret": 0.0555,
+          "ir": 0.68,
+          "exc": 0.0146,
+          "sharpe": 1.15,
+          "var95": -0.0155,
+          "mdd": -0.061
+        },
+        {
+          "semana": 16,
+          "puntos": 44.48,
+          "posicion": 20,
+          "ret": 0.0492,
+          "ir": 0.33,
+          "exc": -0.0254,
+          "sharpe": 0.99,
+          "var95": -0.0155,
+          "mdd": -0.061
         }
       ]
     },
     {
       "id": "martes-negro",
       "nombre": "Martes negro",
-      "posicion": 22,
-      "puntos": 42.21,
-      "retRel": -0.0072,
-      "delta": -10,
+      "posicion": 21,
+      "puntos": 43.44,
+      "retRel": -0.050499999999999996,
+      "delta": 1,
       "metricas": {
-        "ir": 0.49,
-        "exc": -0.0072,
-        "sharpe": 0.97,
-        "var95": -0.0183,
+        "ir": 0.62,
+        "exc": -0.050499999999999996,
+        "sharpe": 1.03,
+        "var95": -0.0181,
         "mdd": -0.083
       },
       "puntosDetalle": {
-        "ir": 18.263359,
+        "ir": 19.109131,
         "exc": 0,
-        "sharpe": 7.480916,
-        "var95": 7.613293,
+        "sharpe": 7.84264,
+        "var95": 7.635542,
         "mdd": 8.850711
       },
       "miembros": [
@@ -3499,187 +3568,39 @@
           "sharpe": 0.97,
           "var95": -0.0183,
           "mdd": -0.083
-        }
-      ]
-    },
-    {
-      "id": "vcl-capital",
-      "nombre": "VCL Capital",
-      "posicion": 23,
-      "puntos": 40.87,
-      "retRel": -0.0542,
-      "delta": 3,
-      "metricas": {
-        "ir": 0.09,
-        "exc": -0.0542,
-        "sharpe": 0.84,
-        "var95": -0.0179,
-        "mdd": -0.0687
-      },
-      "puntosDetalle": {
-        "ir": 15.973282,
-        "exc": 0,
-        "sharpe": 6.984733,
-        "var95": 7.794562,
-        "mdd": 10.121445
-      },
-      "miembros": [
-        {
-          "nombre": "Pedro Pablo Castillo Rosenberg",
-          "linkedin": "https://Pedro Pablo Castillo Rosenberg"
         },
         {
-          "nombre": "Josefa Varela Jacob",
-          "linkedin": ""
-        },
-        {
-          "nombre": "Juan José Limarí Campos",
-          "linkedin": "https://Juan José Limari"
-        }
-      ],
-      "historial": [
-        {
-          "semana": 5,
-          "puntos": 50.43,
-          "posicion": 36,
-          "ret": 0.0296,
-          "ir": 2.42,
-          "exc": 0.2438,
-          "sharpe": 1.62,
-          "var95": -0.0141,
-          "mdd": -0.0579
-        },
-        {
-          "semana": 6,
-          "puntos": 53.12,
-          "posicion": 30,
-          "ret": 0.0512,
-          "ir": 2.69,
-          "exc": 0.2503,
-          "sharpe": 2.31,
-          "var95": -0.0125,
-          "mdd": -0.0579
-        },
-        {
-          "semana": 7,
-          "puntos": 50.48,
-          "posicion": 32,
-          "ret": 0.0263,
-          "ir": 2.18,
-          "exc": 0.1936,
-          "sharpe": 1.05,
-          "var95": -0.0202,
-          "mdd": -0.0579
-        },
-        {
-          "semana": 8,
-          "puntos": 50.76,
-          "posicion": 25,
-          "ret": 0.0314,
-          "ir": 1.51,
-          "exc": 0.127,
-          "sharpe": 1.12,
-          "var95": -0.0165,
-          "mdd": -0.0579
-        },
-        {
-          "semana": 9,
-          "puntos": 55.7,
-          "posicion": 24,
-          "ret": 0.0399,
-          "ir": 1.28,
-          "exc": 0.1059,
-          "sharpe": 1.26,
-          "var95": -0.0168,
-          "mdd": -0.0579
-        },
-        {
-          "semana": 10,
-          "puntos": 51.15,
-          "posicion": 25,
-          "ret": 0.0096,
-          "ir": 0.46,
-          "exc": 0.028300000000000002,
-          "sharpe": 0.35,
-          "var95": -0.018000000000000002,
-          "mdd": -0.0579
-        },
-        {
-          "semana": 11,
-          "puntos": 39.87,
-          "posicion": 29,
-          "ret": 0.0091,
-          "ir": 0.64,
-          "exc": -0.056600000000000004,
-          "sharpe": 0.32,
-          "var95": -0.0176,
-          "mdd": -0.0579
-        },
-        {
-          "semana": 12,
-          "puntos": 43.33,
-          "posicion": 26,
-          "ret": 0.0444,
-          "ir": 0.29,
-          "exc": -0.0529,
-          "sharpe": 1.01,
-          "var95": -0.0179,
-          "mdd": -0.0687
-        },
-        {
-          "semana": 13,
-          "puntos": 40.87,
-          "posicion": 26,
-          "ret": 0.0479,
-          "ir": 0.22,
-          "exc": -0.039599999999999996,
-          "sharpe": 1.05,
-          "var95": -0.0178,
-          "mdd": -0.0687
-        },
-        {
-          "semana": 14,
-          "puntos": 41.96,
-          "posicion": 26,
-          "ret": 0.0552,
-          "ir": 0.29,
-          "exc": -0.0594,
-          "sharpe": 1.15,
-          "var95": -0.0176,
-          "mdd": -0.0687
-        },
-        {
-          "semana": 15,
-          "puntos": 40.87,
-          "posicion": 23,
-          "ret": 0.0409,
-          "ir": 0.09,
-          "exc": -0.0542,
-          "sharpe": 0.84,
-          "var95": -0.0179,
-          "mdd": -0.0687
+          "semana": 16,
+          "puntos": 43.44,
+          "posicion": 21,
+          "ret": 0.0609,
+          "ir": 0.62,
+          "exc": -0.050499999999999996,
+          "sharpe": 1.03,
+          "var95": -0.0181,
+          "mdd": -0.083
         }
       ]
     },
     {
       "id": "bbr-investments",
       "nombre": "BBR Investments",
-      "posicion": 24,
-      "puntos": 40.23,
-      "retRel": -0.0424,
-      "delta": 25,
+      "posicion": 22,
+      "puntos": 36.85,
+      "retRel": -0.10339999999999999,
+      "delta": 2,
       "metricas": {
-        "ir": 0.41,
-        "exc": -0.0424,
-        "sharpe": 0.95,
-        "var95": -0.020499999999999997,
+        "ir": 0.02,
+        "exc": -0.10339999999999999,
+        "sharpe": 0.73,
+        "var95": -0.0203,
         "mdd": -0.08800000000000001
       },
       "puntosDetalle": {
-        "ir": 17.805344,
+        "ir": 15.100223,
         "exc": 0,
-        "sharpe": 7.40458,
-        "var95": 6.616314,
+        "sharpe": 6.700508,
+        "var95": 6.641566,
         "mdd": 8.406398
       },
       "miembros": [
@@ -3817,187 +3738,39 @@
           "sharpe": 0.95,
           "var95": -0.020499999999999997,
           "mdd": -0.08800000000000001
-        }
-      ]
-    },
-    {
-      "id": "expertos-en-blackrock",
-      "nombre": "Expertos en Blackrock",
-      "posicion": 25,
-      "puntos": 37.79,
-      "retRel": -0.0033,
-      "delta": -11,
-      "metricas": {
-        "ir": 0.16,
-        "exc": -0.0033,
-        "sharpe": 0.88,
-        "var95": -0.0207,
-        "mdd": -0.0953
-      },
-      "puntosDetalle": {
-        "ir": 16.374046,
-        "exc": 0,
-        "sharpe": 7.137405,
-        "var95": 6.52568,
-        "mdd": 7.757701
-      },
-      "miembros": [
-        {
-          "nombre": "Juan José Esbeile Peña",
-          "linkedin": ""
         },
         {
-          "nombre": "Benjamín Roberto Hernández González",
-          "linkedin": ""
-        },
-        {
-          "nombre": "Cesar Antonio Ahumada Acevedo",
-          "linkedin": ""
-        }
-      ],
-      "historial": [
-        {
-          "semana": 5,
-          "puntos": 80.2,
-          "posicion": 4,
-          "ret": 0.0579,
-          "ir": 6.56,
-          "exc": 0.4805,
-          "sharpe": 3.75,
-          "var95": -0.0098,
-          "mdd": -0.037599999999999995
-        },
-        {
-          "semana": 6,
-          "puntos": 79.26,
-          "posicion": 1,
-          "ret": 0.0818,
-          "ir": 6.24,
-          "exc": 0.5112,
-          "sharpe": 4.31,
-          "var95": -0.0106,
-          "mdd": -0.037599999999999995
-        },
-        {
-          "semana": 7,
-          "puntos": 78.75,
-          "posicion": 3,
-          "ret": 0.0956,
-          "ir": 3.85,
-          "exc": 0.7138,
-          "sharpe": 2.93,
-          "var95": -0.0235,
-          "mdd": -0.037599999999999995
-        },
-        {
-          "semana": 8,
-          "puntos": 86.14,
-          "posicion": 1,
-          "ret": 0.184,
-          "ir": 4.56,
-          "exc": 0.8893000000000001,
-          "sharpe": 3.94,
-          "var95": -0.0281,
-          "mdd": -0.0404
-        },
-        {
-          "semana": 9,
-          "puntos": 60.02,
-          "posicion": 19,
-          "ret": 0.1321,
-          "ir": 2.36,
-          "exc": 0.2876,
-          "sharpe": 2.34,
-          "var95": -0.0387,
-          "mdd": -0.0815
-        },
-        {
-          "semana": 10,
-          "puntos": 64.84,
-          "posicion": 13,
-          "ret": 0.0965,
-          "ir": 1.89,
-          "exc": 0.4146,
-          "sharpe": 1.61,
-          "var95": -0.0364,
-          "mdd": -0.0815
-        },
-        {
-          "semana": 11,
-          "puntos": 53.04,
-          "posicion": 18,
-          "ret": 0.0994,
-          "ir": 1.81,
-          "exc": 0.0475,
-          "sharpe": 1.46,
-          "var95": -0.04019999999999999,
-          "mdd": -0.08810000000000001
-        },
-        {
-          "semana": 12,
-          "puntos": 66.13,
-          "posicion": 13,
-          "ret": 0.2212,
-          "ir": 2.54,
-          "exc": 0.0029,
-          "sharpe": 2.44,
-          "var95": -0.039599999999999996,
-          "mdd": -0.08810000000000001
-        },
-        {
-          "semana": 13,
-          "puntos": 53.78,
-          "posicion": 14,
-          "ret": 0.0495,
-          "ir": 0.24,
-          "exc": 0.011399999999999999,
-          "sharpe": 1.09,
-          "var95": -0.0207,
-          "mdd": -0.09539999999999998
-        },
-        {
-          "semana": 14,
-          "puntos": 58.08,
-          "posicion": 14,
-          "ret": 0.0642,
-          "ir": 0.54,
-          "exc": 0.013300000000000001,
-          "sharpe": 1.31,
-          "var95": -0.0207,
-          "mdd": -0.09539999999999998
-        },
-        {
-          "semana": 15,
-          "puntos": 37.79,
-          "posicion": 25,
-          "ret": 0.0437,
-          "ir": 0.16,
-          "exc": -0.0033,
-          "sharpe": 0.88,
-          "var95": -0.0207,
-          "mdd": -0.0953
+          "semana": 16,
+          "puntos": 36.85,
+          "posicion": 22,
+          "ret": 0.04,
+          "ir": 0.02,
+          "exc": -0.10339999999999999,
+          "sharpe": 0.73,
+          "var95": -0.0203,
+          "mdd": -0.08800000000000001
         }
       ]
     },
     {
       "id": "inversion-racional",
       "nombre": "Inversión Racional",
-      "posicion": 26,
-      "puntos": 35.94,
-      "retRel": -0.0383,
-      "delta": 5,
+      "posicion": 23,
+      "puntos": 35.84,
+      "retRel": -0.044000000000000004,
+      "delta": 3,
       "metricas": {
-        "ir": -0.93,
-        "exc": -0.0383,
-        "sharpe": 0.98,
+        "ir": -0.95,
+        "exc": -0.044000000000000004,
+        "sharpe": 0.94,
         "var95": -0.0034000000000000002,
         "mdd": -0.024399999999999998
       },
       "puntosDetalle": {
         "ir": 0,
         "exc": 0,
-        "sharpe": 7.519084,
-        "var95": 14.365559,
+        "sharpe": 7.5,
+        "var95": 14.277108,
         "mdd": 14.058057
       },
       "miembros": [
@@ -4131,28 +3904,205 @@
           "sharpe": 0.98,
           "var95": -0.0034000000000000002,
           "mdd": -0.024399999999999998
+        },
+        {
+          "semana": 16,
+          "puntos": 35.84,
+          "posicion": 23,
+          "ret": 0.0132,
+          "ir": -0.95,
+          "exc": -0.044000000000000004,
+          "sharpe": 0.94,
+          "var95": -0.0034000000000000002,
+          "mdd": -0.024399999999999998
+        }
+      ]
+    },
+    {
+      "id": "sa-partners",
+      "nombre": "SA Partners",
+      "posicion": 24,
+      "puntos": 34.37,
+      "retRel": -0.0454,
+      "delta": 5,
+      "metricas": {
+        "ir": -1.14,
+        "exc": -0.0454,
+        "sharpe": 0.38,
+        "var95": -0.0034000000000000002,
+        "mdd": -0.0169
+      },
+      "puntosDetalle": {
+        "ir": 0,
+        "exc": 0,
+        "sharpe": 5.36802,
+        "var95": 14.277108,
+        "mdd": 14.724526
+      },
+      "miembros": [
+        {
+          "nombre": "Gabriel Soliz",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Sebastian Atencia",
+          "linkedin": ""
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 40.7,
+          "posicion": 47,
+          "ret": 0.002,
+          "ir": -0.37,
+          "exc": 0.0125,
+          "sharpe": 0.92,
+          "var95": -0.0022,
+          "mdd": -0.0073
+        },
+        {
+          "semana": 6,
+          "puntos": 37.12,
+          "posicion": 49,
+          "ret": 0.0033,
+          "ir": -1.09,
+          "exc": -0.0019,
+          "sharpe": 1.26,
+          "var95": -0.002,
+          "mdd": -0.0073
+        },
+        {
+          "semana": 7,
+          "puntos": 47.81,
+          "posicion": 35,
+          "ret": 0.0004,
+          "ir": 0.02,
+          "exc": 0.008199999999999999,
+          "sharpe": 0.15,
+          "var95": -0.0024,
+          "mdd": -0.0073
+        },
+        {
+          "semana": 8,
+          "puntos": 30.0,
+          "posicion": 43,
+          "ret": -0.0006,
+          "ir": -0.6,
+          "exc": -0.008100000000000001,
+          "sharpe": -0.15,
+          "var95": -0.0026,
+          "mdd": -0.0073
+        },
+        {
+          "semana": 9,
+          "puntos": 35.76,
+          "posicion": 41,
+          "ret": 0.0025,
+          "ir": -0.84,
+          "exc": -0.0083,
+          "sharpe": 0.56,
+          "var95": -0.0031,
+          "mdd": -0.0073
+        },
+        {
+          "semana": 10,
+          "puntos": 30.0,
+          "posicion": 35,
+          "ret": -0.0049,
+          "ir": -0.4,
+          "exc": -0.0158,
+          "sharpe": -0.87,
+          "var95": -0.0034999999999999996,
+          "mdd": -0.0106
+        },
+        {
+          "semana": 11,
+          "puntos": 29.96,
+          "posicion": 34,
+          "ret": -0.0067,
+          "ir": -0.27,
+          "exc": -0.0519,
+          "sharpe": -1.04,
+          "var95": -0.0034999999999999996,
+          "mdd": -0.0124
+        },
+        {
+          "semana": 12,
+          "puntos": 35.21,
+          "posicion": 30,
+          "ret": 0.003,
+          "ir": -1.25,
+          "exc": -0.052199999999999996,
+          "sharpe": 0.38,
+          "var95": -0.0034999999999999996,
+          "mdd": -0.0169
+        },
+        {
+          "semana": 13,
+          "puntos": 32.95,
+          "posicion": 30,
+          "ret": 0.004,
+          "ir": -1.34,
+          "exc": -0.047599999999999996,
+          "sharpe": 0.5,
+          "var95": -0.0034999999999999996,
+          "mdd": -0.0169
+        },
+        {
+          "semana": 14,
+          "puntos": 32.82,
+          "posicion": 32,
+          "ret": 0.0053,
+          "ir": -1.41,
+          "exc": -0.0547,
+          "sharpe": 0.62,
+          "var95": -0.0034999999999999996,
+          "mdd": -0.0169
+        },
+        {
+          "semana": 15,
+          "puntos": 34.09,
+          "posicion": 29,
+          "ret": 0.0029,
+          "ir": -1.15,
+          "exc": -0.0441,
+          "sharpe": 0.32,
+          "var95": -0.0034000000000000002,
+          "mdd": -0.0169
+        },
+        {
+          "semana": 16,
+          "puntos": 34.37,
+          "posicion": 24,
+          "ret": 0.0036,
+          "ir": -1.14,
+          "exc": -0.0454,
+          "sharpe": 0.38,
+          "var95": -0.0034000000000000002,
+          "mdd": -0.0169
         }
       ]
     },
     {
       "id": "o-c-g-investment",
       "nombre": "O.C.G. Investment",
-      "posicion": 27,
-      "puntos": 34.54,
-      "retRel": -0.0241,
-      "delta": -11,
+      "posicion": 25,
+      "puntos": 33.86,
+      "retRel": -0.061799999999999994,
+      "delta": 2,
       "metricas": {
-        "ir": 0.23,
-        "exc": -0.0241,
-        "sharpe": 0.7,
-        "var95": -0.0236,
+        "ir": 0.16,
+        "exc": -0.061799999999999994,
+        "sharpe": 0.66,
+        "var95": -0.0233,
         "mdd": -0.1139
       },
       "puntosDetalle": {
-        "ir": 16.774809,
+        "ir": 16.035635,
         "exc": 0,
-        "sharpe": 6.450382,
-        "var95": 5.21148,
+        "sharpe": 6.43401,
+        "var95": 5.286145,
         "mdd": 6.104858
       },
       "miembros": [
@@ -4290,338 +4240,39 @@
           "sharpe": 0.7,
           "var95": -0.0236,
           "mdd": -0.1139
-        }
-      ]
-    },
-    {
-      "id": "portafen",
-      "nombre": "Portafen",
-      "posicion": 28,
-      "puntos": 34.33,
-      "retRel": -0.003,
-      "delta": 2,
-      "metricas": {
-        "ir": 0.01,
-        "exc": -0.003,
-        "sharpe": 0.61,
-        "var95": -0.0215,
-        "mdd": -0.109
-      },
-      "puntosDetalle": {
-        "ir": 15.515267,
-        "exc": 0,
-        "sharpe": 6.10687,
-        "var95": 6.163142,
-        "mdd": 6.540284
-      },
-      "miembros": [
-        {
-          "nombre": "renato retamales",
-          "linkedin": ""
         },
         {
-          "nombre": "gabriel loyola",
-          "linkedin": ""
-        }
-      ],
-      "historial": [
-        {
-          "semana": 5,
-          "puntos": 44.41,
-          "posicion": 44,
-          "ret": 0.035,
-          "ir": 2.28,
-          "exc": 0.1966,
-          "sharpe": 1.51,
-          "var95": -0.018000000000000002,
-          "mdd": -0.0695
-        },
-        {
-          "semana": 6,
-          "puntos": 48.56,
-          "posicion": 39,
-          "ret": 0.0632,
-          "ir": 2.7,
-          "exc": 0.2772,
-          "sharpe": 2.16,
-          "var95": -0.0183,
-          "mdd": -0.0695
-        },
-        {
-          "semana": 7,
-          "puntos": 37.98,
-          "posicion": 45,
-          "ret": 0.0186,
-          "ir": 1.15,
-          "exc": 0.0784,
-          "sharpe": 0.63,
-          "var95": -0.0263,
-          "mdd": -0.0695
-        },
-        {
-          "semana": 8,
-          "puntos": 31.46,
-          "posicion": 40,
-          "ret": 0.012,
-          "ir": 0.22,
-          "exc": -0.049699999999999994,
-          "sharpe": 0.42,
-          "var95": -0.0231,
-          "mdd": -0.0695
-        },
-        {
-          "semana": 9,
-          "puntos": 33.49,
-          "posicion": 44,
-          "ret": 0.0261,
-          "ir": 0.37,
-          "exc": -0.021099999999999997,
-          "sharpe": 0.69,
-          "var95": -0.021,
-          "mdd": -0.0695
-        },
-        {
-          "semana": 10,
-          "puntos": 15.21,
-          "posicion": 46,
-          "ret": -0.0134,
-          "ir": -0.44,
-          "exc": -0.12990000000000002,
-          "sharpe": -0.14,
-          "var95": -0.0217,
-          "mdd": -0.0765
-        },
-        {
-          "semana": 11,
-          "puntos": 14.95,
-          "posicion": 49,
-          "ret": -0.0092,
-          "ir": -0.1,
-          "exc": -0.0463,
-          "sharpe": -0.04,
-          "var95": -0.0215,
-          "mdd": -0.0765
-        },
-        {
-          "semana": 12,
-          "puntos": 20.24,
-          "posicion": 46,
-          "ret": 0.0203,
-          "ir": -0.39,
-          "exc": -0.0605,
-          "sharpe": 0.44,
-          "var95": -0.0212,
-          "mdd": -0.109
-        },
-        {
-          "semana": 13,
-          "puntos": 18.17,
-          "posicion": 45,
-          "ret": 0.0257,
-          "ir": -0.37,
-          "exc": -0.0453,
-          "sharpe": 0.52,
-          "var95": -0.021,
-          "mdd": -0.109
-        },
-        {
-          "semana": 14,
-          "puntos": 34.6,
-          "posicion": 30,
-          "ret": 0.0448,
-          "ir": 0.0,
-          "exc": -0.0227,
-          "sharpe": 0.77,
-          "var95": -0.020499999999999997,
-          "mdd": -0.109
-        },
-        {
-          "semana": 15,
-          "puntos": 34.33,
-          "posicion": 28,
-          "ret": 0.0355,
-          "ir": 0.01,
-          "exc": -0.003,
-          "sharpe": 0.61,
-          "var95": -0.0215,
-          "mdd": -0.109
-        }
-      ]
-    },
-    {
-      "id": "sa-partners",
-      "nombre": "SA Partners",
-      "posicion": 29,
-      "puntos": 34.09,
-      "retRel": -0.0441,
-      "delta": 3,
-      "metricas": {
-        "ir": -1.15,
-        "exc": -0.0441,
-        "sharpe": 0.32,
-        "var95": -0.0034000000000000002,
-        "mdd": -0.0169
-      },
-      "puntosDetalle": {
-        "ir": 0,
-        "exc": 0,
-        "sharpe": 5.0,
-        "var95": 14.365559,
-        "mdd": 14.724526
-      },
-      "miembros": [
-        {
-          "nombre": "Gabriel Soliz",
-          "linkedin": ""
-        },
-        {
-          "nombre": "Sebastian Atencia",
-          "linkedin": ""
-        }
-      ],
-      "historial": [
-        {
-          "semana": 5,
-          "puntos": 40.7,
-          "posicion": 47,
-          "ret": 0.002,
-          "ir": -0.37,
-          "exc": 0.0125,
-          "sharpe": 0.92,
-          "var95": -0.0022,
-          "mdd": -0.0073
-        },
-        {
-          "semana": 6,
-          "puntos": 37.12,
-          "posicion": 49,
-          "ret": 0.0033,
-          "ir": -1.09,
-          "exc": -0.0019,
-          "sharpe": 1.26,
-          "var95": -0.002,
-          "mdd": -0.0073
-        },
-        {
-          "semana": 7,
-          "puntos": 47.81,
-          "posicion": 35,
-          "ret": 0.0004,
-          "ir": 0.02,
-          "exc": 0.008199999999999999,
-          "sharpe": 0.15,
-          "var95": -0.0024,
-          "mdd": -0.0073
-        },
-        {
-          "semana": 8,
-          "puntos": 30.0,
-          "posicion": 43,
-          "ret": -0.0006,
-          "ir": -0.6,
-          "exc": -0.008100000000000001,
-          "sharpe": -0.15,
-          "var95": -0.0026,
-          "mdd": -0.0073
-        },
-        {
-          "semana": 9,
-          "puntos": 35.76,
-          "posicion": 41,
-          "ret": 0.0025,
-          "ir": -0.84,
-          "exc": -0.0083,
-          "sharpe": 0.56,
-          "var95": -0.0031,
-          "mdd": -0.0073
-        },
-        {
-          "semana": 10,
-          "puntos": 30.0,
-          "posicion": 35,
-          "ret": -0.0049,
-          "ir": -0.4,
-          "exc": -0.0158,
-          "sharpe": -0.87,
-          "var95": -0.0034999999999999996,
-          "mdd": -0.0106
-        },
-        {
-          "semana": 11,
-          "puntos": 29.96,
-          "posicion": 34,
-          "ret": -0.0067,
-          "ir": -0.27,
-          "exc": -0.0519,
-          "sharpe": -1.04,
-          "var95": -0.0034999999999999996,
-          "mdd": -0.0124
-        },
-        {
-          "semana": 12,
-          "puntos": 35.21,
-          "posicion": 30,
-          "ret": 0.003,
-          "ir": -1.25,
-          "exc": -0.052199999999999996,
-          "sharpe": 0.38,
-          "var95": -0.0034999999999999996,
-          "mdd": -0.0169
-        },
-        {
-          "semana": 13,
-          "puntos": 32.95,
-          "posicion": 30,
-          "ret": 0.004,
-          "ir": -1.34,
-          "exc": -0.047599999999999996,
-          "sharpe": 0.5,
-          "var95": -0.0034999999999999996,
-          "mdd": -0.0169
-        },
-        {
-          "semana": 14,
-          "puntos": 32.82,
-          "posicion": 32,
-          "ret": 0.0053,
-          "ir": -1.41,
-          "exc": -0.0547,
-          "sharpe": 0.62,
-          "var95": -0.0034999999999999996,
-          "mdd": -0.0169
-        },
-        {
-          "semana": 15,
-          "puntos": 34.09,
-          "posicion": 29,
-          "ret": 0.0029,
-          "ir": -1.15,
-          "exc": -0.0441,
-          "sharpe": 0.32,
-          "var95": -0.0034000000000000002,
-          "mdd": -0.0169
+          "semana": 16,
+          "puntos": 33.86,
+          "posicion": 25,
+          "ret": 0.0433,
+          "ir": 0.16,
+          "exc": -0.061799999999999994,
+          "sharpe": 0.66,
+          "var95": -0.0233,
+          "mdd": -0.1139
         }
       ]
     },
     {
       "id": "dinamico-italiano",
       "nombre": "Dinamico-Italiano",
-      "posicion": 30,
-      "puntos": 32.2,
-      "retRel": -0.0475,
-      "delta": 5,
+      "posicion": 26,
+      "puntos": 31.96,
+      "retRel": -0.0634,
+      "delta": 4,
       "metricas": {
-        "ir": -0.13,
-        "exc": -0.0475,
-        "sharpe": 1.28,
-        "var95": -0.0109,
+        "ir": -0.25,
+        "exc": -0.0634,
+        "sharpe": 1.19,
+        "var95": -0.0108,
         "mdd": -0.041100000000000005
       },
       "puntosDetalle": {
         "ir": 0,
         "exc": 0,
-        "sharpe": 8.664122,
-        "var95": 10.966767,
+        "sharpe": 8.451777,
+        "var95": 10.933735,
         "mdd": 12.574052
       },
       "miembros": [
@@ -4755,200 +4406,52 @@
           "sharpe": 1.28,
           "var95": -0.0109,
           "mdd": -0.041100000000000005
+        },
+        {
+          "semana": 16,
+          "puntos": 31.96,
+          "posicion": 26,
+          "ret": 0.038,
+          "ir": -0.25,
+          "exc": -0.0634,
+          "sharpe": 1.19,
+          "var95": -0.0108,
+          "mdd": -0.041100000000000005
         }
       ]
     },
     {
-      "id": "vbp-investments",
-      "nombre": "VBP Investments",
-      "posicion": 31,
-      "puntos": 31.72,
-      "retRel": -0.1307,
-      "delta": 5,
+      "id": "terra-capital",
+      "nombre": "Terra Capital",
+      "posicion": 27,
+      "puntos": 30.09,
+      "retRel": -0.08960000000000001,
+      "delta": -9,
       "metricas": {
-        "ir": -1.14,
-        "exc": -0.1307,
-        "sharpe": 0.51,
-        "var95": -0.0063,
-        "mdd": -0.0369
+        "ir": -0.15,
+        "exc": -0.08960000000000001,
+        "sharpe": 1.01,
+        "var95": -0.0105,
+        "mdd": -0.0559
       },
       "puntosDetalle": {
         "ir": 0,
         "exc": 0,
-        "sharpe": 5.725191,
-        "var95": 13.05136,
-        "mdd": 12.947275
+        "sharpe": 7.766497,
+        "var95": 11.069277,
+        "mdd": 11.258886
       },
       "miembros": [
         {
-          "nombre": "Pablo Andres Menning Squella",
-          "linkedin": "https://www.linkedin.com/in/pablo-menning-squella-ba8061349?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
+          "nombre": "Alonso Ortega",
+          "linkedin": "https://www.linkedin.com/in/alonso-ortega-9610b93b8?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
         },
         {
-          "nombre": "Benjamin Maximiliano Valenzuela Vigas",
-          "linkedin": ""
+          "nombre": "Miguel Montaner",
+          "linkedin": "https://www.linkedin.com/in/miguel-montaner-037277292?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
         },
         {
-          "nombre": "Vicente Alejandro Fuenzalida León",
-          "linkedin": "https://www.linkedin.com/in/vicente-fuenzalida-leon-550a50278?utm_source=share_via&utm_content=profile&utm_medium=member_android"
-        }
-      ],
-      "historial": [
-        {
-          "semana": 5,
-          "puntos": 19.61,
-          "posicion": 56,
-          "ret": -0.0044,
-          "ir": -1.05,
-          "exc": -0.04,
-          "sharpe": -0.36,
-          "var95": -0.0123,
-          "mdd": -0.0369
-        },
-        {
-          "semana": 6,
-          "puntos": 21.11,
-          "posicion": 58,
-          "ret": -0.0008,
-          "ir": -1.77,
-          "exc": -0.1018,
-          "sharpe": -0.02,
-          "var95": -0.0106,
-          "mdd": -0.0369
-        },
-        {
-          "semana": 7,
-          "puntos": 27.3,
-          "posicion": 53,
-          "ret": -0.0064,
-          "ir": -0.4,
-          "exc": 0.0018,
-          "sharpe": -0.43,
-          "var95": -0.0092,
-          "mdd": -0.0369
-        },
-        {
-          "semana": 8,
-          "puntos": 29.46,
-          "posicion": 44,
-          "ret": 0.0008,
-          "ir": -0.67,
-          "exc": -0.014499999999999999,
-          "sharpe": 0.1,
-          "var95": -0.0076,
-          "mdd": -0.0369
-        },
-        {
-          "semana": 9,
-          "puntos": 29.56,
-          "posicion": 45,
-          "ret": 0.0032,
-          "ir": -1.03,
-          "exc": -0.0436,
-          "sharpe": 0.24,
-          "var95": -0.0069,
-          "mdd": -0.0369
-        },
-        {
-          "semana": 10,
-          "puntos": 36.83,
-          "posicion": 31,
-          "ret": -0.0016,
-          "ir": -0.31,
-          "exc": 0.0064,
-          "sharpe": -0.05,
-          "var95": -0.0067,
-          "mdd": -0.0369
-        },
-        {
-          "semana": 11,
-          "puntos": 25.77,
-          "posicion": 38,
-          "ret": -0.0015,
-          "ir": -0.07,
-          "exc": -0.1002,
-          "sharpe": -0.04,
-          "var95": -0.0066,
-          "mdd": -0.0369
-        },
-        {
-          "semana": 12,
-          "puntos": 33.12,
-          "posicion": 32,
-          "ret": 0.0127,
-          "ir": -1.17,
-          "exc": -0.1514,
-          "sharpe": 0.64,
-          "var95": -0.006500000000000001,
-          "mdd": -0.0369
-        },
-        {
-          "semana": 13,
-          "puntos": 30.78,
-          "posicion": 31,
-          "ret": 0.0149,
-          "ir": -1.25,
-          "exc": -0.139,
-          "sharpe": 0.73,
-          "var95": -0.0064,
-          "mdd": -0.0369
-        },
-        {
-          "semana": 14,
-          "puntos": 30.33,
-          "posicion": 36,
-          "ret": 0.0162,
-          "ir": -1.36,
-          "exc": -0.16440000000000002,
-          "sharpe": 0.76,
-          "var95": -0.0064,
-          "mdd": -0.0369
-        },
-        {
-          "semana": 15,
-          "puntos": 31.72,
-          "posicion": 31,
-          "ret": 0.011,
-          "ir": -1.14,
-          "exc": -0.1307,
-          "sharpe": 0.51,
-          "var95": -0.0063,
-          "mdd": -0.0369
-        }
-      ]
-    },
-    {
-      "id": "vantedge-asset-management",
-      "nombre": "Vantedge Asset Management",
-      "posicion": 32,
-      "puntos": 29.77,
-      "retRel": -0.050499999999999996,
-      "delta": 2,
-      "metricas": {
-        "ir": 0.0,
-        "exc": -0.050499999999999996,
-        "sharpe": 0.57,
-        "var95": -0.027200000000000002,
-        "mdd": -0.1288
-      },
-      "puntosDetalle": {
-        "ir": 15.458015,
-        "exc": 0,
-        "sharpe": 5.954198,
-        "var95": 3.58006,
-        "mdd": 4.780806
-      },
-      "miembros": [
-        {
-          "nombre": "Yommer Haniel Hernandez Herrera",
-          "linkedin": "https://www.linkedin.com/in/yommer-haniel-hernandez-herrera-b53a5b304?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
-        },
-        {
-          "nombre": "Cristobal Maximiliano Saavedra Fuentes",
-          "linkedin": ""
-        },
-        {
-          "nombre": "Vicente Andrés Avendaño Stevenson",
+          "nombre": "Lukas Bravo",
           "linkedin": ""
         }
       ],
@@ -4956,145 +4459,326 @@
         {
           "semana": 5,
           "puntos": 65.07,
-          "posicion": 13,
-          "ret": 0.0562,
-          "ir": 4.19,
-          "exc": 0.4949,
-          "sharpe": 2.49,
-          "var95": -0.014199999999999999,
-          "mdd": -0.056100000000000004
+          "posicion": 12,
+          "ret": 0.0411,
+          "ir": 4.21,
+          "exc": 0.22089999999999999,
+          "sharpe": 2.96,
+          "var95": -0.008199999999999999,
+          "mdd": -0.0352
         },
         {
           "semana": 6,
-          "puntos": 71.01,
-          "posicion": 4,
-          "ret": 0.0909,
-          "ir": 4.96,
-          "exc": 0.6048,
-          "sharpe": 3.32,
-          "var95": -0.0131,
-          "mdd": -0.056100000000000004
+          "puntos": 50.29,
+          "posicion": 38,
+          "ret": 0.0394,
+          "ir": 1.78,
+          "exc": 0.0507,
+          "sharpe": 2.44,
+          "var95": -0.009899999999999999,
+          "mdd": -0.0352
         },
         {
           "semana": 7,
-          "puntos": 62.27,
-          "posicion": 16,
-          "ret": 0.0559,
-          "ir": 3.4,
-          "exc": 0.39630000000000004,
-          "sharpe": 1.75,
-          "var95": -0.023,
-          "mdd": -0.056100000000000004
+          "puntos": 54.38,
+          "posicion": 25,
+          "ret": 0.0243,
+          "ir": 2.29,
+          "exc": 0.0949,
+          "sharpe": 1.31,
+          "var95": -0.013300000000000001,
+          "mdd": -0.0352
         },
         {
           "semana": 8,
-          "puntos": 50.26,
-          "posicion": 26,
-          "ret": 0.0408,
-          "ir": 1.57,
-          "exc": 0.1902,
-          "sharpe": 1.18,
-          "var95": -0.0241,
-          "mdd": -0.056100000000000004
+          "puntos": 43.35,
+          "posicion": 35,
+          "ret": 0.0194,
+          "ir": 0.68,
+          "exc": -0.0233,
+          "sharpe": 0.97,
+          "var95": -0.011200000000000002,
+          "mdd": -0.0352
         },
         {
           "semana": 9,
-          "puntos": 53.37,
-          "posicion": 27,
-          "ret": 0.0459,
-          "ir": 1.19,
-          "exc": 0.1417,
-          "sharpe": 1.17,
-          "var95": -0.0259,
-          "mdd": -0.056100000000000004
+          "puntos": 40.67,
+          "posicion": 38,
+          "ret": 0.0212,
+          "ir": 0.03,
+          "exc": -0.0659,
+          "sharpe": 0.95,
+          "var95": -0.0104,
+          "mdd": -0.0369
         },
         {
           "semana": 10,
-          "puntos": 9.86,
-          "posicion": 56,
-          "ret": -0.0122,
-          "ir": -0.4,
-          "exc": -0.0771,
-          "sharpe": -0.12,
-          "var95": -0.029900000000000003,
-          "mdd": -0.0951
+          "puntos": 28.45,
+          "posicion": 36,
+          "ret": 0.0004,
+          "ir": -0.2,
+          "exc": -0.07730000000000001,
+          "sharpe": 0.08,
+          "var95": -0.0124,
+          "mdd": -0.0467
         },
         {
           "semana": 11,
-          "puntos": 27.77,
-          "posicion": 37,
-          "ret": -0.0012,
-          "ir": 0.15,
-          "exc": -0.062,
-          "sharpe": 0.1,
-          "var95": -0.028399999999999998,
-          "mdd": -0.09539999999999998
+          "puntos": 40.26,
+          "posicion": 28,
+          "ret": 0.0015,
+          "ir": 0.17,
+          "exc": -0.098,
+          "sharpe": 0.12,
+          "var95": -0.0116,
+          "mdd": -0.0496
         },
         {
           "semana": 12,
-          "puntos": 31.33,
-          "posicion": 35,
-          "ret": 0.0349,
-          "ir": 0.03,
-          "exc": -0.0542,
-          "sharpe": 0.65,
-          "var95": -0.0281,
-          "mdd": -0.1288
+          "puntos": 30.98,
+          "posicion": 36,
+          "ret": 0.0308,
+          "ir": -0.5,
+          "exc": -0.1162,
+          "sharpe": 0.97,
+          "var95": -0.0104,
+          "mdd": -0.0559
         },
         {
           "semana": 13,
-          "puntos": 13.98,
-          "posicion": 51,
-          "ret": 0.0345,
-          "ir": -0.1,
-          "exc": -0.06,
-          "sharpe": 0.63,
-          "var95": -0.0279,
-          "mdd": -0.1288
+          "puntos": 28.84,
+          "posicion": 33,
+          "ret": 0.0389,
+          "ir": -0.32,
+          "exc": -0.086,
+          "sharpe": 1.17,
+          "var95": -0.0104,
+          "mdd": -0.0559
         },
         {
           "semana": 14,
-          "puntos": 31.72,
-          "posicion": 34,
-          "ret": 0.0554,
-          "ir": 0.26,
-          "exc": -0.030699999999999998,
-          "sharpe": 0.89,
-          "var95": -0.0275,
-          "mdd": -0.1288
+          "puntos": 28.0,
+          "posicion": 39,
+          "ret": 0.0371,
+          "ir": -0.65,
+          "exc": -0.1352,
+          "sharpe": 1.08,
+          "var95": -0.0103,
+          "mdd": -0.0559
         },
         {
           "semana": 15,
-          "puntos": 29.77,
-          "posicion": 32,
-          "ret": 0.0338,
-          "ir": 0.0,
-          "exc": -0.050499999999999996,
-          "sharpe": 0.57,
-          "var95": -0.027200000000000002,
-          "mdd": -0.1288
+          "puntos": 48.59,
+          "posicion": 18,
+          "ret": 0.0485,
+          "ir": 0.33,
+          "exc": -0.0387,
+          "sharpe": 1.3,
+          "var95": -0.0103,
+          "mdd": -0.0559
+        },
+        {
+          "semana": 16,
+          "puntos": 30.09,
+          "posicion": 27,
+          "ret": 0.0392,
+          "ir": -0.15,
+          "exc": -0.08960000000000001,
+          "sharpe": 1.01,
+          "var95": -0.0105,
+          "mdd": -0.0559
+        }
+      ]
+    },
+    {
+      "id": "warren-bufen",
+      "nombre": "Warren BuFEN",
+      "posicion": 28,
+      "puntos": 29.13,
+      "retRel": -0.0015,
+      "delta": -8,
+      "metricas": {
+        "ir": 0.4,
+        "exc": -0.0015,
+        "sharpe": 0.71,
+        "var95": -0.028900000000000002,
+        "mdd": -0.1588
+      },
+      "puntosDetalle": {
+        "ir": 17.639198,
+        "exc": 0,
+        "sharpe": 6.624365,
+        "var95": 2.756024,
+        "mdd": 2.114929
+      },
+      "miembros": [
+        {
+          "nombre": "Oscar Javier Mardones Urrutia",
+          "linkedin": "https://www.linkedin.com/in/oscar-javier-mardones-urrutia-b44933334/"
+        },
+        {
+          "nombre": "Cristóbal Hernan Órdenes Galassi",
+          "linkedin": "https://www.linkedin.com/in/cristobal-ordenes-1b3447181/"
+        },
+        {
+          "nombre": "Victoria Paz Tapia Rivera",
+          "linkedin": ""
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 61.39,
+          "posicion": 17,
+          "ret": 0.096,
+          "ir": 4.14,
+          "exc": 0.7508,
+          "sharpe": 2.84,
+          "var95": -0.025699999999999997,
+          "mdd": -0.08560000000000001
+        },
+        {
+          "semana": 6,
+          "puntos": 67.54,
+          "posicion": 8,
+          "ret": 0.1521,
+          "ir": 4.73,
+          "exc": 0.9731000000000001,
+          "sharpe": 3.55,
+          "var95": -0.0265,
+          "mdd": -0.08560000000000001
+        },
+        {
+          "semana": 7,
+          "puntos": 57.7,
+          "posicion": 20,
+          "ret": 0.0963,
+          "ir": 3.01,
+          "exc": 0.594,
+          "sharpe": 1.97,
+          "var95": -0.0371,
+          "mdd": -0.08560000000000001
+        },
+        {
+          "semana": 8,
+          "puntos": 49.03,
+          "posicion": 28,
+          "ret": 0.0828,
+          "ir": 1.99,
+          "exc": 0.35840000000000005,
+          "sharpe": 1.55,
+          "var95": -0.0353,
+          "mdd": -0.08560000000000001
+        },
+        {
+          "semana": 9,
+          "puntos": 58.59,
+          "posicion": 22,
+          "ret": 0.0945,
+          "ir": 1.86,
+          "exc": 0.3284,
+          "sharpe": 1.59,
+          "var95": -0.0326,
+          "mdd": -0.08560000000000001
+        },
+        {
+          "semana": 10,
+          "puntos": 40.99,
+          "posicion": 29,
+          "ret": 0.0271,
+          "ir": 0.72,
+          "exc": 0.0434,
+          "sharpe": 0.56,
+          "var95": -0.032799999999999996,
+          "mdd": -0.1157
+        },
+        {
+          "semana": 11,
+          "puntos": 46.16,
+          "posicion": 21,
+          "ret": 0.0328,
+          "ir": 0.87,
+          "exc": 0.0739,
+          "sharpe": 0.6,
+          "var95": -0.0325,
+          "mdd": -0.1175
+        },
+        {
+          "semana": 12,
+          "puntos": 48.56,
+          "posicion": 21,
+          "ret": 0.0597,
+          "ir": 0.54,
+          "exc": 0.049400000000000006,
+          "sharpe": 0.84,
+          "var95": -0.0319,
+          "mdd": -0.1588
+        },
+        {
+          "semana": 13,
+          "puntos": 47.01,
+          "posicion": 22,
+          "ret": 0.0649,
+          "ir": 0.53,
+          "exc": 0.0593,
+          "sharpe": 0.88,
+          "var95": -0.0315,
+          "mdd": -0.1588
+        },
+        {
+          "semana": 14,
+          "puntos": 51.38,
+          "posicion": 18,
+          "ret": 0.0835,
+          "ir": 0.71,
+          "exc": 0.0793,
+          "sharpe": 1.04,
+          "var95": -0.030699999999999998,
+          "mdd": -0.1588
+        },
+        {
+          "semana": 15,
+          "puntos": 47.11,
+          "posicion": 20,
+          "ret": 0.0599,
+          "ir": 0.48,
+          "exc": 0.038,
+          "sharpe": 0.77,
+          "var95": -0.0298,
+          "mdd": -0.1588
+        },
+        {
+          "semana": 16,
+          "puntos": 29.13,
+          "posicion": 28,
+          "ret": 0.057,
+          "ir": 0.4,
+          "exc": -0.0015,
+          "sharpe": 0.71,
+          "var95": -0.028900000000000002,
+          "mdd": -0.1588
         }
       ]
     },
     {
       "id": "equipo-rocket",
       "nombre": "Equipo rocket",
-      "posicion": 33,
-      "puntos": 27.97,
-      "retRel": -0.161,
-      "delta": 5,
+      "posicion": 29,
+      "puntos": 28.13,
+      "retRel": -0.1769,
+      "delta": 4,
       "metricas": {
-        "ir": -0.98,
-        "exc": -0.161,
-        "sharpe": 0.52,
-        "var95": -0.0127,
+        "ir": -0.97,
+        "exc": -0.1769,
+        "sharpe": 0.51,
+        "var95": -0.0124,
         "mdd": -0.046900000000000004
       },
       "puntosDetalle": {
         "ir": 0,
         "exc": 0,
-        "sharpe": 5.763359,
-        "var95": 10.151057,
+        "sharpe": 5.862944,
+        "var95": 10.210843,
         "mdd": 12.058649
       },
       "miembros": [],
@@ -5219,187 +4903,39 @@
           "sharpe": 0.52,
           "var95": -0.0127,
           "mdd": -0.046900000000000004
-        }
-      ]
-    },
-    {
-      "id": "9-financiero",
-      "nombre": "9 financiero",
-      "posicion": 34,
-      "puntos": 27.33,
-      "retRel": -0.0504,
-      "delta": 6,
-      "metricas": {
-        "ir": -1.15,
-        "exc": -0.0504,
-        "sharpe": 0.6,
-        "var95": -0.012,
-        "mdd": -0.0611
-      },
-      "puntosDetalle": {
-        "ir": 0,
-        "exc": 0,
-        "sharpe": 6.068702,
-        "var95": 10.468278,
-        "mdd": 10.796801
-      },
-      "miembros": [
-        {
-          "nombre": "Vicente Andrés Arias Venegas",
-          "linkedin": "https://www.linkedin.com/in/vicente-arias-1bb45625b?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
         },
         {
-          "nombre": "Alfonso Gómez-Lobo Alcalde",
-          "linkedin": ""
-        },
-        {
-          "nombre": "Clemente Laborde Benavente",
-          "linkedin": "https://www.linkedin.com/in/clemente-laborde-benavente-649600241?utm_source=share_via&utm_content=profile&utm_medium=member_android"
-        }
-      ],
-      "historial": [
-        {
-          "semana": 5,
-          "puntos": 45.54,
-          "posicion": 43,
-          "ret": 0.02,
-          "ir": 1.73,
-          "exc": 0.0361,
-          "sharpe": 1.54,
-          "var95": -0.011399999999999999,
-          "mdd": -0.0461
-        },
-        {
-          "semana": 6,
-          "puntos": 46.5,
-          "posicion": 41,
-          "ret": 0.0345,
-          "ir": 1.49,
-          "exc": 0.052000000000000005,
-          "sharpe": 2.15,
-          "var95": -0.011200000000000002,
-          "mdd": -0.0461
-        },
-        {
-          "semana": 7,
-          "puntos": 38.97,
-          "posicion": 44,
-          "ret": 0.009,
-          "ir": 1.08,
-          "exc": -0.0123,
-          "sharpe": 0.53,
-          "var95": -0.0146,
-          "mdd": -0.0461
-        },
-        {
-          "semana": 8,
-          "puntos": 27.84,
-          "posicion": 45,
-          "ret": 0.0103,
-          "ir": -0.06,
-          "exc": -0.0492,
-          "sharpe": 0.55,
-          "var95": -0.0123,
-          "mdd": -0.0461
-        },
-        {
-          "semana": 9,
-          "puntos": 28.02,
-          "posicion": 46,
-          "ret": 0.0148,
-          "ir": -0.53,
-          "exc": -0.0521,
-          "sharpe": 0.69,
-          "var95": -0.011399999999999999,
-          "mdd": -0.0461
-        },
-        {
-          "semana": 10,
-          "puntos": 22.81,
-          "posicion": 38,
-          "ret": -0.0028,
-          "ir": -0.52,
-          "exc": -0.0825,
-          "sharpe": -0.04,
-          "var95": -0.0113,
-          "mdd": -0.0461
-        },
-        {
-          "semana": 11,
-          "puntos": 22.48,
-          "posicion": 39,
-          "ret": -0.0022,
-          "ir": -0.09,
-          "exc": -0.0759,
-          "sharpe": -0.02,
-          "var95": -0.0111,
-          "mdd": -0.049
-        },
-        {
-          "semana": 12,
-          "puntos": 29.66,
-          "posicion": 38,
-          "ret": 0.0223,
-          "ir": -1.17,
-          "exc": -0.0669,
-          "sharpe": 0.76,
-          "var95": -0.0113,
-          "mdd": -0.058899999999999994
-        },
-        {
-          "semana": 13,
-          "puntos": 27.02,
-          "posicion": 35,
-          "ret": 0.023,
-          "ir": -1.41,
-          "exc": -0.0649,
-          "sharpe": 0.76,
-          "var95": -0.0113,
-          "mdd": -0.058899999999999994
-        },
-        {
-          "semana": 14,
-          "puntos": 26.85,
-          "posicion": 40,
-          "ret": 0.0291,
-          "ir": -1.3,
-          "exc": -0.0698,
-          "sharpe": 0.91,
-          "var95": -0.011200000000000002,
-          "mdd": -0.058899999999999994
-        },
-        {
-          "semana": 15,
-          "puntos": 27.33,
-          "posicion": 34,
-          "ret": 0.021,
-          "ir": -1.15,
-          "exc": -0.0504,
-          "sharpe": 0.6,
-          "var95": -0.012,
-          "mdd": -0.0611
+          "semana": 16,
+          "puntos": 28.13,
+          "posicion": 29,
+          "ret": 0.0159,
+          "ir": -0.97,
+          "exc": -0.1769,
+          "sharpe": 0.51,
+          "var95": -0.0124,
+          "mdd": -0.046900000000000004
         }
       ]
     },
     {
       "id": "ccq",
       "nombre": "CCQ",
-      "posicion": 35,
-      "puntos": 26.52,
-      "retRel": -0.1011,
-      "delta": 7,
+      "posicion": 30,
+      "puntos": 26.64,
+      "retRel": -0.1219,
+      "delta": 5,
       "metricas": {
-        "ir": -1.31,
-        "exc": -0.1011,
-        "sharpe": 0.43,
-        "var95": -0.0111,
+        "ir": -1.35,
+        "exc": -0.1219,
+        "sharpe": 0.41,
+        "var95": -0.0108,
         "mdd": -0.0675
       },
       "puntosDetalle": {
         "ir": 0,
         "exc": 0,
-        "sharpe": 5.419847,
-        "var95": 10.876133,
+        "sharpe": 5.482234,
+        "var95": 10.933735,
         "mdd": 10.228081
       },
       "miembros": [
@@ -5537,28 +5073,39 @@
           "sharpe": 0.43,
           "var95": -0.0111,
           "mdd": -0.0675
+        },
+        {
+          "semana": 16,
+          "puntos": 26.64,
+          "posicion": 30,
+          "ret": 0.0138,
+          "ir": -1.35,
+          "exc": -0.1219,
+          "sharpe": 0.41,
+          "var95": -0.0108,
+          "mdd": -0.0675
         }
       ]
     },
     {
       "id": "black-bulls",
       "nombre": "Black Bulls",
-      "posicion": 36,
-      "puntos": 25.98,
-      "retRel": -0.10279999999999999,
-      "delta": 7,
+      "posicion": 31,
+      "puntos": 25.89,
+      "retRel": -0.114,
+      "delta": 5,
       "metricas": {
-        "ir": -1.66,
-        "exc": -0.10279999999999999,
-        "sharpe": 0.3,
+        "ir": -1.78,
+        "exc": -0.114,
+        "sharpe": 0.26,
         "var95": -0.0105,
         "mdd": -0.0711
       },
       "puntosDetalle": {
         "ir": 0,
         "exc": 0,
-        "sharpe": 4.923664,
-        "var95": 11.148036,
+        "sharpe": 4.911168,
+        "var95": 11.069277,
         "mdd": 9.908175
       },
       "miembros": [
@@ -5692,28 +5239,209 @@
           "sharpe": 0.3,
           "var95": -0.0105,
           "mdd": -0.0711
+        },
+        {
+          "semana": 16,
+          "puntos": 25.89,
+          "posicion": 31,
+          "ret": 0.0083,
+          "ir": -1.78,
+          "exc": -0.114,
+          "sharpe": 0.26,
+          "var95": -0.0105,
+          "mdd": -0.0711
+        }
+      ]
+    },
+    {
+      "id": "vcl-capital",
+      "nombre": "VCL Capital",
+      "posicion": 32,
+      "puntos": 24.74,
+      "retRel": -0.102,
+      "delta": -9,
+      "metricas": {
+        "ir": -0.02,
+        "exc": -0.102,
+        "sharpe": 0.78,
+        "var95": -0.0179,
+        "mdd": -0.0687
+      },
+      "puntosDetalle": {
+        "ir": 0,
+        "exc": 0,
+        "sharpe": 6.890863,
+        "var95": 7.725904,
+        "mdd": 10.121445
+      },
+      "miembros": [
+        {
+          "nombre": "Pedro Pablo Castillo Rosenberg",
+          "linkedin": "https://Pedro Pablo Castillo Rosenberg"
+        },
+        {
+          "nombre": "Josefa Varela Jacob",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Juan José Limarí Campos",
+          "linkedin": "https://Juan José Limari"
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 50.43,
+          "posicion": 36,
+          "ret": 0.0296,
+          "ir": 2.42,
+          "exc": 0.2438,
+          "sharpe": 1.62,
+          "var95": -0.0141,
+          "mdd": -0.0579
+        },
+        {
+          "semana": 6,
+          "puntos": 53.12,
+          "posicion": 30,
+          "ret": 0.0512,
+          "ir": 2.69,
+          "exc": 0.2503,
+          "sharpe": 2.31,
+          "var95": -0.0125,
+          "mdd": -0.0579
+        },
+        {
+          "semana": 7,
+          "puntos": 50.48,
+          "posicion": 32,
+          "ret": 0.0263,
+          "ir": 2.18,
+          "exc": 0.1936,
+          "sharpe": 1.05,
+          "var95": -0.0202,
+          "mdd": -0.0579
+        },
+        {
+          "semana": 8,
+          "puntos": 50.76,
+          "posicion": 25,
+          "ret": 0.0314,
+          "ir": 1.51,
+          "exc": 0.127,
+          "sharpe": 1.12,
+          "var95": -0.0165,
+          "mdd": -0.0579
+        },
+        {
+          "semana": 9,
+          "puntos": 55.7,
+          "posicion": 24,
+          "ret": 0.0399,
+          "ir": 1.28,
+          "exc": 0.1059,
+          "sharpe": 1.26,
+          "var95": -0.0168,
+          "mdd": -0.0579
+        },
+        {
+          "semana": 10,
+          "puntos": 51.15,
+          "posicion": 25,
+          "ret": 0.0096,
+          "ir": 0.46,
+          "exc": 0.028300000000000002,
+          "sharpe": 0.35,
+          "var95": -0.018000000000000002,
+          "mdd": -0.0579
+        },
+        {
+          "semana": 11,
+          "puntos": 39.87,
+          "posicion": 29,
+          "ret": 0.0091,
+          "ir": 0.64,
+          "exc": -0.056600000000000004,
+          "sharpe": 0.32,
+          "var95": -0.0176,
+          "mdd": -0.0579
+        },
+        {
+          "semana": 12,
+          "puntos": 43.33,
+          "posicion": 26,
+          "ret": 0.0444,
+          "ir": 0.29,
+          "exc": -0.0529,
+          "sharpe": 1.01,
+          "var95": -0.0179,
+          "mdd": -0.0687
+        },
+        {
+          "semana": 13,
+          "puntos": 40.87,
+          "posicion": 26,
+          "ret": 0.0479,
+          "ir": 0.22,
+          "exc": -0.039599999999999996,
+          "sharpe": 1.05,
+          "var95": -0.0178,
+          "mdd": -0.0687
+        },
+        {
+          "semana": 14,
+          "puntos": 41.96,
+          "posicion": 26,
+          "ret": 0.0552,
+          "ir": 0.29,
+          "exc": -0.0594,
+          "sharpe": 1.15,
+          "var95": -0.0176,
+          "mdd": -0.0687
+        },
+        {
+          "semana": 15,
+          "puntos": 40.87,
+          "posicion": 23,
+          "ret": 0.0409,
+          "ir": 0.09,
+          "exc": -0.0542,
+          "sharpe": 0.84,
+          "var95": -0.0179,
+          "mdd": -0.0687
+        },
+        {
+          "semana": 16,
+          "puntos": 24.74,
+          "posicion": 32,
+          "ret": 0.0397,
+          "ir": -0.02,
+          "exc": -0.102,
+          "sharpe": 0.78,
+          "var95": -0.0179,
+          "mdd": -0.0687
         }
       ]
     },
     {
       "id": "coclea-corp",
       "nombre": "Coclea Corp",
-      "posicion": 37,
-      "puntos": 25.15,
-      "retRel": -0.0828,
-      "delta": -12,
+      "posicion": 33,
+      "puntos": 24.73,
+      "retRel": -0.1349,
+      "delta": 4,
       "metricas": {
-        "ir": -0.18,
-        "exc": -0.0828,
-        "sharpe": 0.81,
-        "var95": -0.0191,
+        "ir": -0.44,
+        "exc": -0.1349,
+        "sharpe": 0.67,
+        "var95": -0.019,
         "mdd": -0.058499999999999996
       },
       "puntosDetalle": {
         "ir": 0,
         "exc": 0,
-        "sharpe": 6.870229,
-        "var95": 7.250755,
+        "sharpe": 6.472081,
+        "var95": 7.228916,
         "mdd": 11.027844
       },
       "miembros": [
@@ -5847,184 +5575,40 @@
           "sharpe": 0.81,
           "var95": -0.0191,
           "mdd": -0.058499999999999996
-        }
-      ]
-    },
-    {
-      "id": "malaga-capital-partners",
-      "nombre": "Malaga Capital Partners",
-      "posicion": 38,
-      "puntos": 23.27,
-      "retRel": -0.0455,
-      "delta": -11,
-      "metricas": {
-        "ir": -0.14,
-        "exc": -0.0455,
-        "sharpe": 0.71,
-        "var95": -0.0178,
-        "mdd": -0.08199999999999999
-      },
-      "puntosDetalle": {
-        "ir": 0,
-        "exc": 0,
-        "sharpe": 6.48855,
-        "var95": 7.839879,
-        "mdd": 8.939573
-      },
-      "miembros": [
-        {
-          "nombre": "Diego Letelier",
-          "linkedin": "https://www.linkedin.com/in/diego-letelier-reyman-54927136b?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
         },
         {
-          "nombre": "Guillermo Barros",
-          "linkedin": "https://www.linkedin.com/in/gbarrosm?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
-        }
-      ],
-      "historial": [
-        {
-          "semana": 5,
-          "puntos": 58.02,
-          "posicion": 24,
-          "ret": 0.0394,
-          "ir": 3.88,
-          "exc": 0.25980000000000003,
-          "sharpe": 2.15,
-          "var95": -0.0131,
-          "mdd": -0.0529
-        },
-        {
-          "semana": 6,
-          "puntos": 58.16,
-          "posicion": 23,
-          "ret": 0.0586,
-          "ir": 3.74,
-          "exc": 0.25429999999999997,
-          "sharpe": 2.67,
-          "var95": -0.0126,
-          "mdd": -0.0529
-        },
-        {
-          "semana": 7,
-          "puntos": 53.2,
-          "posicion": 27,
-          "ret": 0.031,
-          "ir": 2.62,
-          "exc": 0.1812,
-          "sharpe": 1.22,
-          "var95": -0.0196,
-          "mdd": -0.0529
-        },
-        {
-          "semana": 8,
-          "puntos": 46.98,
-          "posicion": 30,
-          "ret": 0.0284,
-          "ir": 1.22,
-          "exc": 0.0655,
-          "sharpe": 0.99,
-          "var95": -0.021099999999999997,
-          "mdd": -0.0529
-        },
-        {
-          "semana": 9,
-          "puntos": 50.78,
-          "posicion": 30,
-          "ret": 0.035,
-          "ir": 0.93,
-          "exc": 0.0443,
-          "sharpe": 1.09,
-          "var95": -0.019799999999999998,
-          "mdd": -0.0529
-        },
-        {
-          "semana": 10,
-          "puntos": 36.44,
-          "posicion": 32,
-          "ret": 0.0031,
-          "ir": 0.09,
-          "exc": -0.0407,
-          "sharpe": 0.18,
-          "var95": -0.0192,
-          "mdd": -0.0587
-        },
-        {
-          "semana": 11,
-          "puntos": 39.02,
-          "posicion": 30,
-          "ret": 0.0091,
-          "ir": 0.6,
-          "exc": -0.028399999999999998,
-          "sharpe": 0.32,
-          "var95": -0.018600000000000002,
-          "mdd": -0.0599
-        },
-        {
-          "semana": 12,
-          "puntos": 40.79,
-          "posicion": 27,
-          "ret": 0.0398,
-          "ir": 0.09,
-          "exc": -0.0342,
-          "sharpe": 0.9,
-          "var95": -0.0177,
-          "mdd": -0.08199999999999999
-        },
-        {
-          "semana": 13,
-          "puntos": 22.89,
-          "posicion": 40,
-          "ret": 0.0414,
-          "ir": -0.05,
-          "exc": -0.0294,
-          "sharpe": 0.91,
-          "var95": -0.0177,
-          "mdd": -0.08199999999999999
-        },
-        {
-          "semana": 14,
-          "puntos": 40.33,
-          "posicion": 27,
-          "ret": 0.0538,
-          "ir": 0.22,
-          "exc": -0.0279,
-          "sharpe": 1.1,
-          "var95": -0.0176,
-          "mdd": -0.08199999999999999
-        },
-        {
-          "semana": 15,
-          "puntos": 23.27,
-          "posicion": 38,
-          "ret": 0.0345,
-          "ir": -0.14,
-          "exc": -0.0455,
-          "sharpe": 0.71,
-          "var95": -0.0178,
-          "mdd": -0.08199999999999999
+          "semana": 16,
+          "puntos": 24.73,
+          "posicion": 33,
+          "ret": 0.0298,
+          "ir": -0.44,
+          "exc": -0.1349,
+          "sharpe": 0.67,
+          "var95": -0.019,
+          "mdd": -0.058499999999999996
         }
       ]
     },
     {
       "id": "vnm-capital-partners",
       "nombre": "VNM Capital Partners",
-      "posicion": 39,
-      "puntos": 22.27,
-      "retRel": -0.1348,
-      "delta": 2,
+      "posicion": 34,
+      "puntos": 22.29,
+      "retRel": -0.1887,
+      "delta": 5,
       "metricas": {
-        "ir": -1.66,
-        "exc": -0.1348,
-        "sharpe": -0.05,
-        "var95": -0.011200000000000002,
-        "mdd": -0.053899999999999997
+        "ir": -1.81,
+        "exc": -0.1887,
+        "sharpe": -0.18,
+        "var95": -0.011000000000000001,
+        "mdd": -0.0538
       },
       "puntosDetalle": {
         "ir": 0,
         "exc": 0,
         "sharpe": 0,
-        "var95": 10.830816,
-        "mdd": 11.436611
+        "var95": 10.843373,
+        "mdd": 11.445498
       },
       "miembros": [
         {
@@ -6161,29 +5745,40 @@
           "sharpe": -0.05,
           "var95": -0.011200000000000002,
           "mdd": -0.053899999999999997
+        },
+        {
+          "semana": 16,
+          "puntos": 22.29,
+          "posicion": 34,
+          "ret": -0.007,
+          "ir": -1.81,
+          "exc": -0.1887,
+          "sharpe": -0.18,
+          "var95": -0.011000000000000001,
+          "mdd": -0.0538
         }
       ]
     },
     {
       "id": "pgat",
       "nombre": "PGAt",
-      "posicion": 40,
-      "puntos": 22.05,
-      "retRel": -0.10039999999999999,
-      "delta": 7,
+      "posicion": 35,
+      "puntos": 21.76,
+      "retRel": -0.134,
+      "delta": 5,
       "metricas": {
-        "ir": -0.2,
-        "exc": -0.10039999999999999,
-        "sharpe": 0.63,
-        "var95": -0.0171,
-        "mdd": -0.0958
+        "ir": -0.41,
+        "exc": -0.134,
+        "sharpe": 0.52,
+        "var95": -0.017,
+        "mdd": -0.09570000000000001
       },
       "puntosDetalle": {
         "ir": 0,
         "exc": 0,
-        "sharpe": 6.183206,
-        "var95": 8.1571,
-        "mdd": 7.71327
+        "sharpe": 5.901015,
+        "var95": 8.13253,
+        "mdd": 7.722156
       },
       "miembros": [
         {
@@ -6320,28 +5915,39 @@
           "sharpe": 0.63,
           "var95": -0.0171,
           "mdd": -0.0958
+        },
+        {
+          "semana": 16,
+          "puntos": 21.76,
+          "posicion": 35,
+          "ret": 0.026,
+          "ir": -0.41,
+          "exc": -0.134,
+          "sharpe": 0.52,
+          "var95": -0.017,
+          "mdd": -0.09570000000000001
         }
       ]
     },
     {
       "id": "emax-wealth",
       "nombre": "Emax Wealth",
-      "posicion": 41,
-      "puntos": 19.08,
-      "retRel": -0.0907,
-      "delta": -12,
+      "posicion": 36,
+      "puntos": 18.81,
+      "retRel": -0.1308,
+      "delta": 5,
       "metricas": {
-        "ir": -0.14,
-        "exc": -0.0907,
-        "sharpe": 0.54,
+        "ir": -0.28,
+        "exc": -0.1308,
+        "sharpe": 0.45,
         "var95": -0.0212,
         "mdd": -0.1045
       },
       "puntosDetalle": {
         "ir": 0,
         "exc": 0,
-        "sharpe": 5.839695,
-        "var95": 6.299094,
+        "sharpe": 5.634518,
+        "var95": 6.23494,
         "mdd": 6.940166
       },
       "miembros": [
@@ -6475,183 +6081,39 @@
           "sharpe": 0.54,
           "var95": -0.0212,
           "mdd": -0.1045
-        }
-      ]
-    },
-    {
-      "id": "seriosfc",
-      "nombre": "SeriosFc",
-      "posicion": 42,
-      "puntos": 17.69,
-      "retRel": -0.11470000000000001,
-      "delta": 8,
-      "metricas": {
-        "ir": -0.62,
-        "exc": -0.11470000000000001,
-        "sharpe": 0.31,
-        "var95": -0.0217,
-        "mdd": -0.10769999999999999
-      },
-      "puntosDetalle": {
-        "ir": 0,
-        "exc": 0,
-        "sharpe": 4.961832,
-        "var95": 6.072508,
-        "mdd": 6.655806
-      },
-      "miembros": [
-        {
-          "nombre": "Tomas Rojas Moya",
-          "linkedin": ""
         },
         {
-          "nombre": "Flavio Pérez Bustos",
-          "linkedin": ""
-        }
-      ],
-      "historial": [
-        {
-          "semana": 5,
-          "puntos": 38.56,
-          "posicion": 49,
-          "ret": 0.0211,
-          "ir": 1.57,
-          "exc": 0.17489999999999997,
-          "sharpe": 0.96,
-          "var95": -0.0215,
-          "mdd": -0.0666
-        },
-        {
-          "semana": 6,
-          "puntos": 44.15,
-          "posicion": 42,
-          "ret": 0.0477,
-          "ir": 2.26,
-          "exc": 0.2458,
-          "sharpe": 1.71,
-          "var95": -0.021099999999999997,
-          "mdd": -0.0666
-        },
-        {
-          "semana": 7,
-          "puntos": 36.39,
-          "posicion": 46,
-          "ret": 0.0086,
-          "ir": 0.79,
-          "exc": 0.0745,
-          "sharpe": 0.37,
-          "var95": -0.025699999999999997,
-          "mdd": -0.0666
-        },
-        {
-          "semana": 8,
-          "puntos": 31.17,
-          "posicion": 42,
-          "ret": 0.0088,
-          "ir": 0.08,
-          "exc": -0.002,
-          "sharpe": 0.35,
-          "var95": -0.022799999999999997,
-          "mdd": -0.0666
-        },
-        {
-          "semana": 9,
-          "puntos": 20.62,
-          "posicion": 53,
-          "ret": 0.0126,
-          "ir": -0.2,
-          "exc": -0.030600000000000002,
-          "sharpe": 0.41,
-          "var95": -0.0223,
-          "mdd": -0.0666
-        },
-        {
-          "semana": 10,
-          "puntos": 14.95,
-          "posicion": 48,
-          "ret": -0.0243,
-          "ir": -0.99,
-          "exc": -0.13470000000000001,
-          "sharpe": -0.38,
-          "var95": -0.022099999999999998,
-          "mdd": -0.0774
-        },
-        {
-          "semana": 11,
-          "puntos": 14.3,
-          "posicion": 51,
-          "ret": -0.0223,
-          "ir": -0.64,
-          "exc": -0.1702,
-          "sharpe": -0.31,
-          "var95": -0.0219,
-          "mdd": -0.0806
-        },
-        {
-          "semana": 12,
-          "puntos": 19.45,
-          "posicion": 47,
-          "ret": 0.0068,
-          "ir": -0.89,
-          "exc": -0.1592,
-          "sharpe": 0.23,
-          "var95": -0.0217,
-          "mdd": -0.10769999999999999
-        },
-        {
-          "semana": 13,
-          "puntos": 17.54,
-          "posicion": 46,
-          "ret": 0.0156,
-          "ir": -0.75,
-          "exc": -0.12710000000000002,
-          "sharpe": 0.37,
-          "var95": -0.0217,
-          "mdd": -0.10769999999999999
-        },
-        {
-          "semana": 14,
-          "puntos": 16.95,
-          "posicion": 50,
-          "ret": 0.0246,
-          "ir": -0.6,
-          "exc": -0.1304,
-          "sharpe": 0.49,
-          "var95": -0.0217,
-          "mdd": -0.10769999999999999
-        },
-        {
-          "semana": 15,
-          "puntos": 17.69,
-          "posicion": 42,
-          "ret": 0.0133,
-          "ir": -0.62,
-          "exc": -0.11470000000000001,
-          "sharpe": 0.31,
-          "var95": -0.0217,
-          "mdd": -0.10769999999999999
+          "semana": 16,
+          "puntos": 18.81,
+          "posicion": 36,
+          "ret": 0.0248,
+          "ir": -0.28,
+          "exc": -0.1308,
+          "sharpe": 0.45,
+          "var95": -0.0212,
+          "mdd": -0.1045
         }
       ]
     },
     {
       "id": "indarra-investments",
       "nombre": "Indarra Investments",
-      "posicion": 43,
-      "puntos": 17.58,
-      "retRel": -0.11720000000000001,
-      "delta": 5,
+      "posicion": 37,
+      "puntos": 17.73,
+      "retRel": -0.12359999999999999,
+      "delta": 6,
       "metricas": {
-        "ir": -1.76,
-        "exc": -0.11720000000000001,
-        "sharpe": -0.03,
-        "var95": -0.016,
+        "ir": -1.72,
+        "exc": -0.12359999999999999,
+        "sharpe": -0.01,
+        "var95": -0.0155,
         "mdd": -0.08220000000000001
       },
       "puntosDetalle": {
         "ir": 0,
         "exc": 0,
         "sharpe": 0,
-        "var95": 8.655589,
+        "var95": 8.810241,
         "mdd": 8.921801
       },
       "miembros": [
@@ -6789,28 +6251,39 @@
           "sharpe": -0.03,
           "var95": -0.016,
           "mdd": -0.08220000000000001
+        },
+        {
+          "semana": 16,
+          "puntos": 17.73,
+          "posicion": 37,
+          "ret": -0.0046,
+          "ir": -1.72,
+          "exc": -0.12359999999999999,
+          "sharpe": -0.01,
+          "var95": -0.0155,
+          "mdd": -0.08220000000000001
         }
       ]
     },
     {
       "id": "diagonal-capital",
       "nombre": "Diagonal Capital",
-      "posicion": 44,
-      "puntos": 16.95,
-      "retRel": -0.2327,
-      "delta": 7,
+      "posicion": 38,
+      "puntos": 17.42,
+      "retRel": -0.23829999999999998,
+      "delta": 6,
       "metricas": {
-        "ir": -2.25,
-        "exc": -0.2327,
-        "sharpe": -0.3,
-        "var95": -0.0179,
+        "ir": -2.24,
+        "exc": -0.23829999999999998,
+        "sharpe": -0.31,
+        "var95": -0.0167,
         "mdd": -0.0796
       },
       "puntosDetalle": {
         "ir": 0,
         "exc": 0,
         "sharpe": 0,
-        "var95": 7.794562,
+        "var95": 8.268072,
         "mdd": 9.152844
       },
       "miembros": [
@@ -6948,29 +6421,372 @@
           "sharpe": -0.3,
           "var95": -0.0179,
           "mdd": -0.0796
+        },
+        {
+          "semana": 16,
+          "puntos": 17.42,
+          "posicion": 38,
+          "ret": -0.0163,
+          "ir": -2.24,
+          "exc": -0.23829999999999998,
+          "sharpe": -0.31,
+          "var95": -0.0167,
+          "mdd": -0.0796
+        }
+      ]
+    },
+    {
+      "id": "seriosfc",
+      "nombre": "SeriosFc",
+      "posicion": 39,
+      "puntos": 17.2,
+      "retRel": -0.17679999999999998,
+      "delta": 3,
+      "metricas": {
+        "ir": -0.92,
+        "exc": -0.17679999999999998,
+        "sharpe": 0.16,
+        "var95": -0.0217,
+        "mdd": -0.10769999999999999
+      },
+      "puntosDetalle": {
+        "ir": 0,
+        "exc": 0,
+        "sharpe": 4.530457,
+        "var95": 6.009036,
+        "mdd": 6.655806
+      },
+      "miembros": [
+        {
+          "nombre": "Tomas Rojas Moya",
+          "linkedin": ""
+        },
+        {
+          "nombre": "Flavio Pérez Bustos",
+          "linkedin": ""
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 38.56,
+          "posicion": 49,
+          "ret": 0.0211,
+          "ir": 1.57,
+          "exc": 0.17489999999999997,
+          "sharpe": 0.96,
+          "var95": -0.0215,
+          "mdd": -0.0666
+        },
+        {
+          "semana": 6,
+          "puntos": 44.15,
+          "posicion": 42,
+          "ret": 0.0477,
+          "ir": 2.26,
+          "exc": 0.2458,
+          "sharpe": 1.71,
+          "var95": -0.021099999999999997,
+          "mdd": -0.0666
+        },
+        {
+          "semana": 7,
+          "puntos": 36.39,
+          "posicion": 46,
+          "ret": 0.0086,
+          "ir": 0.79,
+          "exc": 0.0745,
+          "sharpe": 0.37,
+          "var95": -0.025699999999999997,
+          "mdd": -0.0666
+        },
+        {
+          "semana": 8,
+          "puntos": 31.17,
+          "posicion": 42,
+          "ret": 0.0088,
+          "ir": 0.08,
+          "exc": -0.002,
+          "sharpe": 0.35,
+          "var95": -0.022799999999999997,
+          "mdd": -0.0666
+        },
+        {
+          "semana": 9,
+          "puntos": 20.62,
+          "posicion": 53,
+          "ret": 0.0126,
+          "ir": -0.2,
+          "exc": -0.030600000000000002,
+          "sharpe": 0.41,
+          "var95": -0.0223,
+          "mdd": -0.0666
+        },
+        {
+          "semana": 10,
+          "puntos": 14.95,
+          "posicion": 48,
+          "ret": -0.0243,
+          "ir": -0.99,
+          "exc": -0.13470000000000001,
+          "sharpe": -0.38,
+          "var95": -0.022099999999999998,
+          "mdd": -0.0774
+        },
+        {
+          "semana": 11,
+          "puntos": 14.3,
+          "posicion": 51,
+          "ret": -0.0223,
+          "ir": -0.64,
+          "exc": -0.1702,
+          "sharpe": -0.31,
+          "var95": -0.0219,
+          "mdd": -0.0806
+        },
+        {
+          "semana": 12,
+          "puntos": 19.45,
+          "posicion": 47,
+          "ret": 0.0068,
+          "ir": -0.89,
+          "exc": -0.1592,
+          "sharpe": 0.23,
+          "var95": -0.0217,
+          "mdd": -0.10769999999999999
+        },
+        {
+          "semana": 13,
+          "puntos": 17.54,
+          "posicion": 46,
+          "ret": 0.0156,
+          "ir": -0.75,
+          "exc": -0.12710000000000002,
+          "sharpe": 0.37,
+          "var95": -0.0217,
+          "mdd": -0.10769999999999999
+        },
+        {
+          "semana": 14,
+          "puntos": 16.95,
+          "posicion": 50,
+          "ret": 0.0246,
+          "ir": -0.6,
+          "exc": -0.1304,
+          "sharpe": 0.49,
+          "var95": -0.0217,
+          "mdd": -0.10769999999999999
+        },
+        {
+          "semana": 15,
+          "puntos": 17.69,
+          "posicion": 42,
+          "ret": 0.0133,
+          "ir": -0.62,
+          "exc": -0.11470000000000001,
+          "sharpe": 0.31,
+          "var95": -0.0217,
+          "mdd": -0.10769999999999999
+        },
+        {
+          "semana": 16,
+          "puntos": 17.2,
+          "posicion": 39,
+          "ret": 0.0032,
+          "ir": -0.92,
+          "exc": -0.17679999999999998,
+          "sharpe": 0.16,
+          "var95": -0.0217,
+          "mdd": -0.10769999999999999
+        }
+      ]
+    },
+    {
+      "id": "alpha-partners",
+      "nombre": "Alpha Partners",
+      "posicion": 40,
+      "puntos": 15.84,
+      "retRel": -0.2332,
+      "delta": 6,
+      "metricas": {
+        "ir": -0.95,
+        "exc": -0.2332,
+        "sharpe": 0.1,
+        "var95": -0.0223,
+        "mdd": -0.1173
+      },
+      "puntosDetalle": {
+        "ir": 0,
+        "exc": 0,
+        "sharpe": 4.30203,
+        "var95": 5.737952,
+        "mdd": 5.802725
+      },
+      "miembros": [
+        {
+          "nombre": "Antonia Paz Vilches Ureta",
+          "linkedin": "https://www.linkedin.com/in/antoniavilchesureta"
+        },
+        {
+          "nombre": "Elizabeth Salome Núñez Neira",
+          "linkedin": "https://www.linkedin.com/in/elizabethnuñez"
+        }
+      ],
+      "historial": [
+        {
+          "semana": 5,
+          "puntos": 46.24,
+          "posicion": 42,
+          "ret": 0.0153,
+          "ir": 1.09,
+          "exc": 0.0552,
+          "sharpe": 1.15,
+          "var95": -0.0078000000000000005,
+          "mdd": -0.0406
+        },
+        {
+          "semana": 6,
+          "puntos": 52.7,
+          "posicion": 33,
+          "ret": 0.0421,
+          "ir": 1.97,
+          "exc": 0.1728,
+          "sharpe": 2.3,
+          "var95": -0.009899999999999999,
+          "mdd": -0.0406
+        },
+        {
+          "semana": 7,
+          "puntos": 36.11,
+          "posicion": 47,
+          "ret": 0.0021,
+          "ir": 0.29,
+          "exc": 0.0046,
+          "sharpe": 0.18,
+          "var95": -0.022400000000000003,
+          "mdd": -0.0443
+        },
+        {
+          "semana": 8,
+          "puntos": 14.75,
+          "posicion": 55,
+          "ret": -0.0135,
+          "ir": -1.13,
+          "exc": -0.1624,
+          "sharpe": -0.32,
+          "var95": -0.0277,
+          "mdd": -0.0591
+        },
+        {
+          "semana": 9,
+          "puntos": 18.99,
+          "posicion": 54,
+          "ret": -0.0006,
+          "ir": -0.86,
+          "exc": -0.12210000000000001,
+          "sharpe": 0.09,
+          "var95": -0.026099999999999998,
+          "mdd": -0.061900000000000004
+        },
+        {
+          "semana": 10,
+          "puntos": 13.04,
+          "posicion": 50,
+          "ret": -0.0386,
+          "ir": -1.61,
+          "exc": -0.2231,
+          "sharpe": -0.86,
+          "var95": -0.0253,
+          "mdd": -0.08310000000000001
+        },
+        {
+          "semana": 11,
+          "puntos": 13.15,
+          "posicion": 53,
+          "ret": -0.0349,
+          "ir": -1.11,
+          "exc": -0.3233,
+          "sharpe": -0.68,
+          "var95": -0.024,
+          "mdd": -0.08310000000000001
+        },
+        {
+          "semana": 12,
+          "puntos": 13.61,
+          "posicion": 53,
+          "ret": -0.011,
+          "ir": -1.4,
+          "exc": -0.3146,
+          "sharpe": -0.09,
+          "var95": -0.022099999999999998,
+          "mdd": -0.1173
+        },
+        {
+          "semana": 13,
+          "puntos": 12.33,
+          "posicion": 53,
+          "ret": -0.0106,
+          "ir": -1.5,
+          "exc": -0.3107,
+          "sharpe": -0.08,
+          "var95": -0.0219,
+          "mdd": -0.1173
+        },
+        {
+          "semana": 14,
+          "puntos": 15.85,
+          "posicion": 53,
+          "ret": 0.0111,
+          "ir": -0.96,
+          "exc": -0.255,
+          "sharpe": 0.29,
+          "var95": -0.021099999999999997,
+          "mdd": -0.1173
+        },
+        {
+          "semana": 15,
+          "puntos": 15.88,
+          "posicion": 46,
+          "ret": 0.0016,
+          "ir": -0.9,
+          "exc": -0.22519999999999998,
+          "sharpe": 0.13,
+          "var95": -0.0223,
+          "mdd": -0.1173
+        },
+        {
+          "semana": 16,
+          "puntos": 15.84,
+          "posicion": 40,
+          "ret": -0.0001,
+          "ir": -0.95,
+          "exc": -0.2332,
+          "sharpe": 0.1,
+          "var95": -0.0223,
+          "mdd": -0.1173
         }
       ]
     },
     {
       "id": "cimientos-financieros",
       "nombre": "Cimientos financieros",
-      "posicion": 45,
-      "puntos": 15.94,
-      "retRel": -0.1754,
-      "delta": 9,
+      "posicion": 41,
+      "puntos": 15.81,
+      "retRel": -0.19690000000000002,
+      "delta": 4,
       "metricas": {
-        "ir": -0.54,
-        "exc": -0.1754,
-        "sharpe": 0.34,
-        "var95": -0.0236,
-        "mdd": -0.11900000000000001
+        "ir": -0.67,
+        "exc": -0.19690000000000002,
+        "sharpe": 0.26,
+        "var95": -0.023399999999999997,
+        "mdd": -0.1189
       },
       "puntosDetalle": {
         "ir": 0,
         "exc": 0,
-        "sharpe": 5.076336,
-        "var95": 5.21148,
-        "mdd": 5.651659
+        "sharpe": 4.911168,
+        "var95": 5.240964,
+        "mdd": 5.660545
       },
       "miembros": [
         {
@@ -7107,184 +6923,40 @@
           "sharpe": 0.34,
           "var95": -0.0236,
           "mdd": -0.11900000000000001
-        }
-      ]
-    },
-    {
-      "id": "alpha-partners",
-      "nombre": "Alpha Partners",
-      "posicion": 46,
-      "puntos": 15.88,
-      "retRel": -0.22519999999999998,
-      "delta": 7,
-      "metricas": {
-        "ir": -0.9,
-        "exc": -0.22519999999999998,
-        "sharpe": 0.13,
-        "var95": -0.0223,
-        "mdd": -0.1173
-      },
-      "puntosDetalle": {
-        "ir": 0,
-        "exc": 0,
-        "sharpe": 4.274809,
-        "var95": 5.800604,
-        "mdd": 5.802725
-      },
-      "miembros": [
-        {
-          "nombre": "Antonia Paz Vilches Ureta",
-          "linkedin": "https://www.linkedin.com/in/antoniavilchesureta"
         },
         {
-          "nombre": "Elizabeth Salome Núñez Neira",
-          "linkedin": "https://www.linkedin.com/in/elizabethnuñez"
-        }
-      ],
-      "historial": [
-        {
-          "semana": 5,
-          "puntos": 46.24,
-          "posicion": 42,
-          "ret": 0.0153,
-          "ir": 1.09,
-          "exc": 0.0552,
-          "sharpe": 1.15,
-          "var95": -0.0078000000000000005,
-          "mdd": -0.0406
-        },
-        {
-          "semana": 6,
-          "puntos": 52.7,
-          "posicion": 33,
-          "ret": 0.0421,
-          "ir": 1.97,
-          "exc": 0.1728,
-          "sharpe": 2.3,
-          "var95": -0.009899999999999999,
-          "mdd": -0.0406
-        },
-        {
-          "semana": 7,
-          "puntos": 36.11,
-          "posicion": 47,
-          "ret": 0.0021,
-          "ir": 0.29,
-          "exc": 0.0046,
-          "sharpe": 0.18,
-          "var95": -0.022400000000000003,
-          "mdd": -0.0443
-        },
-        {
-          "semana": 8,
-          "puntos": 14.75,
-          "posicion": 55,
-          "ret": -0.0135,
-          "ir": -1.13,
-          "exc": -0.1624,
-          "sharpe": -0.32,
-          "var95": -0.0277,
-          "mdd": -0.0591
-        },
-        {
-          "semana": 9,
-          "puntos": 18.99,
-          "posicion": 54,
-          "ret": -0.0006,
-          "ir": -0.86,
-          "exc": -0.12210000000000001,
-          "sharpe": 0.09,
-          "var95": -0.026099999999999998,
-          "mdd": -0.061900000000000004
-        },
-        {
-          "semana": 10,
-          "puntos": 13.04,
-          "posicion": 50,
-          "ret": -0.0386,
-          "ir": -1.61,
-          "exc": -0.2231,
-          "sharpe": -0.86,
-          "var95": -0.0253,
-          "mdd": -0.08310000000000001
-        },
-        {
-          "semana": 11,
-          "puntos": 13.15,
-          "posicion": 53,
-          "ret": -0.0349,
-          "ir": -1.11,
-          "exc": -0.3233,
-          "sharpe": -0.68,
-          "var95": -0.024,
-          "mdd": -0.08310000000000001
-        },
-        {
-          "semana": 12,
-          "puntos": 13.61,
-          "posicion": 53,
-          "ret": -0.011,
-          "ir": -1.4,
-          "exc": -0.3146,
-          "sharpe": -0.09,
-          "var95": -0.022099999999999998,
-          "mdd": -0.1173
-        },
-        {
-          "semana": 13,
-          "puntos": 12.33,
-          "posicion": 53,
-          "ret": -0.0106,
-          "ir": -1.5,
-          "exc": -0.3107,
-          "sharpe": -0.08,
-          "var95": -0.0219,
-          "mdd": -0.1173
-        },
-        {
-          "semana": 14,
-          "puntos": 15.85,
-          "posicion": 53,
-          "ret": 0.0111,
-          "ir": -0.96,
-          "exc": -0.255,
-          "sharpe": 0.29,
-          "var95": -0.021099999999999997,
-          "mdd": -0.1173
-        },
-        {
-          "semana": 15,
-          "puntos": 15.88,
-          "posicion": 46,
-          "ret": 0.0016,
-          "ir": -0.9,
-          "exc": -0.22519999999999998,
-          "sharpe": 0.13,
-          "var95": -0.0223,
-          "mdd": -0.1173
+          "semana": 16,
+          "puntos": 15.81,
+          "posicion": 41,
+          "ret": 0.0107,
+          "ir": -0.67,
+          "exc": -0.19690000000000002,
+          "sharpe": 0.26,
+          "var95": -0.023399999999999997,
+          "mdd": -0.1189
         }
       ]
     },
     {
       "id": "orb-asset-management",
       "nombre": "ORB Asset Management",
-      "posicion": 47,
-      "puntos": 15.7,
-      "retRel": -0.0301,
-      "delta": -14,
+      "posicion": 42,
+      "puntos": 15.72,
+      "retRel": -0.042199999999999994,
+      "delta": 5,
       "metricas": {
-        "ir": -0.12,
-        "exc": -0.0301,
-        "sharpe": 0.47,
-        "var95": -0.0246,
-        "mdd": -0.1222
+        "ir": -0.17,
+        "exc": -0.042199999999999994,
+        "sharpe": 0.44,
+        "var95": -0.0245,
+        "mdd": -0.12210000000000001
       },
       "puntosDetalle": {
         "ir": 0,
         "exc": 0,
-        "sharpe": 5.572519,
-        "var95": 4.758308,
-        "mdd": 5.367299
+        "sharpe": 5.596447,
+        "var95": 4.743976,
+        "mdd": 5.376185
       },
       "miembros": [
         {
@@ -7421,179 +7093,201 @@
           "sharpe": 0.47,
           "var95": -0.0246,
           "mdd": -0.1222
+        },
+        {
+          "semana": 16,
+          "puntos": 15.72,
+          "posicion": 42,
+          "ret": 0.0258,
+          "ir": -0.17,
+          "exc": -0.042199999999999994,
+          "sharpe": 0.44,
+          "var95": -0.0245,
+          "mdd": -0.12210000000000001
         }
       ]
     },
     {
-      "id": "los-estadisticos-inconscientes",
-      "nombre": "Los Estadísticos Inconscientes",
-      "posicion": 48,
-      "puntos": 13.76,
-      "retRel": -0.0643,
-      "delta": 7,
+      "id": "vantedge-asset-management",
+      "nombre": "Vantedge Asset Management",
+      "posicion": 43,
+      "puntos": 14.04,
+      "retRel": -0.12539999999999998,
+      "delta": -11,
       "metricas": {
-        "ir": -0.1,
-        "exc": -0.0643,
-        "sharpe": 0.48,
-        "var95": -0.0253,
-        "mdd": -0.1409
+        "ir": -0.21,
+        "exc": -0.12539999999999998,
+        "sharpe": 0.44,
+        "var95": -0.0269,
+        "mdd": -0.1288
       },
       "puntosDetalle": {
         "ir": 0,
         "exc": 0,
-        "sharpe": 5.610687,
-        "var95": 4.441088,
-        "mdd": 3.705569
+        "sharpe": 5.596447,
+        "var95": 3.659639,
+        "mdd": 4.780806
       },
       "miembros": [
         {
-          "nombre": "Diego Alejandro Muñoz Gutierrez",
-          "linkedin": "https://www.linkedin.com/in/diego-a-mu%C3%B1oz-g-9060a9215?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
+          "nombre": "Yommer Haniel Hernandez Herrera",
+          "linkedin": "https://www.linkedin.com/in/yommer-haniel-hernandez-herrera-b53a5b304?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
         },
         {
-          "nombre": "Jorge Andrés Bustamante Bustamante",
-          "linkedin": "https://www.linkedin.com/in/jorge-bustamante-565a922a4"
+          "nombre": "Cristobal Maximiliano Saavedra Fuentes",
+          "linkedin": ""
         },
         {
-          "nombre": "Juan Luis Silva Garrido",
+          "nombre": "Vicente Andrés Avendaño Stevenson",
           "linkedin": ""
         }
       ],
       "historial": [
         {
           "semana": 5,
-          "puntos": 31.85,
-          "posicion": 51,
-          "ret": 0.0225,
-          "ir": 1.19,
-          "exc": 0.1409,
-          "sharpe": 0.98,
-          "var95": -0.024399999999999998,
-          "mdd": -0.08689999999999999
+          "puntos": 65.07,
+          "posicion": 13,
+          "ret": 0.0562,
+          "ir": 4.19,
+          "exc": 0.4949,
+          "sharpe": 2.49,
+          "var95": -0.014199999999999999,
+          "mdd": -0.056100000000000004
         },
         {
           "semana": 6,
-          "puntos": 43.42,
-          "posicion": 44,
-          "ret": 0.0615,
-          "ir": 2.23,
-          "exc": 0.3469,
-          "sharpe": 1.97,
-          "var95": -0.0225,
-          "mdd": -0.08689999999999999
+          "puntos": 71.01,
+          "posicion": 4,
+          "ret": 0.0909,
+          "ir": 4.96,
+          "exc": 0.6048,
+          "sharpe": 3.32,
+          "var95": -0.0131,
+          "mdd": -0.056100000000000004
         },
         {
           "semana": 7,
-          "puntos": 31.54,
-          "posicion": 51,
-          "ret": 0.0116,
-          "ir": 0.74,
-          "exc": 0.06709999999999999,
-          "sharpe": 0.44,
-          "var95": -0.030600000000000002,
-          "mdd": -0.08689999999999999
+          "puntos": 62.27,
+          "posicion": 16,
+          "ret": 0.0559,
+          "ir": 3.4,
+          "exc": 0.39630000000000004,
+          "sharpe": 1.75,
+          "var95": -0.023,
+          "mdd": -0.056100000000000004
         },
         {
           "semana": 8,
-          "puntos": 16.58,
-          "posicion": 54,
-          "ret": 0.0043,
-          "ir": -0.07,
-          "exc": -0.048499999999999995,
-          "sharpe": 0.24,
-          "var95": -0.0274,
-          "mdd": -0.08689999999999999
+          "puntos": 50.26,
+          "posicion": 26,
+          "ret": 0.0408,
+          "ir": 1.57,
+          "exc": 0.1902,
+          "sharpe": 1.18,
+          "var95": -0.0241,
+          "mdd": -0.056100000000000004
         },
         {
           "semana": 9,
-          "puntos": 16.78,
-          "posicion": 55,
-          "ret": 0.0139,
-          "ir": -0.06,
-          "exc": -0.0331,
-          "sharpe": 0.42,
-          "var95": -0.0256,
-          "mdd": -0.08689999999999999
+          "puntos": 53.37,
+          "posicion": 27,
+          "ret": 0.0459,
+          "ir": 1.19,
+          "exc": 0.1417,
+          "sharpe": 1.17,
+          "var95": -0.0259,
+          "mdd": -0.056100000000000004
         },
         {
           "semana": 10,
-          "puntos": 10.24,
-          "posicion": 55,
-          "ret": -0.038,
-          "ir": -1.12,
-          "exc": -0.2218,
-          "sharpe": -0.58,
-          "var95": -0.0256,
-          "mdd": -0.1059
+          "puntos": 9.86,
+          "posicion": 56,
+          "ret": -0.0122,
+          "ir": -0.4,
+          "exc": -0.0771,
+          "sharpe": -0.12,
+          "var95": -0.029900000000000003,
+          "mdd": -0.0951
         },
         {
           "semana": 11,
-          "puntos": 9.89,
-          "posicion": 57,
-          "ret": -0.0328,
-          "ir": -0.73,
-          "exc": -0.2336,
-          "sharpe": -0.43,
-          "var95": -0.0253,
-          "mdd": -0.1059
+          "puntos": 27.77,
+          "posicion": 37,
+          "ret": -0.0012,
+          "ir": 0.15,
+          "exc": -0.062,
+          "sharpe": 0.1,
+          "var95": -0.028399999999999998,
+          "mdd": -0.09539999999999998
         },
         {
           "semana": 12,
-          "puntos": 15.57,
-          "posicion": 51,
-          "ret": 0.0112,
-          "ir": -0.5,
-          "exc": -0.14,
-          "sharpe": 0.3,
-          "var95": -0.0248,
-          "mdd": -0.1409
+          "puntos": 31.33,
+          "posicion": 35,
+          "ret": 0.0349,
+          "ir": 0.03,
+          "exc": -0.0542,
+          "sharpe": 0.65,
+          "var95": -0.0281,
+          "mdd": -0.1288
         },
         {
           "semana": 13,
-          "puntos": 13.58,
-          "posicion": 52,
-          "ret": 0.0153,
-          "ir": -0.5,
-          "exc": -0.12619999999999998,
-          "sharpe": 0.35,
-          "var95": -0.0246,
-          "mdd": -0.1409
+          "puntos": 13.98,
+          "posicion": 51,
+          "ret": 0.0345,
+          "ir": -0.1,
+          "exc": -0.06,
+          "sharpe": 0.63,
+          "var95": -0.0279,
+          "mdd": -0.1288
         },
         {
           "semana": 14,
-          "puntos": 13.72,
-          "posicion": 55,
-          "ret": 0.0412,
-          "ir": -0.03,
-          "exc": -0.0639,
-          "sharpe": 0.68,
-          "var95": -0.0242,
-          "mdd": -0.1409
+          "puntos": 31.72,
+          "posicion": 34,
+          "ret": 0.0554,
+          "ir": 0.26,
+          "exc": -0.030699999999999998,
+          "sharpe": 0.89,
+          "var95": -0.0275,
+          "mdd": -0.1288
         },
         {
           "semana": 15,
-          "puntos": 13.76,
-          "posicion": 48,
-          "ret": 0.0278,
-          "ir": -0.1,
-          "exc": -0.0643,
-          "sharpe": 0.48,
-          "var95": -0.0253,
-          "mdd": -0.1409
+          "puntos": 29.77,
+          "posicion": 32,
+          "ret": 0.0338,
+          "ir": 0.0,
+          "exc": -0.050499999999999996,
+          "sharpe": 0.57,
+          "var95": -0.027200000000000002,
+          "mdd": -0.1288
+        },
+        {
+          "semana": 16,
+          "puntos": 14.04,
+          "posicion": 43,
+          "ret": 0.0254,
+          "ir": -0.21,
+          "exc": -0.12539999999999998,
+          "sharpe": 0.44,
+          "var95": -0.0269,
+          "mdd": -0.1288
         }
       ]
     },
     {
       "id": "default-capital",
       "nombre": "Default Capital",
-      "posicion": 49,
-      "puntos": 12.53,
-      "retRel": -0.1918,
-      "delta": 3,
+      "posicion": 44,
+      "puntos": 12.47,
+      "retRel": -0.24359999999999998,
+      "delta": 5,
       "metricas": {
-        "ir": -1.33,
-        "exc": -0.1918,
-        "sharpe": -0.03,
+        "ir": -1.5,
+        "exc": -0.24359999999999998,
+        "sharpe": -0.12,
         "var95": -0.0226,
         "mdd": -0.10529999999999999
       },
@@ -7601,7 +7295,7 @@
         "ir": 0,
         "exc": 0,
         "sharpe": 0,
-        "var95": 5.664653,
+        "var95": 5.60241,
         "mdd": 6.869076
       },
       "miembros": [
@@ -7739,29 +7433,40 @@
           "sharpe": -0.03,
           "var95": -0.0226,
           "mdd": -0.10529999999999999
+        },
+        {
+          "semana": 16,
+          "puntos": 12.47,
+          "posicion": 44,
+          "ret": -0.0162,
+          "ir": -1.5,
+          "exc": -0.24359999999999998,
+          "sharpe": -0.12,
+          "var95": -0.0226,
+          "mdd": -0.10529999999999999
         }
       ]
     },
     {
       "id": "mvf-capital",
       "nombre": "MVF Capital",
-      "posicion": 50,
-      "puntos": 10.06,
-      "retRel": -0.19690000000000002,
-      "delta": 6,
+      "posicion": 45,
+      "puntos": 10.14,
+      "retRel": -0.19469999999999998,
+      "delta": 5,
       "metricas": {
-        "ir": -1.1,
-        "exc": -0.19690000000000002,
-        "sharpe": -0.16,
-        "var95": -0.0239,
-        "mdd": -0.1265
+        "ir": -1.16,
+        "exc": -0.19469999999999998,
+        "sharpe": -0.2,
+        "var95": -0.0236,
+        "mdd": -0.1264
       },
       "puntosDetalle": {
         "ir": 0,
         "exc": 0,
         "sharpe": 0,
-        "var95": 5.075529,
-        "mdd": 4.98519
+        "var95": 5.150602,
+        "mdd": 4.994076
       },
       "miembros": [
         {
@@ -7898,183 +7603,39 @@
           "sharpe": -0.16,
           "var95": -0.0239,
           "mdd": -0.1265
-        }
-      ]
-    },
-    {
-      "id": "jose",
-      "nombre": "Jose",
-      "posicion": 51,
-      "puntos": 9.55,
-      "retRel": -0.3728,
-      "delta": 6,
-      "metricas": {
-        "ir": -2.7,
-        "exc": -0.3728,
-        "sharpe": -0.85,
-        "var95": -0.0216,
-        "mdd": -0.14400000000000002
-      },
-      "puntosDetalle": {
-        "ir": 0,
-        "exc": 0,
-        "sharpe": 0,
-        "var95": 6.117825,
-        "mdd": 3.430095
-      },
-      "miembros": [
-        {
-          "nombre": "José Toledo",
-          "linkedin": ""
         },
         {
-          "nombre": "Sebastián López",
-          "linkedin": "https://www.linkedin.com/in/sebastián-lópez-a3811737a/?skipRedirect=true"
-        }
-      ],
-      "historial": [
-        {
-          "semana": 5,
-          "puntos": 11.6,
-          "posicion": 58,
-          "ret": 0.0017,
-          "ir": -0.12,
-          "exc": -0.083,
-          "sharpe": 0.2,
-          "var95": -0.0204,
-          "mdd": -0.09380000000000001
-        },
-        {
-          "semana": 6,
-          "puntos": 25.32,
-          "posicion": 56,
-          "ret": 0.024,
-          "ir": 0.39,
-          "exc": -0.0024,
-          "sharpe": 0.86,
-          "var95": -0.018799999999999997,
-          "mdd": -0.09380000000000001
-        },
-        {
-          "semana": 7,
-          "puntos": 8.52,
-          "posicion": 59,
-          "ret": -0.0156,
-          "ir": -0.53,
-          "exc": -0.1297,
-          "sharpe": -0.26,
-          "var95": -0.0279,
-          "mdd": -0.09380000000000001
-        },
-        {
-          "semana": 8,
-          "puntos": 11.56,
-          "posicion": 57,
-          "ret": -0.0257,
-          "ir": -1.46,
-          "exc": -0.25129999999999997,
-          "sharpe": -0.47,
-          "var95": -0.023399999999999997,
-          "mdd": -0.09380000000000001
-        },
-        {
-          "semana": 9,
-          "puntos": 11.88,
-          "posicion": 58,
-          "ret": -0.0191,
-          "ir": -1.44,
-          "exc": -0.2408,
-          "sharpe": -0.27,
-          "var95": -0.0217,
-          "mdd": -0.09380000000000001
-        },
-        {
-          "semana": 10,
-          "puntos": 10.29,
-          "posicion": 54,
-          "ret": -0.0571,
-          "ir": -2.03,
-          "exc": -0.32289999999999996,
-          "sharpe": -0.97,
-          "var95": -0.025,
-          "mdd": -0.1074
-        },
-        {
-          "semana": 11,
-          "puntos": 9.57,
-          "posicion": 58,
-          "ret": -0.0645,
-          "ir": -1.92,
-          "exc": -0.35810000000000003,
-          "sharpe": -1.04,
+          "semana": 16,
+          "puntos": 10.14,
+          "posicion": 45,
+          "ret": -0.027,
+          "ir": -1.16,
+          "exc": -0.19469999999999998,
+          "sharpe": -0.2,
           "var95": -0.0236,
-          "mdd": -0.1144
-        },
-        {
-          "semana": 12,
-          "puntos": 11.51,
-          "posicion": 55,
-          "ret": -0.0552,
-          "ir": -2.61,
-          "exc": -0.4018,
-          "sharpe": -0.76,
-          "var95": -0.0217,
-          "mdd": -0.14400000000000002
-        },
-        {
-          "semana": 13,
-          "puntos": 10.26,
-          "posicion": 55,
-          "ret": -0.0557,
-          "ir": -2.72,
-          "exc": -0.3947,
-          "sharpe": -0.76,
-          "var95": -0.0217,
-          "mdd": -0.14400000000000002
-        },
-        {
-          "semana": 14,
-          "puntos": 9.88,
-          "posicion": 57,
-          "ret": -0.0584,
-          "ir": -2.84,
-          "exc": -0.4167,
-          "sharpe": -0.77,
-          "var95": -0.0217,
-          "mdd": -0.14400000000000002
-        },
-        {
-          "semana": 15,
-          "puntos": 9.55,
-          "posicion": 51,
-          "ret": -0.0658,
-          "ir": -2.7,
-          "exc": -0.3728,
-          "sharpe": -0.85,
-          "var95": -0.0216,
-          "mdd": -0.14400000000000002
+          "mdd": -0.1264
         }
       ]
     },
     {
       "id": "sharpe-fox",
       "nombre": "Sharpe Fox",
-      "posicion": 52,
-      "puntos": 8.98,
-      "retRel": -0.105,
+      "posicion": 46,
+      "puntos": 9.01,
+      "retRel": -0.1562,
       "delta": 6,
       "metricas": {
-        "ir": -1.85,
-        "exc": -0.105,
-        "sharpe": -0.99,
-        "var95": -0.021099999999999997,
+        "ir": -1.91,
+        "exc": -0.1562,
+        "sharpe": -1.03,
+        "var95": -0.0209,
         "mdd": -0.15289999999999998
       },
       "puntosDetalle": {
         "ir": 0,
         "exc": 0,
         "sharpe": 0,
-        "var95": 6.344411,
+        "var95": 6.370482,
         "mdd": 2.639218
       },
       "miembros": [
@@ -8208,27 +7769,38 @@
           "sharpe": -0.99,
           "var95": -0.021099999999999997,
           "mdd": -0.15289999999999998
+        },
+        {
+          "semana": 16,
+          "puntos": 9.01,
+          "posicion": 46,
+          "ret": -0.0903,
+          "ir": -1.91,
+          "exc": -0.1562,
+          "sharpe": -1.03,
+          "var95": -0.0209,
+          "mdd": -0.15289999999999998
         }
       ]
     },
     {
       "id": "fat-fingers",
       "nombre": "Fat fingers",
-      "posicion": 53,
-      "puntos": 4.81,
-      "retRel": -0.17739999999999997,
-      "delta": -7,
+      "posicion": 47,
+      "puntos": 4.45,
+      "retRel": -0.2309,
+      "delta": 6,
       "metricas": {
-        "ir": -0.19,
-        "exc": -0.17739999999999997,
-        "sharpe": 0.27,
-        "var95": -0.0351,
+        "ir": -0.36,
+        "exc": -0.2309,
+        "sharpe": 0.14,
+        "var95": -0.035,
         "mdd": -0.1826
       },
       "puntosDetalle": {
         "ir": 0,
         "exc": 0,
-        "sharpe": 4.80916,
+        "sharpe": 4.454315,
         "var95": 0,
         "mdd": 0
       },
@@ -8367,28 +7939,39 @@
           "sharpe": 0.27,
           "var95": -0.0351,
           "mdd": -0.1826
+        },
+        {
+          "semana": 16,
+          "puntos": 4.45,
+          "posicion": 47,
+          "ret": -0.0036,
+          "ir": -0.36,
+          "exc": -0.2309,
+          "sharpe": 0.14,
+          "var95": -0.035,
+          "mdd": -0.1826
         }
       ]
     },
     {
       "id": "rs-investment-group",
       "nombre": "R&S Investment Group",
-      "posicion": 54,
-      "puntos": 1.58,
-      "retRel": -0.2514,
-      "delta": 5,
+      "posicion": 48,
+      "puntos": 1.76,
+      "retRel": -0.2677,
+      "delta": 6,
       "metricas": {
-        "ir": -0.87,
-        "exc": -0.2514,
+        "ir": -0.86,
+        "exc": -0.2677,
         "sharpe": -0.08,
-        "var95": -0.032799999999999996,
+        "var95": -0.0323,
         "mdd": -0.1765
       },
       "puntosDetalle": {
         "ir": 0,
         "exc": 0,
         "sharpe": 0,
-        "var95": 1.042296,
+        "var95": 1.21988,
         "mdd": 0.542062
       },
       "miembros": [
@@ -8521,6 +8104,17 @@
           "exc": -0.2514,
           "sharpe": -0.08,
           "var95": -0.032799999999999996,
+          "mdd": -0.1765
+        },
+        {
+          "semana": 16,
+          "puntos": 1.76,
+          "posicion": 48,
+          "ret": -0.0187,
+          "ir": -0.86,
+          "exc": -0.2677,
+          "sharpe": -0.08,
+          "var95": -0.0323,
           "mdd": -0.1765
         }
       ]
