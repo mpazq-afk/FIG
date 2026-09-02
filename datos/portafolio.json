@@ -1,0 +1,51 @@
+{
+  "_como_editar": "Textos y datos del área Portafolio (desk PRT). La página portafolio/index.html trae estos mismos valores embebidos en su objeto DATA y los sobreescribe con este archivo, así que para cambiar un texto basta editarlo acá. Qué activa cada cosa: 'bajada' es la frase bajo el título del hero; 'resumen' es la lista de párrafos de la sección 'Qué es Portafolio' (agregar o quitar un párrafo cambia la sección sola); 'pilares' son las 3 tarjetas de 'De la asignación al benchmark' (si agregas una cuarta se dibuja igual). DATOS EN VIVO — esta página es la única del sitio que lee el ranking del torneo directamente: las secciones 'El corte de esta semana' (#corte) y 'Cómo se juzga una cartera' (#metricas) se dibujan solas desde datos/torneo-tabla.json y datos/torneo.json, así que NO hay ni una cifra escrita a mano en ellas y no hay que tocarlas cuando se publica un corte nuevo. Si esos archivos no están o no parsean, las dos secciones se ocultan solas y el resto de la página queda intacta. 'metricas' NO trae números: es solo el nombre y la explicación de cada una de las 5 métricas de evaluación, y su 'clave' tiene que calzar con las de puntosDetalle en torneo.json (ir, exc, sharpe, var95, mdd) — el peso en puntos, el mejor equipo del corte y su valor salen del JSON del torneo. Si una clave no existe en los datos, esa tarjeta se dibuja igual, solo sin el peso ni el mejor del corte. Cualquier fila de 'torneo.datos' puede llevar además 'vLive': hoy solo la de equipos, con 'vLive':'equipos', que reemplaza el 54 escrito a mano por el número real de equipos del corte vigente (el 'v' queda como respaldo por si el JSON del torneo no carga). TORNEO: a diferencia de Valuation, el Torneo Portafolio 2026 YA está en curso, así que el botón principal es 'torneo.rankingUrl' y lleva al ranking en vivo (torneo/index.html); 'torneo.basesUrl' agrega el botón 'Ver las bases' (hoy apunta al PDF de bases que ya está en documentos/). El mecanismo de 'torneo.formUrl' se dejó intacto por si algún día se necesita un formulario de inscripción: mientras esté vacío no aparece ningún botón de inscripción, y si le pegas un link de Google Forms aparece solo, junto al del ranking. Si pones 'torneo.activo' en false, la sección del torneo desaparece entera. Los campos de 'torneo.datos' con 'Por confirmar' se rellenan cuando tengas la info. La fila 'Equipos en competencia' ya NO hay que mantenerla a mano: lleva 'vLive':'equipos' y toma el número del corte vigente de datos/torneo.json (su '54' escrito solo se muestra si ese archivo no carga). RESPONSABLES: el orden de la lista es el orden en que se muestran, Francisco Valenzuela va primero por ser el director del área y Benjamín Sáez Molina va segundo como presidente de FIG (mismo formato con que ya figura en valuation.json). Quien DIRIGE el área lleva además 'lidera': true: su tarjeta se dibuja con filete dorado al costado y el chip 'Dirige el área' (la misma jerarquía que ya se usa en la sección Nosotros del index.html de la raíz). Debe haber UNO SOLO por área — hoy Francisco Valenzuela — y el resto va sin el campo; si el campo falta o está en false, la tarjeta se ve normal. Las fotos se detectan solas desde fotos/directiva/<slug>.jpg (los 6 slug de esta lista ya tienen foto). ACTIVIDADES: la sección de eventos del área se alimenta de datos/eventos.json filtrando por area:\"portafolio\" y queda oculta mientras ningún evento tenga esa etiqueta (hoy ninguno la tiene). FONDO DEL HERO: a diferencia de valuation/ y trading/, este hero NO lleva tira de fotos — su fondo es el campo de trayectorias reales de los equipos del torneo, dibujado en vivo desde datos/torneo.json. Es la marca propia del desk y por eso no hay carpeta fotos/portafolio/ que llenar; si el JSON no carga, el hero queda con su degradado y se ve igual de bien.",
+  "bajada": "El área de FIG que gestiona carteras con visión top-down: asignación de activos, control de riesgo y decisiones medidas contra un benchmark.",
+  "resumen": [
+    "Portafolio es el desk de FEN Investment Group dedicado a la gestión de carteras: construir un portafolio con visión top-down, repartir el capital entre mercados y clases de activo, controlar el riesgo y medir cada decisión contra un benchmark.",
+    "Es el área que diseña y dirige el Torneo Portafolio, la competencia insignia del club, donde cada equipo gestiona una cartera simulada en Bloomberg y se evalúa con las mismas métricas que usa la industria: information ratio, retorno en exceso, ratio de Sharpe, VaR y máximo drawdown."
+  ],
+  "pilares": [
+    {"num": "01 · ASIGNACIÓN", "titulo": "Del mercado a la cartera", "texto": "Visión top-down: repartir el capital entre mercados, clases de activo y sectores antes de elegir un instrumento."},
+    {"num": "02 · RIESGO", "titulo": "Medir lo que se puede perder", "texto": "Volatilidad, VaR y máximo drawdown: un retorno solo se puede evaluar junto al riesgo que costó conseguirlo."},
+    {"num": "03 · BENCHMARK", "titulo": "Rendir cuentas contra el índice", "texto": "Cada decisión se compara con un benchmark. Lo que se busca no es un buen número suelto, sino ganarle al índice de forma consistente."}
+  ],
+  "metricas": [
+    {"clave": "ir", "nombre": "Information ratio", "sub": "Contra el benchmark", "texto": "Cuánto retorno por sobre el índice entregó la cartera por cada unidad de riesgo activo que asumió para conseguirlo. Es la métrica de mayor peso porque premia ganarle al benchmark de forma consistente, no una semana afortunada."},
+    {"clave": "exc", "nombre": "Retorno en exceso", "sub": "Anualizado", "texto": "Lo que la cartera rindió por sobre el iShares MSCI ACWI, anualizado. Responde la pregunta directa que persigue todo gestor: si el índice estaba ahí para comprarlo, valió la pena gestionar."},
+    {"clave": "sharpe", "nombre": "Ratio de Sharpe", "sub": "Riesgo total", "texto": "Retorno por unidad de riesgo total. A diferencia del information ratio, se mide contra el activo libre de riesgo y no contra el benchmark: describe la calidad de la cartera en sí misma, sin referencia externa."},
+    {"clave": "var95", "nombre": "VaR 95%", "sub": "Ex-post", "texto": "La pérdida que la cartera no superó en el 95% de las observaciones del periodo. Acota el tamaño del día malo corriente, y se calcula sobre lo que de verdad ocurrió en la cartera, no sobre un supuesto de distribución."},
+    {"clave": "mdd", "nombre": "Máximo drawdown", "sub": "Caída pico a valle", "texto": "La mayor caída desde un máximo hasta el piso siguiente. Es la métrica que más se parece a la experiencia real de quien invierte: cuánto llegó a perder alguien que entró justo en el peor momento."}
+  ],
+  "torneo": {
+    "activo": true,
+    "titulo": "Torneo Portafolio 2026",
+    "bajada": "El Torneo Portafolio 2026 es la competencia insignia de FIG y esta área es la que lo diseña y lo dirige. Cada equipo gestiona una cartera simulada de USD 10 millones invertida en ETF de iShares y BlackRock, medida contra el iShares MSCI ACWI con métricas extraídas de Bloomberg. El torneo ya está en curso y el ranking se actualiza cada viernes.",
+    "estado": "Ranking en vivo",
+    "rankingUrl": "../torneo/index.html",
+    "formUrl": "",
+    "basesUrl": "../documentos/Bases_finales_torneo_portafolio_2026.pdf",
+    "cardTexto": "El ranking se publica cada viernes con el corte de la semana: puntaje, trayectoria de cada equipo y desglose de las cinco métricas.",
+    "datos": [
+      {"k": "Estado", "v": "En curso"},
+      {"k": "Equipos en competencia", "v": "54", "vLive": "equipos"},
+      {"k": "Capital simulado por cartera", "v": "USD 10 millones"},
+      {"k": "Universo de inversión", "v": "ETF de iShares / BlackRock"},
+      {"k": "Benchmark oficial", "v": "iShares MSCI ACWI"},
+      {"k": "Duración", "v": "11 de mayo al 2 de noviembre de 2026"},
+      {"k": "Ranking", "v": "Cada viernes · since-inception"},
+      {"k": "Ventanas de rebalanceo", "v": "Junio · agosto · octubre"},
+      {"k": "Final ante jurado", "v": "5 finalistas · 9 de noviembre de 2026"},
+      {"k": "Premios", "v": "Por confirmar"},
+      {"k": "Organiza", "v": "Área Portafolio · FIG"}
+    ]
+  },
+  "responsables": [
+    {"iniciales": "FV", "slug": "francisco-valenzuela", "nombre": "Francisco Valenzuela", "rol": "Director · Portafolio", "lidera": true, "detalle": "Dirige el área Portafolio. Co-fundador de FIG · infraestructura digital y plataforma web.", "linkedin": "https://www.linkedin.com/in/francisco-ignacio-andr%C3%A9s-valenzuela-lecaros-128a69396/"},
+    {"iniciales": "BS", "slug": "benjamin-saez-molina", "nombre": "Benjamín Sáez Molina", "rol": "Presidente FIG", "detalle": "Presidente y co-fundador de FIG. Práctica en Wealth Management en Itaú.", "linkedin": "https://www.linkedin.com/in/benjamin-saez-molina/"},
+    {"iniciales": "MP", "slug": "manuel-paz", "nombre": "Manuel Paz", "rol": "Director · Portafolio y Trading", "detalle": "Co-fundador de FIG · comunicaciones, difusión y creador de la web original.", "linkedin": "https://www.linkedin.com/in/mpazq"},
+    {"iniciales": "AA", "slug": "agustin-arriagada", "nombre": "Agustín Arriagada", "rol": "Directivo · Portafolio", "detalle": "Co-fundador de FIG · monitor del Laboratorio Bloomberg FEN.", "linkedin": "https://www.linkedin.com/in/agustin-arriagada/"},
+    {"iniciales": "BD", "slug": "benjamin-disi", "nombre": "Benjamín Disi", "rol": "Directivo · Portafolio", "detalle": "Magíster en Finanzas (en curso) · tutor de Finanzas II y monitor del Lab. Bloomberg Itaú.", "linkedin": "https://www.linkedin.com/in/benjam%C3%ADn-disi-hernandez-12b570297"},
+    {"iniciales": "BS", "slug": "benjamin-solis", "nombre": "Benjamín Solís", "rol": "Directivo · Portafolio", "detalle": "Co-fundador de FIG.", "linkedin": "https://www.linkedin.com/in/benjamin-solis"}
+  ]
+}

@@ -346,9 +346,19 @@ body.on-light .rail-node .rn-lab{color:#A8871C;text-shadow:none}
 
 .m-menu{
   position:fixed;inset:0;background:rgba(6,11,28,.97);backdrop-filter:blur(12px);
-  z-index:1100;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
+  z-index:1100;display:flex;flex-direction:column;align-items:center;gap:6px;
   opacity:0;visibility:hidden;transition:opacity .45s var(--ease),visibility .45s;
+  /* Antes esto era `justify-content:center` a secas y alcanzaba. Cuando la
+     lista de enlaces desborda un telefono bajo, un flex centrado deja los
+     primeros items FUERA de la pantalla, inalcanzables (no genera scroll
+     hacia arriba). Con flex-start + margenes automaticos en los extremos
+     queda igual de centrado mientras sobre espacio, y cuando no, se
+     scrollea entero. */
+  justify-content:flex-start;overflow-y:auto;overscroll-behavior:contain;
+  padding:24px 20px;
 }
+.m-menu>:first-child{margin-top:auto}
+.m-menu>:last-child{margin-bottom:auto}
 .m-menu.open{opacity:1;visibility:visible}
 .m-menu a{
   font-family:var(--f-disp);font-size:clamp(1.7rem,7vw,2.4rem);font-weight:600;
@@ -693,9 +703,11 @@ body.on-light .rail-node .rn-lab{color:#A8871C;text-shadow:none}
    1) Presidencia (`destacado:true` en club.json → .p-card--lead): filete
       dorado ARRIBA + avatar dorado, que ya existía.
    2) Quien DIRIGE un área (`liderArea` en club.json → .p-card--area): filete
-      dorado al COSTADO + chip "Dirige el área". Hoy son Francisco (Portafolio),
-      Delia (FIG Woman) y Samuel (Valuation); Trading va sin marcar a propósito,
-      todavía no está confirmado quién lo dirige.
+      dorado al COSTADO + chip "Dirige el área". Desde el 2026-08-31 son
+      Francisco (Portafolio), Manuel (Trading), Jhosep (Valuation), Delia
+      (FIG Woman) y, desde el 2026-09-01, Benjamín Sáez (Administración).
+      Benjamín es el primero que cae en los DOS casos a la vez —preside y
+      dirige un área—, y por eso existe la regla combinada de más abajo.
    3) El resto de la directiva: la tarjeta normal de siempre.
    El :hover se redefine en los dos porque la regla base de .p-card reemplaza
    el box-shadow completo y se comería el filete. */
@@ -703,6 +715,14 @@ body.on-light .rail-node .rn-lab{color:#A8871C;text-shadow:none}
 .p-card--lead:hover{box-shadow:inset 0 3px 0 0 var(--gold),0 24px 46px -24px rgba(16,24,40,.25)}
 .p-card--area{border-color:rgba(168,135,28,.34);box-shadow:inset 3px 0 0 0 var(--gold)}
 .p-card--area:hover{box-shadow:inset 3px 0 0 0 var(--gold),0 24px 46px -24px rgba(16,24,40,.25)}
+/* Quien preside Y dirige un area lleva LOS DOS filetes. Sin esta regla gana
+   la ultima declarada (--area) porque ambas escriben el box-shadow completo,
+   y el presidente perdia el filete de arriba. */
+.p-card--lead.p-card--area{border-color:rgba(168,135,28,.5);
+  box-shadow:inset 0 3px 0 0 var(--gold),inset 3px 0 0 0 var(--gold)}
+.p-card--lead.p-card--area:hover{
+  box-shadow:inset 0 3px 0 0 var(--gold),inset 3px 0 0 0 var(--gold),
+             0 24px 46px -24px rgba(16,24,40,.25)}
 .p-tag{display:inline-block;font-family:var(--f-mono);font-size:.5rem;font-weight:500;letter-spacing:.16em;
   text-transform:uppercase;color:var(--navy);background:var(--gold);border-radius:100px;padding:2px 9px;margin-top:7px}
 /* miniatura con foto real (cofundadores) o logo real (empresas de la industria) —
@@ -1096,6 +1116,8 @@ body.has-ticker{padding-bottom:38px}
       <li class="nav__drop">
         <a href="#areas" aria-haspopup="true">Áreas ▾</a>
         <div class="nav__drop-menu">
+          <a href="portafolio/index.html">Portafolio</a>
+          <a href="trading/index.html">Trading</a>
           <a href="valuation/index.html">Valuation</a>
         </div>
       </li>
@@ -1126,6 +1148,8 @@ body.has-ticker{padding-bottom:38px}
   <a href="#nosotros">Nosotros</a>
   <a href="#torneo">Torneo 2026</a>
   <a href="#areas">Áreas</a>
+  <a href="portafolio/index.html">Portafolio</a>
+  <a href="trading/index.html">Trading</a>
   <a href="valuation/index.html">Valuation</a>
   <a href="#equipo">Equipo</a>
   <a href="eventos/index.html">Eventos</a>
@@ -1217,14 +1241,15 @@ body.has-ticker{padding-bottom:38px}
         de más de <b>250 personas</b> en torno a la gestión de inversiones. Trabajamos con las mismas
         herramientas de la industria, Bloomberg, análisis fundamental, gestión de riesgo, y con la
         misma exigencia: cada decisión se mide contra un benchmark.</p>
-        <p>Nuestras cuatro áreas cubren el ciclo completo del asset management, desde la valorización
-        de una compañía hasta la construcción y defensa de un portafolio ante un jurado experto.</p>
+        <p>Nuestros desks de inversión cubren el ciclo completo del asset management, desde la valorización
+        de una compañía hasta la construcción y defensa de un portafolio ante un jurado experto, y el área
+        de Administración sostiene la operación que los hace posibles.</p>
       </div>
       <div class="stats reveal d2">
         <div class="stat"><div class="stat__num counter" data-target="15">0</div><div class="stat__lbl">Directores fundadores</div></div>
         <div class="stat"><div class="stat__num"><span class="counter" data-target="250">0</span><sup>+</sup></div><div class="stat__lbl">Miembros de la comunidad</div></div>
         <div class="stat"><div class="stat__num counter" data-target="4">0</div><div class="stat__lbl">Áreas especializadas</div></div>
-        <div class="stat"><div class="stat__num counter" data-target="54">0</div><div class="stat__lbl">Equipos · Torneo 2026</div></div>
+        <div class="stat"><div class="stat__num counter" data-target="48">0</div><div class="stat__lbl">Equipos · Torneo 2026</div></div>
       </div>
     </div>
     <div class="pillars">
@@ -1291,18 +1316,27 @@ body.has-ticker{padding-bottom:38px}
     </div>
     <div class="desks reveal">
       <div class="desk-list" role="tablist" aria-label="Áreas de FIG">
-        <button class="desk-item active" role="tab" aria-selected="true" data-desk="0">
+        <!-- Los desks que YA tienen página propia son un <a>: se entra directo
+             al tocarlos. Los que no, son <button> y solo abren su panel.
+             El conmutador de más abajo trabaja por índice, así que da lo mismo
+             si el elemento es <a> o <button>: al agregar un desk no hay que
+             tocar el JS, pero SÍ hay que agregarle su .dp-view en el MISMO
+             orden que aparece acá. -->
+        <a class="desk-item active" role="tab" aria-selected="true" data-desk="0"
+           href="portafolio/index.html" aria-label="Portafolio — ir a la página del área">
           <span class="di-code">PRT</span><span class="di-name">Portafolio</span><span class="di-arrow">→</span>
-        </button>
-        <button class="desk-item" role="tab" aria-selected="false" data-desk="1">
+        </a>
+        <a class="desk-item" role="tab" aria-selected="false" data-desk="1"
+           href="trading/index.html" aria-label="Trading — ir a la página del área">
           <span class="di-code">TRD</span><span class="di-name">Trading</span><span class="di-arrow">→</span>
-        </button>
-        <!-- Valuation es el único desk con página propia: se entra directo al
-             tocarlo (los otros tres solo abren su panel). -->
+        </a>
         <a class="desk-item" role="tab" aria-selected="false" data-desk="2"
            href="valuation/index.html" aria-label="Valuation — ir a la página del área">
           <span class="di-code">VAL</span><span class="di-name">Valuation</span><span class="di-arrow">→</span>
         </a>
+        <button class="desk-item" role="tab" aria-selected="false" data-desk="3">
+          <span class="di-code">ADM</span><span class="di-name">Administración</span><span class="di-arrow">→</span>
+        </button>
       </div>
       <div class="desk-panel glowable" id="deskPanel">
         <div class="dp-view active" data-view="0" role="tabpanel">
@@ -1311,9 +1345,10 @@ body.has-ticker{padding-bottom:38px}
           <h3>Gestión de carteras con disciplina de benchmark</h3>
           <p>Construcción y gestión de portafolios con visión top-down: asignación de activos, control de riesgo y decisiones medidas contra el mercado. Es el desk que diseña y dirige el Torneo Portafolio.</p>
           <div class="dp-meta">
-            <span class="mono-tag">06 directores</span>
+            <span class="mono-tag">Dirige · Francisco Valenzuela</span>
             <span class="mono-tag">Dirige el Torneo 2026</span>
           </div>
+          <a href="portafolio/index.html" class="a-link">Conocer el área <span class="arr">→</span></a>
           <div class="dp-bar"><i></i></div>
         </div>
         <div class="dp-view" data-view="1" role="tabpanel">
@@ -1322,9 +1357,10 @@ body.has-ticker{padding-bottom:38px}
           <h3>Mercados en tiempo real</h3>
           <p>Análisis técnico, lectura de flujos y estrategias de corto plazo, con foco en la ejecución y la gestión activa del riesgo en cada operación.</p>
           <div class="dp-meta">
-            <span class="mono-tag">03 directores</span>
+            <span class="mono-tag">Dirige · Manuel Paz</span>
             <span class="mono-tag">Ejecución &amp; flujos</span>
           </div>
+          <a href="trading/index.html" class="a-link">Conocer el área <span class="arr">→</span></a>
           <div class="dp-bar"><i></i></div>
         </div>
         <div class="dp-view" data-view="2" role="tabpanel">
@@ -1333,10 +1369,21 @@ body.has-ticker{padding-bottom:38px}
           <h3>El valor detrás del precio</h3>
           <p>Research fundamental y valorización de compañías: modelos DCF, múltiplos comparables y tesis de inversión defendibles con números sobre la mesa.</p>
           <div class="dp-meta">
-            <span class="mono-tag">02 directores</span>
+            <span class="mono-tag">Dirige · Jhosep García</span>
             <span class="mono-tag">Research fundamental</span>
           </div>
           <a href="valuation/index.html" class="a-link">Conocer el área <span class="arr">→</span></a>
+          <div class="dp-bar"><i></i></div>
+        </div>
+        <div class="dp-view" data-view="3" role="tabpanel">
+          <span class="dp-num" aria-hidden="true">04</span>
+          <span class="mono-tag">ADM · Administración</span>
+          <h3>La estructura que sostiene al club</h3>
+          <p>El desk que ordena la operación de FIG: gestión interna, alianzas con la industria, coordinación entre áreas y el trabajo administrativo que hace posible que el resto de los desks funcione.</p>
+          <div class="dp-meta">
+            <span class="mono-tag">Dirige · Benjamín Sáez</span>
+            <span class="mono-tag">Gestión &amp; operación</span>
+          </div>
           <div class="dp-bar"><i></i></div>
         </div>
       </div>
@@ -1635,9 +1682,10 @@ body.has-ticker{padding-bottom:38px}
       <div class="f-col">
         <h4>Áreas</h4>
         <ul>
-          <li><a href="#areas">Portafolio</a></li>
-          <li><a href="#areas">Trading</a></li>
-          <li><a href="#areas">Valuation</a></li>
+          <li><a href="portafolio/index.html">Portafolio</a></li>
+          <li><a href="trading/index.html">Trading</a></li>
+          <li><a href="valuation/index.html">Valuation</a></li>
+          <li><a href="#areas">Administración</a></li>
         </ul>
       </div>
       <div class="f-col">
@@ -1729,17 +1777,17 @@ var CONFIG = { urls:{
 var CLUB_DATA = {
   personas:{
     directiva:[
-      {iniciales:"BS",nombre:"Benjamín Sáez Molina",rol:"Presidente",detalle:"Co-fundador de FEN Investment Group.",destacado:true,linkedin:"https://www.linkedin.com/in/benjamin-saez-molina/",perfil:{bio:"Presidente y co-fundador de FEN Investment Group. Lidera la dirección estratégica del club, desde donde se articulan el Torneo Portafolio y las alianzas con la industria. Realizó su práctica profesional en Wealth Management en Itaú.",hitos:["Presidente de FEN Investment Group","Co-fundador de FIG","Práctica en Wealth Management · Itaú"]}},
-      {iniciales:"JG",nombre:"Jhosep García",rol:"Vicepresidente",detalle:"Co-fundador · Área Valuation.",destacado:true,linkedin:"https://linkedin.com/in/jhosep-garcia",perfil:{bio:"Vicepresidente y co-fundador de FEN Investment Group. Lidera el área Valuation, donde los miembros analizan y valorizan compañías reales aplicando las metodologías que se usan en la industria financiera.",hitos:["Vicepresidente de FEN Investment Group","Co-fundador · Área Valuation"]}},
-      {iniciales:"MP",nombre:"Manuel Paz",rol:"Director · Portafolio y Trading",detalle:"Comunicaciones, difusión y creador de la web original.",perfil:{bio:"Director de las áreas Portafolio y Trading y responsable de comunicaciones y difusión del club. Creador de la web original de FIG, la primera presencia digital del grupo.",hitos:["Director · Portafolio y Trading","Comunicaciones y difusión de FIG","Creador de la web original del club"]}},
+      {iniciales:"BS",nombre:"Benjamín Sáez Molina",rol:"Presidente",liderArea:"ADM",detalle:"Co-fundador · Dirige el área Administración.",destacado:true,linkedin:"https://www.linkedin.com/in/benjamin-saez-molina/",perfil:{bio:"Presidente y co-fundador de FEN Investment Group. Lidera la dirección estratégica del club, desde donde se articulan el Torneo Portafolio y las alianzas con la industria. Realizó su práctica profesional en Wealth Management en Itaú.",hitos:["Presidente de FEN Investment Group","Dirige el área Administración","Co-fundador de FIG","Práctica en Wealth Management · Itaú"]}},
+      {iniciales:"JG",nombre:"Jhosep García",rol:"Vicepresidente",liderArea:"VAL",detalle:"Co-fundador · Dirige el área Valuation.",destacado:true,linkedin:"https://linkedin.com/in/jhosep-garcia",perfil:{bio:"Vicepresidente y co-fundador de FEN Investment Group. Lidera el área Valuation, donde los miembros analizan y valorizan compañías reales aplicando las metodologías que se usan en la industria financiera.",hitos:["Vicepresidente de FEN Investment Group","Dirige el área Valuation","Co-fundador de FIG"]}},
+      {iniciales:"MP",nombre:"Manuel Paz",rol:"Director · Portafolio y Trading",liderArea:"TRD",detalle:"Comunicaciones, difusión y creador de la web original.",perfil:{bio:"Director de las áreas Portafolio y Trading y responsable de comunicaciones y difusión del club. Creador de la web original de FIG, la primera presencia digital del grupo.",hitos:["Director · Portafolio y Trading","Comunicaciones y difusión de FIG","Creador de la web original del club"]}},
       {iniciales:"FV",nombre:"Francisco Valenzuela",rol:"Director · Portafolio",liderArea:"PRT",detalle:"Infraestructura digital y plataforma web.",linkedin:"https://www.linkedin.com/in/francisco-ignacio-andr%C3%A9s-valenzuela-lecaros-128a69396/",perfil:{bio:"Director del área Portafolio, responsable de la infraestructura digital y la plataforma web del club, donde se publica el ranking del Torneo Portafolio 2026, la competencia insignia de FIG con 48 equipos y USD 10M simulados por cartera. Realizó su práctica profesional en el área de Riesgo de LarraínVial.",hitos:["Director · Portafolio","Infraestructura digital y plataforma web de FIG","Práctica en Riesgo · LarraínVial"]}},
       {iniciales:"AA",nombre:"Agustín Arriagada",rol:"Directivo · Portafolio",detalle:"Co-fundador.",perfil:{bio:"Co-fundador de FEN Investment Group y directivo del área Portafolio, donde se gestionan las carteras simuladas y la metodología de inversión del club.",hitos:["Directivo · Portafolio","Co-fundador de FIG"]}},
       {iniciales:"BD",nombre:"Benjamín Disi",rol:"Directivo · Portafolio",detalle:"Magíster en Finanzas (en curso) · Tutor de Finanzas II y monitor del Lab. Bloomberg Itaú.",linkedin:"https://www.linkedin.com/in/benjam%C3%ADn-disi-hernandez-12b570297",perfil:{bio:"Co-fundador y directivo del área Portafolio. Titulado de Ingeniería Comercial y estudiante del Magíster en Finanzas de la Universidad de Chile. Tutor de Finanzas II y monitor del Laboratorio Bloomberg Itaú de la FEN, lideró el diseño de reglas, criterios de evaluación y metodología de construcción de portafolios del primer torneo de inversión de la facultad.",hitos:["Directivo · Portafolio","Magíster en Finanzas (en curso) · U. de Chile","Tutor de Finanzas II y monitor del Lab. Bloomberg Itaú · FEN","Diseño metodológico del Torneo Portafolio 2026","Top 10 · Torneo de trading Banco Itaú"]}},
       {iniciales:"BS",nombre:"Benjamín Solís",rol:"Directivo · Portafolio",detalle:"Co-fundador.",perfil:{bio:"Co-fundador de FEN Investment Group y directivo del área Portafolio.",hitos:["Directivo · Portafolio","Co-fundador de FIG"]}},
-      {iniciales:"RA",nombre:"Rafael Aliendre",rol:"Director · Trading",detalle:"Co-fundador.",linkedin:"https://www.linkedin.com/in/rafael-aliendre-javier",perfil:{bio:"Co-fundador y director del área Trading. Memorista en la Dirección de Estrategia e Inteligencia de Mercado de CODELCO, con prácticas previas en Factoring Capital Express, Moxi SpA y Falabella Financiero.",hitos:["Director · Trading","Memorista · CODELCO, Estrategia e Inteligencia de Mercado","Prácticas en Factoring Capital Express, Moxi SpA y Falabella Financiero"]}},
-      {iniciales:"JL",nombre:"Juan José Limari",rol:"Fundador",detalle:"Co-fundador.",perfil:{bio:"Co-fundador de FEN Investment Group.",hitos:["Fundador de FIG"]}},
-      {iniciales:"JD",nombre:"Juan Pablo Díaz Cerda",rol:"Director · Trading",detalle:"Co-fundador.",perfil:{bio:"Co-fundador de FEN Investment Group y director del área Trading.",hitos:["Director · Trading","Co-fundador de FIG"]}},
-      {iniciales:"DG",nombre:"David González Cañon",rol:"Fundador",detalle:"Práctica en HSBC · ex Banco BICE · Coordinador Lab. Bloomberg FEN.",linkedin:"https://www.linkedin.com/in/davidgonzalezca%C3%B1on/",perfil:{bio:"Co-fundador de FEN Investment Group. Realizó su práctica en HSBC apoyando a banqueros de Instituciones Financieras, Sector Público y Grandes Corporativos, y antes se desempeñó como Analista de Riesgo Financiero Junior en Banco BICE. En la FEN ha sido coordinador del Laboratorio Bloomberg y ayudante de cursos.",hitos:["Fundador de FIG","Práctica · HSBC, Large Corporates & Institutional Banking","Analista de Riesgo Financiero Junior · Banco BICE","Coordinador del Laboratorio Bloomberg · FEN"]}},
+      {iniciales:"RA",nombre:"Rafael Aliendre",rol:"Directivo · Trading",detalle:"Co-fundador.",linkedin:"https://www.linkedin.com/in/rafael-aliendre-javier",perfil:{bio:"Co-fundador de FEN Investment Group e integrante del área Trading. Memorista en la Dirección de Estrategia e Inteligencia de Mercado de CODELCO, con prácticas previas en Factoring Capital Express, Moxi SpA y Falabella Financiero.",hitos:["Directivo · Trading","Memorista · CODELCO, Estrategia e Inteligencia de Mercado","Prácticas en Factoring Capital Express, Moxi SpA y Falabella Financiero"]}},
+      {iniciales:"JL",nombre:"Juan José Limari",rol:"Directivo · Administración",detalle:"Co-fundador · Administración · Itaú, mesa de dinero.",perfil:{bio:"Co-fundador de FEN Investment Group e integrante del área Administración.",hitos:["Directivo · Administración","Fundador de FIG"]}},
+      {iniciales:"JD",nombre:"Juan Pablo Díaz Cerda",rol:"Directivo · Trading",detalle:"Co-fundador.",perfil:{bio:"Co-fundador de FEN Investment Group e integrante del área Trading.",hitos:["Directivo · Trading","Co-fundador de FIG"]}},
+      {iniciales:"DG",nombre:"David González Cañon",rol:"Directivo · Administración",detalle:"Co-fundador · Administración · Práctica en HSBC · ex Banco BICE · Coordinador Lab. Bloomberg FEN.",linkedin:"https://www.linkedin.com/in/davidgonzalezca%C3%B1on/",perfil:{bio:"Co-fundador de FEN Investment Group. Realizó su práctica en HSBC apoyando a banqueros de Instituciones Financieras, Sector Público y Grandes Corporativos, y antes se desempeñó como Analista de Riesgo Financiero Junior en Banco BICE. En la FEN ha sido coordinador del Laboratorio Bloomberg y ayudante de cursos.",hitos:["Directivo · Administración","Fundador de FIG","Práctica · HSBC, Large Corporates & Institutional Banking","Analista de Riesgo Financiero Junior · Banco BICE","Coordinador del Laboratorio Bloomberg · FEN"]}},
       {iniciales:"DA",nombre:"Delia Avilán",rol:"Fundadora · FEN Investment Woman",liderArea:"FIW",detalle:"Co-fundadora.",perfil:{bio:"Co-fundadora de FEN Investment Group y fundadora de FEN Investment Woman, el área que impulsa la participación de mujeres en el mundo de las inversiones dentro de la FEN.",hitos:["Fundadora · FEN Investment Woman","Co-fundadora de FIG"]}}
     ],
     industria:[

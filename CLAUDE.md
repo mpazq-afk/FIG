@@ -27,6 +27,8 @@ página. Si algo cambia seguido, va en un `.json` bajo `datos/`.
 ├── eventos/index.html      ← bitácora de actividades (torneos, visitas, charlas, comunidad)
 ├── fiw/index.html           ← página de FEN Investment Woman (paleta propia, editable)
 ├── valuation/index.html     ← página del área Valuation (paleta estándar; responsables + sección de Torneo del área que se activa con datos/valuation.json)
+├── portafolio/index.html    ← página del área Portafolio (2026-09-01; YA NO es la plantilla de valuation/: hero con el plano riesgo/retorno del torneo, cinta de datos vivos, tablero del corte y barra de asignación de los 100 puntos — ver la tanda del 2026-09-01 (3))
+├── trading/index.html       ← página del área Trading (2026-08-31; MISMA plantilla que valuation/. Su sección de Torneo va `hidden` con `torneo.activo:false`: el desk aún no tiene torneo propio, y por eso tampoco hay ítem "Torneo" en su nav — al encenderlo hay que devolverlo)
 ├── torneo/index.html        ← ranking oficial del Torneo Portafolio 2026 (con trayectoria por equipo)
 ├── torneo/pantalla.html      ← PANTALLA para las TV de la facultad (1920x1080, bucle, se alimenta sola de torneo.json)
 ├── miembros/index.html      ← LA MESA: directiva, organigrama por desk, buscador "Terminal FIG" y ficha por persona (se alimenta de datos/miembros.json)
@@ -72,6 +74,8 @@ página. Si algo cambia seguido, va en un `.json` bajo `datos/`.
 │   ├── linea_tiempo.json       ← hitos estructurales del Torneo (rebalanceos, cierres, final); se combina con eventos.json en la línea de tiempo de index.html y eventos/index.html — editable desde el Drive (`Linea_Tiempo_Hitos_Torneo` en `00_MAESTRO`)
 │   ├── fiw.json                ← textos y equipo de FEN Investment Woman
 │   ├── valuation.json           ← textos, responsables y datos del Torneo de Valuation (pegar formUrl del Forms para activar inscripciones)
+│   ├── portafolio.json          ← lo mismo para portafolio/index.html
+│   ├── trading.json             ← lo mismo para trading/index.html (`torneo.activo:false` hasta que el desk tenga uno; el `_como_editar` explica cómo encenderlo)
 │   ├── miembros.json             ← GENERADO por generar_miembros.py (no editar a mano): personas del club con ticker, área, nivel del organigrama y sus resultados de torneo cruzados
 │   ├── (miembros.demo.json)        ← BORRADO el 2026-08-28, ya no está en el repo: la base real está cargada. Era el modo `?demo=1` (personas reales con cargos SUPUESTOS + personas que NO EXISTEN, `demo:true`). Se regenera con `python generar_miembros.py --demo` cuando haga falta; mientras no exista, `?demo=1` cae a la base real
 │   ├── equipos_congelados.json   ← **VACÍO desde el 2026-08-26** (`{"equipos": []}`): los 5 equipos que estuvieron "en espera" 23→26-ago fueron eliminados en definitiva. Antes traía sus 5 métricas crudas FIJAS (semana 14) + `historial_previo` (semanas 5-14); ese contenido está en git (commit `c7c4f98` y el estado previo a la eliminación). Repoblarlo solo si se congela a otro equipo (ver `incorporar_congelados.py`)
@@ -1669,7 +1673,391 @@ python verificar_sitio.py
 python -m http.server 8000            # en otra terminal
 node verificar_paginas.js
 node verificar_movil.js               # telefono
+node verificar_menu_movil.js          # SOLO si se toco el menu movil
 python sincronizar_espejo.py --aplicar
 python despublicar_fiw.py --aplicar   # SIEMPRE despues del anterior
 cd ../mpazq-afk.github.io && python generar_sitemap.py
 ```
+
+
+## Tanda del 2026-08-31: cinco desks, paginas de Portafolio y Trading
+
+Francisco confirmo la estructura de areas que quedaba abierta desde el 26-ago
+y pidio las dos paginas de area que faltaban. Todo se publico en
+`panchoscky/fig-web` unicamente: **el espejo de Manuel NO se toco**.
+
+### Quien dirige cada area (confirmado, no supuesto)
+
+| Desk | Dirige | Pagina |
+|---|---|---|
+| PRT · Portafolio | Francisco Valenzuela | `portafolio/index.html` |
+| TRD · Trading | **Manuel Paz** | `trading/index.html` |
+| VAL · Valuation | **Jhosep Garcia** | `valuation/index.html` |
+| FIW · FEN Investment Woman | Delia Avilan | `fiw/index.html` |
+| ADM · Administracion | **nadie, a proposito** | — |
+
+Dos cambian lo que decia el repo, asi que **no "corregirlos" hacia atras**:
+
+- **Valuation cambio de lider.** El 27-ago se habia confirmado a Samuel
+  Rodriguez Arnolds; el 31-ago Francisco dijo que es Jhosep Garcia. Samuel
+  bajo a `Directivo · Valuation` y perdio el chip.
+- **Trading por fin tiene lider**: Manuel Paz, que conserva el rol
+  `Director · Portafolio y Trading` que el mismo publico en el espejo.
+  Rafael Aliendre y Juan Pablo Diaz Cerda bajaron a `Directivo · Trading`,
+  el mismo patron que se habia aplicado en Portafolio.
+- **Juan Jose Limari ya no pertenece a Trading**: queda `Fundador` sin desk.
+- **Administracion (ADM) es area nueva.** Francisco puso a Benjamin Saez como
+  responsable "por el momento" pero eligio explicitamente que **nadie lleve el
+  chip "Dirige el area"** ahi. Benja sigue mostrandose solo como Presidente.
+
+### El orden de los desks vive en CINCO lugares
+
+Al agregar o mover un area hay que tocar los cinco o el sitio se desalinea:
+
+1. `datos/club.json` — `liderArea` de cada persona (fuente de verdad).
+2. `AREAS` de `generar_miembros.py` — con `pagina` si el area tiene una.
+3. `config.areas` de `datos/miembros.json` — se copia del anterior.
+4. §Areas de `index.html` — la lista de tabs Y su `.dp-view`, en el MISMO
+   orden: el conmutador trabaja por indice, no por codigo.
+5. `AC={...}` de `miembros/index.html` — el color del desk, dos veces.
+
+`index.html` trae ademas una copia embebida de `personas` como respaldo por si
+`datos/club.json` no carga; estaba desactualizada y se puso al dia.
+
+### Las paginas de area son UNA plantilla, no tres
+
+`portafolio/` y `trading/` se sacaron de `valuation/index.html` conservando el
+`<style>` y el `<script>` completos y todos los `id` (`heroBajada`,
+`valResumen`, `valPilares`, `valResponsables`, `tv*`, `valEventosGrid`). Solo
+cambian textos, metadatos, el `DATA` embebido, el JSON que cargan y el filtro
+de eventos. **Al cambiar una, mirar siempre si aplica a las otras dos.**
+
+Dos diferencias deliberadas entre ellas:
+
+- **Portafolio** no pide inscripciones con un Forms: el Torneo Portafolio 2026
+  ya esta en curso, asi que el CTA de esa seccion lleva al ranking en vivo y a
+  las bases. El mecanismo de `formUrl` sigue intacto por si algun dia se usa.
+- **Trading** no tiene torneo propio: su seccion va `hidden` con
+  `torneo.activo:false` y **por eso tampoco hay item "Torneo" en su nav**. Al
+  encenderla hay que devolverlo; el `_como_editar` del JSON lo recuerda.
+
+### El filete dorado, ahora tambien en las paginas de area
+
+Quien dirige el area lleva filete dorado al costado + chip "Dirige el area",
+igual que en §Nosotros de `index.html`. Se PORTO, no se reinvento, pero con un
+detalle: en el raiz la tarjeta es clara y el oro es `--gold`; en las paginas de
+area la seccion es oscura y el oro es `--acc`. El borde usa `--acc-dim`, que ya
+existia y es el mismo alfa .34 del original con el oro claro. El `:hover` se
+redefine en ambos lados porque la regla base de `.p-card` reemplaza el
+`box-shadow` completo y se comeria el filete.
+
+Quien lo lleva se marca con `lidera:true` en el `responsables` del JSON del
+area — uno solo por pagina.
+
+### La Mesa: un bug que introdujo este mismo cambio
+
+Al sacar a Limari de Trading quedo **nivel 1 y sin area**, y a la mesa se
+sienta solo quien es *nivel 1 CON area* (los arcos) o *nivel 0* (la cabecera):
+no calzaba en ninguno de los dos y **desaparecia del dibujo**. Paso a nivel 0,
+igual que David Gonzalez Canon, el otro fundador sin desk. El script de parche
+dejo una comprobacion: los 15 de la directiva tienen que aparecer, hoy 12 en
+los arcos y 3 en la cabecera.
+
+ADM no necesito nada: `codigos()` solo dibuja arco para desks con gente
+sentada, y ADM todavia no tiene segunda linea, asi que no sale como arco vacio
+y Benja sigue en el centro. El arco aparece solo cuando entre alguien.
+
+Ademas, `config.areas` traia `pagina` desde siempre y la mesa **nunca la
+usaba**: se entraba a un desk y no habia salida hacia su pagina. Ahora la
+cabecera del desk ofrece "Conocer el area" cuando esa area tiene una.
+
+### `datos/miembros.json` se parcheo A MANO, contra su propia nota
+
+145 de sus 160 fichas vienen del Excel de miembros del Drive, que no esta en el
+repo: regenerar sin `--excel` las borraria. **Cuando el Excel este a mano,
+correr `generar_miembros.py --excel <ruta>`** y el parche queda de sobra. Los
+`AREAS` y `CARGOS_DEMO` del generador ya quedaron alineados con esto, asi que
+una regeneracion futura no revierte nada.
+
+### El nav, y un menu movil que ya estaba roto
+
+Francisco pidio Portafolio y Trading en el nav principal. En escritorio NO
+hicieron falta items nuevos: ya existia el desplegable **"Areas"**, que traia
+un solo enlace (Valuation) porque era la unica area con pagina. Ahora trae
+las tres, en el orden canonico. FIG Woman sigue en "Comunidad" a proposito.
+
+En movil el menu es una lista plana, y ahi aparecio lo importante:
+`.m-menu` era un flex `justify-content:center` **sin scroll**. Cuando la lista
+pasa del alto de la pantalla, un flex centrado empuja los PRIMEROS items a
+offset negativo: quedan fuera del viewport y **no hay barra que arrastrar**.
+
+Medido sobre lo que ya estaba publicado, con 11 enlaces:
+
+| Telefono | Contenido | Resultado |
+|---|---|---|
+| 390x844 | 844px | entraba justo |
+| 375x667 | 740px | **"Nosotros" y "Torneo 2026" inalcanzables** |
+| 360x640 | 727px | **igual** |
+
+O sea **no lo rompio este cambio, ya estaba roto**; sumar dos enlaces solo lo
+habria empeorado. Arreglado con `flex-start` + `overflow-y:auto` + margenes
+automaticos en el primer y ultimo hijo: centra mientras sobre espacio y
+scrollea entero cuando no. Con 13 enlaces (999px) las tres pantallas pasan.
+
+**`verificar_menu_movil.js` (nuevo)**: ningun verificador abria el menu, por
+eso el bug vivio tanto. Abre `#mmenu` en los tres telefonos y avisa que enlace
+queda inalcanzable. **Correrlo cada vez que se agregue o saque un enlace del
+menu movil**; ya esta en la rutina semanal, justo despues de
+`verificar_movil.js`.
+
+### Lo que se miro y NO se toco
+
+- El **Capitulo II de la historia** sigue diciendo "15 directores, 4 desks" y
+  "cuatro subareas". Es narrativa fundacional y ADM nacio despues, asi que
+  puede ser correcto tal cual; es decision de Francisco.
+- **`en/index.html`** sigue con "Four areas". Cambiarlo obliga a tocar
+  `despublicar_fiw.py`, que busca ESE texto exacto para sacar FIW del espejo.
+- El chip `.p-tag` mide 8px (`font-size:.5rem`), bajo el umbral de 11px de
+  `verificar_movil.js`. Es el mismo tamano que ya tenia en el raiz; subirlo
+  obliga a subirlo en los dos lados para que no se desalineen.
+
+### Verificacion
+
+`verificar_paginas.js`: las 19 paginas cargan sin errores de consola ni
+archivos faltantes. `verificar_movil.js`: ninguna se sale del ancho a 390px.
+`verificar_sitio.py`: sin errores (los 3 avisos de numero de equipos son los
+historicos de siempre). `sitemap.xml` regenerado, 14 URLs.
+
+**Ojo con una falsa alarma**: medir `miembros/index.html` sola da 418 KB
+criticos y en el barrido completo da 217 KB. No es una regresion — es
+`datos/torneo.json` (209 KB), que en el barrido ya viene cacheado desde la
+portada. Al medir una pagina suelta con `--solo=`, paga todo lo que comparte
+con las demas.
+
+
+## Tanda del 2026-09-01: Administracion se vuelve un desk de verdad
+
+Francisco: *"en la pagina de miembros, en la mesa, aun no veo el area de
+administracion, en ella pon a benjamin saes, davis y limari"*.
+
+### Por que no se veia
+
+No era un bug. La Mesa solo dibuja el arco de un desk si hay alguien
+**sentado**, y `sentados()` pide `area===codigo && (nivel===1 || lidera)`.
+Benjamin Saez era nivel 0 sin `lidera`, asi que caia en la **cabecera** (el
+centro) y no en un arco; David y Limari no tenian area. ADM existia en los
+datos pero no tenia a nadie que dibujar.
+
+El detalle bonito: **esos tres eran exactamente los del centro**, bajo el
+rotulo "PRESIDENCIA". Al pasarlos al desk la cabecera quedo vacia y el centro
+paso a mostrar el sello FIG. Eso **ya estaba contemplado** en el codigo
+(`cab.length ? "PRESIDENCIA" : "FEN INVESTMENT GROUP"`), no hubo que tocarlo.
+Ahora los 15 de la directiva se sientan en un desk y ninguno flota al centro.
+
+### Cambio de decision: ADM si tiene lider
+
+El 31-ago Francisco habia elegido que Administracion fuera **sin** chip de
+lider. El 01-sep lo cambio: **Benjamin Saez la dirige**, con chip, y sigue
+siendo Presidente. David Gonzalez y Juan Jose Limari entran como
+`Directivo · Administracion`, conservando su condicion de cofundadores en el
+detalle y en los hitos (mismo patron que Rafael Aliendre en Trading).
+
+### Dos trampas que aparecieron
+
+**1. El area se deduce del TEXTO, no de un campo.** `generar_miembros.py` usa
+`area_de_texto(rol, detalle)` — lee **solo `rol` y `detalle`, nunca la bio** —
+y ademas descarta `liderArea` si no calza con el area deducida. El rol de
+Benjamin es "Presidente" a secas, asi que sin escribir "Administracion" en su
+**detalle** su `liderArea:"ADM"` se habria caido en la proxima regeneracion.
+El parche dejo una comprobacion que replica `area_de_texto` y falla si los
+tres no dan ADM.
+
+**2. Presidir Y dirigir un area a la vez no existia.** `.p-card--lead` (filete
+arriba, presidencia) y `.p-card--area` (filete al costado, dirige un desk)
+escriben **las dos el `box-shadow` completo**, asi que ganaba la ultima
+declarada y el presidente perdia su filete de arriba. Se agrego la regla
+combinada `.p-card--lead.p-card--area` con los dos filetes, mas su `:hover`.
+
+### Verificacion
+
+Medido en el DOM ya pintado de `miembros/index.html`: cinco arcos
+(PRT, TRD, VAL, FIW, **ADM · ADMINISTRACION**), **15 asientos**, centro en
+"FEN INVESTMENT GROUP / FIG". `verificar_paginas.js`, `verificar_movil.js` y
+`verificar_sitio.py` sin errores.
+
+
+## Tanda del 2026-09-01 (2): Portafolio deja de ser un clon de la plantilla
+
+Francisco: *"me gustaria algo mas de inovasion con la pagina de portafolio,
+quiero que se sienta como una pagina de FIG, pero que tambien tenga sierta
+personalidad propia"*. Eligio hacer **las dos cosas**: datos vivos Y
+tratamiento visual propio.
+
+El problema de fondo era real: `portafolio/`, `trading/` y `valuation/` eran
+la misma pagina con otros textos.
+
+### Donde se rompe la simetria (y donde NO)
+
+Lo unico que se rompe a proposito es el **hero**. Valuation y Trading llevan
+detras del titulo una tira de fotos (`.photo-marquee`, sondeando
+`fotos/<area>/`). En Portafolio esa tira y los anillos salieron, y el fondo
+pasa a ser un **campo de las 54 trayectorias reales** del torneo, una
+polilinea por equipo, sin ejes ni rotulos: ahi son textura, no lectura.
+El argumento: este desk se presenta con los datos que produce.
+
+**`fotos/portafolio/` ya no se lee.** El mecanismo se retiro con la tira; esta
+anotado en el `_como_editar` para que nadie llene una carpeta muerta.
+
+Lo que NO cambia: navy + oro, tipografias autoalojadas, nav, pie con el
+credito, preloader y beacon. Se sumo un acento secundario `--bmk` (#7BA7DE)
+que **ya es el token con que el sitio dibuja el ACWI** en `index.html`, las
+pantallas e `informe/`. Vale doble aca: oro = torneo, azul = benchmark.
+
+### Los datos vivos, en dos tiempos
+
+Mismo enfoque que `torneo/index.html`, y por el mismo motivo (`torneo.json`
+pesa 205 KB y el 75% es historial):
+
+1. `datos/torneo-tabla.json` (~7 KB) -> cinta del hero, cifras del corte y las
+   5 metricas, de inmediato. Si no existe, cae al completo.
+2. `datos/torneo.json` en tiempo ocioso -> historial -> campo del hero y
+   grafico. Con `saveData` o en 2G no se pide.
+
+**§El corte** trae un grafico que no existe en ninguna otra pagina: **mediana
+de los 54 equipos + banda intercuartil contra el ACWI**, semana a semana. Se
+eligio mediana+IQR y no un promedio porque las 54 trayectorias crudas van de
+-11,3% a +22,1% y aplastaban las dos lineas que importan.
+
+**§Como se evalua** explica las 5 metricas, que es lo que de verdad distingue
+al desk: aca una cartera no se juzga por rentabilidad sola. **El peso de cada
+metrica no esta escrito en ninguna parte**: se deriva del `max(puntosDetalle)`
+sobre los 54 equipos, porque por percentil continuo el mejor de cada metrica
+se lleva el peso completo. Da 30/25/15/15/15. Si cambia la formula, la pagina
+se entera sola.
+
+De paso murio otra cifra a mano: "Equipos en competencia" ahora lleva
+`vLive:"equipos"` y sale del corte vigente.
+
+### Verificado a mano, no solo por el informe del agente
+
+Contrastado contra `datos/torneo.json` con Python: 54 equipos, semana 15,
+corte 21-AGO-2026, puntero *Beta capital* 93,26, ultimo 1,58, rango 91,68, y
+los pesos 30/25/15/15/15 salen efectivamente de los maximos por metrica.
+
+**Degradacion probada bloqueando los JSON en el navegador**, tres escenarios
+-- sin ningun dato del torneo, sin el historial, y completo. En los tres:
+cero "NaN", cero desborde horizontal, los 6 responsables pintados con UN solo
+filete, cero excepciones JS. Lo unico que cambia es cuanto texto queda en pie
+(6508 / 7454 / 8103 caracteres): las piezas sin dato simplemente no se
+muestran.
+
+`verificar_paginas.js` (las 19 paginas), `verificar_movil.js`,
+`verificar_menu_movil.js` y `verificar_sitio.py`: sin errores. Grep de
+recursos externos en la pagina: ninguno.
+
+### Detalle que se repitio
+
+El menu movil de Portafolio paso de 5 a 7 enlaces, asi que hubo que portarle
+el mismo arreglo de scroll que se le hizo a `index.html` el 31-ago
+(`flex-start` + `overflow-y:auto` + margenes automaticos). **Es el segundo
+menu que se topa con esto**: al agregar enlaces a CUALQUIER `.m-menu`, correr
+`verificar_menu_movil.js --pag=<la pagina>`.
+
+
+## Tanda del 2026-09-01 (3): Portafolio, segunda vuelta -- el dato deja de ser fondo
+
+Francisco, sobre la version anterior: *"la idea de usar los datos en vivo de
+fondo era buena, pero mal implementada, solo son lineas finas y no se
+entiende... crea algo nuevo e inovador... se atrevido, ariesgate con ideas
+nuevas y estilos disrubtivos"*.
+
+Tenia razon y el diagnostico es exacto: el hero dibujaba las 54 trayectorias
+crudas del torneo como polilineas de 1px al 26% de opacidad DETRAS del titulo.
+Como textura no se leia, y como grafico tampoco: sin ejes, sin rotulos y con 54
+series superpuestas no hay nada que entender ahi. La idea de fondo (que este
+desk se presente con los datos que produce) se conservo entera; lo que cambio
+es que **el dato dejo de ser fondo y paso a ser la pieza**.
+
+### El plano de la frontera (`pintarPlano`)
+
+El hero es ahora un **plano riesgo / retorno**, que es la imagen fundacional de
+la gestion de carteras. Cada cartera del corte es un disco:
+
+| | |
+|---|---|
+| x | `metricas.mdd` en valor absoluto -- la caida maxima, o sea el riesgo |
+| y | `metricas.exc` (o `retRel`) -- el retorno sobre el iShares MSCI ACWI |
+| r | `puntos` del corte |
+
+La **linea azul del cero ES el indice** (mismo token `--bmk` de siempre): sobre
+ella el disco va lleno, bajo ella queda calado. Y la **linea dorada es la
+frontera**: recorriendo de menos a mas riesgo, las carteras que superan a todas
+las de menos riesgo que ellas. Bajo esa linea siempre existe otra cartera que
+rindio mas arriesgando menos.
+
+Dato que hace que valga la pena: **la frontera no es el ranking**. En el corte
+de la semana 15 la componen 6 carteras y son las posiciones 1, 2, 3, 6, 7 y 15
+-- Black Swan Capital entra con el riesgo mas bajo del torneo (1,38%) pese a ir
+15a. Verificado aparte con Python contra `datos/torneo.json`, no solo por el
+render.
+
+**Sale de `datos/torneo-tabla.json` (7 KB), no del historial.** Es una mejora
+real de degradacion respecto de la version anterior: el campo de trayectorias
+necesitaba los 205 KB de `torneo.json`, asi que con `saveData` o en 2G el hero
+se quedaba sin su pieza. El plano esta en pie desde la primera pintada.
+
+Cuidado si se toca el SVG: los margenes son `pl=64 / pt=32` **a proposito**. Con
+los 46/22 originales, "+20,00%" se cortaba contra el borde y el rotulo del eje Y
+--que iba rotado a 90 grados-- se encimaba con las marcas. El rotulo del eje Y
+va horizontal arriba a la izquierda; rotado no cabe.
+
+### Lo demas que cambio, y por que
+
+- **La cinta bajo el hero** era una marquesina de PALABRAS ("Asignacion de
+  activos - Top-down - Control de riesgo"), decoracion que repetia lo que ya
+  decia la pagina. Ahora corre el estado real del corte: semana, fecha,
+  carteras, lider, puntaje, cuantas le ganan al ACWI, el mejor de cada una de
+  las 5 metricas y el ACWI. **Las palabras siguen en el HTML como respaldo**: si
+  el ranking no carga, la cinta se ve como antes en vez de quedar vacia.
+- **§El corte** paso de cuatro tarjetas redondeadas iguales a un **tablero** de
+  12 columnas separado por filetes de 1px, donde cada dato ocupa el ancho que le
+  toca (el lider media fila, porque es un nombre y no un numero). El grafico se
+  pega por abajo con `margin-top:-1px` y cierra el mismo bloque. Celda nueva:
+  **"Le ganan al indice", 16 de 54**, que es la lectura central de este desk y
+  no existia en ninguna parte del sitio.
+- **§Como se evalua** se llama ahora **§Los 100 puntos** y abre con una **barra
+  de asignacion**: los 100 puntos repartidos en cinco tramos proporcionales al
+  peso real de cada metrica. El peso de una metrica ES una asignacion --el mismo
+  gesto que hace el desk con el capital-- y cinco tarjetas no muestran una
+  asignacion. Debajo, una franja a lo ancho por metrica. Los anchos siguen sin
+  estar escritos: salen de `pesos()`.
+- **Pilares** y **§Nosotros** dejaron de ser tarjetas sueltas: franjas con el
+  numeral calado al aire, y una ficha unica dividida por filetes.
+- **Riel de secciones** fijo al costado, solo desde 1460px. Se numera SOLO con
+  las secciones visibles (§El corte, §Torneo y §Actividades pueden estar
+  ocultas), asi que un numero escrito a mano se desalinearia; y cambia a tinta
+  oscura sobre las secciones claras.
+- **Esquinas rectas en toda la pagina** (`border-radius:0` en las tarjetas
+  compartidas). Es el gesto que separa a Portafolio de `valuation/` y
+  `trading/` sin tocar la paleta ni las tipografias. El avatar queda fuera: es
+  un circulo a proposito.
+
+`fotos/portafolio/` sigue sin leerse y `trayectorias()` se borro con el campo.
+
+### Verificacion
+
+Contrastado con Python contra `datos/torneo.json`: 54 carteras, 16 con exceso
+positivo (ninguna en cero exacto), riesgo de 1,38% a 18,26%, exceso de -37,28%
+a +20,83%, frontera de 6 carteras, pesos 30/25/15/15/15.
+
+**Degradacion probada bloqueando los JSON en el navegador**, tres escenarios --
+completo, sin el historial, y sin ningun dato del torneo. En los tres: cero
+"NaN", cero desborde horizontal, cero excepciones JS. Sin historial el plano
+sigue en pie y solo cae el grafico de mediana e intercuartil; sin nada del
+torneo caen el plano, §El corte y la barra de los 100 puntos, la cinta vuelve a
+las 16 palabras, las cifras del hero vuelven a su texto de respaldo y el riel se
+renumera solo de 01 a 06. Texto en pie: 9546 / 8878 / 6650 caracteres.
+
+`verificar_paginas.js` (las 19 paginas), `verificar_movil.js`,
+`verificar_menu_movil.js --pag=portafolio/index.html` (7 enlaces, entra entero
+en las tres pantallas) y `verificar_sitio.py`: sin errores.

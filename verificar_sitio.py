@@ -280,6 +280,7 @@ CANONICAS = {
     "index.html": "/", "en/index.html": "/en/", "eventos/index.html": "/eventos/",
     "fiw/index.html": "/fiw/", "torneo/index.html": "/torneo/",
     "miembros/index.html": "/miembros/", "valuation/index.html": "/valuation/",
+    "portafolio/index.html": "/portafolio/", "trading/index.html": "/trading/",
     "postula/index.html": "/postula/", "desafio/index.html": "/desafio/",
     "juego/index.html": "/juego/",
 }

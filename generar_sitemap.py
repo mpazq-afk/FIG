@@ -57,6 +57,8 @@ PRIORIDAD = {
     "eventos/index.html": "0.8",
     "miembros/index.html": "0.8",
     "postula/index.html": "0.8",
+    "portafolio/index.html": "0.7",
+    "trading/index.html": "0.7",
     "valuation/index.html": "0.7",
     "en/index.html": "0.6",
 }

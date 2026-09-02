@@ -1,5 +1,5 @@
 {
-  "_como_editar": "Textos y datos del área Valuation. La página valuation/index.html trae estos mismos valores embebidos y los sobreescribe con este archivo. Para el TORNEO: cuando tengas el link del Google Form pégalo en torneo.formUrl y el botón 'Inscríbete' se activa solo; mientras esté vacío la página muestra 'Inscripciones — próximamente'. Las bases van en torneo.basesUrl (PDF o enlace). Los campos de torneo.datos con 'Por confirmar' se rellenan cuando tengas la info. Fotos de los responsables: fotos/directiva/<slug>.jpg (ya existen).",
+  "_como_editar": "Textos y datos del área Valuation. La página valuation/index.html trae estos mismos valores embebidos y los sobreescribe con este archivo. Para el TORNEO: cuando tengas el link del Google Form pégalo en torneo.formUrl y el botón 'Inscríbete' se activa solo; mientras esté vacío la página muestra 'Inscripciones — próximamente'. Las bases van en torneo.basesUrl (PDF o enlace). Los campos de torneo.datos con 'Por confirmar' se rellenan cuando tengas la info. RESPONSABLES: quien DIRIGE el área lleva 'lidera': true; su tarjeta se dibuja con filete dorado al costado y el chip 'Dirige el área' (la misma jerarquía que ya se usa en la sección Nosotros del index.html de la raíz). Debe haber UNO SOLO por área — hoy Jhosep García, vicepresidente de FIG — y el resto va sin el campo; si el campo falta o está en false, la tarjeta se ve normal. Fotos de los responsables: fotos/directiva/<slug>.jpg (ya existen).",
   "bajada": "El área de FIG donde se estudia el valor real de una compañía, más allá de su precio.",
   "resumen": [
     "Valuation es el área de FEN Investment Group dedicada al research fundamental: entender un negocio, valorizarlo con las metodologías que se usan en la industria y transformar ese análisis en una tesis de inversión defendible.",
@@ -27,8 +27,8 @@
     ]
   },
   "responsables": [
-    {"iniciales": "JG", "slug": "jhosep-garcia", "nombre": "Jhosep García", "rol": "Encargado · Valuation", "detalle": "Vicepresidente y co-fundador de FIG. Encabeza el área Valuation.", "linkedin": "https://linkedin.com/in/jhosep-garcia"},
+    {"iniciales": "JG", "slug": "jhosep-garcia", "nombre": "Jhosep García", "rol": "Vicepresidente FIG", "lidera": true, "detalle": "Vicepresidente y co-fundador de FIG. Dirige el área Valuation.", "linkedin": "https://linkedin.com/in/jhosep-garcia"},
     {"iniciales": "BS", "slug": "benjamin-saez-molina", "nombre": "Benjamín Sáez Molina", "rol": "Presidente FIG", "detalle": "Presidente y co-fundador de FIG. Práctica en Wealth Management en Itaú.", "linkedin": "https://www.linkedin.com/in/benjamin-saez-molina/"},
-    {"iniciales": "SR", "slug": "samuel-rodriguez-arnolds", "nombre": "Samuel Rodríguez Arnolds", "rol": "Encargado · Valuation", "detalle": "Co-fundador de FIG. Práctica en Investment Banking en MoonValley Capital.", "linkedin": "https://www.linkedin.com/in/samuel-rodr%C3%ADguez-arnolds-8b9608241/"}
+    {"iniciales": "SR", "slug": "samuel-rodriguez-arnolds", "nombre": "Samuel Rodríguez Arnolds", "rol": "Directivo · Valuation", "detalle": "Co-fundador de FIG. Práctica en Investment Banking en MoonValley Capital.", "linkedin": "https://www.linkedin.com/in/samuel-rodr%C3%ADguez-arnolds-8b9608241/"}
   ]
 }

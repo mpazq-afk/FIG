@@ -1,0 +1,2044 @@
+<!DOCTYPE html>
+<html lang="es" class="no-js">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portafolio — FIG</title>
+<meta name="description" content="Portafolio: el área de FEN Investment Group dedicada a la gestión de carteras, la asignación de activos y el control de riesgo. Es el área que dirige el Torneo Portafolio 2026. Universidad de Chile.">
+<meta name="theme-color" content="#0A1128">
+<link rel="canonical" href="https://feninvestmentgroup.com/portafolio/">
+<meta property="og:url" content="https://feninvestmentgroup.com/portafolio/">
+<meta property="og:title" content="Portafolio — FIG">
+<meta property="og:description" content="El área de FIG dedicada a la gestión de carteras: asignación de activos, control de riesgo y decisiones medidas contra un benchmark. Universidad de Chile.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Portafolio — FIG">
+<meta name="twitter:description" content="Gestión de carteras, control de riesgo y el Torneo Portafolio 2026 en FEN Investment Group.">
+<meta name="twitter:image" content="/og-image.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%230A1128'/%3E%3Ccircle cx='50' cy='50' r='34' fill='%23D4AF37'/%3E%3C/svg%3E">
+<!-- Tipografias autoalojadas: antes esto eran dos preconnect y una
+     hoja de estilos de fonts.googleapis.com, que bloqueaba la primera
+     pintada y le mandaba la IP de cada visitante a Google. Las genera
+     descargar_fuentes.py; no editar fuentes/ a mano. -->
+<link href="../fuentes/fig.css" rel="stylesheet">
+<style>
+/* ============================================================================
+   PORTAFOLIO — página del área
+   Nació como copia de valuation/index.html y conserva de ella el sistema
+   entero: la misma paleta navy + oro (NO tiene paleta propia — la única con
+   paleta propia es FIW), las mismas tipografías autoalojadas de fuentes/, el
+   mismo nav, preloader, pie y beacon, y los mismos id de las secciones
+   compartidas (heroBajada, valResumen, valPilares, valResponsables, tv*,
+   valEventosGrid), para que un arreglo en una de las tres páginas de área se
+   pueda portar a las otras sin traducir nada.
+
+   Lo que es SOLO de esta página, y es a propósito, porque Portafolio es el
+   área que diseña y dirige el Torneo Portafolio y su identidad son sus datos:
+     · el hero no lleva tira de fotos como valuation/ y trading/: su pieza es
+       EL PLANO de la frontera riesgo/retorno, con las carteras reales del
+       corte vigente, y bajo el título van sus cifras;
+     · la cinta bajo el hero corre el estado real del corte en vez de una
+       marquesina de palabras;
+     · esquinas rectas y rejillas de filete en vez de tarjetas redondeadas;
+     · §El corte (#corte) — cifras y gráfico en vivo del torneo;
+     · §Cómo se evalúa (#metricas) — las 5 métricas con su peso real;
+     · un acento secundario con significado, el azul del benchmark (--bmk),
+       que el sitio ya usa para el ACWI en otras páginas. El oro sigue siendo
+       el acento principal en todo lo demás.
+   Ninguna de esas piezas tiene una cifra escrita a mano: todas salen de
+   ../datos/torneo-tabla.json y ../datos/torneo.json, y si esos archivos no
+   están, se ocultan solas sin dejar huecos (ver el bloque "RANKING EN VIVO
+   DEL TORNEO" del <script>).
+
+   Datos: DATA embebida + override desde ../datos/portafolio.json
+   Torneo: a diferencia de Valuation, el Torneo Portafolio 2026 YA está en
+   curso y tiene ranking en vivo, así que el CTA principal lleva a
+   ../torneo/index.html (torneo.rankingUrl). El mecanismo de torneo.formUrl
+   queda intacto por si algún día se necesita un formulario, pero va vacío.
+   Fotos de responsables: ../fotos/directiva/<slug>.jpg (se detectan solas).
+   ============================================================================ */
+:root{
+  /* Sin esto Chrome dibuja las barras de scroll y los controles nativos en
+     gris claro sobre el navy, y pinta el lienzo en blanco antes de la primera
+     pintada: en un sitio 100% oscuro se ve como un destello o una barra blanca. */
+  color-scheme:dark;
+  --navy-deep:#060B1C; --navy:#0A1128; --navy-panel:#101731;
+  --acc:#D4AF37;          /* oro principal   */
+  --acc-light:#EBD388;    /* oro claro       */
+  --acc-deep:#9E7E1E;     /* oro profundo    */
+  --acc-warm:#E8C972;     /* oro cálido      */
+  --acc-dim:rgba(212,175,55,.34);
+  --acc-faint:rgba(212,175,55,.12);
+  /* ACENTO SECUNDARIO — el azul del benchmark.
+     Portafolio NO cambia de paleta: sigue siendo navy + oro como el resto del
+     sitio (la única área con paleta propia es FIW). Lo que suma es un acento
+     con SIGNIFICADO, no decorativo: este azul ya es el token con que todo el
+     sitio dibuja el iShares MSCI ACWI (index.html, torneo/pantalla.html,
+     pantalla-facultad.html, informe/). Acá vale doble, porque este es el desk
+     que se mide contra un índice: el oro es siempre el torneo, el azul es
+     siempre el benchmark, y esa lectura ya viene aprendida de las otras
+     páginas. Fuera de los gráficos no se usa para nada.
+     Nota de validación: el par oro/azul queda fuera de la banda de luminosidad
+     del validador de paletas (los dos son claros sobre fondo oscuro, que es
+     inherente a este sitio), pero su separación es ΔE 22.9 con daltonismo y
+     23.5 en visión normal — muy por sobre el piso — y ambas series van además
+     con leyenda, rótulo directo y tabla de datos. Misma decisión deliberada
+     que ya tomó informe/index.html. */
+  --bmk:#7BA7DE;         /* azul ACWI sobre fondo oscuro */
+  --bmk-deep:#3C6DA8;    /* azul ACWI sobre fondo claro  */
+  --bmk-faint:rgba(123,167,222,.16);
+  --ivory:#F9F6EF; --paper:#FCFAF3; --ink:#141019; --ink-soft:#5A5347;
+  --line-l:rgba(20,16,25,.13); --line-d:rgba(212,175,55,.2);
+  --f-disp:"Playfair Display",Georgia,serif;
+  --f-body:"Inter",-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono","SF Mono",monospace;
+  --wrap:1180px; --ease:cubic-bezier(.22,.61,.21,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+/* El `display:none` que trae el atributo `hidden` viene de la hoja del
+   navegador, asi que CUALQUIER regla propia que fije `display` se lo come sin
+   avisar. Paso de verdad: `.demo-bar{display:flex}` dejaba el aviso de
+   "Demostracion" a la vista sobre los datos reales. Esto lo blinda. */
+[hidden]{display:none!important}
+/* El hueco de la barra queda reservado siempre: varias paginas bloquean el
+   scroll del body al abrir un panel u overlay, y sin esto la pagina entera se
+   corre 15px al costado cuando la barra desaparece y vuelve. */
+html{scroll-behavior:smooth;scrollbar-gutter:stable}
+section[id]{scroll-margin-top:80px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.001s!important;transition-duration:.001s!important}}
+body{background:var(--navy);color:var(--ivory);font-family:var(--f-body);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--acc);color:var(--navy)}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:2px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+.kicker{font-family:var(--f-mono);font-size:.72rem;font-weight:500;letter-spacing:.42em;text-transform:uppercase;color:var(--acc);display:flex;align-items:center;gap:14px}
+.kicker::before{content:"";width:34px;height:1px;background:var(--acc);opacity:.7;flex:none}
+.h-sec{font-family:var(--f-disp);font-weight:600;font-size:clamp(2.1rem,4.6vw,3.4rem);line-height:1.1;letter-spacing:-.012em;margin:18px 0 0}
+.h-sec em{font-style:italic;color:var(--acc)}
+.section--light .h-sec em{color:var(--acc-deep)}
+.lead{font-size:1.05rem;color:rgba(249,246,239,.78);max-width:58ch}
+.section--light .lead{color:var(--ink-soft)}
+.mono-tag{font-family:var(--f-mono);font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--acc);border:1px solid var(--acc-dim);border-radius:100px;padding:5px 13px;display:inline-block}
+.btn{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:.92rem;padding:15px 30px;border-radius:2px;transition:transform .4s var(--ease),box-shadow .4s,background .35s,color .35s,border-color .35s;white-space:nowrap}
+.btn--acc{background:var(--acc);color:var(--navy)}
+.btn--acc:hover{background:var(--acc-light);transform:translateY(-2px);box-shadow:0 16px 38px -12px rgba(212,175,55,.5)}
+.btn--ghost{border:1px solid var(--acc-dim);color:var(--ivory)}
+.btn--ghost:hover{border-color:var(--acc);color:var(--acc);transform:translateY(-2px)}
+.btn--navy{background:var(--navy);color:var(--acc)}
+.btn--navy:hover{transform:translateY(-2px);box-shadow:0 18px 40px -14px rgba(10,17,40,.6)}
+.btn.is-off{background:transparent;border:1px dashed var(--acc-dim);color:rgba(249,246,239,.5);cursor:default;pointer-events:none}
+.section--light .btn.is-off{color:var(--ink-soft)}
+/* sobre fondo claro el fantasma quedaba color marfil sobre marfil (invisible) */
+.section--light .btn--ghost{color:var(--ink);border-color:var(--line-l)}
+.section--light .btn--ghost:hover{border-color:var(--acc-deep);color:var(--acc-deep)}
+.btn .arr{transition:transform .35s var(--ease)}
+.btn:hover .arr{transform:translateX(4px)}
+
+/* Cursor / barra */
+#scrollbar{position:fixed;top:0;left:0;height:2.5px;width:0;background:linear-gradient(90deg,var(--acc-deep),var(--acc),var(--acc-light));z-index:1002}
+
+/* Preloader */
+#preloader{position:fixed;inset:0;background:var(--navy-deep);z-index:2600;display:flex;align-items:center;justify-content:center;transition:opacity .6s var(--ease),visibility .6s}
+#preloader.done{opacity:0;visibility:hidden}
+#preloader .in-lock{display:flex;align-items:center;gap:16px}
+#preloader .in-logo{width:66px;height:66px;object-fit:contain;opacity:0;transform:scale(.45);transition:opacity .6s ease,transform .7s cubic-bezier(.34,1.56,.64,1)}
+#preloader.p1 .in-logo{opacity:1;transform:scale(1)}
+#preloader .in-text{max-width:0;overflow:hidden;white-space:nowrap;opacity:0;transition:max-width .85s var(--ease),opacity .6s ease .12s}
+#preloader.p2 .in-text{max-width:380px;opacity:1}
+#preloader .in-text b{display:block;font-family:var(--f-disp);font-weight:600;font-size:1.2rem;color:var(--ivory);line-height:1.2}
+#preloader .in-text span{display:block;font-family:var(--f-mono);font-size:.56rem;letter-spacing:.3em;text-transform:uppercase;color:var(--acc);margin-top:5px}
+.brand-logo{width:40px;height:40px;object-fit:contain;flex:none}
+
+/* Nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:22px 0;transition:padding .4s var(--ease),background .4s,border-color .4s;border-bottom:1px solid transparent}
+.nav.scrolled{padding:12px 0;background:rgba(6,11,28,.82);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--line-d)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:13px}
+.brand-name{font-family:var(--f-disp);font-weight:600;font-size:1.02rem;line-height:1.15}
+.brand-sub{font-family:var(--f-mono);font-size:.55rem;letter-spacing:.32em;text-transform:uppercase;color:var(--acc);display:block;margin-top:2px}
+.nav__links{display:flex;align-items:center;gap:30px;list-style:none}
+.nav__links a{font-size:.84rem;font-weight:500;color:rgba(249,246,239,.82);padding:6px 0;position:relative;transition:color .3s}
+.nav__links a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;background:var(--acc);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+.nav__links a:hover,.nav__links a.active{color:var(--acc)}
+.nav__links a:hover::after,.nav__links a.active::after{transform:scaleX(1)}
+.nav .btn{padding:11px 22px;font-size:.82rem}
+.nav__burger{display:none;flex-direction:column;gap:5.5px;padding:8px;z-index:1101}
+.nav__burger i{display:block;width:24px;height:2px;background:var(--ivory);transition:transform .35s var(--ease),opacity .3s}
+.nav__burger.open i:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.nav__burger.open i:nth-child(2){opacity:0}
+.nav__burger.open i:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+/* `justify-content:center` a secas alcanzaba con 5 enlaces. Esta página pasó a
+   7 (y suma un octavo, "Actividades", en cuanto exista un evento del área), así
+   que se porta el mismo arreglo que ya lleva index.html: un flex centrado que
+   desborda empuja los PRIMEROS enlaces a offset negativo y los deja fuera de
+   la pantalla, sin barra que arrastrar. Con flex-start + márgenes automáticos
+   en los extremos queda igual de centrado mientras sobre espacio, y se
+   scrollea entero cuando no. */
+.m-menu{position:fixed;inset:0;background:rgba(6,11,28,.97);backdrop-filter:blur(12px);z-index:1100;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:6px;opacity:0;visibility:hidden;transition:opacity .45s var(--ease),visibility .45s;overflow-y:auto;overscroll-behavior:contain;padding:24px 20px}
+.m-menu>:first-child{margin-top:auto}
+.m-menu>:last-child{margin-bottom:auto}
+.m-menu.open{opacity:1;visibility:visible}
+.m-menu a{font-family:var(--f-disp);font-size:clamp(1.7rem,7vw,2.4rem);font-weight:600;padding:9px 0;transition:color .3s}
+.m-menu a:hover{color:var(--acc)}
+
+/* ============================================================================
+   HERO — "LA FRONTERA"
+   ----------------------------------------------------------------------------
+   Segunda versión del hero de datos vivos. La primera dibujaba las 54
+   trayectorias crudas del torneo como fondo, y Francisco tuvo razón al
+   bajarla: eran 54 líneas de 1px al 26% de opacidad detrás del título, o sea
+   una textura que no se entendía ni se podía leer. La idea (que el desk se
+   presente con los datos que produce) era buena; la ejecución la escondía.
+
+   Acá el dato deja de ser fondo y pasa a ser LA PIEZA: el plano riesgo /
+   retorno, que es la imagen fundacional de la gestión de carteras. Cada
+   cartera del torneo es un disco —x: su máximo drawdown, o sea el riesgo;
+   y: su retorno sobre el iShares MSCI ACWI; tamaño: su puntaje— y la línea
+   dorada une la FRONTERA: las carteras que nadie supera con menos riesgo.
+   La línea azul del cero es el índice, así que el plano dice de un vistazo
+   lo único que este desk quiere decir: cuántos le ganan al mercado y a qué
+   precio en riesgo.
+
+   Todo sale de ../datos/torneo-tabla.json (7 KB) — no necesita el historial,
+   así que se dibuja en la primera carga. Si el JSON no está, la figura queda
+   `hidden` y el hero se ve como cualquier otro del sitio, sin hueco.
+   ============================================================================ */
+.hero{min-height:100svh;display:flex;align-items:center;position:relative;overflow:hidden;
+  padding:clamp(7.5rem,13vh,9.5rem) 0 clamp(3rem,6vh,5rem)}
+.hero-fallback{position:absolute;inset:0;
+  background:radial-gradient(1000px 600px at 80% -5%,rgba(212,175,55,.14),transparent 60%),
+             radial-gradient(800px 560px at -8% 105%,rgba(158,126,30,.2),transparent 62%),var(--navy)}
+/* Retícula de instrumento: el papel milimetrado sobre el que se dibuja un
+   plano. Va enmascarada hacia los bordes para que no compita con el texto;
+   donde `mask-image` no exista se ve entera, y al 5% sigue siendo fondo. */
+.hero-fallback::after{content:"";position:absolute;inset:0;
+  background-image:linear-gradient(rgba(212,175,55,.05) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(212,175,55,.05) 1px,transparent 1px);
+  background-size:74px 74px;
+  -webkit-mask-image:radial-gradient(120% 90% at 70% 40%,#000 15%,transparent 78%);
+          mask-image:radial-gradient(120% 90% at 70% 40%,#000 15%,transparent 78%)}
+/* Dos columnas SIEMPRE en escritorio, tenga o no dato el plano: si la columna
+   se creara al llegar el JSON, el título saltaría a mitad de la carga. Vacía
+   se ve exactamente como el hero de las otras páginas de área. */
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.02fr);
+  align-items:center;gap:clamp(1.8rem,3.6vw,3.4rem)}
+/* Sangrado: sobre 1180px el plano se sale de la caja de contenido y llega al
+   borde del viewport, cortado. La columna de texto se queda clavada en la
+   misma guía que el resto de la página. */
+@media(min-width:1180px){
+  .hero .wrap{max-width:none;padding-left:calc((100vw - var(--wrap))/2 + 28px);padding-right:0}
+}
+@media(max-width:980px){
+  .hero .wrap{grid-template-columns:1fr;gap:2.2rem}
+}
+
+/* ---- El plano ---- */
+.plano{position:relative;border:1px solid var(--acc-dim);border-right:none;border-radius:3px 0 0 3px;
+  background:linear-gradient(205deg,rgba(16,23,49,.86),rgba(6,11,28,.92));
+  padding:15px 16px 13px;
+  opacity:0;transform:translateY(22px);
+  transition:opacity 1.1s var(--ease),transform 1.1s var(--ease)}
+.plano.on{opacity:1;transform:none}
+@media(max-width:1179px){.plano{border-right:1px solid var(--acc-dim);border-radius:3px}}
+.pl-head{display:flex;align-items:baseline;justify-content:space-between;gap:14px;
+  padding-bottom:11px;margin-bottom:9px;border-bottom:1px solid var(--acc-faint);flex-wrap:wrap}
+.pl-ttl{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.26em;text-transform:uppercase;color:var(--acc)}
+.pl-when{font-family:var(--f-mono);font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(249,246,239,.5)}
+.pl-svg svg{display:block;width:100%;height:auto}
+.pl-svg text{font-family:var(--f-mono);letter-spacing:.1em}
+.pl-svg circle{transition:opacity .25s}
+.pl-svg:hover circle.pt{opacity:.45}
+.pl-svg circle.pt:hover{opacity:1}
+/* La regla dura del repo: ninguna cifra vive solo dentro de un SVG. El pie
+   dice en texto lo mismo que el dibujo muestra. */
+.pl-foot{font-size:.76rem;line-height:1.6;color:rgba(249,246,239,.62);margin-top:10px}
+.pl-foot b{color:var(--acc);font-weight:600;font-family:var(--f-mono);font-size:.8rem}
+
+/* ---- Columna de texto ---- */
+.hero h1{font-family:var(--f-disp);font-weight:600;font-size:clamp(2.6rem,5.4vw,4.5rem);line-height:1.04;letter-spacing:-.018em;margin:18px 0 24px;max-width:14ch}
+.hero h1 em{font-style:italic;color:var(--acc)}
+.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.06em;margin-bottom:-.06em}
+.hero h1 .ln>span{display:inline-block;transform:translateY(118%);transition:transform 1.05s cubic-bezier(.16,1,.3,1)}
+.hero h1 .ln:nth-child(2)>span{transition-delay:.1s}
+body.hero-in .hero h1 .ln>span{transform:none}
+.hero__sub{max-width:46ch;font-size:1.04rem;color:rgba(249,246,239,.8);margin-bottom:32px}
+.hero__cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:34px}
+/* Cifras del corte al pie del título: filete arriba y abajo, sin caja. Antes
+   eran una "cinta" con borde propio flotando sobre el plano de fondo; con el
+   plano ya presente como pieza, otra caja al lado era ruido. */
+.hero__meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(0,1fr));
+  border-top:1px solid rgba(247,244,236,.13);border-bottom:1px solid rgba(247,244,236,.13);
+  font-family:var(--f-mono);text-transform:uppercase}
+.hero__meta span{padding:13px 16px 12px;line-height:1.45;font-size:.56rem;letter-spacing:.18em;
+  color:rgba(249,246,239,.55);min-width:0}
+.hero__meta span:first-child{padding-left:0}
+.hero__meta span+span{border-left:1px solid rgba(247,244,236,.1)}
+.hero__meta b{display:block;color:var(--acc);font-weight:600;font-size:1.02rem;letter-spacing:.02em;
+  margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hero__meta .hm-txt b{font-family:var(--f-disp);font-size:1.05rem;letter-spacing:0;text-transform:none}
+.hero__meta .hm-pulso b{display:flex;align-items:center;gap:8px}
+.hm-dot{width:7px;height:7px;border-radius:50%;background:var(--acc);flex:none;animation:pulse 2.4s infinite}
+/* Las cuatro cifras caben en una fila solo cuando la columna de texto es
+   ancha de verdad. En telefono (una columna angosta) y en la franja de 981 a
+   1439 (dos columnas, con el texto en la mitad izquierda) no caben: ahi
+   "16 de 54" y el nombre del equipo salian cortados con puntos suspensivos.
+   En esos dos rangos se reparten en 2x2. */
+@media (max-width:640px),(min-width:981px) and (max-width:1439px){
+  .hero__meta{grid-template-columns:repeat(2,1fr)}
+  .hero__meta span{padding:12px 14px;font-size:.54rem;letter-spacing:.12em}
+  .hero__meta span:nth-child(odd){padding-left:0;border-left:none}
+  .hero__meta span:nth-child(n+3){border-top:1px solid rgba(247,244,236,.1)}
+  .hero__meta b{font-size:.95rem}
+  /* Un nombre de equipo no se corta con puntos suspensivos: se envuelve. */
+  .hero__meta .hm-txt b{white-space:normal;overflow:visible;line-height:1.15}
+}
+
+/* Cinta de datos. Era un marquesina de PALABRAS ("Asignación de activos ·
+   Top-down · Control de riesgo…"): decoración tipográfica que decía lo mismo
+   que el resto de la página. Ahora corre el estado real del corte —semana,
+   fecha, carteras, líder, mediana, ACWI, mejor Sharpe—, que es el gesto que
+   este desk conoce: la cinta de un piso de operaciones. Las palabras siguen
+   en el HTML como respaldo: si el ranking no carga, la cinta se ve como
+   antes en vez de quedar vacía. */
+.marq{border-top:1px solid var(--line-d);border-bottom:1px solid var(--line-d);background:rgba(6,11,28,.72);overflow:hidden;position:relative;z-index:2}
+.marq__track{display:flex;width:max-content;animation:marquee 46s linear infinite}
+.marq:hover .marq__track{animation-play-state:paused}
+@keyframes marquee{to{transform:translateX(-50%)}}
+.mq{font-family:var(--f-disp);font-style:italic;font-size:1.05rem;color:rgba(249,246,239,.55);padding:14px 34px;white-space:nowrap;border-right:1px solid var(--acc-faint)}
+.mq b{color:var(--acc);font-weight:600}
+.tk{display:flex;align-items:baseline;gap:11px;padding:13px 26px;white-space:nowrap;
+  border-right:1px solid var(--acc-faint);font-family:var(--f-mono)}
+.tk i{font-style:normal;font-size:.58rem;letter-spacing:.24em;text-transform:uppercase;color:rgba(249,246,239,.48)}
+.tk b{font-size:.84rem;font-weight:600;color:var(--acc);font-variant-numeric:tabular-nums}
+.tk--bmk b{color:var(--bmk)}
+.tk--txt b{font-family:var(--f-disp);font-style:italic;font-weight:600;font-size:.98rem}
+
+/* Secciones */
+section{padding:clamp(5rem,9vw,8rem) 0;position:relative}
+.section--light{background:
+  radial-gradient(1100px 460px at 85% -5%,rgba(212,175,55,.08),transparent 60%),var(--ivory);
+  color:var(--ink)}
+.section--dark{background:var(--navy);color:var(--ivory)}
+.sec-head{max-width:740px;margin-bottom:clamp(2.4rem,5vw,3.8rem)}
+.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(2.5rem,6vw,5rem);align-items:start}
+/* La frase de entrada es el titular real de la seccion: crece hasta el tamano
+   de un subtitulo y se le da aire. */
+.drop{font-family:var(--f-disp);font-size:clamp(1.5rem,3.2vw,2.2rem);line-height:1.24;
+  letter-spacing:-.01em;color:var(--ink);font-weight:500;margin-bottom:26px;max-width:18ch}
+.drop em{font-style:italic;color:var(--acc-deep)}
+.about-copy p:not(.drop){color:var(--ink-soft);margin-bottom:18px;font-size:1.02rem}
+.about-copy p b{color:var(--ink);font-weight:600}
+/* Ficha del area: eran tres tarjetas separadas con sombra propia; ahora es una
+   sola ficha dividida por filetes, el mismo lenguaje del tablero del corte. */
+.about-side{display:flex;flex-direction:column;gap:0;border:1px solid var(--line-l);background:var(--paper)}
+.side-card{border:none;border-top:1px solid var(--line-l);background:transparent;padding:24px 26px;position:relative;overflow:hidden;transition:background .4s}
+.about-side .side-card:first-child{border-top:none}
+.side-card:hover{background:rgba(158,126,30,.045)}
+.side-card::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:100%;background:linear-gradient(90deg,var(--acc),transparent);transform:scaleX(0);transform-origin:left;transition:transform .7s var(--ease)}
+.side-card:hover::after{transform:scaleX(1)}
+.side-card .mono-tag{border-color:rgba(158,126,30,.4);color:var(--acc-deep);margin-bottom:12px}
+.side-card h3{font-family:var(--f-disp);font-size:1.2rem;font-weight:600;margin-bottom:6px}
+.side-card p{font-size:.9rem;color:var(--ink-soft)}
+
+/* Pilares. Eran tres tarjetas iguales en fila, el mismo componente que usan
+   valuation/ y trading/. Acá pasan a ser tres FRANJAS a lo ancho, separadas
+   por filetes y con el número calado al aire: el mismo lenguaje de rejilla
+   fina que usan el plano del hero y el tablero del corte. */
+.pilares{display:grid;grid-template-columns:1fr;border-top:1px solid var(--line-d)}
+.pilar{display:grid;grid-template-columns:clamp(78px,11vw,150px) minmax(0,1fr);
+  gap:clamp(1rem,3vw,2.6rem);align-items:start;position:relative;overflow:hidden;
+  padding:clamp(1.7rem,3.4vw,2.6rem) 0;border-bottom:1px solid var(--line-d);
+  transition:padding-left .5s var(--ease)}
+.pilar::before{content:"";position:absolute;inset:0;opacity:0;transition:opacity .5s;
+  background:radial-gradient(420px circle at var(--mx,50%) var(--my,0%),rgba(212,175,55,.1),transparent 65%)}
+.pilar:hover{padding-left:16px}
+.pilar:hover::before{opacity:1}
+.p-ghost{position:relative;font-family:var(--f-disp);font-weight:700;line-height:.82;
+  font-size:clamp(2.8rem,6.6vw,5rem);color:transparent;
+  -webkit-text-stroke:1px var(--acc-dim);transition:-webkit-text-stroke-color .45s}
+.pilar:hover .p-ghost{-webkit-text-stroke-color:var(--acc)}
+.p-body{position:relative;max-width:62ch}
+.pilar .p-num{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.3em;color:var(--acc);display:block;margin-bottom:9px}
+.pilar h3{font-family:var(--f-disp);font-size:clamp(1.4rem,3vw,1.95rem);font-weight:600;line-height:1.18;margin-bottom:9px}
+.pilar p{font-size:.97rem;color:rgba(249,246,239,.72)}
+@media(max-width:560px){
+  .pilar{grid-template-columns:1fr;gap:.4rem}
+  .p-ghost{font-size:2.6rem}
+}
+
+/* Torneo */
+.torneo-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(2rem,5vw,4rem);align-items:start}
+.facts{list-style:none;margin:26px 0 30px;border-top:1px solid var(--line-l)}
+.facts li{display:flex;justify-content:space-between;gap:20px;padding:14px 0;border-bottom:1px solid var(--line-l);font-size:.92rem}
+.facts .k{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--acc-deep);flex:none}
+.facts .v{text-align:right;color:var(--ink);font-weight:500}
+.torneo-ctas{display:flex;gap:14px;flex-wrap:wrap}
+.torneo-card{background:var(--navy);color:var(--ivory);border:1px solid var(--line-d);border-radius:12px;padding:34px 30px;position:relative;overflow:hidden}
+.torneo-card::before{content:"";position:absolute;inset:0;background:radial-gradient(500px 240px at 90% -10%,rgba(212,175,55,.18),transparent 60%);pointer-events:none}
+.torneo-card .mono-tag{margin-bottom:16px}
+.torneo-card h3{font-family:var(--f-disp);font-weight:600;font-size:1.7rem;line-height:1.16;position:relative;margin-bottom:12px}
+.torneo-card p{font-size:.95rem;color:rgba(249,246,239,.76);position:relative}
+.torneo-card .tc-tag{position:relative;display:inline-flex;align-items:center;gap:8px;margin-top:20px;font-family:var(--f-mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--acc)}
+.torneo-card .tc-dot{width:8px;height:8px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 0 rgba(212,175,55,.5);animation:pulse 2.4s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(212,175,55,.45)}70%{box-shadow:0 0 0 12px rgba(212,175,55,0)}100%{box-shadow:0 0 0 0 rgba(212,175,55,0)}}
+
+/* ============================================================================
+   §EL CORTE — la pieza de datos vivos
+   No existe en valuation/ ni en trading/, y es la razón de ser de esta página:
+   Portafolio es el área que diseña y dirige el Torneo Portafolio, así que su
+   página muestra el estado real del torneo, no una descripción de él. Todo se
+   dibuja desde datos/torneo-tabla.json + datos/torneo.json; sin esos archivos
+   la sección entera queda `hidden` y la página sigue en pie.
+   ============================================================================ */
+/* ---- El tablero del corte ----
+   Cuatro tarjetas redondeadas iguales pasaron a ser un TABLERO continuo:
+   celdas separadas por un filete de 1px sobre una rejilla de 12 columnas,
+   sin esquinas redondeadas y sin sombras. El fondo de la sección se ve a
+   través de las juntas, así que se lee como un solo instrumento y no como
+   cuatro cajas sueltas; y las celdas dejan de medir todas lo mismo, que era
+   lo que hacía que "Va primero" (un nombre) y "Semana" (un número de dos
+   dígitos) pesaran igual en la página cuando no pesan igual.
+   El gráfico se pega por abajo con -1px y cierra el mismo bloque. */
+.board{display:grid;grid-template-columns:repeat(12,1fr);gap:1px;
+  background:var(--line-d);border:1px solid var(--line-d)}
+.bd{background:var(--navy);padding:22px 20px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.bd--s3{grid-column:span 3}
+.bd--s4{grid-column:span 4}
+.bd--s6{grid-column:span 6}
+.bd--s8{grid-column:span 8}
+.bd-k{font-family:var(--f-mono);font-size:.58rem;letter-spacing:.24em;text-transform:uppercase;color:rgba(249,246,239,.5)}
+/* Cifra principal en mono, que es la voz numérica de todo el sitio (el
+   ranking, la pantalla de la facultad y el informe usan la misma). No va en
+   la serif de los títulos: una cifra de dato no es un titular. */
+.bd-v{font-family:var(--f-mono);font-weight:600;font-size:clamp(1.7rem,4.4vw,2.6rem);
+  line-height:1;letter-spacing:-.015em;color:var(--acc);font-variant-numeric:tabular-nums}
+.bd-v small{font-size:.42em;letter-spacing:.12em;color:rgba(249,246,239,.6);font-weight:500;margin-left:9px}
+/* El nombre de un equipo no es una cifra: usa la serif, se envuelve y no se
+   corta. "Aconcagua Capital" no cabe en una línea a 390px. */
+.bd--lider .bd-v{font-family:var(--f-disp);font-size:clamp(1.6rem,4.6vw,2.8rem);
+  line-height:1.08;letter-spacing:-.01em;overflow-wrap:anywhere}
+.bd-sub{font-size:.79rem;color:rgba(249,246,239,.6);line-height:1.5;margin-top:auto}
+/* La celda del líder lleva un filete dorado al costado: es la única jerarquía
+   del tablero que no depende del tamaño. */
+.bd--lider{box-shadow:inset 3px 0 0 0 var(--acc)}
+@media(max-width:900px){
+  .bd--s3,.bd--s4{grid-column:span 6}
+  .bd--s6,.bd--s8{grid-column:span 12}
+}
+@media(max-width:520px){
+  .bd{padding:18px 16px}
+  .bd--s3,.bd--s4{grid-column:span 12}
+}
+
+.ch-card{border:1px solid var(--line-d);background:var(--navy-panel);padding:26px 24px 20px;margin-top:-1px}
+.ch-title{font-family:var(--f-disp);font-size:clamp(1.15rem,2.4vw,1.45rem);font-weight:600;line-height:1.2}
+.ch-note{font-size:.82rem;color:rgba(249,246,239,.62);max-width:66ch;margin-top:8px}
+/* Cifras de cierre escritas, no solo en el tooltip: en un teléfono el hover no
+   existe, y un valor nunca puede depender de él (misma corrección que ya se
+   había hecho en el gráfico del hero de index.html). */
+.ch-cifras{display:flex;flex-wrap:wrap;margin:20px 0 4px;width:max-content;max-width:100%;
+  border-top:1px solid var(--acc-faint);border-bottom:1px solid var(--acc-faint)}
+.ch-cif{padding:12px 18px;min-width:0}
+.ch-cif+.ch-cif{border-left:1px solid var(--acc-faint)}
+.ch-cif span{display:block;font-family:var(--f-mono);font-size:.58rem;letter-spacing:.2em;
+  text-transform:uppercase;color:rgba(249,246,239,.55);margin-bottom:5px}
+.ch-cif b{font-family:var(--f-mono);font-size:1.02rem;font-weight:600;font-variant-numeric:tabular-nums}
+.ch-cif--fig b{color:var(--acc)}
+.ch-cif--bmk b{color:var(--bmk)}
+.ch-cif--dif b{color:var(--ivory)}
+@media(max-width:600px){
+  .ch-cifras{width:100%}
+  .ch-cif{flex:1 1 50%;padding:11px 14px}
+  .ch-cif:nth-child(3){border-left:none;border-top:1px solid var(--acc-faint)}
+}
+.ch-plot{position:relative;margin-top:18px}
+.ch-plot svg{display:block;width:100%;height:auto}
+.ch-plot svg text{font-family:var(--f-mono);letter-spacing:.06em}
+.ch-tip{position:absolute;left:0;top:0;pointer-events:none;opacity:0;transition:opacity .14s;
+  background:rgba(6,11,28,.97);border:1px solid var(--acc-dim);border-radius:4px;padding:9px 12px;
+  font-family:var(--f-mono);font-size:.66rem;line-height:1.75;white-space:nowrap;z-index:5;
+  transform:translate(-50%,-116%)}
+.ch-tip.on{opacity:1}
+.ch-tip--abajo{transform:translate(-50%,16%)}
+.ch-tip u{display:block;text-decoration:none;font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(249,246,239,.55);margin-bottom:3px}
+.ch-tip .f{color:var(--acc)}
+.ch-tip .b{color:var(--bmk)}
+.ch-legend{display:flex;gap:22px;flex-wrap:wrap;margin-top:16px;
+  font-family:var(--f-mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(249,246,239,.66)}
+.ch-legend span{display:inline-flex;align-items:center;gap:9px}
+.ch-legend i{width:17px;height:3px;border-radius:2px;flex:none}
+.ch-legend .sw-fig{background:var(--acc)}
+.ch-legend .sw-bmk{background:var(--bmk)}
+.ch-legend .sw-band{height:11px;background:rgba(235,211,136,.24);border:1px solid rgba(235,211,136,.34)}
+/* Toda cifra del gráfico existe también como texto: un valor nunca puede vivir
+   solo dentro de un SVG ni de un tooltip. */
+.ch-tabla{margin-top:20px;border-top:1px solid var(--acc-faint);padding-top:14px}
+.ch-tabla summary{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--acc);cursor:pointer;padding:7px 4px;margin:-7px -4px;display:inline-block;border-radius:2px}
+.ch-tabla summary::marker{color:var(--acc-dim)}
+.ch-scroll{overflow-x:auto;margin-top:12px}
+.ch-tabla table{width:100%;min-width:320px;border-collapse:collapse;
+  font-family:var(--f-mono);font-size:.72rem;font-variant-numeric:tabular-nums}
+.ch-tabla th,.ch-tabla td{padding:7px 10px;border-bottom:1px solid var(--acc-faint);text-align:right;white-space:nowrap}
+.ch-tabla th:first-child,.ch-tabla td:first-child{text-align:left}
+.ch-tabla th{font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(249,246,239,.55);font-weight:500}
+.ch-tabla td{color:rgba(249,246,239,.82)}
+.ch-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
+
+/* ============================================================================
+   §CÓMO SE JUZGA UNA CARTERA — las 5 métricas de evaluación
+   El peso de cada métrica NO está escrito acá: sale del máximo de
+   puntosDetalle en el JSON del torneo, que es exactamente el peso completo
+   (el mejor de cada métrica se lo lleva entero). Si algún día cambian los
+   pesos, esta sección cambia sola.
+   ============================================================================ */
+/* ============================================================================
+   §LOS 100 PUNTOS — cómo se reparte el puntaje entre las 5 métricas
+   ----------------------------------------------------------------------------
+   Antes: cinco tarjetas con el peso escrito en un número y una barrita al
+   lado. El problema es que el peso de una métrica ES una asignación —el mismo
+   gesto que hace este desk con el capital— y cinco tarjetas no muestran una
+   asignación, muestran cinco cosas.
+   Ahora la sección abre con UNA barra de 100 puntos repartida en cinco tramos
+   proporcionales: se ve de una que el information ratio pesa el doble que el
+   drawdown, sin leer un solo número. Debajo, cada métrica se explica en una
+   franja a lo ancho encabezada por su peso.
+   El ancho de cada tramo NO está escrito acá: sale del máximo de
+   puntosDetalle del ranking en vivo (ver pesos() en el <script>). Si mañana
+   cambia el reglamento, la barra cambia sola.
+   ============================================================================ */
+.alloc{display:flex;width:100%;height:clamp(58px,8vw,84px);border:1px solid var(--line-l);
+  background:var(--paper);overflow:hidden}
+.al-seg{position:relative;display:flex;flex-direction:column;justify-content:flex-end;
+  padding:9px 12px;min-width:0;overflow:hidden;color:var(--navy);
+  flex:0 0 0%;transition:flex-basis 1.1s var(--ease)}
+.al-seg+.al-seg{border-left:1px solid rgba(252,250,243,.55)}
+.alloc.in .al-seg{flex-basis:var(--w,0%)}
+.al-n{font-family:var(--f-mono);font-weight:600;font-size:1.05rem;line-height:1;font-variant-numeric:tabular-nums}
+.al-name{font-family:var(--f-mono);font-size:.55rem;letter-spacing:.16em;text-transform:uppercase;
+  margin-top:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:rgba(10,17,40,.72)}
+@media(max-width:760px){.al-name{display:none}.al-n{font-size:.86rem}}
+/* La clave de la barra, siempre en texto: una cifra no puede vivir solo dentro
+   de una figura. Cuando la barra se angosta y los rótulos de adentro se
+   ocultan, esta fila sigue diciendo qué es cada tramo. */
+.alloc-key{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:14px;
+  font-family:var(--f-mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+.alloc-key span{display:inline-flex;align-items:center;gap:8px}
+.alloc-key i{width:13px;height:13px;flex:none;border-radius:2px}
+.alloc-key b{color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums}
+
+.mrows{margin-top:clamp(2.2rem,4.5vw,3.4rem);border-top:1px solid var(--line-l)}
+.mrow{display:grid;grid-template-columns:clamp(92px,12vw,180px) minmax(0,1fr);
+  gap:clamp(1rem,3vw,2.6rem);align-items:start;
+  padding:clamp(1.6rem,3.2vw,2.5rem) 0;border-bottom:1px solid var(--line-l);
+  transition:padding-left .5s var(--ease)}
+.mrow:hover{padding-left:14px}
+.mrow-n{font-family:var(--f-mono);font-weight:600;font-size:clamp(2.2rem,5.6vw,3.6rem);
+  line-height:.9;color:var(--acc-deep);font-variant-numeric:tabular-nums}
+.mrow-n em{display:block;font-style:normal;font-size:.2em;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--ink-soft);margin-top:10px;line-height:1.5}
+.mrow-b{min-width:0;max-width:64ch}
+.mrow-b h3{font-family:var(--f-disp);font-size:clamp(1.35rem,2.9vw,1.85rem);font-weight:600;line-height:1.18}
+.mrow-sub{display:block;font-family:var(--f-mono);font-size:.58rem;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--acc-deep);margin:6px 0 12px}
+.mrow-b p{font-size:.97rem;color:var(--ink-soft);line-height:1.62}
+.mrow-best{margin-top:14px;padding-top:12px;border-top:1px solid var(--line-l);
+  display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;
+  font-family:var(--f-mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+.mrow-best b{color:var(--ink);font-weight:600;letter-spacing:.02em;font-size:.78rem;text-transform:none;font-family:var(--f-body)}
+.mrow-best .val{color:var(--acc-deep);font-weight:600;font-size:.8rem;letter-spacing:.02em;font-variant-numeric:tabular-nums}
+@media(max-width:560px){
+  .mrow{grid-template-columns:1fr;gap:.6rem}
+  .mrow-n{font-size:2.2rem}
+  .mrow-n em{margin-top:6px}
+}
+.mt-reglas{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:clamp(1.8rem,3.4vw,2.6rem)}
+.mt-regla{border:1px solid var(--line-l);border-left:2px solid var(--acc-deep);background:transparent;
+  padding:20px 22px}
+.mt-regla h4{font-family:var(--f-disp);font-size:1.05rem;font-weight:600;margin-bottom:7px}
+.mt-regla p{font-size:.88rem;color:var(--ink-soft);line-height:1.6}
+.mt-nota{margin-top:20px;font-family:var(--f-mono);font-size:.62rem;letter-spacing:.1em;
+  line-height:1.9;color:var(--ink-soft);text-transform:uppercase}
+@media(max-width:820px){.mt-reglas{grid-template-columns:1fr}}
+
+/* Responsables */
+.people{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.p-card{border:1px solid var(--line-d);background:var(--navy-panel);border-radius:8px;padding:28px 24px;display:flex;flex-direction:column;gap:14px;transition:transform .4s var(--ease),box-shadow .4s,border-color .4s}
+.p-card:hover{transform:translateY(-6px);border-color:rgba(212,175,55,.5);box-shadow:0 24px 48px -24px rgba(0,0,0,.55)}
+/* Quien DIRIGE el área: filete dorado al COSTADO + chip "Dirige el área".
+   Portado de index.html (§Nosotros), donde la misma jerarquía se marca con
+   .p-card--area sobre tarjeta CLARA y el oro se llama --gold. Acá la sección
+   Responsables es OSCURA (.p-card usa var(--navy-panel)), así que se adaptan
+   los valores en vez de copiarlos: el filete y el chip van con --acc (#D4AF37,
+   el oro que sí se lee sobre el panel navy) y el borde con var(--acc-dim), que
+   es el mismo .34 de alfa del original pero con el oro claro en lugar del
+   profundo (rgba(168,135,28,...), pensado para fondo claro).
+   El :hover se redefine —igual que allá y por la misma razón— porque la regla
+   base de .p-card reemplaza el box-shadow completo y se comería el filete; acá
+   se repite junto a la sombra oscura propia de estas páginas. */
+.p-card--area{border-color:var(--acc-dim);box-shadow:inset 3px 0 0 0 var(--acc)}
+.p-card--area:hover{box-shadow:inset 3px 0 0 0 var(--acc),0 24px 48px -24px rgba(0,0,0,.55)}
+.p-tag{display:inline-block;font-family:var(--f-mono);font-size:.5rem;font-weight:500;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--navy);background:var(--acc);border-radius:100px;padding:2px 9px;margin-top:7px}
+.avatar{width:64px;height:64px;border-radius:50%;background:radial-gradient(circle at 32% 28%,var(--acc-light),var(--acc) 60%,var(--acc-deep));color:var(--navy);display:flex;align-items:center;justify-content:center;flex:none;font-family:var(--f-disp);font-weight:600;font-size:1.15rem;background-size:cover;background-position:center top;overflow:hidden}
+.avatar.has-photo{color:transparent}
+.p-name{font-family:var(--f-disp);font-weight:600;font-size:1.12rem;line-height:1.25}
+.p-role{font-family:var(--f-mono);font-size:.61rem;letter-spacing:.16em;text-transform:uppercase;color:var(--acc);margin-top:4px}
+.p-extra{font-size:.84rem;color:rgba(249,246,239,.65);line-height:1.55}
+/* WCAG 2.2: medido a 390px, esta zona tocable no llegaba a 24px de alto.
+   El padding la agranda y el margen negativo lo compensa exacto. */
+.p-link{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--acc);margin-top:auto;display:inline-flex;align-items:center;gap:6px;transition:gap .3s;padding:5px 3px;margin-left:-3px;margin-right:-3px;margin-bottom:-5px}
+.p-link:hover{gap:11px}
+
+/* Eventos del área (mismo estilo de tarjeta que eventos/index.html, filtrado por area:"portafolio") */
+.ev-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px}
+.ev-card{position:relative;border-radius:10px;overflow:hidden;min-height:320px;border:1px solid var(--line-d);background:var(--navy-panel);display:flex;flex-direction:column;justify-content:flex-end;transition:transform .5s var(--ease),border-color .5s,box-shadow .5s}
+.ev-card:hover{transform:translateY(-8px);border-color:rgba(212,175,55,.5);box-shadow:0 32px 64px -26px rgba(0,0,0,.65)}
+.ev-bg{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1.02);transition:transform 1.2s var(--ease);filter:saturate(.9)}
+.ev-card:hover .ev-bg{transform:scale(1.08)}
+.ev-veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,17,40,.25) 0%,rgba(10,17,40,.55) 45%,rgba(6,11,28,.94) 100%)}
+.ev-ghost{position:absolute;top:-6px;right:10px;font-family:var(--f-disp);font-weight:700;font-size:clamp(4.5rem,8vw,6.5rem);line-height:1;color:transparent;-webkit-text-stroke:1px rgba(212,175,55,.14);pointer-events:none;user-select:none}
+.ev-body{position:relative;padding:28px 28px 24px;display:flex;flex-direction:column;gap:12px}
+.ev-top{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.ev-date{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;color:var(--acc);font-weight:600}
+.ev-type{font-family:var(--f-mono);font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(249,246,239,.65);border:1px solid rgba(249,246,239,.2);border-radius:100px;padding:4px 11px}
+.ev-live{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-mono);font-size:.58rem;letter-spacing:.2em;color:#5FC08B}
+.ev-proximo{color:var(--acc);border-color:var(--acc-dim)}
+.live-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#5FC08B;animation:pulseGreen 1.9s ease-out infinite}
+@keyframes pulseGreen{0%{box-shadow:0 0 0 0 rgba(95,192,139,.55)}70%{box-shadow:0 0 0 9px rgba(95,192,139,0)}100%{box-shadow:0 0 0 0 rgba(95,192,139,0)}}
+.ev-card h3{font-family:var(--f-disp);font-weight:600;font-size:clamp(1.3rem,2.2vw,1.7rem);line-height:1.2}
+.ev-res{font-size:.9rem;color:rgba(249,246,239,.72);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;max-width:60ch}
+.ev-foot{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-top:4px;flex-wrap:wrap}
+.ev-part{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(249,246,239,.5)}
+.ev-link{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--acc);display:inline-flex;gap:9px;align-items:center}
+.ev-link .arr{transition:transform .35s var(--ease)}
+.ev-card:hover .ev-link .arr{transform:translateX(5px)}
+
+/* CTA */
+.cta-band{background:radial-gradient(900px 300px at 15% 0%,rgba(255,255,255,.24),transparent 60%),linear-gradient(120deg,var(--acc-deep),var(--acc) 48%,var(--acc-light));color:var(--navy);text-align:center;overflow:hidden}
+.cta-ghost{position:absolute;top:50%;left:0;transform:translateY(-50%);font-family:var(--f-disp);font-weight:700;font-size:clamp(5.5rem,15vw,11rem);line-height:1;color:transparent;-webkit-text-stroke:1.5px rgba(10,17,40,.12);white-space:nowrap;pointer-events:none;user-select:none;animation:ghostSlide 46s linear infinite}
+@keyframes ghostSlide{to{transform:translateY(-50%) translateX(-50%)}}
+.cta-band .kicker{color:var(--navy);justify-content:center}
+.cta-band .kicker::before{background:var(--navy)}
+.cta-band h2{font-family:var(--f-disp);font-weight:600;font-size:clamp(2.2rem,5.2vw,3.8rem);line-height:1.08;margin:20px auto 16px;max-width:16ch}
+.cta-band h2 em{font-style:italic}
+.cta-band p{max-width:52ch;margin:0 auto 32px;color:rgba(10,17,40,.78);font-size:1.03rem}
+
+/* Footer */
+footer{background:var(--navy-deep);padding:34px 0;border-top:1px solid var(--line-d)}
+/* Mismo criterio que en el resto del sitio: el credito del pie tenia 14px de
+   alto tocable, bajo los 24px que pide WCAG 2.2. El margen negativo compensa
+   el padding, asi que el pie se dibuja igual. */
+footer .wrap a{display:inline-block;padding:6px 0;margin:-6px 0}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:var(--f-mono);font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(249,246,239,.45)}
+footer a{display:inline-block;padding:6px 4px;margin:-6px -4px;color:rgba(249,246,239,.65);transition:color .3s}
+footer a:hover{color:var(--acc)}
+
+/* ============================================================================
+   RIEL DE SECCIONES — el índice al costado
+   ----------------------------------------------------------------------------
+   Solo desde 1460px, que es donde sobra margen a la izquierda de la caja de
+   contenido: es un adorno útil, no un elemento estructural, así que jamás
+   compite con el texto ni existe en pantallas donde tendría que hacerlo.
+   Se pinta y se sincroniza en JS contra las secciones que de verdad están a la
+   vista (§El corte, §Torneo y §Actividades pueden estar ocultas), y cambia a
+   tinta oscura sobre las secciones claras, que es por lo que el color no puede
+   ser fijo.
+   ============================================================================ */
+.rail{position:fixed;left:22px;top:50%;transform:translateY(-50%);z-index:900;
+  display:none;flex-direction:column;gap:1px}
+.rail a{display:flex;align-items:center;gap:9px;padding:8px 6px;
+  color:rgba(249,246,239,.4);transition:color .35s}
+.rail a::before{content:"";width:14px;height:1px;background:currentColor;flex:none;
+  transition:width .4s var(--ease)}
+.rail a.on::before{width:26px}
+.rl-n{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.12em;font-variant-numeric:tabular-nums}
+.rl-t{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;
+  max-width:0;overflow:hidden;white-space:nowrap;opacity:0;
+  transition:max-width .5s var(--ease),opacity .35s}
+.rail a:hover,.rail a.on{color:var(--acc)}
+.rail a:hover .rl-t,.rail a.on .rl-t{max-width:112px;opacity:1}
+.rail.claro a{color:rgba(20,16,25,.42)}
+.rail.claro a:hover,.rail.claro a.on{color:var(--acc-deep)}
+@media(min-width:1460px){.rail{display:flex}}
+
+/* Esquinas rectas en toda la página. Es el gesto que separa a Portafolio de
+   valuation/ y trading/ sin tocar la paleta ni las tipografías: las tarjetas
+   blandas del sistema se vuelven placas de instrumento. El avatar queda fuera
+   (es un círculo a propósito) y los chips redondos también: un chip entre
+   placas rectas se sigue leyendo como etiqueta. */
+.side-card,.torneo-card,.p-card,.ev-card,.mt-regla,.ch-card,.pilar{border-radius:0}
+
+/* Reveals + responsive */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
+html:not(.no-js) body:not(.hero-in) .hero .reveal{opacity:0;transform:translateY(28px)}
+.no-js .reveal{opacity:1;transform:none}
+.no-js .hero h1 .ln>span{transform:none}
+.no-js #preloader{display:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}.hero h1 .ln>span{transform:none}.cta-ghost,.marq__track{animation:none!important}}
+@media (max-width:1000px){
+  .about-grid{grid-template-columns:1fr}
+  .pilares{grid-template-columns:1fr}
+  .torneo-grid{grid-template-columns:1fr}
+  .people{grid-template-columns:repeat(2,1fr)}
+  .ev-grid{grid-template-columns:1fr}
+  .nav__links,.nav .btn--nav{display:none}
+  .nav__burger{display:flex}
+}
+@media (max-width:600px){
+  .people{grid-template-columns:1fr}
+  .hero__cta .btn,.torneo-ctas .btn,.ch-ctas .btn{width:100%;justify-content:center}
+  .facts .v{text-align:left}
+  .facts li{flex-direction:column;gap:2px}
+}
+</style>
+</head>
+<body>
+
+<div id="scrollbar"></div>
+<div id="preloader"><div class="in-lock"><img class="in-logo" src="../logos/fig-oro.png" alt=""><div class="in-text"><b>Portafolio</b><span>FEN Investment Group</span></div></div></div>
+
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <a href="../index.html" class="brand" aria-label="FEN Investment Group — Inicio">
+      <img class="brand-logo" src="../logos/fig-oro.png" alt="FIG">
+      <div><div class="brand-name">Portafolio</div><span class="brand-sub">Área de FIG</span></div>
+    </a>
+    <ul class="nav__links">
+      <li><a href="../index.html">Inicio FIG</a></li>
+      <li><a href="../eventos/index.html">Eventos</a></li>
+      <li><a href="#nosotros">El área</a></li>
+      <li><a href="#corte">El corte</a></li>
+      <li><a href="#metricas">Métricas</a></li>
+      <li><a href="#torneo">Torneo</a></li>
+      <li><a href="#responsables">Responsables</a></li>
+    </ul>
+    <a href="../torneo/index.html" class="btn btn--acc btn--nav">Ranking en vivo</a>
+    <button class="nav__burger" id="burger" aria-label="Abrir menú" aria-expanded="false"><i></i><i></i><i></i></button>
+  </div>
+</nav>
+<div class="m-menu" id="mmenu">
+  <a href="../index.html">Inicio FIG</a>
+  <a href="../eventos/index.html">Eventos</a>
+  <a href="#nosotros">El área</a>
+  <a href="#corte">El corte</a>
+  <a href="#metricas">Métricas</a>
+  <a href="#torneo">Torneo</a>
+  <a href="#responsables">Responsables</a>
+</div>
+
+<!-- Riel de secciones: índice fijo al costado, solo desde 1460px (ver CSS).
+     Los enlaces de secciones que pueden estar ocultas se apagan solos en
+     sincRiel(); el orden de aca es el orden del documento. -->
+<nav class="rail" id="rail" aria-label="Secciones de la página">
+  <a href="#inicio"><span class="rl-n">01</span><span class="rl-t">Frontera</span></a>
+  <a href="#nosotros"><span class="rl-n">02</span><span class="rl-t">El área</span></a>
+  <a href="#corte"><span class="rl-n">03</span><span class="rl-t">El corte</span></a>
+  <a href="#metricas"><span class="rl-n">04</span><span class="rl-t">100 puntos</span></a>
+  <a href="#pilares"><span class="rl-n">05</span><span class="rl-t">Método</span></a>
+  <a href="#torneo"><span class="rl-n">06</span><span class="rl-t">Torneo</span></a>
+  <a href="#responsables"><span class="rl-n">07</span><span class="rl-t">Equipo</span></a>
+</nav>
+
+<!-- HERO — el plano riesgo/retorno es la pieza, no el fondo (ver el CSS) -->
+<header class="hero" id="inicio">
+  <div class="hero-fallback"></div>
+  <div class="wrap">
+    <div class="hero-say">
+      <div class="kicker reveal"><span class="scr" data-text="Portafolio · FIG">Portafolio · FIG</span></div>
+      <h1 aria-label="Gestionar la cartera, no adivinar el mercado.">
+        <span class="ln"><span>Gestionar la cartera,</span></span>
+        <span class="ln"><span><em>no adivinar el mercado.</em></span></span>
+      </h1>
+      <p class="hero__sub reveal d2" id="heroBajada">El área de FIG que gestiona carteras con visión top-down: asignación de activos, control de riesgo y decisiones medidas contra un benchmark.</p>
+      <div class="hero__cta reveal d3">
+        <a href="../torneo/index.html" class="btn btn--acc">Ver el ranking en vivo <span class="arr">→</span></a>
+        <a href="#corte" class="btn btn--ghost">El corte de esta semana</a>
+      </div>
+      <!-- Cifras del corte vigente. Lo escrito acá es el respaldo: si el
+           ranking carga, pintarHeroMeta() lo reemplaza por semana, corte,
+           carteras y líder reales. -->
+      <div class="hero__meta reveal d3" id="heroMeta">
+        <span>Gestión de <b>carteras</b></span>
+        <span>Riesgo · <b>Benchmark</b></span>
+      </div>
+    </div>
+    <!-- El plano se dibuja solo si el ranking cargó: sin dato no queda un
+         marco vacío, queda la columna libre y el hero se ve como el de las
+         otras páginas de área. -->
+    <figure class="plano" id="plano" hidden>
+      <figcaption class="pl-head">
+        <span class="pl-ttl">La frontera</span>
+        <span class="pl-when" id="planoCorte"></span>
+      </figcaption>
+      <div class="pl-svg" id="planoSvg"></div>
+      <p class="pl-foot" id="planoPie"></p>
+    </figure>
+  </div>
+</header>
+
+<div class="marq" aria-hidden="true">
+  <div class="marq__track" id="marqTrack">
+    <span class="mq"><b>Asignación de activos</b></span><span class="mq">Top-down</span><span class="mq"><b>Control de riesgo</b></span><span class="mq">Benchmark</span><span class="mq"><b>ETF</b></span><span class="mq">Ratio de Sharpe</span><span class="mq"><b>Drawdown</b></span><span class="mq">Bloomberg</span>
+  </div>
+</div>
+
+<!-- NOSOTROS -->
+<section class="section--light" id="nosotros">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker reveal"><span class="scr" data-text="Qué es Portafolio">Qué es Portafolio</span></div>
+      <h2 class="h-sec reveal d1">Construir y defender <em>una cartera</em>.</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-copy reveal">
+        <p class="drop">Un retorno sin su riesgo <em>no dice nada.</em></p>
+        <div id="valResumen">
+          <p><b>Portafolio</b> es el desk de FEN Investment Group dedicado a la gestión de carteras: construir un portafolio con visión top-down, repartir el capital entre mercados y clases de activo, controlar el riesgo y medir cada decisión contra un benchmark.</p>
+          <p>Es el área que diseña y dirige el Torneo Portafolio, la competencia insignia del club, donde cada equipo gestiona una cartera simulada en Bloomberg y se evalúa con las mismas métricas que usa la industria: information ratio, retorno en exceso, ratio de Sharpe, VaR y máximo drawdown.</p>
+        </div>
+      </div>
+      <div class="about-side reveal d2">
+        <div class="side-card"><span class="mono-tag">Origen</span><h3>Una de las áreas fundadoras</h3><p>Área fundadora de FIG, junto a Trading y Valuation, entre otras.</p></div>
+        <div class="side-card"><span class="mono-tag">Metodología</span><h3>Gestión top-down</h3><p>Asignación de activos, control de riesgo y medición contra un benchmark.</p></div>
+        <div class="side-card"><span class="mono-tag">Dirección</span><h3>Francisco Valenzuela</h3><p>Dirige el área junto a cuatro directivos del desk PRT.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EL CORTE — datos en vivo del Torneo Portafolio.
+     Arranca `hidden`: solo aparece si el ranking cargó de verdad. Un título
+     con una grilla vacía es peor que no tener la sección. -->
+<section class="section--dark" id="corte" hidden>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker reveal"><span class="scr" data-text="El corte de esta semana">El corte de esta semana</span></div>
+      <h2 class="h-sec reveal d1">El torneo que dirigimos, <em>en vivo</em>.</h2>
+      <p class="lead reveal d2" style="margin-top:18px">Esta página no describe el Torneo Portafolio: lo lee. Todo lo que sigue sale del mismo archivo que alimenta el ranking oficial, así que se pone al día solo con cada corte del viernes.</p>
+    </div>
+    <div class="board reveal" id="board"></div>
+    <div class="ch-card reveal d1" id="chCard" hidden>
+      <h3 class="ch-title" id="chTitle">El campo del torneo contra su índice</h3>
+      <p class="ch-note" id="chNote"></p>
+      <div class="ch-cifras" id="chCifras"></div>
+      <div class="ch-plot" id="chPlot"><div id="chSvgHost"></div><div class="ch-tip" id="chTip" role="status"></div></div>
+      <div class="ch-legend" id="chLeg"></div>
+      <details class="ch-tabla">
+        <summary>Ver estas cifras en tabla</summary>
+        <div class="ch-scroll" id="chTabla"></div>
+      </details>
+    </div>
+    <div class="ch-ctas reveal d2">
+      <a href="../torneo/index.html" class="btn btn--acc">Ranking completo del torneo <span class="arr">→</span></a>
+      <a href="#metricas" class="btn btn--ghost">Cómo se calcula el puntaje</a>
+    </div>
+  </div>
+</section>
+
+<!-- CÓMO SE EVALÚA — las 5 métricas.
+     Las tarjetas se dibujan siempre (nombre y explicación viven en
+     datos/portafolio.json); el peso, el medidor y el mejor equipo del corte
+     se agregan solo si el ranking cargó. Sin datos no queda ningún hueco:
+     queda la explicación, que es lo que de verdad distingue a este desk. -->
+<section class="section--light" id="metricas">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker reveal"><span class="scr" data-text="Los 100 puntos">Los 100 puntos</span></div>
+      <h2 class="h-sec reveal d1">Una cartera no se juzga <em>por su rentabilidad</em>.</h2>
+      <p class="lead reveal d2" style="margin-top:18px">Acá está la diferencia entre este desk y una apuesta con suerte. Cada cartera del torneo recibe hasta 100 puntos repartidos en cinco métricas extraídas de Bloomberg PORT: dos miden cuánto se le ganó al índice, una la calidad del retorno y dos el riesgo que costó conseguirlo. Ganar mucho una semana no basta.</p>
+    </div>
+    <!-- La barra de 100 puntos y su clave solo existen si el ranking cargo:
+         los pesos salen de el, no estan escritos. Las franjas de abajo se
+         dibujan siempre, porque la explicacion de cada metrica es del area. -->
+    <div class="alloc reveal" id="alloc" role="img" hidden></div>
+    <div class="alloc-key" id="allocKey" hidden></div>
+    <div class="mrows" id="mtRows"></div>
+    <div class="mt-reglas reveal d2">
+      <div class="mt-regla">
+        <h4>Se puntúa por percentil continuo</h4>
+        <p>El mejor de cada métrica se lleva el peso completo, el peor se lleva cero y el resto se interpola linealmente entre ambos. El puntaje de una cartera depende de dónde quedó frente al campo, no de un umbral fijo: por eso los pesos de arriba se leen del propio ranking y no están escritos a mano.</p>
+      </div>
+      <div class="mt-regla">
+        <h4>Lo negativo anota cero</h4>
+        <p>Si el information ratio, el retorno en exceso o el ratio de Sharpe de una cartera cierran en negativo en un corte, esa cartera anota cero puntos en esa métrica, sin excepción e independiente de qué tan negativo sea el número. Las otras tres se le siguen calculando con normalidad.</p>
+      </div>
+    </div>
+    <p class="mt-nota reveal d3">En VaR 95% y máximo drawdown el mejor valor es el más cercano a cero, no el más alto: ahí gana quien menos perdió.<span id="mtCorte"></span></p>
+  </div>
+</section>
+
+<!-- PILARES -->
+<section class="section--dark" id="pilares">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker reveal"><span class="scr" data-text="Cómo trabajamos">Cómo trabajamos</span></div>
+      <h2 class="h-sec reveal d1">De la asignación <em>al benchmark</em>.</h2>
+    </div>
+    <div class="pilares" id="valPilares">
+      <div class="pilar glowable reveal"><span class="p-ghost">01</span><div class="p-body"><span class="p-num">ASIGNACIÓN</span><h3>Del mercado a la cartera</h3><p>Visión top-down: repartir el capital entre mercados, clases de activo y sectores antes de elegir un instrumento.</p></div></div>
+      <div class="pilar glowable reveal d1"><span class="p-ghost">02</span><div class="p-body"><span class="p-num">RIESGO</span><h3>Medir lo que se puede perder</h3><p>Volatilidad, VaR y máximo drawdown: un retorno solo se puede evaluar junto al riesgo que costó conseguirlo.</p></div></div>
+      <div class="pilar glowable reveal d2"><span class="p-ghost">03</span><div class="p-body"><span class="p-num">BENCHMARK</span><h3>Rendir cuentas contra el índice</h3><p>Cada decisión se compara con un benchmark. Lo que se busca no es un buen número suelto, sino ganarle al índice de forma consistente.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TORNEO -->
+<section class="section--light" id="torneo" hidden>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker reveal"><span class="scr" data-text="Torneo del área">Torneo del área</span></div>
+      <h2 class="h-sec reveal d1" id="tvTitulo">Torneo <em>Portafolio 2026</em>.</h2>
+    </div>
+    <div class="torneo-grid">
+      <div class="reveal">
+        <p class="lead" id="tvBajada"></p>
+        <ul class="facts" id="tvDatos"></ul>
+        <div class="torneo-ctas" id="tvCtas"></div>
+      </div>
+      <aside class="torneo-card reveal d1">
+        <span class="mono-tag">Ranking en vivo</span>
+        <h3 id="tvCardTitulo">El torneo ya está en curso</h3>
+        <p id="tvCardTexto">El ranking se publica cada viernes con el corte de la semana.</p>
+        <span class="tc-tag"><span class="tc-dot"></span><span id="tvEstado">Ranking en vivo</span></span>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- EVENTOS DEL ÁREA (mismo estilo que eventos/index.html, filtrado por area:"portafolio" en datos/eventos.json) -->
+<section class="section--dark" id="actividades" hidden>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker reveal"><span class="scr" data-text="Actividades de Portafolio">Actividades de Portafolio</span></div>
+      <h2 class="h-sec reveal d1">Lo que el área <em>ya hizo</em>.</h2>
+    </div>
+    <div class="ev-grid" id="valEventosGrid"><!-- se renderiza desde ../datos/eventos.json --></div>
+  </div>
+</section>
+
+<!-- RESPONSABLES -->
+<section class="section--dark" id="responsables">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker reveal"><span class="scr" data-text="Responsables">Responsables</span></div>
+      <h2 class="h-sec reveal d1">Quiénes <em>lideran</em> el área.</h2>
+    </div>
+    <div class="people" id="valResponsables"></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band" id="unete">
+  <span class="cta-ghost" aria-hidden="true">PORTAFOLIO — GESTIÓN DE CARTERAS — PORTAFOLIO — GESTIÓN DE CARTERAS — </span>
+  <div class="wrap">
+    <div class="kicker reveal">Súmate a Portafolio</div>
+    <h2 class="reveal d1">Aprende a gestionar <em>una cartera de verdad</em>.</h2>
+    <p class="reveal d2">Si te interesa entender cómo se arma un portafolio, cómo se mide su riesgo y qué significa ganarle a un índice, este es tu lugar. No necesitas experiencia previa, solo ganas de aprender.</p>
+    <div class="reveal d3">
+      <a href="https://www.instagram.com/fen.investment.group/" target="_blank" rel="noopener" class="btn btn--navy">Escríbenos por Instagram <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Portafolio · FIG</span>
+    <span>Creado por <a href="https://www.linkedin.com/in/francisco-ignacio-andr%C3%A9s-valenzuela-lecaros-128a69396/" target="_blank" rel="noopener">Francisco Valenzuela</a> y <a href="https://www.linkedin.com/in/mpazq" target="_blank" rel="noopener">Manuel Paz</a></span>
+    <a href="../index.html">← Volver a FEN Investment Group</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+"use strict";
+document.documentElement.classList.remove("no-js");
+var RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
+var FINE=matchMedia("(hover: hover) and (pointer: fine)").matches;
+function $(s,r){return (r||document).querySelector(s)}
+function $$(s,r){return [].slice.call((r||document).querySelectorAll(s))}
+function esc(t){return String(t==null?"":t).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+
+/* ==========================================================================
+   DATOS PORTAFOLIO — se sobreescriben con ../datos/portafolio.json
+   El torneo se activa con torneo.activo. A diferencia de Valuation, acá el
+   CTA principal es el ranking en vivo (torneo.rankingUrl), porque el Torneo
+   Portafolio 2026 ya está en curso; torneo.formUrl queda vacío a propósito.
+   ========================================================================== */
+var DATA={
+  bajada:"El área de FIG que gestiona carteras con visión top-down: asignación de activos, control de riesgo y decisiones medidas contra un benchmark.",
+  resumen:[
+    "Portafolio es el desk de FEN Investment Group dedicado a la gestión de carteras: construir un portafolio con visión top-down, repartir el capital entre mercados y clases de activo, controlar el riesgo y medir cada decisión contra un benchmark.",
+    "Es el área que diseña y dirige el Torneo Portafolio, la competencia insignia del club, donde cada equipo gestiona una cartera simulada en Bloomberg y se evalúa con las mismas métricas que usa la industria: information ratio, retorno en exceso, ratio de Sharpe, VaR y máximo drawdown."
+  ],
+  pilares:[
+    {num:"01 · ASIGNACIÓN",titulo:"Del mercado a la cartera",texto:"Visión top-down: repartir el capital entre mercados, clases de activo y sectores antes de elegir un instrumento."},
+    {num:"02 · RIESGO",titulo:"Medir lo que se puede perder",texto:"Volatilidad, VaR y máximo drawdown: un retorno solo se puede evaluar junto al riesgo que costó conseguirlo."},
+    {num:"03 · BENCHMARK",titulo:"Rendir cuentas contra el índice",texto:"Cada decisión se compara con un benchmark. Lo que se busca no es un buen número suelto, sino ganarle al índice de forma consistente."}
+  ],
+  /* Las 5 métricas de evaluación. Acá va SOLO el nombre y la explicación: el
+     peso en puntos, el mejor equipo del corte y su valor salen del ranking en
+     vivo. `clave` tiene que calzar con puntosDetalle/metricas de torneo.json. */
+  metricas:[
+    {clave:"ir",nombre:"Information ratio",sub:"Contra el benchmark",texto:"Cuánto retorno por sobre el índice entregó la cartera por cada unidad de riesgo activo que asumió para conseguirlo. Es la métrica de mayor peso porque premia ganarle al benchmark de forma consistente, no una semana afortunada."},
+    {clave:"exc",nombre:"Retorno en exceso",sub:"Anualizado",texto:"Lo que la cartera rindió por sobre el iShares MSCI ACWI, anualizado. Responde la pregunta directa que persigue todo gestor: si el índice estaba ahí para comprarlo, valió la pena gestionar."},
+    {clave:"sharpe",nombre:"Ratio de Sharpe",sub:"Riesgo total",texto:"Retorno por unidad de riesgo total. A diferencia del information ratio, se mide contra el activo libre de riesgo y no contra el benchmark: describe la calidad de la cartera en sí misma, sin referencia externa."},
+    {clave:"var95",nombre:"VaR 95%",sub:"Ex-post",texto:"La pérdida que la cartera no superó en el 95% de las observaciones del periodo. Acota el tamaño del día malo corriente, y se calcula sobre lo que de verdad ocurrió en la cartera, no sobre un supuesto de distribución."},
+    {clave:"mdd",nombre:"Máximo drawdown",sub:"Caída pico a valle",texto:"La mayor caída desde un máximo hasta el piso siguiente. Es la métrica que más se parece a la experiencia real de quien invierte: cuánto llegó a perder alguien que entró justo en el peor momento."}
+  ],
+  torneo:{
+    activo:true,
+    titulo:"Torneo Portafolio 2026",
+    bajada:"El Torneo Portafolio 2026 es la competencia insignia de FIG y esta área es la que lo diseña y lo dirige. Cada equipo gestiona una cartera simulada de USD 10 millones invertida en ETF de iShares y BlackRock, medida contra el iShares MSCI ACWI con métricas extraídas de Bloomberg. El torneo ya está en curso y el ranking se actualiza cada viernes.",
+    estado:"Ranking en vivo",
+    rankingUrl:"../torneo/index.html",
+    formUrl:"",
+    basesUrl:"../documentos/Bases_finales_torneo_portafolio_2026.pdf",
+    cardTexto:"El ranking se publica cada viernes con el corte de la semana: puntaje, trayectoria de cada equipo y desglose de las cinco métricas.",
+    datos:[
+      {k:"Estado",v:"En curso"},
+      {k:"Equipos en competencia",v:"54"},
+      {k:"Capital simulado por cartera",v:"USD 10 millones"},
+      {k:"Universo de inversión",v:"ETF de iShares / BlackRock"},
+      {k:"Benchmark oficial",v:"iShares MSCI ACWI"},
+      {k:"Duración",v:"11 de mayo al 2 de noviembre de 2026"},
+      {k:"Ranking",v:"Cada viernes · since-inception"},
+      {k:"Ventanas de rebalanceo",v:"Junio · agosto · octubre"},
+      {k:"Final ante jurado",v:"5 finalistas · 9 de noviembre de 2026"},
+      {k:"Premios",v:"Por confirmar"},
+      {k:"Organiza",v:"Área Portafolio · FIG"}
+    ]
+  },
+  responsables:[
+    {iniciales:"FV",slug:"francisco-valenzuela",nombre:"Francisco Valenzuela",rol:"Director · Portafolio",lidera:true,detalle:"Dirige el área Portafolio. Co-fundador de FIG · infraestructura digital y plataforma web.",linkedin:"https://www.linkedin.com/in/francisco-ignacio-andr%C3%A9s-valenzuela-lecaros-128a69396/"},
+    {iniciales:"BS",slug:"benjamin-saez-molina",nombre:"Benjamín Sáez Molina",rol:"Presidente FIG",detalle:"Presidente y co-fundador de FIG. Práctica en Wealth Management en Itaú.",linkedin:"https://www.linkedin.com/in/benjamin-saez-molina/"},
+    {iniciales:"MP",slug:"manuel-paz",nombre:"Manuel Paz",rol:"Director · Portafolio y Trading",detalle:"Co-fundador de FIG · comunicaciones, difusión y creador de la web original.",linkedin:"https://www.linkedin.com/in/mpazq"},
+    {iniciales:"AA",slug:"agustin-arriagada",nombre:"Agustín Arriagada",rol:"Directivo · Portafolio",detalle:"Co-fundador de FIG · monitor del Laboratorio Bloomberg FEN.",linkedin:"https://www.linkedin.com/in/agustin-arriagada/"},
+    {iniciales:"BD",slug:"benjamin-disi",nombre:"Benjamín Disi",rol:"Directivo · Portafolio",detalle:"Magíster en Finanzas (en curso) · tutor de Finanzas II y monitor del Lab. Bloomberg Itaú.",linkedin:"https://www.linkedin.com/in/benjam%C3%ADn-disi-hernandez-12b570297"},
+    {iniciales:"BS",slug:"benjamin-solis",nombre:"Benjamín Solís",rol:"Directivo · Portafolio",detalle:"Co-fundador de FIG.",linkedin:"https://www.linkedin.com/in/benjamin-solis"}
+  ]
+};
+
+/* ==========================================================================
+   RANKING EN VIVO DEL TORNEO — la personalidad de esta página
+   ==========================================================================
+   Portafolio es el área que diseña y dirige el Torneo Portafolio, así que su
+   página muestra el torneo, no lo cuenta. Ni una cifra de §El corte ni de
+   §Cómo se evalúa está escrita en este archivo: todas salen de los JSON del
+   ranking, igual que en torneo/index.html.
+
+   Se carga en DOS partes, el mismo enfoque que ya usa torneo/index.html y por
+   el mismo motivo — torneo.json pesa 205 KB y el 75% de eso es el historial
+   semanal, que acá solo hace falta para el gráfico:
+
+     1. ../datos/torneo-tabla.json (~7 KB, derivado por generar_tabla.py) trae
+        corte, semana, equipos, métricas y puntosDetalle: con eso se pintan de
+        inmediato la cinta del hero, las cifras del corte y las 5 métricas.
+        Si el derivado no existe, se cae al archivo completo y todo funciona
+        igual — el camino viejo sigue entero.
+        El plano del hero también sale de acá: se dibuja con las métricas del
+        corte, no con el historial, así que está en pie desde la primera
+        pintada aunque el archivo grande no llegue nunca.
+     2. ../datos/torneo.json completo, pedido después en tiempo ocioso, trae el
+        historial semana a semana: con eso se dibuja el gráfico de mediana e
+        intercuartil de §El corte. Si su corte/semana/nº de equipos no
+        calza con el derivado (un derivado se puede quedar atrás), manda el
+        completo y se repinta todo con él.
+        Con `saveData` o en 2G no se pide: la página queda con las cifras, que
+        es justamente el caso en que ahorrar 200 KB importa.
+
+   Degradación, la regla dura: lo que no está no se dibuja. Si falla el fetch,
+   §El corte no aparece, el hero se queda con su degradado y §Cómo se evalúa
+   conserva las explicaciones sin pesos ni "mejor del corte". En ningún camino
+   queda un NaN, un guion suelto ni un cascarón vacío.
+   ========================================================================== */
+var TD=null;          /* datos del torneo ya en pantalla   */
+var TD_HIST=false;    /* ¿el que tenemos trae historial?   */
+var MET_ORDEN=["ir","exc","sharpe","var95","mdd"];
+var MET_ETIQ={ir:"Information ratio",exc:"Retorno en exceso",sharpe:"Ratio de Sharpe",var95:"VaR 95%",mdd:"Máximo drawdown"};
+
+function num(v){return typeof v==="number"&&isFinite(v)}
+/* Formato de cada métrica, igual que en torneo/index.html: IR y Sharpe son
+   razones (2 decimales), las otras tres son porcentajes. */
+function fmtMet(k,v){
+  if(!num(v))return null;
+  if(k==="ir"||k==="sharpe")return v.toFixed(2).replace(".",",");
+  return (v*100).toFixed(2).replace(".",",")+"%";
+}
+function fmtPct(v,signo){
+  if(!num(v))return null;
+  var s=(v*100).toFixed(2).replace(".",",")+"%";
+  return (signo&&v>0?"+":"")+s;
+}
+function fmtNum(v,d){
+  if(!num(v))return null;
+  return v.toFixed(d==null?2:d).replace(".",",");
+}
+/* Un JSON del torneo sirve si trae equipos de verdad. Todo lo demás se
+   consulta campo a campo antes de usarlo. */
+function utiles(d){return !!(d&&d.equipos&&d.equipos.length)}
+function conHistorial(d){
+  return utiles(d)&&d.equipos.some(function(t){return t.historial&&t.historial.length});
+}
+
+/* ---------------- Lecturas derivadas del ranking ---------------- */
+function lider(d){
+  var mejor=null;
+  d.equipos.forEach(function(t){
+    if(!num(t.posicion))return;
+    if(!mejor||t.posicion<mejor.posicion)mejor=t;
+  });
+  return mejor;
+}
+/* El peso de cada métrica NO se escribe: por percentil continuo el mejor de
+   cada una se lleva el peso completo, así que el máximo de puntosDetalle ES
+   el peso. Si mañana el reglamento cambia los pesos, esta página cambia sola. */
+function pesos(d){
+  var p={},hay=false;
+  MET_ORDEN.forEach(function(k){
+    var mx=null;
+    d.equipos.forEach(function(t){
+      var v=t.puntosDetalle&&t.puntosDetalle[k];
+      if(num(v)&&(mx===null||v>mx))mx=v;
+    });
+    if(num(mx)&&mx>0){p[k]=mx;hay=true;}
+  });
+  return hay?p:null;
+}
+/* El mejor del corte en una métrica. En las cinco el valor MÁS ALTO es el
+   mejor, incluso en VaR y drawdown, que vienen negativos: ahí el más alto es
+   el más cercano a cero, o sea el que menos perdió. La guarda importa: un IR,
+   un exceso o un Sharpe negativos no se premian aunque sean el mejor del
+   campo, porque sería destacar al menos malo. */
+function mejorEn(d,k){
+  var mej=null;
+  d.equipos.forEach(function(t){
+    var v=t.metricas&&t.metricas[k];
+    if(!num(v))return;
+    if(!mej||v>mej.v)mej={v:v,nombre:t.nombre};
+  });
+  if(!mej)return null;
+  if((k==="ir"||k==="exc"||k==="sharpe")&&mej.v<=0)return null;
+  return mej;
+}
+/* Cuartiles por interpolación lineal — la misma cuenta que hace cualquier
+   planilla. Se usa para la banda del gráfico. */
+function cuantil(arr,p){
+  if(!arr.length)return null;
+  var v=arr.slice().sort(function(a,b){return a-b}),i=(v.length-1)*p,lo=Math.floor(i),hi=Math.min(lo+1,v.length-1);
+  return v[lo]+(v[hi]-v[lo])*(i-lo);
+}
+/* Serie semanal del campo: por cada semana con dato, la mediana y el rango
+   intercuartil de los retornos acumulados de TODOS los equipos, más el ACWI
+   de esa semana si el pipeline de Bloomberg ya lo capturó. Se toman las
+   semanas con dato de EQUIPOS: el benchmark suele llegar un corte después y
+   recortar el eje a la intersección escondería el corte más nuevo (mismo
+   criterio que ya usan el hero de index.html y las dos pantallas). */
+function serieCampo(d){
+  var porSem={};
+  d.equipos.forEach(function(t){
+    (t.historial||[]).forEach(function(h){
+      if(!h||!num(h.semana)||!num(h.ret))return;
+      (porSem[h.semana]=porSem[h.semana]||[]).push(h.ret);
+    });
+  });
+  var acwi={};
+  (d.acwi||[]).forEach(function(a){if(a&&num(a.semana)&&num(a.ret))acwi[a.semana]=a.ret});
+  var sems=Object.keys(porSem).map(Number).sort(function(a,b){return a-b});
+  var pts=sems.map(function(s){
+    var v=porSem[s];
+    return {semana:s,n:v.length,med:cuantil(v,.5),q1:cuantil(v,.25),q3:cuantil(v,.75),
+            bmk:num(acwi[s])?acwi[s]:null};
+  }).filter(function(p){return num(p.med)});
+  return pts.length>=2?pts:null;
+}
+/* detecta la foto real de un responsable en ../fotos/directiva/<slug>.<ext> */
+var DIRFOTOS="../fotos/directiva/";
+function probeFoto(slug,cb){
+  if(!slug){cb(null);return;}
+  var exts=["jpg","jpeg","png","webp","JPG"],i=0;
+  (function tryExt(){
+    if(i>=exts.length){cb(null);return;}
+    var img=new Image(),url=DIRFOTOS+slug+"."+exts[i];
+    img.onload=function(){cb(url)};
+    img.onerror=function(){i++;tryExt()};
+    img.src=url;
+  })();
+}
+
+/* ---------------- Render ---------------- */
+function renderData(){
+  $("#heroBajada").textContent=DATA.bajada;
+  if(DATA.resumen&&DATA.resumen.length){
+    $("#valResumen").innerHTML=DATA.resumen.map(function(p){return "<p>"+esc(p)+"</p>"}).join("");
+  }
+  if(DATA.pilares&&DATA.pilares.length){
+    $("#valPilares").innerHTML=DATA.pilares.map(function(p,i){
+      /* "01 · ASIGNACIÓN" se parte en dos: el número va calado al aire
+         como pieza gráfica y el rótulo queda sobre el título. */
+      var par=String(p.num||"").split("·");
+      var gh=(par[0]||String(i+1)).trim(),rot=(par[1]||"").trim();
+      return '<div class="pilar glowable reveal '+(i===1?"d1":i===2?"d2":"")+'">'
+        +'<span class="p-ghost" aria-hidden="true">'+esc(gh)+'</span>'
+        +'<div class="p-body">'+(rot?'<span class="p-num">'+esc(rot)+'</span>':"")
+        +'<h3>'+esc(p.titulo)+'</h3><p>'+esc(p.texto)+'</p></div></div>';
+    }).join("");
+    observeReveals($("#valPilares"));bindGlow($("#valPilares"));
+  }
+  renderMetricas();
+  renderTorneo();
+  renderResponsables();
+}
+
+/* ---------------- Torneo ---------------- */
+function renderTorneo(){
+  var t=DATA.torneo,sec=$("#torneo");
+  if(!t||!t.activo){sec.hidden=true;return;}
+  sec.hidden=false;
+  /* el nombre oficial ya empieza con "Torneo", así que se le quita ese prefijo
+     antes de envolverlo en <em> y no queda "Torneo Torneo Portafolio 2026". */
+  if(t.titulo)$("#tvTitulo").innerHTML="Torneo <em>"+esc(t.titulo.replace(/^Torneo\s+(de\s+)?/i,""))+"</em>.";
+  $("#tvBajada").textContent=t.bajada||"";
+  if(t.estado)$("#tvEstado").textContent=t.estado;
+  var datos=t.datos||[];
+  /* Una fila con `vLive` toma su valor del ranking en vivo en vez del texto
+     escrito a mano. Hoy solo la de equipos: ese número cambia cada vez que un
+     corte elimina a alguien, y este repo ya se quemó dejando conteos viejos
+     repartidos por el sitio. El `v` escrito queda como respaldo por si el JSON
+     del torneo no cargó. */
+  var nEq=(TD&&utiles(TD))?TD.equipos.length:null;
+  $("#tvDatos").innerHTML=datos.map(function(d){
+    var v=d.v;
+    if(d.vLive==="equipos"&&nEq)v=String(nEq);
+    return '<li><span class="k">'+esc(d.k)+'</span><span class="v">'+esc(v)+'</span></li>';
+  }).join("");
+  /* botones: ranking en vivo + bases, cada uno se activa si hay URL. El
+     Torneo Portafolio 2026 ya está en curso, así que el CTA principal es el
+     ranking; el bloque de formUrl se conserva intacto por si algún día hace
+     falta un formulario de inscripción, pero hoy va vacío. */
+  var ctas="";
+  if(t.rankingUrl){
+    ctas+='<a class="btn btn--acc" href="'+esc(t.rankingUrl)+'">Ver el ranking en vivo <span class="arr">→</span></a>';
+  }
+  if(t.formUrl){
+    ctas+='<a class="btn btn--ghost" href="'+esc(t.formUrl)+'" target="_blank" rel="noopener">Inscríbete <span class="arr">→</span></a>';
+  }
+  if(t.basesUrl){
+    ctas+='<a class="btn btn--ghost" href="'+esc(t.basesUrl)+'" target="_blank" rel="noopener">Ver las bases</a>';
+  }
+  if(!ctas){ctas='<span class="btn is-off">Ranking — próximamente</span>';}
+  $("#tvCtas").innerHTML=ctas;
+  sincRiel();
+  $("#tvCardTexto").textContent=t.cardTexto
+    || (t.rankingUrl
+        ? "El ranking se publica cada viernes con el corte de la semana."
+        : "El torneo del área se anunciará pronto. Sigue a FIG en Instagram para enterarte primero.");
+  observeReveals(sec);
+}
+
+/* ---------------- Responsables ---------------- */
+function renderResponsables(){
+  var list=DATA.responsables||[];
+  $("#valResponsables").innerHTML=list.map(function(p,i){
+    var av='<div class="avatar" data-slug="'+esc(p.slug||"")+'">'+esc(p.iniciales||"·")+'</div>';
+    var link=p.linkedin?'<a class="p-link" href="'+esc(p.linkedin)+'" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a>':"";
+    return '<div class="p-card reveal '+(i%3===1?"d1":i%3===2?"d2":"")+(p.lidera?" p-card--area":"")+'">'
+      +av
+      +'<div><div class="p-name">'+esc(p.nombre)+'</div>'+(p.rol?'<div class="p-role">'+esc(p.rol)+'</div>':"")
+        +(p.lidera?'<div class="p-tag">Dirige el área</div>':"")+'</div>'
+      +(p.detalle?'<p class="p-extra">'+esc(p.detalle)+'</p>':"")
+      +link+'</div>';
+  }).join("");
+  /* buscar foto real de cada uno */
+  $$("#valResponsables .avatar").forEach(function(av){
+    var slug=av.getAttribute("data-slug");
+    probeFoto(slug,function(url){
+      if(url){av.style.backgroundImage="url('"+url+"')";av.classList.add("has-photo");}
+    });
+  });
+  observeReveals($("#valResponsables"));
+}
+
+/* ---------------- Cifras del corte bajo el título ----------------
+   Lo que antes era una "cinta" con caja propia flotando sobre el hero. Ahora
+   ocupa la fila de cifras del pie del título: mismo dato, sin una segunda
+   caja compitiendo con el plano. Sin ranking se queda el texto de respaldo
+   que trae el HTML. */
+function pintarHeroMeta(){
+  var host=$("#heroMeta");if(!host||!TD)return;
+  var l=lider(TD),it=[];
+  if(num(TD.semana))it.push({k:"Semana del torneo",v:String(TD.semana),pulso:true});
+  it.push({k:"Carteras",v:String(TD.equipos.length)});
+  var g=gananIndice(TD);
+  if(g)it.push({k:"Le ganan al ACWI",v:g.n+" de "+g.tot});
+  if(l&&l.nombre)it.push({k:"Va primero",v:l.nombre,txt:true});
+  if(it.length<2)return;
+  host.innerHTML=it.map(function(d){
+    return '<span class="'+(d.txt?"hm-txt":"")+(d.pulso?" hm-pulso":"")+'">'
+      +'<b>'+(d.pulso?'<span class="hm-dot" aria-hidden="true"></span>':"")+esc(d.v)+'</b>'
+      +esc(d.k)+'</span>';
+  }).join("");
+}
+
+/* ---------------- Cinta de datos ----------------
+   Reemplaza la marquesina de palabras por el estado real del corte. Las
+   palabras del HTML son el respaldo: si el ranking no carga, no se toca. */
+function pintarCinta(){
+  var t=$("#marqTrack");if(!t||!TD)return;
+  var l=lider(TD),it=[];
+  if(num(TD.semana))it.push({k:"Semana",v:String(TD.semana)});
+  if(TD.corte)it.push({k:"Corte",v:String(TD.corte)});
+  it.push({k:"Carteras en competencia",v:String(TD.equipos.length)});
+  if(l&&l.nombre)it.push({k:"Va primero",v:l.nombre,txt:true});
+  if(l&&num(l.puntos))it.push({k:"Puntaje del líder",v:fmtNum(l.puntos)+" / 100"});
+  var g=gananIndice(TD);
+  if(g)it.push({k:"Le ganan al ACWI",v:g.n+" de "+g.tot});
+  MET_ORDEN.forEach(function(k){
+    var m=mejorEn(TD,k);
+    if(m)it.push({k:"Mejor "+MET_ETIQ[k],v:fmtMet(k,m.v)+" · "+m.nombre,txt:false});
+  });
+  var bmk=(TD.acwi||[]).filter(function(a){return a&&num(a.ret)});
+  if(bmk.length)it.push({k:"iShares MSCI ACWI",v:fmtPct(bmk[bmk.length-1].ret,true),bmk:true});
+  if(it.length<4)return;
+  var uno=it.map(function(d){
+    return '<span class="tk'+(d.bmk?" tk--bmk":"")+(d.txt?" tk--txt":"")+'">'
+      +'<i>'+esc(d.k)+'</i><b>'+esc(d.v)+'</b></span>';
+  }).join("");
+  t.innerHTML=uno+uno;   /* duplicado: el bucle del CSS corre hasta -50% */
+}
+
+/* ---------------- EL PLANO DE LA FRONTERA ----------------
+   La pieza propia de esta página. Cada cartera del corte es un disco en el
+   plano riesgo / retorno:
+     x = |máximo drawdown|  → cuánto llegó a perder desde su propio máximo
+     y = retorno en exceso  → cuánto le sacó (o le debe) al iShares MSCI ACWI
+     r = puntaje del corte
+   La línea azul del cero ES el índice: sobre ella están las carteras que le
+   ganan al mercado, y son disco lleno; bajo ella quedan calados.
+   La línea dorada es la FRONTERA: recorriendo de menos a más riesgo, las
+   carteras que superan a todas las de menos riesgo que ellas. Bajo esa línea
+   siempre existe otra cartera que rindió más asumiendo menos.
+   Sale entero de ../datos/torneo-tabla.json (7 KB): no necesita el historial,
+   así que está dibujado en la primera pintada y no espera al archivo grande.
+   El viewBox es fijo, así que el dibujo se estira solo con la ventana y no
+   hay que repintarlo al cambiar el tamaño. */
+function planoPuntos(d){
+  var out=[];
+  d.equipos.forEach(function(t){
+    var m=t.metricas||{},x=m.mdd,y=num(m.exc)?m.exc:t.retRel;
+    if(!num(x)||!num(y))return;
+    out.push({n:t.nombre,x:Math.abs(x),y:y,p:num(t.puntos)?t.puntos:0,pos:t.posicion});
+  });
+  return out.length>=5?out:null;
+}
+function frontera(pts){
+  var s=pts.slice().sort(function(a,b){return a.x-b.x||b.y-a.y}),out=[],tope=-Infinity;
+  s.forEach(function(p){if(p.y>tope){tope=p.y;out.push(p)}});
+  return out.length>=2?out:null;
+}
+function gananIndice(d){
+  var n=0,tot=0;
+  d.equipos.forEach(function(t){
+    var v=(t.metricas&&num(t.metricas.exc))?t.metricas.exc:(num(t.retRel)?t.retRel:null);
+    if(v===null)return;
+    tot++;if(v>0)n++;
+  });
+  return tot?{n:n,tot:tot}:null;
+}
+function pintarPlano(){
+  var fig=$("#plano"),host=$("#planoSvg");
+  if(!fig||!host||!TD)return;
+  var pts=planoPuntos(TD);
+  if(!pts){fig.hidden=true;return;}
+
+  var W=520,H=320,pl=64,pr=54,pt=32,pb=42,iw=W-pl-pr,ih=H-pt-pb;
+  var xm=0,xM=0,ym=Infinity,yM=-Infinity,pM=0;
+  pts.forEach(function(q){
+    if(q.x>xM)xM=q.x;if(q.y<ym)ym=q.y;if(q.y>yM)yM=q.y;if(q.p>pM)pM=q.p;
+  });
+  if(!(xM>0)||!(yM>ym))return;
+  xM*=1.08;
+  var padY=(yM-ym)*.1;ym-=padY;yM+=padY;
+  if(ym>0)ym=0;if(yM<0)yM=0;              /* el cero (el índice) siempre en el marco */
+  function sx(v){return pl+v/xM*iw}
+  function sy(v){return pt+(1-(v-ym)/(yM-ym))*ih}
+
+  var G="";
+  /* Rejilla: hairline sólida, nunca punteada (regla del sitio). */
+  marcas(ym,yM,4).forEach(function(v){
+    if(Math.abs(v)<1e-9)return;
+    G+='<line x1="'+pl+'" y1="'+sy(v).toFixed(1)+'" x2="'+(pl+iw)+'" y2="'+sy(v).toFixed(1)
+      +'" stroke="rgba(212,175,55,.1)" stroke-width="1"/>'
+      +'<text x="'+(pl-8)+'" y="'+(sy(v)+3.2).toFixed(1)+'" text-anchor="end" font-size="9" fill="rgba(249,246,239,.45)">'+fmtPct(v,true)+'</text>';
+  });
+  marcas(0,xM,3).forEach(function(v){
+    if(v<=0)return;
+    G+='<line x1="'+sx(v).toFixed(1)+'" y1="'+pt+'" x2="'+sx(v).toFixed(1)+'" y2="'+(pt+ih)
+      +'" stroke="rgba(212,175,55,.07)" stroke-width="1"/>'
+      +'<text x="'+sx(v).toFixed(1)+'" y="'+(pt+ih+14)+'" text-anchor="middle" font-size="9" fill="rgba(249,246,239,.45)">'+fmtPct(v)+'</text>';
+  });
+  /* El índice. Es la única línea azul del plano y no necesita leyenda: lleva
+     su nombre escrito al final, como en el gráfico de §El corte. */
+  var y0=sy(0);
+  G+='<line x1="'+pl+'" y1="'+y0.toFixed(1)+'" x2="'+(pl+iw)+'" y2="'+y0.toFixed(1)+'" stroke="#7BA7DE" stroke-width="1.6"/>'
+    +'<text x="'+(pl+iw+7)+'" y="'+(y0+3.2).toFixed(1)+'" font-size="9.5" fill="#7BA7DE">ACWI</text>';
+  /* La frontera, detrás de los discos. */
+  var fr=frontera(pts);
+  if(fr){
+    G+='<path d="M'+fr.map(function(q){return sx(q.x).toFixed(1)+" "+sy(q.y).toFixed(1)}).join("L")
+      +'" fill="none" stroke="#D4AF37" stroke-width="1.4" stroke-opacity=".75" stroke-linejoin="round" stroke-linecap="round"/>';
+  }
+  /* Los discos. Lleno = le gana al índice; calado = no. */
+  pts.slice().sort(function(a,b){return b.p-a.p}).forEach(function(q){
+    var r=(3+(pM>0?q.p/pM:0)*6).toFixed(1),X=sx(q.x).toFixed(1),Y=sy(q.y).toFixed(1);
+    var det=esc(q.n+" · exceso "+fmtPct(q.y,true)+" · caída máxima "+fmtPct(q.x)+" · "+fmtNum(q.p)+" pts");
+    G+=q.y>0
+      ? '<circle class="pt" cx="'+X+'" cy="'+Y+'" r="'+r+'" fill="#EBD388" fill-opacity=".82"><title>'+det+'</title></circle>'
+      : '<circle class="pt" cx="'+X+'" cy="'+Y+'" r="'+r+'" fill="#D4AF37" fill-opacity=".1" stroke="rgba(212,175,55,.55)" stroke-width="1"><title>'+det+'</title></circle>';
+  });
+  /* El líder, con anillo y nombre escrito: es el único rótulo directo del
+     plano. El rótulo se voltea al otro lado si el disco está cerca del borde
+     derecho, para no salirse del marco. */
+  var top=null;
+  pts.forEach(function(q){if(num(q.pos)&&(!top||q.pos<top.pos))top=q});
+  if(top){
+    var rT=(3+(pM>0?top.p/pM:0)*6),X=sx(top.x),Y=sy(top.y);
+    var xT=Math.max(pl+34,Math.min(X,pl+iw-34));
+    G+='<circle cx="'+X.toFixed(1)+'" cy="'+Y.toFixed(1)+'" r="'+(rT+5).toFixed(1)
+      +'" fill="none" stroke="#D4AF37" stroke-width="1" stroke-opacity=".8"/>'
+      +'<text x="'+xT.toFixed(1)+'" y="'+(Y-rT-10).toFixed(1)+'" text-anchor="middle"'
+      +' font-size="9.5" fill="#D4AF37">'+esc(top.n.toUpperCase())+'</text>';
+  }
+  /* Rótulos de los ejes. */
+  G+='<text x="'+(pl+iw)+'" y="'+(H-8)+'" text-anchor="end" font-size="8.5" fill="rgba(249,246,239,.4)">RIESGO · CAÍDA MÁXIMA →</text>'
+    +'<text x="'+(pl-16)+'" y="'+(pt-11)+'" font-size="8.5" fill="rgba(249,246,239,.4)">↑ RETORNO SOBRE EL ÍNDICE</text>';
+
+  var g=gananIndice(TD)||{n:0,tot:pts.length};
+  var etq="Plano riesgo / retorno de las "+pts.length+" carteras del corte: cada disco es una cartera, "
+    +"situada por su caída máxima y por su retorno sobre el iShares MSCI ACWI. "
+    +g.n+" de "+g.tot+" están sobre la línea del índice. Las cifras van escritas bajo la figura.";
+  host.innerHTML='<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="'+esc(etq)+'">'+G+'</svg>';
+
+  var c=$("#planoCorte");
+  if(c)c.textContent=(num(TD.semana)?"Semana "+TD.semana:"")+(TD.corte?" · "+TD.corte:"");
+  var pie=$("#planoPie");
+  if(pie){
+    pie.innerHTML='Cada disco es una cartera del torneo, puesta según lo que arriesgó y lo que le sacó al índice. '
+      +'<b>'+g.n+' de '+g.tot+'</b> están sobre la línea del ACWI. '
+      +'La línea dorada es la frontera: bajo ella siempre hay otra cartera que rindió más arriesgando menos.';
+  }
+  fig.hidden=false;
+  requestAnimationFrame(function(){fig.classList.add("on")});
+  sincRiel();
+}
+
+/* ---------------- §El corte: el tablero + el gráfico ----------------
+   Las celdas ya no son cuatro tarjetas iguales: son una rejilla de 12
+   columnas donde cada dato ocupa el ancho que le corresponde (ver .board en
+   el CSS). El líder se lleva media fila porque es un nombre, no un número.
+   Se agregó una celda que antes no existía y que es la lectura central de
+   este desk: cuántas carteras le ganan de verdad al índice. */
+function pintarCorte(){
+  var sec=$("#corte");if(!sec||!TD)return;
+  var l=lider(TD),pts=TD.equipos.map(function(t){return t.puntos}).filter(num);
+  var tiles=[];
+  if(l&&l.nombre){
+    tiles.push({k:"Va primero",v:l.nombre,span:6,lider:true,
+                sub:num(l.puntos)?fmtNum(l.puntos)+" puntos de 100 en este corte.":""});
+  }
+  if(num(TD.semana)){
+    tiles.push({k:"Semana del torneo",v:String(TD.semana),span:3,
+                sub:TD.corte?"Corte del "+TD.corte:"Se recalcula cada viernes."});
+  }
+  tiles.push({k:"Carteras en competencia",v:String(TD.equipos.length),span:3,
+              sub:"Cada equipo gestiona su propia cartera simulada y la reporta desde Bloomberg."});
+  var g=gananIndice(TD);
+  if(g){
+    tiles.push({k:"Le ganan al índice",v:g.n,u:"de "+g.tot,span:6,
+                sub:"Carteras con retorno por sobre el iShares MSCI ACWI en este corte. Es la línea azul del plano de arriba."});
+  }
+  if(pts.length>1){
+    var mx=Math.max.apply(null,pts),mn=Math.min.apply(null,pts);
+    tiles.push({k:"Del primero al último",v:fmtNum(mx-mn,1),u:"pts",span:6,
+                sub:"El puntaje del corte va de "+fmtNum(mx)+" a "+fmtNum(mn)+"."});
+  }
+  $("#board").innerHTML=tiles.map(function(t){
+    return '<div class="bd bd--s'+t.span+(t.lider?" bd--lider":"")+'">'
+      +'<span class="bd-k">'+esc(t.k)+'</span>'
+      +'<span class="bd-v">'+esc(t.v)+(t.u?'<small>'+esc(t.u)+'</small>':"")+'</span>'
+      +(t.sub?'<span class="bd-sub">'+esc(t.sub)+'</span>':"")+'</div>';
+  }).join("");
+  sec.hidden=false;
+  observeReveals(sec);
+  sincRiel();
+  pintarGrafico();
+}
+
+/* Marcas "redondas" para el eje: 1 / 1,5 / 2 / 3 / 5 / 7 por década. Exigir
+   solo 1/2/5 dejaba ejes de dos marcas en rangos como este. */
+function marcas(min,max,n){
+  var span=max-min;if(!(span>0))return [min];
+  var raw=span/(n||4),mag=Math.pow(10,Math.floor(Math.log(raw)/Math.LN10)),nrm=raw/mag;
+  var paso=(nrm<=1?1:nrm<=1.5?1.5:nrm<=2?2:nrm<=3?3:nrm<=5?5:nrm<=7?7:10)*mag;
+  var out=[],v=Math.ceil(min/paso-1e-9)*paso;
+  for(var g=0;v<=max+paso*1e-9&&g<24;g++,v+=paso)out.push(Math.abs(v)<paso*1e-9?0:v);
+  return out;
+}
+
+var CH_PTS=null,CH_GEO=null,CH_W=0,CH_TRIES=0;
+function pintarGrafico(){
+  var card=$("#chCard"),host=$("#chSvgHost"),plot=$("#chPlot");
+  if(!card||!host||!plot)return;
+  var pts=(TD&&TD_HIST)?serieCampo(TD):null;
+  if(!pts){card.hidden=true;return;}   /* sin historial no hay gráfico, y ya */
+  card.hidden=false;
+  var W=Math.round(plot.clientWidth||0);
+  if(W<60){                            /* aún sin layout: un reintento acotado */
+    if(CH_TRIES++<30)requestAnimationFrame(pintarGrafico);
+    return;
+  }
+  CH_TRIES=0;CH_W=W;CH_PTS=pts;
+  var chico=W<400,H=chico?230:288;
+  var pl=chico?40:48,pr=chico?12:70,pt=16,pb=30;
+  var iw=W-pl-pr,ih=H-pt-pb;
+  if(iw<60||ih<60){card.hidden=true;return;}
+
+  var x0=pts[0].semana,x1=pts[pts.length-1].semana;
+  var lo=Infinity,hi=-Infinity;
+  pts.forEach(function(p){
+    [p.q1,p.q3,p.med,p.bmk].forEach(function(v){if(num(v)){if(v<lo)lo=v;if(v>hi)hi=v}});
+  });
+  if(lo>0)lo=0;if(hi<0)hi=0;              /* el cero siempre en el marco */
+  var pad=(hi-lo)*.08||.01;lo-=pad;hi+=pad;
+  function sx(x){return pl+(x1>x0?(x-x0)/(x1-x0):.5)*iw}
+  function sy(y){return pt+(1-(y-lo)/(hi-lo))*ih}
+  CH_GEO={sx:sx,sy:sy,pl:pl,iw:iw,x0:x0,x1:x1,H:H,pt:pt,ih:ih};
+
+  var G="",i;
+  /* Rejilla: hairline sólida, un tono sobre el fondo. Nunca punteada. */
+  var ys=marcas(lo,hi,4);
+  ys.forEach(function(v){
+    var y=sy(v).toFixed(1);
+    G+='<line x1="'+pl+'" y1="'+y+'" x2="'+(pl+iw)+'" y2="'+y+'" stroke="'+(Math.abs(v)<1e-9?"rgba(249,246,239,.24)":"rgba(212,175,55,.11)")+'" stroke-width="1"/>';
+    G+='<text x="'+(pl-8)+'" y="'+(sy(v)+3.5).toFixed(1)+'" text-anchor="end" font-size="'+(chico?9:10)+'" fill="rgba(249,246,239,.5)">'+fmtPct(v,true)+'</text>';
+  });
+  /* Eje de semanas: la primera y la última SIEMPRE, más las intermedias que
+     quepan. Una intermedia se descarta si queda a menos de 30 px de la última:
+     con 11 semanas y salto de 3, "S14" y "S15" salían encimadas en teléfono. */
+  var salto=Math.max(1,Math.ceil(pts.length/(chico?4:7))),xUlt=sx(x1);
+  pts.forEach(function(p,k){
+    var borde=(k===0||k===pts.length-1);
+    if(!borde&&(k%salto||Math.abs(sx(p.semana)-xUlt)<30))return;
+    G+='<text x="'+sx(p.semana).toFixed(1)+'" y="'+(H-10)+'" text-anchor="middle" font-size="'+(chico?9:10)+'" fill="rgba(249,246,239,.5)">S'+p.semana+'</text>';
+  });
+  /* Banda intercuartil: el 50% central del campo. Es contexto, va detrás. */
+  var arriba=pts.map(function(p){return sx(p.semana).toFixed(1)+" "+sy(p.q3).toFixed(1)});
+  var abajo=pts.slice().reverse().map(function(p){return sx(p.semana).toFixed(1)+" "+sy(p.q1).toFixed(1)});
+  /* El oro puro al 15% sobre el navy se lee gris oliva; con el oro CLARO la
+     banda mantiene el calor de la paleta y se sigue leyendo como fondo. */
+  G+='<path d="M'+arriba.join("L")+"L"+abajo.join("L")+'Z" fill="#EBD388" fill-opacity=".15"/>';
+  /* Benchmark. Se corta donde se acaba su dato: el ACWI lo captura el
+     pipeline de Bloomberg aparte y suele llegar un corte después. Jamás se
+     prolonga la línea con un valor inventado. */
+  var bm=pts.filter(function(p){return num(p.bmk)});
+  if(bm.length>1){
+    G+='<path d="M'+bm.map(function(p){return sx(p.semana).toFixed(1)+" "+sy(p.bmk).toFixed(1)}).join("L")
+      +'" fill="none" stroke="#7BA7DE" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>';
+  }
+  /* Mediana del campo. */
+  G+='<path d="M'+pts.map(function(p){return sx(p.semana).toFixed(1)+" "+sy(p.med).toFixed(1)}).join("L")
+    +'" fill="none" stroke="#D4AF37" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>';
+  /* Puntas: anillo del color del fondo para que no se peguen si coinciden. */
+  function punta(x,y,c){
+    return '<circle cx="'+x.toFixed(1)+'" cy="'+y.toFixed(1)+'" r="4" fill="'+c+'" stroke="#101731" stroke-width="2"/>';
+  }
+  var fE=pts[pts.length-1],bE=bm.length?bm[bm.length-1]:null;
+  if(bE)G+=punta(sx(bE.semana),sy(bE.bmk),"#7BA7DE");
+  G+=punta(sx(fE.semana),sy(fE.med),"#D4AF37");
+  /* Rótulos directos al final de CADA línea, separados a la fuerza si quedan
+     más juntos que el alto de una línea (con el campo empatado al índice se
+     encimaban y se leían como un borrón). En pantalla angosta no caben: ahí
+     manda la leyenda, que siempre está. */
+  if(!chico){
+    var yF=sy(fE.med),yB=bE?sy(bE.bmk):null;
+    /* El benchmark casi siempre termina un corte antes, así que su rótulo no
+       puede ir al costado como el del torneo: caería dentro del gráfico,
+       encima de la banda y de la línea dorada. Cuando la serie no llega al
+       borde derecho, su rótulo va sobre la punta. Cuando sí llega, van los dos
+       al costado y se separan a la fuerza si quedan más juntos que el alto de
+       una línea (con el campo empatado al índice se encimaban y se leían como
+       un borrón). En pantalla angosta no caben: ahí manda la leyenda. */
+    var corta=bE&&bE.semana<fE.semana;
+    if(yB!==null&&!corta&&Math.abs(yF-yB)<13){var m=(yF+yB)/2;if(yF<yB){yF=m-6.5;yB=m+6.5}else{yF=m+6.5;yB=m-6.5}}
+    if(yB!==null){
+      G+=corta
+        ? '<text x="'+sx(bE.semana).toFixed(1)+'" y="'+(yB-11).toFixed(1)+'" text-anchor="middle" font-size="9.5" letter-spacing="1.4" fill="#7BA7DE">ACWI</text>'
+        : '<text x="'+(sx(bE.semana)+9).toFixed(1)+'" y="'+(yB+3.5).toFixed(1)+'" font-size="9.5" letter-spacing="1.4" fill="#7BA7DE">ACWI</text>';
+    }
+    G+='<text x="'+(sx(fE.semana)+9).toFixed(1)+'" y="'+(yF+3.5).toFixed(1)+'" font-size="9.5" letter-spacing="1.4" fill="#D4AF37">TORNEO</text>';
+  }
+  /* Guía del cursor + zona sensible. `touch-action:pan-y` cede el gesto
+     horizontal al gráfico y le deja el vertical al scroll de la página: sin
+     eso, en un teléfono el navegador se queda todos los toques como scroll. */
+  G+='<line id="chGuide" x1="0" y1="'+pt+'" x2="0" y2="'+(pt+ih)+'" stroke="rgba(212,175,55,.45)" stroke-width="1" opacity="0"/>';
+  G+='<circle id="chDotF" r="4.5" fill="#D4AF37" stroke="#101731" stroke-width="2" opacity="0"/>';
+  G+='<circle id="chDotB" r="4.5" fill="#7BA7DE" stroke="#101731" stroke-width="2" opacity="0"/>';
+  G+='<rect id="chHit" x="'+pl+'" y="'+pt+'" width="'+iw+'" height="'+ih+'" fill="transparent"/>';
+
+  var etq="Retorno acumulado del torneo: mediana de "+TD.equipos.length+" carteras contra el iShares MSCI ACWI, semana a semana. Las cifras están también en la tabla bajo el gráfico.";
+  host.innerHTML='<svg viewBox="0 0 '+W+' '+H+'" width="'+W+'" height="'+H+'" role="img" '
+    +'style="touch-action:pan-y" aria-label="'+esc(etq)+'">'+G+'</svg>';
+  bindCrosshair();
+  pintarCifras(pts,bm);
+  pintarLeyenda();
+  pintarTabla(pts);
+  pintarNota(pts,bm);
+}
+
+function pintarCifras(pts,bm){
+  var f=pts[pts.length-1],b=bm.length?bm[bm.length-1]:null,fila=[];
+  fila.push({c:"fig",k:"Mediana del torneo · S"+f.semana,v:fmtPct(f.med,true)});
+  if(b)fila.push({c:"bmk",k:"iShares MSCI ACWI · S"+b.semana,v:fmtPct(b.bmk,true)});
+  /* La diferencia se calcula SOLO donde las dos series tienen dato el mismo
+     día. Restar la última del torneo menos la última del índice, que son de
+     semanas distintas, sería inventar una comparación. */
+  var comun=null;
+  for(var i=pts.length-1;i>=0;i--){if(num(pts[i].bmk)){comun=pts[i];break}}
+  if(comun)fila.push({c:"dif",k:"Diferencia · S"+comun.semana,
+    v:((comun.med-comun.bmk)>=0?"+":"")+fmtNum((comun.med-comun.bmk)*100)+" pts"});
+  $("#chCifras").innerHTML=fila.map(function(d){
+    return '<div class="ch-cif ch-cif--'+d.c+'"><span>'+esc(d.k)+'</span><b>'+esc(d.v)+'</b></div>';
+  }).join("");
+}
+
+function pintarLeyenda(){
+  var n=TD.equipos.length;
+  $("#chLeg").innerHTML=
+     '<span><i class="sw-fig"></i>Mediana de los '+n+' equipos</span>'
+    +'<span><i class="sw-band"></i>50% central del campo</span>'
+    +'<span><i class="sw-bmk"></i>iShares MSCI ACWI</span>';
+}
+
+function pintarNota(pts,bm){
+  var n=$("#chNote"),t="Cada cartera reporta su retorno acumulado desde el inicio del torneo. La línea dorada es la mediana de los "
+    +TD.equipos.length+" equipos y la banda es el 50% central: la mitad de las carteras vive dentro de ella.";
+  if(bm.length&&bm[bm.length-1].semana<pts[pts.length-1].semana){
+    t+=" El benchmark lo captura el pipeline de Bloomberg por separado y suele llegar un corte después, así que la línea del ACWI termina en la semana "
+      +bm[bm.length-1].semana+" en vez de extenderse con un valor que todavía no existe.";
+  }
+  n.textContent=t;
+}
+
+function pintarTabla(pts){
+  var f='<table><thead><tr>'
+    +'<th scope="col">Semana</th><th scope="col">Mediana</th><th scope="col">50% central</th><th scope="col">ACWI</th>'
+    +'</tr></thead><tbody>';
+  pts.forEach(function(p){
+    f+='<tr><th scope="row">S'+p.semana+'</th>'
+      +'<td>'+fmtPct(p.med,true)+'</td>'
+      +'<td>'+fmtPct(p.q1,true)+" a "+fmtPct(p.q3,true)+'</td>'
+      +'<td>'+(num(p.bmk)?fmtPct(p.bmk,true):"s/d")+'</td></tr>';
+  });
+  $("#chTabla").innerHTML=f+'</tbody></table>';
+}
+
+function bindCrosshair(){
+  var svg=$("#chSvgHost svg"),hit=$("#chHit"),g=$("#chGuide"),
+      dF=$("#chDotF"),dB=$("#chDotB"),tip=$("#chTip"),plot=$("#chPlot");
+  if(!svg||!hit||!CH_GEO||!CH_PTS)return;
+  var geo=CH_GEO,pts=CH_PTS;
+  function limpiar(){
+    g.setAttribute("opacity",0);dF.setAttribute("opacity",0);dB.setAttribute("opacity",0);
+    tip.classList.remove("on");
+  }
+  function mover(ev){
+    var r=svg.getBoundingClientRect();
+    if(!r.width)return;
+    var px=(ev.clientX-r.left)*(CH_W/r.width);
+    var mej=pts[0],dist=Infinity;
+    pts.forEach(function(p){var d=Math.abs(geo.sx(p.semana)-px);if(d<dist){dist=d;mej=p}});
+    var x=geo.sx(mej.semana);
+    g.setAttribute("x1",x);g.setAttribute("x2",x);g.setAttribute("opacity",1);
+    dF.setAttribute("cx",x);dF.setAttribute("cy",geo.sy(mej.med));dF.setAttribute("opacity",1);
+    if(num(mej.bmk)){dB.setAttribute("cx",x);dB.setAttribute("cy",geo.sy(mej.bmk));dB.setAttribute("opacity",1)}
+    else dB.setAttribute("opacity",0);
+    tip.innerHTML='<u>Semana '+mej.semana+'</u>'
+      +'<span class="f">Mediana '+fmtPct(mej.med,true)+'</span><br>'
+      +'<span class="b">ACWI '+(num(mej.bmk)?fmtPct(mej.bmk,true):"s/d")+'</span>';
+    /* El globo se recorta dentro del gráfico: en la última semana se salía por
+       la derecha (y en un teléfono eso basta para que aparezca una barra de
+       scroll horizontal en toda la página), y en un punto alto se salía por
+       arriba. Si no cabe encima del dato, se dibuja debajo. */
+    var esc2=r.width/CH_W,anchoTip=tip.offsetWidth||140,altoTip=tip.offsetHeight||54;
+    var izq=x*esc2,tope=r.width-anchoTip/2-2;
+    tip.style.left=Math.max(anchoTip/2+2,Math.min(izq,tope))+"px";
+    var arriba=geo.sy(mej.med)*esc2;
+    var abajo=arriba-altoTip*1.16<2;
+    tip.classList.toggle("ch-tip--abajo",abajo);
+    tip.style.top=arriba+"px";
+    tip.classList.add("on");
+  }
+  hit.addEventListener("pointermove",mover);
+  hit.addEventListener("pointerdown",mover);
+  hit.addEventListener("pointerleave",limpiar);
+  hit.addEventListener("pointerup",limpiar);
+  hit.addEventListener("pointercancel",limpiar);
+  if(plot&&!plot._salida){plot._salida=true;plot.addEventListener("mouseleave",limpiar)}
+}
+
+/* ---------------- §Los 100 puntos: la asignación + las 5 métricas ----------
+   La sección abre con la barra de 100 puntos repartida en cinco tramos
+   proporcionales al peso REAL de cada métrica, que no está escrito en ninguna
+   parte: sale del máximo de puntosDetalle del ranking (ver pesos()). Debajo,
+   una franja por métrica con su explicación, que vive en datos/portafolio.json
+   y es del área, no del torneo.
+   Las franjas se dibujan SIEMPRE; la barra y su clave solo si el ranking
+   cargó. Sin datos no queda un hueco: queda la explicación, que sigue siendo
+   verdad, y la barra simplemente no existe. */
+var AL_TONOS=["#EBD388","#DFC26A","#D4AF37","#C09A2C","#AC8722"];
+function renderMetricas(){
+  var rows=$("#mtRows"),bar=$("#alloc"),key=$("#allocKey");
+  if(!rows)return;
+  var lista=(DATA.metricas||[]).slice();
+  if(!lista.length){rows.innerHTML="";return;}
+  var P=(TD&&utiles(TD))?pesos(TD):null;
+  if(P)lista.sort(function(a,b){return (P[b.clave]||0)-(P[a.clave]||0)});
+  var total=0;
+  if(P)lista.forEach(function(m){if(num(P[m.clave]))total+=P[m.clave]});
+
+  /* La barra */
+  if(bar&&key){
+    if(P&&total>0){
+      var segs="",clave="",leible=[];
+      lista.forEach(function(m,i){
+        var w=num(P[m.clave])?P[m.clave]/total*100:0;
+        if(!(w>0))return;
+        var tono=AL_TONOS[Math.min(i,AL_TONOS.length-1)];
+        segs+='<div class="al-seg" style="--w:'+w.toFixed(2)+'%;background:'+tono+'">'
+            +'<span class="al-n">'+fmtNum(P[m.clave],0)+'</span>'
+            +'<span class="al-name">'+esc(m.nombre)+'</span></div>';
+        clave+='<span><i style="background:'+tono+'"></i>'+esc(m.nombre)+' <b>'+fmtNum(P[m.clave],0)+'</b></span>';
+        leible.push(m.nombre+" "+fmtNum(P[m.clave],0));
+      });
+      bar.innerHTML=segs;
+      bar.setAttribute("aria-label","Reparto de los 100 puntos del torneo: "+leible.join(", ")+".");
+      key.innerHTML=clave;
+      bar.hidden=false;key.hidden=false;
+      observeReveals(bar.parentElement||document);
+    }else{
+      bar.hidden=true;key.hidden=true;bar.innerHTML="";key.innerHTML="";
+    }
+  }
+
+  /* Las franjas */
+  rows.innerHTML=lista.map(function(m){
+    var peso=(P&&num(P[m.clave]))?P[m.clave]:null;
+    var mej=(peso!==null)?mejorEn(TD,m.clave):null;
+    var val=mej?fmtMet(m.clave,mej.v):null;
+    var h='<article class="mrow reveal"'+(peso===null?' style="grid-template-columns:1fr"':"")+'>';
+    if(peso!==null)h+='<div class="mrow-n">'+fmtNum(peso,0)+'<em>de 100 pts</em></div>';
+    h+='<div class="mrow-b"><h3>'+esc(m.nombre)+'</h3>'
+      +(m.sub?'<span class="mrow-sub">'+esc(m.sub)+'</span>':"")
+      +'<p>'+esc(m.texto)+'</p>';
+    if(mej&&val)h+='<div class="mrow-best"><span>Mejor del corte</span><b>'+esc(mej.nombre)+'</b><span class="val">'+esc(val)+'</span></div>';
+    return h+'</div></article>';
+  }).join("");
+
+  var mc=$("#mtCorte");
+  if(mc)mc.textContent=(TD&&num(TD.semana)&&TD.corte)
+    ? "  ·  Mejor del corte: semana "+TD.semana+", cierre del "+TD.corte+"."
+    : "";
+  observeReveals(rows);
+}
+
+/* ---------------- Carga del ranking ---------------- */
+function usarTorneo(d,esCompleto){
+  if(!utiles(d))return;
+  TD=d;TD_HIST=!!esCompleto&&conHistorial(d);
+  pintarHeroMeta();
+  pintarCinta();
+  pintarPlano();
+  pintarCorte();
+  renderMetricas();
+  renderTorneo();          /* refresca el nº de equipos de la ficha del torneo */
+}
+(function cargarRanking(){
+  function completo(){
+    return fetch("../datos/torneo.json",{cache:"no-cache"})
+      .then(function(r){return r.ok?r.json():null});
+  }
+  /* Salvavidas del derivado: si torneo-tabla.json se quedó atrás respecto del
+     completo, al llegar el completo se repinta TODO con él — usarTorneo()
+     reemplaza los datos enteros, así que nunca queda una cifra vieja mezclada
+     con una nueva. Y si el derivado no existe, se va directo al completo. */
+  fetch("../datos/torneo-tabla.json",{cache:"no-cache"})
+    .then(function(r){return r.ok?r.json():null})
+    .then(function(d){
+      if(!utiles(d))return completo().then(function(f){usarTorneo(f,true)});
+      usarTorneo(d,false);
+      var c=navigator.connection||{};
+      if(c.saveData||/(^|-)2g$/.test(c.effectiveType||""))return null;
+      return new Promise(function(res){
+        (window.requestIdleCallback||function(f){setTimeout(f,1200)})(function(){res()});
+      }).then(completo).then(function(f){usarTorneo(f,true)});
+    })
+    .catch(function(){});   /* sin ranking, §El corte no se muestra y ya está */
+})();
+/* El gráfico se redibuja al cambiar el ANCHO, no en cada evento de resize: en
+   móvil la barra del navegador dispara resize al scrollear y solo cambia el
+   alto. Los textos van en píxeles reales, por eso hay que rehacer el SVG en
+   vez de estirarlo. */
+(function(){
+  var t=null;
+  window.addEventListener("resize",function(){
+    var plot=$("#chPlot");
+    if(!plot||!CH_PTS||Math.abs((plot.clientWidth||0)-CH_W)<2)return;
+    clearTimeout(t);t=setTimeout(pintarGrafico,180);
+  },{passive:true});
+})();
+
+/* ---------------- Eventos del área ----------------
+   Mismo dato que la bitácora general (../datos/eventos.json), filtrado por
+   area:"portafolio" — un evento con esa etiqueta aparece ACÁ y en
+   eventos/index.html, no reemplaza uno por el otro. La sección queda
+   oculta mientras no exista ningún evento con esa etiqueta. */
+var TIPOS_EV={torneo:"Torneo",visita:"Visita",charla:"Charla · Capacitación",comunidad:"Comunidad"};
+var FOTOS_EV_BASE="../fotos/eventos/";
+function probeEvBg(carpeta,cb){
+  if(!carpeta){cb(null);return;}
+  var exts=["jpg","webp","png","jpeg","JPG"],i=0;
+  (function tryExt(){
+    if(i>=exts.length){cb(null);return;}
+    var img=new Image(),url=FOTOS_EV_BASE+carpeta+"/1."+exts[i];
+    img.onload=function(){cb(url)};
+    img.onerror=function(){i++;tryExt()};
+    img.src=url;
+  })();
+}
+function renderEventosArea(lista){
+  var sec=$("#actividades");
+  if(!lista||!lista.length){sec.hidden=true;return;}
+  sec.hidden=false;
+  var grid=$("#valEventosGrid");
+  var evs=lista.slice().sort(function(a,b){return b.fecha<a.fecha?-1:1});
+  grid.innerHTML=evs.map(function(e,i){
+    var yr=(e.fecha||"").slice(0,4);
+    return '<a class="ev-card reveal '+(i%2?"d1":"")+'" href="../eventos/index.html#'+esc(e.id)+'">'
+        + '<div class="ev-bg" data-carpeta="'+esc(e.carpeta||"")+'"></div>'
+        + '<div class="ev-veil"></div>'
+        + '<span class="ev-ghost" aria-hidden="true">'+esc(yr)+'</span>'
+        + '<div class="ev-body">'
+        +   '<div class="ev-top">'
+        +     '<span class="ev-date">'+esc(e.fechaTexto||e.fecha)+'</span>'
+        +     '<span class="ev-type">'+esc(TIPOS_EV[e.tipo]||e.tipo)+'</span>'
+        +     (e.live?'<span class="ev-live"><span class="live-dot"></span>EN CURSO</span>':(!e.live&&Date.parse((e.fecha||"")+"T23:59:59-03:00")>Date.now()?'<span class="ev-type ev-proximo">PRÓXIMO</span>':""))
+        +   '</div>'
+        +   '<h3>'+esc(e.titulo)+'</h3>'
+        +   (function(t){return t?'<p class="ev-res">'+esc(t)+'</p>':""})(String(e.resumen||"").trim())
+        +   '<div class="ev-foot">'
+        +     '<span class="ev-part">'+(e.participantes&&e.participantes.length?e.participantes.length+" participantes":"")+'</span>'
+        +     '<span class="ev-link">Ver evento <span class="arr">→</span></span>'
+        +   '</div>'
+        + '</div></a>';
+  }).join("");
+  observeReveals(grid);
+  $$(".ev-bg",grid).forEach(function(bg){
+    var c=bg.getAttribute("data-carpeta");if(!c)return;
+    probeEvBg(c,function(url){if(url)bg.style.backgroundImage="url('"+url+"')";});
+  });
+  addActividadesNavLink();
+}
+/* el enlace de nav a "Actividades" solo se agrega si hay al menos un evento real */
+function addActividadesNavLink(){
+  var t1=$('.nav__links a[href="#responsables"]');
+  if(t1&&!$('.nav__links a[href="#actividades"]')){
+    var li=document.createElement("li");
+    li.innerHTML='<a href="#actividades">Actividades</a>';
+    t1.parentElement.parentElement.insertBefore(li,t1.parentElement);
+  }
+  var t3=$('#rail a[href="#responsables"]');
+  if(t3&&!$('#rail a[href="#actividades"]')){
+    var ra=document.createElement("a");
+    ra.href="#actividades";
+    ra.innerHTML='<span class="rl-n">08</span><span class="rl-t">Actividades</span>';
+    t3.parentElement.insertBefore(ra,t3);
+    sincRiel();
+  }
+  var t2=$('#mmenu a[href="#responsables"]');
+  if(t2&&!$('#mmenu a[href="#actividades"]')){
+    var a=document.createElement("a");
+    a.href="#actividades";a.textContent="Actividades";
+    t2.parentElement.insertBefore(a,t2);
+  }
+}
+fetch("../datos/eventos.json",{cache:"no-cache"})
+  .then(function(r){return r.ok?r.json():null})
+  .then(function(d){
+    var evs=(d&&d.eventos)||[];
+    renderEventosArea(evs.filter(function(e){return e.area==="portafolio"}));
+  }).catch(function(){});
+
+/* ---------------- Override JSON ---------------- */
+fetch("../datos/portafolio.json",{cache:"no-cache"})
+  .then(function(r){return r.ok?r.json():null})
+  .then(function(d){if(d){for(var k in d){DATA[k]=d[k];}renderData();}})
+  .catch(function(){});
+
+/* ---------------- Infraestructura compartida ---------------- */
+var revIO=null;
+function makeRevIO(){
+  if(RM||!("IntersectionObserver" in window))return null;
+  return new IntersectionObserver(function(es){
+    es.forEach(function(en){
+      if(!en.isIntersecting)return;
+      en.target.classList.add("in");
+      var sc=en.target.querySelector(".scr");if(sc)scramble(sc);
+      revIO.unobserve(en.target);
+    });
+  },{threshold:.1,rootMargin:"0px 0px -5% 0px"});
+}
+function observeReveals(root){
+  var items=$$(".reveal:not(.in)",root||document);
+  if(!revIO){items.forEach(function(el){el.classList.add("in")});return;}
+  items.forEach(function(el){revIO.observe(el)});
+}
+var SCRCH="▮▯01$%&#<>·";
+function scramble(el){
+  var fin=el.getAttribute("data-text")||el.textContent;
+  if(RM){el.textContent=fin;return;}
+  var t0=null,dur=600;
+  (function fr(t){
+    if(!t0)t0=t;
+    var p=Math.min((t-t0)/dur,1),n=Math.floor(fin.length*p),out=fin.slice(0,n);
+    for(var i=n;i<fin.length;i++){out+=fin[i]===" "?" ":SCRCH[(Math.random()*SCRCH.length)|0];}
+    el.textContent=out;
+    if(p<1)requestAnimationFrame(fr);else el.textContent=fin;
+  })(performance.now());
+}
+revIO=makeRevIO();
+
+function bindGlow(root){
+  if(!FINE)return;
+  $$(".glowable",root||document).forEach(function(g){
+    if(g._glow)return;g._glow=true;
+    g.addEventListener("pointermove",function(e){
+      var r=g.getBoundingClientRect();
+      g.style.setProperty("--mx",((e.clientX-r.left)/r.width*100)+"%");
+      g.style.setProperty("--my",((e.clientY-r.top)/r.height*100)+"%");
+    });
+  });
+}
+
+
+/* ---------------- Riel de secciones ----------------
+   Se numera solo con las secciones que de verdad estan a la vista: §El corte,
+   §Torneo y §Actividades aparecen o no segun haya datos, asi que un numero
+   escrito a mano se desalinearia el dia que una de ellas se oculte. */
+var RIEL_A=null;
+function sincRiel(){
+  var rail=$("#rail");if(!rail)return;
+  if(!RIEL_A)RIEL_A=$$("a",rail);
+  var vis=[];
+  RIEL_A.forEach(function(a){
+    var sec=$(a.getAttribute("href"));
+    var ok=!!sec&&!sec.hidden;
+    a.hidden=!ok;
+    if(ok)vis.push({a:a,s:sec});
+  });
+  vis.forEach(function(v,i){
+    var n=v.a.querySelector(".rl-n");
+    if(n)n.textContent=(i<9?"0":"")+(i+1);
+  });
+  rail._vis=vis;
+  marcarRiel();
+}
+/* El color no puede ser fijo: el riel flota sobre secciones oscuras y claras. */
+function marcarRiel(){
+  var rail=$("#rail"),vis=rail&&rail._vis;
+  if(!vis||!vis.length)return;
+  var mid=innerHeight*.42,act=vis[0];
+  vis.forEach(function(v){if(v.s.getBoundingClientRect().top<=mid)act=v});
+  vis.forEach(function(v){v.a.classList.toggle("on",v===act)});
+  rail.classList.toggle("claro",act.s.classList.contains("section--light"));
+}
+
+var bar=$("#scrollbar"),nav=$("#nav");
+window.addEventListener("scroll",function(){
+  var h=document.documentElement,max=h.scrollHeight-h.clientHeight;
+  bar.style.width=(max>0?(h.scrollTop/max)*100:0)+"%";
+  nav.classList.toggle("scrolled",h.scrollTop>10);
+  marcarRiel();
+},{passive:true});
+
+var burger=$("#burger"),mmenu=$("#mmenu");
+function toggleMenu(f){
+  var open=typeof f==="boolean"?f:!mmenu.classList.contains("open");
+  mmenu.classList.toggle("open",open);burger.classList.toggle("open",open);
+  burger.setAttribute("aria-expanded",open);
+  document.body.style.overflow=open?"hidden":"";
+}
+burger.addEventListener("click",function(){toggleMenu()});
+$$("a",mmenu).forEach(function(a){a.addEventListener("click",function(){toggleMenu(false)})});
+
+/* marquee: duplicar para loop */
+(function(){var t=$("#marqTrack");if(t)t.innerHTML+=t.innerHTML})();
+
+/* La tira de fotos del hero (.photo-marquee, sondeando ../fotos/portafolio/)
+   que llevan valuation/ y trading/ se sacó de esta página junto con su CSS y
+   su marcado: acá el hero lo ocupa el plano riesgo/retorno del torneo (ver
+   pintarPlano). Es el cambio que rompe la simetría con las otras dos páginas
+   de área, y es a propósito — este desk se presenta con sus datos, no con
+   fotos. Si algún día se quiere volver atrás, el bloque está entero en
+   valuation/index.html. */
+
+/* ---------------- Arranque ---------------- */
+renderData();
+sincRiel();
+observeReveals(document);
+bindGlow(document);
+(function(){
+  var pre=$("#preloader"),seen=false;
+  try{seen=!!sessionStorage.getItem("figIntro:portafolio")}catch(e){}
+  var quick=RM||seen;
+  if(quick){pre.classList.add("p1","p2");}
+  else{
+    setTimeout(function(){pre.classList.add("p1")},150);
+    setTimeout(function(){pre.classList.add("p2")},900);
+    try{sessionStorage.setItem("figIntro:portafolio","1")}catch(e){}
+  }
+  setTimeout(function(){
+    pre.classList.add("done");
+    document.body.classList.add("hero-in");
+    var hk=$(".hero .scr");if(hk&&!RM)scramble(hk);
+  },RM?0:(quick?400:2400));
+})();
+})();
+</script>
+<script>
+/* Métricas anónimas de visitas — SIN cookies ni identificadores. Usa el
+   mismo Apps Script COMPARTIDO del sitio (config.figEndpoint), con
+   tipo:"visita". Solo se activa si config.figEndpoint está configurado en
+   datos/club.json. Registra página, fecha y origen. */
+(function(){
+try{
+fetch("../datos/club.json",{cache:"no-cache"})
+.then(function(r){return r.ok?r.json():null})
+.then(function(d){
+  var u=d&&d.config&&d.config.figEndpoint;if(!u)return;
+  var b=JSON.stringify({tipo:"visita",pagina:location.pathname,fecha:new Date().toISOString(),origen:(document.referrer.split("/")[2]||"")});
+  if(navigator.sendBeacon){navigator.sendBeacon(u,b);}
+  else{fetch(u,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:b}).catch(function(){});}
+}).catch(function(){});
+}catch(e){}
+})();
+</script>
+</body>
+</html>

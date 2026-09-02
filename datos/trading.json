@@ -1,0 +1,32 @@
+{
+  "_como_editar": "Textos y datos del área Trading. La página trading/index.html trae estos mismos valores embebidos y los sobreescribe con este archivo, así que basta editar acá: no hay que tocar el HTML. Qué activa cada cosa: 'bajada' es la frase bajo el título del hero; 'resumen' son los párrafos de la sección 'Qué es Trading' (uno por elemento del arreglo); 'pilares' son las 3 tarjetas de 'Cómo trabajamos' (si agregas una cuarta se dibuja igual, pero el diseño está pensado para 3); 'responsables' son las tarjetas del final, en el orden en que estén acá. Quien DIRIGE el área lleva 'lidera': true: su tarjeta se dibuja con filete dorado al costado y el chip 'Dirige el área' (la misma jerarquía que ya se usa en la sección Nosotros del index.html de la raíz). Debe haber UNO SOLO por área — hoy Manuel Paz — y el resto va sin el campo; si el campo falta o está en false, la tarjeta se ve normal. TORNEO: el área todavía NO tiene torneo propio, por eso 'torneo.activo' está en false y la sección entera queda oculta en la página. Para encenderla cuando exista: pon 'activo': true, reemplaza los 'Por confirmar' de 'torneo.datos' por los datos reales y escribe 'bajada' y 'estado'. El botón 'Inscríbete' aparece solo cuando además pegues el link del Google Form en 'torneo.formUrl'; mientras esté vacío se muestra 'Inscripciones — próximamente'. Las bases (PDF o enlace) van en 'torneo.basesUrl' y agregan el botón 'Ver las bases'. Ojo: al encender el torneo conviene volver a poner el ítem 'Torneo' en el nav y en el menú móvil de trading/index.html, que hoy no están porque la sección no se muestra. ACTIVIDADES: la sección de eventos del área se llena sola desde datos/eventos.json con los eventos que tengan 'area': 'trading'; hoy no hay ninguno, así que está oculta. FOTOS: los retratos de los responsables se detectan solos desde fotos/directiva/<slug>.jpg (los 3 ya existen) y la tira de fondo del hero desde fotos/trading/1.jpg, 2.jpg, 3.jpg… (carpeta aún no creada; mientras no exista, el hero se ve igual, sin errores).",
+  "bajada": "El área de FIG donde se opera el mercado en tiempo real: análisis técnico, lectura de flujos y riesgo medido en cada operación.",
+  "resumen": [
+    "Trading es el área de FEN Investment Group dedicada a los mercados en tiempo real: análisis técnico, lectura de flujos y estrategias de corto plazo, con foco en la ejecución y la gestión activa del riesgo en cada operación.",
+    "Aquí los miembros aprenden a leer el precio y el volumen, a armar un plan de operación con entrada, salida y tamaño de posición definidos antes de entrar al mercado, y a sostener ese plan cuando el precio se mueve en contra."
+  ],
+  "pilares": [
+    {"num": "01 · MERCADO", "titulo": "Leer lo que el precio dice", "texto": "Análisis técnico, lectura de flujos y contexto de mercado para entender qué está haciendo el precio antes de tomar una posición."},
+    {"num": "02 · EJECUCIÓN", "titulo": "Entrar con el riesgo definido", "texto": "Plan de operación con entrada, salida y tamaño de posición fijados de antemano: el riesgo se decide antes de operar, no después."},
+    {"num": "03 · LABORATORIO", "titulo": "Operar con las herramientas reales", "texto": "Práctica en el Laboratorio Bloomberg de la FEN, con los mismos datos y terminales con los que se opera en la industria."}
+  ],
+  "torneo": {
+    "activo": false,
+    "titulo": "Torneo de Trading",
+    "bajada": "Por confirmar.",
+    "estado": "Por confirmar",
+    "formUrl": "",
+    "basesUrl": "",
+    "datos": [
+      {"k": "Formato", "v": "Por confirmar"},
+      {"k": "Fechas", "v": "Por confirmar"},
+      {"k": "Quiénes pueden participar", "v": "Por confirmar"},
+      {"k": "Organiza", "v": "Área Trading · FIG"}
+    ]
+  },
+  "responsables": [
+    {"iniciales": "MP", "slug": "manuel-paz", "nombre": "Manuel Paz", "rol": "Director · Portafolio y Trading", "lidera": true, "detalle": "Co-fundador de FIG. Dirige el área Trading y las comunicaciones del club.", "linkedin": "https://www.linkedin.com/in/mpazq"},
+    {"iniciales": "RA", "slug": "rafael-aliendre", "nombre": "Rafael Aliendre", "rol": "Directivo · Trading", "detalle": "Co-fundador de FIG. Memorista en Estrategia e Inteligencia de Mercado en CODELCO.", "linkedin": "https://www.linkedin.com/in/rafael-aliendre-javier"},
+    {"iniciales": "JD", "slug": "juan-pablo-diaz-cerda", "nombre": "Juan Pablo Díaz Cerda", "rol": "Directivo · Trading", "detalle": "Co-fundador de FIG. Práctica en la Gerencia de Inversiones de BCI Seguros.", "linkedin": "https://www.linkedin.com/in/juan-pablo-d%C3%ADaz-cerda-449133310/"}
+  ]
+}

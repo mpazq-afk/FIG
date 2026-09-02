@@ -3,20 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Valuation — FIG</title>
-<meta name="description" content="Valuation: el área de FEN Investment Group dedicada al research fundamental y la valorización de compañías. Universidad de Chile.">
+<title>Trading — FIG</title>
+<meta name="description" content="Trading: el área de FEN Investment Group dedicada a los mercados en tiempo real, el análisis técnico y la gestión del riesgo. Universidad de Chile.">
 <meta name="theme-color" content="#0A1128">
-<link rel="canonical" href="https://feninvestmentgroup.com/valuation/">
-<meta property="og:url" content="https://feninvestmentgroup.com/valuation/">
-<meta property="og:title" content="Valuation — FIG">
-<meta property="og:description" content="El área de FIG dedicada al research fundamental: entender un negocio, valorizarlo y defender una tesis de inversión. Universidad de Chile.">
+<link rel="canonical" href="https://feninvestmentgroup.com/trading/">
+<meta property="og:url" content="https://feninvestmentgroup.com/trading/">
+<meta property="og:title" content="Trading — FIG">
+<meta property="og:description" content="El área de FIG dedicada a los mercados en tiempo real: análisis técnico, lectura de flujos y gestión del riesgo en cada operación. Universidad de Chile.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Valuation — FIG">
-<meta name="twitter:description" content="Research fundamental y valorización de compañías en FEN Investment Group.">
+<meta name="twitter:title" content="Trading — FIG">
+<meta name="twitter:description" content="Mercados en tiempo real, análisis técnico y gestión del riesgo en FEN Investment Group.">
 <meta name="twitter:image" content="/og-image.png">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%230A1128'/%3E%3Ccircle cx='50' cy='50' r='34' fill='%23D4AF37'/%3E%3C/svg%3E">
 <!-- Tipografias autoalojadas: antes esto eran dos preconnect y una
@@ -26,11 +26,13 @@
 <link href="../fuentes/fig.css" rel="stylesheet">
 <style>
 /* ============================================================================
-   VALUATION — página del área
+   TRADING — página del área
    Mismo ADN del sitio FIG, paleta estándar navy + oro (NO tiene paleta propia:
    la única con paleta propia es FIW).
-   Datos: DATA embebida + override desde ../datos/valuation.json
-   Torneo: se activa solo cuando datos/valuation.json trae torneo.formUrl.
+   Datos: DATA embebida + override desde ../datos/trading.json
+   Torneo: el área NO tiene torneo propio confirmado, así que datos/trading.json
+   trae torneo.activo:false y la sección queda oculta. Cuando exista, basta
+   poner activo:true y llenar los datos ahí: no hay que tocar esta página.
    Fotos de responsables: ../fotos/directiva/<slug>.jpg (se detectan solas).
    ============================================================================ */
 :root{
@@ -262,7 +264,7 @@ section{padding:clamp(5rem,9vw,8rem) 0;position:relative}
 .p-link{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--acc);margin-top:auto;display:inline-flex;align-items:center;gap:6px;transition:gap .3s;padding:5px 3px;margin-left:-3px;margin-right:-3px;margin-bottom:-5px}
 .p-link:hover{gap:11px}
 
-/* Eventos del área (mismo estilo de tarjeta que eventos/index.html, filtrado por area:"valuation") */
+/* Eventos del área (mismo estilo de tarjeta que eventos/index.html, filtrado por area:"trading") */
 .ev-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px}
 .ev-card{position:relative;border-radius:10px;overflow:hidden;min-height:320px;border:1px solid var(--line-d);background:var(--navy-panel);display:flex;flex-direction:column;justify-content:flex-end;transition:transform .5s var(--ease),border-color .5s,box-shadow .5s}
 .ev-card:hover{transform:translateY(-8px);border-color:rgba(212,175,55,.5);box-shadow:0 32px 64px -26px rgba(0,0,0,.65)}
@@ -336,22 +338,21 @@ html:not(.no-js) body:not(.hero-in) .hero .reveal{opacity:0;transform:translateY
 <body>
 
 <div id="scrollbar"></div>
-<div id="preloader"><div class="in-lock"><img class="in-logo" src="../logos/fig-oro.png" alt=""><div class="in-text"><b>Valuation</b><span>FEN Investment Group</span></div></div></div>
+<div id="preloader"><div class="in-lock"><img class="in-logo" src="../logos/fig-oro.png" alt=""><div class="in-text"><b>Trading</b><span>FEN Investment Group</span></div></div></div>
 
 <nav class="nav" id="nav">
   <div class="wrap">
     <a href="../index.html" class="brand" aria-label="FEN Investment Group — Inicio">
       <img class="brand-logo" src="../logos/fig-oro.png" alt="FIG">
-      <div><div class="brand-name">Valuation</div><span class="brand-sub">Área de FIG</span></div>
+      <div><div class="brand-name">Trading</div><span class="brand-sub">Área de FIG</span></div>
     </a>
     <ul class="nav__links">
       <li><a href="../index.html">Inicio FIG</a></li>
       <li><a href="../eventos/index.html">Eventos</a></li>
       <li><a href="#nosotros">El área</a></li>
-      <li><a href="#torneo">Torneo</a></li>
       <li><a href="#responsables">Responsables</a></li>
     </ul>
-    <a href="#torneo" class="btn btn--acc btn--nav">Inscríbete</a>
+    <a href="#nosotros" class="btn btn--acc btn--nav">Conoce el área</a>
     <button class="nav__burger" id="burger" aria-label="Abrir menú" aria-expanded="false"><i></i><i></i><i></i></button>
   </div>
 </nav>
@@ -359,7 +360,6 @@ html:not(.no-js) body:not(.hero-in) .hero .reveal{opacity:0;transform:translateY
   <a href="../index.html">Inicio FIG</a>
   <a href="../eventos/index.html">Eventos</a>
   <a href="#nosotros">El área</a>
-  <a href="#torneo">Torneo</a>
   <a href="#responsables">Responsables</a>
 </div>
 
@@ -369,26 +369,26 @@ html:not(.no-js) body:not(.hero-in) .hero .reveal{opacity:0;transform:translateY
   <div class="photo-marquee" aria-hidden="true"></div>
   <div class="hero-rings" aria-hidden="true"><i></i><i></i><i></i></div>
   <div class="wrap">
-    <div class="kicker reveal"><span class="scr" data-text="Valuation · FIG">Valuation · FIG</span></div>
-    <h1 aria-label="El valor detrás del precio.">
-      <span class="ln"><span>El valor detrás</span></span>
-      <span class="ln"><span><em>del precio.</em></span></span>
+    <div class="kicker reveal"><span class="scr" data-text="Trading · FIG">Trading · FIG</span></div>
+    <h1 aria-label="El mercado se lee mientras ocurre.">
+      <span class="ln"><span>El mercado se lee</span></span>
+      <span class="ln"><span><em>mientras ocurre.</em></span></span>
     </h1>
-    <p class="hero__sub reveal d2" id="heroBajada">El área de FIG donde se estudia el valor real de una compañía, más allá de su precio.</p>
+    <p class="hero__sub reveal d2" id="heroBajada">El área de FIG donde se opera el mercado en tiempo real: análisis técnico, lectura de flujos y riesgo medido en cada operación.</p>
     <div class="hero__cta reveal d3">
-      <a href="#torneo" class="btn btn--acc">Torneo del área <span class="arr">→</span></a>
-      <a href="#nosotros" class="btn btn--ghost">Conoce el área</a>
+      <a href="#nosotros" class="btn btn--acc">Conoce el área <span class="arr">→</span></a>
+      <a href="#responsables" class="btn btn--ghost">Responsables</a>
     </div>
     <div class="hero__meta reveal d3">
-      <span>Research <b>fundamental</b></span>
-      <span>DCF · Múltiplos · <b>Tesis</b></span>
+      <span>Análisis <b>técnico</b></span>
+      <span>Flujos · Ejecución · <b>Riesgo</b></span>
     </div>
   </div>
 </header>
 
 <div class="marq" aria-hidden="true">
   <div class="marq__track" id="marqTrack">
-    <span class="mq"><b>Research</b></span><span class="mq">Valorización</span><span class="mq"><b>DCF</b></span><span class="mq">Múltiplos</span><span class="mq"><b>Tesis de inversión</b></span><span class="mq">Compañías</span><span class="mq"><b>Estados financieros</b></span><span class="mq">Análisis</span>
+    <span class="mq"><b>Análisis técnico</b></span><span class="mq">Flujos</span><span class="mq"><b>Ejecución</b></span><span class="mq">Volatilidad</span><span class="mq"><b>Gestión de riesgo</b></span><span class="mq">Corto plazo</span><span class="mq"><b>Laboratorio Bloomberg</b></span><span class="mq">Mercados</span>
   </div>
 </div>
 
@@ -396,21 +396,21 @@ html:not(.no-js) body:not(.hero-in) .hero .reveal{opacity:0;transform:translateY
 <section class="section--light" id="nosotros">
   <div class="wrap">
     <div class="sec-head">
-      <div class="kicker reveal"><span class="scr" data-text="Qué es Valuation">Qué es Valuation</span></div>
-      <h2 class="h-sec reveal d1">Entender cuánto vale <em>una compañía</em>.</h2>
+      <div class="kicker reveal"><span class="scr" data-text="Qué es Trading">Qué es Trading</span></div>
+      <h2 class="h-sec reveal d1">Operar con <em>método y disciplina</em>.</h2>
     </div>
     <div class="about-grid">
       <div class="about-copy reveal">
-        <p class="drop">El precio es lo que pagas. <em>El valor es lo que recibes.</em></p>
+        <p class="drop">El mercado no premia la corazonada. <em>Premia el método.</em></p>
         <div id="valResumen">
-          <p><b>Valuation</b> es el área de FEN Investment Group dedicada al research fundamental: entender un negocio, valorizarlo con las metodologías que se usan en la industria y transformar ese análisis en una tesis de inversión defendible.</p>
-          <p>Aquí los miembros aprenden a leer estados financieros, a construir modelos DCF y de múltiplos comparables, y a sostener una recomendación de compra o venta con argumentos y números sobre la mesa, no con intuición.</p>
+          <p><b>Trading</b> es el área de FEN Investment Group dedicada a los mercados en tiempo real: análisis técnico, lectura de flujos y estrategias de corto plazo, con foco en la ejecución y la gestión activa del riesgo en cada operación.</p>
+          <p>Aquí los miembros aprenden a leer el precio y el volumen, a armar un plan de operación con entrada, salida y tamaño de posición definidos antes de entrar al mercado, y a sostener ese plan cuando el precio se mueve en contra.</p>
         </div>
       </div>
       <div class="about-side reveal d2">
-        <div class="side-card"><span class="mono-tag">Origen</span><h3>Una de las 4 áreas</h3><p>Área fundadora de FIG, junto a Portafolio y Trading.</p></div>
-        <div class="side-card"><span class="mono-tag">Metodología</span><h3>Research fundamental</h3><p>Estados financieros, modelos DCF, múltiplos comparables y tesis de inversión.</p></div>
-        <div class="side-card"><span class="mono-tag">Responsables</span><h3>Jhosep García</h3><p>Dirige el área, junto a Samuel Rodríguez y Benjamín Sáez, presidente de FIG.</p></div>
+        <div class="side-card"><span class="mono-tag">Origen</span><h3>Una de las áreas fundadoras</h3><p>Área fundadora de FIG, junto a Portafolio y Valuation, entre otras.</p></div>
+        <div class="side-card"><span class="mono-tag">Metodología</span><h3>Análisis técnico y riesgo</h3><p>Lectura de precio y flujos, plan de operación y control del riesgo en cada posición.</p></div>
+        <div class="side-card"><span class="mono-tag">Herramientas</span><h3>Laboratorio Bloomberg</h3><p>El desk opera con las terminales Bloomberg de la FEN, las mismas que usa la industria.</p></div>
       </div>
     </div>
   </div>
@@ -421,26 +421,30 @@ html:not(.no-js) body:not(.hero-in) .hero .reveal{opacity:0;transform:translateY
   <div class="wrap">
     <div class="sec-head">
       <div class="kicker reveal"><span class="scr" data-text="Cómo trabajamos">Cómo trabajamos</span></div>
-      <h2 class="h-sec reveal d1">Del análisis <em>a la tesis</em>.</h2>
+      <h2 class="h-sec reveal d1">Del gráfico <em>a la operación</em>.</h2>
     </div>
     <div class="pilares" id="valPilares">
-      <div class="pilar glowable reveal"><span class="p-num">01 · RESEARCH</span><h3>Analizar la compañía a fondo</h3><p>Estudio de estados financieros, industria y ventaja competitiva para entender el negocio que hay detrás de la acción.</p></div>
-      <div class="pilar glowable reveal d1"><span class="p-num">02 · VALORIZACIÓN</span><h3>Del negocio al precio justo</h3><p>Modelos DCF, múltiplos comparables y análisis de sensibilidad para estimar cuánto vale realmente una empresa.</p></div>
-      <div class="pilar glowable reveal d2"><span class="p-num">03 · TESIS</span><h3>Defender una recomendación</h3><p>Construir una tesis de inversión clara y sostenerla ante preguntas, con los números como respaldo.</p></div>
+      <div class="pilar glowable reveal"><span class="p-num">01 · MERCADO</span><h3>Leer lo que el precio dice</h3><p>Análisis técnico, lectura de flujos y contexto de mercado para entender qué está haciendo el precio antes de tomar una posición.</p></div>
+      <div class="pilar glowable reveal d1"><span class="p-num">02 · EJECUCIÓN</span><h3>Entrar con el riesgo definido</h3><p>Plan de operación con entrada, salida y tamaño de posición fijados de antemano: el riesgo se decide antes de operar, no después.</p></div>
+      <div class="pilar glowable reveal d2"><span class="p-num">03 · LABORATORIO</span><h3>Operar con las herramientas reales</h3><p>Práctica en el Laboratorio Bloomberg de la FEN, con los mismos datos y terminales con los que se opera en la industria.</p></div>
     </div>
   </div>
 </section>
 
-<!-- TORNEO -->
+<!-- TORNEO — el área NO tiene torneo propio confirmado todavía.
+     La sección vive oculta (torneo.activo:false en datos/trading.json) y
+     renderTorneo() la deja `hidden`. El andamiaje queda listo: cuando exista
+     el torneo basta poner activo:true y llenar los datos en el JSON. Por eso
+     tampoco hay ítem "Torneo" en el nav ni CTA que apunte acá. -->
 <section class="section--light" id="torneo" hidden>
   <div class="wrap">
     <div class="sec-head">
       <div class="kicker reveal"><span class="scr" data-text="Torneo del área">Torneo del área</span></div>
-      <h2 class="h-sec reveal d1" id="tvTitulo">Torneo de <em>Valuation</em>.</h2>
+      <h2 class="h-sec reveal d1" id="tvTitulo">Torneo de <em>Trading</em>.</h2>
     </div>
     <div class="torneo-grid">
       <div class="reveal">
-        <p class="lead" id="tvBajada"></p>
+        <p class="lead" id="tvBajada">Por confirmar.</p>
         <ul class="facts" id="tvDatos"></ul>
         <div class="torneo-ctas" id="tvCtas"></div>
       </div>
@@ -448,17 +452,17 @@ html:not(.no-js) body:not(.hero-in) .hero .reveal{opacity:0;transform:translateY
         <span class="mono-tag">Inscripciones</span>
         <h3 id="tvCardTitulo">Deja tu inscripción</h3>
         <p id="tvCardTexto">Completa el formulario y te avisamos con las bases y las fechas apenas estén listas.</p>
-        <span class="tc-tag"><span class="tc-dot"></span><span id="tvEstado">Inscripciones abiertas</span></span>
+        <span class="tc-tag"><span class="tc-dot"></span><span id="tvEstado">Por confirmar</span></span>
       </aside>
     </div>
   </div>
 </section>
 
-<!-- EVENTOS DEL ÁREA (mismo estilo que eventos/index.html, filtrado por area:"valuation" en datos/eventos.json) -->
+<!-- EVENTOS DEL ÁREA (mismo estilo que eventos/index.html, filtrado por area:"trading" en datos/eventos.json) -->
 <section class="section--dark" id="actividades" hidden>
   <div class="wrap">
     <div class="sec-head">
-      <div class="kicker reveal"><span class="scr" data-text="Actividades de Valuation">Actividades de Valuation</span></div>
+      <div class="kicker reveal"><span class="scr" data-text="Actividades de Trading">Actividades de Trading</span></div>
       <h2 class="h-sec reveal d1">Lo que el área <em>ya hizo</em>.</h2>
     </div>
     <div class="ev-grid" id="valEventosGrid"><!-- se renderiza desde ../datos/eventos.json --></div>
@@ -478,11 +482,11 @@ html:not(.no-js) body:not(.hero-in) .hero .reveal{opacity:0;transform:translateY
 
 <!-- CTA -->
 <section class="cta-band" id="unete">
-  <span class="cta-ghost" aria-hidden="true">VALUATION — RESEARCH FUNDAMENTAL — VALUATION — RESEARCH FUNDAMENTAL — </span>
+  <span class="cta-ghost" aria-hidden="true">TRADING — MERCADOS EN TIEMPO REAL — TRADING — MERCADOS EN TIEMPO REAL — </span>
   <div class="wrap">
-    <div class="kicker reveal">Súmate a Valuation</div>
-    <h2 class="reveal d1">Aprende a valorizar <em>compañías de verdad</em>.</h2>
-    <p class="reveal d2">Si te interesa entender qué hay detrás del precio de una acción, este es tu lugar. No necesitas experiencia previa, solo ganas de aprender.</p>
+    <div class="kicker reveal">Súmate a Trading</div>
+    <h2 class="reveal d1">Aprende a operar <em>con método</em>.</h2>
+    <p class="reveal d2">Si te interesa entender cómo se mueve el mercado y cómo se gestiona el riesgo de una operación, este es tu lugar. No necesitas experiencia previa, solo ganas de aprender.</p>
     <div class="reveal d3">
       <a href="https://www.instagram.com/fen.investment.group/" target="_blank" rel="noopener" class="btn btn--navy">Escríbenos por Instagram <span class="arr">→</span></a>
     </div>
@@ -491,7 +495,7 @@ html:not(.no-js) body:not(.hero-in) .hero .reveal{opacity:0;transform:translateY
 
 <footer>
   <div class="wrap">
-    <span>© 2026 Valuation · FIG</span>
+    <span>© 2026 Trading · FIG</span>
     <span>Creado por <a href="https://www.linkedin.com/in/francisco-ignacio-andr%C3%A9s-valenzuela-lecaros-128a69396/" target="_blank" rel="noopener">Francisco Valenzuela</a> y <a href="https://www.linkedin.com/in/mpazq" target="_blank" rel="noopener">Manuel Paz</a></span>
     <a href="../index.html">← Volver a FEN Investment Group</a>
   </div>
@@ -508,38 +512,40 @@ function $$(s,r){return [].slice.call((r||document).querySelectorAll(s))}
 function esc(t){return String(t==null?"":t).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
 
 /* ==========================================================================
-   DATOS VALUATION — se sobreescriben con ../datos/valuation.json
-   El torneo se activa solo cuando el JSON trae torneo.formUrl.
+   DATOS TRADING — se sobreescriben con ../datos/trading.json
+   El torneo del área todavía no existe: va con activo:false y la sección
+   queda oculta. Se enciende poniendo activo:true en el JSON (y el botón
+   "Inscríbete" aparece solo cuando además haya torneo.formUrl).
    ========================================================================== */
 var DATA={
-  bajada:"El área de FIG donde se estudia el valor real de una compañía, más allá de su precio.",
+  bajada:"El área de FIG donde se opera el mercado en tiempo real: análisis técnico, lectura de flujos y riesgo medido en cada operación.",
   resumen:[
-    "Valuation es el área de FEN Investment Group dedicada al research fundamental: entender un negocio, valorizarlo con las metodologías que se usan en la industria y transformar ese análisis en una tesis de inversión defendible.",
-    "Aquí los miembros aprenden a leer estados financieros, a construir modelos DCF y de múltiplos comparables, y a sostener una recomendación de compra o venta con argumentos y números sobre la mesa, no con intuición."
+    "Trading es el área de FEN Investment Group dedicada a los mercados en tiempo real: análisis técnico, lectura de flujos y estrategias de corto plazo, con foco en la ejecución y la gestión activa del riesgo en cada operación.",
+    "Aquí los miembros aprenden a leer el precio y el volumen, a armar un plan de operación con entrada, salida y tamaño de posición definidos antes de entrar al mercado, y a sostener ese plan cuando el precio se mueve en contra."
   ],
   pilares:[
-    {num:"01 · RESEARCH",titulo:"Analizar la compañía a fondo",texto:"Estudio de estados financieros, industria y ventaja competitiva para entender el negocio que hay detrás de la acción."},
-    {num:"02 · VALORIZACIÓN",titulo:"Del negocio al precio justo",texto:"Modelos DCF, múltiplos comparables y análisis de sensibilidad para estimar cuánto vale realmente una empresa."},
-    {num:"03 · TESIS",titulo:"Defender una recomendación",texto:"Construir una tesis de inversión clara y sostenerla ante preguntas, con los números como respaldo."}
+    {num:"01 · MERCADO",titulo:"Leer lo que el precio dice",texto:"Análisis técnico, lectura de flujos y contexto de mercado para entender qué está haciendo el precio antes de tomar una posición."},
+    {num:"02 · EJECUCIÓN",titulo:"Entrar con el riesgo definido",texto:"Plan de operación con entrada, salida y tamaño de posición fijados de antemano: el riesgo se decide antes de operar, no después."},
+    {num:"03 · LABORATORIO",titulo:"Operar con las herramientas reales",texto:"Práctica en el Laboratorio Bloomberg de la FEN, con los mismos datos y terminales con los que se opera en la industria."}
   ],
   torneo:{
-    activo:true,
-    titulo:"Torneo de Valuation",
-    bajada:"El área está organizando su torneo de valorización de compañías. Pronto publicaremos las bases completas, mientras tanto, deja tu inscripción.",
-    estado:"Inscripciones abiertas",
+    activo:false,
+    titulo:"Torneo de Trading",
+    bajada:"Por confirmar.",
+    estado:"Por confirmar",
     formUrl:"",
     basesUrl:"",
     datos:[
       {k:"Formato",v:"Por confirmar"},
       {k:"Fechas",v:"Por confirmar"},
-      {k:"Quiénes pueden participar",v:"Comunidad FEN · Universidad de Chile"},
-      {k:"Organiza",v:"Área Valuation · FIG"}
+      {k:"Quiénes pueden participar",v:"Por confirmar"},
+      {k:"Organiza",v:"Área Trading · FIG"}
     ]
   },
   responsables:[
-    {iniciales:"JG",slug:"jhosep-garcia",nombre:"Jhosep García",rol:"Vicepresidente FIG",lidera:true,detalle:"Vicepresidente y co-fundador de FIG. Dirige el área Valuation.",linkedin:"https://linkedin.com/in/jhosep-garcia"},
-    {iniciales:"BS",slug:"benjamin-saez-molina",nombre:"Benjamín Sáez Molina",rol:"Presidente FIG",detalle:"Presidente y co-fundador de FIG. Práctica en Wealth Management en Itaú.",linkedin:"https://www.linkedin.com/in/benjamin-saez-molina/"},
-    {iniciales:"SR",slug:"samuel-rodriguez-arnolds",nombre:"Samuel Rodríguez Arnolds",rol:"Directivo · Valuation",detalle:"Co-fundador de FIG. Práctica en Investment Banking en MoonValley Capital.",linkedin:"https://www.linkedin.com/in/samuel-rodr%C3%ADguez-arnolds-8b9608241/"}
+    {iniciales:"MP",slug:"manuel-paz",nombre:"Manuel Paz",rol:"Director · Portafolio y Trading",lidera:true,detalle:"Co-fundador de FIG. Dirige el área Trading y las comunicaciones del club.",linkedin:"https://www.linkedin.com/in/mpazq"},
+    {iniciales:"RA",slug:"rafael-aliendre",nombre:"Rafael Aliendre",rol:"Directivo · Trading",detalle:"Co-fundador de FIG. Memorista en Estrategia e Inteligencia de Mercado en CODELCO.",linkedin:"https://www.linkedin.com/in/rafael-aliendre-javier"},
+    {iniciales:"JD",slug:"juan-pablo-diaz-cerda",nombre:"Juan Pablo Díaz Cerda",rol:"Directivo · Trading",detalle:"Co-fundador de FIG. Práctica en la Gerencia de Inversiones de BCI Seguros.",linkedin:"https://www.linkedin.com/in/juan-pablo-d%C3%ADaz-cerda-449133310/"}
   ]
 };
 
@@ -629,7 +635,7 @@ function renderResponsables(){
 
 /* ---------------- Eventos del área ----------------
    Mismo dato que la bitácora general (../datos/eventos.json), filtrado por
-   area:"valuation" — un evento con esa etiqueta aparece ACÁ y en
+   area:"trading" — un evento con esa etiqueta aparece ACÁ y en
    eventos/index.html, no reemplaza uno por el otro. La sección queda
    oculta mientras no exista ningún evento con esa etiqueta. */
 var TIPOS_EV={torneo:"Torneo",visita:"Visita",charla:"Charla · Capacitación",comunidad:"Comunidad"};
@@ -697,11 +703,11 @@ fetch("../datos/eventos.json",{cache:"no-cache"})
   .then(function(r){return r.ok?r.json():null})
   .then(function(d){
     var evs=(d&&d.eventos)||[];
-    renderEventosArea(evs.filter(function(e){return e.area==="valuation"}));
+    renderEventosArea(evs.filter(function(e){return e.area==="trading"}));
   }).catch(function(){});
 
 /* ---------------- Override JSON ---------------- */
-fetch("../datos/valuation.json",{cache:"no-cache"})
+fetch("../datos/trading.json",{cache:"no-cache"})
   .then(function(r){return r.ok?r.json():null})
   .then(function(d){if(d){for(var k in d){DATA[k]=d[k];}renderData();}})
   .catch(function(){});
@@ -772,7 +778,7 @@ $$("a",mmenu).forEach(function(a){a.addEventListener("click",function(){toggleMe
 (function(){var t=$("#marqTrack");if(t)t.innerHTML+=t.innerHTML})();
 
 /* ---------------- Fotos del área en movimiento (fondo oscuro del hero) ----------------
-   Tira de fotos reales de ../fotos/valuation/1.jpg, 2.jpg, 3.jpg… (numeradas,
+   Tira de fotos reales de ../fotos/trading/1.jpg, 2.jpg, 3.jpg… (numeradas,
    sin saltos, se detectan solas — mismo patrón que fotos/fiw/) deslizándose
    despacio detrás del hero. Puramente decorativo — si no hay fotos todavía,
    el hero se ve igual que ahora, sin errores. */
@@ -784,7 +790,7 @@ $$("a",mmenu).forEach(function(a){a.addEventListener("click",function(){toggleMe
     var e=0;
     (function tryExt(){
       if(e>=exts.length){montar();return}
-      var img=new Image(),url="../fotos/valuation/"+n+"."+exts[e];
+      var img=new Image(),url="../fotos/trading/"+n+"."+exts[e];
       img.onload=function(){found.push(url);n++;tryN()};
       img.onerror=function(){e++;tryExt()};
       img.src=url;
@@ -803,13 +809,13 @@ observeReveals(document);
 bindGlow(document);
 (function(){
   var pre=$("#preloader"),seen=false;
-  try{seen=!!sessionStorage.getItem("figIntro:valuation")}catch(e){}
+  try{seen=!!sessionStorage.getItem("figIntro:trading")}catch(e){}
   var quick=RM||seen;
   if(quick){pre.classList.add("p1","p2");}
   else{
     setTimeout(function(){pre.classList.add("p1")},150);
     setTimeout(function(){pre.classList.add("p2")},900);
-    try{sessionStorage.setItem("figIntro:valuation","1")}catch(e){}
+    try{sessionStorage.setItem("figIntro:trading","1")}catch(e){}
   }
   setTimeout(function(){
     pre.classList.add("done");
